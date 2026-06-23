@@ -1,0 +1,655 @@
+---
+layout: base.njk
+title: Zenly — Online Booking & Operations Platform
+---
+
+<main>
+
+  <!-- ── HERO ─────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+
+    <video class="hero__video" autoplay muted loop playsinline>
+      <source src="/assets/videos/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__inner">
+
+      <!-- Left: text -->
+      <div class="hero__text">
+        <h1 class="hero__headline">
+          Your customers book online.<br>Your team runs smarter.
+        </h1>
+        <div class="hero__actions">
+          <a href="#demo" class="btn-hero-primary">Book a Demo</a>
+        </div>
+      </div>
+
+      <!-- Right: cycling glass feature elements -->
+      <div class="hero__ui">
+
+        <!-- 1. New booking notification -->
+        <div class="hero-feature" data-feature="0">
+          <div class="hero-feature__icon">🔔</div>
+          <div class="hero-feature__body">
+            <div class="hero-feature__title">New Booking Received</div>
+            <div class="hero-feature__sub">Thai Massage · Tomorrow 10:30 AM · Nuad Thai Spa</div>
+          </div>
+        </div>
+
+        <!-- 2. Time slot picker -->
+        <div class="hero-feature hero-feature--slots hero-feature--left" data-feature="1">
+          <div class="hero-feature__date">Thu, Jun 12</div>
+          <div class="hero-feature__slots">
+            <span class="slot">09:00</span>
+            <span class="slot slot--active">10:30</span>
+            <span class="slot">02:00</span>
+            <span class="slot">03:30</span>
+          </div>
+        </div>
+
+        <!-- 3. Therapist available -->
+        <div class="hero-feature" data-feature="2">
+          <div class="hero-feature__dot hero-feature__dot--green"></div>
+          <div class="hero-feature__body">
+            <div class="hero-feature__title">Maya S. · Available</div>
+            <div class="hero-feature__sub">Room 4 · Free</div>
+          </div>
+        </div>
+
+        <!-- 4. Booking confirmed -->
+        <div class="hero-feature hero-feature--confirmed hero-feature--left" data-feature="3">
+          <div class="hero-feature__dot hero-feature__dot--green"></div>
+          <div class="hero-feature__body">
+            <div class="hero-feature__title">Booking Confirmed</div>
+            <div class="hero-feature__sub">Thai Massage · 60 min · #ZNL-00194</div>
+          </div>
+        </div>
+
+        <!-- 5. Staff status -->
+        <div class="hero-feature" data-feature="4">
+          <div class="hero-feature__dots">
+            <span class="hero-feature__dot hero-feature__dot--green"></span>
+            <span class="hero-feature__dot hero-feature__dot--green"></span>
+            <span class="hero-feature__dot hero-feature__dot--green"></span>
+          </div>
+          <div class="hero-feature__body">
+            <div class="hero-feature__title">39 Therapists</div>
+            <div class="hero-feature__sub">3 available now</div>
+          </div>
+        </div>
+
+        <!-- 6. Daily close -->
+        <div class="hero-feature hero-feature--left" data-feature="5">
+          <div class="hero-feature__icon">✓</div>
+          <div class="hero-feature__body">
+            <div class="hero-feature__title">Day Closed</div>
+            <div class="hero-feature__sub">₨47,200 reconciled · 23 bookings</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── TRUST BAND ─────────────────────────────────────── -->
+  <section class="trust-band">
+    <div class="trust-band__inner">
+
+      <h2 class="trust-band__heading reveal">Service businesses that run on Zenly.</h2>
+
+      <div class="trust-band__grid reveal" data-delay="1">
+
+        <!-- Row 1 -->
+        <div class="trust-chip trust-chip--live">Nuad Thai Spa</div>
+        <div class="trust-chip trust-chip--light-italic">Pure Glow</div>
+        <div class="trust-chip trust-chip--caps">The Curl Studio</div>
+        <div class="trust-chip trust-chip--medium">SmileWell</div>
+        <div class="trust-chip trust-chip--bold">FitForm</div>
+
+        <!-- Row 2 -->
+        <div class="trust-chip trust-chip--dot">revive.</div>
+        <div class="trust-chip trust-chip--medium">Ink &amp; Canvas</div>
+        <div class="trust-chip trust-chip--wide-caps">PHYSIO PLUS</div>
+        <div class="trust-chip trust-chip--dot">clean &amp; co.</div>
+        <div class="trust-chip trust-chip--serif-italic">nail atelier</div>
+
+        <!-- Row 3 -->
+        <div class="trust-chip trust-chip--caps">ZENITH DENTAL</div>
+        <div class="trust-chip trust-chip--serif">maven</div>
+        <div class="trust-chip trust-chip--heavy">FLEX</div>
+        <div class="trust-chip trust-chip--medium">The Tidiers</div>
+        <div class="trust-chip trust-chip--light-italic">bloom studio</div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── VALUE → FEATURES STICKY REVEAL ──────────────────── -->
+  <div class="reveal-wrap">
+
+  <!-- ── VALUE PROP ─────────────────────────────────────── -->
+  <section class="section" id="value">
+    <div class="section__inner">
+
+      <!-- 2-col: headline left, UI mockup right -->
+      <div class="value-split">
+
+        <!-- Left: headline -->
+        <div class="entr-header">
+          <h2 class="section__h2">One platform. Zero chaos.</h2>
+          <p class="section__sub entr-header__sub">Booking, staff, and finance — unified in one dashboard built for service businesses.</p>
+        </div>
+
+        <!-- UI mockup panels -->
+        <div class="value-mock reveal" data-delay="2">
+
+          <img class="value-mock__dashboard" src="/assets/images/dashboard-mockup.png" alt="Zenly dashboard">
+          <img class="value-mock__mobile" src="/assets/images/mobile-mockup.png" alt="Zenly mobile app">
+
+        </div><!-- /.value-mock -->
+      </div><!-- /.value-split -->
+
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: EVERYTHING YOU NEED ───────────────────────────────── -->
+  <section class="section" id="features">
+    <div class="section__inner">
+
+      <div class="entr-header">
+        <h2 class="section__h2">Everything you need to run your business</h2>
+        <p class="section__sub entr-header__sub">Booking, operations, and finance — built for service businesses.</p>
+      </div>
+
+      <div class="entr-list">
+
+        <!-- Row 1: Booking — feat card -->
+        <div class="feat-card feat-card--sm">
+          <div class="feat-card__inner">
+            <div class="feat-card__text">
+              <h3 class="entr-row__h3" style="white-space:nowrap;">Customers self-book, 24/7.</h3>
+              <p class="entr-row__sub">Set up your services once. Customers pick a slot, choose their staff, and get an instant confirmation. No calls. No WhatsApp back-and-forth. No double-bookings — ever.</p>
+              <a href="/features#booking" class="btn-feat">See all booking features →</a>
+            </div>
+            <div class="feat-card__visual">
+              <img src="/assets/images/card1-booking.png" alt="Customer self-booking on phone" class="feat-card__photo">
+            </div>
+          </div>
+        </div>
+
+        <!-- Rows 2 & 3: 2/3 + 1/3 -->
+        <div class="feat-grid feat-grid--large-first">
+
+          <!-- Card 2: Operations (swapped) -->
+          <div class="feat-card feat-card--stack" data-delay="1">
+            <div class="feat-card__top">
+              <div class="orbit-wrap">
+                <div class="orbit-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div class="orbit-ring">
+                  <div class="orbit-arm" style="--deg:0deg;   --neg:0deg">  <div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Staff</span></div></div>
+                  <div class="orbit-arm" style="--deg:60deg;  --neg:-60deg"><div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Manager</span></div></div>
+                  <div class="orbit-arm" style="--deg:120deg; --neg:-120deg"><div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Admin</span></div></div>
+                  <div class="orbit-arm" style="--deg:180deg; --neg:-180deg"><div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Front Desk</span></div></div>
+                  <div class="orbit-arm" style="--deg:240deg; --neg:-240deg"><div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Supervisor</span></div></div>
+                  <div class="orbit-arm" style="--deg:300deg; --neg:-300deg"><div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Staff</span></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="feat-card__bottom">
+              <h3 class="entr-row__h3">Every booking. One screen.</h3>
+              <p class="entr-row__sub">Staff, managers, and admins each see exactly what they need. No chasing updates.</p>
+              <a href="/features#operations" class="btn-feat">See all operations features →</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Zero Conflicts (swapped) -->
+          <div class="feat-card feat-card--stack" data-delay="2">
+            <div class="feat-card__top c2-top">
+              <button class="c2-bell-btn" id="c2Bell" aria-label="Show notifications">
+                <div class="c2-bell-pulse"></div>
+                <svg class="c2-bell-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                <span class="c2-bell-badge">3</span>
+              </button>
+              <div class="c2-panel" id="c2Panel">
+                <div class="c2-panel__header">
+                  <span class="c2-panel__title">Notifications</span>
+                  <span class="c2-panel__count">3 new</span>
+                </div>
+                <div class="c2-panel__item c2-panel__item--blocked">
+                  <div class="c2-panel__icon">✕</div>
+                  <div class="c2-panel__body">
+                    <div class="c2-panel__text">Conflict blocked</div>
+                    <div class="c2-panel__time">10:30 AM · already booked</div>
+                  </div>
+                </div>
+                <div class="c2-panel__item c2-panel__item--ok">
+                  <div class="c2-panel__icon">✓</div>
+                  <div class="c2-panel__body">
+                    <div class="c2-panel__text">Booking confirmed</div>
+                    <div class="c2-panel__time">Sarah K. · no overlap</div>
+                  </div>
+                </div>
+                <div class="c2-panel__item c2-panel__item--ok">
+                  <div class="c2-panel__icon">✓</div>
+                  <div class="c2-panel__body">
+                    <div class="c2-panel__text">Room auto-assigned</div>
+                    <div class="c2-panel__time">60 min · no conflict</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feat-card__bottom">
+              <h3 class="entr-row__h3">Zero double-bookings.</h3>
+              <p class="entr-row__sub">Checks staff, room, and duration. Can't fit — it won't book.</p>
+              <a href="/features#booking" class="btn-feat">See all booking features →</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Rows 4 & 5: 1/3 + 2/3 -->
+        <div class="feat-grid feat-grid--large-last">
+
+          <!-- Card 4: Multi-Branch -->
+          <div class="feat-card feat-card--stack" data-delay="1">
+            <div class="feat-card__top branch-top">
+
+              <!-- Branch dropdown — top right -->
+              <div class="bsel" id="bSel">
+                <button class="bsel__btn" id="bSelBtn">
+                  <span id="bSelLabel">Downtown</span>
+                  <svg class="bsel__chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="bsel__menu" id="bSelMenu">
+                  <div class="bsel__item bsel__item--active" data-idx="0">Downtown</div>
+                  <div class="bsel__item" data-idx="1">Uptown</div>
+                  <div class="bsel__item" data-idx="2">Westside</div>
+                </div>
+              </div>
+
+              <!-- Branch stats -->
+              <div class="bstats-glass">
+                <div class="bstats" id="bStats">
+                  <div class="bstat">
+                    <div class="bstat__val" id="bRev">$1,840</div>
+                    <div class="bstat__lbl">today's revenue</div>
+                  </div>
+                  <div class="bstat">
+                    <div class="bstat__val" id="bBk">12</div>
+                    <div class="bstat__lbl">bookings</div>
+                  </div>
+                  <div class="bstat">
+                    <div class="bstat__val" id="bStf">8</div>
+                    <div class="bstat__lbl">staff on shift</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="feat-card__bottom">
+              <h3 class="entr-row__h3">Every branch. One dashboard.</h3>
+              <p class="entr-row__sub">Own team per branch. One view across all.</p>
+              <a href="/features#operations" class="btn-feat">See all operations features →</a>
+            </div>
+          </div>
+
+          <!-- Card 5: Financial -->
+          <div class="feat-card feat-card--stack" data-delay="2">
+            <div class="feat-card__top">
+              <div class="feat-card__anim anim-eod">
+                <div class="eod-row eod-row--1"><span class="eod-type">Cash</span><span class="eod-amt">$840</span><span class="eod-check">✓</span></div>
+                <div class="eod-row eod-row--2"><span class="eod-type">Card</span><span class="eod-amt">$2,340</span><span class="eod-check">✓</span></div>
+                <div class="eod-row eod-row--3"><span class="eod-type">Online</span><span class="eod-amt">$760</span><span class="eod-check">✓</span></div>
+                <div class="eod-total">Total: $3,940</div>
+              </div>
+            </div>
+            <div class="feat-card__bottom">
+              <h3 class="entr-row__h3" style="white-space:nowrap;">Close your day in 30 seconds.</h3>
+              <p class="entr-row__sub">One click. Cash, card, and online reconciled automatically. No Excel, no disputes.</p>
+              <a href="/features#financial" class="btn-feat">See all finance features →</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div><!-- /.entr-list -->
+    </div>
+  </section>
+
+  </div><!-- /.reveal-wrap -->
+
+  <!-- ── SECTION 8: INDUSTRIES ───────────────────────────────────────── -->
+  <section class="section" id="industries">
+    <div class="section__inner">
+
+      <div class="ind-header reveal">
+        <h2 class="section__h2">One platform, every service business</h2>
+        <p class="section__sub">Fits your terminology, workflow, and vertical — out of the box.</p>
+      </div>
+
+      <div class="ind-grid">
+
+        <a href="/industries#spa" class="ind-card reveal" data-delay="1" style="--ind-bg: #E2ECE0;">
+          <div class="ind-card__photo">
+            <img src="https://plus.unsplash.com/premium_photo-1663013569286-30b21b79a410?w=480&q=80&auto=format&fit=crop" alt="Spa & Wellness" loading="lazy">
+          </div>
+          <div class="ind-card__body">
+            <div class="ind-card__title">Spa &amp; Wellness</div>
+            <div class="ind-card__subs">Massage, Facials, Body Treatments, Packages</div>
+          </div>
+        </a>
+
+        <a href="/industries#fitness" class="ind-card reveal" data-delay="2" style="--ind-bg: #F2EBE0;">
+          <div class="ind-card__photo">
+            <img src="https://plus.unsplash.com/premium_photo-1661286647722-973637d09600?w=480&q=80&auto=format&fit=crop" alt="Fitness & PT" loading="lazy">
+          </div>
+          <div class="ind-card__body">
+            <div class="ind-card__title">Fitness &amp; PT</div>
+            <div class="ind-card__subs">Personal Training, Group Classes, Yoga, Pilates</div>
+          </div>
+        </a>
+
+        <a href="/industries#hair-salon" class="ind-card reveal" data-delay="3" style="--ind-bg: #F2E5E5;">
+          <div class="ind-card__photo">
+            <img src="https://plus.unsplash.com/premium_photo-1677616799281-e1583ee2bdf0?w=480&q=80&auto=format&fit=crop" alt="Hair Salon" loading="lazy">
+          </div>
+          <div class="ind-card__body">
+            <div class="ind-card__title">Hair Salon</div>
+            <div class="ind-card__subs">Cuts, Colour, Styling, Walk-ins</div>
+          </div>
+        </a>
+
+        <a href="/industries#physiotherapy" class="ind-card reveal" data-delay="1" style="--ind-bg: #EDE8F2;">
+          <div class="ind-card__photo">
+            <img src="https://plus.unsplash.com/premium_photo-1661913622608-946e8d907c7b?w=480&q=80&auto=format&fit=crop" alt="Physiotherapy" loading="lazy">
+          </div>
+          <div class="ind-card__body">
+            <div class="ind-card__title">Physiotherapy</div>
+            <div class="ind-card__subs">Rehab, Sports Therapy, Assessments</div>
+          </div>
+        </a>
+
+        <a href="/industries#dental" class="ind-card reveal" data-delay="2" style="--ind-bg: #E0E9F2;">
+          <div class="ind-card__photo">
+            <img src="https://plus.unsplash.com/premium_photo-1681966962522-546f370bc98e?w=480&q=80&auto=format&fit=crop" alt="Dental Clinic" loading="lazy">
+          </div>
+          <div class="ind-card__body">
+            <div class="ind-card__title">Dental Clinic</div>
+            <div class="ind-card__subs">General, Orthodontics, Cosmetic, Recalls</div>
+          </div>
+        </a>
+
+        <a href="/industries#cleaning" class="ind-card reveal" data-delay="3" style="--ind-bg: #F2F0E0;">
+          <div class="ind-card__photo">
+            <img src="https://plus.unsplash.com/premium_photo-1663011218145-c1d0c3ba3542?w=480&q=80&auto=format&fit=crop" alt="Cleaning Service" loading="lazy">
+          </div>
+          <div class="ind-card__body">
+            <div class="ind-card__title">Cleaning Service</div>
+            <div class="ind-card__subs">Residential, Commercial, One-off Jobs</div>
+          </div>
+        </a>
+
+      </div><!-- /.ind-grid -->
+
+      <div class="ind-footer reveal" data-delay="4">
+        <a href="/industries" class="ind-explore">Explore all industries →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 9: STATS CAROUSEL ────────────────────────────────────── -->
+  <section class="section" id="stats">
+    <div class="section__inner">
+
+      <div class="stats-header reveal">
+        <div class="stats-header__text">
+          <h2 class="section__h2">Results businesses see on Zenly</h2>
+          <p class="section__sub">From first booking to last close.</p>
+        </div>
+        <div class="stats-nav">
+          <button class="stats-nav__btn" id="statsPrev" aria-label="Previous stat">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="stats-nav__btn" id="statsNext" aria-label="Next stat">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="stats-wrap reveal" data-delay="1" id="statsWrap">
+        <div class="stats-track">
+
+          <div class="stats-card">
+            <div class="stats-card__num">40%</div>
+            <div class="stats-card__label">Fewer no-shows</div>
+            <div class="stats-card__desc">Automated reminders cut cancellations before they happen — so every slot you book stays filled.</div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stats-card__num">3×</div>
+            <div class="stats-card__label">Faster day-close</div>
+            <div class="stats-card__desc">One click vs. 45 minutes of end-of-day spreadsheets. Cash, card, and online reconciled automatically.</div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stats-card__num">24/7</div>
+            <div class="stats-card__label">Bookings always open</div>
+            <div class="stats-card__desc">Customers self-book while you sleep. No calls, no missed requests, no double entries — ever.</div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stats-card__num">Zero</div>
+            <div class="stats-card__label">Double-bookings</div>
+            <div class="stats-card__desc">Staff, room, and time are all checked before every booking. If it can't fit — it doesn't book.</div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stats-card__num">1 day</div>
+            <div class="stats-card__label">To go live</div>
+            <div class="stats-card__desc">Set up your services, staff, and branches in the morning. Start taking bookings by afternoon.</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 10: SOCIAL PROOF ───────────────────────────────────── -->
+  <section class="section" id="social-proof">
+    <div class="section__inner">
+
+      <div class="testi-outer reveal">
+        <div class="testi-carousel">
+
+          <!-- Left: image fan -->
+          <div class="testi-images" id="testiImages">
+            <img class="testi-img" data-idx="0"
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&fit=crop&q=80"
+              alt="Spa Manager, Nuad Thai Spa">
+            <img class="testi-img" data-idx="1"
+              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&fit=crop&q=80"
+              alt="Salon Owner, Pure Glow">
+            <img class="testi-img" data-idx="2"
+              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&fit=crop&q=80"
+              alt="Clinic Manager, SmileWell">
+          </div>
+
+          <!-- Right: quote content -->
+          <div class="testi-content">
+            <div class="testi-text" id="testiText">
+              <div class="testi-name" id="testiName">Spa Manager</div>
+              <div class="testi-biz" id="testiBiz">Nuad Thai Spa · Spa &amp; Wellness</div>
+              <p class="testi-quote" id="testiQuote"></p>
+            </div>
+            <div class="testi-arrows">
+              <button class="testi-arrow" id="testiPrev" aria-label="Previous testimonial">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+              </button>
+              <button class="testi-arrow" id="testiNext" aria-label="Next testimonial">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 12: FAQ ─────────────────────────────────────────────── -->
+  <section class="section" id="faq">
+    <div class="section__inner">
+
+      <div class="faq-header reveal">
+        <h2 class="section__h2">Common questions</h2>
+      </div>
+
+      <div class="faq-list" x-data="{ open: null }">
+
+        <div class="faq-item reveal" data-delay="1" :class="{ 'faq-item--open': open === 0 }">
+          <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
+            How long does setup take?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
+            <p>Most businesses are fully live within one day. We handle the initial configuration — your service catalog, staff roster, branch setup, and pricing. You just review and go.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" data-delay="2" :class="{ 'faq-item--open': open === 1 }">
+          <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
+            Can I use Zenly for multiple branches?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
+            <p>Yes. Zenly is built multi-branch from the ground up. Each branch has its own staff, rooms, pricing, and daily close — but you can view and compare all branches from a single admin dashboard.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" data-delay="3" :class="{ 'faq-item--open': open === 2 }">
+          <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
+            Does Zenly work for businesses other than spas?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
+            <p>Absolutely. Zenly supports any appointment-based service business — hair salons, dental clinics, tattoo studios, physiotherapy clinics, fitness trainers, cleaning services, and more. The platform adapts terminology and features per vertical via configuration, with no code changes needed.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" data-delay="4" :class="{ 'faq-item--open': open === 3 }">
+          <button class="faq-item__q" @click="open = open === 3 ? null : 3" :aria-expanded="open === 3">
+            How does the daily reconciliation work?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === 3" x-cloak x-transition>
+            <p>At the end of each day, the manager clicks "Close Day." Zenly automatically calculates gross revenue, discounts, net revenue, and payment mode breakdowns (cash / card / online). The day is then locked — no further edits can be made to that day's records, keeping your financials clean and auditable.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" data-delay="5" :class="{ 'faq-item--open': open === 4 }">
+          <button class="faq-item__q" @click="open = open === 4 ? null : 4" :aria-expanded="open === 4">
+            What happens if a customer wants to reschedule?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === 4" x-cloak x-transition>
+            <p>Customers can reschedule or cancel through the self-booking flow at any time, subject to the rules you set. If a booking needs to be changed by staff, it can be edited directly from the dashboard — all changes are logged.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" data-delay="5" :class="{ 'faq-item--open': open === 5 }">
+          <button class="faq-item__q" @click="open = open === 5 ? null : 5" :aria-expanded="open === 5">
+            Is there a free trial?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === 5" x-cloak x-transition>
+            <p>Yes. We offer a 14-day trial with full access to all features — no credit card required. Book a demo and we'll get your business set up so you can see Zenly running with your own data from day one.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 13: BOTTOM CTA ──────────────────────────────────────── -->
+  <section class="bottom-cta" id="demo">
+
+    <!-- CTA banner -->
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">What are you waiting for?</h2>
+      <p class="bottom-cta__sub">Set up your services, go live, and start taking bookings today.</p>
+      <a href="mailto:info.zunkireelabs@gmail.com" class="bottom-cta__banner-btn">Book a Demo →</a>
+    </div>
+
+  </section>
+
+  <!-- ── SECTION 14: FOOTER ──────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <div class="footer__col footer__col--brand">
+        <a href="/" class="footer__logo">Zenly</a>
+        <p class="footer__tagline">Online booking, operational control, and financial clarity — for any appointment-based business.</p>
+        <div class="footer__status">
+          <span class="live-dot"></span>
+          <span>All systems operational</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Product</div>
+        <ul class="footer__links">
+          <li><a href="/features#booking">Online Booking</a></li>
+          <li><a href="/features#operations">Operations</a></li>
+          <li><a href="/features#financial">Finance</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Use Cases</div>
+        <ul class="footer__links">
+          <li><a href="#industries">Spa &amp; Wellness</a></li>
+          <li><a href="#industries">Hair Salon</a></li>
+          <li><a href="#industries">Dental Clinic</a></li>
+          <li><a href="#industries">More verticals</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="#demo">Book a Demo</a></li>
+          <li><a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener">See It Live</a></li>
+          <li><a href="mailto:info.zunkireelabs@gmail.com">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Legal</div>
+        <ul class="footer__links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__inner">
+        <span class="footer__copy">&copy; 2026 Zunkireelabs. All rights reserved.</span>
+        <span class="footer__built">Built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></span>
+      </div>
+    </div>
+  </footer>
+
+</main>

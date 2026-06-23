@@ -1,0 +1,24 @@
+{
+  "name": "zenly-web",
+  "version": "1.0.0",
+  "description": "Zenly — landing page",
+  "scripts": {
+    "css:build": "npx tailwindcss -i ./src/assets/css/main.css -o ./_site/assets/css/tailwind.css",
+    "dev": "npm run css:build && concurrently \"npx @11ty/eleventy --serve\" \"npx tailwindcss -i ./src/assets/css/main.css -o ./_site/assets/css/tailwind.css --watch\"",
+    "build": "npx @11ty/eleventy && npx tailwindcss -i ./src/assets/css/main.css -o ./_site/assets/css/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "cross-env": "^10.1.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4"
+  },
+  "dependencies": {
+    "alpinejs": "^3.14.1",
+    "gsap": "^3.12.5",
+    "lenis": "^1.3.23",
+    "three": "^0.184.0"
+  }
+}
