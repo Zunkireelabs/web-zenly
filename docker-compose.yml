@@ -1,0 +1,31 @@
+services:
+  app:
+    container_name: web-zenly-web-prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - hosting
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=hosting"
+      - "traefik.http.routers.web-zenly-web-prod.rule=Host(`web-zenly.zunkireelabs.com`)"
+      - "traefik.http.routers.web-zenly-web-prod.entrypoints=websecure"
+      - "traefik.http.routers.web-zenly-web-prod.tls=true"
+      - "traefik.http.routers.web-zenly-web-prod.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.web-zenly-web-prod-http.rule=Host(`web-zenly.zunkireelabs.com`)"
+      - "traefik.http.routers.web-zenly-web-prod-http.entrypoints=web"
+      - "traefik.http.routers.web-zenly-web-prod-http.middlewares=web-zenly-web-prod-redirect"
+      - "traefik.http.middlewares.web-zenly-web-prod-redirect.redirectscheme.scheme=https"
+      - "traefik.http.services.web-zenly-web-prod.loadbalancer.server.port=80"
+
+networks:
+  hosting:
+    external: true

@@ -1,0 +1,78 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+  deploy:
+    needs: checks
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            REPO="web-zenly"
+            DIR="/home/zunkireelabs/devprojects/websiteprojects/${REPO}-web-prod"
+
+            if [ ! -d "$DIR" ]; then
+              git clone git@github.com:Zunkireelabs/web-zenly.git "$DIR"
+            fi
+
+            cd "$DIR"
+            git fetch origin
+            git checkout main
+            git pull origin main
+
+            docker compose -f docker-compose.yml up -d --build
+
+            echo "Waiting for container to be healthy..."
+            for i in $(seq 1 12); do
+              STATUS=$(docker inspect web-zenly-web-prod --format='{{.State.Health.Status}}' 2>/dev/null)
+              if [ "$STATUS" = "healthy" ]; then
+                echo "Container is healthy."
+                break
+              fi
+              echo "Attempt $i/12 — status: $STATUS"
+              sleep 10
+            done
+
+      - name: Verify HTTP response
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" https://${{ vars.PROD_DOMAIN }})
+            if [ "$RESPONSE" = "200" ]; then
+              echo "Production is live and returning 200."
+            else
+              echo "ERROR: Expected 200 but got $RESPONSE"
+              exit 1
+            fi
