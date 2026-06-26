@@ -126,22 +126,7 @@
     });
   }
 
-  // ── Features header: fades in as #value (curtain) scrolls upward ────────────
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.set('#features .entr-header', { opacity: 0, y: 40 });
-    gsap.to('#features .entr-header', {
-      opacity: 1,
-      y: 0,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#value',
-        start: 'bottom 80%',   // #value bottom enters 80% of viewport
-        end: 'bottom 30%',     // #value bottom at 30% — header fully visible
-        scrub: true,
-      },
-    });
-  }
+  // Features header — no animation, always visible
 
   // ── Hero features: 3 visible, zigzag, exits from position ─
   const features = document.querySelectorAll('.hero-feature');
@@ -200,6 +185,15 @@
     }
   });
 
+  // ── Features page: EOD panel trigger ─────────────────────────────────
+  document.querySelectorAll('.fp-eod-panel').forEach(function (el) {
+    if (el.getBoundingClientRect().top < window.innerHeight) {
+      el.classList.add('is-visible');
+    } else {
+      revealObserver.observe(el);
+    }
+  });
+
   // ── Feature cards: scroll reveal ─────────────────────────────────────
   const cardObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
@@ -225,72 +219,6 @@
       activeSlotIdx = (activeSlotIdx + 1) % slots.length;
       slots[activeSlotIdx].classList.add('bk-mock__slot--active');
     }, 2200);
-  }
-
-  // ── Branch selector (Card 4) ─────────────────────────────────────────
-  const branchData = [
-    { name: 'Downtown', rev: '$1,840', bookings: '12', staff: '8' },
-    { name: 'Uptown',   rev: '$1,240', bookings: '9',  staff: '6' },
-    { name: 'Westside', rev: '$960',   bookings: '7',  staff: '5' },
-  ];
-  const bSel     = document.getElementById('bSel');
-  const bSelBtn  = document.getElementById('bSelBtn');
-  const bSelMenu = document.getElementById('bSelMenu');
-  const bSelLabel= document.getElementById('bSelLabel');
-  const bStats   = document.getElementById('bStats');
-  const bRevEl   = document.getElementById('bRev');
-  const bBkEl    = document.getElementById('bBk');
-  const bStfEl   = document.getElementById('bStf');
-  const bItems   = bSelMenu ? bSelMenu.querySelectorAll('.bsel__item') : [];
-  let activeBranch = 0;
-
-  function setBranch(idx) {
-    activeBranch = idx;
-    bSelLabel.textContent = branchData[idx].name;
-    bItems.forEach((item, i) => item.classList.toggle('bsel__item--active', i === idx));
-    if (bStats) {
-      bStats.classList.add('changing');
-      setTimeout(function () {
-        bRevEl.textContent = branchData[idx].rev;
-        bBkEl.textContent  = branchData[idx].bookings;
-        bStfEl.textContent = branchData[idx].staff;
-        bStats.classList.remove('changing');
-      }, 250);
-    }
-  }
-
-  if (bSel && bSelBtn) {
-    bSelBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      bSel.classList.toggle('bsel--open');
-    });
-    document.addEventListener('click', function () {
-      bSel.classList.remove('bsel--open');
-    });
-    bItems.forEach(function (item, i) {
-      item.addEventListener('click', function (e) {
-        e.stopPropagation();
-        setBranch(i);
-        bSel.classList.remove('bsel--open');
-      });
-    });
-    setInterval(function () {
-      const next = (activeBranch + 1) % branchData.length;
-      // 1. Open dropdown
-      bSel.classList.add('bsel--open');
-      // 2. Hover highlight the next item
-      setTimeout(function () {
-        bItems.forEach(function (item, i) {
-          item.classList.toggle('bsel__item--hover', i === next);
-        });
-      }, 600);
-      // 3. Select and close
-      setTimeout(function () {
-        bItems.forEach(function (item) { item.classList.remove('bsel__item--hover'); });
-        setBranch(next);
-        bSel.classList.remove('bsel--open');
-      }, 1200);
-    }, 3200);
   }
 
   // ── Circular Testimonials ────────────────────────────────────────────
