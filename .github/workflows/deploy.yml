@@ -41,7 +41,7 @@ jobs:
             DIR="/home/zunkireelabs/devprojects/websiteprojects/${REPO}-web-prod"
 
             if [ ! -d "$DIR" ]; then
-              git clone git@github.com:Zunkireelabs/web-zenly.git "$DIR"
+              git clone https://github.com/Zunkireelabs/web-zenly.git "$DIR"
             fi
 
             cd "$DIR"
