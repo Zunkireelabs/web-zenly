@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/tailwind.css" />
 </head>
-<body>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
 
   <nav id="nav" class="nav" aria-label="Main navigation">
     <div class="nav__container">
@@ -19,7 +19,7 @@
 
       <!-- Zone 2: Links -->
       <ul class="nav__links" role="list">
-        <li><a href="#features"     class="nav__link">Features</a></li>
+        <li><a href="/features"      class="nav__link">Features</a></li>
         <li><a href="#how-it-works" class="nav__link">How it Works</a></li>
         <li><a href="/pricing"      class="nav__link">Pricing</a></li>
         <li><a href="#faq"          class="nav__link">FAQ</a></li>
@@ -46,7 +46,7 @@
     <!-- Mobile slide-down menu -->
     <div class="nav__mobile" id="nav-mobile" aria-hidden="true">
       <ul class="nav__mobile-links" role="list">
-        <li><a href="#features">Features</a></li>
+        <li><a href="/features">Features</a></li>
         <li><a href="#how-it-works">How it Works</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="#faq">FAQ</a></li>
