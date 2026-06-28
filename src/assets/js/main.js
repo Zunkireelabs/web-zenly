@@ -176,7 +176,7 @@
     });
   }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(function (el) {
+  document.querySelectorAll('.reveal, .reveal-scale, .reveal-fade').forEach(function (el) {
     // Immediately reveal anything already in or above the viewport
     if (el.getBoundingClientRect().top < window.innerHeight) {
       el.classList.add('is-visible');
@@ -206,6 +206,23 @@
   document.querySelectorAll('.feat-card').forEach(function (el) {
     cardObserver.observe(el);
   });
+
+  // ── Feature sticky scroll: crossfade panels on scroll ────────────────
+  var fssItems  = document.querySelectorAll('.fss-item');
+  var fssPanels = document.querySelectorAll('.fss-panel');
+  if (fssItems.length && fssPanels.length) {
+    var fssObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var feat = entry.target.dataset.feat;
+          fssPanels.forEach(function (p) { p.classList.remove('is-active'); });
+          var active = document.querySelector('.fss-panel[data-feat="' + feat + '"]');
+          if (active) active.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -20% 0px' });
+    fssItems.forEach(function (item) { fssObserver.observe(item); });
+  }
 
   // ── Booking card: cycle active time slot ──────────────────────────────
   const slots = document.querySelectorAll('.bk-mock__slot:not(.bk-mock__slot--taken)');
@@ -327,5 +344,138 @@
     wrap.addEventListener('scroll', updateButtons, { passive: true });
     updateButtons();
   }());
+
+  // ── Feature sticky scroll ─────────────────────────────────────────────────
+  // Left col (heading + image) is position:sticky. Right col items stack
+  // naturally and scroll past. Active item = whichever item's centre is
+  // closest to the image centre. Past items (fully above image) fade to 0.25.
+  var fdSscrollItems  = document.querySelectorAll('.fd-sscroll__item');
+  var fdSscrollImgWrap = document.querySelector('.fd-sscroll__img-wrap');
+  var fdSscrollLbl    = document.querySelector('.fd-sscroll__lbl');
+  var fdSscrollTextCol = document.querySelector('.fd-sscroll__text-col');
+
+  // Align text col so first item top = image top
+  if (fdSscrollLbl && fdSscrollTextCol) {
+    function fdAlignTextCol() {
+      var lblH = fdSscrollLbl.offsetHeight;
+      var gap  = parseFloat(getComputedStyle(fdSscrollLbl.parentElement).gap) || 24;
+      fdSscrollTextCol.style.paddingTop = (lblH + gap) + 'px';
+    }
+    fdAlignTextCol();
+    window.addEventListener('resize', fdAlignTextCol, { passive: true });
+  }
+
+  if (fdSscrollItems.length && fdSscrollImgWrap) {
+    function fdUpdateActive() {
+      var imgRect   = fdSscrollImgWrap.getBoundingClientRect();
+      var imgCentre = (imgRect.top + imgRect.bottom) / 2;
+
+      // Find item whose centre is closest to image centre
+      var activeItem = fdSscrollItems[0];
+      var minDist    = Infinity;
+      fdSscrollItems.forEach(function (item) {
+        var r    = item.getBoundingClientRect();
+        var dist = Math.abs((r.top + r.bottom) / 2 - imgCentre);
+        if (dist < minDist) { minDist = dist; activeItem = item; }
+      });
+
+      fdSscrollItems.forEach(function (item) {
+        var r      = item.getBoundingClientRect();
+        var isPast = r.bottom < imgRect.top; // fully scrolled above image
+        item.classList.toggle('is-past',   isPast);
+        item.classList.toggle('is-active', !isPast && item === activeItem);
+      });
+    }
+
+    fdUpdateActive();
+    window.addEventListener('scroll', fdUpdateActive, { passive: true });
+    window.addEventListener('resize', fdUpdateActive, { passive: true });
+
+    // GSAP parallax
+    var fdSscrollImg = document.querySelector('.fd-sscroll__img');
+    var fdSscrollSec = document.querySelector('.fd-sscroll');
+    if (fdSscrollImg && fdSscrollSec && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to(fdSscrollImg, {
+        y: -50, ease: 'none',
+        scrollTrigger: { trigger: fdSscrollSec, start: 'top bottom', end: 'bottom top', scrub: 1.2 }
+      });
+    }
+  }
+
+  // ── Feature detail: trust carousel pause/play ────────────────────────────
+  var fdTrustBtn  = document.getElementById('fdTrustBtn');
+  var fdTrustRail = document.getElementById('fdTrustRail');
+  if (fdTrustBtn && fdTrustRail) {
+    var fdTrustPlaying = true;
+    fdTrustBtn.addEventListener('click', function () {
+      fdTrustPlaying = !fdTrustPlaying;
+      fdTrustRail.style.animationPlayState = fdTrustPlaying ? 'running' : 'paused';
+      fdTrustBtn.querySelector('.fd-trust__icon--pause').style.display = fdTrustPlaying ? '' : 'none';
+      fdTrustBtn.querySelector('.fd-trust__icon--play').style.display  = fdTrustPlaying ? 'none' : '';
+      fdTrustBtn.setAttribute('aria-label', fdTrustPlaying ? 'Pause carousel' : 'Play carousel');
+    });
+  }
+
+  // ── Feature detail: hero image expand + revert (lerp on ticker) ──────────
+  var fdImgWrap = document.querySelector('.fd-hero__img-wrap');
+  if (fdImgWrap && typeof gsap !== 'undefined') {
+    var fdCurW = 40, fdCurR = 20;
+
+    function fdGetTarget() {
+      var p = Math.min(Math.max(window.scrollY / window.innerHeight, 0), 1);
+      var raw = p < 0.5 ? p * 2 : (1 - p) * 2;
+      var s = raw * raw * (3 - 2 * raw); // smoothstep
+      return { w: 40 + s * 25, r: 20 - s * 8 };
+    }
+
+    gsap.ticker.add(function () {
+      var t = fdGetTarget();
+      fdCurW += (t.w - fdCurW) * 0.05;
+      fdCurR += (t.r - fdCurR) * 0.05;
+      fdImgWrap.style.width = fdCurW + 'vw';
+      fdImgWrap.style.borderRadius = fdCurR + 'px';
+    });
+  }
+
+  // ── How-It-Works scroll spine ───────────────────────────
+  var hiwContainer = document.querySelector('.hiw-rows');
+  var hiwRows      = document.querySelectorAll('.hiw-row');
+  var hiwFill      = document.getElementById('hiwRowsFill');
+
+  if (hiwContainer && hiwRows.length) {
+    var TRIGGER = 0.55;
+
+    function hiwUpdate() {
+      var containerRect = hiwContainer.getBoundingClientRect();
+      var containerH    = hiwContainer.offsetHeight;
+      var triggerY      = window.innerHeight * TRIGGER;
+
+      // Fill line
+      var scrolled = triggerY - containerRect.top;
+      var ratio    = Math.max(0, Math.min(1, scrolled / containerH));
+      if (hiwFill) {
+        hiwFill.style.height = Math.round(ratio * (containerH - 48)) + 'px';
+      }
+
+      // Find the row closest to the trigger line and mark it active
+      var activeIdx = -1;
+      hiwRows.forEach(function (row, i) {
+        var rowRect = row.getBoundingClientRect();
+        var rowMid  = rowRect.top + rowRect.height * 0.35;
+        if (rowMid < triggerY) activeIdx = i;
+      });
+
+      var anyActive = activeIdx >= 0;
+      hiwContainer.classList.toggle('has-active', anyActive);
+
+      hiwRows.forEach(function (row, i) {
+        row.classList.toggle('is-active', i === activeIdx);
+      });
+    }
+
+    window.addEventListener('scroll', hiwUpdate, { passive: true });
+    hiwUpdate();
+  }
 
 })();

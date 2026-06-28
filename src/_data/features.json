@@ -1,0 +1,206 @@
+[
+  {
+    "slug": "booking",
+    "name": "Booking",
+    "badge": "Online Booking",
+    "hero": {
+      "headline": "Let customers book themselves",
+      "subheadline": "No phone calls. No back-and-forth. Customers pick a service, choose a slot, and confirm — 24/7, from any device.",
+      "image": "/assets/images/feat-booking.png",
+      "imageAlt": "Booking feature screenshot",
+      "bg": "#EFE9DD"
+    },
+    "intro": {
+      "headline": "Zenly's booking engine runs the full appointment lifecycle so your team never has to.",
+      "body": ""
+    },
+    "primaryFeatures": [
+      { "title": "24/7 Self-Booking", "description": "Customers book from any device, any time — no staff intervention needed." },
+      { "title": "Zero Double-Bookings", "description": "Real-time slot locking prevents conflicts the moment a booking is made." },
+      { "title": "Instant Confirmation", "description": "Automated confirmations sent the moment a booking is created." },
+      { "title": "Service Catalog", "description": "Define services, durations, staff, and pricing — the booking form builds itself." }
+    ],
+    "secondaryFeatures": [
+      { "icon": "refresh",  "title": "Reschedule & Cancel", "description": "Customers self-serve changes without calling in." },
+      { "icon": "map-pin",  "title": "Multi-Location Ready", "description": "One booking flow works across every branch." },
+      { "icon": "users",    "title": "Walk-in Support", "description": "Fit walk-ins into available gaps without disrupting the schedule." },
+      { "icon": "bell",     "title": "Reminder Automation", "description": "SMS and email reminders sent automatically before each appointment." }
+    ],
+    "stat": {
+      "value": "40%",
+      "label": "Fewer no-shows",
+      "description": "Automated reminders cut missed appointments nearly in half."
+    },
+    "relatedFeatures": ["operations", "finance"]
+  },
+  {
+    "slug": "operations",
+    "name": "Operations",
+    "badge": "Operations",
+    "hero": {
+      "headline": "Your whole floor, visible at a glance",
+      "subheadline": "Real-time dashboards for every role. Staff see their queue, managers see the floor, admins see everything — from one screen.",
+      "image": "/assets/images/feat-operations.png",
+      "imageAlt": "Operations dashboard screenshot",
+      "bg": "#E4EBE3"
+    },
+    "intro": {
+      "headline": "Run the floor without the chaos",
+      "body": "Every role gets the right view. No more status chasing, missed queues, or payment confusion — Zenly's operations layer keeps everyone on the same page in real time."
+    },
+    "primaryFeatures": [
+      { "title": "Role-Based Dashboards", "description": "Staff, managers, and admins each see a tailored view — no information overload, no blind spots." },
+      { "title": "Live Booking Status", "description": "See who's in, who's next, and what's pending — updated the moment anything changes." },
+      { "title": "Discount Governance", "description": "Staff apply only the discounts they're authorized for. Managers review any exceptions." },
+      { "title": "Staff & Room Assignment", "description": "Assign services to specific staff or rooms, and track availability in real time." }
+    ],
+    "secondaryFeatures": [
+      { "icon": "credit-card", "title": "Payment Recording", "description": "Mark payments at point of service — cash, card, or wallet." },
+      { "icon": "layout",      "title": "Multi-Branch Visibility", "description": "Managers see all branches from one consolidated dashboard." },
+      { "icon": "list",        "title": "Queue Management", "description": "Walk-ins and scheduled appointments share one live queue." },
+      { "icon": "activity",    "title": "Status Tracking", "description": "Track every appointment through pending, in-progress, and completed states." }
+    ],
+    "stat": {
+      "value": "3×",
+      "label": "Faster day-close",
+      "description": "Teams close out the day three times faster with live operations tracking."
+    },
+    "relatedFeatures": ["booking", "finance"]
+  },
+  {
+    "slug": "finance",
+    "name": "Finance",
+    "badge": "Finance & Reconciliation",
+    "hero": {
+      "headline": "Close your day in 30 seconds",
+      "subheadline": "Automated reconciliation, payment breakdowns by mode, and a full audit trail. No Excel. No guesswork.",
+      "image": "/assets/images/feat-finance.png",
+      "imageAlt": "Finance and reconciliation screenshot",
+      "bg": "#EAF2EA"
+    },
+    "intro": {
+      "headline": "Financial clarity without the spreadsheets",
+      "body": "Every rupee accounted for, every day. Zenly captures each payment, breaks it down by mode, and locks the day automatically — giving you a clean audit trail without manual work."
+    },
+    "primaryFeatures": [
+      { "title": "Daily Revenue Close", "description": "One-click end-of-day closing with a full revenue summary per service and staff." },
+      { "title": "Payment Mode Breakdown", "description": "See totals by cash, card, wallet, and more — every day, every branch." },
+      { "title": "Full Audit Trail", "description": "Every transaction recorded with timestamps, staff, and service — fully traceable." },
+      { "title": "Day-End Lock", "description": "Lock the day once reconciled so no entries can be altered after closing." }
+    ],
+    "secondaryFeatures": [
+      { "icon": "tag",         "title": "Pricing Snapshots", "description": "Prices at time of service are locked in — historical accuracy guaranteed." },
+      { "icon": "clock",       "title": "Pending Payment Tracking", "description": "See outstanding balances and follow up before they're forgotten." },
+      { "icon": "percent",     "title": "Discount Reporting", "description": "Track every discount applied, by whom, and when." },
+      { "icon": "trending-up", "title": "Revenue History", "description": "Trend your daily revenue week over week, month over month." }
+    ],
+    "stat": {
+      "value": "30 sec",
+      "label": "To close the day",
+      "description": "Automated reconciliation means end-of-day takes a click, not an hour."
+    },
+    "relatedFeatures": ["operations", "reports"]
+  },
+  {
+    "slug": "reports",
+    "name": "Reports",
+    "badge": "Reporting",
+    "hero": {
+      "headline": "Every number, always explained",
+      "subheadline": "Eight built-in reports covering revenue, staff performance, discounts, attendance, and referrals — always up to date.",
+      "image": "/assets/images/feat-reports.png",
+      "imageAlt": "Reports dashboard screenshot",
+      "bg": "#EDE8F2"
+    },
+    "intro": {
+      "headline": "Eight reports. Zero setup. Always live.",
+      "body": "Zenly's built-in reports run automatically — no configuration, no exports, no waiting. Open the dashboard and your numbers are already there."
+    },
+    "primaryFeatures": [
+      { "title": "Revenue Reports", "description": "Daily, weekly, and monthly revenue broken down by service, staff, and branch." },
+      { "title": "Staff Performance", "description": "See bookings completed, revenue generated, and discounts applied per staff member." },
+      { "title": "Discount Analytics", "description": "Track total discounts, types, and authorization patterns across the business." },
+      { "title": "Referral Tracking", "description": "Understand which referral sources are driving the most bookings and revenue." }
+    ],
+    "secondaryFeatures": [
+      { "icon": "calendar",    "title": "Attendance Reports", "description": "Track client visit frequency and spot patterns in no-shows or repeat visits." },
+      { "icon": "download",    "title": "Exportable Data", "description": "Download any report as CSV for further analysis or compliance." },
+      { "icon": "zap",         "title": "Always Live", "description": "Reports update in real time — no manual refresh, no stale data." },
+      { "icon": "bar-chart",   "title": "8 Built-in Reports", "description": "Revenue, staff, discounts, referrals, attendance, and more — ready on day one." }
+    ],
+    "stat": {
+      "value": "8",
+      "label": "Built-in reports",
+      "description": "Every key business metric covered out of the box — no setup required."
+    },
+    "relatedFeatures": ["finance", "operations"]
+  },
+  {
+    "slug": "industries",
+    "name": "Industries",
+    "badge": "Multi-Industry",
+    "hero": {
+      "headline": "One platform, any service business",
+      "subheadline": "Every vertical gets its own terminology, feature flags, and service categories — zero code changes to onboard a new business type.",
+      "image": "/assets/images/feat-industries.png",
+      "imageAlt": "Industries configuration screenshot",
+      "bg": "#E8F0E4"
+    },
+    "intro": {
+      "headline": "Built to fit every service business",
+      "body": "Whether you run a spa, a clinic, or a salon chain, Zenly adapts to your terminology, your workflows, and your service structure — without custom development."
+    },
+    "primaryFeatures": [
+      { "title": "Zero-Code Onboarding", "description": "New business types go live with a config change — no development work needed." },
+      { "title": "Custom Terminology", "description": "Labels, statuses, and field names match your industry's language exactly." },
+      { "title": "Feature Flags Per Vertical", "description": "Enable only the features that make sense for each business type." },
+      { "title": "Service Category Mapping", "description": "Define services, categories, and durations exactly as your industry requires." }
+    ],
+    "secondaryFeatures": [
+      { "icon": "heart",    "title": "Spa & Wellness", "description": "Treatment rooms, therapist assignments, and session-based booking." },
+      { "icon": "scissors", "title": "Hair Salon", "description": "Chair-based scheduling, service bundles, and style-specific staff matching." },
+      { "icon": "shield",   "title": "Dental Clinic", "description": "Appointment slots, patient record integration, and multi-chair management." },
+      { "icon": "activity", "title": "Fitness & PT", "description": "Session packs, trainer scheduling, and class-based booking." }
+    ],
+    "stat": {
+      "value": "10+",
+      "label": "Supported verticals",
+      "description": "Zenly currently supports over ten distinct service business types out of the box."
+    },
+    "relatedFeatures": ["booking", "multi-branch"]
+  },
+  {
+    "slug": "multi-branch",
+    "name": "Multi-Branch",
+    "badge": "Multi-Branch",
+    "hero": {
+      "headline": "Scale across every location",
+      "subheadline": "Org-scoped data isolation, branch-level operations, and consolidated admin dashboards across any number of locations.",
+      "image": "/assets/images/feat-multibranch.png",
+      "imageAlt": "Multi-branch management screenshot",
+      "bg": "#E8ECF5"
+    },
+    "intro": {
+      "headline": "Manage every location from one place",
+      "body": "Each branch runs independently — its own staff, operations, and data. But your admin sees all of it from one consolidated dashboard, so nothing slips through the cracks."
+    },
+    "primaryFeatures": [
+      { "title": "Branch-Level Isolation", "description": "Each branch has its own bookings, staff, and financials — fully separated." },
+      { "title": "Consolidated Admin Dashboard", "description": "See performance, revenue, and operations across all branches in one view." },
+      { "title": "Cross-Branch Visibility", "description": "Identify your best-performing branches and replicate what works." },
+      { "title": "Per-Branch Operations", "description": "Each location runs its own daily operations without affecting others." }
+    ],
+    "secondaryFeatures": [
+      { "icon": "tag",       "title": "Per-Branch Pricing", "description": "Set different service prices per location without system-wide changes." },
+      { "icon": "users",     "title": "Staff Assignment", "description": "Staff are scoped to their branch — no cross-branch confusion." },
+      { "icon": "bar-chart", "title": "Branch Comparison Reports", "description": "Compare revenue, bookings, and performance side by side." },
+      { "icon": "maximize",  "title": "Unlimited Scale", "description": "Add new locations as you grow — no architecture changes required." }
+    ],
+    "stat": {
+      "value": "1 day",
+      "label": "To go live",
+      "description": "New branches are configured and operational in under a day — no technical work needed."
+    },
+    "relatedFeatures": ["operations", "industries"]
+  }
+]

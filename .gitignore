@@ -5,6 +5,7 @@ src/assets/css/tailwind.css
 .env.*
 !.env.example
 temp_ss/
+src/_archived/
 .claude/
 
 # Internal reference docs

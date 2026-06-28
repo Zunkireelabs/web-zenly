@@ -1,85 +1,128 @@
----
+﻿---
 layout: base.njk
-title: Zenly — Features
+title: Zenly - Features
 bodyClass: page--light-nav
 ---
 
 <main>
 
-  <!-- ── FEATURES HERO ──────────────────────────────────────────────── -->
+  <!-- â”€â”€ FEATURES HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <section class="feat-page-hero">
     <div class="feat-page-hero__inner">
 
       <!-- Left: text -->
       <div class="feat-page-hero__text">
-        <span class="section__badge">Platform</span>
-        <h1 class="feat-page-hero__h1">Everything you need to run your business</h1>
-        <p class="feat-page-hero__sub">Online booking, operational control, and daily financial close — built for any appointment-based service business.</p>
-        <div class="feat-page-hero__nav">
-          <a href="#booking" class="feat-page-hero__link">Booking</a>
-          <a href="#operations" class="feat-page-hero__link">Operations</a>
-          <a href="#financial" class="feat-page-hero__link">Finance</a>
+        <h1 class="feat-page-hero__h1">Every feature your business runs on</h1>
+        <p class="feat-page-hero__sub">Booking, operations, finance, reporting, and multi-industry support &mdash; the full Zenly platform, explored in depth.</p>
+        <div class="feat-page-hero__actions">
+          <a href="#demo" class="btn-primary">Book a Demo</a>
+          <a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener" class="btn-secondary">See It Live</a>
         </div>
+        <p class="feat-page-hero__note">No credit card required &middot; Setup in minutes</p>
       </div>
 
-      <!-- Right: platform dashboard mockup -->
+      <!-- Right: platform dashboard image -->
       <div class="feat-page-hero__visual">
-        <div class="fph-mockup">
+        <img src="/assets/images/feat-hero-dashboard.png" alt="Zenly platform dashboard" class="feat-page-hero__img">
+      </div>
 
-          <div class="fph-mockup__bar">
-            <span class="fph-dot fph-dot--red"></span>
-            <span class="fph-dot fph-dot--yellow"></span>
-            <span class="fph-dot fph-dot--green"></span>
-            <span class="fph-mockup__bar-title">Platform Overview</span>
+    </div>
+  </section>
+
+
+  <!-- ── FEATURES STICKY SCROLL ────────────────────────────────────── -->
+  <section class="fss-section">
+    <div class="fss-inner">
+
+      <!-- Left: scrollable feature text blocks -->
+
+        <div class="fss-item" data-feat="0">
+          <div class="fss-item__inner">
+            <span class="fss-tag">Booking</span>
+            <h3 class="fss-h3">Let customers book themselves</h3>
+            <p class="fss-desc">No phone calls. No back-and-forth. Customers pick a service, choose a slot, and get instant confirmation — 24/7, from any device.</p>
+            <a href="/features/booking" class="fss-link">Explore Booking &rarr;</a>
+          </div>
+        </div>
+
+        <div class="fss-item" data-feat="1">
+          <div class="fss-item__inner">
+            <span class="fss-tag">Operations</span>
+            <h3 class="fss-h3">Your whole floor, visible at a glance</h3>
+            <p class="fss-desc">Real-time dashboards for every role. Staff see their queue, managers see the floor, admins see everything.</p>
+            <a href="/features/operations" class="fss-link">Explore Operations &rarr;</a>
+          </div>
+        </div>
+
+        <div class="fss-item" data-feat="2">
+          <div class="fss-item__inner">
+            <span class="fss-tag">Finance</span>
+            <h3 class="fss-h3">Close your day in 30 seconds</h3>
+            <p class="fss-desc">Automated reconciliation, payment breakdowns by mode, and a full audit trail. No Excel. No guesswork.</p>
+            <a href="/features/finance" class="fss-link">Explore Finance &rarr;</a>
+          </div>
+        </div>
+
+        <div class="fss-item" data-feat="3">
+          <div class="fss-item__inner">
+            <span class="fss-tag">Reports</span>
+            <h3 class="fss-h3">Every number, always explained</h3>
+            <p class="fss-desc">Eight built-in reports covering revenue, staff performance, discounts, attendance, and referrals — always up to date.</p>
+            <a href="/features/reports" class="fss-link">Explore Reports &rarr;</a>
+          </div>
+        </div>
+
+        <div class="fss-item" data-feat="4">
+          <div class="fss-item__inner">
+            <span class="fss-tag">Industries</span>
+            <h3 class="fss-h3">One platform, any service business</h3>
+            <p class="fss-desc">Every vertical gets its own terminology, feature flags, and service categories — zero code changes to onboard a new business type.</p>
+            <a href="/features/industries" class="fss-link">Explore Industries &rarr;</a>
+          </div>
+        </div>
+
+        <div class="fss-item" data-feat="5">
+          <div class="fss-item__inner">
+            <span class="fss-tag">Multi-Branch</span>
+            <h3 class="fss-h3">Scale across every location</h3>
+            <p class="fss-desc">Org-scoped data isolation, branch-level operations, and consolidated admin dashboards across any number of locations.</p>
+            <a href="/features/multi-branch" class="fss-link">Explore Multi-Branch &rarr;</a>
+          </div>
+        </div>
+
+
+      <!-- Right: sticky mockup panel -->
+      <div class="fss-visual">
+        <div class="fss-stage">
+
+          <!-- Panel 0: Booking -->
+          <div class="fss-panel is-active" data-feat="0">
+            <img src="/assets/images/feat-booking.png" alt="Online Booking" class="fss-feat-img">
           </div>
 
-          <div class="fph-mockup__stats">
-            <div class="fph-stat">
-              <div class="fph-stat__val">24</div>
-              <div class="fph-stat__key">Bookings today</div>
-            </div>
-            <div class="fph-stat-divider"></div>
-            <div class="fph-stat">
-              <div class="fph-stat__val">₨47,200</div>
-              <div class="fph-stat__key">Revenue</div>
-            </div>
-            <div class="fph-stat-divider"></div>
-            <div class="fph-stat">
-              <div class="fph-stat__val">39</div>
-              <div class="fph-stat__key">Staff active</div>
-            </div>
+          <!-- Panel 1: Operations -->
+          <div class="fss-panel" data-feat="1">
+            <img src="/assets/images/feat-operations.png" alt="Operations" class="fss-feat-img">
           </div>
 
-          <div class="fph-mockup__schedule">
-            <div class="fph-apt fph-apt--live">
-              <span class="fph-apt__time">10:30</span>
-              <div class="fph-apt__body">
-                <span class="fph-apt__name">Rahul K.</span>
-                <span class="fph-apt__svc">Hot Stone · 90 min</span>
-              </div>
-              <span class="fph-apt__live"><i></i>Live</span>
-            </div>
-            <div class="fph-apt">
-              <span class="fph-apt__time">12:00</span>
-              <div class="fph-apt__body">
-                <span class="fph-apt__name">Sara M.</span>
-                <span class="fph-apt__svc">Facial · 45 min</span>
-              </div>
-              <span class="fph-apt__staff">Maya</span>
-            </div>
-            <div class="fph-apt fph-apt--dim">
-              <span class="fph-apt__time">13:30</span>
-              <div class="fph-apt__body">
-                <span class="fph-apt__name">Priya S.</span>
-                <span class="fph-apt__svc">Thai Massage · 60 min</span>
-              </div>
-              <span class="fph-apt__staff">Laila</span>
-            </div>
+          <!-- Panel 2: Finance -->
+          <div class="fss-panel" data-feat="2">
+            <img src="/assets/images/feat-finance.png" alt="Finance & Reconciliation" class="fss-feat-img">
           </div>
 
-          <div class="fph-mockup__footer">
-            <div class="fph-footer-label"><span class="fph-pulse"></span>18 pending close</div>
-            <div class="fph-footer-btn">Close Day →</div>
+          <!-- Panel 3: Reports -->
+          <div class="fss-panel" data-feat="3">
+            <img src="/assets/images/feat-reports.png" alt="Reports" class="fss-feat-img">
+          </div>
+
+          <!-- Panel 4: Industries -->
+          <div class="fss-panel" data-feat="4">
+            <img src="/assets/images/feat-industries.png" alt="Industries" class="fss-feat-img">
+          </div>
+
+          <!-- Panel 5: Multi-Branch -->
+          <div class="fss-panel" data-feat="5">
+            <img src="/assets/images/feat-multibranch.png" alt="Multi-Branch" class="fss-feat-img">
           </div>
 
         </div>
@@ -88,264 +131,24 @@ bodyClass: page--light-nav
     </div>
   </section>
 
-  <!-- ── BOOKING ────────────────────────────────────────────────────── -->
-  <section class="section" id="booking">
-    <div class="section__inner">
 
-      <div class="fp-section-header reveal">
-        <span class="section__badge">Booking</span>
-        <h2 class="section__h2">Let your customers book themselves</h2>
-        <p class="section__sub">No phone calls. No back-and-forth. Customers pick a service, choose a slot, and get an instant confirmation — any time of day, from any device.</p>
-      </div>
-
-      <!-- Zigzag: visual left, text right -->
-      <div class="entr-row reveal" data-delay="1">
-
-        <div class="entr-row__visual">
-          <div class="fp-visual-wrap">
-            <div class="entr-panel fp-booking-panel">
-              <div class="entr-panel__label">Online Booking</div>
-              <div class="entr-panel__service">Thai Oil Massage · 60 min</div>
-
-              <div class="entr-panel__label" style="margin-top:14px;">Select date</div>
-              <div class="fp-date-row">
-                <div class="fp-date-chip">Mon<span>9</span></div>
-                <div class="fp-date-chip">Tue<span>10</span></div>
-                <div class="fp-date-chip fp-date-chip--active">Wed<span>11</span></div>
-                <div class="fp-date-chip">Thu<span>12</span></div>
-                <div class="fp-date-chip">Fri<span>13</span></div>
-              </div>
-
-              <div class="entr-panel__label" style="margin-top:14px;">Available times</div>
-              <div class="entr-panel__slots">
-                <div class="entr-slot">09:00</div>
-                <div class="entr-slot entr-slot--active">10:30</div>
-                <div class="entr-slot">13:00</div>
-                <div class="entr-slot">15:30</div>
-              </div>
-
-              <div class="entr-panel__label" style="margin-top:14px;">Choose therapist</div>
-              <div class="entr-panel__staff">
-                <div class="entr-avatar entr-avatar--active">
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&q=80" alt="">
-                </div>
-                <div class="entr-avatar">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&q=80" alt="">
-                </div>
-                <div class="entr-avatar">
-                  <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=80&h=80&fit=crop&q=80" alt="">
-                </div>
-              </div>
-
-              <button class="entr-panel__confirm">Confirm Booking</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="entr-row__text">
-          <div class="fp-feats">
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">24/7 Self-Booking</h3>
-              <p class="fp-feat__desc">Customers book without calling. You capture revenue while you sleep.</p>
-            </div>
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">Zero Double-Bookings</h3>
-              <p class="fp-feat__desc">Real-time slot locking means two clients can never land on the same therapist at the same time.</p>
-            </div>
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">Instant Confirmation</h3>
-              <p class="fp-feat__desc">Auto-send confirmation and reminder via SMS or email the moment a booking is made.</p>
-            </div>
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">Service Catalog</h3>
-              <p class="fp-feat__desc">Multi-service, multi-staff support. Each service maps to the right staff and duration automatically.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="feat-list feat-list--2col reveal" data-delay="2">
-        <div class="feat">
-          <div class="feat__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M23 4v6h-6M1 20v-6h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3 class="feat__title">Reschedule &amp; Cancel</h3>
-          <p class="feat__desc">Clients reschedule or cancel themselves. You set the rules; Zenly enforces them.</p>
-        </div>
-        <div class="feat">
-          <div class="feat__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3 class="feat__title">Multi-Location Ready</h3>
-          <p class="feat__desc">One booking flow across every branch. Staff and availability are always branch-specific.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── OPERATIONS ─────────────────────────────────────────────────── -->
-  <section class="section" id="operations">
-    <div class="section__inner">
-
-      <div class="fp-section-header reveal">
-        <span class="section__badge">Operations</span>
-        <h2 class="section__h2">Your whole floor, visible at a glance</h2>
-        <p class="section__sub">Real-time dashboards for every role. Staff see their queue, managers see the floor, admins see everything — all from one platform.</p>
-      </div>
-
-      <!-- Zigzag flip: text left, visual right -->
-      <div class="entr-row entr-row--flip reveal" data-delay="1">
-
-        <div class="entr-row__text">
-          <div class="fp-feats">
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">Role-Based Dashboards</h3>
-              <p class="fp-feat__desc">Staff see their queue. Managers see the floor. Admins see everything. One system, three views.</p>
-            </div>
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">Live Booking Status</h3>
-              <p class="fp-feat__desc">Track every appointment from Pending → Active → Done in real time. No manual check-ins required.</p>
-            </div>
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">Discount Governance</h3>
-              <p class="fp-feat__desc">Staff cap at 15%, managers at 50%. Every discount logged with a reason. No unauthorized markdowns, ever.</p>
-            </div>
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">Staff &amp; Room Assignment</h3>
-              <p class="fp-feat__desc">Assign therapists, stations, or rooms at the point of booking. Conflicts flagged before they happen.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="entr-row__visual">
-          <div class="fp-visual-wrap">
-            <div class="orbit-wrap">
-              <div class="orbit-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              </div>
-              <div class="orbit-ring">
-                <div class="orbit-arm" style="--deg:0deg;   --neg:0deg">  <div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Staff</span></div></div>
-                <div class="orbit-arm" style="--deg:60deg;  --neg:-60deg"><div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Manager</span></div></div>
-                <div class="orbit-arm" style="--deg:120deg; --neg:-120deg"><div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Admin</span></div></div>
-                <div class="orbit-arm" style="--deg:180deg; --neg:-180deg"><div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Front Desk</span></div></div>
-                <div class="orbit-arm" style="--deg:240deg; --neg:-240deg"><div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Supervisor</span></div></div>
-                <div class="orbit-arm" style="--deg:300deg; --neg:-300deg"><div class="orbit-item"><span class="orbit-av"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&q=80" alt=""></span><span class="orbit-role">Staff</span></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="feat-list feat-list--2col reveal" data-delay="2">
-        <div class="feat">
-          <div class="feat__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 10h20" stroke="currentColor" stroke-width="1.5"/></svg>
-          </div>
-          <h3 class="feat__title">Payment Recording</h3>
-          <p class="feat__desc">Log cash, card, or online payments per booking. Split payments and pending balances, all tracked.</p>
-        </div>
-        <div class="feat">
-          <div class="feat__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3 class="feat__title">Multi-Branch Visibility</h3>
-          <p class="feat__desc">One dashboard for all your branches. Switch views, compare performance, assign across locations.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── FINANCIAL ──────────────────────────────────────────────────── -->
-  <section class="section" id="financial">
-    <div class="section__inner">
-
-      <div class="fp-section-header reveal">
-        <span class="section__badge">Finance</span>
-        <h2 class="section__h2">Close your day in 30 seconds</h2>
-        <p class="section__sub">Automated reconciliation, payment breakdowns by mode, and a full audit trail. No Excel. No guesswork. Every penny accounted for.</p>
-      </div>
-
-      <!-- Zigzag: visual left, text right -->
-      <div class="entr-row reveal" data-delay="1">
-
-        <div class="entr-row__visual">
-          <div class="fp-visual-wrap fp-eod-panel">
-            <div class="entr-panel" style="max-width:360px;width:100%;padding:28px 32px;">
-              <div class="entr-panel__label">Day Close · Jun 25</div>
-              <div class="anim-eod" style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
-                <div class="eod-row eod-row--1"><span class="eod-type">Cash</span><span class="eod-amt">$840</span><span class="eod-check">✓</span></div>
-                <div class="eod-row eod-row--2"><span class="eod-type">Card</span><span class="eod-amt">$2,340</span><span class="eod-check">✓</span></div>
-                <div class="eod-row eod-row--3"><span class="eod-type">Online</span><span class="eod-amt">$760</span><span class="eod-check">✓</span></div>
-                <div class="eod-total">Total: $3,940</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="entr-row__text">
-          <div class="fp-feats">
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">Daily Revenue Close</h3>
-              <p class="fp-feat__desc">One click to close the day. Gross revenue, net revenue, discounts, and booking counts — auto-calculated and locked.</p>
-            </div>
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">Payment Mode Breakdown</h3>
-              <p class="fp-feat__desc">See exactly how much came in as cash, card, or online transfer. Reconcile by mode in seconds.</p>
-            </div>
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">Full Audit Trail</h3>
-              <p class="fp-feat__desc">Every discount, payment edit, and status change is logged with a timestamp and the user who made it.</p>
-            </div>
-            <div class="fp-feat">
-              <h3 class="fp-feat__title">Day-End Lock</h3>
-              <p class="fp-feat__desc">Once the day is closed, it's frozen. No edits, no backdating — financial records stay clean and tamper-proof.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="feat-list feat-list--2col reveal" data-delay="2">
-        <div class="feat">
-          <div class="feat__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/></svg>
-          </div>
-          <h3 class="feat__title">Pricing Snapshots</h3>
-          <p class="feat__desc">Price is locked at booking time. No retroactive changes, no disputes — what was agreed is what gets recorded.</p>
-        </div>
-        <div class="feat">
-          <div class="feat__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          </div>
-          <h3 class="feat__title">Pending Payment Tracking</h3>
-          <p class="feat__desc">Flag unpaid or partially paid bookings instantly. Chase outstanding balances before end of day.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── BOTTOM CTA ─────────────────────────────────────────────────── -->
+  <!-- â”€â”€ BOTTOM CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <section class="bottom-cta" id="demo">
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Ready to see it in action?</h2>
       <p class="bottom-cta__sub">Book a 30-minute demo. We'll walk you through the platform with your own business in mind.</p>
-      <a href="mailto:info.zunkireelabs@gmail.com" class="bottom-cta__banner-btn">Book a Demo →</a>
-      <a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener" class="bottom-cta__link" style="color:rgba(255,255,255,0.7);font-size:0.9375rem;margin-top:4px;">See It Live →</a>
+      <a href="mailto:info.zunkireelabs@gmail.com" class="bottom-cta__banner-btn">Book a Demo &rarr;</a>
+      <a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener" class="bottom-cta__link" style="color:rgba(255,255,255,0.7);font-size:0.9375rem;margin-top:4px;">See It Live &rarr;</a>
     </div>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+  <!-- â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <footer class="footer">
     <div class="footer__inner">
 
       <div class="footer__col footer__col--brand">
         <a href="/" class="footer__logo">Zenly</a>
-        <p class="footer__tagline">Online booking, operational control, and financial clarity — for any appointment-based business.</p>
+        <p class="footer__tagline">Online booking, operational control, and financial clarity &mdash; for any appointment-based business.</p>
         <div class="footer__status">
           <span class="live-dot"></span>
           <span>All systems operational</span>
@@ -358,6 +161,8 @@ bodyClass: page--light-nav
           <li><a href="/features#booking">Online Booking</a></li>
           <li><a href="/features#operations">Operations</a></li>
           <li><a href="/features#financial">Finance</a></li>
+          <li><a href="/features#reports">Reports</a></li>
+          <li><a href="/features#industries">Industries</a></li>
           <li><a href="/pricing">Pricing</a></li>
         </ul>
       </div>

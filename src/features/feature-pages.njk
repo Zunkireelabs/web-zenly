@@ -1,0 +1,11 @@
+---
+pagination:
+  data: features
+  size: 1
+  alias: feature
+permalink: "/features/{{ feature.slug }}/"
+layout: feature-detail.njk
+eleventyComputed:
+  title: "{{ feature.name }} — Zenly"
+  bodyClass: "page--light-nav"
+---

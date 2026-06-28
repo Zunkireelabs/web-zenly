@@ -1,0 +1,279 @@
+---
+layout: base.njk
+---
+
+<main>
+
+  <!-- ── HERO ────────────────────────────────────────────────────────────── -->
+  <section class="fd-hero" style="background: {{ feature.hero.bg }}">
+
+    <div class="fd-hero__text">
+      <h1 class="fd-hero__h1">{{ feature.hero.headline }}</h1>
+      <p class="fd-hero__sub">{{ feature.hero.subheadline }}</p>
+      <div class="fd-hero__actions">
+        <a href="mailto:info.zunkireelabs@gmail.com" class="btn-primary">Book a Demo</a>
+      </div>
+    </div>
+
+    <div class="fd-hero__img-track">
+      <div class="fd-hero__img-wrap">
+        <img src="{{ feature.hero.image }}" alt="{{ feature.hero.imageAlt }}" class="fd-hero__img">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── TRUST CAROUSEL ─────────────────────────────────────────────────── -->
+  <section class="fd-trust">
+    <p class="fd-trust__heading"><span class="fd-trust__stat">Trusted by</span> appointment businesses worldwide.</p>
+    <div class="fd-trust__inner">
+      <div class="fd-trust__row">
+        <div class="fd-trust__track" id="fdTrustTrack">
+          <div class="fd-trust__rail" id="fdTrustRail">
+            <div class="trust-chip trust-chip--live">Nuad Thai Spa</div>
+            <div class="trust-chip trust-chip--light-italic">Pure Glow</div>
+            <div class="trust-chip trust-chip--caps">The Curl Studio</div>
+            <div class="trust-chip trust-chip--medium">SmileWell</div>
+            <div class="trust-chip trust-chip--bold">FitForm</div>
+            <div class="trust-chip trust-chip--dot">revive.</div>
+            <div class="trust-chip trust-chip--medium">Ink &amp; Canvas</div>
+            <div class="trust-chip trust-chip--wide-caps">PHYSIO PLUS</div>
+            <div class="trust-chip trust-chip--dot">clean &amp; co.</div>
+            <div class="trust-chip trust-chip--serif-italic">nail atelier</div>
+            <div class="trust-chip trust-chip--caps">ZENITH DENTAL</div>
+            <div class="trust-chip trust-chip--serif">maven</div>
+            <div class="trust-chip trust-chip--heavy">FLEX</div>
+            <div class="trust-chip trust-chip--medium">The Tidiers</div>
+            <div class="trust-chip trust-chip--light-italic">bloom studio</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="trust-chip trust-chip--live">Nuad Thai Spa</div>
+            <div class="trust-chip trust-chip--light-italic">Pure Glow</div>
+            <div class="trust-chip trust-chip--caps">The Curl Studio</div>
+            <div class="trust-chip trust-chip--medium">SmileWell</div>
+            <div class="trust-chip trust-chip--bold">FitForm</div>
+            <div class="trust-chip trust-chip--dot">revive.</div>
+            <div class="trust-chip trust-chip--medium">Ink &amp; Canvas</div>
+            <div class="trust-chip trust-chip--wide-caps">PHYSIO PLUS</div>
+            <div class="trust-chip trust-chip--dot">clean &amp; co.</div>
+            <div class="trust-chip trust-chip--serif-italic">nail atelier</div>
+            <div class="trust-chip trust-chip--caps">ZENITH DENTAL</div>
+            <div class="trust-chip trust-chip--serif">maven</div>
+            <div class="trust-chip trust-chip--heavy">FLEX</div>
+            <div class="trust-chip trust-chip--medium">The Tidiers</div>
+            <div class="trust-chip trust-chip--light-italic">bloom studio</div>
+          </div>
+        </div>
+        <button class="fd-trust__btn" id="fdTrustBtn" aria-label="Pause carousel">
+          <!-- pause icon (default) -->
+          <svg class="fd-trust__icon fd-trust__icon--pause" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="2" y="1" width="3.5" height="12" rx="1.5" fill="currentColor"/>
+            <rect x="8.5" y="1" width="3.5" height="12" rx="1.5" fill="currentColor"/>
+          </svg>
+          <!-- play icon (hidden) -->
+          <svg class="fd-trust__icon fd-trust__icon--play" width="14" height="14" viewBox="0 0 14 14" fill="none" style="display:none">
+            <path d="M3 2L12 7L3 12V2Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRIMARY FEATURES (sticky scroll) ────────────────────────────────── -->
+  <section class="section fd-sscroll-dark">
+    <div class="section__inner">
+      <div class="fd-sscroll reveal">
+
+        <!-- Left col: sticky — heading + image stay pinned while right scrolls -->
+        <div class="fd-sscroll__img-col">
+          <h2 class="section__h2 fd-sscroll__lbl">{{ feature.intro.headline }}</h2>
+          <div class="fd-sscroll__img-wrap">
+            <img src="{{ feature.hero.image }}" alt="{{ feature.hero.imageAlt }}" class="fd-sscroll__img">
+          </div>
+        </div>
+
+        <!-- Right col: items stack naturally; JS activates closest to image centre -->
+        <div class="fd-sscroll__text-col">
+          {% for feat in feature.primaryFeatures %}
+          <div class="fd-sscroll__item{% if loop.first %} is-active{% endif %}">
+            <h3 class="fd-sscroll__title">{{ feat.title }}</h3>
+            <p class="fd-sscroll__desc">{{ feat.description }}</p>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECONDARY FEATURES (2-col grid) ──────────────────────────────────── -->
+  <section class="section">
+    <div class="section__inner">
+      <div class="feat-list feat-list--2col fd-feat-grid reveal">
+        {% for feat in feature.secondaryFeatures %}
+        <div class="feat">
+          <div class="fd-feat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="7" fill="rgba(45,90,39,0.15)"/>
+              <g stroke="#2D5A27" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                {% if feat.icon == "refresh" %}
+                  <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-8.36"/>
+                {% elif feat.icon == "map-pin" %}
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                {% elif feat.icon == "users" %}
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                {% elif feat.icon == "bell" %}
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                {% elif feat.icon == "credit-card" %}
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+                {% elif feat.icon == "layout" %}
+                  <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                {% elif feat.icon == "list" %}
+                  <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+                {% elif feat.icon == "activity" %}
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                {% elif feat.icon == "tag" %}
+                  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
+                {% elif feat.icon == "clock" %}
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                {% elif feat.icon == "percent" %}
+                  <line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/>
+                {% elif feat.icon == "trending-up" %}
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+                {% elif feat.icon == "calendar" %}
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                {% elif feat.icon == "download" %}
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                {% elif feat.icon == "zap" %}
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                {% elif feat.icon == "bar-chart" %}
+                  <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+                {% elif feat.icon == "heart" %}
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                {% elif feat.icon == "scissors" %}
+                  <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/>
+                {% elif feat.icon == "shield" %}
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                {% elif feat.icon == "maximize" %}
+                  <polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>
+                {% else %}
+                  <polyline points="20 6 9 17 4 12"/>
+                {% endif %}
+              </g>
+            </svg>
+          </div>
+          <h3 class="feat__title">{{ feat.title }}</h3>
+          <p class="feat__desc">{{ feat.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STAT CALLOUT ─────────────────────────────────────────────────────── -->
+  <section class="fd-stat-section">
+    <div class="section__inner">
+      <div class="fd-stat reveal">
+        <div class="fd-stat__value">{{ feature.stat.value }}</div>
+        <div class="fd-stat__body">
+          <div class="fd-stat__label">{{ feature.stat.label }}</div>
+          <p class="fd-stat__desc">{{ feature.stat.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RELATED FEATURES ─────────────────────────────────────────────────── -->
+  <section class="section" style="padding-bottom: var(--space-2xl)">
+    <div class="section__inner">
+      <div class="fp-section-header">
+        <h2 class="section__h2">Explore more features</h2>
+      </div>
+      <div class="fd-related-grid">
+        {% for relSlug in feature.relatedFeatures %}
+          {% for f in features %}
+            {% if f.slug === relSlug %}
+            <a href="/features/{{ f.slug }}" class="fd-related-card">
+              <span class="section__badge">{{ f.badge }}</span>
+              <h3 class="fd-related-card__h3">{{ f.hero.headline }}</h3>
+              <span class="fd-related-card__link">Explore {{ f.name }}</span>
+            </a>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BOTTOM CTA ───────────────────────────────────────────────────────── -->
+  <section class="bottom-cta" id="demo">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">Ready to see it in action?</h2>
+      <p class="bottom-cta__sub">Book a 30-minute demo. We'll walk you through the platform with your own business in mind.</p>
+      <a href="mailto:info.zunkireelabs@gmail.com" class="bottom-cta__banner-btn">Book a Demo &rarr;</a>
+      <a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener" class="bottom-cta__link" style="color:rgba(255,255,255,0.7);font-size:0.9375rem;margin-top:4px;">See It Live &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <div class="footer__col footer__col--brand">
+        <a href="/" class="footer__logo">Zenly</a>
+        <p class="footer__tagline">Online booking, operational control, and financial clarity &mdash; for any appointment-based business.</p>
+        <div class="footer__status">
+          <span class="live-dot"></span>
+          <span>All systems operational</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Product</div>
+        <ul class="footer__links">
+          <li><a href="/features/booking">Online Booking</a></li>
+          <li><a href="/features/operations">Operations</a></li>
+          <li><a href="/features/finance">Finance</a></li>
+          <li><a href="/features/reports">Reports</a></li>
+          <li><a href="/features/industries">Industries</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Use Cases</div>
+        <ul class="footer__links">
+          <li><a href="/#industries">Spa &amp; Wellness</a></li>
+          <li><a href="/#industries">Hair Salon</a></li>
+          <li><a href="/#industries">Dental Clinic</a></li>
+          <li><a href="/#industries">More verticals</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="#demo">Book a Demo</a></li>
+          <li><a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener">See It Live</a></li>
+          <li><a href="mailto:info.zunkireelabs@gmail.com">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Legal</div>
+        <ul class="footer__links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__inner">
+        <span class="footer__copy">&copy; 2026 Zunkireelabs. All rights reserved.</span>
+        <span class="footer__built">Built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></span>
+      </div>
+    </div>
+  </footer>
+
+</main>

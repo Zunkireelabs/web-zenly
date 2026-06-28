@@ -144,7 +144,7 @@ title: Zenly — Online Booking & Operations Platform
         </div>
 
         <!-- UI mockup panels -->
-        <div class="value-mock reveal" data-delay="2">
+        <div class="value-mock reveal-fade" data-delay="2">
 
           <img class="value-mock__dashboard" src="/assets/images/dashboard-mockup.png" alt="Zenly dashboard">
           <img class="value-mock__mobile" src="/assets/images/mobile-mockup.png" alt="Zenly mobile app">
@@ -160,7 +160,7 @@ title: Zenly — Online Booking & Operations Platform
   <section class="section" id="features">
     <div class="section__inner">
 
-      <div class="entr-header">
+      <div class="entr-header reveal">
         <h2 class="section__h2">Everything you need to run your business</h2>
         <p class="section__sub entr-header__sub">Booking, operations, and finance — built for service businesses.</p>
       </div>
@@ -173,7 +173,7 @@ title: Zenly — Online Booking & Operations Platform
             <div class="feat-card__text">
               <h3 class="entr-row__h3" style="white-space:nowrap;">Customers self-book, 24/7.</h3>
               <p class="entr-row__sub">Set up your services once. Customers pick a slot, choose their staff, and get an instant confirmation. No calls. No WhatsApp back-and-forth. No double-bookings — ever.</p>
-              <a href="/features#booking" class="btn-feat">See all booking features →</a>
+              <a href="/features#booking" class="btn-feat">Explore →</a>
             </div>
             <div class="feat-card__visual">
               <img src="/assets/images/card1-booking.png" alt="Customer self-booking on phone" class="feat-card__photo">
@@ -181,11 +181,23 @@ title: Zenly — Online Booking & Operations Platform
           </div>
         </div>
 
-        <!-- Rows 2 & 3: 2/3 + 1/3 -->
-        <div class="feat-grid feat-grid--large-first">
+        <!-- Rows 4 & 5: 1/3 + 2/3 -->
+        <div class="feat-grid feat-grid--large-last">
+
+          <!-- Card 4: Reports -->
+          <div class="feat-card feat-card--stack" data-delay="1">
+            <div class="feat-card__top rpt-img-top">
+              <img src="/assets/images/reports-cluster.png" alt="Reports cluster" class="rpt-cluster-img">
+            </div>
+            <div class="feat-card__bottom">
+              <h3 class="entr-row__h3">Every insight, on demand.</h3>
+              <p class="entr-row__sub">Revenue, attendance, performance — filtered, exportable, always current.</p>
+              <a href="/features#reports" class="btn-feat">Explore →</a>
+            </div>
+          </div>
 
           <!-- Card 2: Operations -->
-          <div class="feat-card feat-card--stack" data-delay="1">
+          <div class="feat-card feat-card--stack" data-delay="2">
             <div class="feat-card__top">
               <div class="scard-scene">
                 <div class="scard scard--back scard--left">
@@ -234,13 +246,21 @@ title: Zenly — Online Booking & Operations Platform
             <div class="feat-card__bottom">
               <h3 class="entr-row__h3">Every booking. One screen.</h3>
               <p class="entr-row__sub">Staff, managers, and admins each see exactly what they need. No chasing updates.</p>
-              <a href="/features#operations" class="btn-feat">See all operations features →</a>
+              <a href="/features#operations" class="btn-feat">Explore →</a>
             </div>
           </div>
 
-          <!-- Card 3: Zero Conflicts -->
-          <div class="feat-card feat-card--stack" data-delay="2">
-            <div class="feat-card__top c2-top">
+        </div>
+
+        <!-- Row 3: Zero Conflicts — full width, side-by-side -->
+        <div class="feat-card feat-card--sm" style="grid-template-columns: 1fr 1fr;">
+          <div class="feat-card__inner">
+            <div class="feat-card__text">
+              <h3 class="entr-row__h3">Zero double-bookings.</h3>
+              <p class="entr-row__sub">Checks staff, room, and duration. Can't fit — it won't book.</p>
+              <a href="/features#booking" class="btn-feat">Explore →</a>
+            </div>
+            <div class="feat-card__visual c2-visual">
               <button class="c2-bell-btn" id="c2Bell" aria-label="Show notifications">
                 <div class="c2-bell-pulse"></div>
                 <svg class="c2-bell-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
@@ -274,40 +294,7 @@ title: Zenly — Online Booking & Operations Platform
                 </div>
               </div>
             </div>
-            <div class="feat-card__bottom">
-              <h3 class="entr-row__h3">Zero double-bookings.</h3>
-              <p class="entr-row__sub">Checks staff, room, and duration. Can't fit — it won't book.</p>
-              <a href="/features#booking" class="btn-feat">See all booking features →</a>
-            </div>
           </div>
-
-        </div>
-
-        <!-- Rows 4 & 5: 1/3 + 2/3 -->
-        <div class="feat-grid feat-grid--large-last">
-
-          <!-- Card 5: Financial -->
-          <div class="feat-card feat-card--stack" data-delay="1">
-            <div class="feat-card__top"></div>
-            <div class="feat-card__bottom">
-              <h3 class="entr-row__h3" style="white-space:nowrap;">Close your day in 30 seconds.</h3>
-              <p class="entr-row__sub">One click. Cash, card, and online reconciled automatically. No Excel, no disputes.</p>
-              <a href="/features#financial" class="btn-feat">See all finance features →</a>
-            </div>
-          </div>
-
-          <!-- Card 4: Reports -->
-          <div class="feat-card feat-card--stack" data-delay="2">
-            <div class="feat-card__top rpt-img-top">
-              <img src="/assets/images/reports-cluster.png" alt="Reports cluster" class="rpt-cluster-img">
-            </div>
-            <div class="feat-card__bottom">
-              <h3 class="entr-row__h3">Every insight, on demand.</h3>
-              <p class="entr-row__sub">Revenue, attendance, performance — filtered, exportable, always current.</p>
-              <a href="/features#reports" class="btn-feat">See all reporting features →</a>
-            </div>
-          </div>
-
         </div>
 
       </div><!-- /.entr-list -->
@@ -327,7 +314,7 @@ title: Zenly — Online Booking & Operations Platform
 
       <div class="ind-grid">
 
-        <a href="/industries#spa" class="ind-card reveal" data-delay="1" style="--ind-bg: #E2ECE0;">
+        <a href="/industries#spa" class="ind-card reveal-scale" data-delay="1" style="--ind-bg: #E2ECE0;">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1663013569286-30b21b79a410?w=480&q=80&auto=format&fit=crop" alt="Spa & Wellness" loading="lazy">
           </div>
@@ -337,7 +324,7 @@ title: Zenly — Online Booking & Operations Platform
           </div>
         </a>
 
-        <a href="/industries#fitness" class="ind-card reveal" data-delay="2" style="--ind-bg: #F2EBE0;">
+        <a href="/industries#fitness" class="ind-card reveal-scale" data-delay="2" style="--ind-bg: #F2EBE0;">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1661286647722-973637d09600?w=480&q=80&auto=format&fit=crop" alt="Fitness & PT" loading="lazy">
           </div>
@@ -347,7 +334,7 @@ title: Zenly — Online Booking & Operations Platform
           </div>
         </a>
 
-        <a href="/industries#hair-salon" class="ind-card reveal" data-delay="3" style="--ind-bg: #F2E5E5;">
+        <a href="/industries#hair-salon" class="ind-card reveal-scale" data-delay="3" style="--ind-bg: #F2E5E5;">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1677616799281-e1583ee2bdf0?w=480&q=80&auto=format&fit=crop" alt="Hair Salon" loading="lazy">
           </div>
@@ -357,7 +344,7 @@ title: Zenly — Online Booking & Operations Platform
           </div>
         </a>
 
-        <a href="/industries#physiotherapy" class="ind-card reveal" data-delay="1" style="--ind-bg: #EDE8F2;">
+        <a href="/industries#physiotherapy" class="ind-card reveal-scale" data-delay="1" style="--ind-bg: #EDE8F2;">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1661913622608-946e8d907c7b?w=480&q=80&auto=format&fit=crop" alt="Physiotherapy" loading="lazy">
           </div>
@@ -367,7 +354,7 @@ title: Zenly — Online Booking & Operations Platform
           </div>
         </a>
 
-        <a href="/industries#dental" class="ind-card reveal" data-delay="2" style="--ind-bg: #E0E9F2;">
+        <a href="/industries#dental" class="ind-card reveal-scale" data-delay="2" style="--ind-bg: #E0E9F2;">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1681966962522-546f370bc98e?w=480&q=80&auto=format&fit=crop" alt="Dental Clinic" loading="lazy">
           </div>
@@ -377,7 +364,7 @@ title: Zenly — Online Booking & Operations Platform
           </div>
         </a>
 
-        <a href="/industries#cleaning" class="ind-card reveal" data-delay="3" style="--ind-bg: #F2F0E0;">
+        <a href="/industries#cleaning" class="ind-card reveal-scale" data-delay="3" style="--ind-bg: #F2F0E0;">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1663011218145-c1d0c3ba3542?w=480&q=80&auto=format&fit=crop" alt="Cleaning Service" loading="lazy">
           </div>
@@ -458,7 +445,7 @@ title: Zenly — Online Booking & Operations Platform
   <section class="section" id="social-proof">
     <div class="section__inner">
 
-      <div class="testi-outer reveal">
+      <div class="testi-outer reveal-scale">
         <div class="testi-carousel">
 
           <!-- Left: image fan -->
@@ -557,16 +544,6 @@ title: Zenly — Online Booking & Operations Platform
           </div>
         </div>
 
-        <div class="faq-item reveal" data-delay="5" :class="{ 'faq-item--open': open === 5 }">
-          <button class="faq-item__q" @click="open = open === 5 ? null : 5" :aria-expanded="open === 5">
-            Is there a free trial?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__a" x-show="open === 5" x-cloak x-transition>
-            <p>Yes. We offer a 14-day trial with full access to all features — no credit card required. Book a demo and we'll get your business set up so you can see Zenly running with your own data from day one.</p>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -576,7 +553,7 @@ title: Zenly — Online Booking & Operations Platform
   <section class="bottom-cta" id="demo">
 
     <!-- CTA banner -->
-    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal-scale">
       <h2 class="bottom-cta__h2">What are you waiting for?</h2>
       <p class="bottom-cta__sub">Set up your services, go live, and start taking bookings today.</p>
       <a href="mailto:info.zunkireelabs@gmail.com" class="bottom-cta__banner-btn">Book a Demo →</a>
