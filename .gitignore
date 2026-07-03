@@ -8,7 +8,7 @@ temp_ss/
 src/_archived/
 .claude/
 
-# Internal reference docs
-INSPO_*.md
-DESIGN_*.md
-SESSION_CONTEXT.md
+# Internal reference docs (root-level only)
+/INSPO_*.md
+/DESIGN_*.md
+/SESSION_CONTEXT.md
