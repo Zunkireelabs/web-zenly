@@ -33,148 +33,160 @@ bodyClass: page--light-nav
     <div class="section__inner">
 
       <!-- 01: Setup steps -->
-      <div class="hiw-block hiw-block--steps reveal">
-        <div class="entr-header" style="text-align:center;margin-bottom:var(--space-xl);">
-          <h2 class="section__h2">Get started in one day</h2>
-          <p class="section__sub" style="text-align:center;">Four steps from zero to fully live. Takes less than a day.</p>
-        </div>
+      <div class="hiw-block hiw-block--steps">
+        <div class="hiw-steps">
 
-        <div class="hiw-rows">
-          <div class="hiw-rows__fill" id="hiwRowsFill"></div>
+          <!-- Left: sticky heading -->
+          <div class="hiw-steps__left reveal">
+            <h2 class="hiw-steps__h2">Get started in one day</h2>
+            <p class="hiw-steps__sub">Four steps from zero to fully live. Takes less than a day.</p>
+          </div>
 
-          <!-- Step 1 -->
-          <div class="hiw-row" data-step="0">
-            <div class="hiw-row__text">
-              <span class="hiw-row__badge">Step 1</span>
-              <h3 class="hiw-gs-h3">Add your services and staff</h3>
-              <p class="hiw-gs-desc">Set up your full service catalog — treatments, durations, and pricing. Add every staff member with their role, working hours, and assigned rooms. Takes under an hour.</p>
-            </div>
-            <div class="hiw-row__visual">
-              <div class="hiw-gs-mock hiw-gs-mock--catalog">
-                <div class="hiw-gs-mock__header">
-                  <span class="hiw-gs-mock__title">Services</span>
-                  <span class="hiw-gs-mock__action">+ Add</span>
-                </div>
-                <div class="hiw-gs-mock__item">
-                  <div class="hiw-gs-mock__dot" style="background:#4A5F4B"></div>
-                  <div class="hiw-gs-mock__lines">
-                    <div class="hiw-gs-mock__line hiw-gs-mock__line--name">Thai Massage &middot; 60 min</div>
-                    <div class="hiw-gs-mock__line hiw-gs-mock__line--sub">฿800 &middot; 3 therapists</div>
+          <!-- Right: vertical line + cards -->
+          <div class="hiw-steps__timeline">
+
+            <!-- Step 1 -->
+            <div class="hiw-steps__item reveal">
+              <div class="hiw-steps__num">1</div>
+              <div class="hiw-steps__card">
+                <div class="hiw-steps__visual">
+                  <div class="hiw-gs-mock hiw-gs-mock--catalog">
+                    <div class="hiw-gs-mock__header">
+                      <span class="hiw-gs-mock__title">Services</span>
+                      <span class="hiw-gs-mock__action">+ Add</span>
+                    </div>
+                    <div class="hiw-gs-mock__item">
+                      <div class="hiw-gs-mock__dot" style="background:#4A5F4B"></div>
+                      <div class="hiw-gs-mock__lines">
+                        <div class="hiw-gs-mock__line hiw-gs-mock__line--name">Thai Massage &middot; 60 min</div>
+                        <div class="hiw-gs-mock__line hiw-gs-mock__line--sub">฿800 &middot; 3 therapists</div>
+                      </div>
+                      <span class="hiw-gs-mock__pill">Active</span>
+                    </div>
+                    <div class="hiw-gs-mock__item">
+                      <div class="hiw-gs-mock__dot" style="background:#7C927A"></div>
+                      <div class="hiw-gs-mock__lines">
+                        <div class="hiw-gs-mock__line hiw-gs-mock__line--name">Deep Tissue &middot; 90 min</div>
+                        <div class="hiw-gs-mock__line hiw-gs-mock__line--sub">฿1,200 &middot; 2 therapists</div>
+                      </div>
+                      <span class="hiw-gs-mock__pill">Active</span>
+                    </div>
+                    <div class="hiw-gs-mock__item">
+                      <div class="hiw-gs-mock__dot" style="background:#C9D2C7"></div>
+                      <div class="hiw-gs-mock__lines">
+                        <div class="hiw-gs-mock__line hiw-gs-mock__line--name">Facial &middot; 45 min</div>
+                        <div class="hiw-gs-mock__line hiw-gs-mock__line--sub">฿600 &middot; 4 therapists</div>
+                      </div>
+                      <span class="hiw-gs-mock__pill">Active</span>
+                    </div>
                   </div>
-                  <span class="hiw-gs-mock__pill">Active</span>
                 </div>
-                <div class="hiw-gs-mock__item">
-                  <div class="hiw-gs-mock__dot" style="background:#7C927A"></div>
-                  <div class="hiw-gs-mock__lines">
-                    <div class="hiw-gs-mock__line hiw-gs-mock__line--name">Deep Tissue &middot; 90 min</div>
-                    <div class="hiw-gs-mock__line hiw-gs-mock__line--sub">฿1,200 &middot; 2 therapists</div>
-                  </div>
-                  <span class="hiw-gs-mock__pill">Active</span>
-                </div>
-                <div class="hiw-gs-mock__item">
-                  <div class="hiw-gs-mock__dot" style="background:#C9D2C7"></div>
-                  <div class="hiw-gs-mock__lines">
-                    <div class="hiw-gs-mock__line hiw-gs-mock__line--name">Facial &middot; 45 min</div>
-                    <div class="hiw-gs-mock__line hiw-gs-mock__line--sub">฿600 &middot; 4 therapists</div>
-                  </div>
-                  <span class="hiw-gs-mock__pill">Active</span>
+                <div class="hiw-steps__info">
+                  <h3 class="hiw-steps__title">Add your services and staff</h3>
+                  <p class="hiw-steps__desc">Set up your full service catalog — treatments, durations, and pricing.</p>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Step 2 -->
-          <div class="hiw-row" data-step="1">
-            <div class="hiw-row__text">
-              <span class="hiw-row__badge">Step 2</span>
-              <h3 class="hiw-gs-h3">We configure your booking link</h3>
-              <p class="hiw-gs-desc">We set up your branded online booking page — your logo, your services, your rules. Notification templates and confirmation messages, all configured before you go live.</p>
-            </div>
-            <div class="hiw-row__visual">
-              <div class="hiw-gs-mock hiw-gs-mock--link">
-                <div class="hiw-gs-mock__header">
-                  <span class="hiw-gs-mock__title">Your Booking Link</span>
+            <!-- Step 2 -->
+            <div class="hiw-steps__item reveal">
+              <div class="hiw-steps__num">2</div>
+              <div class="hiw-steps__card">
+                <div class="hiw-steps__visual">
+                  <div class="hiw-gs-mock hiw-gs-mock--link">
+                    <div class="hiw-gs-mock__header">
+                      <span class="hiw-gs-mock__title">Your Booking Link</span>
+                    </div>
+                    <div class="hiw-gs-mock__url-row">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                      <span class="hiw-gs-mock__url">zenly.app/<strong>nuad-thai-spa</strong></span>
+                    </div>
+                    <div class="hiw-gs-mock__settings">
+                      <div class="hiw-gs-mock__setting">
+                        <span class="hiw-gs-mock__setting-label">Auto-confirm bookings</span>
+                        <span class="hiw-gs-mock__toggle hiw-gs-mock__toggle--on"></span>
+                      </div>
+                      <div class="hiw-gs-mock__setting">
+                        <span class="hiw-gs-mock__setting-label">SMS reminders (24h)</span>
+                        <span class="hiw-gs-mock__toggle hiw-gs-mock__toggle--on"></span>
+                      </div>
+                      <div class="hiw-gs-mock__setting">
+                        <span class="hiw-gs-mock__setting-label">Allow rescheduling</span>
+                        <span class="hiw-gs-mock__toggle hiw-gs-mock__toggle--on"></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="hiw-gs-mock__url-row">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                  <span class="hiw-gs-mock__url">zenly.app/<strong>nuad-thai-spa</strong></span>
-                </div>
-                <div class="hiw-gs-mock__settings">
-                  <div class="hiw-gs-mock__setting">
-                    <span class="hiw-gs-mock__setting-label">Auto-confirm bookings</span>
-                    <span class="hiw-gs-mock__toggle hiw-gs-mock__toggle--on"></span>
-                  </div>
-                  <div class="hiw-gs-mock__setting">
-                    <span class="hiw-gs-mock__setting-label">SMS reminders (24h)</span>
-                    <span class="hiw-gs-mock__toggle hiw-gs-mock__toggle--on"></span>
-                  </div>
-                  <div class="hiw-gs-mock__setting">
-                    <span class="hiw-gs-mock__setting-label">Allow rescheduling</span>
-                    <span class="hiw-gs-mock__toggle hiw-gs-mock__toggle--on"></span>
-                  </div>
+                <div class="hiw-steps__info">
+                  <h3 class="hiw-steps__title">We configure your booking link</h3>
+                  <p class="hiw-steps__desc">Your branded booking page, notifications, and rules — all set up before you go live.</p>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Step 3 -->
-          <div class="hiw-row" data-step="2">
-            <div class="hiw-row__text">
-              <span class="hiw-row__badge">Step 3</span>
-              <h3 class="hiw-gs-h3">Share the link, bookings start</h3>
-              <p class="hiw-gs-desc">Post it on Instagram, WhatsApp, or your website. Customers pick a service, choose a slot, and get instant confirmation. No calls. No back-and-forth. Your calendar fills itself.</p>
-            </div>
-            <div class="hiw-row__visual">
-              <div class="hiw-gs-mock hiw-gs-mock--confirm">
-                <div class="hiw-gs-mock__confirm-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                </div>
-                <div class="hiw-gs-mock__confirm-title">Booking Confirmed</div>
-                <div class="hiw-gs-mock__confirm-detail">Thai Massage &middot; 60 min</div>
-                <div class="hiw-gs-mock__confirm-detail">Tomorrow, 10:30 AM &middot; Room 4</div>
-                <div class="hiw-gs-mock__confirm-ref">#ZNL-00194</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="hiw-row hiw-row--last" data-step="3">
-            <div class="hiw-row__text">
-              <span class="hiw-row__badge">Step 4</span>
-              <h3 class="hiw-gs-h3">Your team logs in, ready to go</h3>
-              <p class="hiw-gs-desc">Every role sees exactly what they need — staff see their queue, managers see the live floor, admins see all branches. No training required. Everyone is operational from day one.</p>
-            </div>
-            <div class="hiw-row__visual">
-              <div class="hiw-gs-mock hiw-gs-mock--roles">
-                <div class="hiw-gs-mock__role-row">
-                  <div class="hiw-gs-mock__role-avatar" style="background:#4A5F4B">S</div>
-                  <div class="hiw-gs-mock__role-info">
-                    <div class="hiw-gs-mock__role-name">Staff</div>
-                    <div class="hiw-gs-mock__role-desc">My queue today</div>
+            <!-- Step 3 -->
+            <div class="hiw-steps__item reveal">
+              <div class="hiw-steps__num">3</div>
+              <div class="hiw-steps__card">
+                <div class="hiw-steps__visual">
+                  <div class="hiw-gs-mock hiw-gs-mock--confirm">
+                    <div class="hiw-gs-mock__confirm-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div class="hiw-gs-mock__confirm-title">Booking Confirmed</div>
+                    <div class="hiw-gs-mock__confirm-detail">Thai Massage &middot; 60 min</div>
+                    <div class="hiw-gs-mock__confirm-detail">Tomorrow, 10:30 AM &middot; Room 4</div>
+                    <div class="hiw-gs-mock__confirm-ref">#ZNL-00194</div>
                   </div>
-                  <span class="hiw-gs-mock__online"></span>
                 </div>
-                <div class="hiw-gs-mock__role-row">
-                  <div class="hiw-gs-mock__role-avatar" style="background:#7C927A">M</div>
-                  <div class="hiw-gs-mock__role-info">
-                    <div class="hiw-gs-mock__role-name">Manager</div>
-                    <div class="hiw-gs-mock__role-desc">Live floor view</div>
-                  </div>
-                  <span class="hiw-gs-mock__online"></span>
-                </div>
-                <div class="hiw-gs-mock__role-row">
-                  <div class="hiw-gs-mock__role-avatar" style="background:#2D5A27">A</div>
-                  <div class="hiw-gs-mock__role-info">
-                    <div class="hiw-gs-mock__role-name">Admin</div>
-                    <div class="hiw-gs-mock__role-desc">All branches</div>
-                  </div>
-                  <span class="hiw-gs-mock__online"></span>
+                <div class="hiw-steps__info">
+                  <h3 class="hiw-steps__title">Share the link, bookings start</h3>
+                  <p class="hiw-steps__desc">Post on Instagram or WhatsApp — customers book instantly, no calls needed.</p>
                 </div>
               </div>
             </div>
-          </div>
 
-        </div>{# end .hiw-rows #}
+            <!-- Step 4 -->
+            <div class="hiw-steps__item reveal">
+              <div class="hiw-steps__num">4</div>
+              <div class="hiw-steps__card">
+                <div class="hiw-steps__visual">
+                  <div class="hiw-gs-mock hiw-gs-mock--roles">
+                    <div class="hiw-gs-mock__role-row">
+                      <div class="hiw-gs-mock__role-avatar" style="background:#4A5F4B">S</div>
+                      <div class="hiw-gs-mock__role-info">
+                        <div class="hiw-gs-mock__role-name">Staff</div>
+                        <div class="hiw-gs-mock__role-desc">My queue today</div>
+                      </div>
+                      <span class="hiw-gs-mock__online"></span>
+                    </div>
+                    <div class="hiw-gs-mock__role-row">
+                      <div class="hiw-gs-mock__role-avatar" style="background:#7C927A">M</div>
+                      <div class="hiw-gs-mock__role-info">
+                        <div class="hiw-gs-mock__role-name">Manager</div>
+                        <div class="hiw-gs-mock__role-desc">Live floor view</div>
+                      </div>
+                      <span class="hiw-gs-mock__online"></span>
+                    </div>
+                    <div class="hiw-gs-mock__role-row">
+                      <div class="hiw-gs-mock__role-avatar" style="background:#2D5A27">A</div>
+                      <div class="hiw-gs-mock__role-info">
+                        <div class="hiw-gs-mock__role-name">Admin</div>
+                        <div class="hiw-gs-mock__role-desc">All branches</div>
+                      </div>
+                      <span class="hiw-gs-mock__online"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="hiw-steps__info">
+                  <h3 class="hiw-steps__title">Your team logs in, ready to go</h3>
+                  <p class="hiw-steps__desc">Every role gets exactly the right view — staff, manager, or admin.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>{# end .hiw-steps__timeline #}
+        </div>{# end .hiw-steps #}
       </div>
 
       <!-- 02: Daily loop -->

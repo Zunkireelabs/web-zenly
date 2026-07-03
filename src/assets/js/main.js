@@ -166,6 +166,290 @@
     }, SHOW_DURATION);
   }
 
+  // ── Pain points SplitText word reveal ────────────────────────────────
+  const problemBody = document.getElementById('problemBody');
+  if (problemBody && typeof gsap !== 'undefined' && typeof SplitText !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+    const split = new SplitText(problemBody, { type: 'words', wordsClass: 'split-word' });
+    gsap.from(split.words, {
+      scrollTrigger: {
+        trigger: problemBody,
+        start: 'top 80%',
+      },
+      opacity: 0,
+      y: 20,
+      stagger: 0.04,
+      duration: 0.5,
+      ease: 'power2.out',
+    });
+  }
+
+  // ── Problem to Solution (THE TURN) Pinned Storytelling Transition ───
+  const storySection = document.getElementById('storytellingSection');
+  const storyInner = document.getElementById('storytellingInner');
+  const slideProblem = document.getElementById('storySlideProblem');
+  const slideSolution = document.getElementById('storySlideSolution');
+  const dividerContainer = document.getElementById('storyDividerContainer');
+  const solutionHeader = document.getElementById('solutionHeader');
+
+  if (storySection && storyInner && slideProblem && slideSolution && problemBody && dividerContainer && solutionHeader && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Both slides share one grid cell so they can cross-fade; the tall problem
+    // paragraph still occupies layout height even at opacity 0, leaving dead
+    // space under the shorter solution content. Lock the container to its
+    // measured starting height, then shrink it to the solution slide's height
+    // in step with the rest of the timeline below.
+    const problemSlideHeight = slideProblem.offsetHeight;
+    const solutionSlideHeight = slideSolution.offsetHeight;
+    gsap.set(storyInner, { height: problemSlideHeight });
+
+    const dividerLeft = dividerContainer.querySelector('.story-divider-line--left');
+    const dividerRight = dividerContainer.querySelector('.story-divider-line--right');
+    const dividerLabel = dividerContainer.querySelector('.story-divider-label');
+    const solPhrases = solutionHeader.querySelectorAll('.sol-phrase');
+
+    // Setup initial styles
+    gsap.set(slideSolution, { opacity: 1, y: 0 }); // slide is visible but sub-contents hidden
+    gsap.set(dividerContainer, { opacity: 1 });
+    gsap.set(dividerLeft, { scaleX: 0 });
+    gsap.set(dividerRight, { scaleX: 0 });
+    gsap.set(dividerLabel, { opacity: 0 });
+    gsap.set(solutionHeader, { opacity: 1, y: 0 });
+    
+    // Hide solution header contents & cards initially
+    const cards = document.querySelectorAll('#solCards .sol-card');
+    gsap.set(solPhrases, { opacity: 0, y: 20 });
+    gsap.set(solutionHeader.querySelector('.solution__sub'), { opacity: 0, y: 15 });
+    if (cards.length) {
+      gsap.set(cards, { opacity: 0, y: 30 });
+    }
+
+    // Create a pinned timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: storySection,
+        start: "top top", // Pin when the top of storytelling section reaches the top of the viewport
+        end: "+=100%", // Keep pinned for 100% of viewport height (cards removed for now, no longer need the extra 60%)
+        pin: true,
+        scrub: 1, // Smooth scrub to control animation via scroll
+      }
+    });
+
+    // ── Phase 1: Problem exits (Fade out, translate up 30px) ──
+    tl.to(problemBody, {
+      y: -30,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out"
+    });
+
+    // Disable problem pointer events once faded out
+    tl.set(slideProblem, { pointerEvents: "none" });
+    tl.set(slideSolution, { pointerEvents: "auto" });
+
+    // Shrink the container to the solution slide's height so no gap is left
+    // once the section unpins (runs alongside phases 2–3 below).
+    tl.to(storyInner, {
+      height: solutionSlideHeight,
+      duration: 1.3,
+      ease: "power2.out"
+    }, "-=0.1");
+
+    // ── Phase 2: Divider grows from center + Label fades in ──
+    tl.to([dividerLeft, dividerRight], {
+      scaleX: 1,
+      duration: 0.5,
+      ease: "power2.out"
+    }, "-=0.1");
+
+    tl.to(dividerLabel, {
+      opacity: 1,
+      duration: 0.4,
+      ease: "power2.out"
+    }, "-=0.4");
+
+    // ── Phase 3: Reveal solution staggered (Fade in, translate up 20px) ──
+    solPhrases.forEach((phrase, idx) => {
+      tl.to(phrase, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.out"
+      }, `-=${idx === 0 ? 0.1 : 0.35}`);
+    });
+
+    tl.to(solutionHeader.querySelector('.solution__sub'), {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.out"
+    }, "-=0.2");
+
+    // ── Phase 4: Reveal cards one by one (Staggered pop up) ──
+    if (cards.length) {
+      cards.forEach((card, idx) => {
+        tl.to(card, {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out"
+        }, `-=${idx === 0 ? 0.1 : 0.35}`);
+      });
+    }
+    
+    // ── Interactive Hover for Solution Phrases ──
+    solPhrases.forEach(phrase => {
+      phrase.addEventListener('mouseenter', () => {
+        solutionHeader.classList.add('is-hovered');
+      });
+      phrase.addEventListener('mouseleave', () => {
+        solutionHeader.classList.remove('is-hovered');
+      });
+    });
+  }
+
+  // ── Value section corner callouts — draw-on-scroll connectors ────────
+  const valueCallouts = document.querySelectorAll('.value-callout');
+  if (valueCallouts.length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    valueCallouts.forEach((callout, idx) => {
+      const path = callout.querySelector('.value-callout__connector-path');
+      if (!path) return;
+
+      gsap.to(path, {
+        strokeDashoffset: 0,
+        duration: 0.7,
+        ease: 'power2.inOut',
+        delay: 0.15 * idx,
+        scrollTrigger: {
+          trigger: '#value',
+          start: 'top 65%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+  }
+
+  // ── Curtain Reveal & Features Header Animation ───────────────────────
+  const featuresSection = document.getElementById('features');
+  const entrHeader = document.getElementById('entrHeader');
+  
+  if (featuresSection && entrHeader && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    const entrPhrases = entrHeader.querySelectorAll('.entr-phrase');
+    const entrSub = entrHeader.querySelector('.entr-header__sub');
+
+    // Setup initial state
+    gsap.set(entrHeader, { opacity: 1 });
+    gsap.set(entrPhrases, { opacity: 0, y: 25 });
+    gsap.set(entrSub, { opacity: 0, y: 15 });
+
+    // Parallax uncover effect on features inner container
+    const innerContainer = featuresSection.querySelector('.section__inner');
+    if (innerContainer) {
+      gsap.fromTo(innerContainer, 
+        { y: -100 },
+        {
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: featuresSection,
+            start: "top bottom",
+            end: "top top+=100px",
+            scrub: true
+          }
+        }
+      );
+    }
+
+    // ScrollTrigger to reveal the header as the curtain scrolls up
+    const tlEntr = gsap.timeline({
+      scrollTrigger: {
+        trigger: entrHeader,
+        start: "top 92%", // Trigger exactly when the header is visible near the bottom of viewport
+        end: "top 72%",
+        scrub: 1,
+      }
+    });
+
+    // Stagger reveal the phrases
+    entrPhrases.forEach((phrase, idx) => {
+      tlEntr.to(phrase, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.out"
+      }, idx * 0.15);
+    });
+
+    // Reveal subtext
+    tlEntr.to(entrSub, {
+      y: 0,
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.out"
+    }, "-=0.1");
+
+    // Add hover interactivity
+    entrPhrases.forEach(phrase => {
+      phrase.addEventListener('mouseenter', () => {
+        entrHeader.classList.add('is-hovered');
+      });
+      phrase.addEventListener('mouseleave', () => {
+        entrHeader.classList.remove('is-hovered');
+      });
+    });
+  }
+
+  // ── Features Cards Scroll-Triggered Reveal Animations ────────────────
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    // 1. Alternating Row Cards: slide text from left, visual from right
+    const smCards = document.querySelectorAll('.entr-list > .feat-card--sm');
+    smCards.forEach(card => {
+      const text = card.querySelector('.feat-card__text');
+      const visual = card.querySelector('.feat-card__visual');
+      if (text && visual) {
+        gsap.set(text, { opacity: 0, x: -50 });
+        gsap.set(visual, { opacity: 0, x: 50 });
+        
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%", // trigger when card top is 85% down viewport
+            toggleActions: "play none none none"
+          }
+        })
+        .to(text, { x: 0, opacity: 1, duration: 0.8, ease: "power2.out" })
+        .to(visual, { x: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, "-=0.6");
+      }
+    });
+
+    // 2. Middle Row Grid Cards: stagger popup from bottom
+    const gridSection = document.querySelector('.entr-list > .feat-grid');
+    if (gridSection) {
+      const stackCards = gridSection.querySelectorAll('.feat-card--stack');
+      if (stackCards.length) {
+        gsap.set(stackCards, { opacity: 0, y: 50 });
+        
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: gridSection,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        })
+        .to(stackCards, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.25,
+          ease: "power2.out"
+        });
+      }
+    }
+  }
+
   // ── Scroll reveal — shared .reveal elements ───────────────────────────
   const revealObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
@@ -242,19 +526,19 @@
   (function () {
     const testimonials = [
       {
-        name: 'Spa Manager',
-        biz: 'Nuad Thai Spa · Spa & Wellness',
-        quote: '"Before Zenly, closing the day meant 45 minutes of Excel — comparing receipts, chasing staff, hoping the numbers matched. Now it takes one click. I don\'t know how we managed without it."',
+        name: 'Owner',
+        biz: 'Multi-branch spa · Kathmandu',
+        quote: '"Before this, my manager was calling me 10 times a day. Now I open the app and see everything myself."',
       },
       {
-        name: 'Salon Owner',
-        biz: 'Pure Glow · Hair & Beauty',
-        quote: '"No-shows dropped to almost zero since we turned on confirmations. Clients actually show up now — and so does the revenue."',
+        name: 'Admin',
+        biz: 'Aesthetic clinic · Pokhara',
+        quote: '"The discount approval alone saved us. We didn\'t realize how much we were giving away until we could see every request."',
       },
       {
-        name: 'Clinic Manager',
-        biz: 'SmileWell · Dental Clinic',
-        quote: '"Staff know their schedule without a group chat. Managers see the whole day at a glance. It just works — and patients notice."',
+        name: 'Manager',
+        biz: 'Premium salon chain',
+        quote: '"Our customers love booking online. We\'ve seen a noticeable drop in front-desk calls and a jump in confirmed appointments."',
       },
     ];
 
@@ -288,7 +572,7 @@
       text.split(' ').forEach(function (word, i) {
         const span = document.createElement('span');
         span.className = 'testi-word';
-        span.textContent = word + ' ';
+        span.textContent = word;
         span.style.animationDelay = (i * 0.025) + 's';
         quoteEl.appendChild(span);
       });
@@ -414,27 +698,6 @@
       fdTrustBtn.querySelector('.fd-trust__icon--pause').style.display = fdTrustPlaying ? '' : 'none';
       fdTrustBtn.querySelector('.fd-trust__icon--play').style.display  = fdTrustPlaying ? 'none' : '';
       fdTrustBtn.setAttribute('aria-label', fdTrustPlaying ? 'Pause carousel' : 'Play carousel');
-    });
-  }
-
-  // ── Feature detail: hero image expand + revert (lerp on ticker) ──────────
-  var fdImgWrap = document.querySelector('.fd-hero__img-wrap');
-  if (fdImgWrap && typeof gsap !== 'undefined') {
-    var fdCurW = 40, fdCurR = 20;
-
-    function fdGetTarget() {
-      var p = Math.min(Math.max(window.scrollY / window.innerHeight, 0), 1);
-      var raw = p < 0.5 ? p * 2 : (1 - p) * 2;
-      var s = raw * raw * (3 - 2 * raw); // smoothstep
-      return { w: 40 + s * 25, r: 20 - s * 8 };
-    }
-
-    gsap.ticker.add(function () {
-      var t = fdGetTarget();
-      fdCurW += (t.w - fdCurW) * 0.05;
-      fdCurR += (t.r - fdCurR) * 0.05;
-      fdImgWrap.style.width = fdCurW + 'vw';
-      fdImgWrap.style.borderRadius = fdCurR + 'px';
     });
   }
 
