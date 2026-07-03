@@ -1,0 +1,669 @@
+---
+layout: base.njk
+---
+
+<main>
+
+  <!-- ── HERO ────────────────────────────────────────────────────────────── -->
+  <section class="fd-hero" style="background: {{ feature.hero.bg }}">
+    <div class="fd-hero__inner">
+
+      <div class="fd-hero__text">
+        {% if feature.hero.eyebrow %}
+        <p class="fd-hero__eyebrow">{{ feature.hero.eyebrow }}</p>
+        {% endif %}
+        <h1 class="fd-hero__h1">{{ feature.hero.headline | safe }}</h1>
+        <p class="fd-hero__sub">{{ feature.hero.subheadline }}</p>
+        <div class="fd-hero__actions fd-hero__actions--compact">
+          <a href="mailto:info.zunkireelabs@gmail.com" class="btn-primary">{{ feature.hero.cta if feature.hero.cta else "Book a Demo" }}</a>
+        </div>
+        {% if feature.hero.trustLine %}
+        <p class="fd-hero__trust">{{ feature.hero.trustLine }}</p>
+        {% endif %}
+      </div>
+
+      <div class="fd-hero__img-track">
+        {% if feature.slug == 'booking' %}
+        <div class="fd-hero__mockup" aria-hidden="true">
+          <div class="fd-hero__mockup-top">
+            <div>
+              <p class="fd-hero__mockup-title">Today&rsquo;s bookings</p>
+              <p class="fd-hero__mockup-date">Thu, 3 Jul &middot; Lazimpat branch</p>
+            </div>
+            <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
+          </div>
+          <div class="fd-hero__mockup-list" data-hero-mockup>
+            <div class="fd-hero__mockup-row">
+              <span class="fd-hero__mockup-avatar">A</span>
+              <div class="fd-hero__mockup-info">
+                <p class="fd-hero__mockup-name">A. Sharma</p>
+                <p class="fd-hero__mockup-service">Deep tissue massage &middot; 60 min</p>
+              </div>
+              <span class="fd-hero__mockup-status"></span>
+            </div>
+            <div class="fd-hero__mockup-row">
+              <span class="fd-hero__mockup-avatar">M</span>
+              <div class="fd-hero__mockup-info">
+                <p class="fd-hero__mockup-name">Manisha T.</p>
+                <p class="fd-hero__mockup-service">Hot stone therapy &middot; 90 min</p>
+              </div>
+              <span class="fd-hero__mockup-status"></span>
+            </div>
+            <div class="fd-hero__mockup-row">
+              <span class="fd-hero__mockup-avatar">R</span>
+              <div class="fd-hero__mockup-info">
+                <p class="fd-hero__mockup-name">R. Gurung</p>
+                <p class="fd-hero__mockup-service">Facial &amp; skincare &middot; 45 min</p>
+              </div>
+              <span class="fd-hero__mockup-status"></span>
+            </div>
+            <div class="fd-hero__mockup-row">
+              <span class="fd-hero__mockup-avatar">S</span>
+              <div class="fd-hero__mockup-info">
+                <p class="fd-hero__mockup-name">S. Koirala</p>
+                <p class="fd-hero__mockup-service">Aromatherapy &middot; 60 min</p>
+              </div>
+              <span class="fd-hero__mockup-status"></span>
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <div class="fd-hero__img-wrap">
+          <img src="{{ feature.hero.image }}" alt="{{ feature.hero.imageAlt }}" class="fd-hero__img">
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── TRUST CAROUSEL ─────────────────────────────────────────────────── -->
+  <section class="fd-trust">
+    <p class="fd-trust__heading"><span class="fd-trust__stat">Trusted by</span> appointment businesses worldwide.</p>
+    <div class="fd-trust__inner">
+      <div class="fd-trust__row">
+        <div class="fd-trust__track" id="fdTrustTrack">
+          <div class="fd-trust__rail" id="fdTrustRail">
+            <div class="trust-chip trust-chip--live">Nuad Thai Spa</div>
+            <div class="trust-chip trust-chip--light-italic">Pure Glow</div>
+            <div class="trust-chip trust-chip--caps">The Curl Studio</div>
+            <div class="trust-chip trust-chip--medium">SmileWell</div>
+            <div class="trust-chip trust-chip--bold">FitForm</div>
+            <div class="trust-chip trust-chip--dot">revive.</div>
+            <div class="trust-chip trust-chip--medium">Ink &amp; Canvas</div>
+            <div class="trust-chip trust-chip--wide-caps">PHYSIO PLUS</div>
+            <div class="trust-chip trust-chip--dot">clean &amp; co.</div>
+            <div class="trust-chip trust-chip--serif-italic">nail atelier</div>
+            <div class="trust-chip trust-chip--caps">ZENITH DENTAL</div>
+            <div class="trust-chip trust-chip--serif">maven</div>
+            <div class="trust-chip trust-chip--heavy">FLEX</div>
+            <div class="trust-chip trust-chip--medium">The Tidiers</div>
+            <div class="trust-chip trust-chip--light-italic">bloom studio</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="trust-chip trust-chip--live">Nuad Thai Spa</div>
+            <div class="trust-chip trust-chip--light-italic">Pure Glow</div>
+            <div class="trust-chip trust-chip--caps">The Curl Studio</div>
+            <div class="trust-chip trust-chip--medium">SmileWell</div>
+            <div class="trust-chip trust-chip--bold">FitForm</div>
+            <div class="trust-chip trust-chip--dot">revive.</div>
+            <div class="trust-chip trust-chip--medium">Ink &amp; Canvas</div>
+            <div class="trust-chip trust-chip--wide-caps">PHYSIO PLUS</div>
+            <div class="trust-chip trust-chip--dot">clean &amp; co.</div>
+            <div class="trust-chip trust-chip--serif-italic">nail atelier</div>
+            <div class="trust-chip trust-chip--caps">ZENITH DENTAL</div>
+            <div class="trust-chip trust-chip--serif">maven</div>
+            <div class="trust-chip trust-chip--heavy">FLEX</div>
+            <div class="trust-chip trust-chip--medium">The Tidiers</div>
+            <div class="trust-chip trust-chip--light-italic">bloom studio</div>
+          </div>
+        </div>
+        <button class="fd-trust__btn" id="fdTrustBtn" aria-label="Pause carousel">
+          <!-- pause icon (default) -->
+          <svg class="fd-trust__icon fd-trust__icon--pause" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="2" y="1" width="3.5" height="12" rx="1.5" fill="currentColor"/>
+            <rect x="8.5" y="1" width="3.5" height="12" rx="1.5" fill="currentColor"/>
+          </svg>
+          <!-- play icon (hidden) -->
+          <svg class="fd-trust__icon fd-trust__icon--play" width="14" height="14" viewBox="0 0 14 14" fill="none" style="display:none">
+            <path d="M3 2L12 7L3 12V2Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LIFECYCLE (sticky numbered scroll) ─────────────────────────────────
+       Skipped when feature.workflow is present — that timeline already
+       covers the same status walkthrough with more concrete detail. ── -->
+  {% if not feature.workflow %}
+  <section class="section fd-lifecycle">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        <h2 class="section__h2">{{ feature.intro.headline if feature.intro else "Here's how it happens" }}</h2>
+        {% if feature.intro.body %}
+        <p class="section__sub">{{ feature.intro.body }}</p>
+        {% endif %}
+      </div>
+      <div class="fd-lifecycle-scroll" data-lifecycle-scroll>
+        <div class="fd-lifecycle-scroll__nums">
+          {% for item in feature.howItWorks %}
+          <div class="fd-lifecycle-scroll__num{% if loop.first %} is-active{% endif %}">{{ item.step }}</div>
+          {% endfor %}
+        </div>
+        <div class="fd-lifecycle-scroll__text-col">
+          {% for item in feature.howItWorks %}
+          <div class="fd-lifecycle-scroll__item{% if loop.first %} is-active{% endif %}">
+            <div class="fd-lifecycle-scroll__card">
+              <h3 class="fd-lifecycle-scroll__title">{{ item.title }}</h3>
+              <p class="fd-lifecycle-scroll__desc">{{ item.description }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ── WORKFLOW TIMELINE ─────────────────────────────────────────────── -->
+  {% if feature.workflow %}
+  <section class="fd-workflow">
+    <div class="section__inner">
+      <h2 class="fd-workflow__heading">How a booking day runs on Zenly.</h2>
+      <p class="fd-workflow__sub">A real timeline of one appointment, hour by hour.</p>
+      <div class="fd-workflow__grid">
+        {% for item in feature.workflow %}
+        <div class="fd-workflow__col">
+          <div class="fd-workflow__card fd-workflow__card--{{ 'top' if loop.index % 2 != 0 else 'bottom' }}" style="--delay: {{ (loop.index - 1) * 120 }}ms">
+            <div class="fd-workflow__num-row">
+              <span class="fd-workflow__num">{{ item.num }}</span>
+              <span class="fd-workflow__bar"></span>
+            </div>
+            <p class="fd-workflow__time">{{ item.time }}</p>
+            <h3 class="fd-workflow__title">{{ item.title }}</h3>
+            <p class="fd-workflow__body">{{ item.body }}</p>
+            {% if item.status %}
+            <span class="fd-workflow__status">
+              {% if item.status == "Pending" %}
+              <svg class="fd-workflow__status-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              {% elif item.status == "Confirmed" %}
+              <svg class="fd-workflow__status-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              {% elif item.status == "In-Progress" %}
+              <svg class="fd-workflow__status-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              {% elif item.status == "Completed" %}
+              <svg class="fd-workflow__status-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {% elif item.status == "Reconciled" %}
+              <svg class="fd-workflow__status-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              {% endif %}
+              <span>{{ item.status }}</span>
+            </span>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ── PRIMARY FEATURES (roles or sticky scroll) ───────────────────────── -->
+  {% if feature.roles %}
+  <section class="section fd-roles">
+    <div class="section__inner">
+      <h2 class="fd-roles__heading">The right view for every role.</h2>
+      <p class="fd-roles__sub">Built for every person in your business.</p>
+
+      <div class="fd-roles-tabs" data-roles-tabs>
+        <div class="fd-roles-tabs__nav">
+          {% for role in feature.roles %}
+          <div class="fd-roles-tabs__col{% if loop.first %} is-active{% endif %}" data-role-tab="{{ loop.index0 }}" tabindex="0">
+            <span class="fd-roles-tabs__tab">{{ role.persona }}</span>
+            {% if role.summary %}
+            <p class="fd-roles-tabs__summary">{{ role.summary }}</p>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+        <div class="fd-roles-tabs__panels">
+          {% for role in feature.roles %}
+          <div class="fd-roles-tabs__panel{% if loop.first %} is-active{% endif %}" data-role-panel="{{ loop.index0 }}">
+            <div class="fd-roles-tabs__visual">
+              {% if role.image %}
+              <img src="{{ role.image }}" alt="{{ role.imageAlt or role.persona }}" class="fd-roles-tabs__img">
+              {% else %}
+              <div class="fd-roles-tabs__placeholder" aria-hidden="true"></div>
+              {% endif %}
+            </div>
+            <div class="fd-roles-tabs__text">
+              <ul class="fd-roles__list">
+                {% for feat in role.features %}
+                <li class="fd-roles__item">
+                  <span class="fd-roles__check">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#2D5A27" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <div>
+                    <p class="fd-roles__feat-title">{{ feat.title }}</p>
+                    <p class="fd-roles__feat-desc">{{ feat.description }}</p>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% else %}
+  <section class="section fd-sscroll-dark">
+    <div class="section__inner">
+      <div class="fd-sscroll reveal">
+
+        <!-- Left col: sticky — heading + image stay pinned while right scrolls -->
+        <div class="fd-sscroll__img-col">
+          <h2 class="section__h2 fd-sscroll__lbl">{{ feature.intro.headline }}</h2>
+          <div class="fd-sscroll__img-wrap">
+            <img src="{{ feature.hero.image }}" alt="{{ feature.hero.imageAlt }}" class="fd-sscroll__img">
+          </div>
+        </div>
+
+        <!-- Right col: items stack naturally; JS activates closest to image centre -->
+        <div class="fd-sscroll__text-col">
+          {% for feat in feature.primaryFeatures %}
+          <div class="fd-sscroll__item{% if loop.first %} is-active{% endif %}">
+            <h3 class="fd-sscroll__title">{{ feat.title }}</h3>
+            <p class="fd-sscroll__desc">{{ feat.description }}</p>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ── PROOF THROUGH NUMBERS ────────────────────────────────────────────── -->
+  {% if feature.proof %}
+  <section class="section fd-proof">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        {% if feature.proof.eyebrow and feature.slug != 'booking' %}<p class="section__badge">{{ feature.proof.eyebrow }}</p>{% endif %}
+        <h2 class="section__h2">{{ feature.proof.headline }}</h2>
+        {% if feature.proof.sub %}<p class="section__sub section__sub--center">{{ feature.proof.sub }}</p>{% endif %}
+      </div>
+      <div class="fd-proof__grid reveal">
+        {% for stat in feature.proof.stats %}
+        <div class="fd-proof__card">
+          {% if stat.tag %}
+          <p class="fd-proof__tag"><span class="fd-proof__dot" aria-hidden="true"></span>{{ stat.tag }}</p>
+          {% endif %}
+          <div class="fd-proof__num">{{ stat.value }}</div>
+          <p class="fd-proof__label">{{ stat.label }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      {% if feature.proof.supportingLine %}
+      <p class="fd-proof__support">{{ feature.proof.supportingLine }}</p>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ── SOCIAL PROOF ──────────────────────────────────────────────────────── -->
+  {% if feature.socialProof %}
+  <section class="section fd-social">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        {% if feature.socialProof.eyebrow and feature.slug != 'booking' %}
+        <p class="fd-social__badge"><span class="fd-social__dot" aria-hidden="true"></span>{{ feature.socialProof.eyebrow }}</p>
+        {% endif %}
+        <h2 class="section__h2">{{ feature.socialProof.headline }}</h2>
+        {% if feature.socialProof.sub %}<p class="section__sub section__sub--center">{{ feature.socialProof.sub }}</p>{% endif %}
+      </div>
+      <div class="fd-social__grid reveal">
+        {% for item in feature.socialProof.quotes %}
+        <div class="fd-social__card">
+          <span class="fd-social__quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="fd-social__quote">{{ item.quote }}</p>
+          <div class="fd-social__footer">
+            <span class="fd-social__avatar">{{ item.author | first }}</span>
+            <p class="fd-social__author">{{ item.author }}<span class="fd-social__business">{{ item.business }}</span></p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ── CONNECTED FEATURES (2x2 bento grid with center mockup) ───────────── -->
+  {% if feature.connectedFeatures %}
+  <section class="section fd-connected">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        <h2 class="section__h2">{{ feature.connectedFeatures.headline }}</h2>
+        {% if feature.connectedFeatures.sub %}<p class="section__sub section__sub--center">{{ feature.connectedFeatures.sub }}</p>{% endif %}
+      </div>
+
+      <div class="fd-bento reveal-scale" data-delay="1">
+        {% set bentoIcons = ["credit-card", "percent", "users", "activity"] %}
+        {% for item in feature.connectedFeatures.items %}
+        <div class="fd-bento__card fd-bento__card--{{ loop.index }}">
+          <div class="fd-bento__head">
+            <span class="fd-bento__icon">
+              {% set icon = bentoIcons[loop.index0] %}
+              {% if icon == "credit-card" %}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              {% elif icon == "percent" %}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+              {% elif icon == "users" %}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              {% elif icon == "activity" %}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              {% endif %}
+            </span>
+            <strong class="fd-bento__title">{{ item.title }}</strong>
+          </div>
+          <p class="fd-bento__text">{{ item.description }}</p>
+        </div>
+        {% endfor %}
+
+        <div class="fd-bento__media">
+          <div class="fd-bento__mockup" data-bento-mockup>
+            <div class="fd-bento__mockup-head">
+              <div>
+                <p class="fd-bento__mockup-name">A. Sharma</p>
+                <p class="fd-bento__mockup-id">#BK-20260702-0001</p>
+              </div>
+              <span class="fd-bento__mockup-badge">Confirmed</span>
+            </div>
+            <div class="fd-bento__mockup-rows">
+              <div class="fd-bento__mockup-row" data-mockup-row="1">
+                <span class="fd-bento__mockup-row-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </span>
+                <span class="fd-bento__mockup-row-label">Payment</span>
+                <span class="fd-bento__mockup-row-value">NPR 4,500 · Paid</span>
+              </div>
+              <div class="fd-bento__mockup-row" data-mockup-row="2">
+                <span class="fd-bento__mockup-row-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+                </span>
+                <span class="fd-bento__mockup-row-label">Discount</span>
+                <span class="fd-bento__mockup-row-value">None applied</span>
+              </div>
+              <div class="fd-bento__mockup-row" data-mockup-row="3">
+                <span class="fd-bento__mockup-row-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="fd-bento__mockup-row-label">Staff</span>
+                <span class="fd-bento__mockup-row-value">Manisha T. assigned</span>
+              </div>
+              <div class="fd-bento__mockup-row" data-mockup-row="4">
+                <span class="fd-bento__mockup-row-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </span>
+                <span class="fd-bento__mockup-row-label">Status</span>
+                <span class="fd-bento__mockup-row-value">Confirmed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ── OBJECTIONS / FAQ ─────────────────────────────────────────────────── -->
+  {% if feature.objections %}
+  <section class="section" id="faq">
+    <div class="section__inner">
+      <div class="faq-header reveal">
+        <h2 class="section__h2">{{ feature.objections.headline }}</h2>
+        {% if feature.objections.sub %}<p class="section__sub section__sub--center">{{ feature.objections.sub }}</p>{% endif %}
+      </div>
+      <div class="faq-list" x-data="{ open: null }">
+        {% for item in feature.objections.items %}
+        <div class="faq-item reveal" data-delay="{{ loop.index }}" :class="{ 'faq-item--open': open === {{ loop.index0 }} }">
+          <button class="faq-item__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
+            {{ item.q }}
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === {{ loop.index0 }}" x-cloak x-transition>
+            <p>{{ item.a }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ── BOTTOM CTA ───────────────────────────────────────────────────────── -->
+  <section class="bottom-cta" id="demo">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">{{ feature.bottomCta.headline if feature.bottomCta else "Ready to see it in action?" }}</h2>
+      <p class="bottom-cta__sub">{{ feature.bottomCta.subheadline if feature.bottomCta else "Book a 30-minute demo. We'll walk you through the platform with your own business in mind." }}</p>
+      <a href="mailto:info.zunkireelabs@gmail.com" class="bottom-cta__banner-btn">{{ feature.bottomCta.ctaLabel if feature.bottomCta else "Book a Demo →" }}</a>
+      <a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener" class="bottom-cta__link" style="color:rgba(255,255,255,0.7);font-size:0.9375rem;margin-top:4px;">See It Live &rarr;</a>
+      {% if feature.bottomCta.reassurance %}
+      <p class="bottom-cta__reassurance" style="color:rgba(255,255,255,0.55);font-size:0.875rem;margin-top:12px;">{{ feature.bottomCta.reassurance }}</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <div class="footer__col footer__col--brand">
+        <a href="/" class="footer__logo">Zenly</a>
+        <p class="footer__tagline">Online booking, operational control, and financial clarity &mdash; for any appointment-based business.</p>
+        <div class="footer__status">
+          <span class="live-dot"></span>
+          <span>All systems operational</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Product</div>
+        <ul class="footer__links">
+          <li><a href="/features/booking">Online Booking</a></li>
+          <li><a href="/features/operations">Operations</a></li>
+          <li><a href="/features/finance">Finance</a></li>
+          <li><a href="/features/reports">Reports</a></li>
+          <li><a href="/features/industries">Industries</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Use Cases</div>
+        <ul class="footer__links">
+          <li><a href="/#industries">Spa &amp; Wellness</a></li>
+          <li><a href="/#industries">Hair Salon</a></li>
+          <li><a href="/#industries">Dental Clinic</a></li>
+          <li><a href="/#industries">More verticals</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="#demo">Book a Demo</a></li>
+          <li><a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener">See It Live</a></li>
+          <li><a href="mailto:info.zunkireelabs@gmail.com">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Legal</div>
+        <ul class="footer__links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__inner">
+        <span class="footer__copy">&copy; 2026 Zunkireelabs. All rights reserved.</span>
+        <span class="footer__built">Built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var grid = document.querySelector('.fd-workflow__grid');
+    if (!grid) return;
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        grid.classList.add('is-visible');
+        io.disconnect();
+      }
+    }, { threshold: 0.15 });
+    io.observe(grid);
+  })();
+
+  (function () {
+    var wrap = document.querySelector('[data-roles-tabs]');
+    if (!wrap) return;
+    var tabs = wrap.querySelectorAll('[data-role-tab]');
+    var panels = wrap.querySelectorAll('[data-role-panel]');
+    function activate(index) {
+      tabs.forEach(function (t) { t.classList.toggle('is-active', t.getAttribute('data-role-tab') === index); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-role-panel') === index); });
+    }
+    tabs.forEach(function (tab) {
+      var index = tab.getAttribute('data-role-tab');
+      tab.addEventListener('mouseenter', function () { activate(index); });
+      tab.addEventListener('click', function () { activate(index); });
+      tab.addEventListener('focus', function () { activate(index); });
+    });
+  })();
+
+  (function () {
+    var mockup = document.querySelector('[data-bento-mockup]');
+    if (!mockup) return;
+    var rows  = mockup.querySelectorAll('.fd-bento__mockup-row');
+    var cards = document.querySelectorAll('.fd-bento__card');
+    if (!rows.length || !cards.length) return;
+
+    var i = 0;
+    var timer;
+
+    function activate(index) {
+      rows.forEach(function (row) {
+        row.classList.toggle('is-active', row.getAttribute('data-mockup-row') === String(index + 1));
+      });
+      cards.forEach(function (card) {
+        card.classList.toggle('is-linked', card.classList.contains('fd-bento__card--' + (index + 1)));
+      });
+    }
+
+    function tick() {
+      activate(i);
+      i = (i + 1) % rows.length;
+    }
+
+    function start() {
+      tick();
+      clearInterval(timer);
+      timer = setInterval(tick, 1800);
+    }
+
+    var section = document.querySelector('.fd-connected');
+    if (section && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { start(); io.disconnect(); }
+        });
+      }, { threshold: 0.3 });
+      io.observe(section);
+    } else {
+      start();
+    }
+  })();
+
+  (function () {
+    var wrap = document.querySelector('[data-lifecycle-scroll]');
+    if (!wrap) return;
+    var nums  = wrap.querySelectorAll('.fd-lifecycle-scroll__num');
+    var items = wrap.querySelectorAll('.fd-lifecycle-scroll__item');
+    if (!nums.length || !items.length) return;
+
+    function update() {
+      var viewportCentre = window.innerHeight / 2;
+      var activeIndex = 0;
+      var minDist = Infinity;
+      items.forEach(function (item, i) {
+        var r = item.getBoundingClientRect();
+        var dist = Math.abs((r.top + r.bottom) / 2 - viewportCentre);
+        if (dist < minDist) { minDist = dist; activeIndex = i; }
+      });
+      items.forEach(function (item, i) { item.classList.toggle('is-active', i === activeIndex); });
+      nums.forEach(function (num, i) { num.classList.toggle('is-active', i === activeIndex); });
+    }
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+  })();
+
+  (function () {
+    var mockup = document.querySelector('[data-hero-mockup]');
+    if (!mockup) return;
+    var rows = mockup.querySelectorAll('.fd-hero__mockup-row');
+    if (!rows.length) return;
+
+    var STATUSES = ['Pending', 'Confirmed', 'In-Progress', 'Completed'];
+    var ICONS = {
+      'Pending': '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+      'Confirmed': '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+      'In-Progress': '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+      'Completed': '<polyline points="20 6 9 17 4 12"/>'
+    };
+
+    function setStatus(row, status) {
+      var el = row.querySelector('.fd-hero__mockup-status');
+      if (!el) return;
+      el.classList.toggle('is-done', status === 'Completed');
+      el.innerHTML = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' + ICONS[status] + '</svg><span>' + status + '</span>';
+    }
+
+    var state = [];
+    rows.forEach(function (row, i) {
+      state[i] = i % STATUSES.length;
+      setStatus(row, STATUSES[state[i]]);
+    });
+
+    function tick() {
+      rows.forEach(function (row, i) {
+        state[i] = (state[i] + 1) % STATUSES.length;
+        setStatus(row, STATUSES[state[i]]);
+      });
+    }
+
+    var timer;
+    function start() {
+      clearInterval(timer);
+      timer = setInterval(tick, 2200);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { start(); io.disconnect(); }
+        });
+      }, { threshold: 0.3 });
+      io.observe(mockup);
+    } else {
+      start();
+    }
+  })();
+
+  </script>
+</main>
