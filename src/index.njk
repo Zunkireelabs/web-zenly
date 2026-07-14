@@ -1,94 +1,303 @@
 ---
 layout: base.njk
 title: Zenly — Online Booking & Operations Platform
+bodyClass: page--light-nav
 ---
 
 <main>
 
   <!-- ── HERO ─────────────────────────────────────────── -->
   <section class="hero" id="hero">
-
-    <video class="hero__video" autoplay muted loop playsinline>
-      <source src="/assets/videos/hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero__overlay"></div>
-
     <div class="hero__inner">
-
-      <!-- Left: text -->
       <div class="hero__text">
         <h1 class="hero__headline">
-          Running multiple branches shouldn't feel like a second job.
+          <span class="sr-only">Built for the businesses that run without the chaos.</span>
+          <span aria-hidden="true">
+            <span class="hero__fixed-line">Built for the</span>
+            <span class="hero__fixed-line">businesses that</span>
+            <span class="hero__rotate" id="heroRotate">run</span>
+            <span class="hero__fixed-line">without the chaos.</span>
+          </span>
         </h1>
         <div class="hero__actions">
           <a href="#demo" class="btn-hero-primary">Book a 20-minute demo →</a>
-          <a href="/how-it-works" class="btn-hero-ghost">See how it works</a>
         </div>
       </div>
 
-      <!-- Right: cycling glass feature elements -->
-      <div class="hero__ui">
+      <!-- Right: phone UI image with looping video + cycling notifications behind the screen -->
+      <div class="hero__phone">
+        <div class="hero__phone-media">
+          <!-- Interactive Booking App Flow -->
+          <div class="booking-flow">
+            <!-- App Header -->
+            <div class="app-header">
+              <div class="app-header__title">New Booking</div>
+              <div class="app-header__subtitle">Nuad Thai Spa — Front Desk</div>
+            </div>
 
-        <!-- 1. New booking notification -->
-        <div class="hero-feature" data-feature="0">
-          <div class="hero-feature__icon">🔔</div>
-          <div class="hero-feature__body">
-            <div class="hero-feature__title">New Booking Received</div>
-            <div class="hero-feature__sub">Thai Massage · Tomorrow 10:30 AM · Nuad Thai Spa</div>
+            <!-- Booking Screens Container -->
+            <div class="booking-screens">
+              
+              
+              <!-- Screen 1: Services -->
+              <div class="booking-screen booking-screen--services active">
+                <!-- Booking-for card: staff is entering this booking on a customer's behalf -->
+                <div class="app-promo-card">
+                  <div class="app-promo-card__label">Booking For</div>
+                  <div class="app-promo-card__title">A. Sharma</div>
+                  <div class="app-promo-card__desc">Walk-in · First visit at Nuad Thai Spa</div>
+                </div>
+
+                <div class="booking-screen__list">
+                  <div class="booking-item" id="item-thai">
+                    <div class="booking-item__info">
+                      <div class="booking-item__title">Traditional Thai Massage</div>
+                      <div class="booking-item__meta">60 min &middot; Manisha T. &middot; Restorative stretch</div>
+                    </div>
+                    <div class="booking-item__price">NPR 1,200</div>
+                  </div>
+                  <div class="booking-item" id="item-oil">
+                    <div class="booking-item__info">
+                      <div class="booking-item__title">Aromatherapy Oil Therapy</div>
+                      <div class="booking-item__meta">90 min &middot; Bikash R. &middot; Lavender &amp; light pressure</div>
+                    </div>
+                    <div class="booking-item__price">NPR 1,800</div>
+                  </div>
+                  <div class="booking-item" id="item-foot">
+                    <div class="booking-item__info">
+                      <div class="booking-item__title">Reflexology Foot Massage</div>
+                      <div class="booking-item__meta">45 min &middot; Sunil K. &middot; Target pressure therapy</div>
+                    </div>
+                    <div class="booking-item__price">NPR 950</div>
+                  </div>
+                </div>
+                <!-- App Bottom CTA Button -->
+                <div class="app-btn-container">
+                  <div class="app-btn disabled" id="btn-services">Select Treatment</div>
+                </div>
+              </div>
+
+              <!-- Screen 2: Time Selection -->
+              <div class="booking-screen booking-screen--time">
+                <div class="booking-screen__section-title">Select Date & Time</div>
+                <div class="calendar-scroll">
+                  <div class="calendar-day">
+                    <span class="day-name">Mon</span>
+                    <span class="day-num">13</span>
+                  </div>
+                  <div class="calendar-day calendar-day--selected">
+                    <span class="day-name">Tue</span>
+                    <span class="day-num">14</span>
+                  </div>
+                  <div class="calendar-day">
+                    <span class="day-name">Wed</span>
+                    <span class="day-num">15</span>
+                  </div>
+                  <div class="calendar-day">
+                    <span class="day-name">Thu</span>
+                    <span class="day-num">16</span>
+                  </div>
+                </div>
+                
+                <div class="slots-grid">
+                  <div class="slot-chip">10:00 AM</div>
+                  <div class="slot-chip" id="slot-target">10:30 AM</div>
+                  <div class="slot-chip">11:30 AM</div>
+                  <div class="slot-chip">2:00 PM</div>
+                </div>
+
+                <!-- Therapist Selection -->
+                <div class="booking-screen__section-title" style="margin-top: 14px; margin-bottom: 8px;">Select Therapist</div>
+                <div class="therapists-list">
+                  <div class="therapist-chip" id="therapist-manisha">
+                    <div class="therapist-avatar">MT</div>
+                    <span class="therapist-name">Manisha T. (★ 4.9)</span>
+                  </div>
+                  <div class="therapist-chip" id="therapist-bikash">
+                    <div class="therapist-avatar">BR</div>
+                    <span class="therapist-name">Bikash R. (★ 4.8)</span>
+                  </div>
+                </div>
+
+                <!-- Special Instructions Mock -->
+                <div class="app-input-group">
+                  <div class="booking-screen__section-title" style="margin-bottom: 0;">Special Instructions</div>
+                  <div class="app-input-mock">e.g., Prefers deep pressure, room temperature...</div>
+                </div>
+
+                <!-- Checkout Price Summary Block -->
+                <div class="app-summary-block">
+                  <div class="app-summary-row">
+                    <span>Thai Massage (60 min)</span>
+                    <span>NPR 1,200</span>
+                  </div>
+                  <div class="app-summary-row">
+                    <span>Service Fee</span>
+                    <span>NPR 0</span>
+                  </div>
+                  <div class="app-summary-row total">
+                    <span>Total</span>
+                    <span>NPR 1,200</span>
+                  </div>
+                </div>
+
+                <!-- App Bottom CTA Button -->
+                <div class="app-btn-container">
+                  <div class="app-btn disabled" id="btn-time">Confirm Booking</div>
+                </div>
+              </div>
+
+              <!-- Screen 3: Confirmation -->
+              <div class="booking-screen booking-screen--confirm">
+                <div class="confirm-card">
+                  <div class="confirm-card__icon">✓</div>
+                  <div class="confirm-card__title">Booking Confirmed</div>
+                  <div class="confirm-card__desc">Logged and confirmed for A. Sharma.</div>
+
+                  <div class="confirm-details">
+                    <div class="confirm-row">
+                      <span class="confirm-label">Customer</span>
+                      <span class="confirm-val">A. Sharma</span>
+                    </div>
+                    <div class="confirm-row">
+                      <span class="confirm-label">Service</span>
+                      <span class="confirm-val">Thai Massage</span>
+                    </div>
+                    <div class="confirm-row">
+                      <span class="confirm-label">Therapist</span>
+                      <span class="confirm-val confirm-val--caps">Manisha T.</span>
+                    </div>
+                    <div class="confirm-row">
+                      <span class="confirm-label">Time</span>
+                      <span class="confirm-val">Today, 10:30 AM</span>
+                    </div>
+                    <div class="confirm-row">
+                      <span class="confirm-label">Booking ID</span>
+                      <span class="confirm-val">#BK-20260713-0007</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 4: Dashboard Overview — real visual UI, not a text list -->
+              <div class="booking-screen booking-screen--activity">
+
+                <!-- Big revenue stat, like the real Zenly staff portal dashboard -->
+                <div class="dash-stat">
+                  <div class="dash-stat__label">Net Revenue Today</div>
+                  <div class="dash-stat__value">NPR 47,200</div>
+                  <div class="dash-stat__trend">▲ 12% vs yesterday</div>
+                </div>
+
+                <!-- Segmented status bar, colored to match the real product's status legend -->
+                <div class="dash-status-bar">
+                  <div class="dash-status-bar__track">
+                    <span class="dash-status-bar__seg dash-status-bar__seg--pending" style="width:0%" data-target-width="12%"></span>
+                    <span class="dash-status-bar__seg dash-status-bar__seg--confirmed" style="width:0%" data-target-width="30%"></span>
+                    <span class="dash-status-bar__seg dash-status-bar__seg--progress" style="width:0%" data-target-width="8%"></span>
+                    <span class="dash-status-bar__seg dash-status-bar__seg--completed" style="width:0%" data-target-width="50%"></span>
+                  </div>
+                  <div class="dash-status-bar__legend">
+                    <span><i class="dash-dot dash-dot--pending"></i>3 Pending</span>
+                    <span><i class="dash-dot dash-dot--confirmed"></i>7 Confirmed</span>
+                    <span><i class="dash-dot dash-dot--progress"></i>2 In Progress</span>
+                    <span><i class="dash-dot dash-dot--completed"></i>11 Completed</span>
+                  </div>
+                </div>
+
+                <div class="booking-screen__section-title" style="margin-top: 16px;">Today's Activity</div>
+                <div class="activity-list">
+
+                  <div class="activity-row" data-activity="0">
+                    <span class="activity-row__dot activity-row__dot--pending"></span>
+                    <div class="activity-row__body">
+                      <div class="activity-row__title">New Booking Logged</div>
+                      <div class="activity-row__sub">Thai Massage · A. Sharma · Pending</div>
+                    </div>
+                    <span class="activity-row__time">10:28 AM</span>
+                  </div>
+
+                  <div class="activity-row" data-activity="1">
+                    <span class="activity-row__dot activity-row__dot--discount"></span>
+                    <div class="activity-row__body">
+                      <div class="activity-row__title">Discount Requested</div>
+                      <div class="activity-row__sub">15% · Manisha T. requests approval</div>
+                    </div>
+                    <span class="activity-row__time">10:45 AM</span>
+                  </div>
+
+                  <div class="activity-row activity-row--approved" data-activity="2">
+                    <span class="activity-row__icon">✓</span>
+                    <div class="activity-row__body">
+                      <div class="activity-row__title">Discount Approved</div>
+                      <div class="activity-row__sub">15% approved by Manager · Logged to booking</div>
+                    </div>
+                    <span class="activity-row__time">10:47 AM</span>
+                  </div>
+
+                  <div class="activity-row activity-row--closed" data-activity="3">
+                    <span class="activity-row__icon">✓</span>
+                    <div class="activity-row__body">
+                      <div class="activity-row__title">Day Closed &amp; Reconciled</div>
+                      <div class="activity-row__sub">NPR 47,200 · 23 bookings completed</div>
+                    </div>
+                    <span class="activity-row__time">6:00 PM</span>
+                  </div>
+
+                </div><!-- /.activity-list -->
+              </div>
+
+            </div><!-- /.booking-screens -->
+
+            <!-- iOS Notification Banner (Drag Panel drop-down simulation) -->
+            <div class="app-notification">
+              <div class="app-notification__header">
+                <span class="app-notification__logo">Z</span>
+                <span class="app-notification__title">Zenly</span>
+                <span class="app-notification__time">just now</span>
+              </div>
+              <div class="app-notification__body">
+                <strong>Booking Confirmed!</strong>
+                <p>Thai Massage for A. Sharma with Manisha T. — confirmed for today, 10:30 AM.</p>
+              </div>
+              <div class="app-notification__handle"></div>
+            </div>
+
+            <!-- Pointer cursor overlay to animate clicks -->
+            <div class="app-cursor"></div>
+          </div><!-- /.booking-flow -->
+
+          <!-- iOS Status Bar & Dynamic Island -->
+          <div class="phone-status-bar">
+            <span class="phone-status-bar__time">9:41</span>
+            <div class="phone-status-bar__island"></div>
+            <div class="phone-status-bar__icons">
+              <!-- Cellular signal icon -->
+              <svg class="phone-status-bar__icon" width="17" height="11" viewBox="0 0 17 11" fill="currentColor">
+                <rect x="0" y="8" width="2.5" height="3" rx="0.5"/>
+                <rect x="4" y="6" width="2.5" height="5" rx="0.5"/>
+                <rect x="8" y="4" width="2.5" height="7" rx="0.5"/>
+                <rect x="12" y="1" width="2.5" height="10" rx="0.5"/>
+              </svg>
+              <!-- Wifi icon -->
+              <svg class="phone-status-bar__icon" width="15" height="11" viewBox="0 0 15 11" fill="currentColor">
+                <path d="M7.5 11C8.32843 11 9 10.3284 9 9.5C9 8.67157 8.32843 8 7.5 8C6.67157 8 6 8.67157 6 9.5C6 10.3284 6.67157 11 7.5 11Z"/>
+                <path d="M7.5 5.5C9.3 5.5 10.9 6.2 12.1 7.4L13.5 6C11.9 4.4 9.8 3.5 7.5 3.5C5.2 3.5 3.1 4.4 1.5 6L2.9 7.4C4.1 6.2 5.7 5.5 7.5 5.5Z"/>
+                <path d="M7.5 1C10.4 1 13.1 2.1 15 4L13.6 5.4C12 3.8 9.9 3 7.5 3C5.1 3 3 3.8 1.4 5.4L0 4C1.9 2.1 4.6 1 7.5 1Z"/>
+              </svg>
+              <!-- Battery icon -->
+              <svg class="phone-status-bar__icon" width="22" height="11" viewBox="0 0 22 11" fill="currentColor">
+                <rect x="0.5" y="0.5" width="18" height="10" rx="2.5" fill="none" stroke="currentColor"/>
+                <rect x="2" y="2" width="11" height="7" rx="1.5" fill="currentColor"/>
+                <path d="M20 3.5C20.5523 3.5 21 3.94772 21 4.5V6.5C21 7.05228 20.5523 7.5 20 7.5V3.5Z" fill="currentColor"/>
+              </svg>
+            </div>
           </div>
+
         </div>
 
-        <!-- 2. Staff transfer -->
-        <div class="hero-feature hero-feature--left" data-feature="1">
-          <div class="hero-feature__icon">↗</div>
-          <div class="hero-feature__body">
-            <div class="hero-feature__title">Priya T. · Transferred</div>
-            <div class="hero-feature__sub">Branch 3 · Effective Mon</div>
-          </div>
-        </div>
-
-        <!-- 3. Discount approval -->
-        <div class="hero-feature" data-feature="2">
-          <div class="hero-feature__dot hero-feature__dot--amber"></div>
-          <div class="hero-feature__body">
-            <div class="hero-feature__title">Discount Requested</div>
-            <div class="hero-feature__sub">15% · Awaiting approval</div>
-          </div>
-        </div>
-
-        <!-- 4. Booking confirmed -->
-        <div class="hero-feature hero-feature--confirmed hero-feature--left" data-feature="3">
-          <div class="hero-feature__dot hero-feature__dot--green"></div>
-          <div class="hero-feature__body">
-            <div class="hero-feature__title">Booking Confirmed</div>
-            <div class="hero-feature__sub">Thai Massage · 60 min · #ZNL-00194</div>
-          </div>
-        </div>
-
-        <!-- 5. Branch overview -->
-        <div class="hero-feature" data-feature="4">
-          <div class="hero-feature__dots">
-            <span class="hero-feature__dot hero-feature__dot--green"></span>
-            <span class="hero-feature__dot hero-feature__dot--green"></span>
-            <span class="hero-feature__dot hero-feature__dot--green"></span>
-          </div>
-          <div class="hero-feature__body">
-            <div class="hero-feature__title">Branch 2 · Live</div>
-            <div class="hero-feature__sub">8 bookings today · 2 in progress</div>
-          </div>
-        </div>
-
-        <!-- 6. Daily close -->
-        <div class="hero-feature hero-feature--left" data-feature="5">
-          <div class="hero-feature__icon">✓</div>
-          <div class="hero-feature__body">
-            <div class="hero-feature__title">Day Closed</div>
-            <div class="hero-feature__sub">₨47,200 reconciled · 23 bookings</div>
-          </div>
-        </div>
-
+        <img src="/assets/images/hero-phone-ui.png" alt="" class="hero__phone-frame" aria-hidden="true">
       </div>
-
     </div>
   </section>
 
@@ -127,50 +336,91 @@ title: Zenly — Online Booking & Operations Platform
   </section>
 
 
-  <!-- ── STORYTELLING VIEWPORT OVERLAP ──────────────────────── -->
-  <section class="storytelling-section" id="storytellingSection">
-    <div class="storytelling-inner" id="storytellingInner">
-
-      <!-- Slide 1: Problem -->
-      <div class="story-slide story-slide--problem" id="storySlideProblem">
-        <p class="problem__body" id="problemBody">
-          You're not running a business anymore. <strong>You're putting out fires.</strong> <span class="pw-hover">Bookings</span>
-          <span class="pain-badge pain-badge--amber">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-          </span>
-          <strong>lost in WhatsApp,</strong> revenue you <strong>can't reconcile,</strong> discounts
-          <span class="pain-badge pain-badge--indigo">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </span>
-          <strong>handed out without approval</strong> — every day starts with
-          <span class="pain-badge pain-badge--rose">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          </span>
-          <strong>confusion</strong> and ends with guesswork.
-        </p>
-      </div>
-
-      <!-- Slide 2: Solution Header & Divider -->
-      <div class="story-slide story-slide--solution" id="storySlideSolution">
-        <div class="story-divider-container" id="storyDividerContainer">
-          <div class="story-divider-line story-divider-line--left"></div>
-          <span class="story-divider-label">THE TURN</span>
-          <div class="story-divider-line story-divider-line--right"></div>
-        </div>
-
-        <div class="solution__header" id="solutionHeader">
-          <h2 class="solution__headline">
-            <span class="sol-phrase" data-phrase="1">One system</span>
-            <span class="sol-phrase" data-phrase="2">Every branch</span>
-            <span class="sol-phrase" data-phrase="3">Full control,</span>
-            <span class="sol-phrase" data-phrase="4">finally</span>
-          </h2>
-          <p class="solution__sub">Not another tool to learn. A platform built around how your business actually runs.</p>
-        </div>
-      </div>
-
+  <!-- ── STORYTELLING: PAIN POINT ────── -->
+  <section class="storytelling-section" id="storytellingPainSection" style="padding-bottom: 0 !important;">
+    <div class="storytelling-inner" id="storytellingInnerPain">
+      <!-- Pain statement — scrolls normally -->
+      <p class="problem__body" id="problemBody">
+        You're not running a business anymore.<br>
+        <strong>You're putting out fires.</strong>
+      </p>
     </div>
   </section>
+
+  <!-- ── STORYTELLING: BLUEPRINT → SOLUTION ────── -->
+  <div id="scrollStoryPinWrapper" class="scroll-story-pin-wrapper">
+    <section class="storytelling-section" id="storytellingSection" style="padding-top: 24px !important;">
+      <div class="storytelling-inner" id="storytellingInner">
+        
+        <!-- Blueprint sits directly below the pain point, in natural flow -->
+        <div class="blueprint-container" id="blueprintContainer">
+        <!-- Blueprint Panel (Vertical Flow) -->
+        <div class="blueprint-panel" id="blueprintPanel">
+          <div class="blueprint-nodes">
+            <!-- Node 1: WhatsApp -->
+            <div class="blueprint-node" id="node-whatsapp">
+              <div class="node-icon">
+                <svg class="node-icon-svg text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              </div>
+              <span class="node-label">WhatsApp</span>
+              <div class="node-warning-badge">!</div>
+            </div>
+            
+            <!-- Node 2: Ledger -->
+            <div class="blueprint-node" id="node-ledger">
+              <div class="node-icon">
+                <svg class="node-icon-svg text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+              </div>
+              <span class="node-label">Ledger</span>
+              <div class="node-warning-badge">!</div>
+            </div>
+
+            <!-- Node 3: Staff -->
+            <div class="blueprint-node" id="node-staff">
+              <div class="node-icon">
+                <svg class="node-icon-svg text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+              </div>
+              <span class="node-label">Staff</span>
+              <div class="node-warning-badge">!</div>
+            </div>
+          </div>
+
+          <!-- Connectors SVG Overlay (Vertical Flow) -->
+          <svg class="blueprint-connectors" viewBox="0 0 320 180" preserveAspectRatio="none">
+            <!-- Base paths -->
+            <path class="connector-path" d="M 50 24 C 50 85, 160 85, 160 146" />
+            <path class="connector-path" d="M 160 24 V 146" />
+            <path class="connector-path" d="M 270 24 C 270 85, 160 85, 160 146" />
+            <!-- Flowing paths -->
+            <path class="connector-path-flow" d="M 50 24 C 50 85, 160 85, 160 146" />
+            <path class="connector-path-flow" d="M 160 24 V 146" />
+            <path class="connector-path-flow" d="M 270 24 C 270 85, 160 85, 160 146" />
+          </svg>
+
+          <!-- Core Unified Node at the Bottom -->
+          <div class="blueprint-core" id="blueprintCore">
+            <div class="core-icon">
+              <svg class="core-icon-svg text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <span class="core-label">Zenly</span>
+            <div class="core-stem" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution__header" id="solutionHeader" style="margin-top: 32px !important;">
+        <h2 class="solution__headline">
+          <span class="sol-phrase" data-phrase="1">One system.</span>
+          <span class="sol-phrase" data-phrase="2">Every branch.</span>
+          <span class="sol-phrase" data-phrase="3">Full control,</span>
+          <span class="sol-phrase" data-phrase="4">finally here.</span>
+        </h2>
+        <p class="solution__sub" id="solutionSub">Not another tool to learn. A platform built around how your business actually runs.</p>
+      </div>
+
+  </section>
+
+
 
   {#
   ── SOLUTION CARDS SECTION ─────────────────────────────────── (removed for now)
@@ -301,31 +551,33 @@ title: Zenly — Online Booking & Operations Platform
 
     </div>
   </section>
+  </div><!-- /#scrollStoryPinWrapper -->
 
   <!-- ── SECTION 5: EVERYTHING YOU NEED ───────────────────────────────── -->
   <section class="section" id="features">
     <div class="section__inner">
 
-      <div class="entr-header" id="entrHeader">
-        <h2 class="entr-headline">
+      <div class="entr-header" id="entrHeader" style="text-align: left !important; max-width: 920px; margin-left: auto; margin-right: auto; padding-left: 0; padding-right: 0; white-space: normal !important;">
+        <h2 class="entr-headline" style="align-items: flex-start !important; flex-direction: column !important; gap: 4px !important; white-space: normal !important;">
           <span class="entr-phrase" data-phrase="1">Everything you need</span>
-          <span class="entr-phrase" data-phrase="2">to run your business</span>
+          <span class="entr-phrase" data-phrase="2">to run your business here</span>
         </h2>
-        <p class="section__sub entr-header__sub">Booking, operations, and finance — built for service businesses.</p>
+        <p class="section__sub entr-header__sub" style="text-align: left !important; margin-left: 0 !important; margin-right: auto !important; white-space: normal !important;">Booking, operations, and finance — built for service businesses.</p>
       </div>
 
       <div class="entr-list">
 
         <!-- Row 1: Booking — feat card -->
-        <div class="feat-card feat-card--sm">
-          <div class="feat-card__inner">
-            <div class="feat-card__text">
-              <h3 class="entr-row__h3" style="white-space:nowrap;">Customers self-book, 24/7.</h3>
-              <p class="entr-row__sub">Set up your services once. Customers pick a slot, choose their staff, and get an instant confirmation. No calls. No WhatsApp back-and-forth. No double-bookings — ever.</p>
-              <a href="/features#booking" class="btn-feat">Explore →</a>
-            </div>
-            <div class="feat-card__visual">
-              <img src="/assets/images/card1-booking.png" alt="Customer self-booking on phone" class="feat-card__photo">
+        <div class="feat-card feat-card--sm feat-card--stack" style="background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important;">
+          <div class="feat-card__visual w-full relative rounded-2xl overflow-hidden" style="aspect-ratio: 16/9; max-height: 480px;">
+            <img src="/assets/images/card1-booking.png" alt="Customer self-booking on phone" class="feat-card__photo w-full h-full object-cover">
+            <!-- Readability Gradient Overlay -->
+            <div class="feat-card__visual-overlay absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 100%);"></div>
+            <!-- Bottom Left Text Overlay -->
+            <div class="feat-card__visual-text absolute bottom-6 left-6 max-w-md z-10 text-white text-left">
+              <p class="text-sm md:text-base font-medium leading-relaxed opacity-95" style="font-size: 19px !important;">
+                Your customers are used to booking on their phone. That's why we give your business its own booking app.
+              </p>
             </div>
           </div>
         </div>
@@ -334,21 +586,23 @@ title: Zenly — Online Booking & Operations Platform
         <div class="feat-grid feat-grid--large-last">
 
           <!-- Card 4: Reports -->
-          <div class="feat-card feat-card--stack" data-delay="1">
+          <div class="feat-card feat-card--stack" data-delay="1" style="min-height: 520px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important;">
             <div class="feat-card__top rpt-img-top">
               <img src="/assets/images/reports-cluster.png" alt="Reports cluster" class="rpt-cluster-img">
             </div>
-            <div class="feat-card__bottom">
-              <h3 class="entr-row__h3">Every insight, on demand.</h3>
-              <p class="entr-row__sub">Revenue, attendance, performance — filtered, exportable, always current.</p>
-              <a href="/features#reports" class="btn-feat">Explore →</a>
+            <div class="feat-card__bottom" style="padding: var(--space-lg) !important; padding-left: 12px !important;">
+              <h3 class="entr-row__h3 text-slate-800 font-semibold leading-snug text-left" style="margin: 0 !important; font-family: var(--font-body) !important; font-size: 19px !important; max-width: 360px; white-space: normal !important; color: #FFFFFF !important;">
+                Every insight, on demand.<br>Revenue, attendance, and performance always current.
+              </h3>
             </div>
           </div>
 
           <!-- Card 2: Operations -->
-          <div class="feat-card feat-card--stack" data-delay="2">
-            <div class="feat-card__top">
+          <div class="feat-card feat-card--stack" data-delay="2" style="background: #F6EEE5 !important; border: none !important; box-shadow: none !important; min-height: 520px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important;">
+            <div class="feat-card__top" style="padding-top: 56px !important;">
               <div class="scard-scene">
+                <!-- Moving cursor highlight loop -->
+                <div class="scard-cursor" aria-hidden="true"></div>
                 <div class="scard scard--back scard--left">
                   <p class="scard__label">Staff View</p>
                   <div class="scard__bar scard__bar--lg"></div>
@@ -392,54 +646,58 @@ title: Zenly — Online Booking & Operations Platform
                 </div>
               </div>
             </div>
-            <div class="feat-card__bottom">
-              <h3 class="entr-row__h3">Every booking. One screen.</h3>
-              <p class="entr-row__sub">Staff, managers, and admins each see exactly what they need. No chasing updates.</p>
-              <a href="/features#operations" class="btn-feat">Explore →</a>
+            <div class="feat-card__bottom" style="padding: var(--space-lg) !important; padding-left: 12px !important;">
+              <h3 class="entr-row__h3 text-slate-800 font-semibold leading-snug text-left" style="margin: 0 !important; font-family: var(--font-body) !important; font-size: 19px !important; max-width: 360px; white-space: normal !important;">
+                One screen for every booking.<br>Staff, managers, and admins stay synced.
+              </h3>
             </div>
           </div>
 
         </div>
 
-        <!-- Row 3: Zero Conflicts — full width, side-by-side -->
-        <div class="feat-card feat-card--sm" style="grid-template-columns: 1fr 1fr;">
-          <div class="feat-card__inner">
-            <div class="feat-card__text">
-              <h3 class="entr-row__h3">Zero double-bookings.</h3>
-              <p class="entr-row__sub">Checks staff, room, and duration. Can't fit — it won't book.</p>
-              <a href="/features#booking" class="btn-feat">Explore →</a>
+        <!-- Row 3: Zero Conflicts — full-bleed photo, matching Row 1 -->
+        <div class="feat-card feat-card--sm feat-card--stack" style="background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important;">
+          <div class="feat-card__visual w-full relative rounded-2xl overflow-hidden c2-visual" style="aspect-ratio: 16/9; max-height: 480px;">
+            <img src="/assets/images/card3-conflicts.png" alt="Tablet on a reception desk showing a conflict-free booking calendar" class="feat-card__photo c2-visual__bg">
+            <div class="feat-card__visual-overlay c2-visual__overlay absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+
+            <!-- Bottom Left Text Overlay -->
+            <div class="feat-card__visual-text absolute bottom-6 left-6 max-w-md z-10 text-white text-left">
+              <p class="text-sm md:text-base font-medium leading-relaxed opacity-95" style="font-size: 19px !important;">
+                Zero double-bookings. Checks staff, room, and duration — can't fit, it won't book.
+              </p>
             </div>
-            <div class="feat-card__visual c2-visual">
-              <button class="c2-bell-btn" id="c2Bell" aria-label="Show notifications">
-                <div class="c2-bell-pulse"></div>
-                <svg class="c2-bell-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-                <span class="c2-bell-badge">3</span>
-              </button>
-              <div class="c2-panel" id="c2Panel">
-                <div class="c2-panel__header">
-                  <span class="c2-panel__title">Notifications</span>
-                  <span class="c2-panel__count">3 new</span>
+
+            <button class="c2-bell-btn" id="c2Bell" aria-label="Show notifications">
+              <div class="c2-bell-pulse"></div>
+              <svg class="c2-bell-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+              <span class="c2-bell-badge">3</span>
+            </button>
+            <div class="c2-bell-cursor" id="c2BellCursor" aria-hidden="true"></div>
+            <div class="c2-panel" id="c2Panel">
+              <div class="c2-panel__header">
+                <span class="c2-panel__title">Notifications</span>
+                <span class="c2-panel__count">3 new</span>
+              </div>
+              <div class="c2-panel__item c2-panel__item--blocked">
+                <div class="c2-panel__icon">✕</div>
+                <div class="c2-panel__body">
+                  <div class="c2-panel__text">Conflict blocked</div>
+                  <div class="c2-panel__time">10:30 AM · already booked</div>
                 </div>
-                <div class="c2-panel__item c2-panel__item--blocked">
-                  <div class="c2-panel__icon">✕</div>
-                  <div class="c2-panel__body">
-                    <div class="c2-panel__text">Conflict blocked</div>
-                    <div class="c2-panel__time">10:30 AM · already booked</div>
-                  </div>
+              </div>
+              <div class="c2-panel__item c2-panel__item--ok">
+                <div class="c2-panel__icon">✓</div>
+                <div class="c2-panel__body">
+                  <div class="c2-panel__text">Booking confirmed</div>
+                  <div class="c2-panel__time">Sarah K. · no overlap</div>
                 </div>
-                <div class="c2-panel__item c2-panel__item--ok">
-                  <div class="c2-panel__icon">✓</div>
-                  <div class="c2-panel__body">
-                    <div class="c2-panel__text">Booking confirmed</div>
-                    <div class="c2-panel__time">Sarah K. · no overlap</div>
-                  </div>
-                </div>
-                <div class="c2-panel__item c2-panel__item--ok">
-                  <div class="c2-panel__icon">✓</div>
-                  <div class="c2-panel__body">
-                    <div class="c2-panel__text">Room auto-assigned</div>
-                    <div class="c2-panel__time">60 min · no conflict</div>
-                  </div>
+              </div>
+              <div class="c2-panel__item c2-panel__item--ok">
+                <div class="c2-panel__icon">✓</div>
+                <div class="c2-panel__body">
+                  <div class="c2-panel__text">Room auto-assigned</div>
+                  <div class="c2-panel__time">60 min · no conflict</div>
                 </div>
               </div>
             </div>
@@ -461,74 +719,98 @@ title: Zenly — Online Booking & Operations Platform
         <p class="section__sub">Same day-to-day work, six fewer headaches.</p>
       </div>
 
-      <div class="compare-card reveal-scale" data-delay="1">
+      <div class="compare-card">
 
         <div class="compare-card__header compare-card__header--problem">
           <span class="compare-card__icon compare-card__icon--problem" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           </span>
           <h3 class="compare-card__heading">Sound familiar?</h3>
         </div>
 
         <div class="compare-card__header compare-card__header--solution">
           <span class="compare-card__icon compare-card__icon--solution" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </span>
           <h3 class="compare-card__heading">Zenly does this.</h3>
         </div>
 
-        <div class="compare-card__item compare-card__item--problem reveal">
-          <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          <span class="compare-card__text">Morning calls to check what happened yesterday</span>
+        <div class="compare-card__item compare-card__item--problem">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span class="compare-card__text">Morning calls to check what happened yesterday</span>
+          </div>
         </div>
-        <div class="compare-card__item compare-card__item--solution reveal">
-          <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span class="compare-card__text">One dashboard that shows everything, in real time</span>
-        </div>
-
-        <div class="compare-card__item compare-card__item--problem reveal">
-          <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          <span class="compare-card__text">Bookings confirmed on WhatsApp</span>
-        </div>
-        <div class="compare-card__item compare-card__item--solution reveal">
-          <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span class="compare-card__text">Automated confirmations, no calls needed</span>
+        <div class="compare-card__item compare-card__item--solution">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="compare-card__text">One dashboard that shows everything, in real time</span>
+          </div>
         </div>
 
-        <div class="compare-card__item compare-card__item--problem reveal">
-          <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          <span class="compare-card__text">Staff applying discounts without approval</span>
+        <div class="compare-card__item compare-card__item--problem">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span class="compare-card__text">Bookings confirmed on WhatsApp</span>
+          </div>
         </div>
-        <div class="compare-card__item compare-card__item--solution reveal">
-          <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span class="compare-card__text">Every discount is requested, reviewed, and logged</span>
-        </div>
-
-        <div class="compare-card__item compare-card__item--problem reveal">
-          <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          <span class="compare-card__text">Payment notebooks that don't match your bank</span>
-        </div>
-        <div class="compare-card__item compare-card__item--solution reveal">
-          <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span class="compare-card__text">Every transaction tracked, partially paid or fully settled</span>
+        <div class="compare-card__item compare-card__item--solution">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="compare-card__text">Automated confirmations, no calls needed</span>
+          </div>
         </div>
 
-        <div class="compare-card__item compare-card__item--problem reveal">
-          <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          <span class="compare-card__text">"Who's working at Branch 2 today?"</span>
+        <div class="compare-card__item compare-card__item--problem">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span class="compare-card__text">Staff applying discounts without approval</span>
+          </div>
         </div>
-        <div class="compare-card__item compare-card__item--solution reveal">
-          <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span class="compare-card__text">Therapist schedules synced across all branches</span>
+        <div class="compare-card__item compare-card__item--solution">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="compare-card__text">Every discount is requested, reviewed, and logged</span>
+          </div>
         </div>
 
-        <div class="compare-card__item compare-card__item--problem reveal">
-          <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          <span class="compare-card__text">Finding out about problems after they happen</span>
+        <div class="compare-card__item compare-card__item--problem">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span class="compare-card__text">Payment notebooks that don't match your bank</span>
+          </div>
         </div>
-        <div class="compare-card__item compare-card__item--solution reveal">
-          <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span class="compare-card__text">Status updates and alerts, before they escalate</span>
+        <div class="compare-card__item compare-card__item--solution">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="compare-card__text">Every transaction tracked, partially paid or fully settled</span>
+          </div>
+        </div>
+
+        <div class="compare-card__item compare-card__item--problem">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span class="compare-card__text">"Who's working at Branch 2 today?"</span>
+          </div>
+        </div>
+        <div class="compare-card__item compare-card__item--solution">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="compare-card__text">Therapist schedules synced across all branches</span>
+          </div>
+        </div>
+
+        <div class="compare-card__item compare-card__item--problem">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span class="compare-card__text">Finding out about problems after they happen</span>
+          </div>
+        </div>
+        <div class="compare-card__item compare-card__item--solution">
+          <div class="compare-card__row-content reveal">
+            <svg class="compare-card__marker compare-card__marker--solution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="compare-card__text">Status updates and alerts, before they escalate</span>
+          </div>
         </div>
 
       </div>
@@ -548,63 +830,57 @@ title: Zenly — Online Booking & Operations Platform
 
       <div class="ind-grid">
 
-        <a href="/industries#spa" class="ind-card reveal-scale" data-delay="1" style="--ind-bg: #E2ECE0;">
+        <a href="/industries#spa" class="ind-card reveal-scale" data-delay="1">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1663013569286-30b21b79a410?w=480&q=80&auto=format&fit=crop" alt="Spa & Wellness" loading="lazy">
           </div>
           <div class="ind-card__body">
             <div class="ind-card__title">Spa &amp; Wellness</div>
-            <div class="ind-card__subs">Massage, Facials, Body Treatments, Packages</div>
           </div>
         </a>
 
-        <a href="/industries#fitness" class="ind-card reveal-scale" data-delay="2" style="--ind-bg: #F2EBE0;">
+        <a href="/industries#fitness" class="ind-card reveal-scale" data-delay="2">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1661286647722-973637d09600?w=480&q=80&auto=format&fit=crop" alt="Fitness & PT" loading="lazy">
           </div>
           <div class="ind-card__body">
             <div class="ind-card__title">Fitness &amp; PT</div>
-            <div class="ind-card__subs">Personal Training, Group Classes, Yoga, Pilates</div>
           </div>
         </a>
 
-        <a href="/industries#hair-salon" class="ind-card reveal-scale" data-delay="3" style="--ind-bg: #F0E8DC;">
+        <a href="/industries#hair-salon" class="ind-card reveal-scale" data-delay="3">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1677616799281-e1583ee2bdf0?w=480&q=80&auto=format&fit=crop" alt="Hair Salon" loading="lazy">
           </div>
           <div class="ind-card__body">
             <div class="ind-card__title">Hair Salon</div>
-            <div class="ind-card__subs">Cuts, Colour, Styling, Walk-ins</div>
           </div>
         </a>
 
-        <a href="/industries#physiotherapy" class="ind-card reveal-scale" data-delay="1" style="--ind-bg: #EDE8F2;">
+        <a href="/industries#physiotherapy" class="ind-card reveal-scale" data-delay="1">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1661913622608-946e8d907c7b?w=480&q=80&auto=format&fit=crop" alt="Physiotherapy" loading="lazy">
           </div>
           <div class="ind-card__body">
             <div class="ind-card__title">Physiotherapy</div>
-            <div class="ind-card__subs">Rehab, Sports Therapy, Assessments</div>
           </div>
         </a>
 
-        <a href="/industries#dental" class="ind-card reveal-scale" data-delay="2" style="--ind-bg: #E0E9F2;">
+        <a href="/industries#dental" class="ind-card reveal-scale" data-delay="2">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1681966962522-546f370bc98e?w=480&q=80&auto=format&fit=crop" alt="Dental Clinic" loading="lazy">
           </div>
           <div class="ind-card__body">
             <div class="ind-card__title">Dental Clinic</div>
-            <div class="ind-card__subs">General, Orthodontics, Cosmetic, Recalls</div>
           </div>
         </a>
 
-        <a href="/industries#cleaning" class="ind-card reveal-scale" data-delay="3" style="--ind-bg: #F2F0E0;">
+        <a href="/industries#cleaning" class="ind-card reveal-scale" data-delay="3">
           <div class="ind-card__photo">
             <img src="https://plus.unsplash.com/premium_photo-1663011218145-c1d0c3ba3542?w=480&q=80&auto=format&fit=crop" alt="Cleaning Service" loading="lazy">
           </div>
           <div class="ind-card__body">
             <div class="ind-card__title">Cleaning Service</div>
-            <div class="ind-card__subs">Residential, Commercial, One-off Jobs</div>
           </div>
         </a>
 
@@ -640,75 +916,92 @@ title: Zenly — Online Booking & Operations Platform
         <div class="stats-track">
 
           <div class="stats-card">
-            <div class="stats-card__num">40%</div>
-            <div class="stats-card__label">Fewer no-shows</div>
-            <div class="stats-card__desc">Automated reminders cut cancellations before they happen — so every slot you book stays filled.</div>
-          </div>
-
-          <div class="stats-card">
-            <div class="stats-card__num">3×</div>
-            <div class="stats-card__label">Faster day-close</div>
-            <div class="stats-card__desc">One click vs. 45 minutes of end-of-day spreadsheets. Cash, card, and online reconciled automatically.</div>
-          </div>
-
-          <div class="stats-card">
-            <div class="stats-card__num">24/7</div>
-            <div class="stats-card__label">Bookings always open</div>
-            <div class="stats-card__desc">Customers self-book while you sleep. No calls, no missed requests, no double entries — ever.</div>
-          </div>
-
-          <div class="stats-card">
-            <div class="stats-card__num">Zero</div>
-            <div class="stats-card__label">Double-bookings</div>
-            <div class="stats-card__desc">Staff, room, and time are all checked before every booking. If it can't fit — it doesn't book.</div>
-          </div>
-
-          <div class="stats-card">
-            <div class="stats-card__num">1 day</div>
-            <div class="stats-card__label">To go live</div>
-            <div class="stats-card__desc">Set up your services, staff, and branches in the morning. Start taking bookings by afternoon.</div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── SECTION 10: SOCIAL PROOF ───────────────────────────────────── -->
-  <section class="section" id="social-proof">
-    <div class="section__inner">
-
-      <div class="testi-outer reveal-scale">
-        <div class="testi-carousel">
-
-          <!-- Left: image fan -->
-          <div class="testi-images" id="testiImages">
-            <img class="testi-img" data-idx="0"
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&fit=crop&q=80"
-              alt="Owner, multi-branch spa">
-            <img class="testi-img" data-idx="1"
-              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&fit=crop&q=80"
-              alt="Admin, aesthetic clinic">
-            <img class="testi-img" data-idx="2"
-              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&fit=crop&q=80"
-              alt="Manager, premium salon chain">
-          </div>
-
-          <!-- Right: quote content -->
-          <div class="testi-content">
-            <div class="testi-text" id="testiText">
-              <div class="testi-name" id="testiName">Owner</div>
-              <div class="testi-biz" id="testiBiz">Multi-branch spa · Kathmandu</div>
-              <p class="testi-quote" id="testiQuote"></p>
+            <div class="stats-card__left">
+              <p class="stats-card__quote">"The automatic reminders alone paid for the subscription. Patients who used to no-show now show up — half of them reply to confirm."</p>
+              <div class="stats-card__client">
+                <span class="stats-card__name">Front Desk Lead</span> — <span class="stats-card__biz">Family dental clinic · Lalitpur</span>
+              </div>
+              <div class="stats-card__metrics">
+                <div class="stats-card__metric">
+                  <div class="stats-card__num">40%</div>
+                  <div class="stats-card__label">Fewer no-shows</div>
+                </div>
+              </div>
             </div>
-            <div class="testi-arrows">
-              <button class="testi-arrow" id="testiPrev" aria-label="Previous testimonial">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-              </button>
-              <button class="testi-arrow" id="testiNext" aria-label="Next testimonial">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
+            <div class="stats-card__right">
+              <img class="stats-card__img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&fit=crop&q=80" alt="Front desk lead, family dental clinic">
+            </div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stats-card__left">
+              <p class="stats-card__quote">"The discount approval alone saved us. We didn't realize how much we were giving away until we could see every request."</p>
+              <div class="stats-card__client">
+                <span class="stats-card__name">Admin</span> — <span class="stats-card__biz">Aesthetic clinic · Pokhara</span>
+              </div>
+              <div class="stats-card__metrics">
+                <div class="stats-card__metric">
+                  <div class="stats-card__num">3×</div>
+                  <div class="stats-card__label">Faster day-close</div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-card__right">
+              <img class="stats-card__img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&fit=crop&q=80" alt="Admin, aesthetic clinic">
+            </div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stats-card__left">
+              <p class="stats-card__quote">"Our customers love booking online. We've seen a noticeable drop in front-desk calls and a jump in confirmed appointments."</p>
+              <div class="stats-card__client">
+                <span class="stats-card__name">Manager</span> — <span class="stats-card__biz">Premium salon chain</span>
+              </div>
+              <div class="stats-card__metrics">
+                <div class="stats-card__metric">
+                  <div class="stats-card__num">24/7</div>
+                  <div class="stats-card__label">Bookings always open</div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-card__right">
+              <img class="stats-card__img" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&fit=crop&q=80" alt="Manager, premium salon chain">
+            </div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stats-card__left">
+              <p class="stats-card__quote">"Before this, my manager was calling me 10 times a day. Now I open the app and see everything myself."</p>
+              <div class="stats-card__client">
+                <span class="stats-card__name">Owner</span> — <span class="stats-card__biz">Multi-branch spa · Kathmandu</span>
+              </div>
+              <div class="stats-card__metrics">
+                <div class="stats-card__metric">
+                  <div class="stats-card__num">Zero</div>
+                  <div class="stats-card__label">Double-bookings</div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-card__right">
+              <img class="stats-card__img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&fit=crop&q=80" alt="Owner, multi-branch spa">
+            </div>
+          </div>
+
+          <div class="stats-card">
+            <div class="stats-card__left">
+              <p class="stats-card__quote">"We uploaded our class schedule in the morning and took our first online booking before lunch. No onboarding call needed."</p>
+              <div class="stats-card__client">
+                <span class="stats-card__name">Founder</span> — <span class="stats-card__biz">Boutique fitness studio · Pokhara</span>
+              </div>
+              <div class="stats-card__metrics">
+                <div class="stats-card__metric">
+                  <div class="stats-card__num">1 day</div>
+                  <div class="stats-card__label">To go live</div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-card__right">
+              <img class="stats-card__img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&fit=crop&q=80" alt="Founder, boutique fitness studio">
             </div>
           </div>
 
@@ -777,11 +1070,9 @@ title: Zenly — Online Booking & Operations Platform
   <section class="bottom-cta" id="demo">
 
     <!-- CTA banner -->
-    <div class="bottom-cta__card bottom-cta__card--banner reveal-scale">
+    <div class="bottom-cta__card--banner">
       <h2 class="bottom-cta__h2">Your operations are only as good as the system behind them.</h2>
-      <p class="bottom-cta__sub">If you're running multiple branches on instinct, messages, and spreadsheets – you're one bad week away from a real problem. Let us show you what your business looks like when it actually runs on a system.</p>
       <a href="mailto:info.zunkireelabs@gmail.com" class="bottom-cta__banner-btn">Book your demo – it's 20 minutes →</a>
-      <p class="bottom-cta__reassurance">No commitment. No pressure. We'll show you exactly how it fits your business.</p>
     </div>
 
   </section>
