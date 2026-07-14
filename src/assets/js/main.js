@@ -2,70 +2,65 @@
   'use strict';
 
   // ── Card 2 — Bell auto-play + manual click ────────────────
-  const c2Bell  = document.getElementById('c2Bell');
-  const c2Panel = document.getElementById('c2Panel');
+  const c2Bell   = document.getElementById('c2Bell');
+  const c2Panel  = document.getElementById('c2Panel');
+  const c2Cursor = document.getElementById('c2BellCursor');
   if (c2Bell && c2Panel) {
-    var c2Items      = c2Panel.querySelectorAll('.c2-panel__item');
-    var c2Order      = [0, 1, 2];
-    var c2States     = ['c2-card-active', 'c2-card-peek1', 'c2-card-peek2'];
-    var c2CycleTimer = null;
+    var c2Items  = c2Panel.querySelectorAll('.c2-panel__item');
+    var c2Timers = [];
+
+    function c2ClearTimers() {
+      c2Timers.forEach(clearTimeout);
+      c2Timers = [];
+    }
 
     function c2ClearStates() {
       c2Items.forEach(function (item) {
-        item.classList.remove('c2-card-active', 'c2-card-peek1', 'c2-card-peek2', 'c2-card-exit');
+        item.classList.remove('c2-card-active', 'c2-card-exit');
       });
     }
 
-    function c2ApplyStates() {
+    function c2ShowCard(idx) {
       c2ClearStates();
-      c2Order.forEach(function (itemIdx, stateIdx) {
-        c2Items[itemIdx].classList.add(c2States[stateIdx]);
-      });
+      c2Items[idx].classList.add('c2-card-active');
     }
 
-    function c2CycleCard() {
-      var exitIdx = c2Order[0];
-      c2Items[exitIdx].classList.remove('c2-card-active');
-      c2Items[exitIdx].classList.add('c2-card-exit');
-      setTimeout(function () {
-        c2Order = [c2Order[1], c2Order[2], c2Order[0]];
-        c2ApplyStates();
-      }, 420);
-    }
-
-    function c2Open() {
+    // Opens the panel and plays through every notification exactly once,
+    // then calls onComplete — this is "one loop" of the notification cycle.
+    function c2Open(onComplete) {
       c2Panel.classList.add('open');
-      c2Order = [0, 1, 2];
       c2ClearStates();
-      // Stagger cards in one by one
-      setTimeout(function () { c2Items[0].classList.add('c2-card-active'); }, 60);
-      setTimeout(function () { c2Items[1].classList.add('c2-card-peek1');  }, 240);
-      setTimeout(function () { c2Items[2].classList.add('c2-card-peek2');  }, 420);
-      // Start cycling after all cards are in
-      if (c2CycleTimer) clearInterval(c2CycleTimer);
-      c2CycleTimer = setTimeout(function () {
-        c2CycleTimer = setInterval(c2CycleCard, 1800);
-      }, 1000);
+      c2ClearTimers();
+
+      c2Timers.push(setTimeout(function () { c2ShowCard(0); }, 60));
+
+      for (var i = 1; i < c2Items.length; i++) {
+        (function (idx) {
+          c2Timers.push(setTimeout(function () { c2ShowCard(idx); }, 1600 + (idx - 1) * 1800));
+        })(i);
+      }
+
+      var finishAt = 1600 + (c2Items.length - 1) * 1800;
+      c2Timers.push(setTimeout(function () {
+        if (onComplete) onComplete();
+      }, finishAt));
     }
 
     function c2Close() {
       c2Panel.classList.remove('open');
-      if (c2CycleTimer) { clearInterval(c2CycleTimer); c2CycleTimer = null; }
+      c2ClearTimers();
       c2ClearStates();
     }
 
-    function c2Play() {
+    function c2Ring() {
       c2Bell.classList.remove('ringing');
       void c2Bell.offsetWidth;
       c2Bell.classList.add('ringing');
-      setTimeout(c2Open, 250);
     }
-    setTimeout(c2Play, 600);
 
+    // ── Manual click: independent of the autoplay loop ────────
     c2Bell.addEventListener('click', function () {
-      c2Bell.classList.remove('ringing');
-      void c2Bell.offsetWidth;
-      c2Bell.classList.add('ringing');
+      c2Ring();
       if (c2Panel.classList.contains('open')) { c2Close(); } else { c2Open(); }
     });
     document.addEventListener('click', function (e) {
@@ -73,6 +68,49 @@
         c2Close();
       }
     });
+
+    // ── Autoplay loop: cursor glides in → clicks the bell → notifications
+    // play through once → cursor retracts → pause → repeat. The cursor's
+    // pace is locked to the notification cycle's own timing, not a
+    // separate CSS loop, so the two never drift out of sync.
+    function c2LoopStep() {
+      if (c2Cursor) {
+        c2Cursor.classList.remove('is-clicking');
+        c2Cursor.classList.add('is-approaching'); // 0.7s glide-in transition
+      }
+
+      setTimeout(function () {
+        if (c2Cursor) c2Cursor.classList.add('is-clicking');
+        c2Ring();
+
+        setTimeout(function () {
+          if (c2Cursor) c2Cursor.classList.remove('is-clicking');
+        }, 150);
+
+        setTimeout(function () {
+          c2Open(function () {
+            c2Close();
+            if (c2Cursor) c2Cursor.classList.remove('is-approaching'); // 0.7s retract transition
+            setTimeout(c2LoopStep, 700 + 900); // wait for retract, then pause before repeating
+          });
+        }, 250);
+      }, c2Cursor ? 700 : 0);
+    }
+
+    var c2Card = c2Bell.closest('.feat-card');
+    if (c2Card) {
+      var c2AutoplayObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setTimeout(c2LoopStep, 500);
+            c2AutoplayObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      c2AutoplayObserver.observe(c2Card);
+    } else {
+      setTimeout(c2LoopStep, 600);
+    }
   }
 
   // ── Nav: add .scrolled on scroll ──────────────────────────
@@ -110,6 +148,32 @@
     });
   }
 
+  // ── Hero headline: rotating word, fade swap (no typing effect) ──
+  const heroRotate = document.getElementById('heroRotate');
+  if (heroRotate) {
+    const phrases = [
+      'run',
+      'scale',
+      'grow',
+      'thrive',
+    ];
+    const HOLD_DURATION = 2200;
+    const FADE_DURATION = 300;
+    const reduceMotion  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion) {
+      let phraseIndex = 0;
+      setInterval(() => {
+        heroRotate.style.opacity = '0';
+        setTimeout(() => {
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          heroRotate.textContent = phrases[phraseIndex];
+          heroRotate.style.opacity = '1';
+        }, FADE_DURATION);
+      }, HOLD_DURATION);
+    }
+  }
+
   // ── Value mockup: left phone parallax upward on scroll ──
   const listPhone = document.querySelector('.mock-phone--list');
   if (listPhone && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
@@ -127,44 +191,6 @@
   }
 
   // Features header — no animation, always visible
-
-  // ── Hero features: 3 visible, zigzag, exits from position ─
-  const features = document.querySelectorAll('.hero-feature');
-  if (features.length) {
-    const SHOW_DURATION = 2800;
-    const FADE_DURATION = 450;
-
-    // stack = [current, prev, prev2]
-    let stack = [0, 1, 2];
-    features[0].classList.add('active');
-    features[1].classList.add('prev');
-    features[2].classList.add('prev2');
-
-    let next = 3 % features.length;
-
-    setInterval(() => {
-      const [curr, p, p2] = stack;
-
-      // prev2 fades out from its position
-      features[p2].classList.remove('prev2');
-      features[p2].classList.add('exiting');
-      setTimeout(() => features[p2].classList.remove('exiting'), FADE_DURATION);
-
-      // shift prev → prev2, active → prev
-      features[p].classList.remove('prev');
-      features[p].classList.add('prev2');
-
-      features[curr].classList.remove('active');
-      features[curr].classList.add('prev');
-
-      // new element enters at bottom
-      const entering = next;
-      setTimeout(() => features[entering].classList.add('active'), FADE_DURATION);
-
-      stack = [entering, curr, p];
-      next = (next + 1) % features.length;
-    }, SHOW_DURATION);
-  }
 
   // ── Pain points SplitText word reveal ────────────────────────────────
   const problemBody = document.getElementById('problemBody');
@@ -184,152 +210,206 @@
     });
   }
 
-  // ── Problem to Solution (THE TURN) Pinned Storytelling Transition ───
-  const storySection = document.getElementById('storytellingSection');
-  const storyInner = document.getElementById('storytellingInner');
-  const slideProblem = document.getElementById('storySlideProblem');
-  const slideSolution = document.getElementById('storySlideSolution');
+  // ── Unified Storytelling Scroll Sequence (Pain -> Blueprint -> Dashboard) ──
+  const pinWrapper = document.getElementById('scrollStoryPinWrapper');
+  const blueprintContainer = document.getElementById('blueprintContainer');
   const dividerContainer = document.getElementById('storyDividerContainer');
   const solutionHeader = document.getElementById('solutionHeader');
-
-  if (storySection && storyInner && slideProblem && slideSolution && problemBody && dividerContainer && solutionHeader && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Both slides share one grid cell so they can cross-fade; the tall problem
-    // paragraph still occupies layout height even at opacity 0, leaving dead
-    // space under the shorter solution content. Lock the container to its
-    // measured starting height, then shrink it to the solution slide's height
-    // in step with the rest of the timeline below.
-    const problemSlideHeight = slideProblem.offsetHeight;
-    const solutionSlideHeight = slideSolution.offsetHeight;
-    gsap.set(storyInner, { height: problemSlideHeight });
-
-    const dividerLeft = dividerContainer.querySelector('.story-divider-line--left');
-    const dividerRight = dividerContainer.querySelector('.story-divider-line--right');
-    const dividerLabel = dividerContainer.querySelector('.story-divider-label');
-    const solPhrases = solutionHeader.querySelectorAll('.sol-phrase');
-
-    // Setup initial styles
-    gsap.set(slideSolution, { opacity: 1, y: 0 }); // slide is visible but sub-contents hidden
-    gsap.set(dividerContainer, { opacity: 1 });
-    gsap.set(dividerLeft, { scaleX: 0 });
-    gsap.set(dividerRight, { scaleX: 0 });
-    gsap.set(dividerLabel, { opacity: 0 });
-    gsap.set(solutionHeader, { opacity: 1, y: 0 });
-    
-    // Hide solution header contents & cards initially
-    const cards = document.querySelectorAll('#solCards .sol-card');
-    gsap.set(solPhrases, { opacity: 0, y: 20 });
-    gsap.set(solutionHeader.querySelector('.solution__sub'), { opacity: 0, y: 15 });
-    if (cards.length) {
-      gsap.set(cards, { opacity: 0, y: 30 });
-    }
-
-    // Create a pinned timeline
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: storySection,
-        start: "top top", // Pin when the top of storytelling section reaches the top of the viewport
-        end: "+=100%", // Keep pinned for 100% of viewport height (cards removed for now, no longer need the extra 60%)
-        pin: true,
-        scrub: 1, // Smooth scrub to control animation via scroll
-      }
-    });
-
-    // ── Phase 1: Problem exits (Fade out, translate up 30px) ──
-    tl.to(problemBody, {
-      y: -30,
-      opacity: 0,
-      duration: 0.6,
-      ease: "power2.out"
-    });
-
-    // Disable problem pointer events once faded out
-    tl.set(slideProblem, { pointerEvents: "none" });
-    tl.set(slideSolution, { pointerEvents: "auto" });
-
-    // Shrink the container to the solution slide's height so no gap is left
-    // once the section unpins (runs alongside phases 2–3 below).
-    tl.to(storyInner, {
-      height: solutionSlideHeight,
-      duration: 1.3,
-      ease: "power2.out"
-    }, "-=0.1");
-
-    // ── Phase 2: Divider grows from center + Label fades in ──
-    tl.to([dividerLeft, dividerRight], {
-      scaleX: 1,
-      duration: 0.5,
-      ease: "power2.out"
-    }, "-=0.1");
-
-    tl.to(dividerLabel, {
-      opacity: 1,
-      duration: 0.4,
-      ease: "power2.out"
-    }, "-=0.4");
-
-    // ── Phase 3: Reveal solution staggered (Fade in, translate up 20px) ──
-    solPhrases.forEach((phrase, idx) => {
-      tl.to(phrase, {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        ease: "power2.out"
-      }, `-=${idx === 0 ? 0.1 : 0.35}`);
-    });
-
-    tl.to(solutionHeader.querySelector('.solution__sub'), {
-      y: 0,
-      opacity: 1,
-      duration: 0.5,
-      ease: "power2.out"
-    }, "-=0.2");
-
-    // ── Phase 4: Reveal cards one by one (Staggered pop up) ──
-    if (cards.length) {
-      cards.forEach((card, idx) => {
-        tl.to(card, {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power2.out"
-        }, `-=${idx === 0 ? 0.1 : 0.35}`);
-      });
-    }
-    
-    // ── Interactive Hover for Solution Phrases ──
-    solPhrases.forEach(phrase => {
-      phrase.addEventListener('mouseenter', () => {
-        solutionHeader.classList.add('is-hovered');
-      });
-      phrase.addEventListener('mouseleave', () => {
-        solutionHeader.classList.remove('is-hovered');
-      });
-    });
-  }
-
-  // ── Value section corner callouts — draw-on-scroll connectors ────────
+  const solutionSub = document.getElementById('solutionSub');
+  const valueSection = document.getElementById('value');
+  const valueMock = valueSection ? valueSection.querySelector('.value-mock') : null;
   const valueCallouts = document.querySelectorAll('.value-callout');
-  if (valueCallouts.length && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  if (pinWrapper && blueprintContainer && solutionHeader && valueSection && valueMock &&
+      typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    
     gsap.registerPlugin(ScrollTrigger);
 
-    valueCallouts.forEach((callout, idx) => {
-      const path = callout.querySelector('.value-callout__connector-path');
-      if (!path) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.innerWidth < 768;
 
-      gsap.to(path, {
-        strokeDashoffset: 0,
-        duration: 0.7,
-        ease: 'power2.inOut',
-        delay: 0.15 * idx,
-        scrollTrigger: {
-          trigger: '#value',
-          start: 'top 65%',
-          toggleActions: 'play none none none'
+    if (!isMobile && !prefersReducedMotion) {
+      console.log("Zenly Scroll Timeline: Desktop pinned experience active");
+
+      // 1. Initial State Setup
+      const blueprintNodes = blueprintContainer.querySelector('.blueprint-nodes');
+      const blueprintConnectors = blueprintContainer.querySelector('.blueprint-connectors');
+      const blueprintCore = document.getElementById('blueprintCore');
+      const coreStem = blueprintCore ? blueprintCore.querySelector('.core-stem') : null;
+
+      const dividerLeft = dividerContainer ? dividerContainer.querySelector('.story-divider-line--left') : null;
+      const dividerRight = dividerContainer ? dividerContainer.querySelector('.story-divider-line--right') : null;
+      const dividerLabel = dividerContainer ? dividerContainer.querySelector('.story-divider-label') : null;
+      const solPhrases = solutionHeader.querySelectorAll('.sol-phrase');
+      const mobileMock = valueMock.querySelector('.value-mock__mobile');
+
+      // Make connectors fully drawn at start
+      const paths = blueprintContainer.querySelectorAll('.connector-path');
+      paths.forEach(path => {
+        const length = path.getTotalLength() || 200;
+        gsap.set(path, { strokeDasharray: length, strokeDashoffset: 0 });
+      });
+
+      // Clear/Reset positions to starting state
+      gsap.set(blueprintContainer, { y: 0, opacity: 1 });
+      gsap.set(blueprintNodes, { y: 0, opacity: 1 });
+      gsap.set(blueprintConnectors, { opacity: 1, scaleY: 1, transformOrigin: "top center" });
+      gsap.set(blueprintCore, { y: 0 });
+      if (coreStem) gsap.set(coreStem, { display: "none" });
+
+      if (dividerLeft && dividerRight) gsap.set([dividerLeft, dividerRight], { scaleX: 0 });
+      if (dividerLabel) gsap.set(dividerLabel, { opacity: 0 });
+      
+      // Let both the solution header and value mockup start translated down and invisible
+      gsap.set(solutionHeader, { opacity: 0, y: 180 });
+      gsap.set(valueMock, { opacity: 0, y: 300 });
+      
+      // Reset solPhrases to be visible inside the header container
+      gsap.set(solPhrases, { opacity: 1, y: 0 });
+      if (solutionSub) gsap.set(solutionSub, { opacity: 1, y: 0 });
+      
+      if (mobileMock) {
+        // Disable automatic CSS animation so we can animate it via ScrollTrigger
+        gsap.set(mobileMock, { animation: "none", opacity: 0, y: 30 });
+      }
+
+      // Initialize callout connectors
+      valueCallouts.forEach(callout => {
+        const path = callout.querySelector('.value-callout__connector-path');
+        if (path) {
+          gsap.set(path, { strokeDashoffset: 1 });
         }
       });
-    });
+
+      // 2. Create the unified scroll timeline with a shorter end scroll distance for responsive speed
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: pinWrapper,
+          start: "top top",
+          end: "+=1400", // Shorter distance so pinning doesn't feel stuck
+          pin: true,
+          pinSpacing: true,
+          scrub: 1,
+          invalidateOnRefresh: true
+        }
+      });
+
+      // Phase 2 & 3: Blueprint nodes stay fixed, connectors stretch downward, Zenly core moves down slightly (y: 50)
+      tl.to(blueprintCore, { y: 50, duration: 1.0, ease: "power2.inOut" }, 0)
+        .to(blueprintConnectors, { scaleY: 1.26, duration: 1.0, ease: "power2.inOut" }, 0);
+
+      // Activate the logo glow and flow state immediately on scroll start
+      tl.call(() => {
+        blueprintContainer.classList.add('state-unified');
+      }, null, 0.01)
+      tl.call(() => {
+        blueprintContainer.classList.remove('state-unified');
+      }, null, 0.0);
+
+      // Phase 4: solutionHeader and valueMock slide up together from the bottom
+      tl.to(solutionHeader, { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }, "reveal-start")
+        .to(valueMock, { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }, "reveal-start");
+
+      if (dividerLeft && dividerRight) {
+        tl.to([dividerLeft, dividerRight], { scaleX: 1, duration: 0.4, ease: "power2.out" }, "reveal-start+=0.2");
+      }
+      if (dividerLabel) {
+        tl.to(dividerLabel, { opacity: 1, duration: 0.3, ease: "power2.out" }, "reveal-start+=0.3");
+      }
+      
+      if (mobileMock) {
+        tl.to(mobileMock, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, "reveal-start+=0.4");
+      }
+
+      // Animate the callout draw-on-scroll lines in sequence
+      valueCallouts.forEach((callout, idx) => {
+        const path = callout.querySelector('.value-callout__connector-path');
+        if (path) {
+          tl.to(path, {
+            strokeDashoffset: 0,
+            duration: 0.6,
+            ease: "power2.inOut"
+          }, `reveal-start+=${0.7 + idx * 0.12}`);
+        }
+      });
+
+      // Very brief settle hold at the end so it unpins smoothly right as the animation finishes
+      tl.to({}, { duration: 0.05 });
+
+      // Refresh ScrollTrigger calculations on load to make sure pinning calculations are exact
+      window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+      });
+      ScrollTrigger.refresh();
+
+    } else {
+      // ── MOBILE OR REDUCED-MOTION FALLBACK ──
+      // Clean, lightweight scroll reveals that match original specs
+
+      // Add state-unified immediately when blueprint comes into view
+      ScrollTrigger.create({
+        trigger: blueprintContainer,
+        start: "top 75%",
+        onEnter: () => blueprintContainer.classList.add('state-unified'),
+        onLeaveBack: () => blueprintContainer.classList.remove('state-unified'),
+      });
+
+      // Gentle blueprint connector stem elongation
+      const coreStemEl = blueprintContainer.querySelector('.core-stem');
+      if (coreStemEl) {
+        gsap.set(coreStemEl, { height: 0, opacity: 0 });
+        gsap.to(coreStemEl, {
+          height: 40,
+          opacity: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: blueprintContainer,
+            start: "top 65%",
+            end: "bottom 30%",
+            scrub: 1,
+          }
+        });
+      }
+
+      // Reveal Solution Header
+      const dividerLeft = dividerContainer.querySelector('.story-divider-line--left');
+      const dividerRight = dividerContainer.querySelector('.story-divider-line--right');
+      const dividerLabel = dividerContainer.querySelector('.story-divider-label');
+      const solPhrases = solutionHeader.querySelectorAll('.sol-phrase');
+
+      gsap.set([dividerLeft, dividerRight], { scaleX: 0 });
+      gsap.set(dividerLabel, { opacity: 0 });
+      gsap.set(solPhrases, { opacity: 0, y: 20 });
+      if (solutionSub) gsap.set(solutionSub, { opacity: 0, y: 15 });
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: dividerContainer,
+          start: "top 80%",
+        }
+      })
+        .to([dividerLeft, dividerRight], { scaleX: 1, duration: 0.5, ease: "power2.out" })
+        .to(dividerLabel, { opacity: 1, duration: 0.4, ease: "power2.out" }, "-=0.2")
+        .to(solPhrases, { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" }, "-=0.1")
+        .to(solutionSub, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, "-=0.2");
+
+      // Draw callout paths
+      valueCallouts.forEach((callout, idx) => {
+        const path = callout.querySelector('.value-callout__connector-path');
+        if (path) {
+          gsap.to(path, {
+            strokeDashoffset: 0,
+            duration: 0.7,
+            ease: 'power2.inOut',
+            delay: 0.15 * idx,
+            scrollTrigger: {
+              trigger: valueSection,
+              start: 'top 70%',
+              toggleActions: 'play none none none'
+            }
+          });
+        }
+      });
+    }
   }
 
   // ── Curtain Reveal & Features Header Animation ───────────────────────
@@ -390,16 +470,6 @@
       duration: 0.5,
       ease: "power2.out"
     }, "-=0.1");
-
-    // Add hover interactivity
-    entrPhrases.forEach(phrase => {
-      phrase.addEventListener('mouseenter', () => {
-        entrHeader.classList.add('is-hovered');
-      });
-      phrase.addEventListener('mouseleave', () => {
-        entrHeader.classList.remove('is-hovered');
-      });
-    });
   }
 
   // ── Features Cards Scroll-Triggered Reveal Animations ────────────────
@@ -460,12 +530,35 @@
     });
   }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
 
-  document.querySelectorAll('.reveal, .reveal-scale, .reveal-fade').forEach(function (el) {
+  document.querySelectorAll('.reveal:not(.compare-card__row-content), .reveal-scale, .reveal-fade').forEach(function (el) {
     // Immediately reveal anything already in or above the viewport
     if (el.getBoundingClientRect().top < window.innerHeight) {
       el.classList.add('is-visible');
     } else {
       revealObserver.observe(el);
+    }
+  });
+
+  // ── Compare card: row bg/border render immediately, only the icon+text
+  // inside each row (.compare-card__row-content) stagger in, all triggered
+  // together off the card container rather than each row's own scroll position ─
+  document.querySelectorAll('.compare-card').forEach(function (card) {
+    var rows = card.querySelectorAll('.compare-card__row-content');
+    var revealRows = function () {
+      rows.forEach(function (row) { row.classList.add('is-visible'); });
+    };
+    if (card.getBoundingClientRect().top < window.innerHeight) {
+      revealRows();
+    } else {
+      var compareCardObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            revealRows();
+            compareCardObserver.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+      compareCardObserver.observe(card);
     }
   });
 
@@ -521,83 +614,6 @@
       slots[activeSlotIdx].classList.add('bk-mock__slot--active');
     }, 2200);
   }
-
-  // ── Circular Testimonials ────────────────────────────────────────────
-  (function () {
-    const testimonials = [
-      {
-        name: 'Owner',
-        biz: 'Multi-branch spa · Kathmandu',
-        quote: '"Before this, my manager was calling me 10 times a day. Now I open the app and see everything myself."',
-      },
-      {
-        name: 'Admin',
-        biz: 'Aesthetic clinic · Pokhara',
-        quote: '"The discount approval alone saved us. We didn\'t realize how much we were giving away until we could see every request."',
-      },
-      {
-        name: 'Manager',
-        biz: 'Premium salon chain',
-        quote: '"Our customers love booking online. We\'ve seen a noticeable drop in front-desk calls and a jump in confirmed appointments."',
-      },
-    ];
-
-    const imgs    = document.querySelectorAll('.testi-img');
-    const nameEl  = document.getElementById('testiName');
-    const bizEl   = document.getElementById('testiBiz');
-    const quoteEl = document.getElementById('testiQuote');
-    const prevBtn = document.getElementById('testiPrev');
-    const nextBtn = document.getElementById('testiNext');
-
-    if (!imgs.length || !nameEl) return;
-
-    const n = testimonials.length;
-    let active = 0;
-    let timer;
-
-    function setClasses(i) {
-      const left  = (i - 1 + n) % n;
-      const right = (i + 1) % n;
-      imgs.forEach(function (img, idx) {
-        img.className = 'testi-img';
-        if (idx === i)           img.classList.add('is-active');
-        else if (idx === left)   img.classList.add('is-left');
-        else if (idx === right)  img.classList.add('is-right');
-        else                     img.classList.add('is-hidden');
-      });
-    }
-
-    function animateWords(text) {
-      quoteEl.innerHTML = '';
-      text.split(' ').forEach(function (word, i) {
-        const span = document.createElement('span');
-        span.className = 'testi-word';
-        span.textContent = word;
-        span.style.animationDelay = (i * 0.025) + 's';
-        quoteEl.appendChild(span);
-      });
-    }
-
-    function show(i) {
-      active = (i + n) % n;
-      const t = testimonials[active];
-      setClasses(active);
-      nameEl.textContent = t.name;
-      bizEl.textContent  = t.biz;
-      animateWords(t.quote);
-    }
-
-    function startAutoplay() {
-      clearInterval(timer);
-      timer = setInterval(function () { show(active + 1); }, 5000);
-    }
-
-    prevBtn.addEventListener('click', function () { show(active - 1); startAutoplay(); });
-    nextBtn.addEventListener('click', function () { show(active + 1); startAutoplay(); });
-
-    show(0);
-    startAutoplay();
-  }());
 
   // ── Stats carousel prev/next ──────────────────────────────
   (function () {
@@ -740,5 +756,177 @@
     window.addEventListener('scroll', hiwUpdate, { passive: true });
     hiwUpdate();
   }
+
+  // ── Hero Mockup: Booking Flow Animation Loop ──
+  (function () {
+    var bookingFlow = document.querySelector('.booking-flow');
+    if (bookingFlow && typeof gsap !== 'undefined') {
+      var cursor = bookingFlow.querySelector('.app-cursor');
+      var screen1 = bookingFlow.querySelector('.booking-screen--services');
+      var screen2 = bookingFlow.querySelector('.booking-screen--time');
+      var screen3 = bookingFlow.querySelector('.booking-screen--confirm');
+      var screen4 = bookingFlow.querySelector('.booking-screen--activity');
+
+      var items = bookingFlow.querySelectorAll('.booking-item');
+      var slots = bookingFlow.querySelectorAll('.slot-chip');
+      var therapists = bookingFlow.querySelectorAll('.therapist-chip');
+
+      var btnServices = bookingFlow.querySelector('#btn-services');
+      var btnTime = bookingFlow.querySelector('#btn-time');
+      var notification = bookingFlow.querySelector('.app-notification');
+
+      // Act 2: dashboard stat + status bar, then a short activity feed
+      var dashStat = bookingFlow.querySelector('.dash-stat');
+      var statusBarSegs = bookingFlow.querySelectorAll('.dash-status-bar__seg');
+      var statusBarLegend = bookingFlow.querySelector('.dash-status-bar__legend');
+      var activityRows = bookingFlow.querySelectorAll('.activity-row');
+      // Extra read-time held after each row appears (index 2 = Discount Approved, emphasized)
+      var ACTIVITY_ROW_HOLDS = [1.0, 1.0, 2.4, 1.8];
+
+      // Create a looping timeline
+      var tl = gsap.timeline({ repeat: -1 });
+      
+      // Helper function for click animation (Simulates pressure on targeted card/button)
+      function addClickStep(x, y, targetSelector, onSelect) {
+        tl.to(cursor, { left: x, top: y, duration: 1.2, ease: 'power2.out' });
+        
+        if (targetSelector) {
+          // Animate scale down of both the cursor and the targeted element
+          tl.to(cursor, { scale: 0.8, backgroundColor: 'rgba(48, 46, 45, 0.7)', duration: 0.15 })
+            .to(targetSelector, { scale: 0.95, duration: 0.12 }, '-=0.15')
+            .call(function() {
+              if (onSelect) onSelect();
+            })
+            // Release scale back to 1.0
+            .to(cursor, { scale: 1, backgroundColor: 'rgba(48, 46, 45, 0.2)', duration: 0.15 })
+            .to(targetSelector, { scale: 1, duration: 0.12 }, '-=0.15');
+        } else {
+          tl.to(cursor, { scale: 0.8, backgroundColor: 'rgba(48, 46, 45, 0.7)', duration: 0.15 })
+            .call(function() {
+              if (onSelect) onSelect();
+            })
+            .to(cursor, { scale: 1, backgroundColor: 'rgba(48, 46, 45, 0.2)', duration: 0.15 });
+        }
+        
+        tl.to({}, { duration: 0.5 }); // delay after click
+      }
+      
+      // Reset function
+      function resetFlow() {
+        screen1.className = 'booking-screen booking-screen--services active';
+        screen2.className = 'booking-screen booking-screen--time';
+        screen3.className = 'booking-screen booking-screen--confirm';
+        if (screen4) screen4.className = 'booking-screen booking-screen--activity';
+
+        items.forEach(function(item) { item.classList.remove('selected'); });
+        slots.forEach(function(slot) { slot.classList.remove('selected'); });
+        therapists.forEach(function(therapist) { therapist.classList.remove('selected'); });
+
+        if (btnServices) btnServices.classList.add('disabled');
+        if (btnTime) btnTime.classList.add('disabled');
+
+        gsap.set(screen1, { x: 0, opacity: 1 });
+        gsap.set(screen2, { x: 30, opacity: 0 });
+        gsap.set(screen3, { x: 30, opacity: 0 });
+        if (screen4) gsap.set(screen4, { x: 30, opacity: 0 });
+        gsap.set(cursor, { left: '50%', top: '80%', scale: 1, opacity: 1 });
+        gsap.set(notification, { top: -130 }); // hide notification
+
+        // Reset Act 2 dashboard + activity rows so every loop starts empty
+        if (dashStat) gsap.set(dashStat, { opacity: 0, y: 8 });
+        if (statusBarSegs.length) {
+          statusBarSegs.forEach(function(seg) { gsap.set(seg, { width: '0%' }); });
+        }
+        if (statusBarLegend) gsap.set(statusBarLegend, { opacity: 0 });
+        if (activityRows.length) gsap.set(activityRows, { opacity: 0, y: 8 });
+      }
+
+      // Initial Setup in timeline
+      tl.call(resetFlow);
+      
+      // Step 1: Click first service card (Traditional Thai Massage)
+      addClickStep('50%', '24%', '#item-thai', function() {
+        var targetItem = bookingFlow.querySelector('#item-thai');
+        if (targetItem) targetItem.classList.add('selected');
+        if (btnServices) btnServices.classList.remove('disabled');
+      });
+      
+      // Step 2: Click the bottom select services CTA button
+      addClickStep('50%', '90%', '#btn-services', function() {
+        // Ready to transition
+      });
+      
+      // Transition Screen 1 -> Screen 2
+      tl.to(screen1, { x: -30, opacity: 0, duration: 0.4 })
+        .call(function() {
+          screen1.classList.remove('active');
+          screen2.classList.add('active');
+        })
+        .to(screen2, { x: 0, opacity: 1, duration: 0.4 }, '-=0.4')
+        .set(cursor, { top: '80%', left: '20%' }); // reset cursor position
+        
+      // Step 3: Click the target time slot (10:30 AM)
+      addClickStep('73%', '35%', '#slot-target', function() {
+        var targetSlot = bookingFlow.querySelector('#slot-target');
+        if (targetSlot) targetSlot.classList.add('selected');
+      });
+
+      // Step 4: Click the therapist "Manisha T." chip
+      addClickStep('30%', '64%', '#therapist-manisha', function() {
+        var targetTherapist = bookingFlow.querySelector('#therapist-manisha');
+        if (targetTherapist) targetTherapist.classList.add('selected');
+        if (btnTime) btnTime.classList.remove('disabled');
+      });
+      
+      // Step 5: Click the bottom confirm booking CTA button
+      addClickStep('50%', '90%', '#btn-time', function() {
+        // Ready for confirmation
+      });
+
+      // Transition Screen 2 -> Screen 3
+      tl.to(screen2, { x: -30, opacity: 0, duration: 0.4 })
+        .call(function() {
+          screen2.classList.remove('active');
+          screen3.classList.add('active');
+        })
+        .to(screen3, { x: 0, opacity: 1, duration: 0.4 }, '-=0.4')
+        .to(cursor, { opacity: 0, duration: 0.3 }); // hide cursor
+        
+      // Step 6: Drag/Drop iOS Notification Banner
+      tl.to(notification, { top: 54, duration: 0.7, ease: 'back.out(1.2)' }) // slides down like a drag/drop alert panel
+        .to({}, { duration: 3.5 }) // holds visible
+        .to(notification, { top: -130, duration: 0.5, ease: 'power2.in' }); // slides back up
+
+      // ── Act 2: a real dashboard screen, not a text-only overlay ──
+      // Revenue stat + status bar fill in first (visual UI matching the
+      // actual Zenly staff portal), then a short activity feed underneath.
+      if (screen4) {
+        // Transition Screen 3 -> Screen 4
+        tl.to(screen3, { x: -30, opacity: 0, duration: 0.4 })
+          .call(function() {
+            screen3.classList.remove('active');
+            screen4.classList.add('active');
+          })
+          .to(screen4, { x: 0, opacity: 1, duration: 0.4 }, '-=0.4');
+
+        if (dashStat) {
+          tl.to(dashStat, { opacity: 1, y: 0, duration: 0.4, ease: 'power1.out' });
+        }
+
+        if (statusBarSegs.length) {
+          statusBarSegs.forEach(function(seg) {
+            tl.to(seg, { width: seg.getAttribute('data-target-width'), duration: 0.6, ease: 'power2.out' }, '<');
+          });
+          if (statusBarLegend) tl.to(statusBarLegend, { opacity: 1, duration: 0.4 });
+          tl.to({}, { duration: 1.2 }); // hold on the dashboard summary
+        }
+
+        activityRows.forEach(function(row, i) {
+          tl.to(row, { opacity: 1, y: 0, duration: 0.35, ease: 'power1.out' });
+          tl.to({}, { duration: ACTIVITY_ROW_HOLDS[i] || 1.0 });
+        });
+      }
+    }
+  })();
 
 })();
