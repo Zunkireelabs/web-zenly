@@ -5,15 +5,11 @@ layout: base.njk
 <main>
 
   <!-- ── HERO ────────────────────────────────────────────────────────────── -->
-  <section class="fd-hero" style="background: {{ feature.hero.bg }}">
+  <section class="fd-hero">
     <div class="fd-hero__inner">
 
       <div class="fd-hero__text">
-        {% if feature.hero.eyebrow %}
-        <p class="fd-hero__eyebrow">{{ feature.hero.eyebrow }}</p>
-        {% endif %}
         <h1 class="fd-hero__h1">{{ feature.hero.headline | safe }}</h1>
-        <p class="fd-hero__sub">{{ feature.hero.subheadline }}</p>
         <div class="fd-hero__actions fd-hero__actions--compact">
           <a href="mailto:info.zunkireelabs@gmail.com" class="btn-primary">{{ feature.hero.cta if feature.hero.cta else "Book a Demo" }}</a>
         </div>
@@ -22,56 +18,288 @@ layout: base.njk
         {% endif %}
       </div>
 
-      <div class="fd-hero__img-track">
-        {% if feature.slug == 'booking' %}
-        <div class="fd-hero__mockup" aria-hidden="true">
-          <div class="fd-hero__mockup-top">
-            <div>
-              <p class="fd-hero__mockup-title">Today&rsquo;s bookings</p>
-              <p class="fd-hero__mockup-date">Thu, 3 Jul &middot; Lazimpat branch</p>
-            </div>
-            <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
-          </div>
-          <div class="fd-hero__mockup-list" data-hero-mockup>
-            <div class="fd-hero__mockup-row">
-              <span class="fd-hero__mockup-avatar">A</span>
-              <div class="fd-hero__mockup-info">
-                <p class="fd-hero__mockup-name">A. Sharma</p>
-                <p class="fd-hero__mockup-service">Deep tissue massage &middot; 60 min</p>
-              </div>
-              <span class="fd-hero__mockup-status"></span>
-            </div>
-            <div class="fd-hero__mockup-row">
-              <span class="fd-hero__mockup-avatar">M</span>
-              <div class="fd-hero__mockup-info">
-                <p class="fd-hero__mockup-name">Manisha T.</p>
-                <p class="fd-hero__mockup-service">Hot stone therapy &middot; 90 min</p>
-              </div>
-              <span class="fd-hero__mockup-status"></span>
-            </div>
-            <div class="fd-hero__mockup-row">
-              <span class="fd-hero__mockup-avatar">R</span>
-              <div class="fd-hero__mockup-info">
-                <p class="fd-hero__mockup-name">R. Gurung</p>
-                <p class="fd-hero__mockup-service">Facial &amp; skincare &middot; 45 min</p>
-              </div>
-              <span class="fd-hero__mockup-status"></span>
-            </div>
-            <div class="fd-hero__mockup-row">
-              <span class="fd-hero__mockup-avatar">S</span>
-              <div class="fd-hero__mockup-info">
-                <p class="fd-hero__mockup-name">S. Koirala</p>
-                <p class="fd-hero__mockup-service">Aromatherapy &middot; 60 min</p>
-              </div>
-              <span class="fd-hero__mockup-status"></span>
-            </div>
-          </div>
+      <!-- The new Hero Product Deck Card -->
+      <div class="fd-hero__deck">
+        <div class="fd-hero__deck-info">
+          <h3 class="fd-hero__deck-heading">
+            {{ feature.hero.subheadline }}
+          </h3>
+          {% if feature.primaryFeatures.length %}
+          <ul class="fd-hero__deck-list">
+            {% for feat in feature.primaryFeatures | slice(0, 3) %}
+            <li>
+              <span class="fd-hero__deck-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>{{ feat.title }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
         </div>
-        {% else %}
-        <div class="fd-hero__img-wrap">
-          <img src="{{ feature.hero.image }}" alt="{{ feature.hero.imageAlt }}" class="fd-hero__img">
+        <div class="fd-hero__deck-media">
+          {% if feature.slug == 'booking' %}
+          <div class="fd-hero__mockup" aria-hidden="true">
+            <div class="fd-hero__mockup-top">
+              <div>
+                <p class="fd-hero__mockup-title">Today&rsquo;s bookings</p>
+                <p class="fd-hero__mockup-date">Thu, 3 Jul &middot; Lazimpat branch</p>
+              </div>
+              <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
+            </div>
+            <div class="fd-hero__mockup-list" data-hero-mockup>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">A</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">A. Sharma</p>
+                  <p class="fd-hero__mockup-service">Deep tissue massage &middot; 60 min</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">M</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Manisha T.</p>
+                  <p class="fd-hero__mockup-service">Hot stone therapy &middot; 90 min</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">R</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">R. Gurung</p>
+                  <p class="fd-hero__mockup-service">Facial &amp; skincare &middot; 45 min</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">S</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">S. Koirala</p>
+                  <p class="fd-hero__mockup-service">Aromatherapy &middot; 60 min</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+            </div>
+          </div>
+          {% elif feature.slug == 'operational-visibility' %}
+          <div class="fd-hero__mockup" aria-hidden="true">
+            <div class="fd-hero__mockup-top">
+              <div>
+                <p class="fd-hero__mockup-title">Live branch feed</p>
+                <p class="fd-hero__mockup-date">Thu, 3 Jul &middot; All branches</p>
+              </div>
+              <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
+            </div>
+            <div class="fd-hero__mockup-list" data-hero-mockup>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">L</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Lazimpat branch</p>
+                  <p class="fd-hero__mockup-service">A. Sharma &middot; Deep tissue massage</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">P</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Patan branch</p>
+                  <p class="fd-hero__mockup-service">Manisha T. &middot; Hot stone therapy</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">B</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Boudha branch</p>
+                  <p class="fd-hero__mockup-service">R. Gurung &middot; Facial &amp; skincare</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">T</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Thamel branch</p>
+                  <p class="fd-hero__mockup-service">S. Koirala &middot; Aromatherapy</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+            </div>
+          </div>
+          {% elif feature.slug == 'payment-tracking' %}
+          <div class="fd-hero__mockup" aria-hidden="true">
+            <div class="fd-hero__mockup-top">
+              <div>
+                <p class="fd-hero__mockup-title">Today&rsquo;s payments</p>
+                <p class="fd-hero__mockup-date">Thu, 3 Jul &middot; Lazimpat branch</p>
+              </div>
+              <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
+            </div>
+            <div class="fd-hero__mockup-list">
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">A</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">A. Sharma</p>
+                  <p class="fd-hero__mockup-service">Deep tissue massage &middot; NPR 4,500</p>
+                </div>
+                <span class="fd-hero__mockup-status is-done">Paid</span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">M</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Manisha T.</p>
+                  <p class="fd-hero__mockup-service">Hot stone therapy &middot; NPR 7,200</p>
+                </div>
+                <span class="fd-hero__mockup-status is-done">Paid</span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">R</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">R. Gurung</p>
+                  <p class="fd-hero__mockup-service">Facial &amp; skincare &middot; NPR 1,800</p>
+                </div>
+                <span class="fd-hero__mockup-status">Partial</span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">S</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">S. Koirala</p>
+                  <p class="fd-hero__mockup-service">Aromatherapy &middot; NPR 200</p>
+                </div>
+                <span class="fd-hero__mockup-status is-done">Paid</span>
+              </div>
+            </div>
+          </div>
+          {% elif feature.slug == 'staff-management' %}
+          <div class="fd-hero__mockup" aria-hidden="true">
+            <div class="fd-hero__mockup-top">
+              <div>
+                <p class="fd-hero__mockup-title">Staff transfers</p>
+                <p class="fd-hero__mockup-date">Thu, 3 Jul &middot; All branches</p>
+              </div>
+              <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
+            </div>
+            <div class="fd-hero__mockup-list" data-hero-mockup>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">M</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Manisha T.</p>
+                  <p class="fd-hero__mockup-service">Thamel &rarr; Lazimpat &middot; Eff. Fri, 4 Jul</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">R</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">R. Gurung</p>
+                  <p class="fd-hero__mockup-service">Boudha &rarr; Patan &middot; Eff. Mon, 7 Jul</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">S</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">S. Koirala</p>
+                  <p class="fd-hero__mockup-service">Patan &rarr; Thamel &middot; Eff. Wed, 9 Jul</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">A</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">A. Sharma</p>
+                  <p class="fd-hero__mockup-service">Lazimpat &rarr; Boudha &middot; Eff. Thu, 10 Jul</p>
+                </div>
+                <span class="fd-hero__mockup-status"></span>
+              </div>
+            </div>
+          </div>
+          {% elif feature.slug == 'discount-management' %}
+          <div class="fd-hero__mockup" aria-hidden="true">
+            <div class="fd-hero__mockup-top">
+              <div>
+                <p class="fd-hero__mockup-title">Discount requests</p>
+                <p class="fd-hero__mockup-date">Thu, 3 Jul &middot; Lazimpat branch</p>
+              </div>
+              <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
+            </div>
+            <div class="fd-hero__mockup-list" data-discount-mockup>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">M</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Manisha T. &middot; 15% off</p>
+                  <p class="fd-hero__mockup-service">Hot stone therapy &middot; Booking #BK-4471</p>
+                </div>
+                <span class="fd-hero__mockup-status" data-discount-status>Pending</span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">R</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">R. Gurung &middot; 10% off</p>
+                  <p class="fd-hero__mockup-service">Facial &amp; skincare &middot; Booking #BK-4472</p>
+                </div>
+                <span class="fd-hero__mockup-status is-done">Approved</span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">S</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">S. Koirala &middot; 25% off</p>
+                  <p class="fd-hero__mockup-service">Aromatherapy &middot; Booking #BK-4473</p>
+                </div>
+                <span class="fd-hero__mockup-status" data-discount-status>Pending</span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">A</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">A. Sharma &middot; 20% off</p>
+                  <p class="fd-hero__mockup-service">Deep tissue massage &middot; Booking #BK-4474</p>
+                </div>
+                <span class="fd-hero__mockup-status is-done">Approved</span>
+              </div>
+            </div>
+          </div>
+          {% elif feature.slug == 'role-based-access' %}
+          <div class="fd-hero__mockup" aria-hidden="true">
+            <div class="fd-hero__mockup-top">
+              <div>
+                <p class="fd-hero__mockup-title">Access by role</p>
+                <p class="fd-hero__mockup-date">Thu, 3 Jul &middot; All branches</p>
+              </div>
+              <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
+            </div>
+            <div class="fd-hero__mockup-list">
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">A</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Admin</p>
+                  <p class="fd-hero__mockup-service">All branches &middot; full visibility</p>
+                </div>
+                <span class="fd-hero__mockup-status is-done">Full access</span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">M</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Manager</p>
+                  <p class="fd-hero__mockup-service">Lazimpat branch &middot; approvals</p>
+                </div>
+                <span class="fd-hero__mockup-status">Branch-level</span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">S</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Staff</p>
+                  <p class="fd-hero__mockup-service">Today&rsquo;s schedule &middot; own bookings</p>
+                </div>
+                <span class="fd-hero__mockup-status">Own queue</span>
+              </div>
+            </div>
+          </div>
+          {% else %}
+          <div class="fd-hero__img-wrap">
+            <img src="{{ feature.hero.image }}" alt="{{ feature.hero.imageAlt }}" class="fd-hero__img">
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
       </div>
 
     </div>
@@ -80,10 +308,8 @@ layout: base.njk
   <!-- ── TRUST CAROUSEL ─────────────────────────────────────────────────── -->
   <section class="fd-trust">
     <p class="fd-trust__heading"><span class="fd-trust__stat">Trusted by</span> appointment businesses worldwide.</p>
-    <div class="fd-trust__inner">
-      <div class="fd-trust__row">
-        <div class="fd-trust__track" id="fdTrustTrack">
-          <div class="fd-trust__rail" id="fdTrustRail">
+    <div class="fd-trust__track" id="fdTrustTrack">
+      <div class="fd-trust__rail" id="fdTrustRail">
             <div class="trust-chip trust-chip--live">Nuad Thai Spa</div>
             <div class="trust-chip trust-chip--light-italic">Pure Glow</div>
             <div class="trust-chip trust-chip--caps">The Curl Studio</div>
@@ -115,22 +341,34 @@ layout: base.njk
             <div class="trust-chip trust-chip--heavy">FLEX</div>
             <div class="trust-chip trust-chip--medium">The Tidiers</div>
             <div class="trust-chip trust-chip--light-italic">bloom studio</div>
-          </div>
-        </div>
-        <button class="fd-trust__btn" id="fdTrustBtn" aria-label="Pause carousel">
-          <!-- pause icon (default) -->
-          <svg class="fd-trust__icon fd-trust__icon--pause" width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <rect x="2" y="1" width="3.5" height="12" rx="1.5" fill="currentColor"/>
-            <rect x="8.5" y="1" width="3.5" height="12" rx="1.5" fill="currentColor"/>
-          </svg>
-          <!-- play icon (hidden) -->
-          <svg class="fd-trust__icon fd-trust__icon--play" width="14" height="14" viewBox="0 0 14 14" fill="none" style="display:none">
-            <path d="M3 2L12 7L3 12V2Z" fill="currentColor"/>
-          </svg>
-        </button>
       </div>
     </div>
   </section>
+
+  <!-- ── THE PROBLEM ───────────────────────────────────────────────────── -->
+  {% if feature.problem %}
+  <section class="section fd-problem">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        <h2 class="section__h2">{{ feature.problem.headline | safe }}</h2>
+      </div>
+      {% if feature.problem.body %}
+      <p class="fd-problem__body reveal">{{ feature.problem.body }}</p>
+      {% endif %}
+      {% if feature.problem.panels %}
+      <div class="fd-problem__grid reveal">
+        {% for panel in feature.problem.panels %}
+        <div class="fd-problem__card">
+          <span class="fd-problem__emoji" aria-hidden="true">{{ panel.emoji }}</span>
+          <h3 class="fd-problem__title">{{ panel.title }}</h3>
+          <p class="fd-problem__text">{{ panel.body }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
 
   <!-- ── LIFECYCLE (sticky numbered scroll) ─────────────────────────────────
        Skipped when feature.workflow is present — that timeline already
@@ -169,82 +407,348 @@ layout: base.njk
   {% if feature.workflow %}
   <section class="fd-workflow">
     <div class="section__inner">
-      <h2 class="fd-workflow__heading">How a booking day runs on Zenly.</h2>
-      <p class="fd-workflow__sub">A real timeline of one appointment, hour by hour.</p>
-      <div class="fd-workflow__grid">
-        {% for item in feature.workflow %}
-        <div class="fd-workflow__col">
-          <div class="fd-workflow__card fd-workflow__card--{{ 'top' if loop.index % 2 != 0 else 'bottom' }}" style="--delay: {{ (loop.index - 1) * 120 }}ms">
-            <div class="fd-workflow__num-row">
-              <span class="fd-workflow__num">{{ item.num }}</span>
-              <span class="fd-workflow__bar"></span>
+      <div class="fd-workflow__pin-wrap" data-workflow-scroll style="--wf-steps: {{ feature.workflow | length }}">
+        <div class="fd-workflow__sticky">
+          <div class="fd-workflow__head">
+            <h2 class="fd-workflow__heading">{{ feature.workflowHeading | safe if feature.workflowHeading else "How a booking day runs on <span class=\"fd-workflow__heading-accent\">Zenly.</span>" | safe }}</h2>
+            <p class="fd-workflow__sub">{{ feature.workflowSub if feature.workflowSub else "A real timeline of one appointment, hour by hour." }}</p>
+          </div>
+
+          <div class="fd-workflow__container">
+            <div class="fd-workflow__grid">
+              {% for item in feature.workflow %}
+              <div class="fd-workflow__col{% if loop.first %} is-active{% endif %}">
+                <div class="fd-workflow__node-col">
+                  <div class="fd-workflow__node">
+                    <span class="fd-workflow__node-icon-wrap">
+                      {% if item.status == "Pending" %}
+                      <svg class="fd-workflow__node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      {% elif item.status == "Confirmed" %}
+                      <svg class="fd-workflow__node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      {% elif item.status == "In-Progress" %}
+                      <svg class="fd-workflow__node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                      {% elif item.status == "Completed" %}
+                      <svg class="fd-workflow__node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      {% elif item.status == "Reconciled" %}
+                      <svg class="fd-workflow__node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      {% endif %}
+                    </span>
+                  </div>
+                  <span class="fd-workflow__node-label">{{ item.status }}</span>
+                </div>
+              </div>
+              {% endfor %}
             </div>
-            <p class="fd-workflow__time">{{ item.time }}</p>
-            <h3 class="fd-workflow__title">{{ item.title }}</h3>
-            <p class="fd-workflow__body">{{ item.body }}</p>
-            {% if item.status %}
-            <span class="fd-workflow__status">
-              {% if item.status == "Pending" %}
-              <svg class="fd-workflow__status-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              {% elif item.status == "Confirmed" %}
-              <svg class="fd-workflow__status-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              {% elif item.status == "In-Progress" %}
-              <svg class="fd-workflow__status-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              {% elif item.status == "Completed" %}
-              <svg class="fd-workflow__status-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              {% elif item.status == "Reconciled" %}
-              <svg class="fd-workflow__status-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              {% endif %}
-              <span>{{ item.status }}</span>
-            </span>
-            {% endif %}
+
+            <div class="fd-workflow__stage">
+              {% for item in feature.workflow %}
+              <div class="fd-workflow__stage-panel{% if loop.first %} is-active{% endif %}">
+                <span class="fd-workflow__step-tag">STEP {{ item.num }}</span>
+                <p class="fd-workflow__time">{{ item.time }}</p>
+                <h3 class="fd-workflow__title">{{ item.title }}</h3>
+                <p class="fd-workflow__body">{{ item.body }}</p>
+              </div>
+              {% endfor %}
+            </div>
           </div>
         </div>
-        {% endfor %}
       </div>
     </div>
   </section>
   {% endif %}
 
   <!-- ── PRIMARY FEATURES (roles or sticky scroll) ───────────────────────── -->
+  {% if feature.roles or feature.primaryFeatures %}
   {% if feature.roles %}
   <section class="section fd-roles">
     <div class="section__inner">
       <h2 class="fd-roles__heading">The right view for every role.</h2>
-      <p class="fd-roles__sub">Built for every person in your business.</p>
+      <p class="fd-roles__sub">Built for every person in <span class="fd-roles__sub-accent">your business.</span></p>
 
-      <div class="fd-roles-tabs" data-roles-tabs>
-        <div class="fd-roles-tabs__nav">
+      <div class="fd-roles-showcase" data-roles-showcase>
+        <!-- Left: Persona Selector Stack (Desktop only) -->
+        <div class="fd-roles-selector-stack">
           {% for role in feature.roles %}
-          <div class="fd-roles-tabs__col{% if loop.first %} is-active{% endif %}" data-role-tab="{{ loop.index0 }}" tabindex="0">
-            <span class="fd-roles-tabs__tab">{{ role.persona }}</span>
+          <button class="fd-roles-selector-card{% if loop.first %} is-active{% endif %}" data-role-select="{{ loop.index0 }}" aria-label="Select role: {{ role.persona }}">
+            <div class="fd-roles-selector-card__header">
+              <span class="fd-roles-selector-card__icon-wrap">
+                {% if role.icon == "users" or role.icon == "user-check" %}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                {% elif role.icon == "layout" or role.icon == "layout-dashboard" %}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+                {% elif role.icon == "bar-chart" or role.icon == "building-2" %}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                {% else %}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                {% endif %}
+              </span>
+              <h3 class="fd-roles-selector-card__persona">{{ role.persona }}</h3>
+            </div>
             {% if role.summary %}
-            <p class="fd-roles-tabs__summary">{{ role.summary }}</p>
+            <p class="fd-roles-selector-card__summary">{{ role.summary }}</p>
             {% endif %}
-          </div>
+            <div class="fd-roles-selector-card__progress-track">
+              <div class="fd-roles-selector-card__progress-bar"></div>
+            </div>
+          </button>
           {% endfor %}
         </div>
-        <div class="fd-roles-tabs__panels">
+
+        <!-- Right: Showcase Display Panel -->
+        <div class="fd-roles-display-panel">
           {% for role in feature.roles %}
-          <div class="fd-roles-tabs__panel{% if loop.first %} is-active{% endif %}" data-role-panel="{{ loop.index0 }}">
-            <div class="fd-roles-tabs__visual">
-              {% if role.image %}
-              <img src="{{ role.image }}" alt="{{ role.imageAlt or role.persona }}" class="fd-roles-tabs__img">
-              {% else %}
-              <div class="fd-roles-tabs__placeholder" aria-hidden="true"></div>
-              {% endif %}
-            </div>
-            <div class="fd-roles-tabs__text">
+          {% set role_index = loop.index0 %}
+          <div class="fd-roles-display-content{% if loop.first %} is-active{% endif %}" data-role-content="{{ loop.index0 }}">
+            
+            <!-- Features Checklist (Left on Desktop) -->
+            <div class="fd-roles-content-text">
               <ul class="fd-roles__list">
                 {% for feat in role.features %}
                 <li class="fd-roles__item">
-                  <span class="fd-roles__check">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#2D5A27" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  <div>
-                    <p class="fd-roles__feat-title">{{ feat.title }}</p>
-                    <p class="fd-roles__feat-desc">{{ feat.description }}</p>
+                  <p class="fd-roles__feat-title">{{ feat.title }}</p>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            <!-- Live Mockup Visual Block (Right on Desktop) -->
+            <div class="fd-roles-visual-container">
+              {% if loop.index0 == 0 %}
+                <!-- Front-Desk / Staff Live Mockup -->
+                <div class="fd-mockup fd-mockup--frontdesk">
+                  <div class="fd-mockup-header">
+                    <div class="fd-mockup-dots">
+                      <span class="fd-mockup-dot"></span>
+                      <span class="fd-mockup-dot"></span>
+                      <span class="fd-mockup-dot"></span>
+                    </div>
+                    <span class="fd-mockup-title">Zenly Scheduler · Lazimpat</span>
                   </div>
+                  <div class="fd-mockup-body">
+                    <div class="fd-sch-row">
+                      <span class="fd-sch-time">09:00 AM</span>
+                      <div class="fd-sch-card">
+                        <div class="fd-sch-meta">
+                          <span class="fd-sch-client">Asha Sharma</span>
+                          <span class="fd-sch-service">Deep Tissue · 60m</span>
+                        </div>
+                        <span class="fd-sch-badge fd-sch-badge--progress">
+                          <span class="fd-sch-dot pulsing"></span>In-Progress
+                        </span>
+                      </div>
+                    </div>
+                    <div class="fd-sch-row">
+                      <span class="fd-sch-time">10:15 AM</span>
+                      <div class="fd-sch-card">
+                        <div class="fd-sch-meta">
+                          <span class="fd-sch-client">Manisha Thapa</span>
+                          <span class="fd-sch-service">Aromatherapy · 60m</span>
+                        </div>
+                        <span class="fd-sch-badge fd-sch-badge--confirmed">Confirmed</span>
+                      </div>
+                    </div>
+                    <div class="fd-sch-row">
+                      <span class="fd-sch-time">11:30 AM</span>
+                      <div class="fd-sch-card">
+                        <div class="fd-sch-meta">
+                          <span class="fd-sch-client">Rajesh Gurung</span>
+                          <span class="fd-sch-service">Facial Therapy · 45m</span>
+                        </div>
+                        <span class="fd-sch-badge fd-sch-badge--pending" id="anim-staff-badge-{{ feature.slug }}">Pending</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% elif loop.index0 == 1 %}
+                <!-- Branch Manager Live Mockup -->
+                <div class="fd-mockup fd-mockup--manager">
+                  <div class="fd-mockup-header">
+                    <div class="fd-mockup-dots">
+                      <span class="fd-mockup-dot"></span>
+                      <span class="fd-mockup-dot"></span>
+                      <span class="fd-mockup-dot"></span>
+                    </div>
+                    <span class="fd-mockup-title">Branch Control Panel</span>
+                  </div>
+                  <div class="fd-mockup-body">
+                    <div class="fd-mgr-alert" id="anim-mgr-alert-{{ feature.slug }}">
+                      <div class="fd-mgr-alert-content">
+                        <span class="fd-mgr-alert-icon">⚠️</span>
+                        <div class="fd-mgr-alert-text">
+                          <p class="fd-mgr-alert-title">Conflict Detected</p>
+                          <p class="fd-mgr-alert-desc">S. Koirala double-booked at 1:00 PM</p>
+                        </div>
+                      </div>
+                      <button class="fd-mgr-alert-btn">Resolve</button>
+                    </div>
+                    <div class="fd-mgr-success is-hidden" id="anim-mgr-success-{{ feature.slug }}">
+                      <span class="fd-mgr-success-icon">✓</span>
+                      <div class="fd-mgr-success-text">
+                        <p class="fd-mgr-success-title">Resolved Automatically</p>
+                        <p class="fd-mgr-success-desc">Moved Rajesh G. to Room 5.</p>
+                      </div>
+                    </div>
+                    <div class="fd-mgr-logs">
+                      <p class="fd-mgr-logs-title">System Audit Trail</p>
+                      <div class="fd-mgr-log-item">
+                        <span class="fd-mgr-log-time">11:15 AM</span>
+                        <span class="fd-mgr-log-text">BK-9021 set to In-Progress</span>
+                      </div>
+                      <div class="fd-mgr-log-item">
+                        <span class="fd-mgr-log-time">09:00 AM</span>
+                        <span class="fd-mgr-log-text">BK-9021 Confirmed by Manager</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% elif loop.index0 == 2 %}
+                <!-- Owner & Admin Live Mockup -->
+                <div class="fd-mockup fd-mockup--owner">
+                  <div class="fd-mockup-header">
+                    <div class="fd-mockup-dots">
+                      <span class="fd-mockup-dot"></span>
+                      <span class="fd-mockup-dot"></span>
+                      <span class="fd-mockup-dot"></span>
+                    </div>
+                    <span class="fd-mockup-title">Zenly Enterprise HQ</span>
+                  </div>
+                  <div class="fd-mockup-body">
+                    <div class="fd-own-rev">
+                      <span class="fd-own-rev-label">Total Revenue (Today)</span>
+                      <div class="fd-own-rev-val">NPR <span class="anim-own-rev-val-{{ feature.slug }}">106,500</span></div>
+                    </div>
+                    <div class="fd-own-branches">
+                      <div class="fd-own-branch">
+                        <div class="fd-own-branch-meta">
+                          <span class="fd-own-branch-name">Kathmandu (Main)</span>
+                          <span class="fd-own-branch-amt">NPR 64,500</span>
+                        </div>
+                        <div class="fd-own-branch-bar"><div class="fd-own-branch-fill" style="width: 75%"></div></div>
+                      </div>
+                      <div class="fd-own-branch">
+                        <div class="fd-own-branch-meta">
+                          <span class="fd-own-branch-name">Lalitpur Branch</span>
+                          <span class="fd-own-branch-amt">NPR 42,000</span>
+                        </div>
+                        <div class="fd-own-branch-bar"><div class="fd-own-branch-fill" style="width: 55%"></div></div>
+                      </div>
+                    </div>
+                    <div class="fd-own-toast-container">
+                      <div class="fd-own-toast is-hidden" id="anim-own-toast-{{ feature.slug }}">
+                        <span class="fd-own-toast-dot"></span>
+                        <span class="fd-own-toast-text"><strong>Live:</strong> Aromatherapy completed. NPR 4,500 recorded.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Accordion Version for Mobile -->
+        <div class="fd-roles-accordion">
+          {% for role in feature.roles %}
+          {% set role_index_mobile = loop.index0 %}
+          <div class="fd-roles-accordion-item{% if loop.first %} is-active{% endif %}" data-accordion-item="{{ loop.index0 }}">
+            <button class="fd-roles-accordion-trigger" aria-expanded="{% if loop.first %}true{% else %}false{% endif %}">
+              <div class="fd-roles-accordion-header">
+                <span class="fd-roles-accordion-icon">
+                  {% if role.icon == "users" or role.icon == "user-check" %}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  {% elif role.icon == "layout" or role.icon == "layout-dashboard" %}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+                  {% elif role.icon == "bar-chart" or role.icon == "building-2" %}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  {% else %}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+                  {% endif %}
+                </span>
+                <span class="fd-roles-accordion-title">{{ role.persona }}</span>
+              </div>
+              <svg class="fd-roles-accordion-chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="fd-roles-accordion-content">
+              {% if role.summary %}
+              <p class="fd-roles-accordion-summary">{{ role.summary }}</p>
+              {% endif %}
+              
+              <!-- Accordion Visual (Renders same visual style but simplified) -->
+              <div class="fd-roles-accordion-visual-wrap">
+                {% if loop.index0 == 0 %}
+                  <div class="fd-mockup fd-mockup--frontdesk fd-mockup--mobile">
+                    <div class="fd-mockup-header">
+                      <div class="fd-mockup-dots"><span class="fd-mockup-dot"></span><span class="fd-mockup-dot"></span><span class="fd-mockup-dot"></span></div>
+                      <span class="fd-mockup-title">Zenly Scheduler</span>
+                    </div>
+                    <div class="fd-mockup-body">
+                      <div class="fd-sch-row">
+                        <span class="fd-sch-time">09:00 AM</span>
+                        <div class="fd-sch-card">
+                          <div class="fd-sch-meta">
+                            <span class="fd-sch-client">Asha Sharma</span>
+                            <span class="fd-sch-service">Deep Tissue · 60m</span>
+                          </div>
+                          <span class="fd-sch-badge fd-sch-badge--progress"><span class="fd-sch-dot pulsing"></span>In-Progress</span>
+                        </div>
+                      </div>
+                      <div class="fd-sch-row">
+                        <span class="fd-sch-time">11:30 AM</span>
+                        <div class="fd-sch-card">
+                          <div class="fd-sch-meta">
+                            <span class="fd-sch-client">Rajesh Gurung</span>
+                            <span class="fd-sch-service">Facial Therapy · 45m</span>
+                          </div>
+                          <span class="fd-sch-badge fd-sch-badge--pending" id="anim-staff-badge-mobile-{{ feature.slug }}">Pending</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% elif loop.index0 == 1 %}
+                  <div class="fd-mockup fd-mockup--manager fd-mockup--mobile">
+                    <div class="fd-mockup-header">
+                      <div class="fd-mockup-dots"><span class="fd-mockup-dot"></span><span class="fd-mockup-dot"></span><span class="fd-mockup-dot"></span></div>
+                      <span class="fd-mockup-title">Branch Control Panel</span>
+                    </div>
+                    <div class="fd-mockup-body">
+                      <div class="fd-mgr-alert" id="anim-mgr-alert-mobile-{{ feature.slug }}">
+                        <div class="fd-mgr-alert-content">
+                          <span class="fd-mgr-alert-icon">⚠️</span>
+                          <div class="fd-mgr-alert-text">
+                            <p class="fd-mgr-alert-title">Schedule Conflict Detected</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="fd-mgr-success is-hidden" id="anim-mgr-success-mobile-{{ feature.slug }}">
+                        <span class="fd-mgr-success-icon">✓</span>
+                        <div class="fd-mgr-success-text">
+                          <p class="fd-mgr-success-title">Conflict Resolved Automatically</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% elif loop.index0 == 2 %}
+                  <div class="fd-mockup fd-mockup--owner fd-mockup--mobile">
+                    <div class="fd-mockup-header">
+                      <div class="fd-mockup-dots"><span class="fd-mockup-dot"></span><span class="fd-mockup-dot"></span><span class="fd-mockup-dot"></span></div>
+                      <span class="fd-mockup-title">Zenly Enterprise HQ</span>
+                    </div>
+                    <div class="fd-mockup-body">
+                      <div class="fd-own-rev">
+                        <span class="fd-own-rev-label">Total Revenue (Today)</span>
+                        <div class="fd-own-rev-val">NPR <span class="anim-own-rev-val-mobile-{{ feature.slug }}">129,500</span></div>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+
+              <ul class="fd-roles__list">
+                {% for feat in role.features %}
+                <li class="fd-roles__item">
+                  <p class="fd-roles__feat-title">{{ feat.title }}</p>
                 </li>
                 {% endfor %}
               </ul>
@@ -282,14 +786,14 @@ layout: base.njk
     </div>
   </section>
   {% endif %}
+  {% endif %}
 
   <!-- ── PROOF THROUGH NUMBERS ────────────────────────────────────────────── -->
   {% if feature.proof %}
   <section class="section fd-proof">
     <div class="section__inner">
       <div class="section__header reveal">
-        {% if feature.proof.eyebrow and feature.slug != 'booking' %}<p class="section__badge">{{ feature.proof.eyebrow }}</p>{% endif %}
-        <h2 class="section__h2">{{ feature.proof.headline }}</h2>
+        <h2 class="section__h2">{{ feature.proof.headline | safe }}</h2>
         {% if feature.proof.sub %}<p class="section__sub section__sub--center">{{ feature.proof.sub }}</p>{% endif %}
       </div>
       <div class="fd-proof__grid reveal">
@@ -298,7 +802,7 @@ layout: base.njk
           {% if stat.tag %}
           <p class="fd-proof__tag"><span class="fd-proof__dot" aria-hidden="true"></span>{{ stat.tag }}</p>
           {% endif %}
-          <div class="fd-proof__num">{{ stat.value }}</div>
+          <div class="fd-proof__num" data-count-target="{{ stat.value }}">{{ stat.value }}</div>
           <p class="fd-proof__label">{{ stat.label }}</p>
         </div>
         {% endfor %}
@@ -315,10 +819,7 @@ layout: base.njk
   <section class="section fd-social">
     <div class="section__inner">
       <div class="section__header reveal">
-        {% if feature.socialProof.eyebrow and feature.slug != 'booking' %}
-        <p class="fd-social__badge"><span class="fd-social__dot" aria-hidden="true"></span>{{ feature.socialProof.eyebrow }}</p>
-        {% endif %}
-        <h2 class="section__h2">{{ feature.socialProof.headline }}</h2>
+        <h2 class="section__h2">{{ feature.socialProof.headline | safe }}</h2>
         {% if feature.socialProof.sub %}<p class="section__sub section__sub--center">{{ feature.socialProof.sub }}</p>{% endif %}
       </div>
       <div class="fd-social__grid reveal">
@@ -337,77 +838,29 @@ layout: base.njk
   </section>
   {% endif %}
 
-  <!-- ── CONNECTED FEATURES (2x2 bento grid with center mockup) ───────────── -->
-  {% if feature.connectedFeatures %}
-  <section class="section fd-connected">
+
+  <!-- ── STOP DOING / START DOING ─────────────────────────────────────────── -->
+  {% if feature.stopStart %}
+  <section class="section fd-stopstart">
     <div class="section__inner">
-      <div class="section__header reveal">
-        <h2 class="section__h2">{{ feature.connectedFeatures.headline }}</h2>
-        {% if feature.connectedFeatures.sub %}<p class="section__sub section__sub--center">{{ feature.connectedFeatures.sub }}</p>{% endif %}
-      </div>
-
-      <div class="fd-bento reveal-scale" data-delay="1">
-        {% set bentoIcons = ["credit-card", "percent", "users", "activity"] %}
-        {% for item in feature.connectedFeatures.items %}
-        <div class="fd-bento__card fd-bento__card--{{ loop.index }}">
-          <div class="fd-bento__head">
-            <span class="fd-bento__icon">
-              {% set icon = bentoIcons[loop.index0] %}
-              {% if icon == "credit-card" %}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-              {% elif icon == "percent" %}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
-              {% elif icon == "users" %}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              {% elif icon == "activity" %}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              {% endif %}
-            </span>
-            <strong class="fd-bento__title">{{ item.title }}</strong>
+      <div class="fd-stopstart__grid reveal">
+        <div class="fd-stopstart__col fd-stopstart__col--stop">
+          <div class="fd-stopstart__pane">
+            <h3 class="fd-stopstart__heading">What you stop doing</h3>
+            <ul class="fd-stopstart__list">
+              {% for item in feature.stopStart.stop %}
+              <li><span class="fd-stopstart__icon fd-stopstart__icon--stop" aria-hidden="true">&#10005;</span>{{ item }}</li>
+              {% endfor %}
+            </ul>
           </div>
-          <p class="fd-bento__text">{{ item.description }}</p>
-        </div>
-        {% endfor %}
 
-        <div class="fd-bento__media">
-          <div class="fd-bento__mockup" data-bento-mockup>
-            <div class="fd-bento__mockup-head">
-              <div>
-                <p class="fd-bento__mockup-name">A. Sharma</p>
-                <p class="fd-bento__mockup-id">#BK-20260702-0001</p>
-              </div>
-              <span class="fd-bento__mockup-badge">Confirmed</span>
-            </div>
-            <div class="fd-bento__mockup-rows">
-              <div class="fd-bento__mockup-row" data-mockup-row="1">
-                <span class="fd-bento__mockup-row-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-                </span>
-                <span class="fd-bento__mockup-row-label">Payment</span>
-                <span class="fd-bento__mockup-row-value">NPR 4,500 · Paid</span>
-              </div>
-              <div class="fd-bento__mockup-row" data-mockup-row="2">
-                <span class="fd-bento__mockup-row-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
-                </span>
-                <span class="fd-bento__mockup-row-label">Discount</span>
-                <span class="fd-bento__mockup-row-value">None applied</span>
-              </div>
-              <div class="fd-bento__mockup-row" data-mockup-row="3">
-                <span class="fd-bento__mockup-row-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </span>
-                <span class="fd-bento__mockup-row-label">Staff</span>
-                <span class="fd-bento__mockup-row-value">Manisha T. assigned</span>
-              </div>
-              <div class="fd-bento__mockup-row" data-mockup-row="4">
-                <span class="fd-bento__mockup-row-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                </span>
-                <span class="fd-bento__mockup-row-label">Status</span>
-                <span class="fd-bento__mockup-row-value">Confirmed</span>
-              </div>
-            </div>
+          <div class="fd-stopstart__col fd-stopstart__col--start">
+            <h3 class="fd-stopstart__heading">What you start doing</h3>
+            <ul class="fd-stopstart__list">
+              {% for item in feature.stopStart.start %}
+              <li><span class="fd-stopstart__icon fd-stopstart__icon--start" aria-hidden="true">&#10003;</span>{{ item }}</li>
+              {% endfor %}
+            </ul>
           </div>
         </div>
       </div>
@@ -442,14 +895,12 @@ layout: base.njk
 
   <!-- ── BOTTOM CTA ───────────────────────────────────────────────────────── -->
   <section class="bottom-cta" id="demo">
-    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+    <div class="bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">{{ feature.bottomCta.headline if feature.bottomCta else "Ready to see it in action?" }}</h2>
-      <p class="bottom-cta__sub">{{ feature.bottomCta.subheadline if feature.bottomCta else "Book a 30-minute demo. We'll walk you through the platform with your own business in mind." }}</p>
-      <a href="mailto:info.zunkireelabs@gmail.com" class="bottom-cta__banner-btn">{{ feature.bottomCta.ctaLabel if feature.bottomCta else "Book a Demo →" }}</a>
-      <a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener" class="bottom-cta__link" style="color:rgba(255,255,255,0.7);font-size:0.9375rem;margin-top:4px;">See It Live &rarr;</a>
-      {% if feature.bottomCta.reassurance %}
-      <p class="bottom-cta__reassurance" style="color:rgba(255,255,255,0.55);font-size:0.875rem;margin-top:12px;">{{ feature.bottomCta.reassurance }}</p>
+      {% if feature.bottomCta.subheadline %}
+      <p class="bottom-cta__sub">{{ feature.bottomCta.subheadline }}</p>
       {% endif %}
+      <a href="mailto:info.zunkireelabs@gmail.com" class="bottom-cta__banner-btn">{{ feature.bottomCta.ctaLabel if feature.bottomCta else "Book your demo – it's 20 minutes →" }}</a>
     </div>
   </section>
 
@@ -470,8 +921,8 @@ layout: base.njk
         <div class="footer__col-title">Product</div>
         <ul class="footer__links">
           <li><a href="/features/booking">Online Booking</a></li>
-          <li><a href="/features/operations">Operations</a></li>
-          <li><a href="/features/finance">Finance</a></li>
+          <li><a href="/features/operational-visibility">Operations</a></li>
+          <li><a href="/features/payment-tracking">Finance</a></li>
           <li><a href="/features/reports">Reports</a></li>
           <li><a href="/features/industries">Industries</a></li>
           <li><a href="/pricing">Pricing</a></li>
@@ -517,75 +968,251 @@ layout: base.njk
 
   <script>
   (function () {
-    var grid = document.querySelector('.fd-workflow__grid');
-    if (!grid) return;
-    var io = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) {
-        grid.classList.add('is-visible');
-        io.disconnect();
+    var pinWrap = document.querySelector('[data-workflow-scroll]');
+    if (!pinWrap) return;
+    var cols = pinWrap.querySelectorAll('.fd-workflow__col');
+    var panels = pinWrap.querySelectorAll('.fd-workflow__stage-panel');
+    if (!cols.length || !panels.length) return;
+
+    var ticking = false;
+
+    function apply() {
+      ticking = false;
+      var rect = pinWrap.getBoundingClientRect();
+      var total = rect.height - window.innerHeight;
+      var scrolled = -rect.top;
+      var progress = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0;
+      var activeIndex = Math.min(cols.length - 1, Math.floor(progress * cols.length));
+
+      cols.forEach(function (col, i) {
+        col.classList.toggle('is-active', i === activeIndex);
+        col.classList.toggle('is-done', i < activeIndex);
+      });
+      panels.forEach(function (panel, i) {
+        panel.classList.toggle('is-active', i === activeIndex);
+      });
+    }
+
+    function requestUpdate() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(apply);
+    }
+
+    apply();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate, { passive: true });
+  })();
+
+  (function () {
+    var showcase = document.querySelector('[data-roles-showcase]');
+    if (!showcase) return;
+    
+    var selectors = showcase.querySelectorAll('[data-role-select]');
+    var displayContents = showcase.querySelectorAll('[data-role-content]');
+    var accordions = showcase.querySelectorAll('[data-accordion-item]');
+    var rotationTimer = null;
+    var currentIndex = 0;
+    var isUserInteracted = false;
+    var duration = 6000; // 6s per role
+    var startTime = Date.now();
+    var progressAnimFrame = null;
+    
+    function activateRole(index) {
+      currentIndex = index;
+      
+      // Update desktop selectors
+      selectors.forEach(function (card, idx) {
+        var isActive = idx === index;
+        card.classList.toggle('is-active', isActive);
+        
+        // Reset progress bar on all bars
+        var bar = card.querySelector('.fd-roles-selector-card__progress-bar');
+        if (bar) {
+          bar.style.width = '0%';
+        }
+      });
+      
+      // Update desktop display panel
+      displayContents.forEach(function (panel, idx) {
+        panel.classList.toggle('is-active', idx === index);
+      });
+      
+      // Update mobile accordions
+      accordions.forEach(function (acc, idx) {
+        var isActive = idx === index;
+        acc.classList.toggle('is-active', isActive);
+        var trigger = acc.querySelector('.fd-roles-accordion-trigger');
+        if (trigger) {
+          trigger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        }
+      });
+      
+      // Restart progress bar animation if auto-rotation is active
+      if (!isUserInteracted) {
+        startTime = Date.now();
+        animateProgressBar();
       }
-    }, { threshold: 0.15 });
-    io.observe(grid);
-  })();
-
-  (function () {
-    var wrap = document.querySelector('[data-roles-tabs]');
-    if (!wrap) return;
-    var tabs = wrap.querySelectorAll('[data-role-tab]');
-    var panels = wrap.querySelectorAll('[data-role-panel]');
-    function activate(index) {
-      tabs.forEach(function (t) { t.classList.toggle('is-active', t.getAttribute('data-role-tab') === index); });
-      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-role-panel') === index); });
     }
-    tabs.forEach(function (tab) {
-      var index = tab.getAttribute('data-role-tab');
-      tab.addEventListener('mouseenter', function () { activate(index); });
-      tab.addEventListener('click', function () { activate(index); });
-      tab.addEventListener('focus', function () { activate(index); });
-    });
-  })();
-
-  (function () {
-    var mockup = document.querySelector('[data-bento-mockup]');
-    if (!mockup) return;
-    var rows  = mockup.querySelectorAll('.fd-bento__mockup-row');
-    var cards = document.querySelectorAll('.fd-bento__card');
-    if (!rows.length || !cards.length) return;
-
-    var i = 0;
-    var timer;
-
-    function activate(index) {
-      rows.forEach(function (row) {
-        row.classList.toggle('is-active', row.getAttribute('data-mockup-row') === String(index + 1));
-      });
-      cards.forEach(function (card) {
-        card.classList.toggle('is-linked', card.classList.contains('fd-bento__card--' + (index + 1)));
-      });
+    
+    function animateProgressBar() {
+      if (isUserInteracted) return;
+      cancelAnimationFrame(progressAnimFrame);
+      
+      var activeCard = showcase.querySelector('.fd-roles-selector-card.is-active');
+      if (!activeCard) return;
+      var bar = activeCard.querySelector('.fd-roles-selector-card__progress-bar');
+      if (!bar) return;
+      
+      function step() {
+        if (isUserInteracted) return;
+        var now = Date.now();
+        var progress = (now - startTime) / duration;
+        if (progress >= 1) {
+          progress = 1;
+          bar.style.width = '100%';
+          // Move to next role
+          var nextIndex = (currentIndex + 1) % selectors.length;
+          activateRole(nextIndex);
+        } else {
+          bar.style.width = (progress * 100) + '%';
+          progressAnimFrame = requestAnimationFrame(step);
+        }
+      }
+      progressAnimFrame = requestAnimationFrame(step);
     }
-
-    function tick() {
-      activate(i);
-      i = (i + 1) % rows.length;
-    }
-
-    function start() {
-      tick();
-      clearInterval(timer);
-      timer = setInterval(tick, 1800);
-    }
-
-    var section = document.querySelector('.fd-connected');
-    if (section && 'IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) { start(); io.disconnect(); }
+    
+    // Attach event listeners to desktop selector cards
+    selectors.forEach(function (card) {
+      var index = parseInt(card.getAttribute('data-role-select'), 10);
+      card.addEventListener('click', function () {
+        isUserInteracted = true;
+        cancelAnimationFrame(progressAnimFrame);
+        // Clean all progress bars
+        selectors.forEach(function (c) {
+          var b = c.querySelector('.fd-roles-selector-card__progress-bar');
+          if (b) b.style.width = '0%';
         });
-      }, { threshold: 0.3 });
-      io.observe(section);
-    } else {
-      start();
+        activateRole(index);
+      });
+    });
+    
+    // Attach event listeners to mobile accordions
+    accordions.forEach(function (acc) {
+      var index = parseInt(acc.getAttribute('data-accordion-item'), 10);
+      var trigger = acc.querySelector('.fd-roles-accordion-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', function () {
+          isUserInteracted = true;
+          cancelAnimationFrame(progressAnimFrame);
+          // If already active, toggle it (collapsing all is fine for accordions, or keep one active)
+          if (acc.classList.contains('is-active')) {
+            // Keep at least one active
+          } else {
+            activateRole(index);
+          }
+        });
+      }
+    });
+    
+    // Start initial progress animation
+    activateRole(0);
+  })();
+
+  // Mockup Animations Helper
+  (function() {
+    // 1. Staff Mockup Animation
+    function initStaffAnim(badgeId) {
+      var badge = document.getElementById(badgeId);
+      if (!badge) return;
+      var states = [
+        { text: 'Pending', class: 'fd-sch-badge--pending', html: 'Pending' },
+        { text: 'Confirmed', class: 'fd-sch-badge--confirmed', html: 'Confirmed' },
+        { text: 'In-Progress', class: 'fd-sch-badge--progress', html: '<span class="fd-sch-dot pulsing"></span>In-Progress' }
+      ];
+      var index = 0;
+      setInterval(function() {
+        index = (index + 1) % states.length;
+        badge.className = 'fd-sch-badge ' + states[index].class;
+        badge.innerHTML = states[index].html;
+      }, 3000);
     }
+
+    // 2. Manager Mockup Animation
+    function initManagerAnim(alertId, successId) {
+      var alertEl = document.getElementById(alertId);
+      var successEl = document.getElementById(successId);
+      if (!alertEl || !successEl) return;
+      
+      function runCycle() {
+        // Step 1: Show conflict, hide success
+        alertEl.classList.remove('is-hidden');
+        successEl.classList.add('is-hidden');
+        
+        // Step 2: Auto-resolve after 2.5s
+        setTimeout(function() {
+          var btn = alertEl.querySelector('.fd-mgr-alert-btn');
+          if (btn) btn.style.transform = 'scale(0.95)';
+          
+          setTimeout(function() {
+            if (btn) btn.style.transform = 'none';
+            alertEl.classList.add('is-hidden');
+            successEl.classList.remove('is-hidden');
+          }, 200);
+        }, 2500);
+      }
+      
+      runCycle();
+      setInterval(runCycle, 6000);
+    }
+
+    // 3. Owner Mockup Animation
+    function initOwnerAnim(revClass, toastId) {
+      var revEls = document.querySelectorAll('.' + revClass);
+      var toastEl = document.getElementById(toastId);
+      if (!revEls.length || !toastEl) return;
+
+      function runCycle() {
+        // Step 1: Reset revenue, hide toast
+        revEls.forEach(function(el) { el.textContent = '125,000'; });
+        toastEl.classList.add('is-hidden');
+        
+        // Step 2: After 2s, show completed booking toast, increment revenue
+        setTimeout(function() {
+          toastEl.classList.remove('is-hidden');
+          
+          // Animate counter from 125,000 to 129,500
+          var start = 125000;
+          var end = 129500;
+          var current = start;
+          var duration = 800; // ms
+          var steps = 20;
+          var stepVal = (end - start) / steps;
+          var stepTime = duration / steps;
+          var counterTimer = setInterval(function() {
+            current += stepVal;
+            if (current >= end) {
+              current = end;
+              clearInterval(counterTimer);
+            }
+            var formatted = Math.floor(current).toLocaleString();
+            revEls.forEach(function(el) { el.textContent = formatted; });
+          }, stepTime);
+        }, 2000);
+      }
+      
+      runCycle();
+      setInterval(runCycle, 6000);
+    }
+
+    // Run animations for the current page
+    var slug = '{{ feature.slug }}';
+    initStaffAnim('anim-staff-badge-' + slug);
+    initStaffAnim('anim-staff-badge-mobile-' + slug);
+    initManagerAnim('anim-mgr-alert-' + slug, 'anim-mgr-success-' + slug);
+    initManagerAnim('anim-mgr-alert-mobile-' + slug, 'anim-mgr-success-mobile-' + slug);
+    initOwnerAnim('anim-own-rev-val-' + slug, 'anim-own-toast-' + slug);
+    initOwnerAnim('anim-own-rev-val-mobile-' + slug, 'anim-own-toast-mobile-' + slug);
   })();
 
   (function () {
@@ -651,6 +1278,48 @@ layout: base.njk
     function start() {
       clearInterval(timer);
       timer = setInterval(tick, 2200);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { start(); io.disconnect(); }
+        });
+      }, { threshold: 0.3 });
+      io.observe(mockup);
+    } else {
+      start();
+    }
+  })();
+
+  (function () {
+    var mockup = document.querySelector('[data-discount-mockup]');
+    if (!mockup) return;
+    var statuses = mockup.querySelectorAll('[data-discount-status]');
+    if (!statuses.length) return;
+
+    function approve(el) {
+      el.classList.add('is-done');
+      el.textContent = 'Approved';
+    }
+
+    function reset(el) {
+      el.classList.remove('is-done');
+      el.textContent = 'Pending';
+    }
+
+    function runCycle() {
+      statuses.forEach(reset);
+      statuses.forEach(function (el, i) {
+        setTimeout(function () { approve(el); }, 1200 + i * 900);
+      });
+    }
+
+    var timer;
+    function start() {
+      runCycle();
+      clearInterval(timer);
+      timer = setInterval(runCycle, 5000);
     }
 
     if ('IntersectionObserver' in window) {

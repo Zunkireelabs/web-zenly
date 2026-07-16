@@ -29,135 +29,454 @@ bodyClass: page--light-nav
         <div class="hero__phone-media">
           <!-- Interactive Booking App Flow -->
           <div class="booking-flow">
-            <!-- App Header -->
-            <div class="app-header">
-              <div class="app-header__title">New Booking</div>
-              <div class="app-header__subtitle">Nuad Thai Spa — Front Desk</div>
+            
+            <!-- Shared Browser Header (matching the real app screenshot) -->
+            <div class="app-browser-header">
+              <div class="app-browser-header__left">
+                <div class="app-dropdown-trigger">
+                  <span class="app-dropdown-text">Overall</span>
+                  <svg class="app-dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="app-browser-header__right">
+                <!-- Spark/Sparkles icon -->
+                <svg class="app-header-icon app-header-icon--spark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m10.607 10.607l.707-.707" />
+                </svg>
+                <!-- Bell icon -->
+                <svg class="app-header-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+                <!-- Bald man avatar -->
+                <div class="app-avatar-wrapper">
+                  <div class="app-avatar-img">
+                    <svg viewBox="0 0 32 32" class="app-avatar-placeholder" fill="currentColor">
+                      <circle cx="16" cy="16" r="16" fill="#e2e8f0"/>
+                      <circle cx="16" cy="13" r="6.5" fill="#fbcfe8"/>
+                      <rect x="12" y="11.5" width="2.5" height="1.8" rx="0.5" fill="none" stroke="#475569" stroke-width="0.8"/>
+                      <rect x="17.5" y="11.5" width="2.5" height="1.8" rx="0.5" fill="none" stroke="#475569" stroke-width="0.8"/>
+                      <line x1="14.5" y1="12.4" x2="17.5" y2="12.4" stroke="#475569" stroke-width="0.8"/>
+                      <path d="M6 28c0-3.8 4.2-6.5 10-6.5s10 2.7 10 6.5v2H6v-2z" fill="#047857"/>
+                    </svg>
+                  </div>
+                  <svg class="app-avatar-chevron" width="8" height="5" viewBox="0 0 8 5" fill="none">
+                    <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
             </div>
 
             <!-- Booking Screens Container -->
             <div class="booking-screens">
               
-              
-              <!-- Screen 1: Services -->
-              <div class="booking-screen booking-screen--services active">
-                <!-- Booking-for card: staff is entering this booking on a customer's behalf -->
-                <div class="app-promo-card">
-                  <div class="app-promo-card__label">Booking For</div>
-                  <div class="app-promo-card__title">A. Sharma</div>
-                  <div class="app-promo-card__desc">Walk-in · First visit at Nuad Thai Spa</div>
+              <!-- SCREEN 1: Dashboard View -->
+              <div class="booking-screen booking-screen--dashboard active">
+                <div class="dashboard-scroll-area">
+                  <!-- 2x2 Stats Grid -->
+                  <div class="dash-stats-grid">
+                    <!-- Today -->
+                    <div class="dash-card">
+                      <div class="dash-card__header">
+                        <span class="dash-card__icon-wrap color-today">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                          </svg>
+                        </span>
+                        <span class="dash-card__label">TODAY</span>
+                      </div>
+                      <div class="dash-card__value" id="dash-today-rev">$0</div>
+                      <div class="dash-card__sub">Net Revenue</div>
+                      <div class="dash-card__footer">
+                        <span>Paid</span>
+                        <span class="dash-card__footer-val" id="dash-today-paid">0</span>
+                      </div>
+                    </div>
+                    
+                    <!-- Yesterday -->
+                    <div class="dash-card">
+                      <div class="dash-card__header">
+                        <span class="dash-card__icon-wrap color-yest">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                          </svg>
+                        </span>
+                        <span class="dash-card__label">YEST.</span>
+                      </div>
+                      <div class="dash-card__value">$0</div>
+                      <div class="dash-card__sub">Net Revenue</div>
+                      <div class="dash-card__footer">
+                        <span>Paid</span>
+                        <span class="dash-card__footer-val">0</span>
+                      </div>
+                    </div>
+
+                    <!-- WTD -->
+                    <div class="dash-card">
+                      <div class="dash-card__header">
+                        <span class="dash-card__icon-wrap color-wtd">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                          </svg>
+                        </span>
+                        <span class="dash-card__label">WTD</span>
+                      </div>
+                      <div class="dash-card__value" id="dash-wtd-rev">$0</div>
+                      <div class="dash-card__sub">Net Revenue</div>
+                      <div class="dash-card__footer">
+                        <span>Paid</span>
+                        <span class="dash-card__footer-val" id="dash-wtd-paid">0</span>
+                      </div>
+                    </div>
+
+                    <!-- MTD -->
+                    <div class="dash-card">
+                      <div class="dash-card__header">
+                        <span class="dash-card__icon-wrap color-mtd">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                          </svg>
+                        </span>
+                        <span class="dash-card__label">MTD</span>
+                      </div>
+                      <div class="dash-card__value" id="dash-mtd-rev">$32.2K</div>
+                      <div class="dash-card__sub">Net Revenue</div>
+                      <div class="dash-card__footer">
+                        <span>Paid</span>
+                        <span class="dash-card__footer-val" id="dash-mtd-paid">9</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Room Utilization Card -->
+                  <div class="room-util-card">
+                    <div class="room-util-card__header">
+                      <div class="room-util-card__title-wrap">
+                        <span class="room-util-card__icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                          </svg>
+                        </span>
+                        <div>
+                          <div class="room-util-card__title">Room Utilization</div>
+                          <div class="room-util-card__subtitle">30 active rooms</div>
+                        </div>
+                      </div>
+                      <div class="room-util-card__percentage">
+                        <span class="pct-val" id="util-avg-pct">0%</span>
+                        <span class="pct-lbl">avg</span>
+                      </div>
+                    </div>
+                    
+                    <div class="room-util-list">
+                      <!-- Salons -->
+                      <div class="room-util-item">
+                        <div class="room-util-item__meta">
+                          <span class="room-util-item__name">SALONS</span>
+                          <span class="room-util-item__hours">0m / 12h</span>
+                        </div>
+                        <div class="room-util-progress">
+                          <div class="room-util-progress__bar" style="--progress-width: 0%"></div>
+                          <span class="room-util-progress__text">0%</span>
+                        </div>
+                      </div>
+                      <!-- Foot Massage -->
+                      <div class="room-util-item">
+                        <div class="room-util-item__meta">
+                          <span class="room-util-item__name">FOOT MASSAGE</span>
+                          <span class="room-util-item__hours">0m / 12h</span>
+                        </div>
+                        <div class="room-util-progress">
+                          <div class="room-util-progress__bar" style="--progress-width: 0%"></div>
+                          <span class="room-util-progress__text">0%</span>
+                        </div>
+                      </div>
+                      <!-- Downtown -->
+                      <div class="room-util-item">
+                        <div class="room-util-item__meta">
+                          <span class="room-util-item__name">DOWNTOWN</span>
+                          <span class="room-util-item__hours" id="util-dtn-hours">0m / 12h</span>
+                        </div>
+                        <div class="room-util-progress">
+                          <div class="room-util-progress__bar" id="util-dtn-bar" style="--progress-width: 0%"></div>
+                          <span class="room-util-progress__text" id="util-dtn-pct">0%</span>
+                        </div>
+                      </div>
+                      <!-- Uptown -->
+                      <div class="room-util-item">
+                        <div class="room-util-item__meta">
+                          <span class="room-util-item__name">UPTOWN</span>
+                          <span class="room-util-item__hours">0m / 12h</span>
+                        </div>
+                        <div class="room-util-progress">
+                          <div class="room-util-progress__bar" style="--progress-width: 0%"></div>
+                          <span class="room-util-progress__text">0%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Today's Live Activity feed inside dashboard -->
+                  <div class="dash-activity-section">
+                    <div class="booking-screen__section-title">Today's Live Activity</div>
+                    <div class="dash-activity-list">
+                      <div class="dash-activity-placeholder">No activity logged today yet.</div>
+                      <div class="activity-row" id="activity-new-booking">
+                        <span class="activity-row__dot activity-row__dot--confirmed"></span>
+                        <div class="activity-row__body">
+                          <div class="activity-row__title">New Booking Logged</div>
+                          <div class="activity-row__sub">Thai Massage · Emma J. · Confirmed</div>
+                        </div>
+                        <span class="activity-row__time">10:30 AM</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- SCREEN 2: Calendar View -->
+              <div class="booking-screen booking-screen--calendar">
+                <!-- Calendar Toolbar -->
+                <div class="cal-toolbar">
+                  <div class="cal-toolbar__left">
+                    <button class="cal-icon-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <line x1="9" y1="3" x2="9" y2="21" />
+                      </svg>
+                    </button>
+                    <div class="cal-date-pager">
+                      <span class="cal-pager-arrow">&lt;</span>
+                      <span class="cal-pager-label">Today</span>
+                      <span class="cal-pager-arrow">&gt;</span>
+                    </div>
+                  </div>
+                  <div class="cal-toolbar__right">
+                    <div class="cal-view-toggle">
+                      <span class="cal-toggle-btn active">Day</span>
+                      <span class="cal-toggle-btn">4 Day</span>
+                    </div>
+                    <div class="cal-filter-trigger">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 2px;">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                      </svg>
+                      <span>Positions</span>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="booking-screen__list">
-                  <div class="booking-item" id="item-thai">
-                    <div class="booking-item__info">
-                      <div class="booking-item__title">Traditional Thai Massage</div>
-                      <div class="booking-item__meta">60 min &middot; Manisha T. &middot; Restorative stretch</div>
+                <!-- Calendar Schedule Grid -->
+                <div class="cal-schedule-container">
+                  <!-- Header row -->
+                  <div class="cal-grid-header">
+                    <div class="cal-cell cal-cell--time">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                      </svg>
                     </div>
-                    <div class="booking-item__price">NPR 1,200</div>
+                    <div class="cal-cell cal-cell--staff color-unassigned">
+                      <div class="staff-header-name">
+                        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:middle; margin-right: 2px;">
+                          <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zM2 20c0-4.4 3.6-8 8-8h4c4.4 0 8 3.6 8 8" stroke-linecap="round"/>
+                        </svg>
+                        Unassigned
+                      </div>
+                    </div>
+                    <div class="cal-cell cal-cell--staff">
+                      <div class="staff-header-name">EMILY CARTER</div>
+                      <div class="staff-header-sub">FEMALE</div>
+                    </div>
+                    <div class="cal-cell cal-cell--staff">
+                      <div class="staff-header-name">SOPHIA BENNETT</div>
+                      <div class="staff-header-sub">FEMALE</div>
+                    </div>
                   </div>
-                  <div class="booking-item" id="item-oil">
-                    <div class="booking-item__info">
-                      <div class="booking-item__title">Aromatherapy Oil Therapy</div>
-                      <div class="booking-item__meta">90 min &middot; Bikash R. &middot; Lavender &amp; light pressure</div>
+
+                  <!-- Grid Body -->
+                  <div class="cal-grid-body">
+                    <!-- Current Time Indicator Line -->
+                    <div class="cal-time-marker" style="top: 36%;"></div>
+
+                    <!-- Rows of 30 min intervals -->
+                    <div class="cal-grid-row">
+                      <div class="cal-cell cal-cell--time">9 AM</div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
                     </div>
-                    <div class="booking-item__price">NPR 1,800</div>
-                  </div>
-                  <div class="booking-item" id="item-foot">
-                    <div class="booking-item__info">
-                      <div class="booking-item__title">Reflexology Foot Massage</div>
-                      <div class="booking-item__meta">45 min &middot; Sunil K. &middot; Target pressure therapy</div>
+                    <div class="cal-grid-row">
+                      <div class="cal-cell cal-cell--time">9:30</div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
                     </div>
-                    <div class="booking-item__price">NPR 950</div>
+                    <div class="cal-grid-row">
+                      <div class="cal-cell cal-cell--time">10 AM</div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                    </div>
+                    <div class="cal-grid-row" id="cal-row-target">
+                      <div class="cal-cell cal-cell--time">10:30</div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot interactive-target" id="cal-slot-emily-1030">
+                        <div class="cal-filled-booking animate-pop" id="cal-booking-card">
+                          <div class="cal-filled-booking__name">Emma Johnson</div>
+                          <div class="cal-filled-booking__service">Thai Massage (60m)</div>
+                          <div class="cal-filled-booking__meta">$120 · Confirmed</div>
+                        </div>
+                      </div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                    </div>
+                    <div class="cal-grid-row">
+                      <div class="cal-cell cal-cell--time">11 AM</div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                    </div>
+                    <div class="cal-grid-row">
+                      <div class="cal-cell cal-cell--time">11:30</div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                    </div>
+                    <div class="cal-grid-row">
+                      <div class="cal-cell cal-cell--time">12 PM</div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                      <div class="cal-cell cal-cell--slot"></div>
+                    </div>
                   </div>
                 </div>
-                <!-- App Bottom CTA Button -->
+              </div>
+
+              <!-- SCREEN 3: Booking Services step -->
+              <div class="booking-screen booking-screen--services">
+                <div class="booking-drawer-header">
+                  <span class="booking-drawer-back" id="btn-services-back">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                  </span>
+                  <span class="booking-drawer-title">New Booking</span>
+                  <span class="booking-drawer-close">×</span>
+                </div>
+
+                <div class="booking-drawer-content">
+                  <div class="app-promo-card">
+                    <div class="app-promo-card__label">Booking For</div>
+                    <div class="app-promo-card__title">Emma Johnson</div>
+                    <div class="app-promo-card__desc">Walk-in · First visit at Zenly Spa</div>
+                  </div>
+
+                  <div class="booking-screen__section-title">Select Treatment</div>
+                  <div class="booking-screen__list">
+                    <div class="booking-item" id="item-thai">
+                      <div class="booking-item__info">
+                        <div class="booking-item__title">Traditional Thai Massage</div>
+                        <div class="booking-item__meta">60 min &middot; Emily C. &middot; Restorative stretch</div>
+                      </div>
+                      <div class="booking-item__price">$120</div>
+                    </div>
+                    <div class="booking-item" id="item-oil">
+                      <div class="booking-item__info">
+                        <div class="booking-item__title">Aromatherapy Oil Therapy</div>
+                        <div class="booking-item__meta">90 min &middot; David M. &middot; Lavender &amp; light pressure</div>
+                      </div>
+                      <div class="booking-item__price">$180</div>
+                    </div>
+                    <div class="booking-item" id="item-foot">
+                      <div class="booking-item__info">
+                        <div class="booking-item__title">Reflexology Foot Massage</div>
+                        <div class="booking-item__meta">45 min &middot; Ryan T. &middot; Target pressure therapy</div>
+                      </div>
+                      <div class="booking-item__price">$95</div>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="app-btn-container">
                   <div class="app-btn disabled" id="btn-services">Select Treatment</div>
                 </div>
               </div>
 
-              <!-- Screen 2: Time Selection -->
+              <!-- SCREEN 4: Time selection step -->
               <div class="booking-screen booking-screen--time">
-                <div class="booking-screen__section-title">Select Date & Time</div>
-                <div class="calendar-scroll">
-                  <div class="calendar-day">
-                    <span class="day-name">Mon</span>
-                    <span class="day-num">13</span>
-                  </div>
-                  <div class="calendar-day calendar-day--selected">
-                    <span class="day-name">Tue</span>
-                    <span class="day-num">14</span>
-                  </div>
-                  <div class="calendar-day">
-                    <span class="day-name">Wed</span>
-                    <span class="day-num">15</span>
-                  </div>
-                  <div class="calendar-day">
-                    <span class="day-name">Thu</span>
-                    <span class="day-num">16</span>
-                  </div>
-                </div>
-                
-                <div class="slots-grid">
-                  <div class="slot-chip">10:00 AM</div>
-                  <div class="slot-chip" id="slot-target">10:30 AM</div>
-                  <div class="slot-chip">11:30 AM</div>
-                  <div class="slot-chip">2:00 PM</div>
+                <div class="booking-drawer-header">
+                  <span class="booking-drawer-back" id="btn-time-back">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                  </span>
+                  <span class="booking-drawer-title">New Booking</span>
+                  <span class="booking-drawer-close">×</span>
                 </div>
 
-                <!-- Therapist Selection -->
-                <div class="booking-screen__section-title" style="margin-top: 14px; margin-bottom: 8px;">Select Therapist</div>
-                <div class="therapists-list">
-                  <div class="therapist-chip" id="therapist-manisha">
-                    <div class="therapist-avatar">MT</div>
-                    <span class="therapist-name">Manisha T. (★ 4.9)</span>
+                <div class="booking-drawer-content">
+                  <!-- Therapist selection (pre-highlighted since we clicked under Emily C in the calendar) -->
+                  <div class="booking-screen__section-title">Select Therapist</div>
+                  <div class="therapists-list">
+                    <div class="therapist-chip selected" id="therapist-emily">
+                      <div class="therapist-avatar">EC</div>
+                      <span class="therapist-name">Emily Carter (★ 4.9)</span>
+                    </div>
+                    <div class="therapist-chip" id="therapist-bikash">
+                      <div class="therapist-avatar">DM</div>
+                      <span class="therapist-name">David Miller (★ 4.8)</span>
+                    </div>
                   </div>
-                  <div class="therapist-chip" id="therapist-bikash">
-                    <div class="therapist-avatar">BR</div>
-                    <span class="therapist-name">Bikash R. (★ 4.8)</span>
-                  </div>
-                </div>
 
-                <!-- Special Instructions Mock -->
-                <div class="app-input-group">
-                  <div class="booking-screen__section-title" style="margin-bottom: 0;">Special Instructions</div>
-                  <div class="app-input-mock">e.g., Prefers deep pressure, room temperature...</div>
-                </div>
+                  <!-- Special Instructions mock input -->
+                  <div class="app-input-group">
+                    <div class="booking-screen__section-title" style="margin-bottom: 0;">Special Instructions</div>
+                    <div class="app-input-mock">e.g., Prefers deep pressure, room temperature...</div>
+                  </div>
 
-                <!-- Checkout Price Summary Block -->
-                <div class="app-summary-block">
-                  <div class="app-summary-row">
-                    <span>Thai Massage (60 min)</span>
-                    <span>NPR 1,200</span>
-                  </div>
-                  <div class="app-summary-row">
-                    <span>Service Fee</span>
-                    <span>NPR 0</span>
-                  </div>
-                  <div class="app-summary-row total">
-                    <span>Total</span>
-                    <span>NPR 1,200</span>
+                  <!-- Price summary -->
+                  <div class="booking-screen__section-title" style="margin-top: 16px; margin-bottom: 6px;">Price Summary</div>
+                  <div class="app-summary-block">
+                    <div class="app-summary-row">
+                      <span>Traditional Thai Massage (60 min)</span>
+                      <span>$120</span>
+                    </div>
+                    <div class="app-summary-row">
+                      <span>Service Fee</span>
+                      <span>$0</span>
+                    </div>
+                    <div class="app-summary-row total">
+                      <span>Total Amount</span>
+                      <span>$120</span>
+                    </div>
                   </div>
                 </div>
 
-                <!-- App Bottom CTA Button -->
                 <div class="app-btn-container">
-                  <div class="app-btn disabled" id="btn-time">Confirm Booking</div>
+                  <div class="app-btn" id="btn-time">Confirm Booking</div>
                 </div>
               </div>
 
-              <!-- Screen 3: Confirmation -->
+              <!-- SCREEN 5: Confirmation screen -->
               <div class="booking-screen booking-screen--confirm">
                 <div class="confirm-card">
                   <div class="confirm-card__icon">✓</div>
                   <div class="confirm-card__title">Booking Confirmed</div>
-                  <div class="confirm-card__desc">Logged and confirmed for A. Sharma.</div>
+                  <div class="confirm-card__desc">Logged and confirmed for Emma Johnson.</div>
 
                   <div class="confirm-details">
                     <div class="confirm-row">
                       <span class="confirm-label">Customer</span>
-                      <span class="confirm-val">A. Sharma</span>
+                      <span class="confirm-val">Emma Johnson</span>
                     </div>
                     <div class="confirm-row">
                       <span class="confirm-label">Service</span>
@@ -165,7 +484,7 @@ bodyClass: page--light-nav
                     </div>
                     <div class="confirm-row">
                       <span class="confirm-label">Therapist</span>
-                      <span class="confirm-val confirm-val--caps">Manisha T.</span>
+                      <span class="confirm-val confirm-val--caps">Emily C.</span>
                     </div>
                     <div class="confirm-row">
                       <span class="confirm-label">Time</span>
@@ -173,83 +492,69 @@ bodyClass: page--light-nav
                     </div>
                     <div class="confirm-row">
                       <span class="confirm-label">Booking ID</span>
-                      <span class="confirm-val">#BK-20260713-0007</span>
+                      <span class="confirm-val">#BK-20260715-0104</span>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <!-- Screen 4: Dashboard Overview — real visual UI, not a text list -->
-              <div class="booking-screen booking-screen--activity">
-
-                <!-- Big revenue stat, like the real Zenly staff portal dashboard -->
-                <div class="dash-stat">
-                  <div class="dash-stat__label">Net Revenue Today</div>
-                  <div class="dash-stat__value">NPR 47,200</div>
-                  <div class="dash-stat__trend">▲ 12% vs yesterday</div>
-                </div>
-
-                <!-- Segmented status bar, colored to match the real product's status legend -->
-                <div class="dash-status-bar">
-                  <div class="dash-status-bar__track">
-                    <span class="dash-status-bar__seg dash-status-bar__seg--pending" style="width:0%" data-target-width="12%"></span>
-                    <span class="dash-status-bar__seg dash-status-bar__seg--confirmed" style="width:0%" data-target-width="30%"></span>
-                    <span class="dash-status-bar__seg dash-status-bar__seg--progress" style="width:0%" data-target-width="8%"></span>
-                    <span class="dash-status-bar__seg dash-status-bar__seg--completed" style="width:0%" data-target-width="50%"></span>
-                  </div>
-                  <div class="dash-status-bar__legend">
-                    <span><i class="dash-dot dash-dot--pending"></i>3 Pending</span>
-                    <span><i class="dash-dot dash-dot--confirmed"></i>7 Confirmed</span>
-                    <span><i class="dash-dot dash-dot--progress"></i>2 In Progress</span>
-                    <span><i class="dash-dot dash-dot--completed"></i>11 Completed</span>
-                  </div>
-                </div>
-
-                <div class="booking-screen__section-title" style="margin-top: 16px;">Today's Activity</div>
-                <div class="activity-list">
-
-                  <div class="activity-row" data-activity="0">
-                    <span class="activity-row__dot activity-row__dot--pending"></span>
-                    <div class="activity-row__body">
-                      <div class="activity-row__title">New Booking Logged</div>
-                      <div class="activity-row__sub">Thai Massage · A. Sharma · Pending</div>
-                    </div>
-                    <span class="activity-row__time">10:28 AM</span>
-                  </div>
-
-                  <div class="activity-row" data-activity="1">
-                    <span class="activity-row__dot activity-row__dot--discount"></span>
-                    <div class="activity-row__body">
-                      <div class="activity-row__title">Discount Requested</div>
-                      <div class="activity-row__sub">15% · Manisha T. requests approval</div>
-                    </div>
-                    <span class="activity-row__time">10:45 AM</span>
-                  </div>
-
-                  <div class="activity-row activity-row--approved" data-activity="2">
-                    <span class="activity-row__icon">✓</span>
-                    <div class="activity-row__body">
-                      <div class="activity-row__title">Discount Approved</div>
-                      <div class="activity-row__sub">15% approved by Manager · Logged to booking</div>
-                    </div>
-                    <span class="activity-row__time">10:47 AM</span>
-                  </div>
-
-                  <div class="activity-row activity-row--closed" data-activity="3">
-                    <span class="activity-row__icon">✓</span>
-                    <div class="activity-row__body">
-                      <div class="activity-row__title">Day Closed &amp; Reconciled</div>
-                      <div class="activity-row__sub">NPR 47,200 · 23 bookings completed</div>
-                    </div>
-                    <span class="activity-row__time">6:00 PM</span>
-                  </div>
-
-                </div><!-- /.activity-list -->
               </div>
 
             </div><!-- /.booking-screens -->
 
-            <!-- iOS Notification Banner (Drag Panel drop-down simulation) -->
+            <!-- Bottom Navigation Bar (Floating/Fixed overlay) -->
+            <div class="app-bottom-nav">
+              <div class="app-nav-item active" id="nav-dash">
+                <div class="app-nav-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                  </svg>
+                </div>
+                <span class="app-nav-label">Dashboard</span>
+              </div>
+              <div class="app-nav-item" id="nav-bookings">
+                <div class="app-nav-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                  </svg>
+                </div>
+                <span class="app-nav-label">Bookings</span>
+              </div>
+              <div class="app-nav-item" id="nav-cal">
+                <div class="app-nav-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                </div>
+                <span class="app-nav-label">Calendar</span>
+              </div>
+              <div class="app-nav-item" id="nav-cust">
+                <div class="app-nav-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                  </svg>
+                </div>
+                <span class="app-nav-label">Customers</span>
+              </div>
+              <div class="app-nav-item" id="nav-more">
+                <div class="app-nav-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1" />
+                    <circle cx="19" cy="12" r="1" />
+                    <circle cx="5" cy="12" r="1" />
+                  </svg>
+                </div>
+                <span class="app-nav-label">More</span>
+              </div>
+            </div>
+
+            <!-- iOS Notification Banner -->
             <div class="app-notification">
               <div class="app-notification__header">
                 <span class="app-notification__logo">Z</span>
@@ -258,7 +563,7 @@ bodyClass: page--light-nav
               </div>
               <div class="app-notification__body">
                 <strong>Booking Confirmed!</strong>
-                <p>Thai Massage for A. Sharma with Manisha T. — confirmed for today, 10:30 AM.</p>
+                <p>Thai Massage for Emma J. with Emily C. — confirmed for today, 10:30 AM.</p>
               </div>
               <div class="app-notification__handle"></div>
             </div>
@@ -304,34 +609,45 @@ bodyClass: page--light-nav
   <!-- ── TRUST BAND ─────────────────────────────────────── -->
   <section class="trust-band">
     <div class="trust-band__inner">
-
       <h2 class="trust-band__heading reveal"><span class="trust-band__phrase" data-phrase="1">Service businesses</span> <span class="trust-band__phrase" data-phrase="2">that run on Zenly.</span></h2>
+    </div>
 
-      <div class="trust-band__grid reveal" data-delay="1">
-
-        <!-- Row 1 -->
-        <div class="trust-chip trust-chip--live">Nuad Thai Spa</div>
+    <div class="trust-band__marquee reveal" data-delay="1">
+      <div class="trust-band__marquee-track">
+        <!-- Set 1 -->
+        <div class="trust-chip trust-chip--live">Zenly Spa</div>
         <div class="trust-chip trust-chip--light-italic">Pure Glow</div>
         <div class="trust-chip trust-chip--caps">The Curl Studio</div>
         <div class="trust-chip trust-chip--medium">SmileWell</div>
         <div class="trust-chip trust-chip--bold">FitForm</div>
-
-        <!-- Row 2 -->
         <div class="trust-chip trust-chip--dot">revive.</div>
         <div class="trust-chip trust-chip--medium">Ink &amp; Canvas</div>
         <div class="trust-chip trust-chip--wide-caps">PHYSIO PLUS</div>
         <div class="trust-chip trust-chip--dot">clean &amp; co.</div>
         <div class="trust-chip trust-chip--serif-italic">nail atelier</div>
-
-        <!-- Row 3 -->
         <div class="trust-chip trust-chip--caps">ZENITH DENTAL</div>
         <div class="trust-chip trust-chip--serif">maven</div>
         <div class="trust-chip trust-chip--heavy">FLEX</div>
         <div class="trust-chip trust-chip--medium">The Tidiers</div>
         <div class="trust-chip trust-chip--light-italic">bloom studio</div>
-
+        
+        <!-- Set 2 (Duplicate for seamless infinite scrolling loop) -->
+        <div class="trust-chip trust-chip--live">Zenly Spa</div>
+        <div class="trust-chip trust-chip--light-italic">Pure Glow</div>
+        <div class="trust-chip trust-chip--caps">The Curl Studio</div>
+        <div class="trust-chip trust-chip--medium">SmileWell</div>
+        <div class="trust-chip trust-chip--bold">FitForm</div>
+        <div class="trust-chip trust-chip--dot">revive.</div>
+        <div class="trust-chip trust-chip--medium">Ink &amp; Canvas</div>
+        <div class="trust-chip trust-chip--wide-caps">PHYSIO PLUS</div>
+        <div class="trust-chip trust-chip--dot">clean &amp; co.</div>
+        <div class="trust-chip trust-chip--serif-italic">nail atelier</div>
+        <div class="trust-chip trust-chip--caps">ZENITH DENTAL</div>
+        <div class="trust-chip trust-chip--serif">maven</div>
+        <div class="trust-chip trust-chip--heavy">FLEX</div>
+        <div class="trust-chip trust-chip--medium">The Tidiers</div>
+        <div class="trust-chip trust-chip--light-italic">bloom studio</div>
       </div>
-
     </div>
   </section>
 
@@ -587,8 +903,46 @@ bodyClass: page--light-nav
 
           <!-- Card 4: Reports -->
           <div class="feat-card feat-card--stack" data-delay="1" style="min-height: 520px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important;">
-            <div class="feat-card__top rpt-img-top">
+            <div class="feat-card__top rpt-img-top" style="position: relative; overflow: visible;">
               <img src="/assets/images/reports-cluster.png" alt="Reports cluster" class="rpt-cluster-img">
+              
+              <!-- Floating Glass Insights -->
+              <div class="floating-insight floating-insight--revenue" aria-hidden="true">
+                <span class="floating-insight__label">Revenue</span>
+                <span class="floating-insight__value">$14,240</span>
+                <!-- SVG Sparkline (Upward trend) -->
+                <svg class="insight-sparkline" viewBox="0 0 50 15" width="50" height="15" style="margin-top: 4px;">
+                  <path d="M0,12 C10,12 15,9 25,5 C35,1 45,2 50,2" fill="none" stroke="#34d399" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              
+              <div class="floating-insight floating-insight--attendance" aria-hidden="true">
+                <span class="floating-insight__label">Attendance</span>
+                <span class="floating-insight__value">98.2% <span class="insight-pulse"></span></span>
+              </div>
+
+              <div class="floating-insight floating-insight--referrals" aria-hidden="true">
+                <span class="floating-insight__label">Referrals</span>
+                <span class="floating-insight__value">+24%</span>
+                <!-- SVG Sparkline (Wavy growth) -->
+                <svg class="insight-sparkline" viewBox="0 0 50 15" width="50" height="15" style="margin-top: 4px;">
+                  <path d="M0,10 C10,13 18,9 28,5 C38,8 45,6 50,3" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+
+              <!-- Option B: Weekly Target Goal Card -->
+              <div class="floating-insight floating-insight--goal" aria-hidden="true">
+                <div class="goal-progress-container">
+                  <svg class="goal-ring" viewBox="0 0 36 36" width="26" height="26">
+                    <path class="goal-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="3" />
+                    <path class="goal-ring-fg" stroke-dasharray="92, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" />
+                  </svg>
+                  <div class="goal-text">
+                    <span class="floating-insight__label">Weekly Goal</span>
+                    <span class="goal-percent">92% Reached</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="feat-card__bottom" style="padding: var(--space-lg) !important; padding-left: 12px !important;">
               <h3 class="entr-row__h3 text-slate-800 font-semibold leading-snug text-left" style="margin: 0 !important; font-family: var(--font-body) !important; font-size: 19px !important; max-width: 360px; white-space: normal !important; color: #FFFFFF !important;">
@@ -919,7 +1273,7 @@ bodyClass: page--light-nav
             <div class="stats-card__left">
               <p class="stats-card__quote">"The automatic reminders alone paid for the subscription. Patients who used to no-show now show up — half of them reply to confirm."</p>
               <div class="stats-card__client">
-                <span class="stats-card__name">Front Desk Lead</span> — <span class="stats-card__biz">Family dental clinic · Lalitpur</span>
+                <span class="stats-card__name">Front Desk Lead</span> — <span class="stats-card__biz">Family dental clinic · Downtown</span>
               </div>
               <div class="stats-card__metrics">
                 <div class="stats-card__metric">
@@ -937,7 +1291,7 @@ bodyClass: page--light-nav
             <div class="stats-card__left">
               <p class="stats-card__quote">"The discount approval alone saved us. We didn't realize how much we were giving away until we could see every request."</p>
               <div class="stats-card__client">
-                <span class="stats-card__name">Admin</span> — <span class="stats-card__biz">Aesthetic clinic · Pokhara</span>
+                <span class="stats-card__name">Admin</span> — <span class="stats-card__biz">Aesthetic clinic · West End</span>
               </div>
               <div class="stats-card__metrics">
                 <div class="stats-card__metric">
@@ -973,7 +1327,7 @@ bodyClass: page--light-nav
             <div class="stats-card__left">
               <p class="stats-card__quote">"Before this, my manager was calling me 10 times a day. Now I open the app and see everything myself."</p>
               <div class="stats-card__client">
-                <span class="stats-card__name">Owner</span> — <span class="stats-card__biz">Multi-branch spa · Kathmandu</span>
+                <span class="stats-card__name">Owner</span> — <span class="stats-card__biz">Multi-branch spa · Uptown</span>
               </div>
               <div class="stats-card__metrics">
                 <div class="stats-card__metric">
@@ -991,7 +1345,7 @@ bodyClass: page--light-nav
             <div class="stats-card__left">
               <p class="stats-card__quote">"We uploaded our class schedule in the morning and took our first online booking before lunch. No onboarding call needed."</p>
               <div class="stats-card__client">
-                <span class="stats-card__name">Founder</span> — <span class="stats-card__biz">Boutique fitness studio · Pokhara</span>
+                <span class="stats-card__name">Founder</span> — <span class="stats-card__biz">Boutique fitness studio · Greenwich</span>
               </div>
               <div class="stats-card__metrics">
                 <div class="stats-card__metric">
