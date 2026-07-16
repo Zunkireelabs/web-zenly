@@ -703,20 +703,6 @@
     }
   }
 
-  // ── Feature detail: trust carousel pause/play ────────────────────────────
-  var fdTrustBtn  = document.getElementById('fdTrustBtn');
-  var fdTrustRail = document.getElementById('fdTrustRail');
-  if (fdTrustBtn && fdTrustRail) {
-    var fdTrustPlaying = true;
-    fdTrustBtn.addEventListener('click', function () {
-      fdTrustPlaying = !fdTrustPlaying;
-      fdTrustRail.style.animationPlayState = fdTrustPlaying ? 'running' : 'paused';
-      fdTrustBtn.querySelector('.fd-trust__icon--pause').style.display = fdTrustPlaying ? '' : 'none';
-      fdTrustBtn.querySelector('.fd-trust__icon--play').style.display  = fdTrustPlaying ? 'none' : '';
-      fdTrustBtn.setAttribute('aria-label', fdTrustPlaying ? 'Pause carousel' : 'Play carousel');
-    });
-  }
-
   // ── How-It-Works scroll spine ───────────────────────────
   var hiwContainer = document.querySelector('.hiw-rows');
   var hiwRows      = document.querySelectorAll('.hiw-row');
@@ -762,42 +748,52 @@
     var bookingFlow = document.querySelector('.booking-flow');
     if (bookingFlow && typeof gsap !== 'undefined') {
       var cursor = bookingFlow.querySelector('.app-cursor');
-      var screen1 = bookingFlow.querySelector('.booking-screen--services');
-      var screen2 = bookingFlow.querySelector('.booking-screen--time');
-      var screen3 = bookingFlow.querySelector('.booking-screen--confirm');
-      var screen4 = bookingFlow.querySelector('.booking-screen--activity');
+      var screenDash = bookingFlow.querySelector('.booking-screen--dashboard');
+      var screenCal = bookingFlow.querySelector('.booking-screen--calendar');
+      var screenServices = bookingFlow.querySelector('.booking-screen--services');
+      var screenTime = bookingFlow.querySelector('.booking-screen--time');
+      var screenConfirm = bookingFlow.querySelector('.booking-screen--confirm');
 
-      var items = bookingFlow.querySelectorAll('.booking-item');
+      var navDash = bookingFlow.querySelector('#nav-dash');
+      var navCal = bookingFlow.querySelector('#nav-cal');
+      var bottomNav = bookingFlow.querySelector('.app-bottom-nav');
+
       var slots = bookingFlow.querySelectorAll('.slot-chip');
       var therapists = bookingFlow.querySelectorAll('.therapist-chip');
-
+      var items = bookingFlow.querySelectorAll('.booking-item');
       var btnServices = bookingFlow.querySelector('#btn-services');
       var btnTime = bookingFlow.querySelector('#btn-time');
       var notification = bookingFlow.querySelector('.app-notification');
 
-      // Act 2: dashboard stat + status bar, then a short activity feed
-      var dashStat = bookingFlow.querySelector('.dash-stat');
-      var statusBarSegs = bookingFlow.querySelectorAll('.dash-status-bar__seg');
-      var statusBarLegend = bookingFlow.querySelector('.dash-status-bar__legend');
-      var activityRows = bookingFlow.querySelectorAll('.activity-row');
-      // Extra read-time held after each row appears (index 2 = Discount Approved, emphasized)
-      var ACTIVITY_ROW_HOLDS = [1.0, 1.0, 2.4, 1.8];
+      // Dashboard dynamic values
+      var dashTodayRev = bookingFlow.querySelector('#dash-today-rev');
+      var dashTodayPaid = bookingFlow.querySelector('#dash-today-paid');
+      var dashWtdRev = bookingFlow.querySelector('#dash-wtd-rev');
+      var dashWtdPaid = bookingFlow.querySelector('#dash-wtd-paid');
+      var dashMtdRev = bookingFlow.querySelector('#dash-mtd-rev');
+      var dashMtdPaid = bookingFlow.querySelector('#dash-mtd-paid');
+      var utilAvgPct = bookingFlow.querySelector('#util-avg-pct');
+      var utilDtnHours = bookingFlow.querySelector('#util-dtn-hours');
+      var utilDtnPct = bookingFlow.querySelector('#util-dtn-pct');
+      var utilDtnBar = bookingFlow.querySelector('#util-dtn-bar');
+      
+      // Activity Dynamic
+      var activityNewBooking = bookingFlow.querySelector('#activity-new-booking');
+      var activityPlaceholder = bookingFlow.querySelector('.dash-activity-placeholder');
 
       // Create a looping timeline
       var tl = gsap.timeline({ repeat: -1 });
       
-      // Helper function for click animation (Simulates pressure on targeted card/button)
+      // Helper function for click animation
       function addClickStep(x, y, targetSelector, onSelect) {
-        tl.to(cursor, { left: x, top: y, duration: 1.2, ease: 'power2.out' });
+        tl.to(cursor, { left: x, top: y, duration: 1.0, ease: 'power2.out' });
         
         if (targetSelector) {
-          // Animate scale down of both the cursor and the targeted element
           tl.to(cursor, { scale: 0.8, backgroundColor: 'rgba(48, 46, 45, 0.7)', duration: 0.15 })
             .to(targetSelector, { scale: 0.95, duration: 0.12 }, '-=0.15')
             .call(function() {
               if (onSelect) onSelect();
             })
-            // Release scale back to 1.0
             .to(cursor, { scale: 1, backgroundColor: 'rgba(48, 46, 45, 0.2)', duration: 0.15 })
             .to(targetSelector, { scale: 1, duration: 0.12 }, '-=0.15');
         } else {
@@ -808,125 +804,244 @@
             .to(cursor, { scale: 1, backgroundColor: 'rgba(48, 46, 45, 0.2)', duration: 0.15 });
         }
         
-        tl.to({}, { duration: 0.5 }); // delay after click
+        tl.to({}, { duration: 0.4 }); // delay after click
       }
       
       // Reset function
       function resetFlow() {
-        screen1.className = 'booking-screen booking-screen--services active';
-        screen2.className = 'booking-screen booking-screen--time';
-        screen3.className = 'booking-screen booking-screen--confirm';
-        if (screen4) screen4.className = 'booking-screen booking-screen--activity';
+        bookingFlow.classList.remove('has-booking');
+
+        screenDash.className = 'booking-screen booking-screen--dashboard active';
+        screenCal.className = 'booking-screen booking-screen--calendar';
+        screenServices.className = 'booking-screen booking-screen--services';
+        screenTime.className = 'booking-screen booking-screen--time';
+        screenConfirm.className = 'booking-screen booking-screen--confirm';
+
+        navDash.classList.add('active');
+        navCal.classList.remove('active');
+        gsap.set(bottomNav, { yPercent: 0, opacity: 1 });
 
         items.forEach(function(item) { item.classList.remove('selected'); });
         slots.forEach(function(slot) { slot.classList.remove('selected'); });
         therapists.forEach(function(therapist) { therapist.classList.remove('selected'); });
-
         if (btnServices) btnServices.classList.add('disabled');
         if (btnTime) btnTime.classList.add('disabled');
 
-        gsap.set(screen1, { x: 0, opacity: 1 });
-        gsap.set(screen2, { x: 30, opacity: 0 });
-        gsap.set(screen3, { x: 30, opacity: 0 });
-        if (screen4) gsap.set(screen4, { x: 30, opacity: 0 });
-        gsap.set(cursor, { left: '50%', top: '80%', scale: 1, opacity: 1 });
+        gsap.set(screenDash, { x: 0, opacity: 1 });
+        gsap.set(screenCal, { x: 30, opacity: 0 });
+        gsap.set(screenServices, { x: 30, opacity: 0 });
+        gsap.set(screenTime, { x: 30, opacity: 0 });
+        gsap.set(screenConfirm, { x: 30, opacity: 0 });
+
+        gsap.set(cursor, { left: '30%', top: '50%', scale: 1, opacity: 1 });
         gsap.set(notification, { top: -130 }); // hide notification
 
-        // Reset Act 2 dashboard + activity rows so every loop starts empty
-        if (dashStat) gsap.set(dashStat, { opacity: 0, y: 8 });
-        if (statusBarSegs.length) {
-          statusBarSegs.forEach(function(seg) { gsap.set(seg, { width: '0%' }); });
+        if (dashTodayRev) dashTodayRev.textContent = '$0';
+        if (dashTodayPaid) dashTodayPaid.textContent = '0';
+        if (dashWtdRev) dashWtdRev.textContent = '$0';
+        if (dashWtdPaid) dashWtdPaid.textContent = '0';
+        if (dashMtdRev) dashMtdRev.textContent = '$32.2K';
+        if (dashMtdPaid) dashMtdPaid.textContent = '9';
+        if (utilAvgPct) utilAvgPct.textContent = '0%';
+        if (utilDtnHours) utilDtnHours.textContent = '0m / 12h';
+        if (utilDtnPct) utilDtnPct.textContent = '0%';
+        if (utilDtnBar) utilDtnBar.style.setProperty('--progress-width', '0%');
+
+        if (activityPlaceholder) activityPlaceholder.style.display = 'block';
+        if (activityNewBooking) {
+          gsap.set(activityNewBooking, { opacity: 0, y: 10, display: 'none' });
         }
-        if (statusBarLegend) gsap.set(statusBarLegend, { opacity: 0 });
-        if (activityRows.length) gsap.set(activityRows, { opacity: 0, y: 8 });
       }
 
-      // Initial Setup in timeline
+      // Initial Setup
       tl.call(resetFlow);
-      
-      // Step 1: Click first service card (Traditional Thai Massage)
-      addClickStep('50%', '24%', '#item-thai', function() {
+      tl.to({}, { duration: 1.5 }); // let user look at empty dashboard
+
+      // Step 1: Click "Calendar" tab in bottom navigation
+      // navCal position: roughly 50% X, 95% Y
+      addClickStep('50%', '95%', '#nav-cal', function() {
+        // Tab click effect
+      });
+
+      // Transition Dashboard -> Calendar
+      tl.to(screenDash, { x: -30, opacity: 0, duration: 0.3 })
+        .call(function() {
+          screenDash.classList.remove('active');
+          screenCal.classList.add('active');
+          navDash.classList.remove('active');
+          navCal.classList.add('active');
+        })
+        .to(screenCal, { x: 0, opacity: 1, duration: 0.3 }, '-=0.3')
+        .to({}, { duration: 1.0 }); // look at empty calendar
+
+      // Step 2: Click target calendar slot (Emily Carter, 10:30 AM)
+      // Emily cell position: roughly 62% X, 55% Y
+      addClickStep('62%', '55%', '#cal-slot-emily-1030', function() {
+        // Cell clicked
+      });
+
+      // Transition Calendar -> Booking Services Screen (drawer style, bottom nav slides down)
+      tl.to(screenCal, { x: -30, opacity: 0, duration: 0.3 })
+        .to(bottomNav, { yPercent: 100, opacity: 0, duration: 0.3 }, '-=0.3')
+        .call(function() {
+          screenCal.classList.remove('active');
+          screenServices.classList.add('active');
+        })
+        .to(screenServices, { x: 0, opacity: 1, duration: 0.3 }, '-=0.3')
+        .set(cursor, { left: '50%', top: '70%' })
+        .to({}, { duration: 0.5 });
+
+      // Step 3: Select Service "Traditional Thai Massage" (position roughly 50% X, 32% Y)
+      addClickStep('50%', '32%', '#item-thai', function() {
         var targetItem = bookingFlow.querySelector('#item-thai');
         if (targetItem) targetItem.classList.add('selected');
         if (btnServices) btnServices.classList.remove('disabled');
       });
-      
-      // Step 2: Click the bottom select services CTA button
+
+      // Step 4: Click the bottom "Select Treatment" CTA button (roughly 50% X, 90% Y)
       addClickStep('50%', '90%', '#btn-services', function() {
-        // Ready to transition
-      });
-      
-      // Transition Screen 1 -> Screen 2
-      tl.to(screen1, { x: -30, opacity: 0, duration: 0.4 })
-        .call(function() {
-          screen1.classList.remove('active');
-          screen2.classList.add('active');
-        })
-        .to(screen2, { x: 0, opacity: 1, duration: 0.4 }, '-=0.4')
-        .set(cursor, { top: '80%', left: '20%' }); // reset cursor position
-        
-      // Step 3: Click the target time slot (10:30 AM)
-      addClickStep('73%', '35%', '#slot-target', function() {
-        var targetSlot = bookingFlow.querySelector('#slot-target');
-        if (targetSlot) targetSlot.classList.add('selected');
+        // Transitioning
       });
 
-      // Step 4: Click the therapist "Manisha T." chip
-      addClickStep('30%', '64%', '#therapist-manisha', function() {
-        var targetTherapist = bookingFlow.querySelector('#therapist-manisha');
-        if (targetTherapist) targetTherapist.classList.add('selected');
-        if (btnTime) btnTime.classList.remove('disabled');
-      });
-      
-      // Step 5: Click the bottom confirm booking CTA button
+      // Transition Services Screen -> Time / Review Screen
+      tl.to(screenServices, { x: -30, opacity: 0, duration: 0.3 })
+        .call(function() {
+          screenServices.classList.remove('active');
+          screenTime.classList.add('active');
+        })
+        .to(screenTime, { x: 0, opacity: 1, duration: 0.3 }, '-=0.3')
+        .to({}, { duration: 0.5 });
+
+      // Step 5: Click the "Confirm Booking" CTA button (roughly 50% X, 90% Y)
       addClickStep('50%', '90%', '#btn-time', function() {
-        // Ready for confirmation
+        // Confirmed
       });
 
-      // Transition Screen 2 -> Screen 3
-      tl.to(screen2, { x: -30, opacity: 0, duration: 0.4 })
+      // Transition Time Screen -> Confirmation Screen
+      tl.to(screenTime, { x: -30, opacity: 0, duration: 0.3 })
         .call(function() {
-          screen2.classList.remove('active');
-          screen3.classList.add('active');
+          screenTime.classList.remove('active');
+          screenConfirm.classList.add('active');
         })
-        .to(screen3, { x: 0, opacity: 1, duration: 0.4 }, '-=0.4')
-        .to(cursor, { opacity: 0, duration: 0.3 }); // hide cursor
-        
-      // Step 6: Drag/Drop iOS Notification Banner
-      tl.to(notification, { top: 54, duration: 0.7, ease: 'back.out(1.2)' }) // slides down like a drag/drop alert panel
-        .to({}, { duration: 3.5 }) // holds visible
-        .to(notification, { top: -130, duration: 0.5, ease: 'power2.in' }); // slides back up
+        .to(screenConfirm, { x: 0, opacity: 1, duration: 0.3 }, '-=0.3')
+        .to(cursor, { opacity: 0, duration: 0.2 }, '-=0.3'); // Hide cursor
 
-      // ── Act 2: a real dashboard screen, not a text-only overlay ──
-      // Revenue stat + status bar fill in first (visual UI matching the
-      // actual Zenly staff portal), then a short activity feed underneath.
-      if (screen4) {
-        // Transition Screen 3 -> Screen 4
-        tl.to(screen3, { x: -30, opacity: 0, duration: 0.4 })
-          .call(function() {
-            screen3.classList.remove('active');
-            screen4.classList.add('active');
-          })
-          .to(screen4, { x: 0, opacity: 1, duration: 0.4 }, '-=0.4');
+      // iOS Notification Banner slide down & up
+      tl.to(notification, { top: 54, duration: 0.6, ease: 'back.out(1.2)' })
+        .to({}, { duration: 3.0 }) // hold notification
+        .to(notification, { top: -130, duration: 0.4, ease: 'power2.in' });
 
-        if (dashStat) {
-          tl.to(dashStat, { opacity: 1, y: 0, duration: 0.4, ease: 'power1.out' });
-        }
+      // Transition Confirmation -> back to Calendar View (showing the booked slot)
+      tl.to(screenConfirm, { opacity: 0, duration: 0.3 })
+        .call(function() {
+          screenConfirm.classList.remove('active');
+          screenCal.classList.add('active');
+          bookingFlow.classList.add('has-booking');
+        })
+        .to(screenCal, { x: 0, opacity: 1, duration: 0.3 })
+        .to(bottomNav, { yPercent: 0, opacity: 1, duration: 0.3 }, '-=0.3')
+        .to(cursor, { opacity: 1, duration: 0.2 }) // Show cursor again
+        .to({}, { duration: 2.5 }); // notice the slot filled
 
-        if (statusBarSegs.length) {
-          statusBarSegs.forEach(function(seg) {
-            tl.to(seg, { width: seg.getAttribute('data-target-width'), duration: 0.6, ease: 'power2.out' }, '<');
-          });
-          if (statusBarLegend) tl.to(statusBarLegend, { opacity: 1, duration: 0.4 });
-          tl.to({}, { duration: 1.2 }); // hold on the dashboard summary
-        }
+      // Step 6: Click "Dashboard" tab in bottom nav (roughly 10% X, 95% Y)
+      addClickStep('10%', '95%', '#nav-dash', function() {
+        // Tab changed
+      });
 
-        activityRows.forEach(function(row, i) {
-          tl.to(row, { opacity: 1, y: 0, duration: 0.35, ease: 'power1.out' });
-          tl.to({}, { duration: ACTIVITY_ROW_HOLDS[i] || 1.0 });
-        });
-      }
+      // Transition Calendar -> Dashboard (updated stats!)
+      tl.to(screenCal, { x: 30, opacity: 0, duration: 0.3 })
+        .call(function() {
+          screenCal.classList.remove('active');
+          screenDash.classList.add('active');
+          navCal.classList.remove('active');
+          navDash.classList.add('active');
+        })
+        .to(screenDash, { x: 0, opacity: 1, duration: 0.3 }, '-=0.3')
+        .call(function() {
+          // Update Dashboard values
+          if (dashTodayRev) dashTodayRev.textContent = '$120';
+          if (dashTodayPaid) dashTodayPaid.textContent = '1';
+          if (dashWtdRev) dashWtdRev.textContent = '$120';
+          if (dashWtdPaid) dashWtdPaid.textContent = '1';
+          if (dashMtdRev) dashMtdRev.textContent = '$32.3K';
+          if (dashMtdPaid) dashMtdPaid.textContent = '10';
+          if (utilAvgPct) utilAvgPct.textContent = '3.3%';
+          if (utilDtnHours) utilDtnHours.textContent = '1h / 12h';
+          if (utilDtnPct) utilDtnPct.textContent = '8.3%';
+          if (utilDtnBar) utilDtnBar.style.setProperty('--progress-width', '8.3%');
+
+          if (activityPlaceholder) activityPlaceholder.style.display = 'none';
+          if (activityNewBooking) {
+            gsap.set(activityNewBooking, { display: 'flex' });
+          }
+        })
+        .to(activityNewBooking, {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: 'power2.out'
+        })
+        .to({}, { duration: 4.0 }); // hold updated dashboard
     }
+  })();
+
+  // ── Stats Number Counter Animation ──────────────────────────────
+  (function () {
+    const counters = document.querySelectorAll('.fd-proof__num[data-count-target]');
+    if (!counters.length) return;
+
+    function parseValue(valStr) {
+      const matches = valStr.match(/^([^0-9\.\-]*)([0-9\.]+)([^0-9\.\-]*)$/);
+      if (!matches) return { prefix: '', value: parseFloat(valStr) || 0, suffix: '', decimals: 0 };
+      
+      const numVal = parseFloat(matches[2]);
+      const decimals = matches[2].includes('.') ? matches[2].split('.')[1].length : 0;
+      
+      return {
+        prefix: matches[1] || '',
+        value: numVal,
+        suffix: matches[3] || '',
+        decimals: decimals
+      };
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          observer.unobserve(el);
+          
+          const rawTarget = el.dataset.countTarget;
+          const parsed = parseValue(rawTarget);
+          
+          const duration = 2000; // 2 seconds animation
+          const start = 0;
+          const startTime = performance.now();
+          
+          el.textContent = parsed.prefix + start.toFixed(parsed.decimals) + parsed.suffix;
+          
+          function update(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const ease = progress * (2 - progress);
+            
+            const current = start + ease * (parsed.value - start);
+            el.textContent = parsed.prefix + current.toFixed(parsed.decimals) + parsed.suffix;
+            
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              el.textContent = rawTarget;
+            }
+          }
+          
+          requestAnimationFrame(update);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    counters.forEach(function (c) {
+      observer.observe(c);
+    });
   })();
 
 })();

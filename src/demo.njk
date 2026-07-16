@@ -5,56 +5,175 @@ bodyClass: page--light-nav
 ---
 
 <main>
-  <section class="section" id="demo-top" style="padding-top: var(--space-2xl);">
+
+  <!-- ── HERO ─────────────────────────────────────────────────────────── -->
+  <section class="demo-hero">
+    <div class="demo-hero__inner">
+      <h1 class="demo-hero__h1">See exactly how your branches run on one system. In 20 minutes.</h1>
+      <p class="demo-hero__sub">Not a sales call. Not a slide deck. A live walkthrough of the platform &mdash; configured around your business &mdash; so you can decide if it&rsquo;s right for you before committing to anything.</p>
+    </div>
+  </section>
+
+  <!-- ── MAIN: content + booking card ────────────────────────────────── -->
+  <section class="section demo-main" id="demo">
     <div class="section__inner">
+      <div class="demo-wrap">
 
-      <div class="pricing-wrap">
+        <div class="demo-left">
 
-        <div class="pricing-left">
-          <h2 class="section__h2">Let&rsquo;s show you Zenly, running your business</h2>
-          <p class="section__sub">A focused 20-minute call &mdash; not a generic pitch. We&rsquo;ll look at how your business actually runs, then show you exactly how Zenly fits.</p>
-          <div class="pricing-signals">
-            <div class="pricing-signal">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              How Zenly maps to your branches, staff, and services
-            </div>
-            <div class="pricing-signal">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              A live walkthrough &mdash; booking flow, staff dashboard, daily close
-            </div>
-            <div class="pricing-signal">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Straight answers on migration, setup time, and pricing
-            </div>
-            <div class="pricing-signal">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              A tailored quote within 24 hours
+          <!-- What to expect -->
+          <div class="reveal">
+            <h2 class="demo-block__h2">Here&rsquo;s exactly what happens in your demo.</h2>
+            <div class="demo-expect">
+
+              <div class="demo-expect__item">
+                <svg class="demo-expect__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="1.75"/><path d="M12 9v4l3 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 2h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                <p class="demo-expect__text">20 minutes, no more &mdash; structured to show what matters, not a 90-minute enterprise pitch.</p>
+              </div>
+
+              <div class="demo-expect__item">
+                <svg class="demo-expect__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 21V7a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v14M13 21V11a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v10" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 9v.01M8 12v.01M8 15v.01" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M2 21h20" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                <p class="demo-expect__text">Built around your setup &mdash; configured to reflect your actual branches and team before you join.</p>
+              </div>
+
+              <div class="demo-expect__item">
+                <svg class="demo-expect__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+                <p class="demo-expect__text">We lead with what you care about most &mdash; bookings, discounts, payments, staff, or branch visibility.</p>
+              </div>
+
+              <div class="demo-expect__item">
+                <svg class="demo-expect__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/><path d="M5.5 5.5l13 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                <p class="demo-expect__text">No pressure, no hidden agenda &mdash; an honest fit-or-not answer, with no follow-up push either way.</p>
+              </div>
+
             </div>
           </div>
+
+          <!-- What you'll leave with -->
+          <div class="reveal" data-delay="1">
+            <h2 class="demo-block__h2">What you&rsquo;ll know by the end.</h2>
+            <ul class="demo-checklist">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Whether the platform can handle your specific branch structure
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Exactly how booking confirmation and status updates work for your team
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                How discount requests and approvals would work with your managers and staff
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                What payment tracking looks like across your locations
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                What setup actually involves &mdash; and how long it takes
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Whether this solves the problem that brought you here today
+              </li>
+            </ul>
+          </div>
+
+          <!-- Social proof -->
+          <blockquote class="demo-quote reveal" data-delay="2">
+            <p class="demo-quote__text">&ldquo;I booked the demo thinking I&rsquo;d spend 20 minutes being sold to. Instead I spent 20 minutes realising exactly what I&rsquo;d been missing. We were live within a week.&rdquo;</p>
+            <cite class="demo-quote__author">&mdash; Owner, multi-branch spa, Kathmandu</cite>
+          </blockquote>
+
         </div>
 
-        <div class="pricing-right">
-          <div class="pricing-card">
-            <div class="pricing-card__eyebrow">Book a call</div>
-            <div class="pricing-card__headline">Pick a time that works</div>
-            <p class="pricing-card__sub">Tell us a bit about your business &mdash; branch count, team size, what you use today &mdash; and we&rsquo;ll get back to you within one business day to schedule.</p>
-            <a href="mailto:info.zunkireelabs@gmail.com?subject=Book%20a%20Demo&body=Business%20name%3A%0ANumber%20of%20branches%3A%0ATeam%20size%3A%0AWhat%20you%20use%20today%20(Excel%2C%20WhatsApp%2C%20etc.)%3A" class="btn-primary pricing-card__btn">Book your demo &rarr;</a>
-            <div class="pricing-card__divider"></div>
-            <p class="pricing-card__note">Just have a question first? <a href="mailto:info.zunkireelabs@gmail.com" class="pricing-card__link">Email us directly &rarr;</a></p>
+        <div class="demo-right">
+          <div class="demo-card reveal" data-delay="1">
+            <div class="demo-card__eyebrow">Book a call</div>
+            <h2 class="demo-card__headline">Pick a time. We&rsquo;ll do the rest.</h2>
+
+            <form class="demo-form" id="demo-form">
+
+              <div class="demo-form__field">
+                <label for="demo-name">Full name</label>
+                <input type="text" id="demo-name" name="name" required>
+              </div>
+
+              <div class="demo-form__field">
+                <label for="demo-business">Business name</label>
+                <input type="text" id="demo-business" name="business" required>
+              </div>
+
+              <div class="demo-form__row">
+                <div class="demo-form__field">
+                  <label for="demo-email">Email address</label>
+                  <input type="email" id="demo-email" name="email" required>
+                </div>
+                <div class="demo-form__field">
+                  <label for="demo-phone">Phone <span class="demo-form__optional">(optional)</span></label>
+                  <input type="tel" id="demo-phone" name="phone">
+                </div>
+              </div>
+
+              <div class="demo-form__field">
+                <label for="demo-branches">Number of branches</label>
+                <select id="demo-branches" name="branches" required>
+                  <option value="" disabled selected>Select&hellip;</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5+">5+</option>
+                </select>
+              </div>
+
+              <div class="demo-form__field">
+                <label for="demo-challenge">What&rsquo;s your biggest operational challenge right now?</label>
+                <p class="demo-form__hint">This is how we configure your demo.</p>
+                <textarea id="demo-challenge" name="challenge" rows="3" required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary demo-form__submit">Confirm my demo &rarr;</button>
+            </form>
+
+            <p class="demo-card__reassure">You&rsquo;ll receive a calendar invite immediately. We&rsquo;ll review your details before the call so your demo is specific to your business &mdash; not a generic walkthrough.</p>
+            <p class="demo-card__privacy">We don&rsquo;t share your information. Ever.</p>
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
 
+  <!-- ── BOTTOM TRUST STRIP ───────────────────────────────────────────── -->
+  <section class="demo-trust">
+    <div class="demo-trust__inner reveal">
+      <div class="demo-trust__stat">
+        <span class="demo-trust__stat-value">351</span>
+        <span class="demo-trust__stat-label">bookings managed in a week</span>
+      </div>
+      <div class="demo-trust__stat">
+        <span class="demo-trust__stat-value">800+</span>
+        <span class="demo-trust__stat-label">live status signals</span>
+      </div>
+      <div class="demo-trust__stat">
+        <span class="demo-trust__stat-value">4</span>
+        <span class="demo-trust__stat-label">branches running on one system</span>
+      </div>
+      <div class="demo-trust__stat">
+        <span class="demo-trust__stat-value">30</span>
+        <span class="demo-trust__stat-label">staff transfers coordinated in 90 days</span>
+      </div>
     </div>
   </section>
 
   <!-- ── BOTTOM CTA ──────────────────────────────────────────────────── -->
-  <section class="bottom-cta" id="demo">
+  <section class="bottom-cta">
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">No pressure, no script &mdash; just Zenly, applied to your business.</h2>
       <p class="bottom-cta__sub">20 minutes. Bring your questions. We&rsquo;ll bring answers specific to how you operate.</p>
-      <a href="mailto:info.zunkireelabs@gmail.com?subject=Book%20a%20Demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <a href="#demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
       <a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener" class="bottom-cta__link" style="color:rgba(255,255,255,0.7);font-size:0.9375rem;margin-top:4px;">See It Live &rarr;</a>
     </div>
   </section>
@@ -121,5 +240,27 @@ bodyClass: page--light-nav
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('demo-form');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var f = form.elements;
+        var body = [
+          'Business name: ' + f.business.value,
+          'Number of branches: ' + f.branches.value,
+          'Phone: ' + (f.phone.value || '—'),
+          'Biggest operational challenge: ' + f.challenge.value
+        ].join('\n');
+        var subject = 'Book a Demo — ' + f.business.value;
+        var mailto = 'mailto:info.zunkireelabs@gmail.com'
+          + '?subject=' + encodeURIComponent(subject)
+          + '&body=' + encodeURIComponent('Name: ' + f.name.value + '\nEmail: ' + f.email.value + '\n\n' + body);
+        window.location.href = mailto;
+      });
+    })();
+  </script>
 
 </main>
