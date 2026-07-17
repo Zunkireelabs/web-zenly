@@ -142,7 +142,7 @@
         },
         {
           "tag": "Tracking",
-          "value": "~2.5×",
+          "value": "~2.5Ã—",
           "label": "Status updates per booking – the full lifecycle is actively tracked, not just logged and forgotten"
         },
         {
@@ -403,7 +403,7 @@
       }
     ],
     "stat": {
-      "value": "3×",
+      "value": "3Ã—",
       "label": "Faster day-close",
       "description": "Teams close out the day three times faster with live operations tracking."
     },
@@ -696,7 +696,7 @@
     "workflowHeading": "How payment recording runs on <span class=\"fd-workflow__heading-accent\">Zenly.</span>",
     "workflowSub": "A real timeline of payments across one branch, hour by hour.",
     "workflow": [
-      { "num": "01", "time": "9:15am", "title": "The first payment comes in", "body": "A customer pays in full after her service. Front desk records the amount against the booking – instantly linked to the therapist, service, and branch.", "status": "Completed" },
+      { "num": "01", "time": "9:15am", "title": "The first payment comes in", "body": "A customer pays in full after her service. Front desk records the amount against the booking – instantly linked to the therapist, service, and branch.", "status": "Confirmed" },
       { "num": "02", "time": "11:40am", "title": "A partial payment is logged", "body": "Another customer pays part now and settles later. The balance stays visible until it's cleared – nothing forgotten.", "status": "Pending" },
       { "num": "03", "time": "12:30pm", "title": "The branch manager checks today's total", "body": "Revenue so far, broken down by booking, therapist, and service, is already on the dashboard – no call to the front desk needed.", "status": "In-Progress" },
       { "num": "04", "time": "3:00pm", "title": "The outstanding balance is settled", "body": "The customer from 11:40am returns and pays the rest. The booking's payment record updates – nothing owed, nothing missed.", "status": "Completed" },
@@ -888,6 +888,8 @@
         "description": "Slice by date, branch, or staff member. Download as CSV whenever you need it."
       }
     ],
+    "workflowHeading": "How reporting runs on <span class=\"fd-workflow__heading-accent\">Zenly.</span>",
+    "workflowSub": "A real timeline of how owners and managers use reports, hour by hour.",
     "workflow": [
       { "num": "01", "time": "8:00am", "title": "Owner checks yesterday's number", "body": "Before opening messages or calling any branch, the owner opens the dashboard. Yesterday's revenue, by branch, is already there.", "status": "Pending" },
       { "num": "02", "time": "11:00am", "title": "Branch manager reviews staff performance", "body": "Mid-morning, the branch manager scans bookings completed and discounts applied per staff member — before the lunch rush makes it harder to catch anything.", "status": "Confirmed" },
@@ -899,191 +901,6 @@
       "payment-tracking",
       "operations",
       "discount-management"
-    ]
-  },
-  {
-    "slug": "industries",
-    "name": "Industries",
-    "badge": "Multi-Industry",
-    "hero": {
-      "headline": "One platform, any service business",
-      "subheadline": "Every vertical gets its own terminology, feature flags, and service categories — zero code changes to onboard a new business type.",
-      "image": "/assets/images/feat-industries.png",
-      "imageAlt": "Industries configuration screenshot",
-      "bg": "#E8F0E4"
-    },
-    "intro": {
-      "headline": "Built to fit every service business",
-      "body": "Whether you run a spa, a clinic, or a salon chain, Zenly adapts to your terminology, your workflows, and your service structure — without custom development."
-    },
-    "primaryFeatures": [
-      {
-        "title": "Zero-Code Onboarding",
-        "description": "New business types go live with a config change — no development work needed."
-      },
-      {
-        "title": "Custom Terminology",
-        "description": "Labels, statuses, and field names match your industry's language exactly."
-      },
-      {
-        "title": "Feature Flags Per Vertical",
-        "description": "Enable only the features that make sense for each business type."
-      },
-      {
-        "title": "Service Category Mapping",
-        "description": "Define services, categories, and durations exactly as your industry requires."
-      }
-    ],
-    "roles": [
-      {
-        "persona": "Owner evaluating a new vertical",
-        "summary": "Picks the business type during onboarding and sees the platform reconfigure itself — no developer, no ticket, no wait.",
-        "icon": "compass",
-        "features": [
-          {
-            "title": "Choose a vertical, not a blank slate",
-            "description": "Select spa, dental, salon, or fitness during setup. Service categories, staff roles, and booking fields load pre-mapped for that business type."
-          },
-          {
-            "title": "Preview before committing",
-            "description": "See the exact terminology and workflow your team will use — 'Therapist' vs 'Provider', 'Session' vs 'Appointment' — before the branch goes live."
-          },
-          {
-            "title": "Switch or add a vertical later",
-            "description": "Adding a second business line under the same org doesn't mean a second system. Configuration changes, the platform doesn't."
-          }
-        ]
-      },
-      {
-        "persona": "Branch manager on a specialized team",
-        "summary": "Works in the language their staff already use, without retraining anyone on generic software terms.",
-        "icon": "clipboard-list",
-        "features": [
-          {
-            "title": "Terminology matches the floor",
-            "description": "A dental manager sees 'Patient' and 'Chair'. A salon manager sees 'Client' and 'Station'. Same platform, different words, zero confusion."
-          },
-          {
-            "title": "Only relevant fields show up",
-            "description": "Fitness bookings ask about session packs and trainers. Spa bookings ask about treatment rooms and duration. Nothing irrelevant clutters the form."
-          },
-          {
-            "title": "Reports read like their business",
-            "description": "Daily and weekly summaries use the vertical's own labels, so managers don't have to mentally translate generic categories back into their world."
-          }
-        ]
-      },
-      {
-        "persona": "Admin managing multiple verticals",
-        "summary": "Runs a spa chain and a dental clinic under one account and keeps each one behaving like its own system.",
-        "icon": "layout-grid",
-        "features": [
-          {
-            "title": "One login, isolated configurations",
-            "description": "Each branch inherits only the terminology, statuses, and fields defined for its own vertical. A dental setting never leaks into a salon branch."
-          },
-          {
-            "title": "Feature flags set per business type",
-            "description": "Turn on treatment-room scheduling for spa branches and chair-based scheduling for salon branches, without either vertical seeing the other's options."
-          },
-          {
-            "title": "Central visibility, local behavior",
-            "description": "Cross-branch reporting rolls up normally, even though each branch's day-to-day screens look and behave like a dedicated, single-purpose tool."
-          }
-        ]
-      }
-    ],
-    "secondaryFeatures": [
-      {
-        "icon": "heart",
-        "title": "Spa & Wellness",
-        "description": "Treatment rooms, therapist assignments, and session-based booking."
-      },
-      {
-        "icon": "scissors",
-        "title": "Hair Salon",
-        "description": "Chair-based scheduling, service bundles, and style-specific staff matching."
-      },
-      {
-        "icon": "shield",
-        "title": "Dental Clinic",
-        "description": "Appointment slots, patient record integration, and multi-chair management."
-      },
-      {
-        "icon": "activity",
-        "title": "Fitness & PT",
-        "description": "Session packs, trainer scheduling, and class-based booking."
-      }
-    ],
-    "stat": {
-      "value": "10+",
-      "label": "Supported verticals",
-      "description": "Zenly currently supports over ten distinct service business types out of the box."
-    },
-    "testimonial": {
-      "quote": "We run a physiotherapy clinic. Zenly matched our terminology from the start — no one had to learn a new system.",
-      "author": "Dr. Mehta",
-      "business": "Physio Plus"
-    },
-    "proof": {
-      "eyebrow": "Proof through numbers",
-      "headline": "This isn't a generic system with relabeled buttons. It's configured per vertical, running live.",
-      "stats": [
-        { "tag": "Coverage", "value": "10+", "label": "Distinct business verticals supported out of the box, from spas to dental clinics" },
-        { "tag": "Speed", "value": "45 min", "label": "Average time to configure and launch a new vertical, start to first booking" },
-        { "tag": "Reuse", "value": "0", "label": "Lines of custom code written per new business type onboarded" }
-      ],
-      "sub": "Real configuration numbers from active multi-vertical accounts."
-    },
-    "socialProof": {
-      "eyebrow": "Social proof",
-      "headline": "What owners say once their vertical is live.",
-      "quotes": [
-        { "quote": "We run a physiotherapy clinic. Zenly matched our terminology from the start — no one had to learn a new system.", "author": "Dr. Mehta", "business": "Physio Plus" },
-        { "quote": "I expected to wait weeks for a 'custom build' for a fitness studio. Instead I picked the vertical and the trainer scheduling was just there.", "author": "Owner", "business": "CoreFit Studio" },
-        { "quote": "Our stylists still say 'chair' and 'station', not 'resource' and 'slot'. That's the reason the front desk adopted it without complaints.", "author": "Salon Manager", "business": "Bloom Hair Studio" }
-      ],
-      "sub": "Feedback from owners across different verticals, not just spas."
-    },
-    "objections": {
-      "headline": "Things we get asked.",
-      "items": [
-        { "q": "Our business type is pretty niche. Does Zenly actually support it?", "a": "Zenly currently supports over ten distinct verticals out of the box, spanning spas, salons, dental clinics, and fitness studios. If your business sits close to one of these, onboarding takes a configuration change, not a rebuild. If it doesn't, we'll tell you plainly before you sign anything — we'd rather say no than force a bad fit." },
-        { "q": "We already have our own terminology. Will we have to adopt Zenly's instead?", "a": "No. The terminology is configured to match your business, not the other way around. 'Session' can stay 'Session' or become 'Appointment' — whatever your staff already says out loud is what shows up on screen." },
-        { "q": "This sounds like a custom setup. What does that cost us?", "a": "It isn't custom development — it's configuration, and it's included. Picking a vertical during onboarding maps existing terminology, fields, and service categories to your business. Nobody writes code, so there's no custom-build invoice waiting at the end." },
-        { "q": "How long before we're actually live with our own setup?", "a": "Most branches go from selecting a vertical to taking their first real booking in under an hour. There's no development queue to sit in — the configuration step is the entire onboarding process." }
-      ]
-    },
-    "howItWorks": [
-      {
-        "step": "01",
-        "icon": "list",
-        "title": "Select your business type",
-        "description": "Choose your vertical and Zenly configures itself — terminology, features, and categories."
-      },
-      {
-        "step": "02",
-        "icon": "tag",
-        "title": "Your terminology, your flow",
-        "description": "Labels, statuses, and service categories match your industry exactly. No translation needed."
-      },
-      {
-        "step": "03",
-        "icon": "maximize",
-        "title": "Go live",
-        "description": "No custom code, no developer. Your team is operational in hours, not weeks."
-      }
-    ],
-    "workflow": [
-      { "num": "01", "time": "9:00am", "title": "Owner selects the business type", "body": "During setup, the owner picks 'Dental Clinic' from the vertical list. The platform loads the terminology, service categories, and field set mapped to that type.", "status": "Pending" },
-      { "num": "02", "time": "9:05am", "title": "Terminology reconfigures automatically", "body": "'Therapist' becomes 'Dentist'. 'Treatment room' becomes 'Chair'. 'Session' becomes 'Appointment'. No labels are typed in manually — the config drives all of it.", "status": "Confirmed" },
-      { "num": "03", "time": "9:15am", "title": "Service categories get mapped", "body": "Cleanings, fillings, and consultations are entered as service categories with their own durations, replacing the generic placeholders from setup.", "status": "In-Progress" },
-      { "num": "04", "time": "9:30am", "title": "Staff accounts go live", "body": "Front-desk and dentist accounts are created. Their screens already show dental-specific fields and statuses — nobody edits a template by hand.", "status": "Completed" },
-      { "num": "05", "time": "10:00am", "title": "First booking is taken", "body": "A patient calls to book a cleaning. The front-desk screen looks like purpose-built dental software, though it's the same platform running the spa chain down the street.", "status": "Reconciled" }
-    ],
-    "relatedFeatures": [
-      "booking",
-      "staff-management"
     ]
   },
   {
@@ -1107,9 +924,9 @@
       "headline": "Multi-branch staff coordination is a full-time job you didn't sign up for.",
       "body": "You have a great therapist at your Thamel branch. But this week, the Lazimpat location is slammed and short-staffed. You want to move them over for three days. So you call the therapist. You call the Thamel manager to cover the gap. You call the Lazimpat manager to prepare. You update the schedule – on paper, or in a message thread, or in a mental note you'll forget by Wednesday. By Thursday morning, the therapist shows up at the wrong branch because someone's message got buried. A customer at Lazimpat waits. A customer at Thamel gets an apology. This is not a staffing problem. This is a coordination problem. And coordination problems have a system solution.",
       "panels": [
-        { "emoji": "📲", "title": "Coordination via messages", "body": "Staff assignments communicated in group chats, over calls, on sticky notes. Easy to miss. Impossible to reference. Gone the next time someone has a question." },
-        { "emoji": "🗓️", "title": "No forward planning", "body": "You can react when someone is sick or a branch is overwhelmed. But you can't proactively plan therapist rotations, plan capacity, or build a schedule that holds across locations." },
-        { "emoji": "❓", "title": "Who works where today?", "body": "The question no multi-branch owner should have to ask – but most do, every single morning." }
+        { "emoji": "ðŸ“²", "title": "Coordination via messages", "body": "Staff assignments communicated in group chats, over calls, on sticky notes. Easy to miss. Impossible to reference. Gone the next time someone has a question." },
+        { "emoji": "ðŸ—“ï¸", "title": "No forward planning", "body": "You can react when someone is sick or a branch is overwhelmed. But you can't proactively plan therapist rotations, plan capacity, or build a schedule that holds across locations." },
+        { "emoji": "â“", "title": "Who works where today?", "body": "The question no multi-branch owner should have to ask – but most do, every single morning." }
       ]
     },
     "primaryFeatures": [
@@ -1271,17 +1088,17 @@
       "body": "It happens at the front desk, during checkout, in the middle of a complaint. A customer is unhappy. The appointment ran long. The staff member wants to smooth things over. So they offer 20% off. And they do it again tomorrow. And the day after. No one tracks it. No manager approves it. No report flags it. By the time you notice, you've given away thousands of rupees in margin that you'll never recover — to customers who may not even have deserved it. Discounting isn't the problem. Uncontrolled discounting is.",
       "panels": [
         {
-          "emoji": "🎁",
+          "emoji": "ðŸŽ",
           "title": "Discounts as a habit, not a tool",
           "body": "When staff can apply any discount at any time, it stops being a customer retention tool and starts being a reflex. \"10% off\" becomes the default response to every complaint, every delay, every awkward checkout moment."
         },
         {
-          "emoji": "📉",
+          "emoji": "ðŸ“‰",
           "title": "Margin erosion you can't see",
           "body": "You won't find a line item called \"discounts given without approval\" in your weekly numbers. It hides inside revenue. You see lower totals. You assume it's a slow week."
         },
         {
-          "emoji": "🚫",
+          "emoji": "ðŸš«",
           "title": "No accountability, no pattern",
           "body": "Without a request record, you can't see which staff members discount most, which services get discounted most, or which branches are most exposed. You're managing blind."
         }
@@ -1464,17 +1281,17 @@
       "body": "In most businesses that share software, everyone gets the same login. The owner, the manager, the person who started last week — same view, same permissions, same ability to change, delete, or override. It works until it doesn't. A staff member cancels a booking they shouldn't have. A manager adjusts pricing for a reason that isn't documented. A discount is applied directly, bypassing review. And because everyone had access to everything, you don't know who did what. Access without accountability isn't freedom. It's risk.",
       "panels": [
         {
-          "emoji": "👥",
+          "emoji": "ðŸ‘¥",
           "title": "Everyone can do everything",
           "body": "When there are no role-based limits, every mistake is possible. A new staff member can accidentally change a booking that a manager just confirmed. There's no structural protection."
         },
         {
-          "emoji": "🔍",
+          "emoji": "ðŸ”",
           "title": "No audit trail by role",
           "body": "When something goes wrong, you have a list of events — but no clarity on who at what level was responsible. Accountability is impossible without role-based ownership."
         },
         {
-          "emoji": "📋",
+          "emoji": "ðŸ“‹",
           "title": "Sensitive information visible to everyone",
           "body": "Revenue data, cross-branch performance, discount approval records — information that an owner or admin should own can end up visible to front-desk staff who have no context for what they're seeing."
         }

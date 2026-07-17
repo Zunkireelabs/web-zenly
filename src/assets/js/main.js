@@ -371,26 +371,32 @@
       }
 
       // Reveal Solution Header
-      const dividerLeft = dividerContainer.querySelector('.story-divider-line--left');
-      const dividerRight = dividerContainer.querySelector('.story-divider-line--right');
-      const dividerLabel = dividerContainer.querySelector('.story-divider-label');
+      const dividerLeft = dividerContainer ? dividerContainer.querySelector('.story-divider-line--left') : null;
+      const dividerRight = dividerContainer ? dividerContainer.querySelector('.story-divider-line--right') : null;
+      const dividerLabel = dividerContainer ? dividerContainer.querySelector('.story-divider-label') : null;
       const solPhrases = solutionHeader.querySelectorAll('.sol-phrase');
 
-      gsap.set([dividerLeft, dividerRight], { scaleX: 0 });
-      gsap.set(dividerLabel, { opacity: 0 });
+      if (dividerLeft && dividerRight) gsap.set([dividerLeft, dividerRight], { scaleX: 0 });
+      if (dividerLabel) gsap.set(dividerLabel, { opacity: 0 });
       gsap.set(solPhrases, { opacity: 0, y: 20 });
       if (solutionSub) gsap.set(solutionSub, { opacity: 0, y: 15 });
 
-      gsap.timeline({
+      const mobileRevealTl = gsap.timeline({
         scrollTrigger: {
-          trigger: dividerContainer,
+          trigger: dividerContainer || solutionHeader,
           start: "top 80%",
         }
-      })
-        .to([dividerLeft, dividerRight], { scaleX: 1, duration: 0.5, ease: "power2.out" })
-        .to(dividerLabel, { opacity: 1, duration: 0.4, ease: "power2.out" }, "-=0.2")
-        .to(solPhrases, { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" }, "-=0.1")
-        .to(solutionSub, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, "-=0.2");
+      });
+      if (dividerLeft && dividerRight) {
+        mobileRevealTl.to([dividerLeft, dividerRight], { scaleX: 1, duration: 0.5, ease: "power2.out" });
+      }
+      if (dividerLabel) {
+        mobileRevealTl.to(dividerLabel, { opacity: 1, duration: 0.4, ease: "power2.out" }, "-=0.2");
+      }
+      mobileRevealTl.to(solPhrases, { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" }, "-=0.1");
+      if (solutionSub) {
+        mobileRevealTl.to(solutionSub, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, "-=0.2");
+      }
 
       // Draw callout paths
       valueCallouts.forEach((callout, idx) => {

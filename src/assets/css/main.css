@@ -85,6 +85,16 @@
     transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
   }
 
+  /* Solutions page: dark hero needs a visible nav bg, not full transparency —
+     reuse the same frosted off-white the nav already shows on hover/scroll */
+  .page--sol-nav .nav:not(.scrolled):not(:hover) {
+    background-color: rgba(250, 250, 249, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .page--sol-nav .nav:not(.scrolled):not(:hover) .nav__logo { color: var(--color-primary); }
+  .page--sol-nav .nav:not(.scrolled):not(:hover) .nav__link  { color: var(--color-text); }
+
   /* Light-nav pages: nav floats transparent/glassy over the header (no dark hero behind it) */
   .page--light-nav .nav {
     background-color: rgba(250, 250, 249, 0.55);
@@ -174,8 +184,8 @@
     flex-direction: column;
     justify-content: center;
     gap: 6px;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     background: none;
     border: none;
     cursor: pointer;
@@ -380,6 +390,16 @@
     min-height: 330px;
   }
 
+  /* Compact variant for menus with only a couple of links (e.g. Resources) */
+  .nav-mega--sm {
+    width: 320px;
+  }
+
+  .nav-mega--sm .nav-mega__container {
+    min-height: 0;
+  }
+
+
   /* Left capability area */
   .nav-mega__left {
     flex: 1.2;
@@ -401,6 +421,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6px;
+  }
+
+  .nav-mega__grid--1col {
+    grid-template-columns: 1fr;
   }
 
   .nav-mega__item {
@@ -2433,12 +2457,25 @@
     }
   }
 
+  @media (max-width: 480px) {
+    .hero__headline {
+      font-size: clamp(1.85rem, 8.5vw, 2.25rem);
+    }
+  }
+
 
 }
 
 /* ─────────────────────────────────────────────────────────
    SHARED UTILITIES (used across all below-hero sections)
 ───────────────────────────────────────────────────────── */
+
+body.page--blog,
+body.page--blog .section,
+body.page--case-study,
+body.page--case-study .section {
+  background-color: #F6EEE5;
+}
 
 .section {
   padding: var(--space-2xl) var(--space-md) 0;
@@ -2585,6 +2622,16 @@
   text-wrap: balance;
 }
 
+.section__h2--nowrap {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .section__h2--nowrap {
+    white-space: normal;
+  }
+}
+
 .section__sub {
   font-size: 1.125rem;
   color: var(--color-muted);
@@ -2599,6 +2646,7 @@
   margin: var(--space-sm) auto 0;
   white-space: nowrap;
 }
+
 
 /* ── NODE BRIDGE — pain → solution transition ── */
 .node-bridge {
@@ -2974,8 +3022,13 @@
 /* Connectors Overlay */
 .blueprint-connectors {
   position: absolute;
-  inset: 0;
-  width: 100%;
+  top: 0;
+  left: 32px;
+  /* calc(), not width:auto — SVG is a replaced element, so width:auto with
+     left+right insets falls back to its intrinsic 300px size instead of
+     shrinking to fit. This matches .blueprint-panel's left/right padding
+     so viewBox x=0/320 lands exactly on the node row's edges. */
+  width: calc(100% - 64px);
   height: 100%;
   pointer-events: none;
   z-index: 1;
@@ -4098,7 +4151,14 @@
   .value-split {
     grid-template-columns: 1fr;
   }
-  .value-mock {
+}
+
+@media (max-width: 767px) {
+  /* The small overlapping phone mockup relies on room to hang off the
+     dashboard image's corner (see .value-mock__mobile's negative right
+     offset below) — on narrow phones that space doesn't exist, so drop
+     the overlay and keep just the dashboard screenshot. */
+  .value-mock__mobile {
     display: none;
   }
 }
@@ -4406,6 +4466,208 @@
   }
   .feat-page-hero__visual {
     justify-content: center;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   SOLUTIONS PAGE HERO — editorial headline + collage
+───────────────────────────────────────────────────────────────────────── */
+
+.sol-hero {
+  position: relative;
+  background: linear-gradient(160deg, var(--color-primary) 0%, #1E3D1A 100%);
+  padding: 96px var(--space-md) calc(48px + var(--space-2xl) + 64px);
+  overflow: hidden;
+}
+
+.sol-hero__inner {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sol-hero__h1 {
+  font-family: var(--font-body);
+  font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: #ffffff;
+  margin: 0 auto var(--space-sm);
+  max-width: 760px;
+  text-wrap: balance;
+}
+
+.sol-hero__sub {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 auto;
+  max-width: 520px;
+}
+
+/* ── Stage: collage + CTA ── */
+
+.sol-hero__stage {
+  position: relative;
+  max-width: 1180px;
+  margin: -48px auto 0;
+  height: clamp(280px, 28vw, 380px);
+}
+
+.sol-hero__cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+}
+
+.sol-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #ffffff;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 13px 28px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sol-hero__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.sol-hero__cta:active {
+  transform: translateY(1px);
+}
+
+/* ── Collage grid ── */
+
+.sol-hero__grid {
+  position: absolute;
+  inset: 0;
+}
+
+.sol-hero__photo {
+  position: absolute;
+}
+
+.sol-hero__photo-reveal {
+  width: 100%;
+  height: 100%;
+}
+
+.sol-hero__photo-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  animation: fd-bento-float 6.5s ease-in-out infinite;
+}
+
+.sol-hero__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sol-hero__photo:hover img {
+  transform: scale(1.05);
+}
+
+.sol-hero__photo--owner {
+  left: 0;
+  top: 0;
+  width: 20%;
+  height: 68%;
+  z-index: 1;
+}
+.sol-hero__photo--owner .sol-hero__photo-inner { animation-delay: 0s; }
+
+.sol-hero__photo--skincare {
+  left: 15%;
+  top: 46%;
+  width: 18%;
+  height: 54%;
+  z-index: 2;
+}
+.sol-hero__photo--skincare .sol-hero__photo-inner { animation-delay: 1.2s; }
+
+.sol-hero__photo--fitness {
+  right: 15%;
+  top: 50%;
+  width: 18%;
+  height: 50%;
+  z-index: 2;
+}
+.sol-hero__photo--fitness .sol-hero__photo-inner { animation-delay: 0.6s; }
+
+.sol-hero__photo--spa {
+  right: 0;
+  top: 0;
+  width: 20%;
+  height: 68%;
+  z-index: 1;
+}
+.sol-hero__photo--spa .sol-hero__photo-inner { animation-delay: 1.8s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sol-hero__photo-inner {
+    animation: none;
+  }
+  .sol-hero__photo img {
+    transition: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sol-hero {
+    padding: 104px var(--space-md) 90px;
+  }
+  .sol-hero__stage {
+    margin-top: var(--space-lg);
+    height: clamp(280px, 40vw, 380px);
+  }
+}
+
+@media (max-width: 767px) {
+  .sol-hero {
+    padding: 96px var(--space-md) 72px;
+  }
+  .sol-hero__stage {
+    height: auto;
+    margin-top: var(--space-lg);
+  }
+  .sol-hero__grid {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+  .sol-hero__photo {
+    position: static;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    transform: none;
   }
 }
 
@@ -4737,6 +4999,21 @@
   .feat-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Same tighter card padding as the "This is what changes" compare-card
+     rework — inline style forces 48px/12px asymmetric padding, so
+     !important is needed here to win over it on mobile. */
+  .feat-card--stack .feat-card__bottom {
+    padding: var(--space-md) var(--space-md) var(--space-sm) !important;
+  }
+
+  /* .section + .section__inner stack 48px of side padding combined —
+     same issue the compare-card had. Bleed the card grid outward so
+     it reads closer to the edge instead of floating in a wide gutter. */
+  .entr-list {
+    margin-left: calc(-1 * var(--space-md));
+    margin-right: calc(-1 * var(--space-md));
+  }
 }
 
 .feat-card--sm {
@@ -4761,6 +5038,14 @@
   align-self: stretch;
   overflow: hidden;
   border-radius: 12px;
+}
+
+@media (max-width: 767px) {
+  /* Card sets aspect-ratio inline (16/9) — !important is needed here to
+     win over that and give the photo more height on mobile. */
+  .feat-card__visual {
+    aspect-ratio: 4 / 3 !important;
+  }
 }
 
 .feat-card__photo {
@@ -5416,6 +5701,23 @@
   width: 100%;
 }
 
+/* The 3-card fan (.scard--left/front/right) is built from fixed pixel
+   widths (~378px combined) that never shrink — on a narrow mobile card
+   that's wider than the available space, so the outer edges were
+   getting clipped by .feat-card--stack's overflow:hidden. Scale the
+   whole scene down as one unit instead of trying to resize each card. */
+@media (max-width: 480px) {
+  .scard-scene {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 380px) {
+  .scard-scene {
+    transform: scale(0.68);
+  }
+}
+
 .scard {
   background: #fff;
   border-radius: 14px;
@@ -5571,6 +5873,18 @@
   right: 6%;
   padding: 8px 14px;
   animation: floatInsightGoal 9s ease-in-out infinite alternate;
+}
+
+@media (max-width: 480px) {
+  .floating-insight--attendance {
+    bottom: -10%;
+  }
+  .floating-insight--referrals {
+    right: 4%;
+  }
+  .floating-insight--goal {
+    bottom: -14%;
+  }
 }
 
 /* Inner elements */
@@ -6670,11 +6984,67 @@
 @media (max-width: 767px) {
   .compare-card {
     grid-template-columns: 1fr;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    /* .section and .section__inner each add var(--space-md) of their own
+       side padding (48px combined) — reclaim most of it here so the card
+       reads closer to the screen edge instead of floating in a wide gutter. */
+    margin-left: calc(-1 * var(--space-md));
+    margin-right: calc(-1 * var(--space-md));
+  }
+
+  /* Regroup into two stacked cards — all "problem" rows together, then
+     all "solution" rows together — matching how desktop groups them
+     into left/right columns, instead of interleaving them row by row.
+     `order` only changes paint order; the DOM stays alternating, so
+     desktop's grid auto-placement (which relies on that alternation
+     to fill column 1 / column 2) is completely unaffected. */
+  .compare-card__header--problem,
+  .compare-card__item--problem {
+    order: 1;
+  }
+  .compare-card__header--solution,
+  .compare-card__item--solution {
+    order: 2;
   }
 
   .compare-card__header--problem,
-  .compare-card__item--problem {
-    border-right: none;
+  .compare-card__header--solution,
+  .compare-card__item--problem,
+  .compare-card__item--solution {
+    border-left: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+  }
+
+  /* Tighter padding than desktop's spacious card — these are now two
+     compact standalone cards, not one wide split card, so the original
+     64px/48px breathing room just reads as bloated on a narrow screen. */
+  .compare-card__header {
+    padding: var(--space-md) var(--space-md) var(--space-sm);
+  }
+
+  .compare-card__item {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .compare-card__header--problem,
+  .compare-card__header--solution {
+    border-top: 1px solid var(--color-border);
+    border-radius: 24px 24px 0 0;
+  }
+
+  .compare-card__header--solution {
+    margin-top: var(--space-lg);
+  }
+
+  .compare-card__item--problem:nth-last-child(-n+2),
+  .compare-card__item--solution:nth-last-child(-n+2) {
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 0 24px 24px;
+    padding-bottom: var(--space-sm);
   }
 }
 
@@ -7085,6 +7455,8 @@
   .stats-card__right {
     order: 4;
     width: 100%;
+    max-width: 100%;
+    flex-basis: auto;
     height: 240px;
   }
 
@@ -7946,6 +8318,102 @@
   }
 }
 
+/* ── Industry overview strip (solutions.njk) — flat card variant ── */
+.sol-idx-section {
+  padding-bottom: var(--space-xl);
+}
+
+.sol-idx-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.sol-idx-card {
+  background: var(--color-surface-alt);
+  border-radius: 20px;
+  padding: var(--space-lg) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: transform 0.2s ease, background 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sol-idx-card:hover {
+  transform: translateY(-4px);
+  background: #EAE4DA;
+}
+
+.sol-idx-card__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sol-idx-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.sol-idx-card__tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sol-idx-card__arrow {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sol-idx-card:hover .sol-idx-card__arrow {
+  background: var(--color-primary);
+  color: #ffffff;
+  transform: translate(1px, -1px);
+}
+
+.sol-idx-card__h3 {
+  font-family: var(--font-body);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .sol-idx-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .sol-idx-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* ── Feature Sticky Scroll (fss-) ── */
 .fss-section {
   background: #FAFAF9;
@@ -8366,12 +8834,40 @@
   text-align: left;
   position: relative;
   z-index: 1;
+  overflow: hidden;
+}
+
+.fd-hero__deck::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("/assets/images/hero-deck-pattern.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.fd-hero__deck::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 45%),
+    linear-gradient(135deg, rgba(0, 0, 0, 0.14) 0%, rgba(0, 0, 0, 0) 55%);
 }
 
 .fd-hero__deck-info {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .fd-hero__deck-heading {
@@ -8414,6 +8910,8 @@
 
 .fd-hero__deck-media {
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 820px) {
@@ -8423,6 +8921,69 @@
     padding: 32px 24px;
   }
 }
+
+/* ── Per-feature hero deck card color ── */
+.fd-hero__deck[data-feature="operational-visibility"] { background: linear-gradient(to bottom right, #7FE0C9 0%, #12735C 100%); }
+.fd-hero__deck[data-feature="payment-tracking"] { background: linear-gradient(to bottom right, #F0C86B 0%, #8C5A18 100%); }
+.fd-hero__deck[data-feature="reports"] { background: linear-gradient(to bottom right, #C6B3EA 0%, #4A3080 100%); }
+
+/* Payment-tracking mockup: pulsing live-dot, stat tiles land in on
+   load since this card sits above the fold (scroll-triggered
+   .reveal never fires here) */
+.fd-hero__deck[data-feature="payment-tracking"] .live-dot {
+  animation: fph-live-pulse 1.4s ease-in-out infinite;
+}
+
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card {
+  animation: fadeIn 0.5s ease both;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: none;
+  border-radius: 12px;
+  box-shadow: none;
+}
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card__label,
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card__footer {
+  color: rgba(255, 255, 255, 0.7);
+}
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card__value,
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card__footer-val {
+  color: #ffffff;
+}
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card__sub {
+  color: rgba(255, 255, 255, 0.55);
+}
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card__footer {
+  border-top-color: rgba(255, 255, 255, 0.18);
+}
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card__icon-wrap.color-today,
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card__icon-wrap.color-yest,
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card__icon-wrap.color-wtd,
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card__icon-wrap.color-mtd {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card:nth-child(1) { animation-delay: 0.1s; }
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card:nth-child(2) { animation-delay: 0.25s; }
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card:nth-child(3) { animation-delay: 0.4s; }
+.fd-hero__deck[data-feature="payment-tracking"] .dash-card:nth-child(4) { animation-delay: 0.55s; }
+.fd-hero__deck[data-feature="staff-management"] { background: linear-gradient(to bottom right, #9CC2F0 0%, #23447D 100%); }
+.fd-hero__deck[data-feature="discount-management"] { background: linear-gradient(to bottom right, #F3B36B 0%, #8A4A14 100%); }
+.fd-hero__deck[data-feature="role-based-access"] { background: linear-gradient(to bottom right, #A9AEEA 0%, #2E3070 100%); }
+
+/* Reports mockup: pulsing live-dot, rows land in on load since this
+   card sits above the fold (scroll-triggered .reveal never fires here) */
+.fd-hero__deck[data-feature="reports"] .live-dot {
+  animation: fph-live-pulse 1.4s ease-in-out infinite;
+}
+.fd-hero__deck[data-feature="reports"] .fd-hero__mockup-row {
+  animation: fadeIn 0.5s ease both;
+}
+.fd-hero__deck[data-feature="reports"] .fd-hero__mockup-row:nth-child(1) { animation-delay: 0.1s; }
+.fd-hero__deck[data-feature="reports"] .fd-hero__mockup-row:nth-child(2) { animation-delay: 0.25s; }
+.fd-hero__deck[data-feature="reports"] .fd-hero__mockup-row:nth-child(3) { animation-delay: 0.4s; }
+.fd-hero__deck[data-feature="reports"] .fd-hero__mockup-row:nth-child(4) { animation-delay: 0.55s; }
 
 .fd-hero__img-wrap {
   width: 100%;
@@ -8497,7 +9058,9 @@
   gap: 12px;
   padding: 12px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: none;
 }
 
@@ -8509,6 +9072,8 @@
   height: 36px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 700;
@@ -8558,12 +9123,46 @@
   border-color: #ffffff;
 }
 
+/* 2x2 request-tile grid (discount-management mockup) — fixed cell
+   count/position so approving a request never resizes the card,
+   only the tile's own status badge toggles in place */
+.fd-hero__mockup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.fd-hero__mockup-tile {
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fd-hero__mockup-tile-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.fd-hero__mockup-tile .fd-hero__mockup-status.is-done {
+  animation: fadeIn 0.3s ease;
+}
+
 @media (max-width: 480px) {
   .fd-hero__mockup {
     padding: 20px;
   }
   .fd-hero__mockup-service {
     max-width: 140px;
+  }
+  .fd-hero__mockup-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -9540,6 +10139,7 @@
   font-weight: 500;
   line-height: 1.1;
   color: var(--color-text);
+  margin-top: 40px;
   margin-bottom: var(--space-sm);
   text-align: center;
 }
@@ -9577,11 +10177,11 @@
 
 .fd-workflow__grid {
   display: grid;
-  grid-template-columns: repeat(var(--wf-steps, 5), 1fr);
+  grid-template-columns: repeat(var(--wf-steps, 5), minmax(0, 1fr));
   gap: var(--space-md);
   position: relative;
   z-index: 2;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
 }
 
 .fd-workflow__col {
@@ -9589,6 +10189,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 0;
 }
 
 /* Connecting line — spans from the previous node's center to this node's center.
@@ -9774,6 +10375,34 @@
   }
   .fd-workflow__title {
     font-size: 1.0625rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .fd-workflow__container {
+    padding: 0 var(--space-sm);
+  }
+  .fd-workflow__grid {
+    gap: var(--space-xs) 4px;
+  }
+  .fd-workflow__node {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 6px;
+  }
+  .fd-workflow__col::before {
+    top: 16px; /* vertical center of the 32px icon node at this breakpoint */
+  }
+  .fd-workflow__node-icon {
+    width: 14px;
+    height: 14px;
+  }
+  .fd-workflow__node-label {
+    font-size: 0.6875rem;
+    line-height: 1.3;
+  }
+  .fd-workflow__stage {
+    padding: var(--space-md);
   }
 }
 
@@ -10062,6 +10691,16 @@
   margin: 0 auto;
 }
 
+.fd-problem__grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 767px) {
+  .fd-problem__grid--2col {
+    grid-template-columns: 1fr;
+  }
+}
+
 .fd-problem__card {
   background: var(--color-surface-alt);
   border-radius: 20px;
@@ -10088,9 +10727,61 @@
   margin: 0;
 }
 
+/* Small uppercase kicker for labeled paragraphs inside a fd-problem__card
+   (Problem / Solution / Outcome) — same tracking/weight convention as .section__badge */
+.fd-problem__kicker {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: var(--space-sm) 0 4px;
+}
+
+.fd-problem__kicker:first-of-type {
+  margin-top: 0;
+}
+
 @media (max-width: 767px) {
   .fd-problem__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* 4-column variant of .pillars, used where a fourth shared-capability card is needed */
+.pillars--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 900px) {
+  .pillars--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .pillars--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Anchor targets that must clear the fixed nav (64px) when jumped to directly */
+.sol-industry {
+  position: relative;
+  scroll-margin-top: 88px;
+  background-color: #F6EEE5;
+  margin-top: calc(-1 * var(--space-2xl));
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-radius: 72px 72px 0 0;
+  box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.16), inset 0 12px 24px -12px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 768px) {
+  .sol-industry {
+    border-radius: 40px 40px 0 0;
+    margin-top: calc(-1 * var(--space-xl));
   }
 }
 
@@ -10405,6 +11096,37 @@
   color: var(--color-muted);
 }
 
+/* ── Static image/accordion split (solutions.njk industry sections) ── */
+.sol-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+  margin-top: var(--space-lg);
+}
+
+.sol-split__text-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sol-split__intro {
+  font-size: 1.0625rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.sol-split__text-col .faq-list {
+  max-width: none;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .sol-split { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 767px) {
   .fd-sscroll { grid-template-columns: 1fr; }
   .fd-sscroll__img-col { position: relative; top: 0; margin-bottom: var(--space-lg); }
@@ -10623,7 +11345,7 @@
   padding: 120px var(--space-md) var(--space-2xl);
   position: relative;
   background: #C2EDCE;
-  border-radius: 0 0 50% 50% / 0 0 80px 80px;
+  clip-path: url(#hiw-hero-valley);
 }
 
 .hiw-page-hero__inner {
@@ -10743,10 +11465,6 @@
   display: block;
   border-radius: 0;
   box-shadow: none;
-}
-
-.hiw-page-content {
-  padding-bottom: var(--space-2xl);
 }
 
 @media (max-width: 767px) {
@@ -11462,7 +12180,7 @@
 }
 
 .hiw-block--last {
-  margin-bottom: var(--space-2xl);
+  margin-bottom: 0;
 }
 
 .hiw-block__hd {
@@ -12286,6 +13004,252 @@
   .demo-trust__inner {
     gap: var(--space-md) var(--space-lg);
   }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   RESOURCES HUB & BLOG INDEX — reuses .feat-idx-card system
+   ──────────────────────────────────────────────────────────────── */
+.resources-hub-grid {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog-idx-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.blog-idx-card__meta {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  margin: 0 0 var(--space-xs);
+}
+
+@media (max-width: 767px) {
+  .resources-hub-grid,
+  .blog-idx-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Blog index: row layout (image left, content right) ── */
+.blog-idx-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.blog-idx-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: #ffffff;
+  border-radius: 20px;
+  padding: var(--space-sm);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-idx-row:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.blog-idx-row__img-wrap {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.blog-idx-row__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-idx-row__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-grow: 1;
+  padding: var(--space-xs) var(--space-sm) var(--space-xs) 0;
+}
+
+.blog-idx-row__tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0 0 6px;
+}
+
+.blog-idx-row__h3 {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.blog-idx-row__foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.blog-idx-row__foot-divider {
+  width: 1px;
+  height: 12px;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+@media (max-width: 640px) {
+  .blog-idx-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .blog-idx-row__img-wrap {
+    width: 100%;
+    height: 160px;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   ARTICLE / LONG-FORM PROSE — case study & blog post bodies
+   ──────────────────────────────────────────────────────────────── */
+.article-hero {
+  padding: var(--space-2xl) var(--space-md) var(--space-lg);
+  max-width: var(--max-w-copy);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.article-hero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-sm);
+}
+
+.article-hero__h1 {
+  font-family: var(--font-body);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 0 0 var(--space-sm);
+  text-wrap: balance;
+}
+
+.article-hero__meta {
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+}
+
+.cs-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+.cs-stat {
+  text-align: left;
+}
+
+.cs-stats .fd-proof__num {
+  font-family: var(--font-body);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--color-text);
+  min-height: 0;
+  margin-bottom: 4px;
+}
+
+.article-body {
+  max-width: var(--max-w-copy);
+  margin: 0 auto;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.article-body h2 {
+  font-family: var(--font-body);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: var(--space-lg) 0 var(--space-sm);
+  letter-spacing: -0.01em;
+}
+
+.article-body h3 {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: var(--space-md) 0 var(--space-xs);
+}
+
+.article-body p {
+  margin: 0 0 var(--space-md);
+}
+
+.article-body ul {
+  margin: 0 0 var(--space-md);
+  padding-left: 1.25em;
+}
+
+.article-body li {
+  margin-bottom: var(--space-xs);
+}
+
+.article-body blockquote {
+  margin: var(--space-lg) 0;
+  padding-left: var(--space-md);
+  border-left: 3px solid var(--color-primary);
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.125rem;
+  color: var(--color-text);
+}
+
+.article-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.article-back-link:hover {
+  color: var(--color-primary);
 }
 
 /* Right Card (Manager View) Animation */

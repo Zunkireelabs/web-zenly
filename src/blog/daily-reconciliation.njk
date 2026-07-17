@@ -1,0 +1,110 @@
+---
+layout: base.njk
+title: What daily revenue reconciliation should actually take | Zenly
+bodyClass: page--light-nav
+---
+
+<main>
+
+  <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="article-hero reveal">
+      <a href="/blog" class="article-back-link">&larr; Back to Blog</a>
+      <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Finance</p>
+      <h1 class="article-hero__h1">What daily revenue reconciliation should actually take</h1>
+      <p class="article-hero__meta">4 min read</p>
+    </div>
+  </section>
+
+  <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="article-body reveal">
+
+      <p>Ask an owner how long it takes to close the books at the end of a day, and the honest answer is often &ldquo;longer than it should.&rdquo; Not because the math is hard &ndash; because the numbers live in three or four different places, and someone has to manually pull them together before anything adds up.</p>
+
+      <h2>Where the time actually goes</h2>
+      <p>It&rsquo;s rarely the arithmetic that&rsquo;s slow. It&rsquo;s the reconstruction: which bookings were completed today, which payments match which bookings, which ones were only partially paid, and which branch each of those belongs to. When that information is spread across a booking log, a payment log, and someone&rsquo;s memory of who paid cash, reconciliation turns into detective work.</p>
+
+      <h2>The one-record principle</h2>
+      <p>The fix is structural, not procedural: every payment should be recorded against the booking it belongs to, at the moment it happens &ndash; not batched at the end of the day from memory or a paper slip. When the payment and the booking are the same record, reconciliation stops being a separate task. The numbers are already correct because they were never allowed to drift apart.</p>
+      <p>This is the core idea behind <a href="/features/payment-tracking">Zenly&rsquo;s payment tracking</a> &ndash; every payment logs the total amount and settlement status at the point of service, so the daily close is a read, not a rebuild.</p>
+
+      <h2>What &ldquo;fast&rdquo; actually looks like</h2>
+      <p>With a single source of truth per branch, a daily close should take under a minute per branch &ndash; open the dashboard, confirm the total matches what&rsquo;s in the till, done. For a four-branch business, that&rsquo;s the difference between an hour of cross-checking every morning and a five-minute review before the day starts.</p>
+      <p>If your reconciliation still takes longer than your last service of the day, the process is the bottleneck &ndash; not your team.</p>
+
+    </div>
+  </section>
+
+  <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
+  <section class="bottom-cta" id="demo">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">Curious what a 30-second close actually looks like?</h2>
+      <p class="bottom-cta__sub">Book a 20-minute demo and we&rsquo;ll show you the daily reconciliation flow.</p>
+      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <div class="footer__col footer__col--brand">
+        <a href="/" class="footer__logo">Zenly</a>
+        <p class="footer__tagline">Online booking, operational control, and financial clarity &mdash; for any appointment-based business.</p>
+        <div class="footer__status">
+          <span class="live-dot"></span>
+          <span>All systems operational</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Product</div>
+        <ul class="footer__links">
+          <li><a href="/features/booking">Online Booking</a></li>
+          <li><a href="/features/operational-visibility">Operations</a></li>
+          <li><a href="/features/payment-tracking">Finance</a></li>
+          <li><a href="/features/reports">Reports</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Use Cases</div>
+        <ul class="footer__links">
+          <li><a href="/solutions#salons">Salons &amp; Beauty Studios</a></li>
+          <li><a href="/solutions#spas">Spas &amp; Wellness</a></li>
+          <li><a href="/solutions#clinics">Aesthetic Clinics</a></li>
+          <li><a href="/solutions">More verticals</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/case-study">Case Study</a></li>
+          <li><a href="#demo">Book a Demo</a></li>
+          <li><a href="mailto:info.zunkireelabs@gmail.com">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Legal</div>
+        <ul class="footer__links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__inner">
+        <span class="footer__copy">&copy; 2026 Zunkireelabs. All rights reserved.</span>
+        <span class="footer__built">Built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></span>
+      </div>
+    </div>
+  </footer>
+
+</main>
