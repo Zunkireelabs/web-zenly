@@ -19,7 +19,7 @@ layout: base.njk
       </div>
 
       <!-- The new Hero Product Deck Card -->
-      <div class="fd-hero__deck">
+      <div class="fd-hero__deck" data-feature="{{ feature.slug }}">
         <div class="fd-hero__deck-info">
           <h3 class="fd-hero__deck-heading">
             {{ feature.hero.subheadline }}
@@ -135,38 +135,62 @@ layout: base.njk
               </div>
               <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
             </div>
-            <div class="fd-hero__mockup-list">
-              <div class="fd-hero__mockup-row">
-                <span class="fd-hero__mockup-avatar">A</span>
-                <div class="fd-hero__mockup-info">
-                  <p class="fd-hero__mockup-name">A. Sharma</p>
-                  <p class="fd-hero__mockup-service">Deep tissue massage &middot; NPR 4,500</p>
+            <div class="dash-stats-grid">
+              <div class="dash-card">
+                <div class="dash-card__header">
+                  <span class="dash-card__icon-wrap color-today">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+                  </span>
+                  <span class="dash-card__label">TODAY</span>
                 </div>
-                <span class="fd-hero__mockup-status is-done">Paid</span>
+                <div class="dash-card__value">NPR 13,700</div>
+                <div class="dash-card__sub">Net Revenue</div>
+                <div class="dash-card__footer">
+                  <span>Paid</span>
+                  <span class="dash-card__footer-val">4</span>
+                </div>
               </div>
-              <div class="fd-hero__mockup-row">
-                <span class="fd-hero__mockup-avatar">M</span>
-                <div class="fd-hero__mockup-info">
-                  <p class="fd-hero__mockup-name">Manisha T.</p>
-                  <p class="fd-hero__mockup-service">Hot stone therapy &middot; NPR 7,200</p>
+              <div class="dash-card">
+                <div class="dash-card__header">
+                  <span class="dash-card__icon-wrap color-yest">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+                  </span>
+                  <span class="dash-card__label">YEST.</span>
                 </div>
-                <span class="fd-hero__mockup-status is-done">Paid</span>
+                <div class="dash-card__value">NPR 9,200</div>
+                <div class="dash-card__sub">Net Revenue</div>
+                <div class="dash-card__footer">
+                  <span>Paid</span>
+                  <span class="dash-card__footer-val">3</span>
+                </div>
               </div>
-              <div class="fd-hero__mockup-row">
-                <span class="fd-hero__mockup-avatar">R</span>
-                <div class="fd-hero__mockup-info">
-                  <p class="fd-hero__mockup-name">R. Gurung</p>
-                  <p class="fd-hero__mockup-service">Facial &amp; skincare &middot; NPR 1,800</p>
+              <div class="dash-card">
+                <div class="dash-card__header">
+                  <span class="dash-card__icon-wrap color-wtd">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+                  </span>
+                  <span class="dash-card__label">WTD</span>
                 </div>
-                <span class="fd-hero__mockup-status">Partial</span>
+                <div class="dash-card__value">NPR 68,400</div>
+                <div class="dash-card__sub">Net Revenue</div>
+                <div class="dash-card__footer">
+                  <span>Paid</span>
+                  <span class="dash-card__footer-val">19</span>
+                </div>
               </div>
-              <div class="fd-hero__mockup-row">
-                <span class="fd-hero__mockup-avatar">S</span>
-                <div class="fd-hero__mockup-info">
-                  <p class="fd-hero__mockup-name">S. Koirala</p>
-                  <p class="fd-hero__mockup-service">Aromatherapy &middot; NPR 200</p>
+              <div class="dash-card">
+                <div class="dash-card__header">
+                  <span class="dash-card__icon-wrap color-mtd">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+                  </span>
+                  <span class="dash-card__label">MTD</span>
                 </div>
-                <span class="fd-hero__mockup-status is-done">Paid</span>
+                <div class="dash-card__value">NPR 312.6K</div>
+                <div class="dash-card__sub">Net Revenue</div>
+                <div class="dash-card__footer">
+                  <span>Paid</span>
+                  <span class="dash-card__footer-val">82</span>
+                </div>
               </div>
             </div>
           </div>
@@ -223,38 +247,38 @@ layout: base.njk
               </div>
               <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
             </div>
-            <div class="fd-hero__mockup-list" data-discount-mockup>
-              <div class="fd-hero__mockup-row">
-                <span class="fd-hero__mockup-avatar">M</span>
-                <div class="fd-hero__mockup-info">
-                  <p class="fd-hero__mockup-name">Manisha T. &middot; 15% off</p>
-                  <p class="fd-hero__mockup-service">Hot stone therapy &middot; Booking #BK-4471</p>
+            <div class="fd-hero__mockup-grid" data-discount-mockup>
+              <div class="fd-hero__mockup-tile" data-discount-item>
+                <div class="fd-hero__mockup-tile-top">
+                  <span class="fd-hero__mockup-avatar">M</span>
+                  <span class="fd-hero__mockup-status" data-discount-status>Pending</span>
                 </div>
-                <span class="fd-hero__mockup-status" data-discount-status>Pending</span>
+                <p class="fd-hero__mockup-name">Manisha T. &middot; 15% off</p>
+                <p class="fd-hero__mockup-service">Hot stone therapy</p>
               </div>
-              <div class="fd-hero__mockup-row">
-                <span class="fd-hero__mockup-avatar">R</span>
-                <div class="fd-hero__mockup-info">
-                  <p class="fd-hero__mockup-name">R. Gurung &middot; 10% off</p>
-                  <p class="fd-hero__mockup-service">Facial &amp; skincare &middot; Booking #BK-4472</p>
+              <div class="fd-hero__mockup-tile is-done">
+                <div class="fd-hero__mockup-tile-top">
+                  <span class="fd-hero__mockup-avatar">R</span>
+                  <span class="fd-hero__mockup-status is-done"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Approved</span>
                 </div>
-                <span class="fd-hero__mockup-status is-done">Approved</span>
+                <p class="fd-hero__mockup-name">R. Gurung &middot; 10% off</p>
+                <p class="fd-hero__mockup-service">Facial &amp; skincare</p>
               </div>
-              <div class="fd-hero__mockup-row">
-                <span class="fd-hero__mockup-avatar">S</span>
-                <div class="fd-hero__mockup-info">
-                  <p class="fd-hero__mockup-name">S. Koirala &middot; 25% off</p>
-                  <p class="fd-hero__mockup-service">Aromatherapy &middot; Booking #BK-4473</p>
+              <div class="fd-hero__mockup-tile" data-discount-item>
+                <div class="fd-hero__mockup-tile-top">
+                  <span class="fd-hero__mockup-avatar">S</span>
+                  <span class="fd-hero__mockup-status" data-discount-status>Pending</span>
                 </div>
-                <span class="fd-hero__mockup-status" data-discount-status>Pending</span>
+                <p class="fd-hero__mockup-name">S. Koirala &middot; 25% off</p>
+                <p class="fd-hero__mockup-service">Aromatherapy</p>
               </div>
-              <div class="fd-hero__mockup-row">
-                <span class="fd-hero__mockup-avatar">A</span>
-                <div class="fd-hero__mockup-info">
-                  <p class="fd-hero__mockup-name">A. Sharma &middot; 20% off</p>
-                  <p class="fd-hero__mockup-service">Deep tissue massage &middot; Booking #BK-4474</p>
+              <div class="fd-hero__mockup-tile is-done">
+                <div class="fd-hero__mockup-tile-top">
+                  <span class="fd-hero__mockup-avatar">A</span>
+                  <span class="fd-hero__mockup-status is-done"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Approved</span>
                 </div>
-                <span class="fd-hero__mockup-status is-done">Approved</span>
+                <p class="fd-hero__mockup-name">A. Sharma &middot; 20% off</p>
+                <p class="fd-hero__mockup-service">Deep tissue massage</p>
               </div>
             </div>
           </div>
@@ -291,6 +315,50 @@ layout: base.njk
                   <p class="fd-hero__mockup-service">Today&rsquo;s schedule &middot; own bookings</p>
                 </div>
                 <span class="fd-hero__mockup-status">Own queue</span>
+              </div>
+            </div>
+          </div>
+          {% elif feature.slug == 'reports' %}
+          <div class="fd-hero__mockup" aria-hidden="true">
+            <div class="fd-hero__mockup-top">
+              <div>
+                <p class="fd-hero__mockup-title">This month&rsquo;s reports</p>
+                <p class="fd-hero__mockup-date">Thu, 3 Jul &middot; All branches</p>
+              </div>
+              <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
+            </div>
+            <div class="fd-hero__mockup-list">
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">R</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Revenue Reports</p>
+                  <p class="fd-hero__mockup-service">NPR 312,600 this month</p>
+                </div>
+                <span class="fd-hero__mockup-status is-done">Live</span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">S</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Staff Performance</p>
+                  <p class="fd-hero__mockup-service">18 staff tracked</p>
+                </div>
+                <span class="fd-hero__mockup-status is-done">Live</span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">D</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Discount Analytics</p>
+                  <p class="fd-hero__mockup-service">NPR 8,200 discounted</p>
+                </div>
+                <span class="fd-hero__mockup-status is-done">Live</span>
+              </div>
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">T</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">Referral Tracking</p>
+                  <p class="fd-hero__mockup-service">42% of bookings from referrals</p>
+                </div>
+                <span class="fd-hero__mockup-status is-done">Live</span>
               </div>
             </div>
           </div>
@@ -924,7 +992,6 @@ layout: base.njk
           <li><a href="/features/operational-visibility">Operations</a></li>
           <li><a href="/features/payment-tracking">Finance</a></li>
           <li><a href="/features/reports">Reports</a></li>
-          <li><a href="/features/industries">Industries</a></li>
           <li><a href="/pricing">Pricing</a></li>
         </ul>
       </div>
@@ -1298,13 +1365,17 @@ layout: base.njk
     var statuses = mockup.querySelectorAll('[data-discount-status]');
     if (!statuses.length) return;
 
+    var CHECK_SVG = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+
     function approve(el) {
       el.classList.add('is-done');
-      el.textContent = 'Approved';
+      el.closest('.fd-hero__mockup-tile').classList.add('is-done');
+      el.innerHTML = CHECK_SVG + 'Approved';
     }
 
     function reset(el) {
       el.classList.remove('is-done');
+      el.closest('.fd-hero__mockup-tile').classList.remove('is-done');
       el.textContent = 'Pending';
     }
 

@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/tailwind.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/tailwind.css?v=7" />
 </head>
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
 
@@ -139,30 +139,30 @@
                   <p class="nav-mega__right-text">Database-driven configuration overrides terminology and business rules out-of-the-box.</p>
                   
                   <div class="nav-mega__verticals">
-                    <a href="/features/industries#spa" class="nav-mega__vertical-link">
+                    <a href="/solutions#spa" class="nav-mega__vertical-link">
                       <span class="nav-mega__vertical-bullet">●</span> Spas &amp; Wellness
                     </a>
-                    <a href="/features/industries#salon" class="nav-mega__vertical-link">
+                    <a href="/solutions#salon" class="nav-mega__vertical-link">
                       <span class="nav-mega__vertical-bullet">●</span> Hair &amp; Nail Salons
                     </a>
-                    <a href="/features/industries#dental" class="nav-mega__vertical-link">
+                    <a href="/solutions#dental" class="nav-mega__vertical-link">
                       <span class="nav-mega__vertical-bullet">●</span> Dental Clinics
                     </a>
-                    <a href="/features/industries#tattoo" class="nav-mega__vertical-link">
+                    <a href="/solutions#tattoo" class="nav-mega__vertical-link">
                       <span class="nav-mega__vertical-bullet">●</span> Tattoo Studios
                     </a>
                   </div>
 
                   <div class="nav-mega__industry-cards">
-                    <a href="/features/industries#spa" class="nav-mega__industry-card" style="background-image: url('/assets/images/nav-icon-spa.png');">
+                    <a href="/solutions#spa" class="nav-mega__industry-card" style="background-image: url('/assets/images/nav-icon-spa.png');">
                       <span class="nav-mega__industry-card-label">Spa &amp; Wellness</span>
                     </a>
-                    <a href="/features/industries#dental" class="nav-mega__industry-card" style="background-image: url('/assets/images/nav-icon-dental.png');">
+                    <a href="/solutions#dental" class="nav-mega__industry-card" style="background-image: url('/assets/images/nav-icon-dental.png');">
                       <span class="nav-mega__industry-card-label">Dental Clinics</span>
                     </a>
                   </div>
 
-                  <a href="/features/industries" class="nav-mega__right-cta">
+                  <a href="/solutions" class="nav-mega__right-cta">
                     See how it works
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="display:inline; margin-left: 2px;"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </a>
@@ -178,8 +178,47 @@
           </div>
         </li>
         <li><a href="/how-it-works" class="nav__link">How it Works</a></li>
-        <li><a href="/pricing"      class="nav__link">Pricing</a></li>
-        <li><a href="#faq"          class="nav__link">FAQ</a></li>
+        <li><a href="/solutions" class="nav__link">Solutions</a></li>
+        <li class="nav__item--has-mega">
+          <a href="/blog" class="nav__link nav__mega-trigger">
+            Resources
+            <svg class="nav__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="nav-mega nav-mega--sm" role="region" aria-label="Resources menu">
+            <div class="nav-mega__container">
+              <div class="nav-mega__left">
+                <div class="nav-mega__grid nav-mega__grid--1col">
+                  <a href="/blog" class="nav-mega__item">
+                    <div class="nav-mega__icon-wrapper">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="nav-mega__icon">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                      </svg>
+                    </div>
+                    <div class="nav-mega__body">
+                      <span class="nav-mega__name">Blog</span>
+                      <span class="nav-mega__desc">Guides on running a multi-branch service business.</span>
+                    </div>
+                  </a>
+
+                  <a href="/case-study" class="nav-mega__item">
+                    <div class="nav-mega__icon-wrapper">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="nav-mega__icon">
+                        <line x1="18" y1="20" x2="18" y2="10"/>
+                        <line x1="12" y1="20" x2="12" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="14"/>
+                      </svg>
+                    </div>
+                    <div class="nav-mega__body">
+                      <span class="nav-mega__name">Case Study</span>
+                      <span class="nav-mega__desc">How Nuad Thai Spa runs four branches on Zenly.</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
       </ul>
 
       <!-- Zone 3: CTA + Hamburger -->
@@ -210,15 +249,20 @@
             <li><a href="/features/operational-visibility">Operations</a></li>
             <li><a href="/features/payment-tracking">Finance</a></li>
             <li><a href="/features/reports">Reports</a></li>
-            <li><a href="/features/industries">Industries</a></li>
             <li><a href="/features/staff-management">Staff Management</a></li>
             <li><a href="/features/discount-management">Discount Management</a></li>
             <li><a href="/features" class="nav__mobile-all">See all features &rarr;</a></li>
           </ul>
         </li>
         <li><a href="/how-it-works">How it Works</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="/solutions">Solutions</a></li>
+        <li class="nav__mobile-group">
+          <span class="nav__mobile-label">Resources</span>
+          <ul class="nav__mobile-sub" role="list">
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/case-study">Case Study</a></li>
+          </ul>
+        </li>
       </ul>
       <div class="nav__mobile-cta">
         <a href="/demo" class="btn-primary">Book a Demo</a>
