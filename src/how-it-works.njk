@@ -4,35 +4,26 @@ title: How It Works — Zenly
 bodyClass: page--light-nav
 ---
 
-<main>
+<main class="soln">
 
-  <!-- ── HERO ─────────────────────────────────────────────────────────── -->
-  <svg width="0" height="0" style="position: absolute;" aria-hidden="true">
-    <defs>
-      <clipPath id="hiw-hero-valley" clipPathUnits="objectBoundingBox">
-        <path d="M0,0 L1,0 L1,0.94 C1,0.975 0.975,1 0.94,1 L0.06,1 C0.025,1 0,0.975 0,0.94 Z"/>
-      </clipPath>
-    </defs>
-  </svg>
-  <section class="hiw-page-hero">
-    <div class="hiw-page-hero__inner">
+  <!-- ── HERO (copied from /solutions/{slug}/ hero design) ──────────────── -->
+  <section class="soln-hero soln-hero--compact">
+    <div class="soln-hero__container reveal-scale">
+      <div class="soln-hero__glow" aria-hidden="true"></div>
 
-      <!-- Left: text -->
-      <div class="hiw-page-hero__text">
-        <span class="section__badge">How it works</span>
-        <h1 class="hiw-page-hero__h1">From booking chaos to complete operational control. Here&rsquo;s exactly how.</h1>
-        <p class="hiw-page-hero__sub">Four steps. Three roles. One system. This is what it looks like when your multi-branch service business finally runs on a structure that works.</p>
-        <div class="hiw-page-hero__actions">
-          <a href="mailto:info.zunkireelabs@gmail.com" class="btn-primary">See it live in 20 minutes &rarr;</a>
+      <p class="soln-hero__eyebrow">How it works</p>
+      <h1 class="soln-hero__h1">From booking chaos to full control.</h1>
+      <p class="soln-hero__sub">Four steps, three roles, one system.</p>
+
+      <div class="soln-hero__actions">
+        <a href="mailto:info.zunkireelabs@gmail.com" class="soln-btn soln-btn--primary">See it live in 20 minutes</a>
+      </div>
+
+      <div class="soln-hero__visual">
+        <div class="soln-hero__panel soln-hero__panel--img">
+          <img src="/assets/images/hiw-hero.png" alt="Zenly daily operations dashboard" class="soln-hero__panel-img">
         </div>
-        <a href="#steps" class="hiw-page-hero__anchor">&darr; Walk me through it</a>
       </div>
-
-      <!-- Right: visual -->
-      <div class="hiw-page-hero__visual">
-        <img src="/assets/images/hiw-hero.png" alt="Zenly daily operations dashboard" class="hiw-page-hero__img">
-      </div>
-
     </div>
   </section>
 
@@ -94,7 +85,7 @@ bodyClass: page--light-nav
                       <span class="hiw-gs-mock__pill">Staff</span>
                     </div>
                     <div class="hiw-gs-mock__item">
-                      <div class="hiw-gs-mock__dot" style="background:#2D5A27"></div>
+                      <div class="hiw-gs-mock__dot" style="background:#3F6839"></div>
                       <div class="hiw-gs-mock__lines">
                         <div class="hiw-gs-mock__line hiw-gs-mock__line--name">You</div>
                         <div class="hiw-gs-mock__line hiw-gs-mock__line--sub">All branches</div>
@@ -160,7 +151,7 @@ bodyClass: page--light-nav
                 <div class="hiw-steps__visual">
                   <div class="hiw-gs-mock hiw-gs-mock--roles">
                     <div class="hiw-gs-mock__role-row">
-                      <div class="hiw-gs-mock__role-avatar" style="background:#2D5A27">&check;</div>
+                      <div class="hiw-gs-mock__role-avatar" style="background:#3F6839">&check;</div>
                       <div class="hiw-gs-mock__role-info">
                         <div class="hiw-gs-mock__role-name">Confirmed</div>
                         <div class="hiw-gs-mock__role-desc">10:30 AM &middot; Room 4</div>
@@ -384,7 +375,6 @@ bodyClass: page--light-nav
         <ul class="footer__links">
           <li><a href="/#industries">Spa &amp; Wellness</a></li>
           <li><a href="/#industries">Hair Salon</a></li>
-          <li><a href="/#industries">Dental Clinic</a></li>
           <li><a href="/#industries">More verticals</a></li>
         </ul>
       </div>
