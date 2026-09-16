@@ -1,0 +1,11 @@
+---
+pagination:
+  data: solutions
+  size: 1
+  alias: solution
+permalink: "/solutions/{{ solution.slug }}/"
+layout: solution-detail.njk
+eleventyComputed:
+  title: "{{ solution.name }} — Zenly"
+  bodyClass: "page--light-nav"
+---

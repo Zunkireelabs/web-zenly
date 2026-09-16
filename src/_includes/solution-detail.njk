@@ -1,0 +1,433 @@
+---
+layout: base.njk
+---
+
+{% macro stripIcon(name) %}
+  {% if name == 'massage' %}
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.5-2.4-8-6-8-10.5A4.5 4.5 0 0 1 8.5 6c1.4 0 2.7.7 3.5 1.8A4.5 4.5 0 0 1 15.5 6 4.5 4.5 0 0 1 20 10.5c0 4.5-3.5 8.1-8 10.5Z"/></svg>
+  {% elif name == 'facial' %}
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9 10.5h.01M15 10.5h.01"/><path d="M9 15c1 1 5 1 6 0"/></svg>
+  {% elif name == 'aromatherapy' %}
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.5 2 2.5 3.8 2.5 5.5A2.5 2.5 0 0 1 12 11a2.5 2.5 0 0 1-2.5-2.5C9.5 6.8 10.5 5 12 3Z"/><path d="M6 21h12M7 21c0-3.5 1-6 2-8M17 21c0-3.5-1-6-2-8"/></svg>
+  {% elif name == 'reiki' %}
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.5 6.5l2 2M15.5 15.5l2 2M17.5 6.5l-2 2M8.5 15.5l-2 2"/><circle cx="12" cy="12" r="3"/></svg>
+  {% elif name == 'needle' %}
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5 5 19"/><path d="M15 3l6 6"/><path d="M4 20l1.5-4.5L9 17z"/></svg>
+  {% elif name == 'shading' %}
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17"/></svg>
+  {% elif name == 'design' %}
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-6 4-14 8-16 1 3-1 6-3 8 3-1 6-1 8 1-4 2-9 3-13 7Z"/></svg>
+  {% elif name == 'consult' %}
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H8l-4 4Z"/><path d="M8 9h8M8 12h5"/></svg>
+  {% elif name == 'touchup' %}
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-1.5-4-3-6.5-3-9a3 3 0 0 1 6 0c0 2.5-1.5 5-3 9Z"/><path d="M9 3.5c1 1 1.5 2 1.5 3M15 3.5c-1 1-1.5 2-1.5 3"/></svg>
+  {% else %}
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0-1-3 .5-6M13 12c1.5-3 2.5-3 4 0s2.5 3 4 0"/></svg>
+  {% endif %}
+{% endmacro %}
+
+{% macro heroStrip(treatments) %}
+  {% for item in treatments.items %}
+    {% if item.active %}
+    <div class="soln-photohero__strip-label">{{ item.label }}</div>
+    {% endif %}
+  {% endfor %}
+  <div class="soln-photohero__strip reveal-scale" data-delay="1">
+    {% for item in treatments.items %}
+    <div class="soln-photohero__strip-item {{ 'soln-photohero__strip-item--active' if item.active }}">
+      {{ stripIcon(item.icon) }}
+    </div>
+    {% endfor %}
+  </div>
+  {% if treatments.badge %}
+  <div class="soln-photohero__strip-badge reveal-scale" data-delay="2">
+    <span class="soln-photohero__badge-dot" aria-hidden="true"></span>
+    {{ treatments.badge }}
+  </div>
+  {% endif %}
+{% endmacro %}
+
+{% macro solnVisual(visual, data) %}
+  {% if visual == 'calendar' %}
+    <div class="soln-visual__card">
+      <div class="soln-visual__card-head">
+        <span class="soln-visual__step">Pending</span>
+        <span class="soln-visual__step-arrow" aria-hidden="true">&rarr;</span>
+        <span class="soln-visual__step">Confirmed</span>
+        <span class="soln-visual__step-arrow" aria-hidden="true">&rarr;</span>
+        <span class="soln-visual__step">In-Progress</span>
+        <span class="soln-visual__step-arrow" aria-hidden="true">&rarr;</span>
+        <span class="soln-visual__step soln-visual__step--done">Completed</span>
+      </div>
+      <div class="soln-visual__bars">
+        <div class="soln-visual__bar soln-visual__bar--1"></div>
+        <div class="soln-visual__bar soln-visual__bar--2"></div>
+        <div class="soln-visual__bar soln-visual__bar--3"></div>
+      </div>
+    </div>
+    <div class="soln-visual__badge">
+      <span class="soln-visual__badge-dot" aria-hidden="true"></span>
+      Live status &middot; <strong>Confirmed</strong>
+    </div>
+  {% elif visual == 'approval' %}
+    <div class="soln-visual__card soln-visual__card--approval">
+      <p class="soln-visual__approval-label">Discount request</p>
+      <p class="soln-visual__approval-value">15% &middot; NPR 900</p>
+      <div class="soln-visual__approval-actions">
+        <span class="soln-btn soln-btn--sm soln-btn--ghost">Decline</span>
+        <span class="soln-btn soln-btn--sm soln-btn--primary">Approve</span>
+      </div>
+    </div>
+    <div class="soln-visual__badge">
+      <span class="soln-visual__badge-dot" aria-hidden="true"></span>
+      Awaiting owner &middot; <strong>1 request</strong>
+    </div>
+  {% elif visual == 'transfer' %}
+    <div class="soln-visual__card soln-visual__card--transfer">
+      {% if data and data.client %}
+      <p class="soln-visual__transfer-client">{{ data.client }}</p>
+      {% endif %}
+      <div class="soln-visual__transfer-branch">{{ data.from if data else 'Branch A' }}</div>
+      <div class="soln-visual__transfer-arrow">&rarr;</div>
+      <div class="soln-visual__transfer-branch soln-visual__transfer-branch--to">{{ data.to if data else 'Branch B' }}</div>
+      <p class="soln-visual__transfer-date">{{ data.date if data else 'Effective 12 Oct' }}</p>
+    </div>
+    <div class="soln-visual__badge">
+      <span class="soln-visual__badge-dot" aria-hidden="true"></span>
+      {{ data.badgeLabel if data else 'Transfer' }} &middot; <strong>{{ data.badgeValue if data else 'Scheduled' }}</strong>
+    </div>
+  {% else %}
+    <div class="soln-visual__card soln-visual__card--mobile">
+      <div class="soln-visual__mobile-stat"><strong>12</strong><span>Pending</span></div>
+      <div class="soln-visual__mobile-stat"><strong>28</strong><span>Confirmed</span></div>
+      <div class="soln-visual__mobile-stat"><strong>6</strong><span>In-Progress</span></div>
+    </div>
+    <div class="soln-visual__badge">
+      <span class="soln-visual__badge-dot" aria-hidden="true"></span>
+      Synced &middot; <strong>Just now</strong>
+    </div>
+  {% endif %}
+{% endmacro %}
+
+<main class="soln">
+
+  <!-- ── HERO (Acuity-style: full-bleed photo + floating calendar card) ─── -->
+  {% if solution.slug == 'tattoo' %}
+  <section class="soln-photohero soln-photohero--boxed">
+    <div class="soln-photohero__inner soln-photohero__inner--split">
+      <div class="soln-photohero__text reveal">
+        <h1 class="soln-photohero__h1">{{ solution.hero.headline }}</h1>
+        <p class="soln-photohero__sub">{{ solution.hero.sub }}</p>
+        <div class="soln-photohero__actions">
+          <a href="{{ solution.hero.ctaHref }}" class="soln-photohero__btn">{{ solution.hero.ctaText }}</a>
+        </div>
+      </div>
+
+      <div class="soln-photohero__photocard-wrap">
+        <div class="soln-photohero__photocard reveal-scale" data-delay="1">
+          <img src="{{ solution.hero.image }}" alt="{{ solution.hero.imageAlt }}" class="soln-photohero__photocard-img" loading="eager">
+        </div>
+
+        {% if solution.heroTreatments %}
+        <div class="soln-photohero__strip-wrap soln-photohero__strip-wrap--top">
+          {{ heroStrip(solution.heroTreatments) }}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  {% else %}
+  <section class="soln-photohero">
+    <img src="{{ solution.hero.image }}" alt="{{ solution.hero.imageAlt }}" class="soln-photohero__bg" loading="eager">
+    <div class="soln-photohero__scrim" aria-hidden="true"></div>
+
+    <div class="soln-photohero__inner">
+      <div class="soln-photohero__text reveal">
+        <h1 class="soln-photohero__h1">{{ solution.hero.headline }}</h1>
+        <p class="soln-photohero__sub">{{ solution.hero.sub }}</p>
+        <div class="soln-photohero__actions">
+          <a href="{{ solution.hero.ctaHref }}" class="soln-photohero__btn">{{ solution.hero.ctaText }}</a>
+        </div>
+      </div>
+    </div>
+
+    {% if solution.slug == 'salon' %}
+    <div class="soln-photohero__phone-wrap">
+      <div class="soln-photohero__phone-frame reveal-scale" data-delay="1">
+      <div class="soln-photohero__phone">
+        <div class="soln-photohero__statusbar">
+          <span class="soln-photohero__statusbar-time">9:41</span>
+          <span class="soln-photohero__statusbar-icons">
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="currentColor" aria-hidden="true"><rect x="0" y="6" width="2.5" height="4" rx="0.5"/><rect x="4.5" y="4" width="2.5" height="6" rx="0.5"/><rect x="9" y="2" width="2.5" height="8" rx="0.5"/><rect x="13.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M1 3.5a9 9 0 0 1 12 0"/><path d="M3.3 6a5.5 5.5 0 0 1 7.4 0"/><circle cx="7" cy="8.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="none" aria-hidden="true"><rect x="0.75" y="0.75" width="18.5" height="9.5" rx="2.25" stroke="currentColor" stroke-width="1.2"/><rect x="2.25" y="2.25" width="15.5" height="6.5" rx="1" fill="currentColor"/><path d="M20.5 3.5v4a1.5 1.5 0 0 0 0-4Z" fill="currentColor"/></svg>
+          </span>
+        </div>
+        <div class="soln-photohero__card-top">
+          <span class="soln-photohero__card-month">{{ solution.heroCalendar.month }} <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          <span class="soln-photohero__card-dots" aria-hidden="true">&hellip;</span>
+        </div>
+        <div class="soln-photohero__card-week">
+          <span>S</span><span>M</span><span>T</span><span>W</span><span>R</span><span>F</span><span>S</span>
+        </div>
+        <div class="soln-photohero__card-dates">
+          <span>13</span><span class="soln-photohero__card-today">{{ solution.heroCalendar.today }}</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+        </div>
+        <p class="soln-photohero__card-meta">{{ solution.heroCalendar.meta }}</p>
+        <div class="soln-photohero__card-appts">
+          {% for appt in solution.heroCalendar.appts %}
+          <div class="soln-photohero__appt soln-photohero__appt--{{ appt.color }}">
+            <strong>{{ appt.name }}</strong>
+            <span>{{ appt.service }}</span>
+            <span>{{ appt.time }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if solution.heroTreatments %}
+    <div class="soln-photohero__strip-wrap">
+      {{ heroStrip(solution.heroTreatments) }}
+    </div>
+    {% endif %}
+  </section>
+  {% endif %}
+
+
+  <!-- ── FEATURE SHOWCASE ─────────────────────────────────────────────── -->
+  <section class="soln-showcase">
+    <div class="soln-showcase__inner">
+      {% for item in solution.showcase %}
+      <div class="soln-row {{ 'soln-row--flip' if loop.index % 2 == 0 }} reveal">
+        <div class="soln-row__text">
+          <p class="soln-row__eyebrow">{{ item.eyebrow }}</p>
+          <h2 class="soln-row__h2">{{ item.heading }}</h2>
+          <p class="soln-row__desc">{{ item.description }}</p>
+        </div>
+        <div class="soln-row__visual">
+          {% if item.image %}
+          <div class="soln-visual soln-visual--{{ item.visual }} soln-visual--photo">
+            <img src="{{ item.image }}" alt="{{ item.imageAlt }}" class="soln-visual__photo" loading="lazy" style="object-position: center {{ item.imageFocus or '0%' }};">
+          </div>
+          {% else %}
+          <div class="soln-visual soln-visual--{{ item.visual }}">
+            {{ solnVisual(item.visual, item.visualData) }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+
+  <!-- ── STATS ────────────────────────────────────────────────────────── -->
+  <section class="soln-stats">
+    <div class="soln-stats__inner reveal">
+      <h2 class="soln-stats__h2">{{ solution.stats.heading }}</h2>
+      <p class="soln-stats__sub">{{ solution.stats.sub }}</p>
+
+      <div class="soln-bento">
+        <!-- Primary -->
+        <div class="soln-bento-card soln-bento-card--primary">
+          <div class="soln-bento-card__texture"></div>
+          <div>
+            <span class="soln-bento-card__tag">{{ solution.stats.items[0].tag }}</span>
+            <p class="soln-bento-card__value">{{ solution.stats.items[0].value }}</p>
+          </div>
+          <p class="soln-bento-card__desc">{{ solution.stats.items[0].label }}</p>
+        </div>
+
+        <!-- Secondary -->
+        <div class="soln-bento-card soln-bento-card--secondary">
+          <div>
+            <p class="soln-bento-card__eyebrow">{{ solution.stats.items[1].tag }}</p>
+            <p class="soln-bento-card__value soln-bento-card__value--sm">{{ solution.stats.items[1].value }}</p>
+          </div>
+          <div class="soln-bento-bars" aria-hidden="true">
+            <span style="height:35%"></span>
+            <span style="height:55%"></span>
+            <span style="height:40%"></span>
+            <span style="height:70%"></span>
+            <span style="height:60%"></span>
+            <span style="height:90%"></span>
+            <span style="height:100%"></span>
+          </div>
+        </div>
+
+        <!-- Tertiary A -->
+        <div class="soln-bento-card soln-bento-card--tertiary-a">
+          <p class="soln-bento-card__value soln-bento-card__value--sm">{{ solution.stats.items[2].value }}</p>
+          <p class="soln-bento-card__eyebrow">{{ solution.stats.items[2].tag }}</p>
+        </div>
+
+        <!-- Tertiary B -->
+        <div class="soln-bento-card soln-bento-card--tertiary-b">
+          <span class="soln-bento-card__icon">{{ solution.stats.items[3].value }}</span>
+          <div>
+            <p class="soln-bento-card__value soln-bento-card__value--xs">{{ solution.stats.items[3].tag }}</p>
+            <p class="soln-bento-card__label soln-bento-card__label--left">{{ solution.stats.items[3].label }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── HOW IT WORKS · STICKY SCROLL WALKTHROUGH ────────────────────────── -->
+  <section class="soln-sscroll">
+    <div class="soln-sscroll__inner reveal">
+
+      <!-- Left col: heading + steps stack naturally; JS activates step closest to visual centre -->
+      <div class="soln-sscroll__text-col">
+        <div class="soln-sscroll__header">
+          <p class="soln-sscroll__eyebrow">
+            <span class="soln-sscroll__eyebrow-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+            </span>
+            {{ solution.howItWorks.eyebrow }}
+          </p>
+          <h2 class="soln-sscroll__h2">{{ solution.howItWorks.heading }}</h2>
+          <p class="soln-sscroll__sub">{{ solution.howItWorks.sub }}</p>
+        </div>
+        {% for step in solution.howItWorks.steps %}
+        <div class="soln-sscroll__item{% if loop.first %} is-active{% endif %}">
+          <span class="soln-sscroll__item-num">{{ step.num }}</span>
+          <h3 class="soln-sscroll__item-title">{{ step.title }}</h3>
+          <p class="soln-sscroll__item-desc">{{ step.desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Right col: sticky — mockup swaps to match the active step -->
+      <div class="soln-sscroll__visual-col">
+        <div class="soln-visual soln-sscroll__visual-stack">
+          {% for step in solution.howItWorks.steps %}
+          <div class="soln-sscroll__visual-frame{% if loop.first %} is-active{% endif %}">
+            {{ solnVisual(step.visual) }}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── SOCIAL PROOF ─────────────────────────────────────────────────── -->
+  <section class="soln-proof">
+    <div class="soln-proof__inner reveal">
+      <p class="soln-proof__eyebrow">Live on Zenly</p>
+      <h2 class="soln-proof__h2">The same system, already running a real, multi-branch business.</h2>
+
+      <a href="{{ solution.testimonial.href }}" class="soln-proof__card">
+        <p class="soln-proof__quote">&ldquo;{{ solution.testimonial.quote }}&rdquo;</p>
+        <div class="soln-proof__author">
+          <strong>{{ solution.testimonial.author }}, {{ solution.testimonial.business }}</strong>
+          <span>{{ solution.testimonial.meta }}</span>
+        </div>
+        <span class="soln-proof__link">Read the case study &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ── FAQ ──────────────────────────────────────────────────────────── -->
+  <section class="soln-faq">
+    <div class="soln-faq__inner">
+      <h2 class="soln-faq__h2 reveal">Common questions</h2>
+
+      <div class="soln-faq__list" x-data="{ open: null }">
+        {% for item in solution.faq %}
+        <div class="soln-faq__item reveal" :class="{ 'soln-faq__item--open': open === {{ loop.index0 }} }">
+          <button class="soln-faq__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
+            {{ item.q }}
+            <span class="soln-faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="soln-faq__a" x-show="open === {{ loop.index0 }}" x-cloak x-transition>
+            <p>{{ item.a }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── FINAL CTA (matches homepage .bottom-cta treatment) ─────────────── -->
+  <section class="soln-cta">
+    <div class="soln-cta__inner reveal">
+      <h2 class="soln-cta__h2">{{ solution.finalCta.heading }}</h2>
+      <p class="soln-cta__sub">{{ solution.finalCta.sub }}</p>
+      <a href="/demo" class="soln-cta__btn">{{ solution.finalCta.ctaText }} &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <div class="footer__col footer__col--brand">
+        <a href="/" class="footer__logo">Zenly</a>
+        <p class="footer__tagline">Online booking, operational control, and financial clarity &mdash; for any appointment-based business.</p>
+        <div class="footer__status">
+          <span class="live-dot"></span>
+          <span>All systems operational</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Product</div>
+        <ul class="footer__links">
+          <li><a href="/features/booking">Online Booking</a></li>
+          <li><a href="/features/operational-visibility">Operations</a></li>
+          <li><a href="/features/payment-tracking">Finance</a></li>
+          <li><a href="/features/reports">Reports</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Use Cases</div>
+        <ul class="footer__links">
+          <li><a href="/solutions/spa">Spas & Wellness</a></li>
+          <li><a href="/solutions/salon">Hair & Nail Salons</a></li>
+          <li><a href="/solutions/tattoo">Tattoo Studios</a></li>
+          <li><a href="/solutions/fitness">Fitness & PT</a></li>
+          <li><a href="/solutions/physiotherapy">Physiotherapy</a></li>
+          <li><a href="/solutions/cleaning">Cleaning Service</a></li>
+          <li><a href="/solutions">More verticals</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="#demo">Book a Demo</a></li>
+          <li><a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener">See It Live</a></li>
+          <li><a href="mailto:info.zunkireelabs@gmail.com">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__col-title">Legal</div>
+        <ul class="footer__links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__inner">
+        <span class="footer__copy">&copy; 2026 Zunkireelabs. All rights reserved.</span>
+        <span class="footer__built">Built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></span>
+      </div>
+    </div>
+  </footer>
+
+</main>

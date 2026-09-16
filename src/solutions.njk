@@ -161,6 +161,15 @@ bodyClass: page--sol-nav
             </div>
           </div>
         </div>
+
+        <div class="sol-split__explore">
+          <a href="/solutions/salon/" class="sol-split__link" aria-label="Explore Hair Salon solutions">
+            Explore
+            <span class="sol-split__link-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
       </div>
 
       <div class="sol-split reveal" id="spas" style="margin-top:var(--space-2xl);">
@@ -206,6 +215,15 @@ bodyClass: page--sol-nav
             </div>
           </div>
         </div>
+
+        <div class="sol-split__explore">
+          <a href="/solutions/spa/" class="sol-split__link" aria-label="Explore Spa &amp; Wellness solutions">
+            Explore
+            <span class="sol-split__link-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
       </div>
 
       <div class="sol-split reveal" id="clinics" style="margin-top:var(--space-2xl);">
@@ -250,6 +268,177 @@ bodyClass: page--sol-nav
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="sol-split__explore">
+          <a href="/solutions/salon/" class="sol-split__link" aria-label="Explore Hair Salon solutions">
+            Explore
+            <span class="sol-split__link-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="sol-split reveal" id="fitness" style="margin-top:var(--space-2xl);">
+        <div class="sol-split__img-col">
+          <div class="fd-sscroll__img-wrap">
+            <img src="https://plus.unsplash.com/premium_photo-1661286647722-973637d09600?w=800&q=80&auto=format&fit=crop" alt="Personal trainer coaching a client" class="fd-sscroll__img" loading="lazy">
+          </div>
+        </div>
+
+        <div class="sol-split__text-col">
+          <h3 class="fd-sscroll__title">Fitness &amp; PT</h3>
+          <p class="sol-split__intro">Classes fill up, trainers double-book, and packages get tracked on paper &ndash; Zenly is built around how fitness bookings actually run.</p>
+
+          <div class="faq-list" x-data="{ open: null }">
+            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
+              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
+                Session scheduling that matches capacity
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
+                <p>Every session is created by staff and assigned to a specific trainer, moving through a clear lifecycle &ndash; Pending &rarr; Confirmed &rarr; In-Progress &rarr; Completed. No trainer gets stacked with three clients at once by accident.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
+              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
+                Discount control on packages &amp; memberships
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
+                <p>Staff can request a discount on a package or membership, but it only applies once a manager approves it &ndash; every request carries a value and amount, so nothing&rsquo;s waived from memory at the front desk.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
+              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
+                Trainers who move between branches
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
+                <p>Trainer transfers are scheduled events, not informal arrangements &ndash; every move records the trainer, the destination branch, and the effective date, so client rosters never get lost in the handoff.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sol-split__explore">
+          <a href="/solutions/fitness/" class="sol-split__link" aria-label="Explore Fitness &amp; PT solutions">
+            Explore
+            <span class="sol-split__link-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="sol-split reveal" id="physiotherapy" style="margin-top:var(--space-2xl);">
+        <div class="sol-split__img-col">
+          <div class="fd-sscroll__img-wrap">
+            <img src="https://plus.unsplash.com/premium_photo-1661913622608-946e8d907c7b?w=800&q=80&auto=format&fit=crop" alt="Physiotherapist working with a patient" class="fd-sscroll__img" loading="lazy">
+          </div>
+        </div>
+
+        <div class="sol-split__text-col">
+          <h3 class="fd-sscroll__title">Physiotherapy</h3>
+          <p class="sol-split__intro">A course of treatment only works if every session happens on schedule, with the right therapist &ndash; Zenly keeps that continuity visible from booking to discharge.</p>
+
+          <div class="faq-list" x-data="{ open: null }">
+            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
+              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
+                Treatment-plan continuity
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
+                <p>Every booking carries a service ID and therapist from the moment it&rsquo;s created, and status moves through Pending &rarr; Confirmed &rarr; In-Progress &rarr; Completed &ndash; so a patient&rsquo;s course of care stays with the same therapist, visibly, session to session.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
+              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
+                Payment precision across a long course of care
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
+                <p>Every payment records the amount and settlement status at the point of service, so a ten-session course reconciles from one source of truth &ndash; not a running tally in someone&rsquo;s notebook.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
+              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
+                Specialist therapist availability
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
+                <p>Staff transfers are assigned to a specific therapist with a destination branch and date, so managers see incoming and outgoing specialist availability in advance &ndash; not on the day a patient shows up.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sol-split__explore">
+          <a href="/solutions/physiotherapy/" class="sol-split__link" aria-label="Explore Physiotherapy solutions">
+            Explore
+            <span class="sol-split__link-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="sol-split reveal" id="cleaning" style="margin-top:var(--space-2xl);">
+        <div class="sol-split__img-col">
+          <div class="fd-sscroll__img-wrap">
+            <img src="https://plus.unsplash.com/premium_photo-1663011218145-c1d0c3ba3542?w=800&q=80&auto=format&fit=crop" alt="Cleaning service staff at a client site" class="fd-sscroll__img" loading="lazy">
+          </div>
+        </div>
+
+        <div class="sol-split__text-col">
+          <h3 class="fd-sscroll__title">Cleaning Service</h3>
+          <p class="sol-split__intro">A cleaning business runs on staff getting to the right site, at the right time, with the job correctly billed &ndash; Zenly keeps that whole chain visible.</p>
+
+          <div class="faq-list" x-data="{ open: null }">
+            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
+              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
+                Job scheduling that mirrors reality
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
+                <p>Every job is created by staff and assigned to a specific cleaner or crew, moving through a clear lifecycle &ndash; Pending &rarr; Confirmed &rarr; In-Progress &rarr; Completed &ndash; so dispatch always knows who&rsquo;s where.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
+              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
+                Discount control on recurring contracts
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
+                <p>Staff can request a discount on a recurring contract, but it only applies once a manager approves it &ndash; every request carries a value and amount, protecting margin on long-running accounts.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
+              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
+                Crews who move between branches
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
+                <p>Staff transfers are scheduled events, not informal arrangements &ndash; every move records the cleaner, the destination branch, and the effective date, so coverage never has a gap.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sol-split__explore">
+          <a href="/solutions/cleaning/" class="sol-split__link" aria-label="Explore Cleaning Service solutions">
+            Explore
+            <span class="sol-split__link-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </a>
         </div>
       </div>
 

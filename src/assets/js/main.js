@@ -1,6 +1,36 @@
 (function () {
   'use strict';
 
+  // ── Lenis smooth scroll (synced with GSAP ScrollTrigger) ──
+  if (typeof Lenis !== 'undefined' && typeof gsap !== 'undefined' &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    try {
+      var lenis = new Lenis({
+        duration: 1.1,
+        smoothWheel: true,
+      });
+
+      lenis.on('scroll', function () {
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update();
+      });
+
+      gsap.ticker.add(function (time) {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+    } catch (e) {
+      // Smooth scroll is an enhancement — fail silently to native scroll.
+    }
+  }
+
+  // NOTE: a scroll-linked parallax transform on .curved-content (and,
+  // before that, a pinned-hero version) was tried and reverted — any
+  // animated `transform` on an ancestor of #scrollStoryPinWrapper makes
+  // that ancestor the containing block for the blueprint pin's
+  // `position: fixed`, breaking the pin and causing it to stick/elongate
+  // instead of pinning to the viewport. .curved-content stays a static
+  // (non-transformed) wrapper — see main.css for its curtain styling.
+
   // ── Card 2 — Bell auto-play + manual click ────────────────
   const c2Bell   = document.getElementById('c2Bell');
   const c2Panel  = document.getElementById('c2Panel');
@@ -148,6 +178,42 @@
     });
   }
 
+  // ── Nav: mega menu click-to-toggle ─────────────────────────
+  // The mega panels open on CSS :hover/:focus-within, but the trigger is
+  // also a real link (e.g. href="/features") — clicking it would just
+  // navigate away before the panel could be seen, and on touch devices
+  // there is no hover at all. This adds an explicit "is-open" state so
+  // the panel can be opened/closed by click/tap independently of hover.
+  const megaItems = document.querySelectorAll('.nav__item--has-mega');
+  if (megaItems.length) {
+    const closeAllMegas = (except) => {
+      megaItems.forEach(item => {
+        if (item !== except) item.classList.remove('is-open');
+      });
+    };
+
+    megaItems.forEach(item => {
+      const trigger = item.querySelector('.nav__mega-trigger');
+      if (!trigger) return;
+
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const willOpen = !item.classList.contains('is-open');
+        closeAllMegas(item);
+        item.classList.toggle('is-open', willOpen);
+        trigger.setAttribute('aria-expanded', String(willOpen));
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav__item--has-mega')) closeAllMegas();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAllMegas();
+    });
+  }
+
   // ── Hero headline: rotating word, fade swap (no typing effect) ──
   const heroRotate = document.getElementById('heroRotate');
   if (heroRotate) {
@@ -208,6 +274,72 @@
       duration: 0.5,
       ease: 'power2.out',
     });
+  }
+
+  // ── Transformation flow diagram: scroll-triggered draw-in ──────────────
+  const flowDiagram = document.getElementById('flowDiagram');
+  if (flowDiagram && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const flowLines = [
+      'flowBorderCard1', 'flowBorderCard2',
+      'flowPathA', 'flowPathB',
+      'flowBorderPill1', 'flowPathC',
+      'flowBorderCircle', 'flowPathD',
+      'flowBorderPill2', 'flowPathE',
+      'flowBorderBottom',
+    ]
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+
+    flowLines.forEach(function (path) {
+      const length = path.getTotalLength();
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = length;
+    });
+
+    const flowTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: flowDiagram,
+        start: 'top 75%',
+        once: true,
+      },
+    });
+
+    // Each node: its shape fades in, its outline traces in as a drawn
+    // line, then its inner content (icon/label/dots) fades in — before
+    // the connector line continues on to the next node. One continuous
+    // "drawing" motion from the two source cards down to the result.
+    flowTl
+      .to(['#flowCard1', '#flowCard2'], { opacity: 1, duration: 0.3, stagger: 0.12 })
+      .to(['#flowBorderCard1', '#flowBorderCard2'], { strokeDashoffset: 0, duration: 0.9, stagger: 0.12, ease: 'sine.inOut' }, '<')
+      .to(['#flowCard1 .flow-card__icon', '#flowCard1 .flow-card__label'], { opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.5')
+      .to(['#flowCard2 .flow-card__icon', '#flowCard2 .flow-card__label'], { opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.4')
+
+      .to(['#flowPathA', '#flowPathB'], { strokeDashoffset: 0, duration: 1, ease: 'sine.inOut' }, '-=0.1')
+
+      .to('#flowPill1', { opacity: 1, duration: 0.25 })
+      .to('#flowBorderPill1', { strokeDashoffset: 0, duration: 0.6, ease: 'sine.inOut' }, '<')
+      .to(['#flowPill1 .flow-pill__dot', '#flowPill1 .flow-pill__label'], { opacity: 1, duration: 0.35, ease: 'power2.out' }, '-=0.3')
+
+      .to('#flowPathC', { strokeDashoffset: 0, duration: 0.6, ease: 'sine.inOut' })
+
+      .to('#flowCircle', { opacity: 1, duration: 0.3 })
+      .to('#flowBorderCircle', { strokeDashoffset: 0, duration: 0.75, ease: 'sine.inOut' }, '<')
+      .to('.flow-circle__ring span', { opacity: 1, duration: 0.6, stagger: 0.035 }, '-=0.45')
+      .to('.flow-circle__label', { opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.3')
+
+      .to('#flowPathD', { strokeDashoffset: 0, duration: 0.6, ease: 'sine.inOut' })
+
+      .to('#flowPill2', { opacity: 1, duration: 0.25 })
+      .to('#flowBorderPill2', { strokeDashoffset: 0, duration: 0.6, ease: 'sine.inOut' }, '<')
+      .to(['#flowPill2 .flow-pill__dots', '#flowPill2 .flow-pill__label'], { opacity: 1, duration: 0.35, ease: 'power2.out' }, '-=0.3')
+
+      .to('#flowPathE', { strokeDashoffset: 0, duration: 0.65, ease: 'sine.inOut' })
+
+      .to('#flowBottomCard', { opacity: 1, duration: 0.3 })
+      .to('#flowBorderBottom', { strokeDashoffset: 0, duration: 0.9, ease: 'sine.inOut' }, '<')
+      .to(['.flow-bottom-card__icon', '.flow-bottom-card__label'], { opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.5');
   }
 
   // ── Unified Storytelling Scroll Sequence (Pain -> Blueprint -> Dashboard) ──
@@ -621,34 +753,327 @@
     }, 2200);
   }
 
-  // ── Stats carousel prev/next ──────────────────────────────
+  // ── Testimonial carousel (Calendly-style peeking cards) ───────────────
+  // Cards are identified by a "virtual index" (page + offset), not by their
+  // item index — exactly like the reference's `key={page+offset}`. That's
+  // what keeps a single DOM element sliding continuously through offsets
+  // -4→-3→-2… as `page` advances, instead of recomputing "shortest distance
+  // to active" each render, which made the far card jump/overlap across the
+  // carousel (-2 straight to +2) whenever you advanced past the ring's seam.
   (function () {
-    const wrap = document.getElementById('statsWrap');
-    const prev = document.getElementById('statsPrev');
-    const next = document.getElementById('statsNext');
-    if (!wrap || !prev || !next) return;
+    const root = document.getElementById('tcar');
+    const stage = document.getElementById('tcarStage');
+    if (!root || !stage) return;
 
-    function getStep() {
-      const card = wrap.querySelector('.stats-card');
-      if (!card) return 280;
-      const gap = 24; // --space-md
-      return card.offsetWidth + gap;
+    const templates = Array.from(stage.querySelectorAll('.tcar__card')).map(function (card) {
+      const inner = card.querySelector('.tcar__inner');
+      return inner ? inner.innerHTML : card.innerHTML;
+    });
+    const tabs = Array.from(root.querySelectorAll('.tcar__tab'));
+    const total = templates.length;
+    if (!total) return;
+    stage.innerHTML = '';
+
+    const VISIBLE_OFFSETS = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
+    const AUTOPLAY_MS = 6000;
+    let page = 0; // unbounded — never wrapped, so slot offsets change continuously
+    let viewportWidth = window.innerWidth;
+    let tier = 'desktop';
+    let rafId = null;
+    let lastTime = null;
+    let elapsed = 0;
+    let reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const slots = new Map(); // virtualIndex -> <div class="tcar__card">
+
+    function activeIndex() {
+      return ((page % total) + total) % total;
     }
 
-    function updateButtons() {
-      prev.disabled = wrap.scrollLeft <= 0;
-      next.disabled = wrap.scrollLeft >= wrap.scrollWidth - wrap.clientWidth - 1;
+    function computeTier() {
+      viewportWidth = window.innerWidth;
+      if (viewportWidth < 768) tier = 'mobile';
+      else if (viewportWidth < 1120) tier = 'tablet';
+      else tier = 'desktop';
     }
 
-    prev.addEventListener('click', function () {
-      wrap.scrollBy({ left: -getStep(), behavior: 'smooth' });
-    });
-    next.addEventListener('click', function () {
-      wrap.scrollBy({ left: getStep(), behavior: 'smooth' });
+    function activeDims() {
+      if (tier === 'mobile') return { width: Math.min(340, viewportWidth - 56), height: 490 };
+      if (tier === 'tablet') return { width: 560, height: 440 };
+      return { width: 762, height: 513 };
+    }
+
+    // Returns the target { x, y, width, height, opacity, z, active } for a card at this
+    // offset — x/y are the top-left translate from the stage center (i.e. already
+    // account for -width/2, -height/2), matching the reference component's own layout math.
+    function getVariant(offset) {
+      const dims = activeDims();
+
+      if (tier === 'mobile') {
+        const gap = 16, peekW = 60, peekH = 410;
+        if (offset === 0) return { x: -dims.width / 2, y: -dims.height / 2, width: dims.width, height: dims.height, opacity: 1, z: 0, active: true };
+        if (offset === -1) return { x: -dims.width / 2 - gap - peekW, y: -peekH / 2, width: peekW, height: peekH, opacity: 1, z: 100, active: false };
+        if (offset === 1) return { x: dims.width / 2 + gap, y: -peekH / 2, width: peekW, height: peekH, opacity: 1, z: 100, active: false };
+        return { x: offset < 0 ? -dims.width / 2 - 220 : dims.width / 2 + 220, y: -peekH / 2, width: peekW, height: peekH, opacity: 0, z: 0, active: false };
+      }
+
+      if (tier === 'tablet') {
+        const gap = 18, sideW = 100, sideH = 340;
+        if (offset === 0) return { x: -dims.width / 2, y: -dims.height / 2, width: dims.width, height: dims.height, opacity: 1, z: 0, active: true };
+        if (offset === -1) return { x: -dims.width / 2 - gap - sideW, y: -sideH / 2, width: sideW, height: sideH, opacity: 1, z: 100, active: false };
+        if (offset === 1) return { x: dims.width / 2 + gap, y: -sideH / 2, width: sideW, height: sideH, opacity: 1, z: 100, active: false };
+        return { x: offset < 0 ? -dims.width / 2 - 240 : dims.width / 2 + 240, y: -sideH / 2, width: 74, height: 205, opacity: 0, z: 0, active: false };
+      }
+
+      switch (offset) {
+        case 0: return { x: -381, y: -256.5, width: 762, height: 513, opacity: 1, z: 0, active: true };
+        case -1: return { x: -506, y: -172, width: 105, height: 344, opacity: 1, z: 100, active: false };
+        case 1: return { x: 401, y: -172, width: 105, height: 344, opacity: 1, z: 100, active: false };
+        case -2: return { x: -596, y: -102.5, width: 74, height: 205, opacity: 1, z: 100, active: false };
+        case 2: return { x: 522, y: -102.5, width: 74, height: 205, opacity: 1, z: 100, active: false };
+        default: return { x: offset < 0 ? -720 : 646, y: -102.5, width: 74, height: 205, opacity: 0, z: 0, active: false };
+      }
+    }
+
+    const NOTCH_BIG = '<svg viewBox="0 0 20 37.3338" preserveAspectRatio="none"><path d="M0 0C0 0 1.2422 13.5759 10 13.5759C18.7578 13.5759 20 0 20 0V37.3338C20 37.3338 18.7578 23.7578 10 23.7578C1.2422 23.7578 0 37.3338 0 37.3338V0Z"/></svg>';
+    const NOTCH_SM = '<svg viewBox="0 0 16 28" preserveAspectRatio="none"><path d="M0 0C0 0 0.993759 10.1818 8 10.1818C15.0062 10.1818 16 0 16 0V28C16 28 15.0062 17.8182 8 17.8182C0.993759 17.8182 0 28 0 28V0Z"/></svg>';
+
+    function syncNotch(card, offset) {
+      let notch = card.querySelector('.tcar__notch');
+      const needsBig = offset === -1 || offset === 1;
+      const needsSmall = tier === 'desktop' && (offset === -2 || offset === 2);
+
+      if (!needsBig && !needsSmall) {
+        if (notch) notch.remove();
+        return;
+      }
+
+      if (!notch) {
+        notch = document.createElement('span');
+        notch.className = 'tcar__notch';
+        notch.setAttribute('aria-hidden', 'true');
+        card.appendChild(notch);
+      }
+
+      const onLeftSide = offset < 0; // card sits left of active → notch faces right edge
+      notch.classList.toggle('tcar__notch--sm', needsSmall);
+      notch.style.left = onLeftSide ? 'calc(100% - 1px)' : '';
+      notch.style.right = onLeftSide ? '' : 'calc(100% - 1px)';
+      notch.innerHTML = needsSmall ? NOTCH_SM : NOTCH_BIG;
+    }
+
+    function applyVariant(card, offset, opts) {
+      const v = getVariant(offset);
+      const apply = function () {
+        card.style.transform = 'translate(' + v.x + 'px, ' + v.y + 'px)';
+        card.style.width = v.width + 'px';
+        card.style.height = v.height + 'px';
+        card.style.opacity = v.opacity;
+        card.style.zIndex = v.z;
+        card.style.pointerEvents = v.opacity === 0 ? 'none' : 'auto';
+        card.classList.toggle('tcar__card--active', v.active);
+        card.classList.toggle('tcar__card--clickable', !v.active && v.opacity > 0);
+      };
+      if (opts && opts.instant) {
+        card.style.transition = 'none';
+        apply();
+        void card.offsetWidth; // flush before re-enabling transitions
+        card.style.transition = '';
+      } else {
+        apply();
+      }
+      syncNotch(card, offset);
+      card.dataset.offset = offset;
+    }
+
+    // Reconciles the DOM slot pool against the current `page`: virtual indexes
+    // that persist across the change get their existing element (so the CSS
+    // transition animates it smoothly to its new offset); ones that fall out
+    // of range are removed, new ones spawned in directly at their target spot.
+    function render() {
+      const desired = VISIBLE_OFFSETS.map(function (o) { return page + o; });
+      const desiredSet = new Set(desired);
+
+      slots.forEach(function (card, vIdx) {
+        if (!desiredSet.has(vIdx)) {
+          card.remove();
+          slots.delete(vIdx);
+        }
+      });
+
+      desired.forEach(function (vIdx) {
+        const offset = vIdx - page;
+        const itemIndex = ((vIdx % total) + total) % total;
+        let card = slots.get(vIdx);
+
+        if (!card) {
+          card = document.createElement('div');
+          card.className = 'tcar__card';
+          const inner = document.createElement('div');
+          inner.className = 'tcar__inner';
+          inner.innerHTML = templates[itemIndex];
+          card.appendChild(inner);
+          stage.appendChild(card);
+          slots.set(vIdx, card);
+          applyVariant(card, offset, { instant: true });
+        } else {
+          applyVariant(card, offset);
+        }
+      });
+
+      const active = activeIndex();
+      tabs.forEach(function (tab, index) {
+        tab.setAttribute('aria-selected', index === active ? 'true' : 'false');
+      });
+    }
+
+    function resetAutoplay() {
+      elapsed = 0;
+      lastTime = null;
+      const activeTab = tabs[activeIndex()];
+      if (activeTab) {
+        const fill = activeTab.querySelector('.tcar__tab-fill');
+        if (fill) fill.style.transform = 'scaleX(0)';
+      }
+    }
+
+    function shift(diff) {
+      page += diff;
+      resetAutoplay();
+      render();
+    }
+
+    function goToIndex(targetIdx) {
+      let diff = targetIdx - activeIndex();
+      if (diff > total / 2) diff -= total;
+      else if (diff < -total / 2) diff += total;
+      shift(diff);
+    }
+
+    function tick(timestamp) {
+      if (reduceMotion) return;
+      if (lastTime === null) lastTime = timestamp;
+      const delta = timestamp - lastTime;
+      lastTime = timestamp;
+      elapsed += delta;
+
+      if (elapsed >= AUTOPLAY_MS) {
+        shift(1);
+      } else {
+        const fill = tabs[activeIndex()] && tabs[activeIndex()].querySelector('.tcar__tab-fill');
+        if (fill) fill.style.transform = 'scaleX(' + Math.min(elapsed / AUTOPLAY_MS, 1) + ')';
+      }
+      rafId = requestAnimationFrame(tick);
+    }
+
+    stage.addEventListener('click', function (e) {
+      const card = e.target.closest('.tcar__card');
+      if (!card) return;
+      const offset = Number(card.dataset.offset || 0);
+      if (offset !== 0) shift(offset);
     });
 
-    wrap.addEventListener('scroll', updateButtons, { passive: true });
-    updateButtons();
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener('click', function () { goToIndex(index); });
+    });
+
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') shift(-1);
+      else if (e.key === 'ArrowRight') shift(1);
+    });
+
+    window.addEventListener('resize', function () {
+      computeTier();
+      slots.forEach(function (card, vIdx) {
+        applyVariant(card, vIdx - page, { instant: true });
+      });
+    });
+
+    computeTier();
+    render();
+
+    if (!reduceMotion) rafId = requestAnimationFrame(tick);
+  }());
+
+  // ── Industries: row slides left as the section scrolls into view ──
+  // .ind-track is translated leftward in sync with page scroll (desktop),
+  // and the arrows advance that same scroll-linked position — they move
+  // the page's scroll position to a target progress along the section,
+  // rather than scrolling the row itself, so the two never fight over
+  // control of the row's position. Falls back to plain native touch
+  // scroll (driven by the arrows via scrollBy) on narrow viewports or
+  // reduced-motion.
+  (function () {
+    const section = document.getElementById('industries');
+    const wrap    = document.getElementById('indWrap');
+    const track   = wrap ? wrap.querySelector('.ind-track') : null;
+    const prev    = document.getElementById('indPrev');
+    const next    = document.getElementById('indNext');
+    if (!section || !wrap || !track) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canScrub = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' &&
+      !reduceMotion && window.innerWidth >= 768;
+
+    function getMax() {
+      return Math.max(0, track.scrollWidth - wrap.clientWidth);
+    }
+
+    if (canScrub) {
+      gsap.registerPlugin(ScrollTrigger);
+      wrap.classList.add('ind-wrap--slide');
+
+      const tween = gsap.to(track, {
+        x: () => -getMax(),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.6,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      if (prev && next) {
+        // Move the row itself, not the page — driving the click through
+        // window/page scroll (as before) could scroll far enough to carry
+        // the user into the next section. Directly tweening the track's
+        // own transform keeps the click's effect local to the carousel.
+        // The scroll-linked scrub above will simply take back over (and
+        // override this offset) the next time the user scrolls.
+        function nudge(dir) {
+          const card = track.querySelector('.ind-card');
+          const cardStep = (card ? card.offsetWidth : 260) + 12;
+          const max = getMax();
+          const currentX = gsap.getProperty(track, 'x');
+          const targetX = Math.max(-max, Math.min(0, currentX + dir * -cardStep));
+          gsap.to(track, { x: targetX, duration: 0.6, ease: 'power2.out', overwrite: true });
+        }
+        prev.addEventListener('click', function () { nudge(-1); });
+        next.addEventListener('click', function () { nudge(1); });
+      }
+    } else {
+      wrap.classList.add('ind-wrap--scroll');
+
+      if (prev && next) {
+        function getStep() {
+          const card = wrap.querySelector('.ind-card');
+          return card ? card.offsetWidth + 12 : 260;
+        }
+        function updateButtons() {
+          prev.disabled = wrap.scrollLeft <= 0;
+          next.disabled = wrap.scrollLeft >= wrap.scrollWidth - wrap.clientWidth - 1;
+        }
+        prev.addEventListener('click', function () {
+          wrap.scrollBy({ left: -getStep(), behavior: 'smooth' });
+        });
+        next.addEventListener('click', function () {
+          wrap.scrollBy({ left: getStep(), behavior: 'smooth' });
+        });
+        wrap.addEventListener('scroll', updateButtons, { passive: true });
+        updateButtons();
+      }
+    }
   }());
 
   // ── Feature sticky scroll ─────────────────────────────────────────────────
@@ -707,6 +1132,45 @@
         scrollTrigger: { trigger: fdSscrollSec, start: 'top bottom', end: 'bottom top', scrub: 1.2 }
       });
     }
+  }
+
+  // ── Solutions sticky-scroll walkthrough ─────────────────────────────────
+  // Left col (steps) stacks naturally; right col (mockup) is position:sticky.
+  // Active step = whichever item's centre is closest to the visual col centre;
+  // the matching mockup frame fades in over the others.
+  var solnSscrollItems  = document.querySelectorAll('.soln-sscroll__item');
+  var solnSscrollVisual = document.querySelector('.soln-sscroll__visual-col');
+  var solnSscrollFrames = document.querySelectorAll('.soln-sscroll__visual-frame');
+
+  if (solnSscrollItems.length && solnSscrollVisual) {
+    function solnSscrollUpdate() {
+      // Active = last item whose top has crossed a fixed line in the viewport.
+      // (Not relative to the sticky visual col's own rect — near the end of
+      // the section a sticky element gets pushed down by its container's
+      // bottom edge, which drags the "centre" away from the last item and
+      // leaves it permanently unable to activate.)
+      var triggerY  = window.innerHeight * 0.5;
+      var activeIdx = 0;
+      solnSscrollItems.forEach(function (item, i) {
+        var r = item.getBoundingClientRect();
+        if (r.top <= triggerY) activeIdx = i;
+      });
+
+      solnSscrollItems.forEach(function (item, i) {
+        var r      = item.getBoundingClientRect();
+        var isPast = r.bottom < 0; // fully scrolled above the viewport
+        item.classList.toggle('is-past',   isPast);
+        item.classList.toggle('is-active', !isPast && i === activeIdx);
+      });
+
+      solnSscrollFrames.forEach(function (frame, i) {
+        frame.classList.toggle('is-active', i === activeIdx);
+      });
+    }
+
+    solnSscrollUpdate();
+    window.addEventListener('scroll', solnSscrollUpdate, { passive: true });
+    window.addEventListener('resize', solnSscrollUpdate, { passive: true });
   }
 
   // ── How-It-Works scroll spine ───────────────────────────
