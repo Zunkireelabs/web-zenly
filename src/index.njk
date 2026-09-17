@@ -601,7 +601,7 @@ bodyClass: page--light-nav
 
         </div>
 
-        <img src="/assets/images/hero-phone-ui.png" alt="" class="hero__phone-frame" aria-hidden="true">
+        {% image "/assets/images/hero-phone-ui.png", "", { class: "hero__phone-frame", loading: "eager", "aria-hidden": "true" } %}
       </div>
     </div>
   </section>
@@ -835,8 +835,8 @@ bodyClass: page--light-nav
             <p class="value-callout__tagline">Staff request. Managers approve. Nothing leaks.</p>
           </div>
 
-          <img class="value-mock__dashboard" src="/assets/images/dashboard-mockup.png" alt="Zenly dashboard">
-          <img class="value-mock__mobile" src="/assets/images/mobile-mockup.png" alt="Zenly mobile app">
+          {% image "/assets/images/dashboard-mockup.png", "Zenly dashboard", { class: "value-mock__dashboard", loading: "eager" } %}
+          {% image "/assets/images/mobile-mockup.png", "Zenly mobile app", { class: "value-mock__mobile", loading: "eager" } %}
 
           <div class="value-callout value-callout--bl">
             <svg class="value-callout__connector value-callout__connector--bl" width="52" height="40" viewBox="0 0 52 40" fill="none" aria-hidden="true">
@@ -888,7 +888,7 @@ bodyClass: page--light-nav
         <!-- Row 1: Booking — feat card -->
         <div class="feat-card feat-card--sm feat-card--stack" style="background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important;">
           <div class="feat-card__visual w-full relative rounded-2xl overflow-hidden" style="aspect-ratio: 16/9; max-height: 480px;">
-            <img src="/assets/images/card1-booking.png" alt="Customer self-booking on phone" class="feat-card__photo w-full h-full object-cover">
+            {% image "/assets/images/card1-booking.png", "Customer self-booking on phone", { class: "feat-card__photo w-full h-full object-cover", loading: "lazy" } %}
             <!-- Readability Gradient Overlay -->
             <div class="feat-card__visual-overlay absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 100%);"></div>
             <!-- Bottom Left Text Overlay -->
@@ -906,7 +906,7 @@ bodyClass: page--light-nav
           <!-- Card 4: Reports -->
           <div class="feat-card feat-card--stack" data-delay="1" style="min-height: 520px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important;">
             <div class="feat-card__top rpt-img-top" style="position: relative; overflow: visible;">
-              <img src="/assets/images/reports-cluster.png" alt="Reports cluster" class="rpt-cluster-img">
+              {% image "/assets/images/reports-cluster.png", "Reports cluster", { class: "rpt-cluster-img", loading: "lazy" } %}
               
               <!-- Floating Glass Insights -->
               <div class="floating-insight floating-insight--revenue" aria-hidden="true">
@@ -954,7 +954,7 @@ bodyClass: page--light-nav
           </div>
 
           <!-- Card 2: Operations -->
-          <div class="feat-card feat-card--stack" data-delay="2" style="background: #CFDEDB !important; border: none !important; box-shadow: none !important; min-height: 520px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important;">
+          <div class="feat-card feat-card--stack" data-delay="2" style="background: linear-gradient(135deg, color-mix(in srgb, var(--color-tint-seafoam) 45%, white) 0%, color-mix(in srgb, var(--color-tint-sky) 35%, white) 100%) !important; border: none !important; box-shadow: none !important; min-height: 520px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important;">
             <div class="feat-card__top" style="padding-top: 56px !important;">
               <div class="scard-scene">
                 <!-- Moving cursor highlight loop -->
@@ -1014,7 +1014,7 @@ bodyClass: page--light-nav
         <!-- Row 3: Zero Conflicts — full-bleed photo, matching Row 1 -->
         <div class="feat-card feat-card--sm feat-card--stack" style="background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important;">
           <div class="feat-card__visual w-full relative rounded-2xl overflow-hidden c2-visual" style="aspect-ratio: 16/9; max-height: 480px;">
-            <img src="/assets/images/card3-conflicts.png" alt="Tablet on a reception desk showing a conflict-free booking calendar" class="feat-card__photo c2-visual__bg">
+            {% image "/assets/images/card3-conflicts.png", "Tablet on a reception desk showing a conflict-free booking calendar", { class: "feat-card__photo c2-visual__bg", loading: "lazy" } %}
             <div class="feat-card__visual-overlay c2-visual__overlay absolute inset-0 pointer-events-none" aria-hidden="true"></div>
 
             <!-- Bottom Left Text Overlay -->
