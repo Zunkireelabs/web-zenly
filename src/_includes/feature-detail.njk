@@ -5,7 +5,7 @@ layout: base.njk
 <main>
 
   <!-- ── HERO ────────────────────────────────────────────────────────────── -->
-  <section class="fd-hero">
+  <section class="fd-hero" data-feature="{{ feature.slug }}">
     <div class="fd-hero__inner">
 
       <div class="fd-hero__text">
@@ -364,7 +364,7 @@ layout: base.njk
           </div>
           {% else %}
           <div class="fd-hero__img-wrap">
-            <img src="{{ feature.hero.image }}" alt="{{ feature.hero.imageAlt }}" class="fd-hero__img">
+            {% image feature.hero.image, feature.hero.imageAlt, { class: "fd-hero__img", loading: "eager" } %}
           </div>
           {% endif %}
         </div>
@@ -836,7 +836,7 @@ layout: base.njk
         <div class="fd-sscroll__img-col">
           <h2 class="section__h2 fd-sscroll__lbl">{{ feature.intro.headline }}</h2>
           <div class="fd-sscroll__img-wrap">
-            <img src="{{ feature.hero.image }}" alt="{{ feature.hero.imageAlt }}" class="fd-sscroll__img">
+            {% image feature.hero.image, feature.hero.imageAlt, { class: "fd-sscroll__img", loading: "lazy" } %}
           </div>
         </div>
 

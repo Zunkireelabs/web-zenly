@@ -292,7 +292,7 @@
     "badge": "Operations",
     "hero": {
       "eyebrow": "Real-time operational visibility",
-      "headline": "You shouldn't need to call your branch managers <span class=\"fd-hero__h1-accent\">to know how the day is going</span>.",
+      "headline": "Stop calling for updates.<br> <span class=\"fd-hero__h1-accent\">See how the day is going.</span>",
       "subheadline": "Every booking status, every branch, every moment – visible in one place. Without a message, a call, or a report that's already out of date.",
       "cta": "See the live dashboard in a 20-minute demo →",
       "image": "/assets/images/feat-operations.png",
@@ -909,7 +909,7 @@
     "badge": "Staff & Therapist Management",
     "hero": {
       "eyebrow": "Staff &amp; therapist management",
-      "headline": "Your best therapist is needed at Branch 2 on Thursday. <span class=\"fd-hero__h1-accent\">Everyone already knows.</span>",
+      "headline": "Staff moves between branches.<br> <span class=\"fd-hero__h1-accent\">Everyone already knows.</span>",
       "subheadline": "Schedule staff moves between branches with an effective date. Assign therapists to bookings. Manage your team across every location without a single coordination call.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-multibranch.png",
@@ -1071,7 +1071,7 @@
     "badge": "Discount Governance",
     "hero": {
       "eyebrow": "Discount management",
-      "headline": "Every discount your staff gives has a name attached to it. <span class=\"fd-hero__h1-accent\">And an approval.</span>",
+      "headline": "Every discount gets a name.<br> <span class=\"fd-hero__h1-accent\">And an approval.</span>",
       "subheadline": "Stop finding out weeks later that your margins have been quietly disappearing. Every discount request is reviewed before it's applied — with a full record of who asked, why, and what was approved.",
       "cta": "See how it works — book a 20-minute demo →",
       "image": "/assets/images/feat-discount.png",
@@ -1265,7 +1265,7 @@
     "badge": "Access Control",
     "hero": {
       "eyebrow": "Role-based access",
-      "headline": "Your staff see their schedule. Your managers see their branch. <span class=\"fd-hero__h1-accent\">You see everything.</span>",
+      "headline": "Everyone sees only their part.<br> <span class=\"fd-hero__h1-accent\">You see everything.</span>",
       "subheadline": "A three-tier access model built around how a real service business is structured — so every person has exactly the information they need, and no more than they should.",
       "cta": "See role-based access in a 20-minute demo →",
       "image": "/assets/images/feat-role-based-access.png",

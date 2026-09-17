@@ -31,6 +31,45 @@
   // instead of pinning to the viewport. .curved-content stays a static
   // (non-transformed) wrapper — see main.css for its curtain styling.
 
+  // ── Hero parallax (layered depth: glow drifts slower than the phone;
+  // headline stays put) ──
+  // #hero is a sibling of .curved-content/#scrollStoryPinWrapper, not an
+  // ancestor, so animating transforms inside it doesn't touch the pin above.
+  // NOTE: hero__text is already position:sticky in CSS to stay fixed in
+  // place — it must NOT also get a scrubbed transform, or the two motions
+  // (sticky reflow + tween) fight each other and read as scroll jank.
+  const heroSection = document.getElementById('hero');
+  const heroParallaxPhone = heroSection ? heroSection.querySelector('.hero__phone') : null;
+
+  if (heroSection && heroParallaxPhone &&
+      typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    var heroPhoneSpeed = -0.25; // foreground: phone mockup
+    var heroGlowSpeed = -0.08;  // background: ambient glow (.hero__phone::before)
+
+    // Both tweens live on the same timeline/scrollTrigger so they update on
+    // the exact same tick — that's what keeps the layers from drifting out
+    // of sync with each other.
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: heroSection,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 0
+      }
+    })
+      .to(heroParallaxPhone, { y: () => window.innerHeight * heroPhoneSpeed, ease: 'none' }, 0)
+      .to(heroParallaxPhone, {
+        // The glow is a child (::before) of .hero__phone, so it already
+        // inherits the phone's own translate — this custom property adds
+        // just the extra local offset needed to make its NET speed slower.
+        '--hero-glow-shift': () => (window.innerHeight * (heroGlowSpeed - heroPhoneSpeed)) + 'px',
+        ease: 'none'
+      }, 0);
+  }
+
   // ── Card 2 — Bell auto-play + manual click ────────────────
   const c2Bell   = document.getElementById('c2Bell');
   const c2Panel  = document.getElementById('c2Panel');
@@ -192,8 +231,27 @@
       });
     };
 
+    // .nav-mega is fixed + centered on the viewport, not anchored under the
+    // trigger, so moving the cursor from the trigger down to the panel often
+    // crosses empty space that is neither the trigger nor the panel. A pure
+    // CSS :hover chain loses hover in that gap and closes the panel before
+    // the cursor arrives. Bridge that gap with a short close-delay so the
+    // panel stays open while the cursor is in transit.
+    let closeTimer = null;
+    const cancelClose = () => {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+    };
+    const scheduleClose = (item) => {
+      cancelClose();
+      closeTimer = setTimeout(() => item.classList.remove('is-open'), 250);
+    };
+
     megaItems.forEach(item => {
       const trigger = item.querySelector('.nav__mega-trigger');
+      const panel = item.querySelector('.nav-mega');
       if (!trigger) return;
 
       trigger.addEventListener('click', (e) => {
@@ -203,6 +261,18 @@
         item.classList.toggle('is-open', willOpen);
         trigger.setAttribute('aria-expanded', String(willOpen));
       });
+
+      item.addEventListener('mouseenter', () => {
+        cancelClose();
+        closeAllMegas(item);
+        item.classList.add('is-open');
+      });
+      item.addEventListener('mouseleave', () => scheduleClose(item));
+
+      if (panel) {
+        panel.addEventListener('mouseenter', cancelClose);
+        panel.addEventListener('mouseleave', () => scheduleClose(item));
+      }
     });
 
     document.addEventListener('click', (e) => {

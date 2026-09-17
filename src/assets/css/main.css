@@ -42,6 +42,16 @@
     --color-warning:   #D97706;   /* Amber */
     --color-error:     #DC2626;   /* Red */
 
+    /* ── Cool Spa cluster (approved 2026-09-17) ────────────
+       Homepage-scoped color pass: stat highlights + one
+       feature card. Deliberately separate from --color-accent
+       (gold), which stays untouched for other pages/sections. */
+    --color-accent-teal:   #2E6B63; /* Deep teal — stat highlights, single-accent role */
+    --color-tint-seafoam:  #8FD6C7; /* Soft seafoam — feature card washes */
+    --color-tint-sky:      #8CB8DE; /* Soft sky — reserved for future feature tint */
+    --color-tint-lavender: #B4A3D9; /* Soft lavender — reserved for future feature tint */
+    --color-dark-teal:     #122E33; /* Deep navy-teal — reserved for future dark band */
+
     /* Soft diagonal brand gradient — warm/light top-left fading to a
        deeper, cooler green bottom-right (same minimal, low-contrast
        diagonal wash as our dock/hero reference, built from existing
@@ -140,12 +150,12 @@
 
   /* Logo — brand green by default, white only on transparent hero */
   .nav__logo {
-    font-family: var(--font-body);
-    font-size: 1.375rem;
+    font-family: 'Baloo 2', var(--font-heading), var(--font-body);
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-primary);
     text-decoration: none;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     flex-shrink: 0;
     transition: color 0.3s ease;
   }
@@ -859,7 +869,7 @@
   }
 
   .hero__headline {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: clamp(2.25rem, 6vw, 6.25rem);
     font-weight: 600;
     line-height: 1.05;
@@ -919,7 +929,7 @@
   }
 
   .hero__sub {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: clamp(1rem, 1.6vw, 1.1875rem);
     font-weight: 400;
     line-height: 1.55;
@@ -1547,6 +1557,10 @@
     filter: blur(48px);
     z-index: 0;
     pointer-events: none;
+    /* Compensates for the parent .hero__phone's own scroll-driven translate
+       (see main.js) so the glow reads as a slower background layer instead
+       of moving in lockstep with the phone. */
+    transform: translateY(var(--hero-glow-shift, 0px));
   }
 
 
@@ -2547,13 +2561,13 @@ body.page--case-study .section {
     to bottom,
     #FAFAF9 0%,
     #FAFAF9 30%,
-    #FBF3E1 52%
+    color-mix(in srgb, var(--color-tint-sky) 35%, #FFFFFF) 52%
   );
   padding-top: 0;
   padding-bottom: 32px;
   border-radius: 0 0 72px 72px;
   /* y-offset 32px + spread -10px > blur 40px → shadow never bleeds above the section */
-  box-shadow: 0 32px 40px -10px rgba(124, 146, 122, 0.45);
+  box-shadow: 0 32px 40px -10px rgba(0, 0, 0, 0.18);
 }
 
 /* Note: #value intentionally has no overflow: hidden — the .value-callout
@@ -2570,7 +2584,7 @@ body.page--case-study .section {
   right: 0;
   height: 280px;
   border-radius: 0 0 72px 72px;
-  background-image: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 14%, transparent) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--color-tint-sky) 14%, transparent) 1.5px, transparent 1.5px);
   background-size: 22px 22px;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 45%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 45%);
@@ -2602,7 +2616,7 @@ body.page--case-study .section {
 }
 
 .entr-headline {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3.2vw, 2.75rem);
   font-weight: 500;
   line-height: 1.25;
@@ -2662,7 +2676,7 @@ body.page--case-study .section {
 }
 
 .section__h2 {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: clamp(1.5rem, 2.5vw, 2.25rem);
   font-weight: 500;
   line-height: 1.15;
@@ -2683,6 +2697,7 @@ body.page--case-study .section {
 }
 
 .section__sub {
+  font-family: var(--font-heading);
   font-size: 1.125rem;
   color: var(--color-muted);
   line-height: 1.65;
@@ -2837,7 +2852,7 @@ body.page--case-study .section {
 
 /* ── INTERACTIVE SOLUTION HEADLINE PHRASES ───────────────── */
 .solution__headline {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3.2vw, 2.75rem);
   font-weight: 500;
   line-height: 1.25;
@@ -2887,7 +2902,7 @@ body.page--case-study .section {
 }
 
 .problem__body {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: clamp(1.5rem, 2.5vw, 2.25rem);
   font-weight: 500;
   line-height: 1.4;
@@ -3237,7 +3252,7 @@ body.page--case-study .section {
 }
 
 .solution__headline {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3vw, 2.75rem);
   font-weight: 500;
   line-height: 1.1;
@@ -3375,7 +3390,7 @@ body.page--case-study .section {
 }
 
 .trust-band__heading {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: clamp(1.5rem, 2.5vw, 2.25rem);
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -4778,9 +4793,9 @@ body.page--case-study .section {
 .feat-grid--large-last .feat-card:first-child {
   background: linear-gradient(
     135deg,
-    #F5F2EA 0%,
-    #F5F2EA 45%,
-    #DCF3E2 100%
+    color-mix(in srgb, var(--color-tint-sky) 25%, white) 0%,
+    color-mix(in srgb, var(--color-tint-sky) 25%, white) 45%,
+    color-mix(in srgb, var(--color-tint-lavender) 35%, white) 100%
   ) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -7833,7 +7848,7 @@ body.page--case-study .section {
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: clamp(1.5rem, 3vw, 2.25rem);
-  color: var(--color-accent);
+  color: var(--color-accent-teal);
   line-height: 1.2;
   margin: 0;
 }
@@ -8154,12 +8169,13 @@ body.page--case-study .section {
 ───────────────────────────────────────────────────────────────────────── */
 
 .bottom-cta {
-  /* Accent → Muted wash ("Nature" theme ref) — scoped to this section
-     only, since --gradient-brand elsewhere pairs with white text. */
+  /* Cool Spa sky wash (approved 2026-09-17, revised) — scoped to this
+     section only. Deliberately sky/lavender, not teal, so the palette
+     doesn't repeat the same accent everywhere. */
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--color-primary-tint) 80%, var(--color-primary) 20%) 0%,
-    color-mix(in srgb, var(--color-surface-alt) 80%, var(--color-primary) 20%) 100%
+    color-mix(in srgb, var(--color-tint-sky) 40%, white) 0%,
+    color-mix(in srgb, var(--color-tint-lavender) 40%, white) 100%
   );
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
@@ -8190,7 +8206,7 @@ body.page--case-study .section {
   font-family: var(--font-body);
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-text);
   margin: 0 auto;
   max-width: 720px;
   line-height: 1.15;
@@ -8201,9 +8217,9 @@ body.page--case-study .section {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #1E3D1A;
+  background: var(--color-primary);
   color: #ffffff;
-  border: 1px solid #1E3D1A;
+  border: 1px solid var(--color-primary);
   border-radius: var(--radius-sm);
   padding: 12px 28px;
   font-size: 0.9375rem;
@@ -8213,22 +8229,23 @@ body.page--case-study .section {
 }
 
 .bottom-cta__banner-btn:hover {
-  background: #11240F;
-  border-color: #11240F;
+  background: #245020;
+  border-color: #245020;
+  color: #ffffff;
 }
 
 .bottom-cta__sub {
   font-family: var(--font-body);
   font-size: 1.0625rem;
-  color: var(--color-primary);
-  opacity: 0.85;
+  color: var(--color-text-muted);
+  opacity: 0.9;
   line-height: 1.6;
   margin: -12px auto 0 auto;
   max-width: 560px;
 }
 
 .bottom-cta__link {
-  color: var(--color-primary);
+  color: var(--color-text);
   opacity: 0.7;
   font-size: 0.9375rem;
   font-weight: 600;
@@ -8242,8 +8259,8 @@ body.page--case-study .section {
 }
 
 .bottom-cta__reassurance {
-  color: var(--color-primary);
-  opacity: 0.55;
+  color: var(--color-text-muted);
+  opacity: 0.8;
   font-size: 0.875rem;
   margin-top: 12px;
 }
@@ -8292,12 +8309,12 @@ body.page--case-study .section {
 }
 
 .footer__logo {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
+  font-family: 'Baloo 2', var(--font-heading), var(--font-body);
+  font-size: 1.375rem;
   font-weight: 700;
   color: var(--color-primary);
   text-decoration: none;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .footer__tagline {
@@ -9272,6 +9289,17 @@ body.page--case-study .section {
 
 .fd-hero__h1-accent {
   color: var(--color-primary);
+}
+
+.fd-hero[data-feature="discount-management"] .fd-hero__text,
+.fd-hero[data-feature="discount-management"] .fd-hero__h1,
+.fd-hero[data-feature="role-based-access"] .fd-hero__text,
+.fd-hero[data-feature="role-based-access"] .fd-hero__h1,
+.fd-hero[data-feature="operational-visibility"] .fd-hero__text,
+.fd-hero[data-feature="operational-visibility"] .fd-hero__h1,
+.fd-hero[data-feature="staff-management"] .fd-hero__text,
+.fd-hero[data-feature="staff-management"] .fd-hero__h1 {
+  max-width: 1040px;
 }
 
 .fd-hero__sub {
@@ -14203,6 +14231,48 @@ body.page--case-study .section {
   flex-shrink: 0;
 }
 
+/* Floating booking-status pills over the right side of the hero photo
+   (e.g. fitness) — scattered at different depths, echo the soln-visual__badge
+   pill language used lower on the page. */
+
+.soln-photohero__badges {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  max-width: var(--max-w-visual);
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.soln-photohero__badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+
+.soln-photohero__badge--white { background: #ffffff; }
+.soln-photohero__badge--sage { background: var(--color-primary-tint); }
+.soln-photohero__badge--cream { background: var(--color-surface-alt); }
+
+.soln-photohero__badge-icon {
+  display: inline-flex;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.soln-photohero__badge--1 { top: 18%; right: 6%; }
+.soln-photohero__badge--2 { top: 13%; right: 26%; }
+.soln-photohero__badge--3 { bottom: 16%; right: 12%; }
+
 /* Boxed hero variant (tattoo) — solid bg, contained photo card on the right,
    floating strip overlapping the top of the photo instead of a full-bleed bg */
 
@@ -14282,6 +14352,9 @@ body.page--case-study .section {
     padding: 0 var(--space-md);
   }
   .soln-photohero__strip-wrap {
+    display: none;
+  }
+  .soln-photohero__badges {
     display: none;
   }
   .soln-photohero__inner--split {
@@ -14799,6 +14872,71 @@ body.page--case-study .section {
   font-size: 0.8125rem;
   color: var(--color-muted);
   margin: var(--space-xs) 0 0;
+}
+
+.soln-visual__card--golive {
+  padding: var(--space-lg) var(--space-lg) var(--space-md);
+}
+
+.soln-visual__golive-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 var(--space-sm);
+}
+
+.soln-visual__golive-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-primary);
+}
+
+.soln-visual__golive-time {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.soln-visual__golive-client {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.soln-visual__golive-service {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin: 2px 0 0;
+}
+
+.soln-visual__golive-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-md) 0;
+}
+
+.soln-visual__golive-pay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.soln-visual__golive-amount {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.soln-visual__golive-paid {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: rgba(63,104,57,0.12);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
 }
 
 .soln-visual__card--mobile {
@@ -15513,4 +15651,72 @@ body.page--case-study .section {
   line-height: 1.7;
   margin: 0;
   max-width: 640px;
+}
+
+/* ── Salon page: swap the generic green mockup accent for a navy tone,
+   matching the salon showcase mockup images (distinct from spa's green). ── */
+.soln[data-slug="salon"] .soln-visual {
+  background: linear-gradient(155deg, #E7EEF7 0%, #EDF0F5 55%, #E9EEF6 100%);
+  box-shadow: 0 24px 60px -24px rgba(47,76,107,0.25), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.soln[data-slug="salon"] .soln-visual::before {
+  background-image: repeating-linear-gradient(90deg, rgba(47,76,107,0.05) 0 1px, transparent 1px 28px);
+}
+
+.soln[data-slug="salon"] .soln-visual::after {
+  background: radial-gradient(circle, rgba(47,76,107,0.25) 0%, transparent 70%);
+}
+
+.soln[data-slug="salon"] .soln-visual__badge-dot {
+  background: #2F4C6B;
+  box-shadow: 0 0 0 3px rgba(47,76,107,0.15);
+}
+
+.soln[data-slug="salon"] .soln-visual__step--done,
+.soln[data-slug="salon"] .soln-visual__card-head-done {
+  background: #2F4C6B;
+}
+
+.soln[data-slug="salon"] .soln-visual__bar--1 {
+  background: rgba(47,76,107,0.18);
+}
+
+.soln[data-slug="salon"] .soln-visual__transfer-branch--to {
+  background: rgba(47,76,107,0.12);
+  color: #2F4C6B;
+}
+
+.soln[data-slug="salon"] .soln-sscroll__eyebrow-icon {
+  background: #2F4C6B;
+}
+
+.soln[data-slug="salon"] .soln-photohero__appt--1 {
+  background: #2F4C6B;
+}
+
+.soln[data-slug="salon"] .soln-visual__golive-label,
+.soln[data-slug="salon"] .soln-visual__golive-paid {
+  color: #2F4C6B;
+}
+
+.soln[data-slug="salon"] .soln-visual__golive-paid {
+  background: rgba(47,76,107,0.12);
+}
+
+.soln[data-slug="tattoo"] .soln-visual {
+  background: linear-gradient(155deg, #E9EFEA 0%, #E7EEE8 55%, #E4ECE6 100%);
+  box-shadow: 0 24px 60px -24px rgba(31,61,46,0.3), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.soln[data-slug="tattoo"] .soln-visual::after {
+  background: radial-gradient(circle, rgba(31,61,46,0.25) 0%, transparent 70%);
+}
+
+.soln[data-slug="tattoo"] .soln-visual__bar--2 {
+  background: rgba(31,61,46,0.18);
+}
+
+.soln[data-slug="tattoo"] .soln-visual__bar--3 {
+  background: rgba(31,61,46,0.14);
 }
