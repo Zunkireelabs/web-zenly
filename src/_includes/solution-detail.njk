@@ -26,6 +26,14 @@ layout: base.njk
   {% endif %}
 {% endmacro %}
 
+{% macro heroBadgeIcon(name) %}
+  {% if name == 'calendar' %}
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+  {% else %}
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+  {% endif %}
+{% endmacro %}
+
 {% macro heroStrip(treatments) %}
   {% for item in treatments.items %}
     {% if item.active %}
@@ -96,6 +104,24 @@ layout: base.njk
       <span class="soln-visual__badge-dot" aria-hidden="true"></span>
       {{ data.badgeLabel if data else 'Transfer' }} &middot; <strong>{{ data.badgeValue if data else 'Scheduled' }}</strong>
     </div>
+  {% elif visual == 'golive' %}
+    <div class="soln-visual__card soln-visual__card--golive">
+      <div class="soln-visual__golive-top">
+        <span class="soln-visual__golive-label">New booking</span>
+        <span class="soln-visual__golive-time">Just now</span>
+      </div>
+      <p class="soln-visual__golive-client">{{ data.client if data else 'Priya Sharma' }}</p>
+      <p class="soln-visual__golive-service">{{ data.service if data else 'Cut &amp; Colour, 4:30 PM' }}</p>
+      <div class="soln-visual__golive-divider"></div>
+      <div class="soln-visual__golive-pay">
+        <span class="soln-visual__golive-amount">{{ data.amount if data else 'NPR 1,800' }}</span>
+        <span class="soln-visual__golive-paid">Paid</span>
+      </div>
+    </div>
+    <div class="soln-visual__badge">
+      <span class="soln-visual__badge-dot" aria-hidden="true"></span>
+      Booked online &middot; <strong>Payment recorded</strong>
+    </div>
   {% else %}
     <div class="soln-visual__card soln-visual__card--mobile">
       <div class="soln-visual__mobile-stat"><strong>12</strong><span>Pending</span></div>
@@ -109,7 +135,7 @@ layout: base.njk
   {% endif %}
 {% endmacro %}
 
-<main class="soln">
+<main class="soln" data-slug="{{ solution.slug }}">
 
   <!-- ── HERO (Acuity-style: full-bleed photo + floating calendar card) ─── -->
   {% if solution.slug == 'tattoo' %}
@@ -125,7 +151,7 @@ layout: base.njk
 
       <div class="soln-photohero__photocard-wrap">
         <div class="soln-photohero__photocard reveal-scale" data-delay="1">
-          <img src="{{ solution.hero.image }}" alt="{{ solution.hero.imageAlt }}" class="soln-photohero__photocard-img" loading="eager">
+          {% image solution.hero.image, solution.hero.imageAlt, { class: "soln-photohero__photocard-img", loading: "eager" } %}
         </div>
 
         {% if solution.heroTreatments %}
@@ -138,7 +164,7 @@ layout: base.njk
   </section>
   {% else %}
   <section class="soln-photohero">
-    <img src="{{ solution.hero.image }}" alt="{{ solution.hero.imageAlt }}" class="soln-photohero__bg" loading="eager">
+    {% image solution.hero.image, solution.hero.imageAlt, { class: "soln-photohero__bg", loading: "eager" } %}
     <div class="soln-photohero__scrim" aria-hidden="true"></div>
 
     <div class="soln-photohero__inner">
@@ -193,6 +219,17 @@ layout: base.njk
       {{ heroStrip(solution.heroTreatments) }}
     </div>
     {% endif %}
+
+    {% if solution.heroBadges %}
+    <div class="soln-photohero__badges">
+      {% for badge in solution.heroBadges %}
+      <div class="soln-photohero__badge soln-photohero__badge--{{ badge.style }} soln-photohero__badge--{{ loop.index }} reveal-scale" data-delay="{{ loop.index }}">
+        <span class="soln-photohero__badge-icon" aria-hidden="true">{{ heroBadgeIcon(badge.icon) }}</span>
+        {{ badge.label }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
   </section>
   {% endif %}
 
@@ -210,7 +247,7 @@ layout: base.njk
         <div class="soln-row__visual">
           {% if item.image %}
           <div class="soln-visual soln-visual--{{ item.visual }} soln-visual--photo">
-            <img src="{{ item.image }}" alt="{{ item.imageAlt }}" class="soln-visual__photo" loading="lazy" style="object-position: center {{ item.imageFocus or '0%' }};">
+            {% image item.image, item.imageAlt, { class: "soln-visual__photo", loading: "lazy", style: "object-position: center " ~ (item.imageFocus or '0%') ~ ";" ~ (" object-fit: " ~ item.imageFit ~ ";" if item.imageFit else "") } %}
           </div>
           {% else %}
           <div class="soln-visual soln-visual--{{ item.visual }}">

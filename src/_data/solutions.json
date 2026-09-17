@@ -203,25 +203,33 @@
         "eyebrow": "Booking lifecycle",
         "heading": "Scheduling that mirrors reality",
         "description": "Every booking is created by staff and assigned to a specific stylist, moving through a clear lifecycle – Pending → Confirmed → In-Progress → Completed. Your team stops over-committing stylists, and clients get the stylist they came for, every time.",
-        "visual": "calendar"
+        "visual": "calendar",
+        "image": "/assets/images/solution-showcase-salon-1.png",
+        "imageAlt": "Zenly booking status dashboard showing salon appointments and stylist progress"
       },
       {
         "eyebrow": "Discount approvals",
         "heading": "Discount control across your chair count",
         "description": "Staff can request a discount during booking, but it only applies once a manager approves it – every request carries a value and amount, so nothing's managed from memory. You stop losing margin to undocumented habit.",
-        "visual": "approval"
+        "visual": "approval",
+        "image": "/assets/images/solution-showcase-salon-2.png",
+        "imageAlt": "Zenly discount approval screen showing a 15 percent discount request awaiting manager approval"
       },
       {
         "eyebrow": "Staff transfers",
         "heading": "Staff who move between branches",
         "description": "Staff transfers are scheduled events, not informal arrangements – every move records the stylist, the destination branch, and the effective date. Your star stylists become a resource you share intelligently, not a liability you manage reactively.",
-        "visual": "transfer"
+        "visual": "transfer",
+        "image": "/assets/images/solution-showcase-salon-3.png",
+        "imageAlt": "Zenly staff transfer card showing stylist Kriti Sharma moving from Downtown Branch to Westside Branch"
       },
       {
         "eyebrow": "Live status",
         "heading": "Real-time status, every chair",
         "description": "Pending, Confirmed, In-Progress, Completed – every booking's status is visible the instant it changes, across every branch, without a phone call to the front desk.",
-        "visual": "mobile"
+        "visual": "mobile",
+        "image": "/assets/images/solution-showcase-salon-4.png",
+        "imageAlt": "Zenly live status dashboard showing pending, confirmed, in-progress, and completed bookings across salon branches"
       }
     ],
     "stats": {
@@ -259,7 +267,7 @@
           "num": "01",
           "title": "Add your branches & stylists",
           "desc": "Set up every location and every stylist – Zenly maps your real chair count, not a generic calendar.",
-          "visual": "mobile"
+          "visual": "transfer"
         },
         {
           "num": "02",
@@ -271,7 +279,7 @@
           "num": "03",
           "title": "Go live",
           "desc": "Clients book online, staff move bookings through the lifecycle, and every payment is recorded the moment it happens.",
-          "visual": "calendar"
+          "visual": "golive"
         }
       ]
     },
@@ -369,14 +377,8 @@
         "heading": "Multi-session continuity",
         "description": "Large pieces spanning multiple sittings stay with the same artist through scheduled transfers between branches, not informal handoffs that lose a client's history.",
         "visual": "transfer",
-        "visualData": {
-          "client": "K. Basnet · Sleeve, Session 3/4",
-          "from": "Branch A",
-          "to": "Branch B",
-          "date": "Effective 12 Oct",
-          "badgeLabel": "Artist transfer",
-          "badgeValue": "Maya R."
-        }
+        "image": "/assets/images/solution-showcase-tattoo-3.png",
+        "imageAlt": "Zenly artist transfer card for K. Basnet's sleeve session 3/4, moving from Branch A to Branch B effective 12 October under artist Maya R."
       },
       {
         "eyebrow": "Audit trail",
@@ -422,7 +424,7 @@
           "num": "01",
           "title": "Add your branches & artists",
           "desc": "Set up every location and every artist – Zenly maps your real studio, not a generic calendar.",
-          "visual": "mobile"
+          "visual": "transfer"
         },
         {
           "num": "02",
@@ -434,7 +436,7 @@
           "num": "03",
           "title": "Go live",
           "desc": "Clients book a named artist online, staff move sessions through the lifecycle, and every deposit and payment is recorded the moment it happens.",
-          "visual": "calendar"
+          "visual": "golive"
         }
       ]
     },
@@ -472,9 +474,14 @@
       "ctaText": "Book a demo",
       "ctaHref": "/demo",
       "caption": "No setup fees",
-      "image": "https://plus.unsplash.com/premium_photo-1661286647722-973637d09600?w=1000&q=80&auto=format&fit=crop",
-      "imageAlt": "Personal trainer coaching a client in a gym"
+      "image": "/assets/images/solution-hero-fitness.png",
+      "imageAlt": "A group fitness class mid-exercise in a sunlit studio"
     },
+    "heroBadges": [
+      { "style": "white", "icon": "check", "label": "Session confirmed" },
+      { "style": "sage", "icon": "check", "label": "Payment received" },
+      { "style": "white", "icon": "calendar", "label": "Class booked" }
+    ],
     "heroCalendar": {
       "month": "September",
       "today": "14",
