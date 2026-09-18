@@ -419,9 +419,28 @@
     min-height: 330px;
   }
 
-  /* Compact variant for menus with only a couple of links (e.g. Resources) */
+  /* Compact variant for menus with only a couple of links (e.g. Resources).
+     Unlike the wide Features menu (centered on the viewport), this one is
+     small enough to anchor directly under its own trigger instead. */
   .nav-mega--sm {
     width: 320px;
+    position: absolute;
+    top: calc(100% + 22px);
+    left: auto;
+    right: -24px;
+    transform: translateY(-6px);
+  }
+
+  .nav-mega--sm::before {
+    left: auto;
+    right: 32px;
+    transform: rotate(45deg);
+  }
+
+  .nav__item--has-mega:hover .nav-mega--sm,
+  .nav__item--has-mega:focus-within .nav-mega--sm,
+  .nav__item--has-mega.is-open .nav-mega--sm {
+    transform: translateY(0);
   }
 
   .nav-mega--sm .nav-mega__container {
