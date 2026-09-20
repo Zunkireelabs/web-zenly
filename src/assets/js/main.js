@@ -182,61 +182,88 @@
     }
   }
 
-  // ── Nav: add .scrolled on scroll ──────────────────────────
-  const nav    = document.getElementById('nav');
-  const toggle = document.getElementById('nav-toggle');
-  const mobile = document.getElementById('nav-mobile');
+  // ── Nav (v2, shared — ported from homepage): add .is-scrolled on scroll ──
+  const nav    = document.getElementById('v2Nav');
+  const toggle = document.getElementById('v2-nav-toggle');
+  const mobile = document.getElementById('v2-nav-mobile');
 
   if (nav) {
     const syncScrolled = () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
+      nav.classList.toggle('is-scrolled', window.scrollY > 20);
     };
     window.addEventListener('scroll', syncScrolled, { passive: true });
     syncScrolled(); // apply immediately if page loads mid-scroll
   }
 
-  // ── Nav: mobile hamburger toggle ──────────────────────────
+  // ── Nav: mobile hamburger toggle — ported 1:1 from the homepage's own
+  // mobile nav script (scrim, Lenis stop/start, Features/Resources
+  // accordion), so every page's mobile menu behaves like the homepage's. ──
+  const navScrim = document.getElementById('v2-nav-mobile-scrim');
   if (toggle && mobile && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = toggle.classList.toggle('open');
-      mobile.classList.toggle('open', isOpen);
+    // Lenis intercepts wheel/touch scrolling directly, so plain CSS
+    // `overflow:hidden` on the body won't stop the page scrolling behind
+    // the open menu — stop/start Lenis itself instead (guarded: Lenis is
+    // an enhancement and may not have initialized on every page/browser).
+    const setNavOpen = (isOpen) => {
       nav.classList.toggle('menu-open', isOpen);
       toggle.setAttribute('aria-expanded', String(isOpen));
       mobile.setAttribute('aria-hidden', String(!isOpen));
+      if (navScrim) {
+        navScrim.classList.toggle('is-open', isOpen);
+        navScrim.setAttribute('aria-hidden', String(!isOpen));
+      }
+      if (typeof lenis !== 'undefined' && lenis) {
+        if (isOpen) lenis.stop(); else lenis.start();
+      }
+    };
+
+    toggle.addEventListener('click', () => {
+      setNavOpen(!nav.classList.contains('menu-open'));
     });
 
-    // Close when any mobile nav link is tapped
+    if (navScrim) {
+      navScrim.addEventListener('click', () => setNavOpen(false));
+    }
+
     mobile.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        toggle.classList.remove('open');
-        mobile.classList.remove('open');
-        nav.classList.remove('menu-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        mobile.setAttribute('aria-hidden', 'true');
+      link.addEventListener('click', () => setNavOpen(false));
+    });
+
+    // Features/Resources accordion — tap equivalent of the desktop mega menu,
+    // which relies on hover/:has() sibling selectors with no touch equivalent.
+    mobile.querySelectorAll('.v2-nav-mobile__group').forEach((group) => {
+      const trigger = group.querySelector('.v2-nav-mobile__trigger');
+      if (!trigger) return;
+      trigger.addEventListener('click', () => {
+        const isOpen = group.classList.toggle('is-open');
+        trigger.setAttribute('aria-expanded', String(isOpen));
       });
     });
   }
 
   // ── Nav: mega menu click-to-toggle ─────────────────────────
-  // The mega panels open on CSS :hover/:focus-within, but the trigger is
-  // also a real link (e.g. href="/features") — clicking it would just
-  // navigate away before the panel could be seen, and on touch devices
-  // there is no hover at all. This adds an explicit "is-open" state so
-  // the panel can be opened/closed by click/tap independently of hover.
-  const megaItems = document.querySelectorAll('.nav__item--has-mega');
+  // Panels live as top-level siblings of .v2-nav (not nested inside the
+  // trigger), so open state is tracked on both the trigger item (chevron
+  // flip / aria) and the panel itself (its own is-open visibility), linked
+  // via matching data-mega / id (ported 1:1 from the homepage's own script).
+  const megaItems = document.querySelectorAll('.v2-nav__item--has-mega');
   if (megaItems.length) {
+    const panelFor = (item) => document.getElementById('v2Mega-' + item.dataset.mega);
+
     const closeAllMegas = (except) => {
       megaItems.forEach(item => {
-        if (item !== except) item.classList.remove('is-open');
+        if (item === except) return;
+        item.classList.remove('is-open');
+        const panel = panelFor(item);
+        if (panel) panel.classList.remove('is-open');
+        const trigger = item.querySelector('.v2-nav__mega-trigger');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
       });
     };
 
-    // .nav-mega is fixed + centered on the viewport, not anchored under the
-    // trigger, so moving the cursor from the trigger down to the panel often
-    // crosses empty space that is neither the trigger nor the panel. A pure
-    // CSS :hover chain loses hover in that gap and closes the panel before
-    // the cursor arrives. Bridge that gap with a short close-delay so the
-    // panel stays open while the cursor is in transit.
+    // The panel is fixed + centered on the viewport, not anchored under the
+    // trigger, so the cursor crosses empty space moving from trigger to
+    // panel. Bridge that gap with a short close-delay so hover isn't lost.
     let closeTimer = null;
     const cancelClose = () => {
       if (closeTimer) {
@@ -244,29 +271,56 @@
         closeTimer = null;
       }
     };
+    // The compact "sm" panel (Resources) is small enough to anchor under its
+    // own trigger instead of centering on the viewport like the wide Features
+    // menu. It's still `position:fixed`, so we compute its `left` in px each
+    // time it opens (mirrors "left:50%; transform:translateX(-50%)" from CSS,
+    // just with a trigger-relative reference point instead of the viewport
+    // center) and move the caret to match.
+    const positionAnchoredPanel = (item, panel) => {
+      if (!panel || !panel.classList.contains('v2-nav-mega--sm')) return;
+      const rect = item.getBoundingClientRect();
+      const panelWidth = panel.offsetWidth;
+      const margin = 16;
+      const triggerCenter = rect.left + rect.width / 2;
+      const minCenterRef = margin + panelWidth / 2;
+      const maxCenterRef = window.innerWidth - margin - panelWidth / 2;
+      const centerRef = Math.min(Math.max(triggerCenter, minCenterRef), maxCenterRef);
+      panel.style.left = centerRef + 'px';
+      const caretLeft = (rect.left + rect.width / 2) - (centerRef - panelWidth / 2);
+      panel.style.setProperty('--mega-caret-left', caretLeft + 'px');
+    };
+
+    const open = (item) => {
+      cancelClose();
+      closeAllMegas(item);
+      item.classList.add('is-open');
+      const panel = panelFor(item);
+      if (panel) {
+        panel.classList.add('is-open');
+        positionAnchoredPanel(item, panel);
+      }
+      const trigger = item.querySelector('.v2-nav__mega-trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    };
     const scheduleClose = (item) => {
       cancelClose();
-      closeTimer = setTimeout(() => item.classList.remove('is-open'), 250);
+      closeTimer = setTimeout(() => closeAllMegas(), 250);
     };
 
     megaItems.forEach(item => {
-      const trigger = item.querySelector('.nav__mega-trigger');
-      const panel = item.querySelector('.nav-mega');
+      const trigger = item.querySelector('.v2-nav__mega-trigger');
+      const panel = panelFor(item);
       if (!trigger) return;
 
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
-        const willOpen = !item.classList.contains('is-open');
-        closeAllMegas(item);
-        item.classList.toggle('is-open', willOpen);
-        trigger.setAttribute('aria-expanded', String(willOpen));
+        if (item.classList.contains('is-open')) closeAllMegas();
+        else open(item);
       });
+      trigger.addEventListener('focus', () => open(item));
 
-      item.addEventListener('mouseenter', () => {
-        cancelClose();
-        closeAllMegas(item);
-        item.classList.add('is-open');
-      });
+      item.addEventListener('mouseenter', () => open(item));
       item.addEventListener('mouseleave', () => scheduleClose(item));
 
       if (panel) {
@@ -276,7 +330,8 @@
     });
 
     document.addEventListener('click', (e) => {
-      if (!e.target.closest('.nav__item--has-mega')) closeAllMegas();
+      if (e.target.closest('.v2-nav__item--has-mega') || e.target.closest('.v2-nav-mega')) return;
+      closeAllMegas();
     });
 
     document.addEventListener('keydown', (e) => {
@@ -430,7 +485,7 @@
     const isMobile = window.innerWidth < 768;
 
     if (!isMobile && !prefersReducedMotion) {
-      console.log("Zenly Scroll Timeline: Desktop pinned experience active");
+      console.log("Zennly Scroll Timeline: Desktop pinned experience active");
 
       // 1. Initial State Setup
       const blueprintNodes = blueprintContainer.querySelector('.blueprint-nodes');
@@ -495,7 +550,7 @@
         }
       });
 
-      // Phase 2 & 3: Blueprint nodes stay fixed, connectors stretch downward, Zenly core moves down slightly (y: 50)
+      // Phase 2 & 3: Blueprint nodes stay fixed, connectors stretch downward, Zennly core moves down slightly (y: 50)
       tl.to(blueprintCore, { y: 50, duration: 1.0, ease: "power2.inOut" }, 0)
         .to(blueprintConnectors, { scaleY: 1.26, duration: 1.0, ease: "power2.inOut" }, 0);
 

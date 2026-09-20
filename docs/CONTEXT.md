@@ -1,4 +1,4 @@
-
+﻿
   # CONTEXT.md — Zenly Landing Page Brief                                                                                                                       
                                                                                                                                                                 
   ---
@@ -200,17 +200,29 @@
   2. **Operational Control** — Real-time schedules, staff dashboards, discount governance                                                                       
   3. **Financial Clarity** — Daily revenue close, payment tracking, full audit trail                                                                            
    
-  **Brand colors:**                                                                                                                                             
-  | Token | Hex | Usage |                                                                                                                                     
-  |-------|-----|-------|                                                                                                                                       
-  | Primary | `#2D5A27` | Deep forest green — brand primary |
-  | Secondary | `#8B4513` | Warm earth brown |                                                                                                                  
-  | Accent | `#DAA520` | Refined gold |                                                                                                                         
-  | Background | `#FAFAF9` | Off-white page background |                                                                                                        
-  | Surface | `#FFFFFF` | Cards / panels |                                                                                                                      
-  | Success | `#10B981` | Emerald green |                                                                                                                     
-  | Warning | `#D97706` | Amber |                                                                                                                               
-  | Error | `#DC2626` | Red |                                                                                                                                   
+  **Brand colors (homepage — `src/index.njk`, `--v2-*` tokens):**
+  | Token | Hex | Usage |
+  |-------|-----|-------|
+  | Background | `#FFFFFF` | Page background |
+  | Background Alt / Accent | `#ECF7BD` | Lime accent — chips, highlight cards |
+  | Ink (text) | `#2E1919` | Primary text color |
+  | Ink Soft | `rgba(46,25,25,0.62)` | Secondary text |
+  | Muted | `rgba(46,25,25,0.42)` | Tertiary / metadata text |
+  | Card | `#FFFFFF` | Card surfaces |
+  | Accent Ink | `#2E1919` | Text on accent surfaces |
+  | Link | `#38430A` | Links, emphasis text |
+  | Line / Border | `rgba(46,25,25,0.12)` | Dividers, rule lines |
+  | Sage (brand) | `#3F6839` | Zenly forest green — retained brand accent |
+  | Sage Tint | `rgba(63,104,57,0.08)` | Subtle brand wash |
+
+  **Legacy brand colors (used on other pages via `main.css`, not the homepage):**
+  | Token | Hex | Usage |
+  |-------|-----|-------|
+  | Secondary | `#8B4513` | Warm earth brown |
+  | Accent | `#DAA520` | Refined gold |
+  | Success | `#10B981` | Emerald green |
+  | Warning | `#D97706` | Amber |
+  | Error | `#DC2626` | Red |
    
   **Typography:**                                                                                                                                               
   | Family | Font | Usage |                                                                                                                                   

@@ -1,0 +1,202 @@
+<!-- Shared nav, ported from the homepage (src/index.njk, .v2-nav*). See
+     the "SHARED NAV (v2)" comment in src/assets/css/main.css for the two
+     deliberate departures from the homepage version (always-visible CTA,
+     added mobile toggle). -->
+<header class="v2-nav" id="v2Nav" aria-label="Primary navigation">
+  <div class="v2-nav-inner">
+    <div class="v2-nav-content">
+      <div class="v2-nav-col v2-nav-col--start">
+        <a href="/" class="v2-nav__logo">Zennly</a>
+      </div>
+      <nav class="v2-nav-col v2-nav-col--center v2-nav__links" aria-label="Main menu">
+        <div class="v2-nav__item--has-mega" data-mega="features">
+          <a href="/features" class="v2-nav__mega-trigger">
+            Features
+            <svg class="v2-nav__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <a href="/how-it-works">How it Works</a>
+        <a href="/solutions">Solutions</a>
+
+        <div class="v2-nav__item--has-mega" data-mega="resources">
+          <a href="/blog" class="v2-nav__mega-trigger">
+            Resources
+            <svg class="v2-nav__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </nav>
+      <div class="v2-nav-col v2-nav-col--end">
+        <button type="button" id="v2-nav-toggle" class="v2-nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="v2-nav-mobile">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="/demo" class="v2-btn">Book a demo</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mega menu panels — deliberately NOT nested inside .v2-nav-inner: that
+     element gets a backdrop-filter once scrolled (.is-scrolled), and a
+     backdrop-filter on an ancestor creates a new containing block for
+     position:fixed descendants, which combined with .v2-nav-inner's own
+     overflow:hidden (for its pill shape) was clipping these panels down to
+     the 76px-tall nav bar and making them invisible. Siblings of the nav
+     instead, positioned via JS-toggled .is-open. -->
+<div class="v2-nav-mega" id="v2Mega-features" role="region" aria-label="Features menu">
+  <div class="v2-nav-mega__container">
+    <div class="v2-nav-mega__left">
+      <div class="v2-nav-mega__eyebrow">Core Capabilities</div>
+      <h3 class="v2-nav-mega__heading">The operating system behind every booking.</h3>
+      <p class="v2-nav-mega__subtext">From bookings to payments, staff to reports &ndash; everything you need to run multiple branches, in one place.</p>
+      <div class="v2-nav-mega__grid">
+        <a href="/features/booking" class="v2-nav-mega__item">
+          <div class="v2-nav-mega__icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="v2-nav-mega__body">
+            <span class="v2-nav-mega__name">Booking Engine</span>
+            <span class="v2-nav-mega__desc">6-step flow with database-enforced conflict prevention.</span>
+          </div>
+        </a>
+        <a href="/features/operational-visibility" class="v2-nav-mega__item">
+          <div class="v2-nav-mega__icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+          </div>
+          <div class="v2-nav-mega__body">
+            <span class="v2-nav-mega__name">Operations</span>
+            <span class="v2-nav-mega__desc">Real-time floor visibility, rosters, and staff dashboards.</span>
+          </div>
+        </a>
+        <a href="/features/payment-tracking" class="v2-nav-mega__item">
+          <div class="v2-nav-mega__icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="v2-nav-mega__body">
+            <span class="v2-nav-mega__name">Finance &amp; Reconciliation</span>
+            <span class="v2-nav-mega__desc">30-second daily revenue closes and payment audits.</span>
+          </div>
+        </a>
+        <a href="/features/reports" class="v2-nav-mega__item">
+          <div class="v2-nav-mega__icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="v2-nav-mega__body">
+            <span class="v2-nav-mega__name">Live Reports</span>
+            <span class="v2-nav-mega__desc">8 built-in reports showing real-time utilization.</span>
+          </div>
+        </a>
+        <a href="/features/discount-management" class="v2-nav-mega__item">
+          <div class="v2-nav-mega__icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+          </div>
+          <div class="v2-nav-mega__body">
+            <span class="v2-nav-mega__name">Discount Management</span>
+            <span class="v2-nav-mega__desc">Request-based discounts with real-time manager approval.</span>
+          </div>
+        </a>
+        <a href="/features/staff-management" class="v2-nav-mega__item">
+          <div class="v2-nav-mega__icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="v2-nav-mega__body">
+            <span class="v2-nav-mega__name">Staff Management</span>
+            <span class="v2-nav-mega__desc">Schedule staff transfers between branches with an effective date.</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="v2-nav-mega__right">
+      <div class="v2-nav-mega__right-tag">Industry Engine</div>
+      <h4 class="v2-nav-mega__right-title">Built for any vertical</h4>
+      <p class="v2-nav-mega__right-text">Database-driven configuration overrides terminology and business rules out-of-the-box.</p>
+      <div class="v2-nav-mega__verticals">
+        <a href="/solutions/salon" class="v2-nav-mega__vertical-link"><span class="v2-nav-mega__vertical-bullet">&#9679;</span> Hair &amp; Nail Salons</a>
+        <a href="/solutions/spa" class="v2-nav-mega__vertical-link"><span class="v2-nav-mega__vertical-bullet">&#9679;</span> Spas &amp; Wellness</a>
+        <a href="/solutions/tattoo" class="v2-nav-mega__vertical-link"><span class="v2-nav-mega__vertical-bullet">&#9679;</span> Tattoo Studios</a>
+      </div>
+      <div class="v2-nav-mega__industry-cards">
+        <div class="v2-nav-mega__industry-card" style="background-image:url('/assets/images/solution-hero-spa.png');"></div>
+      </div>
+      <a href="/solutions" class="v2-nav-mega__right-cta">
+        See how it works
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="display:inline; margin-left:2px;"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="v2-nav-mega__footer">
+    <span class="v2-nav-mega__footer-text">351 bookings managed across 4 branches, every week.</span>
+    <a href="/features" class="v2-nav-mega__footer-link">See All Features &rarr;</a>
+  </div>
+</div>
+
+<div class="v2-nav-mega v2-nav-mega--sm" id="v2Mega-resources" role="region" aria-label="Resources menu">
+  <div class="v2-nav-mega__container">
+    <div class="v2-nav-mega__left">
+      <div class="v2-nav-mega__grid v2-nav-mega__grid--1col">
+        <a href="/blog" class="v2-nav-mega__item">
+          <div class="v2-nav-mega__icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="v2-nav-mega__body">
+            <span class="v2-nav-mega__name">Blog</span>
+            <span class="v2-nav-mega__desc">Guides on running a multi-branch service business.</span>
+          </div>
+        </a>
+        <a href="/case-study" class="v2-nav-mega__item">
+          <div class="v2-nav-mega__icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="v2-nav-mega__body">
+            <span class="v2-nav-mega__name">Case Study</span>
+            <span class="v2-nav-mega__desc">How Nuad Thai Spa runs four branches on Zennly.</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blur backdrop for the active mega menu -->
+<div class="v2-nav-backdrop" aria-hidden="true"></div>
+
+<!-- Mobile menu — ported 1:1 from the homepage (src/index.njk, #v2-nav-mobile):
+     Features/Resources accordion groups (tap equivalent of the desktop mega
+     menu) instead of the old flat link list, so every page's mobile nav
+     matches the homepage's. -->
+<nav id="v2-nav-mobile" class="v2-nav-mobile" aria-hidden="true">
+  <div class="v2-nav-mobile__group">
+    <button type="button" class="v2-nav-mobile__trigger" aria-expanded="false" aria-controls="v2-nav-mobile-features">
+      Features
+      <svg class="v2-nav-mobile__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="v2-nav-mobile__submenu" id="v2-nav-mobile-features">
+      <a href="/features"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>All Features</a>
+      <a href="/features/booking"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>Booking Engine</a>
+      <a href="/features/operational-visibility"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></span>Operations</a>
+      <a href="/features/payment-tracking"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>Finance &amp; Reconciliation</a>
+      <a href="/features/reports"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>Live Reports</a>
+      <a href="/features/discount-management"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>Discount Management</a>
+      <a href="/features/staff-management"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Staff Management</a>
+    </div>
+  </div>
+  <a href="/how-it-works">How it Works</a>
+  <a href="/solutions">Solutions</a>
+  <div class="v2-nav-mobile__group">
+    <button type="button" class="v2-nav-mobile__trigger" aria-expanded="false" aria-controls="v2-nav-mobile-resources">
+      Resources
+      <svg class="v2-nav-mobile__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="v2-nav-mobile__submenu" id="v2-nav-mobile-resources">
+      <a href="/blog"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Blog</a>
+      <a href="/case-study"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>Case Study</a>
+    </div>
+  </div>
+  <a href="/demo" class="v2-btn">Book a demo</a>
+</nav>
+
+<!-- Solid scrim behind the mobile menu — the panel itself has no backdrop, so
+     underlying page content was showing through half-faded, reading as a
+     stray blur; this also gives the menu a tap-outside-to-close target.
+     Mobile-only: hidden at 861px+ alongside .v2-nav-mobile. -->
+<div id="v2-nav-mobile-scrim" class="v2-nav-mobile-scrim" aria-hidden="true"></div>
