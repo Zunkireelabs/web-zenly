@@ -1,8 +1,8 @@
----
+﻿---
 layout: base.njk
 ---
 
-<main>
+<main class="fd-page">
 
   <!-- ── HERO ────────────────────────────────────────────────────────────── -->
   <section class="fd-hero" data-feature="{{ feature.slug }}">
@@ -471,53 +471,1150 @@ layout: base.njk
   </section>
   {% endif %}
 
-  <!-- ── WORKFLOW TIMELINE ─────────────────────────────────────────────── -->
+  <!-- ── WORKFLOW TIMELINE (sticky-scroll steps + phone mockup) ─────────── -->
   {% if feature.workflow %}
   <section class="fd-workflow">
     <div class="section__inner">
+      <div class="fd-workflow__head reveal">
+        <h2 class="fd-workflow__heading">{{ feature.workflowHeading | safe if feature.workflowHeading else "How a booking day runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>" | safe }}</h2>
+        <p class="fd-workflow__sub">{{ feature.workflowSub if feature.workflowSub else "A real timeline of one appointment, hour by hour." }}</p>
+      </div>
+
       <div class="fd-workflow__pin-wrap" data-workflow-scroll style="--wf-steps: {{ feature.workflow | length }}">
         <div class="fd-workflow__sticky">
-          <div class="fd-workflow__head">
-            <h2 class="fd-workflow__heading">{{ feature.workflowHeading | safe if feature.workflowHeading else "How a booking day runs on <span class=\"fd-workflow__heading-accent\">Zenly.</span>" | safe }}</h2>
-            <p class="fd-workflow__sub">{{ feature.workflowSub if feature.workflowSub else "A real timeline of one appointment, hour by hour." }}</p>
-          </div>
+          <div class="fd-workflow__layout">
 
-          <div class="fd-workflow__container">
-            <div class="fd-workflow__grid">
+            <div class="fd-workflow__steps">
               {% for item in feature.workflow %}
-              <div class="fd-workflow__col{% if loop.first %} is-active{% endif %}">
-                <div class="fd-workflow__node-col">
-                  <div class="fd-workflow__node">
-                    <span class="fd-workflow__node-icon-wrap">
-                      {% if item.status == "Pending" %}
-                      <svg class="fd-workflow__node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                      {% elif item.status == "Confirmed" %}
-                      <svg class="fd-workflow__node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                      {% elif item.status == "In-Progress" %}
-                      <svg class="fd-workflow__node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                      {% elif item.status == "Completed" %}
-                      <svg class="fd-workflow__node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      {% elif item.status == "Reconciled" %}
-                      <svg class="fd-workflow__node-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                      {% endif %}
+              <div class="fd-workflow__step{% if loop.first %} is-active{% endif %}" data-workflow-step="{{ loop.index0 }}">
+                <span class="fd-workflow__step-time">{{ item.time }}</span>
+                <div class="fd-workflow__step-row">
+                  <h3 class="fd-workflow__step-title">{{ item.title }}</h3>
+                  <span class="fd-workflow__step-tag">( {{ item.num }} )</span>
+                </div>
+                <p class="fd-workflow__step-body">{{ item.body }}</p>
+              </div>
+              {% endfor %}
+            </div>
+
+            <div class="fd-workflow__rail" aria-hidden="true">
+              <span class="fd-workflow__rail-fill" data-workflow-fill></span>
+              <span class="fd-workflow__rail-dot" data-workflow-dot></span>
+            </div>
+
+            <div class="fd-workflow__phone-col">
+              <div class="fd-workflow__phone">
+                <div class="fd-workflow__phone-media">
+                  <div class="fd-workflow__phone-statusbar">
+                    <span>9:41</span>
+                    <span class="fd-workflow__phone-statusbar-icons">
+                      <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><rect x="0" y="6" width="2.5" height="4" rx="0.5" fill="currentColor"/><rect x="4" y="4" width="2.5" height="6" rx="0.5" fill="currentColor"/><rect x="8" y="2" width="2.5" height="8" rx="0.5" fill="currentColor"/><rect x="11.5" y="0" width="2.5" height="10" rx="0.5" fill="currentColor" opacity="0.35"/></svg>
+                      <svg width="18" height="10" viewBox="0 0 18 10" fill="none"><rect x="0.5" y="0.5" width="15" height="9" rx="2" stroke="currentColor"/><rect x="2" y="2" width="10" height="6" rx="1" fill="currentColor"/><rect x="16" y="3" width="1.5" height="4" rx="0.5" fill="currentColor"/></svg>
                     </span>
                   </div>
-                  <span class="fd-workflow__node-label">{{ item.status }}</span>
+
+                  <!-- Constant app chrome — just the header; the schedule rows that used
+                       to sit here never changed across steps, so they've been dropped
+                       in favor of the step scenes actually filling the screen. -->
+                  <div class="fd-workflow__app-header">
+                    <span class="fd-workflow__app-header-title">Today</span>
+                    <span class="fd-workflow__phone-wordmark">Zennly</span>
+                  </div>
+
+                  <!-- The part that actually cross-fades per step — one of three real
+                       app-screen scenes (not a repeat of the left-column copy), chosen
+                       by what the step is actually about: a dashboard/report check-in,
+                       a completed/settled confirmation, or a live notification. -->
+                  <div class="fd-workflow__phone-stage">
+                    {% for item in feature.workflow %}
+                    {% set lowerBody = item.body | lower %}
+                    {% set isDashboard = ("dashboard" in lowerBody) or ("report" in lowerBody) or ("revenue" in lowerBody) or ("compare" in lowerBody) or ("exported" in lowerBody) or ("trend" in lowerBody) %}
+                    {% set isSuccess = (item.status == "Completed" or item.status == "Reconciled") and not isDashboard %}
+                    {% set isDiscountRequestForm = feature.slug == "discount-management" and loop.index0 == 0 %}
+                    {% set isDiscountReviewForm = feature.slug == "discount-management" and loop.index0 == 1 %}
+                    {% set isDiscountAppliedForm = feature.slug == "discount-management" and loop.index0 == 2 %}
+                    {% set isDiscountReportForm = feature.slug == "discount-management" and loop.index0 == 3 %}
+                    {% set isBookingCreate = feature.slug == "booking" and loop.index0 == 0 %}
+                    {% set isBookingConfirm = feature.slug == "booking" and loop.index0 == 1 %}
+                    {% set isBookingLive = feature.slug == "booking" and loop.index0 == 2 %}
+                    {% set isBookingClosed = feature.slug == "booking" and loop.index0 == 3 %}
+                    {% set isBookingDay = feature.slug == "booking" and loop.index0 == 4 %}
+                    {% set isPayFull = feature.slug == "payment-tracking" and loop.index0 == 0 %}
+                    {% set isPayPartial = feature.slug == "payment-tracking" and loop.index0 == 1 %}
+                    {% set isPayManagerTotal = feature.slug == "payment-tracking" and loop.index0 == 2 %}
+                    {% set isPaySettled = feature.slug == "payment-tracking" and loop.index0 == 3 %}
+                    {% set isPayOwner = feature.slug == "payment-tracking" and loop.index0 == 4 %}
+                    {% set isReportsYesterday = feature.slug == "reports" and loop.index0 == 0 %}
+                    {% set isReportsStaff = feature.slug == "reports" and loop.index0 == 1 %}
+                    {% set isReportsFlag = feature.slug == "reports" and loop.index0 == 2 %}
+                    {% set isReportsCompare = feature.slug == "reports" and loop.index0 == 3 %}
+                    {% set isReportsExport = feature.slug == "reports" and loop.index0 == 4 %}
+                    {% set isStaffNeed = feature.slug == "staff-management" and loop.index0 == 0 %}
+                    {% set isStaffScheduled = feature.slug == "staff-management" and loop.index0 == 1 %}
+                    {% set isStaffEffective = feature.slug == "staff-management" and loop.index0 == 2 %}
+                    {% set isStaffRoster = feature.slug == "staff-management" and loop.index0 == 3 %}
+                    {% set isOpsMorning = feature.slug == "operational-visibility" and loop.index0 == 0 %}
+                    {% set isOpsRunningLong = feature.slug == "operational-visibility" and loop.index0 == 1 %}
+                    {% set isOpsPattern = feature.slug == "operational-visibility" and loop.index0 == 2 %}
+                    {% set isOpsDayCloses = feature.slug == "operational-visibility" and loop.index0 == 3 %}
+
+                    {% if isBookingCreate %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__form">
+                        <div class="fd-workflow__form-head">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                          <span>New booking</span>
+                        </div>
+                        <div class="fd-workflow__form-banner">
+                          <span class="fd-workflow__form-banner-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 2v4"/><path d="M8 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>
+                          </span>
+                          <div>
+                            <p class="fd-workflow__form-banner-title">Customer on the line</p>
+                            <p class="fd-workflow__form-banner-sub">Build the booking while she's still talking.</p>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__form-field">
+                          <span class="fd-workflow__form-label">Service</span>
+                          <div class="fd-workflow__form-select">
+                            <span>Deep Tissue Massage</span>
+                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__form-field">
+                          <span class="fd-workflow__form-label">Therapist</span>
+                          <div class="fd-workflow__form-select">
+                            <span>Emily C.</span>
+                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__form-row">
+                          <div class="fd-workflow__form-field">
+                            <span class="fd-workflow__form-label">Branch</span>
+                            <div class="fd-workflow__form-select">
+                              <span>Lazimpat</span>
+                              <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                          </div>
+                          <div class="fd-workflow__form-field">
+                            <span class="fd-workflow__form-label">Time</span>
+                            <div class="fd-workflow__form-select">
+                              <span>3:30 PM</span>
+                              <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="fd-workflow__form-submit" type="button">
+                          Confirm booking
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                    {% elif isBookingConfirm %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__review">
+                        <div class="fd-workflow__notif fd-workflow__review-notif">
+                          <div class="fd-workflow__notif-head">
+                            <span class="fd-workflow__notif-logo">Z</span>
+                            <span class="fd-workflow__notif-app">Zennly</span>
+                            <span class="fd-workflow__notif-time">Just now</span>
+                          </div>
+                          <div class="fd-workflow__notif-body">
+                            <strong>{{ item.title }}</strong>
+                          </div>
+                          <div class="fd-workflow__notif-foot">
+                            <span class="fd-workflow__phone-badge fd-workflow__phone-badge--pending">Awaiting slot</span>
+                            <span class="fd-workflow__notif-step">STEP {{ item.num }}</span>
+                          </div>
+                        </div>
+
+                        <span class="fd-workflow__review-label">Today's schedule</span>
+                        <div class="fd-workflow__review-card">
+                          <div class="fd-workflow__review-row">
+                            <span class="fd-workflow__review-icon">
+                              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </span>
+                            <div class="fd-workflow__review-field">
+                              <span class="fd-workflow__review-field-label">3:30 PM · Deep Tissue Massage</span>
+                              <span class="fd-workflow__review-field-value">Emily C. — Lazimpat</span>
+                            </div>
+                          </div>
+                          <div class="fd-workflow__review-field fd-workflow__review-field--plain">
+                            <span class="fd-workflow__review-field-label">Client</span>
+                            <span class="fd-workflow__review-field-value">Sarah M.</span>
+                          </div>
+                        </div>
+
+                        <button class="fd-workflow__form-submit" type="button">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                          Confirm slot
+                        </button>
+                      </div>
+                    </div>
+                    {% elif isBookingLive %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__live">
+                        <div class="fd-workflow__live-card">
+                          <div class="fd-workflow__live-top">
+                            <span class="fd-sch-dot pulsing"></span>
+                            <span class="fd-workflow__live-label">Live now</span>
+                            <span class="fd-workflow__notif-time">3:32 PM</span>
+                          </div>
+                          <p class="fd-workflow__live-title">Deep Tissue Massage</p>
+                          <p class="fd-workflow__live-sub">Sarah M. with Emily C. — Lazimpat</p>
+                        </div>
+                        <div class="fd-workflow__live-steps">
+                          <div class="fd-workflow__live-step is-done"><span></span>Pending</div>
+                          <div class="fd-workflow__live-step is-done"><span></span>Confirmed</div>
+                          <div class="fd-workflow__live-step is-active"><span></span>In-Progress</div>
+                          <div class="fd-workflow__live-step"><span></span>Completed</div>
+                        </div>
+                        <p class="fd-workflow__live-caption">Visible to every branch, in real time — no one has to ask.</p>
+                      </div>
+                    </div>
+                    {% elif isBookingClosed %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__receipt">
+                        <div class="fd-workflow__success fd-workflow__receipt-success">
+                          <span class="fd-workflow__success-check" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                          </span>
+                          <p class="fd-workflow__success-title">{{ item.title }}</p>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--completed">Completed</span>
+                        </div>
+                        <div class="fd-workflow__receipt-card">
+                          <div class="fd-workflow__receipt-row">
+                            <span>Service</span>
+                            <span>Deep Tissue Massage</span>
+                          </div>
+                          <div class="fd-workflow__receipt-row">
+                            <span>Therapist</span>
+                            <span>Emily C.</span>
+                          </div>
+                          <div class="fd-workflow__receipt-row fd-workflow__receipt-row--total">
+                            <span>Paid</span>
+                            <span>$120.00</span>
+                          </div>
+                        </div>
+                        <p class="fd-workflow__receipt-caption">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                          Booking closed · Clean record saved
+                        </p>
+                      </div>
+                    </div>
+                    {% elif isBookingDay %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__report">
+                        <div class="fd-workflow__report-head">
+                          <span class="fd-workflow__report-title">Today, across branches</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--reconciled">Reconciled</span>
+                        </div>
+                        <p class="fd-workflow__report-sub">{{ item.time }}</p>
+                        <div class="fd-workflow__report-banner">
+                          <span class="fd-workflow__form-banner-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+                          </span>
+                          <div class="fd-workflow__report-banner-stat">
+                            <span class="fd-workflow__report-banner-value">42</span>
+                            <span class="fd-workflow__report-banner-label">created</span>
+                          </div>
+                          <div class="fd-workflow__report-banner-stat">
+                            <span class="fd-workflow__report-banner-value">38</span>
+                            <span class="fd-workflow__report-banner-label">completed</span>
+                          </div>
+                        </div>
+                        <span class="fd-workflow__review-label">By branch</span>
+                        <div class="fd-workflow__report-insights">
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Lazimpat</span>
+                            <span class="fd-workflow__report-insight-value">16 booked</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Patan</span>
+                            <span class="fd-workflow__report-insight-value">14 booked</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Baneshwor</span>
+                            <span class="fd-workflow__report-insight-value">12 booked</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% elif isPayFull %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__receipt">
+                        <div class="fd-workflow__success fd-workflow__receipt-success">
+                          <span class="fd-workflow__success-check" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                          </span>
+                          <p class="fd-workflow__success-title">{{ item.title }}</p>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--confirmed">Paid in full</span>
+                        </div>
+                        <div class="fd-workflow__receipt-card">
+                          <div class="fd-workflow__receipt-row">
+                            <span>Booking</span>
+                            <span>9:15 AM · Massage</span>
+                          </div>
+                          <div class="fd-workflow__receipt-row">
+                            <span>Therapist</span>
+                            <span>Emily C.</span>
+                          </div>
+                          <div class="fd-workflow__receipt-row fd-workflow__receipt-row--total">
+                            <span>Amount received</span>
+                            <span>$120.00</span>
+                          </div>
+                        </div>
+                        <p class="fd-workflow__receipt-caption">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                          Linked to booking, therapist, service and branch
+                        </p>
+                      </div>
+                    </div>
+                    {% elif isPayPartial %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__form">
+                        <div class="fd-workflow__form-head">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                          <span>Record payment</span>
+                        </div>
+                        <div class="fd-workflow__form-field">
+                          <span class="fd-workflow__form-label">Booking</span>
+                          <div class="fd-workflow__form-select">
+                            <span>11:40 AM · Aromatherapy</span>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__pay-amount">
+                          <span class="fd-workflow__pay-amount-label">Amount received</span>
+                          <span class="fd-workflow__pay-amount-value">$60.00</span>
+                          <span class="fd-workflow__pay-amount-of">of $120.00 total</span>
+                        </div>
+                        <div class="fd-workflow__pay-balance">
+                          <span>Balance remaining</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--pending">$60.00</span>
+                        </div>
+                        <button class="fd-workflow__form-submit" type="button">
+                          Save payment
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                    {% elif isPayManagerTotal %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__dash">
+                        <div class="fd-workflow__dash-head">
+                          <span class="fd-workflow__dash-title">Today's revenue</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--in-progress">Live</span>
+                        </div>
+                        <div class="fd-workflow__dash-stats">
+                          <div class="fd-workflow__dash-stat">
+                            <span class="fd-workflow__dash-stat-label">Collected</span>
+                            <span class="fd-workflow__dash-stat-value">$1,860</span>
+                            <span class="fd-workflow__dash-stat-trend">↑ 8%</span>
+                          </div>
+                          <div class="fd-workflow__dash-stat">
+                            <span class="fd-workflow__dash-stat-label">Outstanding</span>
+                            <span class="fd-workflow__dash-stat-value">$60</span>
+                            <span class="fd-workflow__dash-stat-trend">1 booking</span>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__dash-bars" aria-hidden="true">
+                          <span style="height:38%"></span><span style="height:62%"></span><span style="height:48%"></span>
+                          <span style="height:80%"></span><span style="height:56%"></span><span style="height:92%"></span>
+                          <span style="height:70%"></span><span style="height:98%"></span>
+                        </div>
+                        <p class="fd-workflow__dash-caption">{{ item.title }}</p>
+                      </div>
+                    </div>
+                    {% elif isPaySettled %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__receipt">
+                        <div class="fd-workflow__success fd-workflow__receipt-success">
+                          <span class="fd-workflow__success-check" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                          </span>
+                          <p class="fd-workflow__success-title">{{ item.title }}</p>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--completed">Completed</span>
+                        </div>
+                        <div class="fd-workflow__receipt-card">
+                          <div class="fd-workflow__receipt-row">
+                            <span>Balance was</span>
+                            <span>$60.00</span>
+                          </div>
+                          <div class="fd-workflow__receipt-row">
+                            <span>Paid now</span>
+                            <span>$60.00</span>
+                          </div>
+                          <div class="fd-workflow__receipt-row fd-workflow__receipt-row--total">
+                            <span>Remaining</span>
+                            <span>$0.00</span>
+                          </div>
+                        </div>
+                        <p class="fd-workflow__receipt-caption">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                          Nothing owed, nothing missed
+                        </p>
+                      </div>
+                    </div>
+                    {% elif isPayOwner %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__report">
+                        <div class="fd-workflow__report-head">
+                          <span class="fd-workflow__report-title">Revenue, every branch</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--reconciled">Reconciled</span>
+                        </div>
+                        <p class="fd-workflow__report-sub">{{ item.time }}</p>
+                        <div class="fd-workflow__report-banner">
+                          <span class="fd-workflow__form-banner-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                          </span>
+                          <div class="fd-workflow__report-banner-stat">
+                            <span class="fd-workflow__report-banner-value">$5,240</span>
+                            <span class="fd-workflow__report-banner-label">today</span>
+                          </div>
+                        </div>
+                        <span class="fd-workflow__review-label">By branch</span>
+                        <div class="fd-workflow__report-insights">
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Lazimpat</span>
+                            <span class="fd-workflow__report-insight-value">$1,860</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Patan</span>
+                            <span class="fd-workflow__report-insight-value">$1,690</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Baneshwor</span>
+                            <span class="fd-workflow__report-insight-value">$1,690</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% elif isReportsYesterday %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__dash">
+                        <div class="fd-workflow__dash-head">
+                          <span class="fd-workflow__dash-title">Yesterday's revenue</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--pending">Pending</span>
+                        </div>
+                        <div class="fd-workflow__dash-stats">
+                          <div class="fd-workflow__dash-stat">
+                            <span class="fd-workflow__dash-stat-label">Total</span>
+                            <span class="fd-workflow__dash-stat-value">$1,940</span>
+                            <span class="fd-workflow__dash-stat-trend">↑ 6% vs Mon</span>
+                          </div>
+                          <div class="fd-workflow__dash-stat">
+                            <span class="fd-workflow__dash-stat-label">Bookings</span>
+                            <span class="fd-workflow__dash-stat-value">31</span>
+                            <span class="fd-workflow__dash-stat-trend">3 branches</span>
+                          </div>
+                        </div>
+                        <span class="fd-workflow__review-label">By branch</span>
+                        <div class="fd-workflow__report-insights">
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Lazimpat</span>
+                            <span class="fd-workflow__report-insight-value">$740</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Patan</span>
+                            <span class="fd-workflow__report-insight-value">$650</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Baneshwor</span>
+                            <span class="fd-workflow__report-insight-value">$550</span>
+                          </div>
+                        </div>
+                        <p class="fd-workflow__dash-caption">Open before the first call comes in.</p>
+                      </div>
+                    </div>
+                    {% elif isReportsStaff %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__staff">
+                        <div class="fd-workflow__dash-head">
+                          <span class="fd-workflow__dash-title">Staff performance</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--confirmed">Today</span>
+                        </div>
+                        <div class="fd-workflow__staff-list">
+                          <div class="fd-workflow__staff-row">
+                            <span class="fd-workflow__staff-avatar">EC</span>
+                            <div class="fd-workflow__staff-info">
+                              <span class="fd-workflow__staff-name">Emily C.</span>
+                              <span class="fd-workflow__staff-meta">9 bookings · 2 discounts</span>
+                            </div>
+                            <span class="fd-workflow__staff-stat">12%</span>
+                          </div>
+                          <div class="fd-workflow__staff-row">
+                            <span class="fd-workflow__staff-avatar">RS</span>
+                            <div class="fd-workflow__staff-info">
+                              <span class="fd-workflow__staff-name">Rita S.</span>
+                              <span class="fd-workflow__staff-meta">7 bookings · 1 discount</span>
+                            </div>
+                            <span class="fd-workflow__staff-stat">8%</span>
+                          </div>
+                          <div class="fd-workflow__staff-row">
+                            <span class="fd-workflow__staff-avatar">MK</span>
+                            <div class="fd-workflow__staff-info">
+                              <span class="fd-workflow__staff-name">Milan K.</span>
+                              <span class="fd-workflow__staff-meta">8 bookings · 5 discounts</span>
+                            </div>
+                            <span class="fd-workflow__staff-stat fd-workflow__staff-stat--high">31%</span>
+                          </div>
+                        </div>
+                        <p class="fd-workflow__dash-caption">Discount rate, per staff member — before the lunch rush.</p>
+                      </div>
+                    </div>
+                    {% elif isReportsFlag %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__alert">
+                        <div class="fd-workflow__form-banner fd-workflow__alert-banner">
+                          <span class="fd-workflow__form-banner-icon fd-workflow__alert-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                          </span>
+                          <div>
+                            <p class="fd-workflow__form-banner-title">Discount pattern flagged</p>
+                            <p class="fd-workflow__form-banner-sub">Milan K. is well above the branch average.</p>
+                          </div>
+                        </div>
+                        <span class="fd-workflow__review-label">Discount rate vs. branch average</span>
+                        <div class="fd-workflow__alert-compare">
+                          <div class="fd-workflow__alert-bar-row is-flagged">
+                            <span class="fd-workflow__alert-bar-label">Milan K.</span>
+                            <div class="fd-workflow__alert-bar-track"><span class="fd-workflow__alert-bar-fill" style="width:82%"></span></div>
+                            <span class="fd-workflow__alert-bar-value">31%</span>
+                          </div>
+                          <div class="fd-workflow__alert-bar-row">
+                            <span class="fd-workflow__alert-bar-label">Branch avg</span>
+                            <div class="fd-workflow__alert-bar-track"><span class="fd-workflow__alert-bar-fill" style="width:26%"></span></div>
+                            <span class="fd-workflow__alert-bar-value">10%</span>
+                          </div>
+                        </div>
+                        <button class="fd-workflow__form-submit fd-workflow__alert-cta" type="button">
+                          Discuss with Milan
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                    {% elif isReportsCompare %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__compare">
+                        <div class="fd-workflow__dash-head">
+                          <span class="fd-workflow__dash-title">This week vs last week</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--completed">↑ 14%</span>
+                        </div>
+                        <div class="fd-workflow__compare-legend">
+                          <span><i class="fd-workflow__compare-dot fd-workflow__compare-dot--now"></i>This week</span>
+                          <span><i class="fd-workflow__compare-dot fd-workflow__compare-dot--prev"></i>Last week</span>
+                        </div>
+                        <div class="fd-workflow__compare-bars" aria-hidden="true">
+                          <div class="fd-workflow__compare-pair"><span class="is-prev" style="height:44%"></span><span class="is-now" style="height:58%"></span></div>
+                          <div class="fd-workflow__compare-pair"><span class="is-prev" style="height:52%"></span><span class="is-now" style="height:60%"></span></div>
+                          <div class="fd-workflow__compare-pair"><span class="is-prev" style="height:38%"></span><span class="is-now" style="height:50%"></span></div>
+                          <div class="fd-workflow__compare-pair"><span class="is-prev" style="height:60%"></span><span class="is-now" style="height:74%"></span></div>
+                          <div class="fd-workflow__compare-pair"><span class="is-prev" style="height:48%"></span><span class="is-now" style="height:66%"></span></div>
+                          <div class="fd-workflow__compare-pair"><span class="is-prev" style="height:70%"></span><span class="is-now" style="height:88%"></span></div>
+                          <div class="fd-workflow__compare-pair"><span class="is-prev" style="height:64%"></span><span class="is-now" style="height:98%"></span></div>
+                        </div>
+                        <p class="fd-workflow__dash-caption">Every branch, side by side — no export needed to see it.</p>
+                      </div>
+                    </div>
+                    {% elif isReportsExport %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__export">
+                        <div class="fd-workflow__report-head">
+                          <span class="fd-workflow__report-title">Exports ready</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--reconciled">Reconciled</span>
+                        </div>
+                        <div class="fd-workflow__export-list">
+                          <div class="fd-workflow__export-row">
+                            <span class="fd-workflow__export-icon">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            </span>
+                            <div class="fd-workflow__export-info">
+                              <span class="fd-workflow__export-name">Revenue_May.csv</span>
+                              <span class="fd-workflow__export-meta">312 rows</span>
+                            </div>
+                            <span class="fd-workflow__export-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                          </div>
+                          <div class="fd-workflow__export-row">
+                            <span class="fd-workflow__export-icon">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            </span>
+                            <div class="fd-workflow__export-info">
+                              <span class="fd-workflow__export-name">Discounts_May.csv</span>
+                              <span class="fd-workflow__export-meta">18 rows</span>
+                            </div>
+                            <span class="fd-workflow__export-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                          </div>
+                          <div class="fd-workflow__export-row">
+                            <span class="fd-workflow__export-icon">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            </span>
+                            <div class="fd-workflow__export-info">
+                              <span class="fd-workflow__export-name">Staff_May.csv</span>
+                              <span class="fd-workflow__export-meta">9 rows</span>
+                            </div>
+                            <span class="fd-workflow__export-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                          </div>
+                        </div>
+                        <p class="fd-workflow__receipt-caption">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                          Same numbers the team's been checking all month
+                        </p>
+                      </div>
+                    </div>
+                    {% elif isStaffNeed %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__dash">
+                        <div class="fd-workflow__dash-head">
+                          <span class="fd-workflow__dash-title">Roster capacity</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--pending">Pending</span>
+                        </div>
+                        <div class="fd-workflow__dash-stats">
+                          <div class="fd-workflow__dash-stat">
+                            <span class="fd-workflow__dash-stat-label">Under capacity</span>
+                            <span class="fd-workflow__dash-stat-value">1 branch</span>
+                            <span class="fd-workflow__dash-stat-trend">Next week</span>
+                          </div>
+                          <div class="fd-workflow__dash-stat">
+                            <span class="fd-workflow__dash-stat-label">Spare capacity</span>
+                            <span class="fd-workflow__dash-stat-value">1 therapist</span>
+                            <span class="fd-workflow__dash-stat-trend">Available now</span>
+                          </div>
+                        </div>
+                        <span class="fd-workflow__review-label">By branch</span>
+                        <div class="fd-workflow__report-insights">
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Patan</span>
+                            <span class="fd-workflow__report-insight-value fd-workflow__report-insight-value--warn">2 short</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Lazimpat</span>
+                            <span class="fd-workflow__report-insight-value">1 spare</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Baneshwor</span>
+                            <span class="fd-workflow__report-insight-value">Full</span>
+                          </div>
+                        </div>
+                        <p class="fd-workflow__dash-caption">One screen, every branch — no calls needed to see the gap.</p>
+                      </div>
+                    </div>
+                    {% elif isStaffScheduled %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__form">
+                        <div class="fd-workflow__form-head">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                          <span>Schedule transfer</span>
+                        </div>
+                        <div class="fd-workflow__form-field">
+                          <span class="fd-workflow__form-label">Therapist</span>
+                          <div class="fd-workflow__form-select">
+                            <span>Priya N.</span>
+                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__form-row">
+                          <div class="fd-workflow__form-field">
+                            <span class="fd-workflow__form-label">From</span>
+                            <div class="fd-workflow__form-select">
+                              <span>Lazimpat</span>
+                              <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                          </div>
+                          <div class="fd-workflow__form-field">
+                            <span class="fd-workflow__form-label">To</span>
+                            <div class="fd-workflow__form-select">
+                              <span>Patan</span>
+                              <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__form-field">
+                          <span class="fd-workflow__form-label">Effective date</span>
+                          <div class="fd-workflow__form-select">
+                            <span>Mon, June 2</span>
+                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__receipt-note">
+                          <span class="fd-workflow__receipt-note-icon">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                          </span>
+                          <span>Both branches will see this before it happens</span>
+                        </div>
+                        <button class="fd-workflow__form-submit" type="button">
+                          Schedule transfer
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                    {% elif isStaffEffective %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__live">
+                        <div class="fd-workflow__live-card">
+                          <div class="fd-workflow__live-top">
+                            <span class="fd-sch-dot pulsing"></span>
+                            <span class="fd-workflow__live-label">Effective today</span>
+                            <span class="fd-workflow__notif-time">Mon, June 2</span>
+                          </div>
+                          <p class="fd-workflow__live-title">Priya N. — now at Patan</p>
+                          <p class="fd-workflow__live-sub">Bookings can be assigned to her there</p>
+                        </div>
+                        <div class="fd-workflow__live-steps">
+                          <div class="fd-workflow__live-step is-done"><span></span>Transfer scheduled</div>
+                          <div class="fd-workflow__live-step is-active"><span></span>Effective date arrives</div>
+                          <div class="fd-workflow__live-step"><span></span>Roster updated everywhere</div>
+                        </div>
+                        <p class="fd-workflow__live-caption">No one had to remind anyone. No one had to confirm.</p>
+                      </div>
+                    </div>
+                    {% elif isStaffRoster %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__staff">
+                        <div class="fd-workflow__dash-head">
+                          <span class="fd-workflow__dash-title">Roster, today</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--reconciled">Reconciled</span>
+                        </div>
+                        <div class="fd-workflow__staff-list">
+                          <div class="fd-workflow__staff-row">
+                            <span class="fd-workflow__staff-avatar">PN</span>
+                            <div class="fd-workflow__staff-info">
+                              <span class="fd-workflow__staff-name">Priya N.</span>
+                              <span class="fd-workflow__staff-meta">Working at Patan</span>
+                            </div>
+                            <span class="fd-workflow__staff-branch">Patan</span>
+                          </div>
+                          <div class="fd-workflow__staff-row">
+                            <span class="fd-workflow__staff-avatar">EC</span>
+                            <div class="fd-workflow__staff-info">
+                              <span class="fd-workflow__staff-name">Emily C.</span>
+                              <span class="fd-workflow__staff-meta">Working at Lazimpat</span>
+                            </div>
+                            <span class="fd-workflow__staff-branch">Lazimpat</span>
+                          </div>
+                          <div class="fd-workflow__staff-row">
+                            <span class="fd-workflow__staff-avatar">MK</span>
+                            <div class="fd-workflow__staff-info">
+                              <span class="fd-workflow__staff-name">Milan K.</span>
+                              <span class="fd-workflow__staff-meta">Working at Baneshwor</span>
+                            </div>
+                            <span class="fd-workflow__staff-branch">Baneshwor</span>
+                          </div>
+                        </div>
+                        <p class="fd-workflow__dash-caption">Any manager, any branch — no group message required.</p>
+                      </div>
+                    </div>
+                    {% elif isOpsMorning %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__dash">
+                        <div class="fd-workflow__dash-head">
+                          <span class="fd-workflow__dash-title">Morning check-in</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--confirmed">Confirmed</span>
+                        </div>
+                        <div class="fd-workflow__dash-stats">
+                          <div class="fd-workflow__dash-stat">
+                            <span class="fd-workflow__dash-stat-label">Confirmed</span>
+                            <span class="fd-workflow__dash-stat-value">27</span>
+                            <span class="fd-workflow__dash-stat-trend">Before 9 AM</span>
+                          </div>
+                          <div class="fd-workflow__dash-stat">
+                            <span class="fd-workflow__dash-stat-label">Branches</span>
+                            <span class="fd-workflow__dash-stat-value">3</span>
+                            <span class="fd-workflow__dash-stat-trend">All reporting</span>
+                          </div>
+                        </div>
+                        <span class="fd-workflow__review-label">By branch</span>
+                        <div class="fd-workflow__report-insights">
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Lazimpat</span>
+                            <span class="fd-workflow__report-insight-value">11 confirmed</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Patan</span>
+                            <span class="fd-workflow__report-insight-value">9 confirmed</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Baneshwor</span>
+                            <span class="fd-workflow__report-insight-value">7 confirmed</span>
+                          </div>
+                        </div>
+                        <p class="fd-workflow__dash-caption">No calls needed to know the day started well.</p>
+                      </div>
+                    </div>
+                    {% elif isOpsRunningLong %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__live">
+                        <div class="fd-workflow__live-card fd-workflow__live-card--warn">
+                          <div class="fd-workflow__live-top">
+                            <span class="fd-sch-dot pulsing fd-workflow__live-dot--warn"></span>
+                            <span class="fd-workflow__live-label fd-workflow__live-label--warn">Running long</span>
+                            <span class="fd-workflow__notif-time">+12 min</span>
+                          </div>
+                          <p class="fd-workflow__live-title">Deep Tissue Massage — Branch 2</p>
+                          <p class="fd-workflow__live-sub">Started 10:00 AM · Expected 45 min</p>
+                        </div>
+                        <div class="fd-workflow__live-steps">
+                          <div class="fd-workflow__live-step is-done"><span></span>Confirmed</div>
+                          <div class="fd-workflow__live-step is-active"><span></span>In-Progress · overrunning</div>
+                          <div class="fd-workflow__live-step"><span></span>Completed</div>
+                        </div>
+                        <button class="fd-workflow__form-submit fd-workflow__alert-cta" type="button">
+                          Check in
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                    {% elif isOpsPattern %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__alert">
+                        <div class="fd-workflow__form-banner fd-workflow__alert-banner">
+                          <span class="fd-workflow__form-banner-icon fd-workflow__alert-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                          </span>
+                          <div>
+                            <p class="fd-workflow__form-banner-title">Cancellation pattern</p>
+                            <p class="fd-workflow__form-banner-sub">Branch 3 has had 3 cancellations today.</p>
+                          </div>
+                        </div>
+                        <span class="fd-workflow__review-label">Cancellations vs. branch average</span>
+                        <div class="fd-workflow__alert-compare">
+                          <div class="fd-workflow__alert-bar-row is-flagged">
+                            <span class="fd-workflow__alert-bar-label">Branch 3</span>
+                            <div class="fd-workflow__alert-bar-track"><span class="fd-workflow__alert-bar-fill" style="width:90%"></span></div>
+                            <span class="fd-workflow__alert-bar-value">3</span>
+                          </div>
+                          <div class="fd-workflow__alert-bar-row">
+                            <span class="fd-workflow__alert-bar-label">Avg / branch</span>
+                            <div class="fd-workflow__alert-bar-track"><span class="fd-workflow__alert-bar-fill" style="width:24%"></span></div>
+                            <span class="fd-workflow__alert-bar-value">0.8</span>
+                          </div>
+                        </div>
+                        <button class="fd-workflow__form-submit fd-workflow__alert-cta" type="button">
+                          Investigate
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                    {% elif isOpsDayCloses %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__report">
+                        <div class="fd-workflow__report-head">
+                          <span class="fd-workflow__report-title">Today, closed out</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--reconciled">Reconciled</span>
+                        </div>
+                        <p class="fd-workflow__report-sub">Across all branches</p>
+                        <div class="fd-workflow__report-banner">
+                          <span class="fd-workflow__form-banner-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                          </span>
+                          <div class="fd-workflow__report-banner-stat">
+                            <span class="fd-workflow__report-banner-value">61</span>
+                            <span class="fd-workflow__report-banner-label">completed</span>
+                          </div>
+                          <div class="fd-workflow__report-banner-stat">
+                            <span class="fd-workflow__report-banner-value">4</span>
+                            <span class="fd-workflow__report-banner-label">cancelled</span>
+                          </div>
+                        </div>
+                        <span class="fd-workflow__review-label">Quick summary</span>
+                        <div class="fd-workflow__report-insights">
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Paid</span>
+                            <span class="fd-workflow__report-insight-value">$3,420</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41L13.42 20.58a2 2 0 0 1-2.83 0L2.59 12.58V2h10.59l8.41 8.41a2 2 0 0 1 0 2.83z"/><circle cx="7" cy="7" r="1.5" fill="currentColor" stroke="none"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Discounts</span>
+                            <span class="fd-workflow__report-insight-value">6 applied</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Branches reporting</span>
+                            <span class="fd-workflow__report-insight-value">3 / 3</span>
+                          </div>
+                        </div>
+                        <p class="fd-workflow__dash-caption">Not a single summary call needed.</p>
+                      </div>
+                    </div>
+                    {% elif isDiscountReportForm %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form">
+                      <div class="fd-workflow__report">
+                        <div class="fd-workflow__report-head">
+                          <span class="fd-workflow__report-title">Month-end review</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--{{ item.status | lower }}">{{ item.status }}</span>
+                        </div>
+                        <p class="fd-workflow__report-sub">Discount activity · May 2025</p>
+
+                        <div class="fd-workflow__report-banner">
+                          <span class="fd-workflow__form-banner-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41L13.42 20.58a2 2 0 0 1-2.83 0L2.59 12.58V2h10.59l8.41 8.41a2 2 0 0 1 0 2.83z"/><circle cx="7" cy="7" r="1.5" fill="currentColor" stroke="none"/></svg>
+                          </span>
+                          <div class="fd-workflow__report-banner-stat">
+                            <span class="fd-workflow__report-banner-value">18</span>
+                            <span class="fd-workflow__report-banner-label">discounts</span>
+                          </div>
+                          <div class="fd-workflow__report-banner-stat">
+                            <span class="fd-workflow__report-banner-value">Rs. 42,800</span>
+                            <span class="fd-workflow__report-banner-label">value</span>
+                          </div>
+                        </div>
+
+                        <div class="fd-workflow__report-trend-head">
+                          <span>Discount trend</span>
+                          <span class="fd-workflow__report-trend-range">Last 6 months</span>
+                        </div>
+                        <div class="fd-workflow__dash-bars fd-workflow__report-bars" aria-hidden="true">
+                          <span style="height:30%"></span><span style="height:34%"></span><span style="height:38%"></span>
+                          <span style="height:55%"></span><span style="height:46%"></span><span style="height:100%" class="is-highlight"></span>
+                        </div>
+
+                        <span class="fd-workflow__review-label">Quick insights</span>
+                        <div class="fd-workflow__report-insights">
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Most requested</span>
+                            <span class="fd-workflow__report-insight-value">20%</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Top service</span>
+                            <span class="fd-workflow__report-insight-value">Deep Tissue</span>
+                          </div>
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">Highest branch</span>
+                            <span class="fd-workflow__report-insight-value">Lazimpat</span>
+                          </div>
+                        </div>
+
+                        <button class="fd-workflow__form-submit fd-workflow__report-cta" type="button">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                          View full report
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                    {% elif isDiscountAppliedForm %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form">
+                      <div class="fd-workflow__receipt">
+                        <div class="fd-workflow__success fd-workflow__receipt-success">
+                          <span class="fd-workflow__success-check" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                          </span>
+                          <p class="fd-workflow__success-title">{{ item.title }}</p>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--{{ item.status | lower }}">{{ item.status }}</span>
+                        </div>
+
+                        <div class="fd-workflow__receipt-card">
+                          <div class="fd-workflow__receipt-row">
+                            <span>Booking amount</span>
+                            <span>$120.00</span>
+                          </div>
+                          <div class="fd-workflow__receipt-row">
+                            <span>Discount (20%)</span>
+                            <span>− $24.00</span>
+                          </div>
+                          <div class="fd-workflow__receipt-row fd-workflow__receipt-row--total">
+                            <span>Final amount</span>
+                            <span>$96.00</span>
+                          </div>
+                        </div>
+
+                        <div class="fd-workflow__receipt-note">
+                          <span class="fd-workflow__receipt-note-icon">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+                          </span>
+                          <span>NPR amount calculated and logged</span>
+                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="fd-workflow__receipt-note-chevron"><path d="M9 18l6-6-6-6"/></svg>
+                        </div>
+
+                        <p class="fd-workflow__receipt-caption">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                          Payment recorded · Audit trail complete
+                        </p>
+                      </div>
+                    </div>
+                    {% elif isDiscountReviewForm %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form">
+                      <div class="fd-workflow__review">
+                        <div class="fd-workflow__notif fd-workflow__review-notif">
+                          <div class="fd-workflow__notif-head">
+                            <span class="fd-workflow__notif-logo">Z</span>
+                            <span class="fd-workflow__notif-app">Zennly</span>
+                            <span class="fd-workflow__notif-time">Just now</span>
+                          </div>
+                          <div class="fd-workflow__notif-body">
+                            <strong>{{ item.title }}</strong>
+                          </div>
+                          <div class="fd-workflow__notif-foot">
+                            <span class="fd-workflow__phone-badge fd-workflow__phone-badge--{{ item.status | lower }}">{{ item.status }} review</span>
+                            <span class="fd-workflow__notif-step">STEP {{ item.num }}</span>
+                          </div>
+                        </div>
+
+                        <span class="fd-workflow__review-label">Review request</span>
+                        <div class="fd-workflow__review-card">
+                          <div class="fd-workflow__review-row">
+                            <span class="fd-workflow__review-icon">
+                              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </span>
+                            <div class="fd-workflow__review-field">
+                              <span class="fd-workflow__review-field-label">Request type</span>
+                              <span class="fd-workflow__review-field-value">Discount request</span>
+                            </div>
+                          </div>
+                          <div class="fd-workflow__review-field fd-workflow__review-field--plain">
+                            <span class="fd-workflow__review-field-label">Discount</span>
+                            <span class="fd-workflow__review-field-value">20%</span>
+                          </div>
+                          <div class="fd-workflow__review-field fd-workflow__review-field--plain">
+                            <span class="fd-workflow__review-field-label">Reason</span>
+                            <span class="fd-workflow__review-field-value">Service delay</span>
+                          </div>
+                        </div>
+
+                        <div class="fd-workflow__review-actions">
+                          <button class="fd-workflow__review-btn fd-workflow__review-btn--decline" type="button">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                            Decline
+                          </button>
+                          <button class="fd-workflow__review-btn fd-workflow__review-btn--approve" type="button">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Approve
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    {% elif isDiscountRequestForm %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__form">
+                        <div class="fd-workflow__form-head">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                          <span>Request discount</span>
+                        </div>
+                        <div class="fd-workflow__form-banner">
+                          <span class="fd-workflow__form-banner-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41L13.42 20.58a2 2 0 0 1-2.83 0L2.59 12.58V2h10.59l8.41 8.41a2 2 0 0 1 0 2.83z"/><circle cx="7" cy="7" r="1.5" fill="currentColor" stroke="none"/></svg>
+                          </span>
+                          <div>
+                            <p class="fd-workflow__form-banner-title">Offer a discount</p>
+                            <p class="fd-workflow__form-banner-sub">Make it right, without the awkwardness.</p>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__form-field">
+                          <span class="fd-workflow__form-label">Service</span>
+                          <div class="fd-workflow__form-select">
+                            <span>Deep Tissue Massage</span>
+                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__form-field">
+                          <span class="fd-workflow__form-label">Booking / Appointment</span>
+                          <div class="fd-workflow__form-select fd-workflow__form-select--placeholder">
+                            <span>Select booking</span>
+                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__form-field">
+                          <span class="fd-workflow__form-label">Reason</span>
+                          <div class="fd-workflow__form-select fd-workflow__form-select--placeholder">
+                            <span>Select reason</span>
+                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__form-field">
+                          <span class="fd-workflow__form-label">Discount percentage</span>
+                          <div class="fd-workflow__form-pills">
+                            <span class="fd-workflow__form-pill">10%</span>
+                            <span class="fd-workflow__form-pill">15%</span>
+                            <span class="fd-workflow__form-pill is-selected">20%</span>
+                            <span class="fd-workflow__form-pill">Other</span>
+                          </div>
+                        </div>
+                        <button class="fd-workflow__form-submit" type="button">
+                          Submit request
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                    {% elif isDashboard %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__dash">
+                        <div class="fd-workflow__dash-head">
+                          <span class="fd-workflow__dash-title">Dashboard</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--{{ item.status | lower }}">{{ item.status }}</span>
+                        </div>
+                        <div class="fd-workflow__dash-stats">
+                          <div class="fd-workflow__dash-stat">
+                            <span class="fd-workflow__dash-stat-label">Today</span>
+                            <span class="fd-workflow__dash-stat-value">NPR 48.2k</span>
+                            <span class="fd-workflow__dash-stat-trend">↑ 12%</span>
+                          </div>
+                          <div class="fd-workflow__dash-stat">
+                            <span class="fd-workflow__dash-stat-label">All branches</span>
+                            <span class="fd-workflow__dash-stat-value">NPR 212k</span>
+                            <span class="fd-workflow__dash-stat-trend">↑ 6%</span>
+                          </div>
+                        </div>
+                        <div class="fd-workflow__dash-bars" aria-hidden="true">
+                          <span style="height:38%"></span><span style="height:62%"></span><span style="height:48%"></span>
+                          <span style="height:80%"></span><span style="height:56%"></span><span style="height:92%"></span>
+                          <span style="height:70%"></span><span style="height:98%"></span>
+                        </div>
+                        <p class="fd-workflow__dash-caption">{{ item.title }}</p>
+                      </div>
+                    </div>
+                    {% elif isSuccess %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__success">
+                        <span class="fd-workflow__success-check" aria-hidden="true">
+                          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        <p class="fd-workflow__success-title">{{ item.title }}</p>
+                        <span class="fd-workflow__phone-badge fd-workflow__phone-badge--{{ item.status | lower }}">{{ item.status }}</span>
+                        <span class="fd-workflow__success-time">{{ item.time }}</span>
+                      </div>
+                    </div>
+                    {% else %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__notif">
+                        <div class="fd-workflow__notif-head">
+                          <span class="fd-workflow__notif-logo">Z</span>
+                          <span class="fd-workflow__notif-app">Zennly</span>
+                          <span class="fd-workflow__notif-time">{{ item.time }}</span>
+                        </div>
+                        <div class="fd-workflow__notif-body">
+                          <strong>{{ item.title }}</strong>
+                        </div>
+                        <div class="fd-workflow__notif-foot">
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--{{ item.status | lower }}">{{ item.status }}</span>
+                          <span class="fd-workflow__notif-step">STEP {{ item.num }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                  </div>
                 </div>
+                {% image "/assets/images/hero-phone-ui.png", "", { class: "fd-workflow__phone-frame", loading: "lazy", "aria-hidden": "true" } %}
               </div>
-              {% endfor %}
             </div>
 
-            <div class="fd-workflow__stage">
-              {% for item in feature.workflow %}
-              <div class="fd-workflow__stage-panel{% if loop.first %} is-active{% endif %}">
-                <span class="fd-workflow__step-tag">STEP {{ item.num }}</span>
-                <p class="fd-workflow__time">{{ item.time }}</p>
-                <h3 class="fd-workflow__title">{{ item.title }}</h3>
-                <p class="fd-workflow__body">{{ item.body }}</p>
-              </div>
-              {% endfor %}
-            </div>
           </div>
         </div>
       </div>
@@ -590,7 +1687,7 @@ layout: base.njk
                       <span class="fd-mockup-dot"></span>
                       <span class="fd-mockup-dot"></span>
                     </div>
-                    <span class="fd-mockup-title">Zenly Scheduler · Lazimpat</span>
+                    <span class="fd-mockup-title">Zennly Scheduler · Lazimpat</span>
                   </div>
                   <div class="fd-mockup-body">
                     <div class="fd-sch-row">
@@ -678,7 +1775,7 @@ layout: base.njk
                       <span class="fd-mockup-dot"></span>
                       <span class="fd-mockup-dot"></span>
                     </div>
-                    <span class="fd-mockup-title">Zenly Enterprise HQ</span>
+                    <span class="fd-mockup-title">Zennly Enterprise HQ</span>
                   </div>
                   <div class="fd-mockup-body">
                     <div class="fd-own-rev">
@@ -749,7 +1846,7 @@ layout: base.njk
                   <div class="fd-mockup fd-mockup--frontdesk fd-mockup--mobile">
                     <div class="fd-mockup-header">
                       <div class="fd-mockup-dots"><span class="fd-mockup-dot"></span><span class="fd-mockup-dot"></span><span class="fd-mockup-dot"></span></div>
-                      <span class="fd-mockup-title">Zenly Scheduler</span>
+                      <span class="fd-mockup-title">Zennly Scheduler</span>
                     </div>
                     <div class="fd-mockup-body">
                       <div class="fd-sch-row">
@@ -801,7 +1898,7 @@ layout: base.njk
                   <div class="fd-mockup fd-mockup--owner fd-mockup--mobile">
                     <div class="fd-mockup-header">
                       <div class="fd-mockup-dots"><span class="fd-mockup-dot"></span><span class="fd-mockup-dot"></span><span class="fd-mockup-dot"></span></div>
-                      <span class="fd-mockup-title">Zenly Enterprise HQ</span>
+                      <span class="fd-mockup-title">Zennly Enterprise HQ</span>
                     </div>
                     <div class="fd-mockup-body">
                       <div class="fd-own-rev">
@@ -973,72 +2070,24 @@ layout: base.njk
   </section>
 
   <!-- ── FOOTER ───────────────────────────────────────────────────────────── -->
-  <footer class="footer">
-    <div class="footer__inner">
-
-      <div class="footer__col footer__col--brand">
-        <a href="/" class="footer__logo">Zenly</a>
-        <p class="footer__tagline">Online booking, operational control, and financial clarity &mdash; for any appointment-based business.</p>
-        <div class="footer__status">
-          <span class="live-dot"></span>
-          <span>All systems operational</span>
-        </div>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Product</div>
-        <ul class="footer__links">
-          <li><a href="/features/booking">Online Booking</a></li>
-          <li><a href="/features/operational-visibility">Operations</a></li>
-          <li><a href="/features/payment-tracking">Finance</a></li>
-          <li><a href="/features/reports">Reports</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Use Cases</div>
-        <ul class="footer__links">
-          <li><a href="/#industries">Spa &amp; Wellness</a></li>
-          <li><a href="/#industries">Hair Salon</a></li>
-          <li><a href="/#industries">More verticals</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Company</div>
-        <ul class="footer__links">
-          <li><a href="#demo">Book a Demo</a></li>
-          <li><a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener">See It Live</a></li>
-          <li><a href="mailto:info.zunkireelabs@gmail.com">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Legal</div>
-        <ul class="footer__links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer__bottom">
-      <div class="footer__inner">
-        <span class="footer__copy">&copy; 2026 Zunkireelabs. All rights reserved.</span>
-        <span class="footer__built">Built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></span>
-      </div>
-    </div>
-  </footer>
+  {% include "_footer-v2.njk" %}
 
   <script>
   (function () {
     var pinWrap = document.querySelector('[data-workflow-scroll]');
     if (!pinWrap) return;
-    var cols = pinWrap.querySelectorAll('.fd-workflow__col');
-    var panels = pinWrap.querySelectorAll('.fd-workflow__stage-panel');
-    if (!cols.length || !panels.length) return;
+    var sticky = pinWrap.querySelector('.fd-workflow__sticky');
+    var steps = pinWrap.querySelectorAll('.fd-workflow__step');
+    var panels = pinWrap.querySelectorAll('.fd-workflow__scene');
+    var rail = pinWrap.querySelector('.fd-workflow__rail');
+    var fill = pinWrap.querySelector('[data-workflow-fill]');
+    var dot = pinWrap.querySelector('[data-workflow-dot]');
+    if (!steps.length || !panels.length) return;
+
+    /* Last stretch of the pinned scroll — the whole sticky block blurs and
+       fades out so the next section blends in over it, instead of the
+       pin releasing abruptly. */
+    var EXIT_START = 0.9;
 
     var ticking = false;
 
@@ -1048,15 +2097,30 @@ layout: base.njk
       var total = rect.height - window.innerHeight;
       var scrolled = -rect.top;
       var progress = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0;
-      var activeIndex = Math.min(cols.length - 1, Math.floor(progress * cols.length));
+      var activeIndex = Math.min(steps.length - 1, Math.floor(progress * steps.length));
 
-      cols.forEach(function (col, i) {
-        col.classList.toggle('is-active', i === activeIndex);
-        col.classList.toggle('is-done', i < activeIndex);
+      steps.forEach(function (step, i) {
+        step.classList.toggle('is-active', i === activeIndex);
+        step.classList.toggle('is-done', i < activeIndex);
       });
       panels.forEach(function (panel, i) {
         panel.classList.toggle('is-active', i === activeIndex);
       });
+
+      if (dot && rail) {
+        var activeRow = steps[activeIndex].querySelector('.fd-workflow__step-row');
+        var railRect = rail.getBoundingClientRect();
+        var rowRect = activeRow.getBoundingClientRect();
+        var offset = (rowRect.top + rowRect.height / 2) - railRect.top;
+        dot.style.top = offset + 'px';
+        if (fill) fill.style.height = offset + 'px';
+      }
+
+      if (sticky) {
+        var exitProgress = progress > EXIT_START ? (progress - EXIT_START) / (1 - EXIT_START) : 0;
+        sticky.style.opacity = String(1 - exitProgress * 0.85);
+        sticky.style.filter = exitProgress > 0 ? 'blur(' + (exitProgress * 14).toFixed(1) + 'px)' : '';
+      }
     }
 
     function requestUpdate() {

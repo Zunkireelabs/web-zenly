@@ -1,5 +1,5 @@
 ---
-title: Zenly — Online Booking & Operations Platform
+title: Zennly — Online Booking & Operations Platform
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@ title: Zenly — Online Booking & Operations Platform
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{{ title }}</title>
 <style>
-  /* Scoped, page-local design tokens — deliberately NOT the Zenly design system.
+  /* Scoped, page-local design tokens — deliberately NOT the Zennly design system.
      This page is an experimental structural reference, never shipped as-is. */
   html, body{margin:0; padding:0;}
   html{
@@ -102,14 +102,15 @@ title: Zenly — Online Booking & Operations Platform
   .v2-nav-mega{
     position:fixed; top:calc(var(--v2-nav-inset) + var(--v2-nav-h) + 10px); left:50%;
     transform:translateX(-50%) translateY(-6px); width:min(820px,calc(100vw - 32px));
+    max-height:calc(100vh - var(--v2-nav-inset) - var(--v2-nav-h) - 26px);
     background:var(--v2-card); border-radius:20px;
     box-shadow:0 24px 56px -12px rgba(46,25,25,0.18), 0 0 0 1px var(--v2-line);
     opacity:0; pointer-events:none;
     transition:opacity .22s var(--v2-ease-out), transform .22s var(--v2-ease-out);
-    z-index:110; overflow:hidden;
+    z-index:110; overflow-x:hidden; overflow-y:auto;
   }
   .v2-nav-mega::before{
-    content:''; position:absolute; top:-5px; left:50%; transform:translateX(-50%) rotate(45deg);
+    content:''; position:absolute; top:-5px; left:var(--mega-caret-left, 50%); transform:translateX(-50%) rotate(45deg);
     width:10px; height:10px; background:var(--v2-card);
     border-top:1px solid var(--v2-line); border-left:1px solid var(--v2-line); z-index:-1;
   }
@@ -120,19 +121,21 @@ title: Zenly — Online Booking & Operations Platform
   .v2-nav-mega--sm .v2-nav-mega__container{min-height:0;}
 
   .v2-nav-mega__left{flex:1.2; padding:26px 26px 22px; background:var(--v2-card);}
-  .v2-nav-mega__label{font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--v2-muted); margin-bottom:14px; padding-left:12px;}
-  .v2-nav-mega__grid{display:grid; grid-template-columns:1fr 1fr; gap:4px;}
+  .v2-nav-mega__eyebrow{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--v2-sage); margin-bottom:10px; padding-left:12px;}
+  .v2-nav-mega__heading{font-family:var(--v2-serif); font-weight:600; font-size:19px; line-height:1.3; color:var(--v2-ink); margin:0 0 6px; padding-left:12px;}
+  .v2-nav-mega__subtext{font-size:12.5px; line-height:1.45; color:var(--v2-ink-soft); margin:0 0 18px; padding-left:12px; max-width:420px;}
+  .v2-nav-mega__grid{display:grid; grid-template-columns:1fr 1fr; row-gap:22px; column-gap:4px;}
   .v2-nav-mega__grid--1col{grid-template-columns:1fr;}
   .v2-nav-mega__item{display:flex; align-items:flex-start; gap:12px; padding:10px 12px; border-radius:12px; transition:background-color .15s ease;}
   .v2-nav-mega__item:hover{background:var(--v2-sage-tint);}
-  .v2-nav-mega__icon-wrap{flex-shrink:0; width:24px; height:24px; display:flex; align-items:center; justify-content:center; color:var(--v2-muted); margin-top:2px; transition:color .15s ease;}
-  .v2-nav-mega__item:hover .v2-nav-mega__icon-wrap{color:var(--v2-sage);}
+  .v2-nav-mega__icon-wrap{flex-shrink:0; width:32px; height:32px; border-radius:50%; background:var(--v2-sage-tint); display:flex; align-items:center; justify-content:center; color:var(--v2-sage); transition:background-color .15s ease;}
+  .v2-nav-mega__item:hover .v2-nav-mega__icon-wrap{background:var(--v2-sage); color:#fff;}
   .v2-nav-mega__body{display:flex; flex-direction:column; gap:3px;}
   .v2-nav-mega__name{font-size:14px; font-weight:600; color:var(--v2-ink); line-height:1.25; transition:color .15s ease;}
   .v2-nav-mega__item:hover .v2-nav-mega__name{color:var(--v2-sage);}
   .v2-nav-mega__desc{font-size:12.5px; color:var(--v2-ink-soft); line-height:1.4;}
 
-  .v2-nav-mega__right{width:280px; background:var(--v2-sage-tint); padding:26px; display:flex; flex-direction:column;}
+  .v2-nav-mega__right{width:280px; margin:16px 16px 16px 0; border-radius:16px; background:var(--v2-sage-tint); padding:22px; display:flex; flex-direction:column;}
   .v2-nav-mega__right-tag{align-self:flex-start; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--v2-sage); background:rgba(63,104,57,0.12); padding:3px 9px; border-radius:var(--v2-r-pill); margin-bottom:12px;}
   .v2-nav-mega__right-title{font-family:var(--v2-serif); font-style:italic; font-weight:400; font-size:20px; color:var(--v2-ink); margin:0 0 6px; line-height:1.25;}
   .v2-nav-mega__right-text{font-size:12.5px; color:var(--v2-ink-soft); line-height:1.45; margin:0 0 16px;}
@@ -143,26 +146,22 @@ title: Zenly — Online Booking & Operations Platform
 
   .v2-nav-mega__industry-cards{display:flex; gap:10px; margin-top:auto;}
   .v2-nav-mega__industry-card{
-    position:relative; flex:1; aspect-ratio:1/1; border-radius:12px; overflow:hidden;
+    position:relative; flex:1; aspect-ratio:16/9; border-radius:12px; overflow:hidden;
     background-color:var(--v2-sage-tint); background-size:cover; background-position:center;
-    display:flex; align-items:flex-end; transition:transform .15s ease;
+    transition:transform .15s ease;
   }
   .v2-nav-mega__industry-card:hover{transform:translateY(-2px);}
-  .v2-nav-mega__industry-card::after{
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%);
-  }
-  .v2-nav-mega__industry-card-label{position:relative; z-index:1; color:#fff; font-size:11px; font-weight:700; line-height:1.2; padding:8px;}
 
   .v2-nav-mega__right-cta{display:inline-flex; align-items:center; gap:4px; font-size:13px; font-weight:600; color:var(--v2-sage); margin-top:16px; transition:opacity .15s ease;}
   .v2-nav-mega__right-cta:hover{opacity:.75;}
   .v2-nav-mega__right-cta svg{transition:transform .2s ease;}
   .v2-nav-mega__right-cta:hover svg{transform:translateX(2px);}
 
-  .v2-nav-mega__footer{background:var(--v2-sage-tint); border-top:1px solid var(--v2-line); padding:12px 26px; display:flex; align-items:center; justify-content:space-between;}
-  .v2-nav-mega__footer-text{font-size:12.5px; color:var(--v2-ink-soft);}
-  .v2-nav-mega__footer-link{font-size:13px; font-weight:600; color:var(--v2-sage); transition:opacity .15s ease;}
-  .v2-nav-mega__footer-link:hover{opacity:.75; text-decoration:underline;}
+  .v2-nav-mega__footer{background:transparent; border-top:none; padding:0 26px 14px; display:flex; align-items:center; justify-content:flex-start; gap:24px;}
+  .v2-nav-mega__footer-text{display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--v2-ink-soft);}
+  .v2-nav-mega__footer-text::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--v2-sage); flex-shrink:0;}
+  .v2-nav-mega__footer-link{font-size:13px; font-weight:600; color:var(--v2-ink); text-decoration:underline; text-underline-offset:3px; transition:opacity .15s ease;}
+  .v2-nav-mega__footer-link:hover{opacity:.75;}
 
   .v2-nav .v2-btn{
     opacity:0; visibility:hidden; transform:translate3d(12px,0,0);
@@ -177,6 +176,104 @@ title: Zenly — Online Booking & Operations Platform
     cursor:pointer; transition:transform .25s ease, background .25s ease;
   }
   .v2-btn:hover{transform:translateY(-2px); background:#dfef9e;}
+
+  /* Mobile nav toggle + panel — shown below 860px in place of .v2-nav__links */
+  .v2-nav__toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:40px; height:40px; padding:0; background:none; border:none; cursor:pointer; flex:0 0 auto;
+  }
+  .v2-nav__toggle span{display:block; width:20px; height:2px; background:var(--v2-ink); transition:transform .2s ease, opacity .2s ease;}
+  .v2-nav.menu-open .v2-nav__toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .v2-nav.menu-open .v2-nav__toggle span:nth-child(2){opacity:0;}
+  .v2-nav.menu-open .v2-nav__toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .v2-nav.menu-open .v2-nav-inner{
+    background:rgba(255,255,255,.6); backdrop-filter:blur(5px) saturate(1.15);
+    -webkit-backdrop-filter:blur(5px) saturate(1.15); border-color:var(--v2-line);
+  }
+
+  .v2-nav-mobile{
+    position:fixed; top:calc(var(--v2-nav-inset) + var(--v2-nav-h) + 8px); left:var(--v2-nav-inset); right:var(--v2-nav-inset);
+    background:var(--v2-card); border-radius:var(--v2-nav-radius); box-shadow:0 24px 56px -12px rgba(46,25,25,0.18);
+    padding:20px; display:none; flex-direction:column; gap:4px; z-index:95;
+  }
+  .v2-nav.menu-open ~ .v2-nav-mobile{display:flex;}
+  .v2-nav-mobile a{font-size:19px; font-weight:500; color:var(--v2-ink); padding:12px 8px;}
+  .v2-nav-mobile .v2-btn{align-self:flex-start; margin-top:8px; opacity:1 !important; visibility:visible !important; transform:none !important;}
+
+  /* Divider line under each top-level row (not the CTA button, which is
+     already visually set apart as a pill). */
+  .v2-nav-mobile > a:not(.v2-btn){border-bottom:1px solid var(--v2-line);}
+
+  /* Features/Resources accordion — tap equivalent of the desktop mega menu.
+     Sub-items are visually demoted (smaller, lighter, indented behind a rail)
+     so they read as children of the trigger, not as more top-level links. */
+  .v2-nav-mobile__group{display:flex; flex-direction:column;}
+  .v2-nav-mobile__trigger{
+    display:flex; align-items:center; justify-content:space-between; width:100%;
+    font-family:inherit; font-size:19px; font-weight:600; color:var(--v2-ink);
+    padding:12px 8px; background:none; border:none; border-bottom:1px solid var(--v2-line); text-align:left; cursor:pointer;
+  }
+  .v2-nav-mobile__chevron{flex-shrink:0; color:var(--v2-ink-soft); transition:transform .2s ease;}
+  .v2-nav-mobile__group.is-open .v2-nav-mobile__chevron{transform:rotate(180deg);}
+  .v2-nav-mobile__submenu{
+    display:flex; flex-direction:column; max-height:0; overflow:hidden;
+    margin:0 8px 0 18px; border-left:1.5px solid var(--v2-line);
+    transition:max-height .3s ease;
+  }
+  .v2-nav-mobile__group.is-open .v2-nav-mobile__submenu{max-height:560px; padding:2px 0 6px;}
+  .v2-nav-mobile__submenu a{
+    display:flex; align-items:center; gap:10px;
+    font-size:17px; font-weight:400; letter-spacing:-0.01em; color:var(--v2-ink-soft);
+    padding:8px 8px 8px 16px; line-height:1.3;
+  }
+  .v2-nav-mobile__submenu a:first-child{font-weight:600; color:var(--v2-ink);}
+  /* Icon circles — same treatment as the desktop mega menu's .v2-nav-mega__icon-wrap */
+  .v2-nav-mobile__icon-wrap{
+    flex-shrink:0; width:28px; height:28px; border-radius:50%;
+    background:var(--v2-sage-tint); color:var(--v2-sage);
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* Solid scrim behind the mobile menu — opaque, not blurred, so page content
+     underneath is fully hidden (not left half-visible) while the menu is open. */
+  .v2-nav-mobile-scrim{
+    position:fixed; inset:0; background:rgba(46,25,25,0.4);
+    opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:94;
+  }
+  .v2-nav-mobile-scrim.is-open{opacity:1; pointer-events:auto;}
+  @media (min-width:861px){ .v2-nav-mobile-scrim{display:none !important;} }
+
+  @media (max-width:860px){
+    .v2-nav .v2-btn{display:none;}
+    .v2-nav__toggle{display:flex;}
+    /* Balance the headline's line breaks so wrapped lines read as even,
+       centered rows instead of one ragged-width line stacked on another. */
+    .v2-hero h1{text-wrap:balance;}
+    /* Force the headline into: "Built for the businesses" / "that run
+       without the" / cycling word on its own line — each row centered
+       under the one above via the h1's existing text-align:center. */
+    .v2-hero-break{display:block;}
+    /* Let the hero image tiles bleed all the way to the viewport edge —
+       cancels .v2-hero's 32px side padding (now uniform across the whole
+       mobile range) exactly so there's no leftover gutter and the tiles
+       read as big as possible. */
+    .v2-hero-media{margin-inline:-32px;}
+  }
+  @media (max-width:480px){
+    /* .v2-hero keeps the standard 32px side padding here (same as every
+       other section) instead of its old 20px phone-only override — that
+       kept the headline's forced single-line rows fitting, but at the cost
+       of a narrower outer gutter than the rest of the page. Restore the
+       same text width a different way instead: .v2-hero-text bleeds back
+       out via negative margin (32 outer - 8 bleed = 24px net inset,
+       identical to the old 20+4 combo), so the headline still fits on one
+       line per row without the section's own edge gutter being an outlier. */
+    .v2-hero-text{padding-inline:0; margin-inline:-8px;}
+    .v2-hero h1{font-size:clamp(30px,8.6vw,36px);}
+  }
+  @media (min-width:861px){
+    .v2-nav-mobile{display:none !important;}
+  }
 
   /* HERO — spacing scraped 1:1 from getflect.app .hero/.hero .container/.hero-text/.hero-lead/.access-form */
   .v2-hero{
@@ -206,6 +303,9 @@ title: Zenly — Online Booking & Operations Platform
     max-width:860px; margin:0 auto;
   }
   .v2-hero h1 em{font-family:var(--v2-serif); font-style:italic; font-weight:400; color:#3F6839; display:inline-block; transition:opacity .3s ease;}
+  /* Mobile-only forced line breaks — hidden on desktop, where the natural
+     wrap already reads fine at wider widths. */
+  .v2-hero-break{display:none;}
   .v2-hero .v2-lede{
     width:min(100%,580px); margin:0 auto; text-align:center;
     font-family:var(--v2-sans); font-weight:400; font-size:clamp(19px,1.5vw,26px); line-height:1.34; letter-spacing:-0.02em;
@@ -350,7 +450,23 @@ title: Zenly — Online Booking & Operations Platform
   .v2-callout--tl .v2-callout__connector, .v2-callout--bl .v2-callout__connector{left:100%;}
   .v2-callout--tr .v2-callout__connector, .v2-callout--br .v2-callout__connector{right:100%;}
   @media (max-width:1279px){ .v2-callout{display:none;} }
-  @media (max-width:767px){ .v2-practice-mobile{display:none;} }
+  /* #v2-root prefix needed here: the site-wide "#v2-root img{display:block}"
+     reset (an ID selector) otherwise beats this plain class rule on
+     specificity alone, regardless of cascade order, and the phone mockup
+     stays visible + overlapping the dashboard on mobile. */
+  @media (max-width:767px){ #v2-root .v2-practice-mobile{display:none;} }
+  @media (max-width:767px){
+    /* .v2-practice__inner's 24px side padding was an unexplained outlier —
+       every other section's mobile gutter is 32px (.v2-wrap's own side
+       padding). Bump it to match. */
+    .v2-practice__inner{padding-inline:32px;}
+    /* Dashboard is the only visual left in this section once the phone
+       mockup hides above — let it bleed past that 32px padding so it still
+       reads bigger instead of sitting in a narrower column (net inset:
+       32 - 24 = 8px, same as the old 24 - 16 = 8px it had before the
+       padding bump above, so the dashboard's own size is unchanged). */
+    .v2-practice-mock{margin-inline:-24px;}
+  }
   /* Heading style matched 1:1 to getflect.app's .display-h2 / .practice-title */
   .v2-practice-title{
     width:min(100%,880px); margin:0; font-family:var(--v2-sans); font-weight:500;
@@ -395,7 +511,7 @@ title: Zenly — Online Booking & Operations Platform
   .v2-bento-card__top{height:260px; display:flex; align-items:center; justify-content:center; overflow:visible;}
   .v2-bento-card__top img{width:100%; height:100%; object-fit:contain;}
   .v2-bento-card__bottom{padding:20px 24px 24px;}
-  .v2-bento-card__bottom h3{margin:0; font-family:var(--v2-sans); font-weight:650; font-size:clamp(20px,1.8vw,26px); color:#1A2F1E; line-height:1.35;}
+  .v2-bento-card__bottom h3{margin:0; font-family:var(--v2-sans); font-weight:400; font-size:19px; color:#1A2F1E; line-height:1.5;}
   @media (max-width:768px){ .v2-bento-row{grid-template-columns:1fr;} }
 
   /* Operations card mockup — exact copy of the original homepage's .scard-scene
@@ -522,7 +638,7 @@ title: Zenly — Online Booking & Operations Platform
 
   /* COMPARISON — ported 1:1 from getflect.app's .comparison / #why-flect
      section (structure, positions, gradients, reveal timing), re-skinned
-     with Zenly copy and this page's own --v2- tokens. */
+     with Zennly copy and this page's own --v2- tokens. */
   .v2-comparison{margin-top:0; background:var(--v2-bg); border:0; border-radius:0; overflow:hidden;}
   .v2-comparison-stage{
     position:relative; display:grid; grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);
@@ -598,7 +714,7 @@ title: Zenly — Online Booking & Operations Platform
   @media (min-width:1228px){
     .v2-ind-wrap{margin-left:calc(1180px / 2 - 50vw - 24px); margin-right:calc(1180px / 2 - 50vw - 24px);}
   }
-  .v2-ind-track{padding-left:max(24px, calc((100vw - 1180px) / 2 + 24px)); padding-right:24px; display:flex; gap:12px; will-change:transform;}
+  .v2-ind-track{padding-left:max(240px, calc((100vw - 1180px) / 2 + 240px)); padding-right:24px; display:flex; gap:12px; will-change:transform;}
   .v2-ind-wrap--scroll{overflow-x:auto; scrollbar-width:none; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;}
   .v2-ind-wrap--scroll::-webkit-scrollbar{display:none;}
 
@@ -616,14 +732,32 @@ title: Zenly — Online Booking & Operations Platform
   .v2-ind-explore{font-size:.9375rem; font-weight:500; color:var(--v2-ink); text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:2px; transition:color .2s ease;}
   .v2-ind-explore:hover{color:var(--v2-link);}
 
-  @media (max-width:767px){ .v2-ind-card{flex-basis:280px;} }
-  @media (max-width:480px){ .v2-ind-card{flex-basis:78vw; aspect-ratio:4/3;} }
+  .v2-stats-h2{white-space:nowrap; font-size:clamp(28px,4.6vw,60px);}
+  /* Below 768px the scroll-scrub JS (main script, "Industries" section)
+     falls back to plain native horizontal scroll instead of a GSAP-driven
+     transform, so nothing ever compensates for the desktop-only 240px
+     scrub start-offset on .v2-ind-track — without this override the
+     section loads showing ~240px of blank space before the first card. */
+  @media (max-width:767px){
+    /* .v2-ind-wrap's -48px margin (desktop-only breakout past .v2-wrap's
+       32px padding) was still active here, net-ing the first card's gutter
+       down to just 4px (32 - 48 + 20). Cancel it exactly instead so the
+       track's own padding-left is the real, full gutter — set to match
+       .v2-wrap's own 32px side padding used everywhere else on the page. */
+    .v2-ind-wrap{margin-left:-32px; margin-right:-32px;}
+    .v2-ind-track{padding-left:32px; padding-right:32px;}
+    /* vw-based instead of a fixed px so the card scales with the screen
+       instead of looking small on wide phones / cramped on narrow ones;
+       still leaves a peek of the next card to signal it's scrollable. */
+    .v2-ind-card{flex-basis:82vw;}
+  }
+  @media (max-width:480px){ .v2-ind-card{flex-basis:84vw;} }
   @media (max-width:560px){ .v2-ind-header{align-items:flex-start; flex-direction:column;} }
 
   /* STATS / RESULTS CAROUSEL (Calendly-style peeking testimonial carousel) —
      ported 1:1 from src/index.njk #stats/.tcar*: structure, positions, dims,
      notch/tab logic unchanged, re-skinned to v2- tokens. */
-  .v2-stats-header{display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px; margin-bottom:24px; max-width:680px; margin-left:auto; margin-right:auto;}
+  .v2-stats-header{display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; margin-bottom:24px; max-width:680px; margin-left:auto; margin-right:auto;}
   .v2-tcar-sub{color:var(--v2-ink-soft); font-size:15.5px; line-height:1.6; margin:0;}
 
   .v2-tcar{position:relative; width:100%; max-width:1180px; margin:0 auto; padding:8px 0 0; outline:none;}
@@ -634,7 +768,11 @@ title: Zenly — Online Booking & Operations Platform
   .v2-tcar__stagewrap{position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; height:570px;}
   @media (min-width:768px){ .v2-tcar__stagewrap{height:520px;} }
   @media (min-width:1120px){ .v2-tcar__stagewrap{height:593px;} }
-  .v2-tcar__stage{position:relative; z-index:1; width:100%; height:490px; flex-shrink:0;}
+  /* pan-y: let the browser keep handling vertical page scroll natively,
+     while horizontal drag/swipe on this stage is read and handled by our
+     own pointer-event JS below (no native horizontal scroll exists here —
+     cards are absolutely positioned, not in an overflow:auto container). */
+  .v2-tcar__stage{position:relative; z-index:1; width:100%; height:490px; flex-shrink:0; touch-action:pan-y;}
   @media (min-width:768px){ .v2-tcar__stage{height:440px;} }
   @media (min-width:1120px){ .v2-tcar__stage{height:513px;} }
 
@@ -718,7 +856,7 @@ title: Zenly — Online Booking & Operations Platform
 
   /* Access gallery — centered phone mockup with floating stat cards
      scattered around it, mirroring getflect.app's .access-gallery
-     composition (own Zenly imagery/content, no cursor-follow effect). */
+     composition (own Zennly imagery/content, no cursor-follow effect). */
   .v2-access-gallery{position:relative; width:100%; max-width:900px; height:clamp(420px,44vw,560px); margin:0 auto;}
   .v2-access-gallery__phone{position:absolute; top:50%; left:50%; transform:translate3d(-50%,-50%,0); z-index:2; width:clamp(200px,21vw,260px); filter:drop-shadow(0 30px 50px rgba(10,14,4,0.45));}
   .v2-access-gallery__phone img{width:100%; height:auto; aspect-ratio:780/1598; object-fit:contain; display:block;}
@@ -1504,7 +1642,7 @@ title: Zenly — Online Booking & Operations Platform
 
   /* ── Screen 4: Dashboard overview + activity feed ──────── */
   /* A big stat + segmented status bar first (real visual UI, matching the
-     actual Zenly staff-portal dashboard), then a short activity list below
+     actual Zennly staff-portal dashboard), then a short activity list below
      using the same card language as .booking-item — not a floating layer. */
 
   .v2-hero-demo .dash-stat {
@@ -2349,10 +2487,19 @@ title: Zenly — Online Booking & Operations Platform
     .v2-access-title{font-size:clamp(34px,9vw,44px); line-height:1.08;}
     .v2-access-form{min-height:76px; padding-block:16px;}
     .v2-access-form input{font-size:17px;}
-    .v2-access-gallery{height:280px; max-width:280px;}
-    .v2-access-gallery__phone{--v2-hero-demo-scale:0.38; width:calc(780px * var(--v2-hero-demo-scale)); height:calc(1598px * var(--v2-hero-demo-scale));}
+    /* Bleed past .v2-wrap's 32px gutter (edge-to-edge) so the mockup below
+       has the full viewport width to grow into instead of being capped by
+       the reserved 280px box — it was rendering at 296px already (0.38
+       scale), narrower than even that box, and easy to miss/misread. */
+    .v2-access-gallery{height:320px; max-width:none; margin-inline:-32px;}
+    /* calc(88vw / 780px) gives a unitless scale factor, so the mockup's
+       rendered width is always ~88% of the viewport (not a fixed px scale
+       that's oversized on a 375px phone and undersized on a 430px one). */
+    .v2-access-gallery__phone{--v2-hero-demo-scale:calc(88vw / 780px); width:calc(780px * var(--v2-hero-demo-scale)); height:calc(1598px * var(--v2-hero-demo-scale));}
     .v2-access-card{display:none;}
-    .v2-site-footer{padding:80px 16px 0;}
+    /* 32px side padding (not the old 16px) to match every other section's
+       mobile gutter. */
+    .v2-site-footer{padding:80px 32px 0;}
     .v2-footer-content{gap:48px; padding-bottom:56px;}
     .v2-footer-top{flex-direction:column; gap:40px;}
     .v2-footer-brand{max-width:none;}
@@ -2470,7 +2617,10 @@ title: Zenly — Online Booking & Operations Platform
         </div>
       </nav>
       <div class="v2-nav-col v2-nav-col--end">
-        <a href="#v2-cta" class="v2-btn">Book a demo</a>
+        <button type="button" id="v2-nav-toggle" class="v2-nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="v2-nav-mobile">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="/demo" class="v2-btn">Book a demo</a>
       </div>
     </div>
   </div>
@@ -2486,7 +2636,9 @@ title: Zenly — Online Booking & Operations Platform
 <div class="v2-nav-mega" id="v2Mega-features" role="region" aria-label="Features menu">
   <div class="v2-nav-mega__container">
     <div class="v2-nav-mega__left">
-      <div class="v2-nav-mega__label">Core Capabilities</div>
+      <div class="v2-nav-mega__eyebrow">Core Capabilities</div>
+      <h3 class="v2-nav-mega__heading">The operating system behind every booking.</h3>
+      <p class="v2-nav-mega__subtext">From bookings to payments, staff to reports &ndash; everything you need to run multiple branches, in one place.</p>
       <div class="v2-nav-mega__grid">
         <a href="/features/booking" class="v2-nav-mega__item">
           <div class="v2-nav-mega__icon-wrap">
@@ -2554,9 +2706,7 @@ title: Zenly — Online Booking & Operations Platform
         <a href="/solutions/tattoo" class="v2-nav-mega__vertical-link"><span class="v2-nav-mega__vertical-bullet">&#9679;</span> Tattoo Studios</a>
       </div>
       <div class="v2-nav-mega__industry-cards">
-        <div class="v2-nav-mega__industry-card" style="background-image:url('/assets/images/solution-hero-spa.png');">
-          <span class="v2-nav-mega__industry-card-label">Spa &amp; Wellness</span>
-        </div>
+        <div class="v2-nav-mega__industry-card" style="background-image:url('/assets/images/solution-hero-spa.png');"></div>
       </div>
       <a href="/solutions" class="v2-nav-mega__right-cta">
         See how it works
@@ -2565,7 +2715,7 @@ title: Zenly — Online Booking & Operations Platform
     </div>
   </div>
   <div class="v2-nav-mega__footer">
-    <span class="v2-nav-mega__footer-text">Nuad Thai Spa Kathmandu is live with 39 therapists &amp; 12 rooms.</span>
+    <span class="v2-nav-mega__footer-text">351 bookings managed across 4 branches, every week.</span>
     <a href="/features" class="v2-nav-mega__footer-link">See All Features &rarr;</a>
   </div>
 </div>
@@ -2600,18 +2750,58 @@ title: Zenly — Online Booking & Operations Platform
 <!-- Blur backdrop for the active mega menu — same pattern as base.njk's .nav-backdrop-overlay -->
 <div class="v2-nav-backdrop" aria-hidden="true"></div>
 
+<!-- Mobile menu — shown below 860px in place of .v2-nav__links, which has no fallback on its own.
+     Features/Resources use a tap accordion instead of the desktop mega menu's hover/:has()
+     sibling selectors, which have no touch equivalent. -->
+<nav id="v2-nav-mobile" class="v2-nav-mobile" aria-hidden="true">
+  <div class="v2-nav-mobile__group">
+    <button type="button" class="v2-nav-mobile__trigger" aria-expanded="false" aria-controls="v2-nav-mobile-features">
+      Features
+      <svg class="v2-nav-mobile__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="v2-nav-mobile__submenu" id="v2-nav-mobile-features">
+      <a href="/features"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>All Features</a>
+      <a href="/features/booking"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>Booking Engine</a>
+      <a href="/features/operational-visibility"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></span>Operations</a>
+      <a href="/features/payment-tracking"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>Finance &amp; Reconciliation</a>
+      <a href="/features/reports"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>Live Reports</a>
+      <a href="/features/discount-management"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>Discount Management</a>
+      <a href="/features/staff-management"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Staff Management</a>
+    </div>
+  </div>
+  <a href="/how-it-works">How it Works</a>
+  <a href="/solutions">Solutions</a>
+  <div class="v2-nav-mobile__group">
+    <button type="button" class="v2-nav-mobile__trigger" aria-expanded="false" aria-controls="v2-nav-mobile-resources">
+      Resources
+      <svg class="v2-nav-mobile__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="v2-nav-mobile__submenu" id="v2-nav-mobile-resources">
+      <a href="/blog"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Blog</a>
+      <a href="/case-study"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>Case Study</a>
+    </div>
+  </div>
+  <a href="/demo" class="v2-btn">Book a demo</a>
+</nav>
+
+<!-- Solid scrim behind the mobile menu — the panel itself has no backdrop, so
+     the hero text underneath was showing through half-faded (mid GSAP reveal),
+     reading as a stray "blur"; this also gives the menu a tap-outside-to-close
+     target. Mobile-only: hidden at 861px+ alongside .v2-nav-mobile. -->
+<div id="v2-nav-mobile-scrim" class="v2-nav-mobile-scrim" aria-hidden="true"></div>
+
 <header class="v2-hero">
   <div class="v2-hero-text">
-    <h1 class="v2-reveal">Built for the businesses that run without the <em id="v2HeroRotate">chaos</em></h1>
-    <p class="v2-lede v2-reveal">Online booking, operational control, and financial clarity — for any appointment-based business.</p>
+    <h1 class="v2-reveal">Built for the businesses<br class="v2-hero-break"> that run without the<br class="v2-hero-break"> <em id="v2HeroRotate">chaos</em></h1>
+    <p class="v2-lede v2-reveal">Online booking, operational control, and financial clarity for any appointment-based business.</p>
   </div>
-  <form class="v2-hero-form v2-reveal" onsubmit="return false;">
-    <input type="email" placeholder="Enter your email">
+  <form class="v2-hero-form v2-reveal" id="v2-hero-form">
+    <input type="email" name="email" placeholder="Enter your email" required>
     <button type="submit">Book a demo →</button>
   </form>
   <div class="v2-hero-media">
     <div class="v2-tile v2-reveal">{% image "/assets/images/hero-v2-booking-confirmed.png", "Booking confirmed", { class: "v2-tile__img", loading: "eager" } %}</div>
-    <div class="v2-tile v2-phone v2-reveal">{% image "/assets/images/hero-v2-phone-bookings.png", "Zenly bookings app on a phone", { class: "v2-tile__img", loading: "eager" } %}</div>
+    <div class="v2-tile v2-phone v2-reveal">{% image "/assets/images/hero-v2-phone-bookings.png", "Zennly bookings app on a phone", { class: "v2-tile__img", loading: "eager" } %}</div>
   </div>
 </header>
 
@@ -2623,7 +2813,7 @@ title: Zenly — Online Booking & Operations Platform
     <div class="v2-trust__marquee v2-reveal">
       <div class="v2-trust__track">
         <!-- Set 1 -->
-        <div class="v2-chip v2-chip--live">Zenly Spa</div>
+        <div class="v2-chip v2-chip--live">Zennly Spa</div>
         <div class="v2-chip v2-chip--light-italic">Pure Glow</div>
         <div class="v2-chip v2-chip--caps">The Curl Studio</div>
         <div class="v2-chip v2-chip--medium">SmileWell</div>
@@ -2639,7 +2829,7 @@ title: Zenly — Online Booking & Operations Platform
         <div class="v2-chip v2-chip--medium">The Tidiers</div>
         <div class="v2-chip v2-chip--light-italic">bloom studio</div>
         <!-- Set 2 (duplicate for seamless infinite loop) -->
-        <div class="v2-chip v2-chip--live">Zenly Spa</div>
+        <div class="v2-chip v2-chip--live">Zennly Spa</div>
         <div class="v2-chip v2-chip--light-italic">Pure Glow</div>
         <div class="v2-chip v2-chip--caps">The Curl Studio</div>
         <div class="v2-chip v2-chip--medium">SmileWell</div>
@@ -2692,8 +2882,8 @@ title: Zenly — Online Booking & Operations Platform
         <p class="v2-callout__tagline">Staff request. Managers approve. Nothing leaks.</p>
       </div>
 
-      {% image "/assets/images/dashboard-mockup.png", "Zenly dashboard", { class: "v2-practice__dashboard", loading: "lazy" } %}
-      {% image "/assets/images/mobile-mockup.png", "Zenly mobile app", { class: "v2-practice-mobile", loading: "lazy" } %}
+      {% image "/assets/images/dashboard-mockup.png", "Zennly dashboard", { class: "v2-practice__dashboard", loading: "lazy" } %}
+      {% image "/assets/images/mobile-mockup.png", "Zennly mobile app", { class: "v2-practice-mobile", loading: "lazy" } %}
 
       <div class="v2-callout v2-callout--bl">
         <svg class="v2-callout__connector" width="52" height="40" viewBox="0 0 52 40" fill="none" aria-hidden="true">
@@ -2754,7 +2944,7 @@ title: Zenly — Online Booking & Operations Platform
   <div class="v2-wrap">
     <div class="v2-section-head v2-reveal">
       <h2>Everything you need to run your business here</h2>
-      <p>Booking, operations, and finance — built for service businesses.</p>
+      <p>Booking, operations, and finance built for service businesses.</p>
     </div>
     <div class="v2-bento">
       <div class="v2-bento-card v2-bento-card--photo v2-reveal">
@@ -2895,7 +3085,7 @@ title: Zenly — Online Booking & Operations Platform
   </div>
 </section>
 
-<section class="v2-comparison v2-reveal" id="v2-comparison" aria-label="Instead of, Zenly gives">
+<section class="v2-comparison v2-reveal" id="v2-comparison" aria-label="Instead of, Zennly gives">
   <div class="v2-comparison-stage" id="v2ComparisonStage">
 
     <div class="v2-comparison-side v2-comparison-side--bad" aria-label="Instead of">
@@ -2910,12 +3100,12 @@ title: Zenly — Online Booking & Operations Platform
 
     <div class="v2-comparison-divider" aria-hidden="true"></div>
 
-    <div class="v2-comparison-side v2-comparison-side--good" aria-label="Zenly gives">
+    <div class="v2-comparison-side v2-comparison-side--good" aria-label="Zennly gives">
       <div class="v2-comparison-good-cover" aria-hidden="true"></div>
 
-      <h2 class="v2-comparison-title v2-comparison-title--good">Zenly <em>gives</em></h2>
+      <h2 class="v2-comparison-title v2-comparison-title--good">Zennly <em>gives</em></h2>
 
-      <div class="v2-comparison-good-list" aria-label="Zenly advantages">
+      <div class="v2-comparison-good-list" aria-label="Zennly advantages">
         <div class="v2-comparison-bubble v2-comparison-bubble--good" style="--top:25.2%; --left:7.9%; --d:.04s">
           <svg viewBox="0 0 24 24" fill="none" stroke="#38430A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           <span>Live dashboard with auto confirmations</span>
@@ -2948,7 +3138,7 @@ title: Zenly — Online Booking & Operations Platform
     <div class="v2-ind-header v2-reveal">
       <div class="v2-ind-header__text">
         <h2 class="v2-ind-h2">One platform, every service business</h2>
-        <p class="v2-ind-sub">Fits your terminology, workflow, and vertical — out of the box.</p>
+        <p class="v2-ind-sub">Fits your terminology, workflow, and vertical, out of the box.</p>
       </div>
       <div class="v2-ind-nav">
         <button class="v2-ind-nav__btn" id="v2IndPrev" aria-label="Previous industry">
@@ -2960,12 +3150,12 @@ title: Zenly — Online Booking & Operations Platform
       </div>
     </div>
 
-    <div class="v2-ind-wrap v2-reveal" id="v2IndWrap">
+    <div class="v2-ind-wrap v2-reveal" id="v2IndWrap" data-lenis-prevent>
       <div class="v2-ind-track">
 
         <a href="/solutions/spa" class="v2-ind-card">
           <div class="v2-ind-card__photo">
-            <img src="https://plus.unsplash.com/premium_photo-1663013569286-30b21b79a410?w=480&q=80&auto=format&fit=crop" alt="Spa & Wellness" loading="lazy">
+            <img src="/assets/images/solution-hero-spa.png" alt="Spa & Wellness" loading="lazy">
           </div>
           <div class="v2-ind-card__body">
             <div class="v2-ind-card__title">Spa &amp; Wellness</div>
@@ -2977,7 +3167,7 @@ title: Zenly — Online Booking & Operations Platform
 
         <a href="/solutions/fitness" class="v2-ind-card">
           <div class="v2-ind-card__photo">
-            <img src="https://plus.unsplash.com/premium_photo-1661286647722-973637d09600?w=480&q=80&auto=format&fit=crop" alt="Fitness & PT" loading="lazy">
+            <img src="/assets/images/solution-hero-fitness.png" alt="Fitness & PT" loading="lazy">
           </div>
           <div class="v2-ind-card__body">
             <div class="v2-ind-card__title">Fitness &amp; PT</div>
@@ -2989,7 +3179,7 @@ title: Zenly — Online Booking & Operations Platform
 
         <a href="/solutions/salon" class="v2-ind-card">
           <div class="v2-ind-card__photo">
-            <img src="https://plus.unsplash.com/premium_photo-1677616799281-e1583ee2bdf0?w=480&q=80&auto=format&fit=crop" alt="Hair Salon" loading="lazy">
+            <img src="/assets/images/solution-hero-salon.png" alt="Hair Salon" loading="lazy" style="object-position: 10% center;">
           </div>
           <div class="v2-ind-card__body">
             <div class="v2-ind-card__title">Hair Salon</div>
@@ -3025,7 +3215,7 @@ title: Zenly — Online Booking & Operations Platform
 
         <a href="/solutions/tattoo" class="v2-ind-card">
           <div class="v2-ind-card__photo">
-            <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=480&q=80&auto=format&fit=crop" alt="Tattoo Studios" loading="lazy">
+            <img src="/assets/images/solution-hero-tattoo.png" alt="Tattoo Studios" loading="lazy">
           </div>
           <div class="v2-ind-card__body">
             <div class="v2-ind-card__title">Tattoo Studios</div>
@@ -3053,12 +3243,12 @@ title: Zenly — Online Booking & Operations Platform
 <section class="v2-section" id="v2-stats" style="overflow-x:clip;">
   <div class="v2-wrap">
     <div class="v2-stats-header v2-reveal">
-      <h2 class="v2-ind-h2">Results businesses see on Zennly</h2>
+      <h2 class="v2-ind-h2 v2-stats-h2">Results businesses see on Zennly</h2>
       <p class="v2-tcar-sub">From first booking to last close.</p>
     </div>
   </div>
 
-  <div class="v2-tcar v2-reveal" id="v2Tcar" role="region" aria-roledescription="carousel" aria-label="Customer results" tabindex="0">
+  <div class="v2-tcar v2-reveal" id="v2Tcar" role="region" aria-roledescription="carousel" aria-label="Customer results" tabindex="0" data-lenis-prevent>
     <div class="v2-tcar__stagewrap">
     <div class="v2-tcar__stage" id="v2TcarStage" role="tabpanel" aria-live="polite">
 
@@ -3131,7 +3321,7 @@ title: Zenly — Online Booking & Operations Platform
       <div class="v2-tcar__card" data-index="3">
         <div class="v2-tcar__inner">
           <div class="v2-tcar__peek-frame">
-            <img class="v2-tcar__peek-img" src="https://images.unsplash.com/photo-1573497019236-17f8177b81e8?w=600&fit=crop&q=80" alt="" aria-hidden="true">
+            <img class="v2-tcar__peek-img" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&fit=crop&q=80" alt="" aria-hidden="true">
           </div>
           <div class="v2-tcar__content">
             <div class="v2-tcar__text">
@@ -3144,7 +3334,7 @@ title: Zenly — Online Booking & Operations Platform
               </div>
             </div>
             <div class="v2-tcar__photo">
-              <img src="https://images.unsplash.com/photo-1573497019236-17f8177b81e8?w=600&fit=crop&q=80" alt="Mai, owner of Nuad Thai Spa">
+              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&fit=crop&q=80" alt="Mai, owner of Nuad Thai Spa">
             </div>
           </div>
         </div>
@@ -3195,8 +3385,8 @@ title: Zenly — Online Booking & Operations Platform
         <h2 class="v2-access-title">Better operations start with a better system.</h2>
         <p class="v2-access-lead">See what Zennly can do for your business.</p>
       </div>
-      <form class="v2-access-form v2-reveal" onsubmit="return false;">
-        <input type="email" placeholder="Enter your email" required>
+      <form class="v2-access-form v2-reveal" id="v2-access-form">
+        <input type="email" name="email" placeholder="Enter your email" required>
         <button type="submit">Get started →</button>
       </form>
 
@@ -3558,7 +3748,7 @@ title: Zenly — Online Booking & Operations Platform
                   <div class="app-promo-card">
                     <div class="app-promo-card__label">Booking For</div>
                     <div class="app-promo-card__title">Emma Johnson</div>
-                    <div class="app-promo-card__desc">Walk-in · First visit at Zenly Spa</div>
+                    <div class="app-promo-card__desc">Walk-in · First visit at Zennly Spa</div>
                   </div>
 
                   <div class="booking-screen__section-title">Select Treatment</div>
@@ -3739,7 +3929,7 @@ title: Zenly — Online Booking & Operations Platform
             <div class="app-notification">
               <div class="app-notification__header">
                 <span class="app-notification__logo">Z</span>
-                <span class="app-notification__title">Zenly</span>
+                <span class="app-notification__title">Zennly</span>
                 <span class="app-notification__time">just now</span>
               </div>
               <div class="app-notification__body">
@@ -3809,7 +3999,7 @@ title: Zenly — Online Booking & Operations Platform
         <div class="v2-footer-top">
           <div class="v2-footer-brand">
             <a href="/" class="v2-footer-logo">Zennly</a>
-            <p class="v2-footer-tagline">Online booking, operational control, and financial clarity — for any appointment-based business.</p>
+            <p class="v2-footer-tagline">Online booking, operational control, and financial clarity for any appointment-based business.</p>
             <div class="v2-footer-status">
               <span class="v2-live-dot"></span>
               <span>All systems operational</span>
@@ -3877,6 +4067,75 @@ title: Zenly — Online Booking & Operations Platform
     onLeaveBack: function(){ nav.classList.remove('hero-cta-active'); }
   });
 
+  // ---- Mobile nav: hamburger toggle ----
+  (function () {
+    var toggle = document.getElementById('v2-nav-toggle');
+    var mobile = document.getElementById('v2-nav-mobile');
+    var scrim = document.getElementById('v2-nav-mobile-scrim');
+    if (!toggle || !mobile || !nav) return;
+
+    // Lenis intercepts wheel/touch scrolling directly, so plain CSS
+    // `overflow:hidden` on the body won't stop the page scrolling behind
+    // the open menu — stop/start Lenis itself instead.
+    var setOpen = function (isOpen) {
+      nav.classList.toggle('menu-open', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      mobile.setAttribute('aria-hidden', String(!isOpen));
+      if (scrim) {
+        scrim.classList.toggle('is-open', isOpen);
+        scrim.setAttribute('aria-hidden', String(!isOpen));
+      }
+      if (isOpen) { lenis.stop(); } else { lenis.start(); }
+    };
+
+    toggle.addEventListener('click', function () {
+      setOpen(!nav.classList.contains('menu-open'));
+    });
+
+    if (scrim) {
+      scrim.addEventListener('click', function () { setOpen(false); });
+    }
+
+    mobile.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setOpen(false); });
+    });
+
+    // Features/Resources accordion — tap equivalent of the desktop mega menu,
+    // which relies on hover/:has() sibling selectors with no touch equivalent.
+    mobile.querySelectorAll('.v2-nav-mobile__group').forEach(function (group) {
+      var trigger = group.querySelector('.v2-nav-mobile__trigger');
+      if (!trigger) return;
+      trigger.addEventListener('click', function () {
+        var isOpen = group.classList.toggle('is-open');
+        trigger.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+  })();
+
+  // ---- Hero email capture: hand off to the /demo form, pre-filled ----
+  (function () {
+    var form = document.getElementById('v2-hero-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = form.email.value.trim();
+      window.location.href = '/demo/' + (email ? '?email=' + encodeURIComponent(email) : '');
+    });
+  })();
+
+  // ---- Footer CTA email capture: hand off to the /demo form, pre-filled ----
+  (function () {
+    var form = document.getElementById('v2-access-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = form.email.value.trim();
+      window.location.href = '/demo/' + (email ? '?email=' + encodeURIComponent(email) : '');
+    });
+  })();
+
   // ---- Nav mega menu: click-to-toggle + hover ----
   // The panels live as top-level siblings of .v2-nav (not nested inside the
   // trigger's <li>-equivalent), so open state is tracked on both the
@@ -3908,12 +4167,29 @@ title: Zenly — Online Booking & Operations Platform
     var cancelClose = function () {
       if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
     };
+    var positionAnchoredPanel = function (item, panel) {
+      if (!panel || !panel.classList.contains('v2-nav-mega--sm')) return;
+      var rect = item.getBoundingClientRect();
+      var panelWidth = panel.offsetWidth;
+      var margin = 16;
+      var triggerCenter = rect.left + rect.width / 2;
+      var minCenterRef = margin + panelWidth / 2;
+      var maxCenterRef = window.innerWidth - margin - panelWidth / 2;
+      var centerRef = Math.min(Math.max(triggerCenter, minCenterRef), maxCenterRef);
+      panel.style.left = centerRef + 'px';
+      var caretLeft = (rect.left + rect.width / 2) - (centerRef - panelWidth / 2);
+      panel.style.setProperty('--mega-caret-left', caretLeft + 'px');
+    };
+
     var open = function (item) {
       cancelClose();
       closeAllMegas(item);
       item.classList.add('is-open');
       var panel = panelFor(item);
-      if (panel) panel.classList.add('is-open');
+      if (panel) {
+        panel.classList.add('is-open');
+        positionAnchoredPanel(item, panel);
+      }
       var trigger = item.querySelector('.v2-nav__mega-trigger');
       if (trigger) trigger.setAttribute('aria-expanded', 'true');
     };
@@ -3998,7 +4274,7 @@ title: Zenly — Online Booking & Operations Platform
     });
   });
 
-  // ---- Comparison ("Instead of / Zenly gives") — ported from getflect.app's
+  // ---- Comparison ("Instead of / Zennly gives") — ported from getflect.app's
   // .comparison-stage reveal logic: desktop cascades the good bubbles in once,
   // mobile crossfades the good side on top of the bad side once the user has
   // scrolled past the last "bad" bubble while the stage is in view. ----
@@ -4201,7 +4477,7 @@ title: Zenly — Online Booking & Operations Platform
           trigger: section,
           start: 'top bottom',
           end: 'bottom top',
-          scrub: 0.6,
+          scrub: 1.4,
           invalidateOnRefresh: true,
         },
       });
@@ -4463,6 +4739,7 @@ title: Zenly — Online Booking & Operations Platform
     }
 
     stage.addEventListener('click', function (e) {
+      if (wasDragged) return; // a real swipe already advanced the carousel — don't also fire the peek-card's own click-to-advance
       var card = e.target.closest('.v2-tcar__card');
       if (!card) return;
       var offset = Number(card.dataset.offset || 0);
@@ -4472,6 +4749,45 @@ title: Zenly — Online Booking & Operations Platform
     tabs.forEach(function (tab, index) {
       tab.addEventListener('click', function () { goToIndex(index); });
     });
+
+    // ---- Swipe/drag navigation ----
+    // No native scroll container exists here (cards are absolutely
+    // positioned, animated via applyVariant/render), so touch swipe has to
+    // be read manually: track horizontal pointer movement, and once it
+    // clearly reads as a horizontal drag past a small threshold, advance
+    // or go back exactly one card on release — same effect as clicking a
+    // peek card or pressing an arrow key, just gesture-driven.
+    var SWIPE_THRESHOLD = 40;
+    var DIRECTION_LOCK_PX = 6;
+    var drag = null;
+    var wasDragged = false;
+
+    stage.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      drag = { startX: e.clientX, startY: e.clientY, dx: 0, axis: null, pointerId: e.pointerId };
+      wasDragged = false;
+    });
+
+    stage.addEventListener('pointermove', function (e) {
+      if (!drag || drag.pointerId !== e.pointerId) return;
+      drag.dx = e.clientX - drag.startX;
+      var dy = e.clientY - drag.startY;
+      if (drag.axis === null && (Math.abs(drag.dx) > DIRECTION_LOCK_PX || Math.abs(dy) > DIRECTION_LOCK_PX)) {
+        drag.axis = Math.abs(drag.dx) > Math.abs(dy) ? 'x' : 'y';
+      }
+      if (drag.axis === 'x') e.preventDefault(); // claim the gesture once it's clearly horizontal; vertical stays native (touch-action:pan-y)
+    }, { passive: false });
+
+    function endDrag(e) {
+      if (!drag || (e && drag.pointerId !== e.pointerId)) return;
+      if (drag.axis === 'x' && Math.abs(drag.dx) > SWIPE_THRESHOLD) {
+        wasDragged = true;
+        shift(drag.dx < 0 ? 1 : -1);
+      }
+      drag = null;
+    }
+    stage.addEventListener('pointerup', endDrag);
+    stage.addEventListener('pointercancel', function () { drag = null; });
 
     root.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowLeft') shift(-1);

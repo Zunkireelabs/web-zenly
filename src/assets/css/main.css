@@ -19,15 +19,15 @@
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font-body);
-    font-size: 1.0625rem; /* 17px */
-    line-height: 1.7;
+    font-size: 1.125rem; /* 18px — synced to homepage #v2-root base */
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   :root {
     /* ── Colors ─────────────────────────────────────────── */
-    --color-primary:   #3F6839;   /* Zenly forest green (logo color) — CTAs, links, accents */
+    --color-primary:   #3F6839;   /* Zennly forest green (logo color) — CTAs, links, accents */
     --color-primary-tint: #DCEBDC; /* Pale sage — "Nature" theme ref, glows/washes/backgrounds only */
     --color-secondary: #8B4513;   /* Earth brown — footer, labels only */
     --color-accent:    #DAA520;   /* Gold — micro-accent only, never buttons */
@@ -64,10 +64,10 @@
       color-mix(in srgb, var(--color-primary) 75%, #000000 25%) 100%
     );
 
-    /* ── Typography ─────────────────────────────────────── */
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-heading: 'Fraunces', Georgia, serif;
-    --font-body:    'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    /* ── Typography (synced to homepage --v2-serif / --v2-sans, src/index.njk) ── */
+    --font-display: 'PP Editorial New', Georgia, 'Times New Roman', serif;
+    --font-heading: 'PP Editorial New', Georgia, 'Times New Roman', serif;
+    --font-body:    'PP Neue Montreal', 'Segoe UI', system-ui, -apple-system, sans-serif;
     --font-mono:    'JetBrains Mono', ui-monospace, 'Courier New', monospace;
 
     /* ── Spacing (8px base scale) ────────────────────────── */
@@ -92,12 +92,277 @@
     --shadow-sm:  0px 1px 3px rgba(0, 0, 0, 0.08);
     --shadow-md:  0px 4px 16px rgba(0, 0, 0, 0.08);
     --shadow-lg:  0px 8px 32px rgba(0, 0, 0, 0.10);
+
+    /* ── Shared nav/CTA/footer (ported from homepage src/index.njk --v2-* tokens) ── */
+    --v2-nav-h:      76px;
+    --v2-nav-inset:  8px;
+    --v2-nav-radius: 12px;
+    --v2-ink:        #2E1919;
+    --v2-ink-soft:   rgba(46,25,25,0.62);
+    --v2-muted:      rgba(46,25,25,0.42);
+    --v2-card:       var(--color-surface);
+    --v2-line:       rgba(46,25,25,0.12);
+    --v2-sage:       var(--color-primary);
+    --v2-sage-tint:  rgba(63,104,57,0.08);
+    --v2-accent:     #ECF7BD;
+    --v2-accent-ink: #2E1919;
+    --v2-ease-out:   cubic-bezier(0.16,1,0.3,1);
+    --v2-ease-luxe:  cubic-bezier(0.19,1,0.22,1);
+    --v2-link:       #38430A;
+    --v2-bg-alt:     #ECF7BD;
+    --v2-flow-radius: clamp(34px,3.7vw,46px);
   }
 }
 
 @layer components {
 
-  /* ── NAV ────────────────────────────────────────────────── */
+  /* ── SHARED NAV (v2) ────────────────────────────────────────
+     Ported from the homepage's own nav (src/index.njk, .v2-nav*),
+     used site-wide via src/_includes/_nav-v2.njk. Two deliberate
+     departures from the homepage version:
+     1. The CTA is always visible (homepage hides it until scrolled
+        past its own hero via a GSAP ScrollTrigger tied to .v2-hero,
+        which other pages don't have).
+     2. A minimal mobile toggle/menu is added — the homepage simply
+        hides .v2-nav__links below 860px with no replacement, which
+        would leave every other page with no mobile nav at all. */
+  .v2-nav{
+    position:fixed; top:var(--v2-nav-inset); left:var(--v2-nav-inset); right:var(--v2-nav-inset);
+    z-index:100; height:var(--v2-nav-h); pointer-events:none;
+  }
+  .v2-nav-inner{
+    width:100%; height:100%; border-radius:var(--v2-nav-radius); border:1px solid transparent;
+    overflow:hidden; pointer-events:auto; display:flex; align-items:center;
+    transition:background .45s ease, backdrop-filter .45s ease, border-color .45s ease;
+  }
+  .v2-nav.is-scrolled .v2-nav-inner,
+  .v2-nav.menu-open .v2-nav-inner{
+    background:rgba(255,255,255,.6); backdrop-filter:blur(5px) saturate(1.15);
+    -webkit-backdrop-filter:blur(5px) saturate(1.15); border-color:var(--v2-line);
+  }
+  .v2-nav-content{width:100%; height:100%; padding-inline:16px; display:flex; align-items:center; gap:10px;}
+  .v2-nav-col{flex:1 0 0; min-width:0; display:flex; align-items:center;}
+  .v2-nav-col--start{justify-content:flex-start;}
+  .v2-nav-col--center{justify-content:center;}
+  .v2-nav-col--end{justify-content:flex-end; gap:16px;}
+  a.v2-nav__logo{display:flex; align-items:center; gap:8px; font-weight:700; font-size:23px; color:var(--v2-sage); flex:0 0 auto;}
+  .v2-nav__links{display:flex; align-items:center; gap:32px;}
+  .v2-nav__links > a, .v2-nav__links > .v2-nav__item--has-mega > .v2-nav__mega-trigger{
+    font-size:18px; font-weight:500; letter-spacing:-0.02em; line-height:1; color:var(--v2-ink); position:relative;
+  }
+  .v2-nav__links > a::after, .v2-nav__links > .v2-nav__item--has-mega > .v2-nav__mega-trigger::after{
+    content:''; position:absolute; left:0; right:0; bottom:-4px; height:1px; background:currentColor;
+    transform:scaleX(0); transform-origin:right center; transition:transform .5s ease;
+  }
+  .v2-nav__links > a:hover::after, .v2-nav__links > .v2-nav__item--has-mega > .v2-nav__mega-trigger:hover::after{transform:scaleX(1); transform-origin:left center;}
+
+  .v2-nav__item--has-mega{position:relative; display:flex; align-items:center;}
+  .v2-nav__item--has-mega::after{content:''; position:absolute; top:100%; left:-40px; right:-40px; height:18px; background:transparent;}
+  .v2-nav__mega-trigger{display:inline-flex; align-items:center; gap:5px;}
+  .v2-nav__chevron{flex-shrink:0; transition:transform .2s var(--v2-ease-out);}
+  .v2-nav__item--has-mega:hover .v2-nav__chevron,
+  .v2-nav__item--has-mega:focus-within .v2-nav__chevron,
+  .v2-nav__item--has-mega.is-open .v2-nav__chevron{transform:rotate(180deg);}
+
+  .v2-nav-backdrop{
+    position:fixed; inset:0; background:rgba(46,25,25,0.14);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    opacity:0; pointer-events:none; transition:opacity .25s var(--v2-ease-out); z-index:90;
+  }
+  .v2-nav:has(.v2-nav__item--has-mega:hover) ~ .v2-nav-backdrop,
+  .v2-nav:has(.v2-nav__item--has-mega:focus-within) ~ .v2-nav-backdrop,
+  .v2-nav:has(.v2-nav__item--has-mega.is-open) ~ .v2-nav-backdrop{opacity:1; pointer-events:auto;}
+
+  .v2-nav-mega{
+    position:fixed; top:calc(var(--v2-nav-inset) + var(--v2-nav-h) + 10px); left:50%;
+    transform:translateX(-50%) translateY(-6px); width:min(820px,calc(100vw - 32px));
+    max-height:calc(100vh - var(--v2-nav-inset) - var(--v2-nav-h) - 26px);
+    background:var(--v2-card); border-radius:20px;
+    box-shadow:0 24px 56px -12px rgba(46,25,25,0.18), 0 0 0 1px var(--v2-line);
+    opacity:0; pointer-events:none;
+    transition:opacity .22s var(--v2-ease-out), transform .22s var(--v2-ease-out);
+    z-index:110; overflow-x:hidden; overflow-y:auto;
+  }
+  .v2-nav-mega::before{
+    content:''; position:absolute; top:-5px; left:var(--mega-caret-left, 50%); transform:translateX(-50%) rotate(45deg);
+    width:10px; height:10px; background:var(--v2-card);
+    border-top:1px solid var(--v2-line); border-left:1px solid var(--v2-line); z-index:-1;
+  }
+  .v2-nav-mega.is-open{opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0);}
+
+  .v2-nav-mega__container{display:flex; min-height:320px;}
+  .v2-nav-mega--sm{width:min(320px,calc(100vw - 32px));}
+  .v2-nav-mega--sm .v2-nav-mega__container{min-height:0;}
+
+  .v2-nav-mega__left{flex:1.2; padding:26px 26px 22px; background:var(--v2-card);}
+  .v2-nav-mega__eyebrow{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--v2-sage); margin-bottom:10px; padding-left:12px;}
+  .v2-nav-mega__heading{font-family:var(--font-display); font-weight:600; font-size:19px; line-height:1.3; color:var(--v2-ink); margin:0 0 6px; padding-left:12px;}
+  .v2-nav-mega__subtext{font-size:12.5px; line-height:1.45; color:var(--v2-ink-soft); margin:0 0 18px; padding-left:12px; max-width:420px;}
+  .v2-nav-mega__grid{display:grid; grid-template-columns:1fr 1fr; row-gap:22px; column-gap:4px;}
+  .v2-nav-mega__grid--1col{grid-template-columns:1fr;}
+  .v2-nav-mega__item{display:flex; align-items:flex-start; gap:12px; padding:10px 12px; border-radius:12px; transition:background-color .15s ease;}
+  .v2-nav-mega__item:hover{background:var(--v2-sage-tint);}
+  .v2-nav-mega__icon-wrap{flex-shrink:0; width:32px; height:32px; border-radius:50%; background:var(--v2-sage-tint); display:flex; align-items:center; justify-content:center; color:var(--v2-sage); transition:background-color .15s ease;}
+  .v2-nav-mega__item:hover .v2-nav-mega__icon-wrap{background:var(--v2-sage); color:#fff;}
+  .v2-nav-mega__body{display:flex; flex-direction:column; gap:3px;}
+  .v2-nav-mega__name{font-size:14px; font-weight:600; color:var(--v2-ink); line-height:1.25; transition:color .15s ease;}
+  .v2-nav-mega__item:hover .v2-nav-mega__name{color:var(--v2-sage);}
+  .v2-nav-mega__desc{font-size:12.5px; color:var(--v2-ink-soft); line-height:1.4;}
+
+  .v2-nav-mega__right{width:280px; margin:16px 16px 16px 0; border-radius:16px; background:var(--v2-sage-tint); padding:22px; display:flex; flex-direction:column;}
+  .v2-nav-mega__right-tag{align-self:flex-start; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--v2-sage); background:rgba(63,104,57,0.12); padding:3px 9px; border-radius:var(--radius-pill); margin-bottom:12px;}
+  .v2-nav-mega__right-title{font-family:var(--font-display); font-style:italic; font-weight:400; font-size:20px; color:var(--v2-ink); margin:0 0 6px; line-height:1.25;}
+  .v2-nav-mega__right-text{font-size:12.5px; color:var(--v2-ink-soft); line-height:1.45; margin:0 0 16px;}
+  .v2-nav-mega__verticals{display:flex; flex-direction:column; gap:10px; margin-bottom:16px;}
+  .v2-nav-mega__vertical-link{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:var(--v2-ink); transition:color .15s ease, transform .15s ease;}
+  .v2-nav-mega__vertical-link:hover{color:var(--v2-sage); transform:translateX(2px);}
+  .v2-nav-mega__vertical-bullet{font-size:12px; color:var(--v2-muted);}
+
+  .v2-nav-mega__industry-cards{display:flex; gap:10px; margin-top:auto;}
+  .v2-nav-mega__industry-card{
+    position:relative; flex:1; aspect-ratio:16/9; border-radius:12px; overflow:hidden;
+    background-color:var(--v2-sage-tint); background-size:cover; background-position:center;
+    transition:transform .15s ease;
+  }
+  .v2-nav-mega__industry-card:hover{transform:translateY(-2px);}
+
+  .v2-nav-mega__right-cta{display:inline-flex; align-items:center; gap:4px; font-size:13px; font-weight:600; color:var(--v2-sage); margin-top:16px; transition:opacity .15s ease;}
+  .v2-nav-mega__right-cta:hover{opacity:.75;}
+  .v2-nav-mega__right-cta svg{transition:transform .2s ease;}
+  .v2-nav-mega__right-cta:hover svg{transform:translateX(2px);}
+
+  .v2-nav-mega__footer{background:transparent; border-top:none; padding:0 26px 14px; display:flex; align-items:center; justify-content:flex-start; gap:24px;}
+  .v2-nav-mega__footer-text{display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--v2-ink-soft);}
+  .v2-nav-mega__footer-text::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--v2-sage); flex-shrink:0;}
+  .v2-nav-mega__footer-link{font-size:13px; font-weight:600; color:var(--v2-ink); text-decoration:underline; text-underline-offset:3px; transition:opacity .15s ease;}
+  .v2-nav-mega__footer-link:hover{opacity:.75;}
+
+  .v2-nav .v2-btn{background:var(--v2-sage); color:#fff !important; height:44px; padding:0 20px;}
+  .v2-nav .v2-btn:hover{background:#345929;}
+  .v2-btn{
+    display:inline-flex; align-items:center; gap:8px; background:var(--v2-accent); color:var(--v2-accent-ink);
+    padding:11px 20px; border-radius:var(--radius-pill); font-size:13.5px; font-weight:600; border:none;
+    cursor:pointer; transition:transform .25s ease, background .25s ease; text-decoration:none;
+  }
+  .v2-btn:hover{transform:translateY(-2px); background:#dfef9e;}
+
+  /* Mobile toggle + accordion panel — ported 1:1 from the homepage
+     (src/index.njk, .v2-nav__toggle / .v2-nav-mobile*) so every page's
+     mobile nav matches the homepage's, not a stripped-down flat list. */
+  .v2-nav__toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:40px; height:40px; padding:0; background:none; border:none; cursor:pointer; flex:0 0 auto;
+  }
+  .v2-nav__toggle span{display:block; width:20px; height:2px; background:var(--v2-ink); transition:transform .2s ease, opacity .2s ease;}
+  .v2-nav.menu-open .v2-nav__toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .v2-nav.menu-open .v2-nav__toggle span:nth-child(2){opacity:0;}
+  .v2-nav.menu-open .v2-nav__toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .v2-nav-mobile{
+    position:fixed; top:calc(var(--v2-nav-inset) + var(--v2-nav-h) + 8px); left:var(--v2-nav-inset); right:var(--v2-nav-inset);
+    background:var(--v2-card); border-radius:var(--v2-nav-radius); box-shadow:0 24px 56px -12px rgba(46,25,25,0.18);
+    padding:20px; display:none; flex-direction:column; gap:4px; z-index:95;
+  }
+  .v2-nav.menu-open ~ .v2-nav-mobile{display:flex;}
+  .v2-nav-mobile a{font-size:19px; font-weight:500; color:var(--v2-ink); padding:12px 8px;}
+  .v2-nav-mobile .v2-btn{align-self:flex-start; margin-top:8px; opacity:1 !important; visibility:visible !important; transform:none !important;}
+  /* Divider line under each top-level row (not the CTA button, which is
+     already visually set apart as a pill). */
+  .v2-nav-mobile > a:not(.v2-btn){border-bottom:1px solid var(--v2-line);}
+
+  /* Features/Resources accordion — tap equivalent of the desktop mega menu.
+     Sub-items are visually demoted (smaller, lighter, indented behind a rail)
+     so they read as children of the trigger, not as more top-level links. */
+  .v2-nav-mobile__group{display:flex; flex-direction:column;}
+  .v2-nav-mobile__trigger{
+    display:flex; align-items:center; justify-content:space-between; width:100%;
+    font-family:inherit; font-size:19px; font-weight:600; color:var(--v2-ink);
+    padding:12px 8px; background:none; border:none; border-bottom:1px solid var(--v2-line); text-align:left; cursor:pointer;
+  }
+  .v2-nav-mobile__chevron{flex-shrink:0; color:var(--v2-ink-soft); transition:transform .2s ease;}
+  .v2-nav-mobile__group.is-open .v2-nav-mobile__chevron{transform:rotate(180deg);}
+  .v2-nav-mobile__submenu{
+    display:flex; flex-direction:column; max-height:0; overflow:hidden;
+    margin:0 8px 0 18px; border-left:1.5px solid var(--v2-line);
+    transition:max-height .3s ease;
+  }
+  .v2-nav-mobile__group.is-open .v2-nav-mobile__submenu{max-height:560px; padding:2px 0 6px;}
+  .v2-nav-mobile__submenu a{
+    display:flex; align-items:center; gap:10px;
+    font-size:17px; font-weight:400; letter-spacing:-0.01em; color:var(--v2-ink-soft);
+    padding:8px 8px 8px 16px; line-height:1.3;
+  }
+  .v2-nav-mobile__submenu a:first-child{font-weight:600; color:var(--v2-ink);}
+  /* Icon circles — same treatment as the desktop mega menu's .v2-nav-mega__icon-wrap */
+  .v2-nav-mobile__icon-wrap{
+    flex-shrink:0; width:28px; height:28px; border-radius:50%;
+    background:var(--v2-sage-tint); color:var(--v2-sage);
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* Solid scrim behind the mobile menu — opaque, not blurred, so page content
+     underneath is fully hidden (not left half-visible) while the menu is open. */
+  .v2-nav-mobile-scrim{
+    position:fixed; inset:0; background:rgba(46,25,25,0.4);
+    opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:94;
+  }
+  .v2-nav-mobile-scrim.is-open{opacity:1; pointer-events:auto;}
+  @media (min-width:861px){ .v2-nav-mobile-scrim{display:none !important;} }
+
+  @media (max-width:860px){
+    .v2-nav__links{display:none;}
+    .v2-nav .v2-btn{display:none;}
+    .v2-nav__toggle{display:flex;}
+  }
+  @media (min-width:861px){
+    .v2-nav-mobile{display:none !important;}
+  }
+
+  /* Pages whose hero isn't the homepage's light/glow background need the nav
+     to stay legible at rest, not just after scrolling past 40px — same
+     frosted treatment .v2-nav already gets once .is-scrolled is added.
+     (Ported from the old .nav's page--sol-nav / page--light-nav rules,
+     which targeted classes that no longer exist on any page.) */
+  .page--sol-nav .v2-nav-inner:not(:hover),
+  .page--light-nav .v2-nav-inner:not(:hover) {
+    background: rgba(255,255,255,.6);
+    backdrop-filter: blur(5px) saturate(1.15);
+    -webkit-backdrop-filter: blur(5px) saturate(1.15);
+    border-color: var(--v2-line);
+  }
+
+  /* ── SHARED FOOTER (v2) ─────────────────────────────────────
+     Ported from the homepage (src/index.njk, .v2-site-footer / .v2-footer-*),
+     used site-wide via src/_includes/_footer-v2.njk. */
+  .v2-wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  .v2-site-footer{position:relative; padding:136px 32px 0; border-top-left-radius:var(--v2-flow-radius); border-top-right-radius:var(--v2-flow-radius); background:var(--v2-bg-alt); box-shadow:0 calc(-1 * var(--v2-flow-radius)) 0 0 var(--v2-link);}
+  .v2-footer-content{max-width:1180px; margin:0 auto; padding-bottom:80px; display:flex; flex-direction:column; gap:60px;}
+  .v2-footer-top{display:flex; gap:64px; justify-content:space-between;}
+  .v2-footer-brand{display:flex; flex-direction:column; align-items:flex-start; gap:16px; max-width:264px; flex-shrink:0;}
+  .v2-footer-logo{font-family:var(--font-body); font-weight:700; font-size:22px; letter-spacing:-0.02em; color:var(--v2-link); text-decoration:none;}
+  .v2-footer-tagline{font-size:16px; line-height:1.5; letter-spacing:-0.01em; color:var(--v2-ink-soft); margin:0;}
+  .v2-footer-status{display:flex; align-items:center; gap:8px; font-size:14px; letter-spacing:-0.01em; color:var(--v2-ink-soft);}
+  .v2-live-dot{display:inline-block; width:8px; height:8px; border-radius:50%; background:#22c55e; flex-shrink:0;}
+  .v2-footer-links{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:72px 56px; flex:1 1 auto;}
+  .v2-footer-link-group{display:flex; flex-direction:column; align-items:flex-start; gap:16px;}
+  .v2-footer-heading{font-family:var(--font-display); font-style:italic; font-weight:400; font-size:26px; line-height:1.34; letter-spacing:-0.02em; color:var(--v2-link); margin:0; white-space:nowrap;}
+  .v2-footer-link{font-size:20px; line-height:1.3; letter-spacing:-0.02em; font-weight:500; color:var(--v2-ink); white-space:nowrap; text-decoration:none;}
+  .v2-footer-link:hover{opacity:.72;}
+  .v2-footer-copyright{font-size:16px; line-height:1.1; letter-spacing:-0.02em; color:var(--v2-ink);}
+
+  @media (max-width:860px){
+    .v2-site-footer{padding:80px 16px 0;}
+    .v2-footer-content{gap:48px; padding-bottom:56px;}
+    .v2-footer-top{flex-direction:column; gap:40px;}
+    .v2-footer-brand{max-width:none;}
+    .v2-footer-links{grid-template-columns:1fr 1fr; gap:48px 16px;}
+    .v2-footer-link-group{gap:12px;}
+    .v2-footer-heading{font-size:23px; white-space:normal;}
+    .v2-footer-link{font-size:17px; white-space:normal;}
+    .v2-footer-copyright{font-size:14px;}
+  }
+
+  /* ── NAV (legacy — unused now that base.njk uses .v2-nav, kept for reference) ── */
 
   .nav {
     position: fixed;
@@ -1714,7 +1979,7 @@
 
   /* ── Screen 4: Dashboard overview + activity feed ──────── */
   /* A big stat + segmented status bar first (real visual UI, matching the
-     actual Zenly staff-portal dashboard), then a short activity list below
+     actual Zennly staff-portal dashboard), then a short activity list below
      using the same card language as .booking-item — not a floating layer. */
 
   .dash-stat {
@@ -2713,6 +2978,15 @@ body.page--case-study .section {
   .section__h2--nowrap {
     white-space: normal;
   }
+}
+
+/* Feature-detail pages (/features/{slug}/) use the sans heading voice
+   throughout, to match the v2 homepage — not the base design system's
+   serif --font-heading. Scoped to .fd-page so it never affects the
+   shared .section__h2 / .section__sub used on other pages. */
+.fd-page .section__h2,
+.fd-page .section__sub {
+  font-family: var(--font-body);
 }
 
 .section__sub {
@@ -4555,7 +4829,22 @@ body.page--case-study .section {
 
 .sol-hero {
   position: relative;
-  background: var(--gradient-brand);
+  /* Same radial glow as homepage hero (.v2-hero, src/index.njk): beige -> lime -> off-white */
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 72%,
+      var(--color-bg) 94%,
+      var(--color-bg) 100%
+    ),
+    radial-gradient(
+      135% 105% at 50% -8%,
+      rgba(243, 223, 198, 1) 0%,
+      color-mix(in srgb, var(--color-primary) 35%, var(--color-bg)) 28%,
+      var(--color-bg) 60%
+    ),
+    var(--color-bg);
   padding: 96px var(--space-md) calc(48px + var(--space-2xl) + 64px);
   overflow: hidden;
 }
@@ -4573,7 +4862,7 @@ body.page--case-study .section {
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.12;
-  color: #ffffff;
+  color: var(--color-text);
   margin: 0 auto var(--space-sm);
   max-width: 760px;
   text-wrap: balance;
@@ -4584,7 +4873,7 @@ body.page--case-study .section {
   font-size: clamp(1rem, 1.4vw, 1.125rem);
   font-weight: 400;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--color-muted);
   margin: 0 auto;
   max-width: 520px;
 }
@@ -4611,8 +4900,8 @@ body.page--case-study .section {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  background-color: #ffffff;
-  color: var(--color-text);
+  background-color: var(--color-primary);
+  color: #ffffff;
   font-family: var(--font-body);
   font-size: 0.9375rem;
   font-weight: 600;
@@ -6900,13 +7189,7 @@ body.page--case-study .section {
 }
 
 #transformation .section__inner {
-  background-color: #FFFFF6;
-  background-image:
-    radial-gradient(ellipse 900px 500px at 50% -10%, #DCF2E1 0%, #FFFFF6 70%),
-    radial-gradient(ellipse 600px 400px at 85% 100%, color-mix(in srgb, var(--color-accent) 12%, transparent) 0%, transparent 70%);
-  border: 1px solid var(--color-border);
   border-radius: 32px;
-  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.06);
   padding: var(--space-lg) var(--space-xl);
 }
 
@@ -7097,105 +7380,69 @@ body.page--case-study .section {
 .compare-card--v2 {
   max-width: 1180px;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   gap: var(--space-xl);
   align-items: stretch;
 }
 
-.compare-card--v2 .compare-card__lists {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4, auto);
-  align-content: start;
+.compare-card--v2 .redline-header--left {
+  grid-column: 1 / -1;
+  grid-row: 1;
   align-self: start;
-  gap: var(--space-sm);
 }
 
-/* Flatten panel/list wrappers into the grid so each Before/After
-   pair lands on the same grid row and stretches to match heights,
-   even when one side's text wraps to more lines than the other. */
-.compare-card--v2 .compare-card__panel,
-.compare-card--v2 .compare-card__list {
-  display: contents;
+.redline-header--left {
+  text-align: left;
+  max-width: none;
+  margin: 0 0 var(--space-xl);
 }
 
-.compare-card--v2 .compare-card__pill--problem { grid-column: 1; grid-row: 1; }
-.compare-card--v2 .compare-card__pill--solution { grid-column: 2; grid-row: 1; }
-
-.compare-card--v2 .compare-card__item--problem { grid-column: 1; }
-.compare-card--v2 .compare-card__item--solution { grid-column: 2; }
-
-.compare-card--v2 .compare-card__list .compare-card__item:nth-child(1) { grid-row: 2; }
-.compare-card--v2 .compare-card__list .compare-card__item:nth-child(2) { grid-row: 3; }
-.compare-card--v2 .compare-card__list .compare-card__item:nth-child(3) { grid-row: 4; }
-
-.compare-card--v2 .compare-card__pill {
-  display: inline-block;
-  justify-self: start;
-  align-self: start;
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 5px 12px;
-  border-radius: 999px;
-  margin-bottom: var(--space-sm);
+.redline-header--left .section__h2 {
+  text-align: left;
+  white-space: nowrap;
 }
 
-.compare-card--v2 .compare-card__pill--problem {
-  background: var(--color-surface-alt);
-  color: var(--color-text-muted, rgba(48, 46, 45, 0.65));
+.redline-header--left .section__sub {
+  text-align: left;
+  max-width: 480px;
 }
 
-.compare-card--v2 .compare-card__pill--solution {
-  background: rgba(63, 104, 57, 0.12);
-  color: var(--color-primary);
-}
-
-.compare-card--v2 .compare-card__list {
-  gap: 10px;
-}
-
-.compare-card--v2 .compare-card__item {
-  background: #EDEDED;
-  border: none;
-  border-radius: 16px;
-}
-
-.compare-card--v2 .compare-card__row-content {
+.compare-card--v2 .compare-card__list--rule {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-sm);
-  padding: var(--space-md);
+  align-self: start;
+  gap: var(--space-xs);
+  border-left: 2px solid var(--color-primary);
+  padding-left: var(--space-md);
 }
 
-.compare-card--v2 .compare-card__marker {
-  width: 22px;
-  height: 22px;
-  padding: 4px;
-  box-sizing: border-box;
+.compare-card--v2 .compare-card__visual {
+  grid-column: 2;
+  grid-row: 1 / 3;
 }
 
-.compare-card--v2 .compare-card__marker--problem {
-  background: rgba(48, 46, 45, 0.12);
-  color: rgba(48, 46, 45, 0.5);
+.compare-card--v2 .compare-card__item--rule {
+  border: none;
+  padding-left: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
-.compare-card--v2 .compare-card__marker--solution {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-.compare-card--v2 .compare-card__text {
-  font-weight: 500;
-  line-height: 1.4;
-}
-
-.compare-card--v2 .compare-card__item--problem .compare-card__text {
-  color: var(--color-text-muted, rgba(48, 46, 45, 0.65));
-}
-
-.compare-card--v2 .compare-card__item--solution .compare-card__text {
+.compare-card--v2 .compare-card__item-title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--color-text);
+  margin: 0 0 4px;
+}
+
+.compare-card--v2 .compare-card__item-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted, rgba(48, 46, 45, 0.65));
+  line-height: 1.5;
+  margin: 0;
 }
 
 .compare-card--v2 .compare-card__visual {
@@ -7449,12 +7696,6 @@ body.page--case-study .section {
 
   .compare-card--v2 .compare-card__visual {
     order: -1;
-  }
-}
-
-@media (max-width: 640px) {
-  .compare-card--v2 .compare-card__lists {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -8188,16 +8429,11 @@ body.page--case-study .section {
 ───────────────────────────────────────────────────────────────────────── */
 
 .bottom-cta {
-  /* Cool Spa sky wash (approved 2026-09-17, revised) — scoped to this
-     section only. Deliberately sky/lavender, not teal, so the palette
-     doesn't repeat the same accent everywhere. */
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-tint-sky) 40%, white) 0%,
-    color-mix(in srgb, var(--color-tint-lavender) 40%, white) 100%
-  );
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  /* Background/design synced to homepage's CTA band (.v2-access, src/index.njk) */
+  background: var(--v2-link);
+  color: var(--v2-bg-alt);
+  border-top-left-radius: var(--v2-flow-radius);
+  border-top-right-radius: var(--v2-flow-radius);
   overflow: hidden;
   margin-top: 64px;
   padding: 0;
@@ -8223,12 +8459,13 @@ body.page--case-study .section {
 
 .bottom-cta__h2 {
   font-family: var(--font-body);
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 600;
-  color: var(--color-text);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 3.48vw, 3.75rem);
+  color: var(--v2-bg-alt);
   margin: 0 auto;
   max-width: 720px;
-  line-height: 1.15;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   text-align: center;
 }
 
@@ -8236,36 +8473,38 @@ body.page--case-study .section {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--color-primary);
-  color: #ffffff;
-  border: 1px solid var(--color-primary);
-  border-radius: var(--radius-sm);
-  padding: 12px 28px;
+  background: var(--v2-bg-alt);
+  color: var(--v2-link) !important;
+  border: none;
+  border-radius: var(--radius-pill);
+  height: 44px;
+  padding: 0 20px;
   font-size: 0.9375rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, border-color 0.2s;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .bottom-cta__banner-btn:hover {
-  background: #245020;
-  border-color: #245020;
-  color: #ffffff;
+  background: #dfef9e;
+  transform: translateY(-2px);
 }
 
 .bottom-cta__sub {
   font-family: var(--font-body);
-  font-size: 1.0625rem;
-  color: var(--color-text-muted);
-  opacity: 0.9;
-  line-height: 1.6;
+  font-weight: 500;
+  font-size: clamp(1.0625rem, 1.51vw, 1.3125rem);
+  color: var(--v2-bg-alt);
+  opacity: 0.8;
+  line-height: 1.34;
+  letter-spacing: -0.02em;
   margin: -12px auto 0 auto;
   max-width: 560px;
 }
 
 .bottom-cta__link {
-  color: var(--color-text);
-  opacity: 0.7;
+  color: var(--v2-bg-alt);
+  opacity: 0.72;
   font-size: 0.9375rem;
   font-weight: 600;
   text-decoration: none;
@@ -8278,8 +8517,8 @@ body.page--case-study .section {
 }
 
 .bottom-cta__reassurance {
-  color: var(--color-text-muted);
-  opacity: 0.8;
+  color: var(--v2-bg-alt);
+  opacity: 0.72;
   font-size: 0.875rem;
   margin-top: 12px;
 }
@@ -8444,52 +8683,46 @@ body.page--case-study .section {
    SCROLL REVEAL — shared utility
 ───────────────────────────────────────────────────────── */
 
-/* Base reveal: blur + fade + slide (blur-to-focus entrance) */
+/* Base reveal: fade + slide up — matches homepage .v2-reveal feel (no blur) */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  filter: blur(5px);
-  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(36px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
-  filter: none;
 }
 
-.reveal[data-delay="1"] { transition-delay: 0.08s; }
-.reveal[data-delay="2"] { transition-delay: 0.16s; }
-.reveal[data-delay="3"] { transition-delay: 0.24s; }
-.reveal[data-delay="4"] { transition-delay: 0.32s; }
-.reveal[data-delay="5"] { transition-delay: 0.40s; }
+.reveal[data-delay="1"] { transition-delay: 0.06s; }
+.reveal[data-delay="2"] { transition-delay: 0.12s; }
+.reveal[data-delay="3"] { transition-delay: 0.18s; }
+.reveal[data-delay="4"] { transition-delay: 0.24s; }
+.reveal[data-delay="5"] { transition-delay: 0.30s; }
 
-/* Scale-in variant: card pop (scale + blur + fade) */
+/* Scale-in variant: card pop (scale + fade) */
 .reveal-scale {
   opacity: 0;
   transform: scale(0.94) translateY(14px);
-  filter: blur(4px);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-scale.is-visible {
   opacity: 1;
   transform: none;
-  filter: none;
 }
 
-.reveal-scale[data-delay="1"] { transition-delay: 0.10s; }
-.reveal-scale[data-delay="2"] { transition-delay: 0.20s; }
-.reveal-scale[data-delay="3"] { transition-delay: 0.30s; }
+.reveal-scale[data-delay="1"] { transition-delay: 0.06s; }
+.reveal-scale[data-delay="2"] { transition-delay: 0.12s; }
+.reveal-scale[data-delay="3"] { transition-delay: 0.18s; }
 
 /* Fade-only variant: for large visuals/images */
 .reveal-fade {
   opacity: 0;
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-fade.is-visible { opacity: 1; }
@@ -10678,36 +10911,37 @@ body.page--case-study .section {
   z-index: 1;
 }
 
-/* Sticky heading — pins along with the timeline below it, separated by
-   the bottom border so it reads as a fixed header while you scroll. */
+/* Editorial header — left-aligned, serif display, sits above the pinned
+   scroll block (not part of the sticky unit itself). */
 .fd-workflow__head {
-  margin-bottom: var(--space-md);
-}
-
-.fd-workflow__heading {
-  font-family: var(--font-body); /* DM Sans */
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 500;
-  line-height: 1.1;
-  color: var(--color-text);
-  margin-top: 40px;
-  margin-bottom: var(--space-sm);
+  max-width: 760px;
+  margin: 0 auto var(--space-sm);
+  padding: 0 var(--space-md);
   text-align: center;
 }
 
+.fd-workflow__heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
 .fd-workflow__heading-accent {
-  color: #2F6B3D;
+  font-style: italic;
+  color: var(--color-primary);
 }
 
 .fd-workflow__sub {
   font-size: 1.0625rem;
   color: var(--color-muted);
-  text-align: center;
   margin-bottom: 0;
 }
 
 /* Tall scroll runway — its height (steps × 60vh) is how far you scroll while
-   the timeline below stays pinned and advances one step at a time. */
+   the layout below stays pinned and advances one step at a time. */
 .fd-workflow__pin-wrap {
   position: relative;
   height: calc(var(--wf-steps, 5) * 60vh);
@@ -10715,245 +10949,1388 @@ body.page--case-study .section {
 
 .fd-workflow__sticky {
   position: sticky;
-  top: 24px;
-  padding-top: var(--space-md);
+  top: calc(var(--v2-nav-h, 76px) + var(--v2-nav-inset, 8px) + var(--space-md));
+  min-height: calc(100vh - var(--v2-nav-h, 76px) - var(--v2-nav-inset, 8px) - var(--space-md));
+  display: flex;
+  align-items: center;
+  transition: opacity 0.15s ease-out, filter 0.15s ease-out;
+  will-change: opacity, filter;
 }
 
-.fd-workflow__container {
-  position: relative;
+.fd-workflow__layout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  width: 100%;
   max-width: var(--max-w-visual);
   margin: 0 auto;
   padding: 0 var(--space-md);
 }
 
-.fd-workflow__grid {
+/* ── Left: cross-fading step text — every step occupies the same grid
+   cell and position, so only opacity/blur/transform change as you scroll,
+   matching the reference's in-place step transition. ── */
+.fd-workflow__steps {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(var(--wf-steps, 5), minmax(0, 1fr));
-  gap: var(--space-md);
-  position: relative;
-  z-index: 2;
-  margin-bottom: var(--space-lg);
-}
-
-.fd-workflow__col {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex: 1 1 0;
   min-width: 0;
 }
 
-/* Connecting line — spans from the previous node's center to this node's center.
-   Positioned on the column (not the node) so its % width resolves against the
-   full column track, keeping it aligned regardless of the grid gap. */
-.fd-workflow__col::before {
-  content: '';
-  position: absolute;
-  top: 20px; /* vertical center of the 40px icon node */
-  right: 50%;
-  width: calc(100% + var(--space-md));
-  height: 0;
-  border-top: 2px dashed var(--color-border);
-  z-index: 1;
-  transition: border-color 0.3s ease;
-}
-.fd-workflow__col:first-child::before {
-  display: none;
-}
-
-/* Segment style — solid green once reached, dotted while still upcoming */
-.fd-workflow__col.is-done::before,
-.fd-workflow__col.is-active::before {
-  border-top-style: solid;
-  border-top-color: var(--color-primary);
-}
-
-.fd-workflow__node-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Icon node — circular badge above the label */
-.fd-workflow__node {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: var(--space-sm);
-  border-radius: 50%;
-  background: var(--color-surface-alt);
-  border: 1.5px solid var(--color-border);
-  color: var(--color-muted);
-  z-index: 3;
-  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.fd-workflow__node-icon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.fd-workflow__node-icon {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-
-/* Reached / active — single-hue brand green, deepening as the booking matures */
-.fd-workflow__col.is-done .fd-workflow__node {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #fff;
-}
-.fd-workflow__col.is-active .fd-workflow__node {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #fff;
-  box-shadow: 0 0 0 5px rgba(63, 104, 57, 0.16);
-  animation: fd-node-pulse 1.8s ease-in-out infinite;
-  transform: scale(1.08);
-}
-
-/* Status label below the icon */
-.fd-workflow__node-label {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-muted);
-  text-align: center;
-  letter-spacing: 0.01em;
-  transition: color 0.3s ease;
-}
-.fd-workflow__col.is-done .fd-workflow__node-label,
-.fd-workflow__col.is-active .fd-workflow__node-label {
-  color: var(--color-primary);
-}
-.fd-workflow__col.is-active .fd-workflow__node-label {
-  font-weight: 700;
-}
-
-/* Single expanded stage card — panels are grid-stacked in the same cell and
-   cross-fade as the active step changes, so the card never resizes. */
-.fd-workflow__stage {
-  display: grid;
-  width: 100%;
-  max-width: 680px;
-  margin: 0 auto;
-  background: var(--color-surface);
-  border: 1px solid rgba(63, 104, 57, 0.14);
-  border-radius: var(--radius-md);
-  padding: var(--space-xl);
-  box-shadow: inset 0 2px 12px rgba(63, 104, 57, 0.1), inset 0 -2px 8px rgba(63, 104, 57, 0.06);
-  box-sizing: border-box;
-}
-
-.fd-workflow__stage-panel {
+.fd-workflow__step {
   grid-area: 1 / 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   opacity: 0;
+  filter: blur(6px);
   transform: translateY(10px);
   pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.5s ease, filter 0.5s ease, transform 0.5s ease;
 }
-.fd-workflow__stage-panel.is-active {
+.fd-workflow__step.is-active {
   opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
   pointer-events: auto;
 }
 
+.fd-workflow__step-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.fd-workflow__step-title {
+  font-family: var(--font-body);
+  font-size: clamp(1.75rem, 3.2vw, 2.375rem);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.25;
+  margin: 0;
+}
+
 .fd-workflow__step-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9375rem;
+  color: var(--color-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.fd-workflow__step-time {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
   font-weight: 500;
-  letter-spacing: 0.05em;
-  color: var(--color-muted);
+  font-size: 0.9375rem;
+  color: var(--color-primary);
   margin-bottom: var(--space-xs);
 }
 
-.fd-workflow__time {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  margin-bottom: var(--space-sm);
-}
-
-.fd-workflow__title {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: var(--space-sm);
-  line-height: 1.4;
-}
-
-.fd-workflow__body {
+.fd-workflow__step-body {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
   line-height: 1.6;
-  max-width: 620px;
+  max-width: 460px;
 }
 
-@keyframes fd-node-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.55; }
+/* ── Center: vertical rail with a dot that travels to the active step ── */
+.fd-workflow__rail {
+  position: relative;
+  align-self: stretch;
+  width: 1px;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+.fd-workflow__rail-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 0;
+  background: var(--color-primary);
+  transition: height 0.2s linear;
+}
+
+.fd-workflow__rail-dot {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(63, 104, 57, 0.16);
+  transform: translate(-50%, -50%);
+  transition: top 0.2s linear;
+}
+
+/* ── Right: sticky phone frame, screen content swaps per step ── */
+.fd-workflow__phone-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Same device frame asset/proportions as the homepage CTA's phone mockup
+   (.v2-access-gallery__phone / .hero__phone) — real bezel image on top,
+   screen content absolutely positioned into its transparent cutout. */
+.fd-workflow__phone {
+  position: relative;
+  width: 280px;
+  margin: 0 auto;
+}
+
+.fd-workflow__phone::before {
+  content: '';
+  position: absolute;
+  top: -12%;
+  left: -18%;
+  right: -18%;
+  bottom: -12%;
+  background: radial-gradient(circle, rgba(63, 104, 57, 0.16) 0%, rgba(63, 104, 57, 0) 70%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fd-workflow__phone-frame {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.fd-workflow__phone-media {
+  position: absolute;
+  z-index: 1;
+  top: 1.94%;
+  left: 4.87%;
+  right: 4.49%;
+  bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(120% 55% at 50% 100%, rgba(63, 104, 57, 0.24) 0%, rgba(63, 104, 57, 0) 65%),
+    #FFFFFF;
+  border-radius: 38px;
+  overflow: hidden;
+}
+
+/* Persistent phone chrome — stays put while the step panels beneath it
+   cross-fade, so the frame always reads as a live device screen. */
+.fd-workflow__phone-statusbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.fd-workflow__phone-statusbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-text);
+}
+
+/* Constant app chrome — a real (if illustrative) booking screen sitting
+   behind the notification, reusing the same schedule-row pattern as the
+   front-desk mockup above (.fd-sch-row / .fd-sch-card). */
+.fd-workflow__app-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 10px 18px 0;
+}
+
+.fd-workflow__app-header-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.fd-workflow__phone-wordmark {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--color-primary);
+}
+
+/* ── Three real app-screen scenes, chosen per step so the phone never just
+   repeats the left column's sentence: a live notification toast, a
+   completed/settled success screen, or a dashboard/report check-in. All
+   three cross-fade via the shared .fd-workflow__scene wrapper. ── */
+.fd-workflow__phone-stage {
+  position: relative;
+  flex: 1;
+  display: grid;
+  align-content: center;
+  padding: 16px 14px;
+}
+
+.fd-workflow__scene {
+  grid-area: 1 / 1;
+  align-self: start;
+  width: 100%;
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(10px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.5s ease, filter 0.5s ease, transform 0.5s ease;
+}
+.fd-workflow__scene.is-active {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Scene: iOS-style push notification — visual language copied from
+   .app-notification (the hero's live-demo notification). */
+.fd-workflow__notif {
+  position: relative;
+  margin-top: 6px;
+  background-color: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px) saturate(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(1.1);
+  border: 1px solid rgba(48, 46, 45, 0.07);
+  border-radius: 18px;
+  box-shadow: 0 20px 40px -16px rgba(48, 46, 45, 0.4), 0 2px 6px rgba(48, 46, 45, 0.06);
+  padding: 13px 14px 11px;
+}
+.fd-workflow__notif::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  border-radius: 0 0 2px 2px;
+  background: var(--color-primary);
+  opacity: 0.55;
+}
+
+.fd-workflow__notif-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.fd-workflow__notif-logo {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 8px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fd-workflow__notif-app {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fd-workflow__notif-time {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-muted);
+  margin-left: auto;
+}
+
+.fd-workflow__notif-body strong {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.fd-workflow__notif-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border);
+}
+
+.fd-workflow__notif-step {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+}
+
+/* Scene: completed/settled confirmation — a real "success" screen. */
+.fd-workflow__success {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 0 8px;
+}
+
+.fd-workflow__success-check {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 0 0 8px rgba(63, 104, 57, 0.12), 0 14px 28px -12px rgba(63, 104, 57, 0.5);
+}
+
+.fd-workflow__success-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.fd-workflow__success-time {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-muted);
+}
+
+/* Scene: dashboard / report check-in. */
+.fd-workflow__dash {
+  margin-top: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(48, 46, 45, 0.07);
+  border-radius: 18px;
+  box-shadow: 0 20px 40px -16px rgba(48, 46, 45, 0.35);
+  padding: 13px 14px;
+}
+
+.fd-workflow__dash-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.fd-workflow__dash-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--color-text);
+}
+
+.fd-workflow__dash-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.fd-workflow__dash-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 9px;
+  background: var(--color-surface-alt);
+  border-radius: 10px;
+}
+
+.fd-workflow__dash-stat-label {
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.fd-workflow__dash-stat-value {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.fd-workflow__dash-stat-trend {
+  font-size: 8.5px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.fd-workflow__dash-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 36px;
+  margin-bottom: 10px;
+}
+.fd-workflow__dash-bars span {
+  flex: 1;
+  background: var(--color-primary);
+  opacity: 0.55;
+  border-radius: 2px;
+}
+
+.fd-workflow__dash-caption {
+  margin: 0;
+  padding-top: 9px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+/* Scene: real "Request discount" form screen — used where the step is
+   literally staff filling in service/booking/reason/percentage. Fills the
+   full screen (align-self: stretch) rather than sitting as a small card. */
+.fd-workflow__scene--form {
+  align-self: stretch;
+}
+
+.fd-workflow__form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  height: 100%;
+}
+
+.fd-workflow__form-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--color-text);
+}
+
+.fd-workflow__form-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(63, 104, 57, 0.12), rgba(63, 104, 57, 0.04));
+  border: 1px solid rgba(63, 104, 57, 0.14);
+  border-radius: 12px;
+  padding: 9px 10px;
+}
+
+.fd-workflow__form-banner-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--color-primary);
+}
+
+.fd-workflow__form-banner-title {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.fd-workflow__form-banner-sub {
+  margin: 1px 0 0;
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}
+
+.fd-workflow__form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fd-workflow__form-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.fd-workflow__form-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.fd-workflow__form-select svg {
+  flex-shrink: 0;
+  color: var(--color-muted);
+}
+.fd-workflow__form-select--placeholder {
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+.fd-workflow__form-pills {
+  display: flex;
+  gap: 6px;
+}
+
+.fd-workflow__form-pill {
+  flex: 1;
+  text-align: center;
+  padding: 7px 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+}
+.fd-workflow__form-pill.is-selected {
+  color: var(--color-primary);
+  background: rgba(63, 104, 57, 0.1);
+  border-color: rgba(63, 104, 57, 0.35);
+}
+
+.fd-workflow__form-submit {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px 0;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-primary);
+  border: none;
+  border-radius: 999px;
+  cursor: default;
+}
+
+/* Scene: manager review — notification the manager just got, plus the
+   approve/decline card they act on. */
+.fd-workflow__review {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.fd-workflow__review-notif {
+  margin-top: 0;
+}
+.fd-workflow__review-notif .fd-workflow__notif-time {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.fd-workflow__review-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  padding: 0 2px;
+}
+
+.fd-workflow__review-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.fd-workflow__review-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 9px;
+  margin-bottom: 9px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.fd-workflow__review-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-surface-alt);
+  color: var(--color-primary);
+}
+
+.fd-workflow__review-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.fd-workflow__review-field--plain {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+.fd-workflow__review-field--plain:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.fd-workflow__review-field-label {
+  font-size: 0.625rem;
+  color: var(--color-muted);
+}
+
+.fd-workflow__review-field-value {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.fd-workflow__review-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.fd-workflow__review-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 9px 0;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: default;
+}
+.fd-workflow__review-btn--decline {
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+.fd-workflow__review-btn--approve {
+  color: #fff;
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+/* Scene: discount applied — a receipt-style success screen. */
+.fd-workflow__receipt {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.fd-workflow__receipt-success {
+  margin-top: 10px;
+  gap: 8px;
+}
+.fd-workflow__receipt-success .fd-workflow__success-title {
+  font-size: 0.875rem;
+}
+
+.fd-workflow__receipt-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.fd-workflow__receipt-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+.fd-workflow__receipt-row--total {
+  margin-top: 4px;
+  padding-top: 9px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.fd-workflow__receipt-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface-alt);
+  border-radius: 12px;
+  padding: 9px 11px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.fd-workflow__receipt-note-icon {
+  flex-shrink: 0;
+  color: var(--color-primary);
+  display: flex;
+}
+.fd-workflow__receipt-note-chevron {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--color-muted);
+}
+
+.fd-workflow__receipt-caption {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6875rem;
+  color: var(--color-muted);
+}
+.fd-workflow__receipt-caption svg {
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+/* Scene: month-end discount report. */
+.fd-workflow__report {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  height: 100%;
+}
+
+.fd-workflow__report-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fd-workflow__report-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--color-text);
+}
+
+.fd-workflow__report-sub {
+  margin: -5px 0 0;
+  font-size: 0.6875rem;
+  color: var(--color-muted);
+}
+
+.fd-workflow__report-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(63, 104, 57, 0.12), rgba(63, 104, 57, 0.04));
+  border: 1px solid rgba(63, 104, 57, 0.14);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.fd-workflow__report-banner-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.fd-workflow__report-banner-value {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.fd-workflow__report-banner-label {
+  font-size: 0.625rem;
+  color: var(--color-muted);
+}
+
+.fd-workflow__report-trend-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.fd-workflow__report-trend-range {
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.fd-workflow__report-bars {
+  height: 40px;
+}
+.fd-workflow__report-bars span {
+  opacity: 0.3;
+}
+.fd-workflow__report-bars span.is-highlight {
+  opacity: 1;
+}
+
+.fd-workflow__report-insights {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fd-workflow__report-insight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.fd-workflow__report-insight-label {
+  flex: 1;
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+}
+
+.fd-workflow__report-insight-value {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.fd-workflow__report-insight-value--warn {
+  color: #B3441E;
+}
+
+.fd-workflow__report-cta {
+  margin-top: auto;
+}
+
+.fd-workflow__form-row {
+  display: flex;
+  gap: 8px;
+}
+.fd-workflow__form-row .fd-workflow__form-field {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Scene: live booking status — a status card + real-time stepper. */
+.fd-workflow__live {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.fd-workflow__live-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 11px 13px;
+}
+
+.fd-workflow__live-top {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 7px;
+}
+
+.fd-workflow__live-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-primary);
+}
+
+.fd-workflow__live-title {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.fd-workflow__live-sub {
+  margin: 2px 0 0;
+  font-size: 0.6875rem;
+  color: var(--color-muted);
+}
+
+.fd-workflow__live-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding-left: 2px;
+}
+
+.fd-workflow__live-step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-left: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+.fd-workflow__live-step span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+.fd-workflow__live-step.is-done {
+  color: var(--color-text);
+}
+.fd-workflow__live-step.is-done span {
+  background: var(--color-primary);
+}
+.fd-workflow__live-step.is-active {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+.fd-workflow__live-step.is-active span {
+  background: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(63, 104, 57, 0.16);
+  animation: pulsing-dot 1.5s infinite ease-in-out;
+}
+
+.fd-workflow__live-card--warn {
+  border-color: rgba(179, 68, 30, 0.22);
+}
+.fd-workflow__live-dot--warn {
+  background: #B3441E;
+  box-shadow: 0 0 0 4px rgba(179, 68, 30, 0.16);
+}
+.fd-workflow__live-label--warn {
+  color: #B3441E;
+}
+
+.fd-workflow__live-caption {
+  margin: 0;
+  font-size: 0.6875rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+/* Scene: partial-payment entry — a big amount readout instead of an input,
+   since the mockup is illustrative, not a live control. */
+.fd-workflow__pay-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+}
+
+.fd-workflow__pay-amount-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.fd-workflow__pay-amount-value {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.fd-workflow__pay-amount-of {
+  font-size: 0.625rem;
+  color: var(--color-muted);
+}
+
+.fd-workflow__pay-balance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 2px 0;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* Scene: staff performance list — per-staff discount rate readout. */
+.fd-workflow__staff {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.fd-workflow__staff-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fd-workflow__staff-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 9px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.fd-workflow__staff-avatar {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-surface-alt);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.fd-workflow__staff-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.fd-workflow__staff-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.fd-workflow__staff-meta {
+  font-size: 0.625rem;
+  color: var(--color-muted);
+}
+
+.fd-workflow__staff-stat {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.fd-workflow__staff-stat--high {
+  color: #B3441E;
+}
+
+.fd-workflow__staff-branch {
+  flex-shrink: 0;
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-surface-alt);
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+/* Scene: flagged discount pattern — amber alert banner + comparison bars. */
+.fd-workflow__alert {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.fd-workflow__alert-banner {
+  background: linear-gradient(135deg, rgba(179, 68, 30, 0.12), rgba(179, 68, 30, 0.04));
+  border-color: rgba(179, 68, 30, 0.18);
+}
+.fd-workflow__alert-icon {
+  color: #B3441E;
+}
+
+.fd-workflow__alert-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fd-workflow__alert-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fd-workflow__alert-bar-label {
+  flex-shrink: 0;
+  width: 62px;
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+}
+
+.fd-workflow__alert-bar-track {
+  flex: 1;
+  height: 7px;
+  background: var(--color-surface-alt);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.fd-workflow__alert-bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 999px;
+}
+.fd-workflow__alert-bar-row.is-flagged .fd-workflow__alert-bar-fill {
+  background: #B3441E;
+}
+.fd-workflow__alert-bar-row.is-flagged .fd-workflow__alert-bar-label {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.fd-workflow__alert-bar-value {
+  flex-shrink: 0;
+  width: 28px;
+  text-align: right;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.fd-workflow__alert-cta {
+  background: #B3441E;
+}
+
+/* Scene: this-week vs last-week revenue comparison. */
+.fd-workflow__compare {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  height: 100%;
+}
+
+.fd-workflow__compare-legend {
+  display: flex;
+  gap: 14px;
+  font-size: 0.625rem;
+  color: var(--color-muted);
+}
+.fd-workflow__compare-legend span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fd-workflow__compare-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.fd-workflow__compare-dot--now {
+  background: var(--color-primary);
+}
+.fd-workflow__compare-dot--prev {
+  background: var(--color-border);
+}
+
+.fd-workflow__compare-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 44px;
+  margin-bottom: 4px;
+}
+
+.fd-workflow__compare-pair {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 100%;
+}
+.fd-workflow__compare-pair span {
+  flex: 1;
+  border-radius: 2px;
+}
+.fd-workflow__compare-pair .is-prev {
+  background: var(--color-border);
+}
+.fd-workflow__compare-pair .is-now {
+  background: var(--color-primary);
+}
+
+/* Scene: CSV exports ready for the accountant. */
+.fd-workflow__export {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.fd-workflow__export-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fd-workflow__export-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 9px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.fd-workflow__export-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--color-surface-alt);
+  color: var(--color-primary);
+}
+
+.fd-workflow__export-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.fd-workflow__export-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.fd-workflow__export-meta {
+  font-size: 0.625rem;
+  color: var(--color-muted);
+}
+
+.fd-workflow__export-check {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.fd-workflow__phone-badge {
+  display: inline-block;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.fd-workflow__phone-badge--pending {
+  background: rgba(218, 165, 32, 0.1);
+  color: #B58A00;
+}
+.fd-workflow__phone-badge--confirmed {
+  background: rgba(63, 104, 57, 0.08);
+  color: var(--color-primary);
+}
+.fd-workflow__phone-badge--in-progress {
+  background: rgba(63, 104, 57, 0.12);
+  color: var(--color-primary);
+}
+.fd-workflow__phone-badge--completed {
+  background: var(--color-primary);
+  color: #fff;
+}
+.fd-workflow__phone-badge--reconciled {
+  background: #22381F;
+  color: #fff;
 }
 
 /* Responsive Styles */
 @media (max-width: 992px) {
   .fd-workflow__pin-wrap {
-    height: calc(var(--wf-steps, 5) * 50vh);
+    height: calc(var(--wf-steps, 5) * 55vh);
   }
-  .fd-workflow__sticky {
-    top: 16px;
+  .fd-workflow__layout {
+    gap: var(--space-md);
   }
-  .fd-workflow__grid {
-    grid-template-columns: repeat(var(--wf-steps, 5), 1fr);
-    gap: var(--space-xs);
-    margin-bottom: var(--space-sm);
+  .fd-workflow__phone {
+    width: 220px;
   }
-  .fd-workflow__node-label {
-    font-size: 0.625rem;
-  }
-  .fd-workflow__stage {
-    padding: var(--space-lg);
-  }
-  .fd-workflow__title {
-    font-size: 1.0625rem;
+  .fd-workflow__step-title {
+    font-size: 1.1875rem;
   }
 }
 
-@media (max-width: 600px) {
-  .fd-workflow__container {
-    padding: 0 var(--space-sm);
+@media (max-width: 700px) {
+  .fd-workflow__pin-wrap {
+    height: calc(var(--wf-steps, 5) * 65vh);
   }
-  .fd-workflow__grid {
-    gap: var(--space-xs) 4px;
+  .fd-workflow__layout {
+    flex-direction: column-reverse;
+    gap: var(--space-md);
   }
-  .fd-workflow__node {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 6px;
+  .fd-workflow__rail {
+    display: none;
   }
-  .fd-workflow__col::before {
-    top: 16px; /* vertical center of the 32px icon node at this breakpoint */
+  .fd-workflow__steps {
+    text-align: center;
   }
-  .fd-workflow__node-icon {
-    width: 14px;
-    height: 14px;
+  .fd-workflow__step-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
   }
-  .fd-workflow__node-label {
-    font-size: 0.6875rem;
-    line-height: 1.3;
+  .fd-workflow__step-body {
+    max-width: none;
+    margin: 0 auto;
   }
-  .fd-workflow__stage {
-    padding: var(--space-md);
+  .fd-workflow__phone {
+    width: 190px;
   }
 }
 
@@ -13260,21 +14637,44 @@ body.page--case-study .section {
 ───────────────────────────────────────────────────────────────────────── */
 
 .demo-hero {
-  padding: 160px var(--space-md) var(--space-lg);
+  padding: 128px var(--space-md) 0;
 }
 
-.demo-hero__inner {
-  max-width: var(--max-w-copy);
+.demo-hero__card {
+  position: relative;
+  max-width: 1400px;
   margin: 0 auto;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  background: var(--color-primary-tint);
+  border-radius: 32px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-2xl);
   align-items: center;
+  padding: var(--space-lg) var(--space-xl);
+}
+
+.demo-hero__form-wrap .demo-card {
+  margin: 0;
+}
+
+.demo-hero__copy {
+  color: var(--color-text);
+}
+
+.demo-hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
 }
 
 .demo-hero__h1 {
-  font-family: var(--font-body);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -13288,124 +14688,11 @@ body.page--case-study .section {
   color: var(--color-muted);
   line-height: 1.6;
   margin: 0;
-  max-width: 560px;
+  max-width: 480px;
 }
 
 .demo-main {
   padding-top: 0;
-}
-
-.demo-wrap {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: var(--space-xl);
-  align-items: start;
-}
-
-.demo-left {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
-}
-
-.demo-block__h2 {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  color: var(--color-text);
-  margin: 0 0 var(--space-md);
-  letter-spacing: -0.01em;
-}
-
-/* ── What to expect ── */
-
-.demo-expect {
-  display: flex;
-  flex-direction: column;
-}
-
-.demo-expect__item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md) 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.demo-expect__item:last-child {
-  padding-bottom: 0;
-}
-
-.demo-expect__icon {
-  flex-shrink: 0;
-  color: var(--color-primary);
-}
-
-.demo-expect__text {
-  font-size: 0.9375rem;
-  color: var(--color-text);
-  line-height: 1.55;
-  margin: 0;
-}
-
-/* ── What you'll leave with ── */
-
-.demo-checklist {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.demo-checklist li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 0.9375rem;
-  color: var(--color-text);
-  line-height: 1.55;
-}
-
-.demo-checklist svg {
-  flex-shrink: 0;
-  color: var(--color-primary);
-  margin-top: 3px;
-}
-
-/* ── Social proof quote ── */
-
-.demo-quote {
-  margin: 0;
-  padding: var(--space-lg);
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.demo-quote__text {
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-weight: 500;
-  font-size: 1.0625rem;
-  line-height: 1.55;
-  color: var(--color-text);
-  margin: 0 0 var(--space-sm);
-}
-
-.demo-quote__author {
-  font-size: 0.875rem;
-  color: var(--color-muted);
-  font-style: normal;
-}
-
-/* ── Right column: sticky booking card ── */
-
-.demo-right {
-  position: sticky;
-  top: 96px;
 }
 
 .demo-card {
@@ -13529,65 +14816,80 @@ body.page--case-study .section {
   margin: var(--space-xs) 0 0;
 }
 
-/* ── Bottom trust strip ── */
+/* ── Stats band ── */
 
-.demo-trust {
-  padding: var(--space-lg) var(--space-md) var(--space-2xl);
+.demo-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
 }
 
-.demo-trust__inner {
-  max-width: var(--max-w-visual);
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm) var(--space-xl);
-  padding-top: var(--space-lg);
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+.demo-stats__card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-lg) var(--space-md);
 }
 
-.demo-trust__stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  text-align: center;
+.demo-stats__card--tint {
+  background: var(--color-primary-tint);
+  border-color: transparent;
 }
 
-.demo-trust__stat-value {
-  font-family: var(--font-mono);
-  font-size: 1.125rem;
-  font-weight: 600;
+.demo-stats__card--dark {
+  background: var(--color-text);
+  border-color: transparent;
+}
+
+.demo-stats__card--dark .demo-stats__label,
+.demo-stats__card--dark .demo-stats__value {
+  color: #ffffff;
+}
+
+.demo-stats__label {
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.demo-stats__value {
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
   color: var(--color-text);
 }
 
-.demo-trust__stat-label {
-  font-size: 0.8125rem;
-  color: var(--color-muted);
-}
-
 @media (max-width: 900px) {
-  .demo-wrap {
+  .demo-hero__card {
     grid-template-columns: 1fr;
+    padding: var(--space-xl) var(--space-md);
+    border-radius: var(--radius-lg);
   }
 
-  .demo-right {
-    position: static;
+  .demo-hero__copy {
+    order: -1;
+    text-align: center;
+  }
+
+  .demo-hero__sub {
+    max-width: none;
+    margin: 0 auto;
+  }
+
+  .demo-stats__grid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 560px) {
   .demo-hero {
-    padding-top: 128px;
+    padding-top: 96px;
   }
 
   .demo-form__row {
     grid-template-columns: 1fr;
-  }
-
-  .demo-trust__inner {
-    gap: var(--space-md) var(--space-lg);
   }
 }
 
@@ -15471,8 +16773,8 @@ body.page--case-study .section {
 
 .soln-proof__card {
   display: block;
-  /* Match homepage "Operations" card background (muted sage-gray) */
-  background: #CFDEDB;
+  /* Match homepage testimonial carousel card background (.v2-tcar__card, src/index.njk) */
+  background: radial-gradient(100% 90% at 50% 0%, #cddff9 0%, #e3ebf7 40%, #f7f3e5 72%, #fae9d7 100%);
   border-radius: var(--soln-radius-lg);
   padding: var(--space-2xl) var(--space-xl);
   box-shadow: var(--shadow-lg);
@@ -15520,16 +16822,13 @@ body.page--case-study .section {
 /* -- FINAL CTA -------------------------------------------------------------- */
 
 .soln-cta {
-  /* Match homepage bottom-cta background (Accent → Muted wash) */
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-primary-tint) 80%, var(--color-primary) 20%) 0%,
-    color-mix(in srgb, var(--color-surface-alt) 80%, var(--color-primary) 20%) 100%
-  );
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  /* Background/design synced to homepage's CTA band (.v2-access, src/index.njk) */
+  background: var(--v2-link);
+  color: var(--v2-bg-alt);
+  border-top-left-radius: var(--v2-flow-radius);
+  border-top-right-radius: var(--v2-flow-radius);
   overflow: hidden;
-  margin-top: 64px;
+  margin-top: var(--space-md);
   padding: 0;
   position: relative;
   z-index: 3;
@@ -15548,45 +16847,48 @@ body.page--case-study .section {
 
 .soln-cta__h2 {
   font-family: var(--font-body);
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 600;
-  color: var(--color-primary);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 3.48vw, 3.75rem);
+  color: var(--v2-bg-alt);
   max-width: 720px;
   margin: 0 auto;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   text-wrap: balance;
 }
 
 .soln-cta__sub {
   font-family: var(--font-body);
-  color: var(--color-primary);
-  opacity: 0.85;
-  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--v2-bg-alt);
+  opacity: 0.8;
+  font-size: clamp(1.0625rem, 1.51vw, 1.3125rem);
   max-width: 560px;
   margin: -12px auto 0;
-  line-height: 1.6;
+  line-height: 1.34;
+  letter-spacing: -0.02em;
 }
 
 .soln-cta__btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #1E3D1A;
-  color: #ffffff;
-  border: 1px solid #1E3D1A;
-  border-radius: var(--radius-sm);
-  padding: 12px 28px;
+  background: var(--v2-bg-alt);
+  color: var(--v2-link) !important;
+  border: none;
+  border-radius: var(--radius-pill);
+  height: 44px;
+  padding: 0 20px;
   font-family: var(--font-body);
   font-size: 0.9375rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s, border-color 0.2s;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .soln-cta__btn:hover {
-  background: #11240F;
-  border-color: #11240F;
+  background: #dfef9e;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 767px) {
@@ -15602,7 +16904,7 @@ body.page--case-study .section {
 
 .soln-faq {
   background: var(--color-bg);
-  padding: var(--space-xl) var(--space-md);
+  padding: var(--space-lg) var(--space-md);
 }
 
 .soln-faq__inner {
