@@ -1,6 +1,6 @@
----
+﻿---
 layout: base.njk
-title: How It Works — Zenly
+title: How It Works — Zennly
 bodyClass: page--light-nav
 ---
 
@@ -21,7 +21,7 @@ bodyClass: page--light-nav
 
       <div class="soln-hero__visual">
         <div class="soln-hero__panel soln-hero__panel--img">
-          {% image "/assets/images/hiw-hero.png", "Zenly daily operations dashboard", { class: "soln-hero__panel-img", loading: "eager" } %}
+          {% image "/assets/images/hiw-hero.png", "Zennly daily operations dashboard", { class: "soln-hero__panel-img", loading: "eager" } %}
         </div>
       </div>
     </div>
@@ -212,7 +212,7 @@ bodyClass: page--light-nav
       <!-- 02: Daily loop -->
       <div class="hiw-block hiw-block--last reveal" data-delay="1">
         <div style="text-align:center;margin-bottom:var(--space-xl);">
-          <h2 class="section__h2">A typical day on Zenly</h2>
+          <h2 class="section__h2">A typical day on Zennly</h2>
           <p class="section__sub" style="text-align:center;">From the first booking of the morning to closing out the day — one continuous loop.</p>
         </div>
         <div class="hiw-cal">
@@ -346,65 +346,6 @@ bodyClass: page--light-nav
   </section>
 
   <!-- ── FOOTER ─────────────────────────────────────────────────────── -->
-  <footer class="footer">
-    <div class="footer__inner">
-
-      <div class="footer__col footer__col--brand">
-        <a href="/" class="footer__logo">Zenly</a>
-        <p class="footer__tagline">Online booking, operational control, and financial clarity &mdash; for any appointment-based business.</p>
-        <div class="footer__status">
-          <span class="live-dot"></span>
-          <span>All systems operational</span>
-        </div>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Product</div>
-        <ul class="footer__links">
-          <li><a href="/features#booking">Online Booking</a></li>
-          <li><a href="/features#operations">Operations</a></li>
-          <li><a href="/features#financial">Finance</a></li>
-          <li><a href="/features#reports">Reports</a></li>
-          <li><a href="/features#industries">Industries</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Use Cases</div>
-        <ul class="footer__links">
-          <li><a href="/#industries">Spa &amp; Wellness</a></li>
-          <li><a href="/#industries">Hair Salon</a></li>
-          <li><a href="/#industries">More verticals</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Company</div>
-        <ul class="footer__links">
-          <li><a href="/how-it-works">How It Works</a></li>
-          <li><a href="#demo">Book a Demo</a></li>
-          <li><a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener">See It Live</a></li>
-          <li><a href="mailto:info.zunkireelabs@gmail.com">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Legal</div>
-        <ul class="footer__links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer__bottom">
-      <div class="footer__inner">
-        <span class="footer__copy">&copy; 2026 Zunkireelabs. All rights reserved.</span>
-        <span class="footer__built">Built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></span>
-      </div>
-    </div>
-  </footer>
+  {% include "_footer-v2.njk" %}
 
 </main>

@@ -238,8 +238,8 @@
       }
     ],
     "bottomCta": {
-      "headline": "See what 351 bookings in a week looks like in your business.",
-      "subheadline": "We'll show you the full booking workflow – creation, confirmation, status updates, and payment recording – across your actual branch setup. In 20 minutes.",
+      "headline": "351 bookings a week. See it in your business.",
+      "subheadline": "The full booking workflow – creation to payment – across your actual branch setup. In 20 minutes.",
       "ctaLabel": "Book your live demo →",
       "reassurance": "No setup required before the demo. No commitment after. Just a look at the system working the way your business works."
     },
@@ -301,7 +301,7 @@
     },
     "intro": {
       "headline": "Run the floor without the chaos",
-      "body": "Every role gets the right view. No more status chasing, missed queues, or payment confusion — Zenly's operations layer keeps everyone on the same page in real time."
+      "body": "Every role gets the right view. No more status chasing, missed queues, or payment confusion — Zennly's operations layer keeps everyone on the same page in real time."
     },
     "primaryFeatures": [
       {
@@ -486,7 +486,8 @@
     ],
     "bottomCta": {
       "headline": "Stop managing by message. Start managing by data.",
-      "ctaLabel": "Book a demo and see the live view across your branches →"
+      "subheadline": "Every branch, every status, every moment — visible live, without a call or a report that's already out of date.",
+      "ctaLabel": "Book your live demo →"
     },
     "relatedFeatures": [
       "booking",
@@ -661,7 +662,7 @@
     "objections": {
       "headline": "Common questions.",
       "items": [
-        { "q": "We already track payments in another system.", "a": "If your current process doesn't connect payments to individual bookings, therapists, services, and branches in real time, you're only storing transactions. Zenly connects every payment to the work that generated it, giving you operational insight – not just accounting records." },
+        { "q": "We already track payments in another system.", "a": "If your current process doesn't connect payments to individual bookings, therapists, services, and branches in real time, you're only storing transactions. Zennly connects every payment to the work that generated it, giving you operational insight – not just accounting records." },
         { "q": "What happens if a customer only pays part of the amount?", "a": "Partial payments are supported as part of the normal workflow. You can immediately see which bookings are fully settled and which still have an outstanding balance, making follow-ups simple and eliminating forgotten payments." },
         { "q": "Will my staff have to do extra work?", "a": "No. Payment recording happens naturally as the booking is completed. Staff simply record the payment while closing the appointment, and everything else is updated automatically." }
       ],
@@ -693,7 +694,7 @@
         "description": "Across every branch, revenue is available in one dashboard — today, this week, this month, across every location. No spreadsheets, no WhatsApp summaries."
       }
     ],
-    "workflowHeading": "How payment recording runs on <span class=\"fd-workflow__heading-accent\">Zenly.</span>",
+    "workflowHeading": "How payment recording runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
     "workflowSub": "A real timeline of payments across one branch, hour by hour.",
     "workflow": [
       { "num": "01", "time": "9:15am", "title": "The first payment comes in", "body": "A customer pays in full after her service. Front desk records the amount against the booking – instantly linked to the therapist, service, and branch.", "status": "Confirmed" },
@@ -727,7 +728,7 @@
     },
     "intro": {
       "headline": "Eight reports. Zero setup. Always live.",
-      "body": "Zenly's built-in reports run automatically — no configuration, no exports, no waiting. Open the dashboard and your numbers are already there."
+      "body": "Zennly's built-in reports run automatically — no configuration, no exports, no waiting. Open the dashboard and your numbers are already there."
     },
     "primaryFeatures": [
       {
@@ -834,7 +835,7 @@
       "description": "Every key business metric covered out of the box — no setup required."
     },
     "testimonial": {
-      "quote": "I used to export data every week and build my own charts. Now I just open Zenly and the numbers are right there.",
+      "quote": "I used to export data every week and build my own charts. Now I just open Zennly and the numbers are right there.",
       "author": "Sana K.",
       "business": "Multi-Branch Owner"
     },
@@ -872,7 +873,7 @@
       {
         "step": "01",
         "icon": "zap",
-        "title": "Go live on Zenly",
+        "title": "Go live on Zennly",
         "description": "No report configuration needed. Everything is tracked from the moment you go live."
       },
       {
@@ -888,7 +889,7 @@
         "description": "Slice by date, branch, or staff member. Download as CSV whenever you need it."
       }
     ],
-    "workflowHeading": "How reporting runs on <span class=\"fd-workflow__heading-accent\">Zenly.</span>",
+    "workflowHeading": "How reporting runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
     "workflowSub": "A real timeline of how owners and managers use reports, hour by hour.",
     "workflow": [
       { "num": "01", "time": "8:00am", "title": "Owner checks yesterday's number", "body": "Before opening messages or calling any branch, the owner opens the dashboard. Yesterday's revenue, by branch, is already there.", "status": "Pending" },
@@ -897,6 +898,11 @@
       { "num": "04", "time": "Friday, 5:00pm", "title": "Weekly revenue trend gets reviewed", "body": "The owner compares this week's revenue across all branches against last week — no export, no waiting on someone to build the comparison.", "status": "Completed" },
       { "num": "05", "time": "Month-end", "title": "Reports get exported for the accountant", "body": "Revenue, discount, and staff reports are downloaded as CSV and handed off — the same numbers the team has been checking all month, not a separately built spreadsheet.", "status": "Reconciled" }
     ],
+    "bottomCta": {
+      "headline": "Stop asking for the numbers. Just open the dashboard.",
+      "subheadline": "Revenue, staff performance, and discounts — updated live, filterable by branch, exportable in a click.",
+      "ctaLabel": "Book your live demo →"
+    },
     "relatedFeatures": [
       "payment-tracking",
       "operations",
@@ -1058,7 +1064,8 @@
     ],
     "bottomCta": {
       "headline": "Your team should know where to be without you telling them.",
-      "ctaLabel": "Book a demo and see staff management across branches →"
+      "subheadline": "Rosters, transfers, and schedules — visible to every branch, current every day, with no group message required.",
+      "ctaLabel": "Book your live demo →"
     },
     "relatedFeatures": [
       "booking",
@@ -1249,8 +1256,8 @@
     ],
     "bottomCta": {
       "headline": "Discounts should be a decision, not a default.",
-      "subheadline": "Every discount reviewed before it's applied, every approval tied to a name, every pattern visible before it costs you margin.",
-      "ctaLabel": "Book a demo and see the full approval workflow in action →",
+      "subheadline": "Every discount reviewed before it's applied, every pattern visible before it costs you margin.",
+      "ctaLabel": "Book your live demo →",
       "reassurance": "No commitment. We'll walk through it live with your branch setup."
     },
     "relatedFeatures": [

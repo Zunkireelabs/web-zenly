@@ -1,6 +1,6 @@
----
+﻿---
 layout: base.njk
-title: Solutions — Built for salons, spas & aesthetic clinics | Zenly
+title: Solutions — Built for salons, spas & aesthetic clinics | Zennly
 bodyClass: page--sol-nav
 ---
 
@@ -121,13 +121,13 @@ bodyClass: page--sol-nav
       <div class="sol-split reveal" id="salons">
         <div class="sol-split__img-col">
           <div class="fd-sscroll__img-wrap">
-            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80&auto=format&fit=crop" alt="Stylist working with a client in a salon" class="fd-sscroll__img" loading="lazy">
+            <img src="/assets/images/solution-hero-salon.png" alt="Stylist curling a client's hair in a modern salon" class="fd-sscroll__img" loading="lazy">
           </div>
         </div>
 
         <div class="sol-split__text-col">
           <h3 class="fd-sscroll__title">Salons &amp; beauty studios</h3>
-          <p class="sol-split__intro">A salon doesn&rsquo;t just schedule services &ndash; it schedules relationships. Zenly is built around how salon bookings actually work.</p>
+          <p class="sol-split__intro">A salon doesn&rsquo;t just schedule services &ndash; it schedules relationships. Zennly is built around how salon bookings actually work.</p>
 
           <div class="faq-list" x-data="{ open: null }">
             <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
@@ -175,7 +175,7 @@ bodyClass: page--sol-nav
       <div class="sol-split reveal" id="spas" style="margin-top:var(--space-2xl);">
         <div class="sol-split__img-col">
           <div class="fd-sscroll__img-wrap">
-            <img src="https://plus.unsplash.com/premium_photo-1663013569286-30b21b79a410?w=800&q=80&auto=format&fit=crop" alt="Massage and spa treatment room" class="fd-sscroll__img" loading="lazy">
+            <img src="/assets/images/solution-hero-spa.png" alt="Woman relaxing during a spa treatment" class="fd-sscroll__img" loading="lazy">
           </div>
         </div>
 
@@ -226,52 +226,52 @@ bodyClass: page--sol-nav
         </div>
       </div>
 
-      <div class="sol-split reveal" id="clinics" style="margin-top:var(--space-2xl);">
+      <div class="sol-split reveal" id="tattoo" style="margin-top:var(--space-2xl);">
         <div class="sol-split__img-col">
           <div class="fd-sscroll__img-wrap">
-            <img src="https://plus.unsplash.com/premium_photo-1677616799281-e1583ee2bdf0?w=800&q=80&auto=format&fit=crop" alt="Aesthetic clinic treatment consultation" class="fd-sscroll__img" loading="lazy">
+            <img src="/assets/images/solution-hero-tattoo.png" alt="Tattoo artist's hands tattooing fine-line floral linework on a client's forearm" class="fd-sscroll__img" loading="lazy">
           </div>
         </div>
 
         <div class="sol-split__text-col">
-          <h3 class="fd-sscroll__title">Aesthetic clinics &amp; medispas</h3>
-          <p class="sol-split__intro">Aesthetic clinics run on trust. When a clinic runs on informal booking and manual payment reconciliation, it doesn&rsquo;t just create operational problems &ndash; it creates trust problems.</p>
+          <h3 class="fd-sscroll__title">Tattoo Studios</h3>
+          <p class="sol-split__intro">A tattoo appointment isn&rsquo;t a time slot &ndash; it&rsquo;s a specific artist, a consultation, and often a deposit on the line. Zennly is built around that reality, not a generic calendar.</p>
 
           <div class="faq-list" x-data="{ open: null }">
             <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
               <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-                Consultation-to-treatment workflow
+                Artist-specific booking &amp; lifecycle
                 <span class="faq-item__icon" aria-hidden="true">+</span>
               </button>
               <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-                <p>Zenly&rsquo;s booking lifecycle &ndash; Pending, Confirmed, In-Progress, Completed &ndash; maps directly to a clinic&rsquo;s consultation-to-treatment flow, so managers see where every client is in their journey, at any branch, in real time.</p>
+                <p>Clients book a named artist, not just a time slot. Every booking moves through Pending &rarr; Confirmed &rarr; In-Progress &rarr; Completed, so long sessions and touch-ups are tracked accurately, not guessed at.</p>
               </div>
             </div>
 
             <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
               <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-                Payment precision without exceptions
+                Deposit &amp; payment control
                 <span class="faq-item__icon" aria-hidden="true">+</span>
               </button>
               <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-                <p>Every payment records the total amount and full settlement status at the point of service, so managers reconcile from a single source of truth &ndash; nothing settled from memory, nothing disputed from a WhatsApp exchange.</p>
+                <p>Deposits and balances are recorded with full settlement status at the point of booking, so nothing&rsquo;s tracked on a sticky note or a DM thread.</p>
               </div>
             </div>
 
             <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
               <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-                Discount control in a medical-pricing environment
+                Multi-session continuity
                 <span class="faq-item__icon" aria-hidden="true">+</span>
               </button>
               <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-                <p>Discount requests are separated from discount decisions &ndash; clinic staff flag a discount, approval sits with the manager. Every approved discount shows the value and amount, creating an audit trail informal processes never provide.</p>
+                <p>Large pieces spanning multiple sittings stay with the same artist through scheduled transfers between branches, not informal handoffs that lose a client&rsquo;s history.</p>
               </div>
             </div>
           </div>
         </div>
 
         <div class="sol-split__explore">
-          <a href="/solutions/salon/" class="sol-split__link" aria-label="Explore Hair Salon solutions">
+          <a href="/solutions/tattoo/" class="sol-split__link" aria-label="Explore Tattoo Studios solutions">
             Explore
             <span class="sol-split__link-arrow" aria-hidden="true">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
@@ -283,13 +283,13 @@ bodyClass: page--sol-nav
       <div class="sol-split reveal" id="fitness" style="margin-top:var(--space-2xl);">
         <div class="sol-split__img-col">
           <div class="fd-sscroll__img-wrap">
-            <img src="https://plus.unsplash.com/premium_photo-1661286647722-973637d09600?w=800&q=80&auto=format&fit=crop" alt="Personal trainer coaching a client" class="fd-sscroll__img" loading="lazy">
+            <img src="/assets/images/solution-hero-fitness.png" alt="A group fitness class mid-exercise in a sunlit studio" class="fd-sscroll__img" loading="lazy">
           </div>
         </div>
 
         <div class="sol-split__text-col">
           <h3 class="fd-sscroll__title">Fitness &amp; PT</h3>
-          <p class="sol-split__intro">Classes fill up, trainers double-book, and packages get tracked on paper &ndash; Zenly is built around how fitness bookings actually run.</p>
+          <p class="sol-split__intro">Classes fill up, trainers double-book, and packages get tracked on paper &ndash; Zennly is built around how fitness bookings actually run.</p>
 
           <div class="faq-list" x-data="{ open: null }">
             <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
@@ -337,13 +337,13 @@ bodyClass: page--sol-nav
       <div class="sol-split reveal" id="physiotherapy" style="margin-top:var(--space-2xl);">
         <div class="sol-split__img-col">
           <div class="fd-sscroll__img-wrap">
-            <img src="https://plus.unsplash.com/premium_photo-1661913622608-946e8d907c7b?w=800&q=80&auto=format&fit=crop" alt="Physiotherapist working with a patient" class="fd-sscroll__img" loading="lazy">
+            <img src="https://plus.unsplash.com/premium_photo-1661913622608-946e8d907c7b?w=1000&q=80&auto=format&fit=crop" alt="Physiotherapist working with a patient" class="fd-sscroll__img" loading="lazy">
           </div>
         </div>
 
         <div class="sol-split__text-col">
           <h3 class="fd-sscroll__title">Physiotherapy</h3>
-          <p class="sol-split__intro">A course of treatment only works if every session happens on schedule, with the right therapist &ndash; Zenly keeps that continuity visible from booking to discharge.</p>
+          <p class="sol-split__intro">A course of treatment only works if every session happens on schedule, with the right therapist &ndash; Zennly keeps that continuity visible from booking to discharge.</p>
 
           <div class="faq-list" x-data="{ open: null }">
             <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
@@ -391,13 +391,13 @@ bodyClass: page--sol-nav
       <div class="sol-split reveal" id="cleaning" style="margin-top:var(--space-2xl);">
         <div class="sol-split__img-col">
           <div class="fd-sscroll__img-wrap">
-            <img src="https://plus.unsplash.com/premium_photo-1663011218145-c1d0c3ba3542?w=800&q=80&auto=format&fit=crop" alt="Cleaning service staff at a client site" class="fd-sscroll__img" loading="lazy">
+            <img src="https://plus.unsplash.com/premium_photo-1663011218145-c1d0c3ba3542?w=1000&q=80&auto=format&fit=crop" alt="Cleaning service staff at a client site" class="fd-sscroll__img" loading="lazy">
           </div>
         </div>
 
         <div class="sol-split__text-col">
           <h3 class="fd-sscroll__title">Cleaning Service</h3>
-          <p class="sol-split__intro">A cleaning business runs on staff getting to the right site, at the right time, with the job correctly billed &ndash; Zenly keeps that whole chain visible.</p>
+          <p class="sol-split__intro">A cleaning business runs on staff getting to the right site, at the right time, with the job correctly billed &ndash; Zennly keeps that whole chain visible.</p>
 
           <div class="faq-list" x-data="{ open: null }">
             <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
@@ -461,7 +461,7 @@ bodyClass: page--sol-nav
         </div>
         <div class="fd-problem__card">
           <h3 class="fd-problem__title">Role-based access</h3>
-          <p class="fd-problem__text">Admin, Manager, and Staff roles define who sees what and who can do what. You don&rsquo;t give your front desk the same access as your owner. Zenly doesn&rsquo;t either.</p>
+          <p class="fd-problem__text">Admin, Manager, and Staff roles define who sees what and who can do what. You don&rsquo;t give your front desk the same access as your owner. Zennly doesn&rsquo;t either.</p>
         </div>
         <div class="fd-problem__card">
           <h3 class="fd-problem__title">Real-time status tracking</h3>
@@ -498,7 +498,7 @@ bodyClass: page--sol-nav
             <span class="faq-item__icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-            <p>Zenly works the same at one branch as it does at ten &ndash; you just won&rsquo;t need the multi-branch views yet. Most single-branch teams start for the booking and discount control alone.</p>
+            <p>Zennly works the same at one branch as it does at ten &ndash; you just won&rsquo;t need the multi-branch views yet. Most single-branch teams start for the booking and discount control alone.</p>
           </div>
         </div>
         <div class="faq-item reveal" data-delay="3" :class="{ 'faq-item--open': open === 2 }">
@@ -507,7 +507,7 @@ bodyClass: page--sol-nav
             <span class="faq-item__icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-            <p>Generic tools handle time slots. Zenly handles the operational reality underneath &ndash; stylist assignment, discount approvals, staff transfers, and payment reconciliation &ndash; because that&rsquo;s where service businesses actually lose money.</p>
+            <p>Generic tools handle time slots. Zennly handles the operational reality underneath &ndash; stylist assignment, discount approvals, staff transfers, and payment reconciliation &ndash; because that&rsquo;s where service businesses actually lose money.</p>
           </div>
         </div>
       </div>
@@ -518,70 +518,12 @@ bodyClass: page--sol-nav
   <section class="bottom-cta" id="demo">
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Ready to see how it works for your business?</h2>
-      <p class="bottom-cta__sub">Book a 20-minute demo. We&rsquo;ll show you exactly how Zenly solves your specific operational challenges &ndash; whether you have one branch or six.</p>
+      <p class="bottom-cta__sub">Book a 20-minute demo. We&rsquo;ll show you exactly how Zennly solves your specific operational challenges &ndash; whether you have one branch or six.</p>
       <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
     </div>
   </section>
 
   <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
-  <footer class="footer">
-    <div class="footer__inner">
-
-      <div class="footer__col footer__col--brand">
-        <a href="/" class="footer__logo">Zenly</a>
-        <p class="footer__tagline">Online booking, operational control, and financial clarity &mdash; for any appointment-based business.</p>
-        <div class="footer__status">
-          <span class="live-dot"></span>
-          <span>All systems operational</span>
-        </div>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Product</div>
-        <ul class="footer__links">
-          <li><a href="/features/booking">Online Booking</a></li>
-          <li><a href="/features/operational-visibility">Operations</a></li>
-          <li><a href="/features/payment-tracking">Finance</a></li>
-          <li><a href="/features/reports">Reports</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Use Cases</div>
-        <ul class="footer__links">
-          <li><a href="/solutions#salons">Salons &amp; Beauty Studios</a></li>
-          <li><a href="/solutions#spas">Spas &amp; Wellness</a></li>
-          <li><a href="/solutions#clinics">Aesthetic Clinics</a></li>
-          <li><a href="/solutions">More verticals</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Company</div>
-        <ul class="footer__links">
-          <li><a href="#demo">Book a Demo</a></li>
-          <li><a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener">See It Live</a></li>
-          <li><a href="mailto:info.zunkireelabs@gmail.com">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Legal</div>
-        <ul class="footer__links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer__bottom">
-      <div class="footer__inner">
-        <span class="footer__copy">&copy; 2026 Zunkireelabs. All rights reserved.</span>
-        <span class="footer__built">Built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></span>
-      </div>
-    </div>
-  </footer>
+  {% include "_footer-v2.njk" %}
 
 </main>
