@@ -335,6 +335,15 @@ layout: base.njk
           <span class="soln-sscroll__item-num">{{ step.num }}</span>
           <h3 class="soln-sscroll__item-title">{{ step.title }}</h3>
           <p class="soln-sscroll__item-desc">{{ step.desc }}</p>
+          <!-- Mobile-only: each step gets its own card right below it instead
+               of the desktop scroll-synced swap (see .soln-sscroll__item-visual
+               media query) — hidden on desktop where the sticky visual-col
+               below already covers this. -->
+          <div class="soln-sscroll__item-visual">
+            <div class="soln-visual">
+              {{ solnVisual(step.visual) }}
+            </div>
+          </div>
         </div>
         {% endfor %}
       </div>

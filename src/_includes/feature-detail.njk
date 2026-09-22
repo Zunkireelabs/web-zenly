@@ -11,7 +11,10 @@ layout: base.njk
       <div class="fd-hero__text">
         <h1 class="fd-hero__h1">{{ feature.hero.headline | safe }}</h1>
         <div class="fd-hero__actions fd-hero__actions--compact">
-          <a href="mailto:info.zunkireelabs@gmail.com" class="btn-primary">{{ feature.hero.cta if feature.hero.cta else "Book a Demo" }}</a>
+          <a href="mailto:info.zunkireelabs@gmail.com" class="btn-primary">
+            <span class="fd-hero__cta-full">{{ feature.hero.cta if feature.hero.cta else "Book a Demo" }}</span>
+            <span class="fd-hero__cta-short">Book a demo &rarr;</span>
+          </a>
         </div>
         {% if feature.hero.trustLine %}
         <p class="fd-hero__trust">{{ feature.hero.trustLine }}</p>
@@ -475,12 +478,18 @@ layout: base.njk
   {% if feature.workflow %}
   <section class="fd-workflow">
     <div class="section__inner">
-      <div class="fd-workflow__head reveal">
-        <h2 class="fd-workflow__heading">{{ feature.workflowHeading | safe if feature.workflowHeading else "How a booking day runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>" | safe }}</h2>
-        <p class="fd-workflow__sub">{{ feature.workflowSub if feature.workflowSub else "A real timeline of one appointment, hour by hour." }}</p>
-      </div>
-
+      <!-- Head sits INSIDE .fd-workflow__pin-wrap (not as its own sibling in
+           .section__inner) so its sticky containing block is exactly
+           pin-wrap's own height, same as .fd-workflow__sticky's. Previously,
+           as a sibling before pin-wrap, its containing block was
+           head+pinwrap tall, so it kept sticking for a bit after the phone
+           mockup had already released at the end of pin-wrap. -->
       <div class="fd-workflow__pin-wrap" data-workflow-scroll style="--wf-steps: {{ feature.workflow | length }}">
+        <div class="fd-workflow__head reveal">
+          <h2 class="fd-workflow__heading">{{ feature.workflowHeading | safe if feature.workflowHeading else "How a booking day runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>" | safe }}</h2>
+          <p class="fd-workflow__sub">{{ feature.workflowSub if feature.workflowSub else "A real timeline of one appointment, hour by hour." }}</p>
+        </div>
+
         <div class="fd-workflow__sticky">
           <div class="fd-workflow__layout">
 
@@ -1812,9 +1821,14 @@ layout: base.njk
           </div>
           {% endfor %}
         </div>
-
-        <!-- Accordion Version for Mobile -->
-        <div class="fd-roles-accordion">
+      </div>
+      <!-- Accordion Version for Mobile — deliberately a SIBLING of
+           .fd-roles-showcase, not nested inside it: .fd-roles-showcase
+           is display:none below 1100px, and a display:none ancestor
+           hides its children regardless of their own display value, so
+           nesting this here meant the accordion never rendered at all
+           on mobile even though its own CSS said display:block. -->
+      <div class="fd-roles-accordion">
           {% for role in feature.roles %}
           {% set role_index_mobile = loop.index0 %}
           <div class="fd-roles-accordion-item{% if loop.first %} is-active{% endif %}" data-accordion-item="{{ loop.index0 }}">
@@ -1921,7 +1935,6 @@ layout: base.njk
           </div>
           {% endfor %}
         </div>
-      </div>
     </div>
   </section>
   {% else %}
@@ -2065,7 +2078,10 @@ layout: base.njk
       {% if feature.bottomCta.subheadline %}
       <p class="bottom-cta__sub">{{ feature.bottomCta.subheadline }}</p>
       {% endif %}
-      <a href="mailto:info.zunkireelabs@gmail.com" class="bottom-cta__banner-btn">{{ feature.bottomCta.ctaLabel if feature.bottomCta else "Book your demo – it's 20 minutes →" }}</a>
+      <a href="mailto:info.zunkireelabs@gmail.com" class="bottom-cta__banner-btn">
+        <span class="fd-hero__cta-full">{{ feature.bottomCta.ctaLabel if feature.bottomCta else "Book your demo – it's 20 minutes →" }}</span>
+        <span class="fd-hero__cta-short">Book a demo &rarr;</span>
+      </a>
     </div>
   </section>
 
@@ -2084,12 +2100,36 @@ layout: base.njk
     var dot = pinWrap.querySelector('[data-workflow-dot]');
     if (!steps.length || !panels.length) return;
 
+    // Not sticky anymore (see main.css) — still grabbed here so it can
+    // fade/lift out alongside the mockup in the exit-progress block below.
+    var head = document.querySelector('.fd-workflow__head');
+
     /* Last stretch of the pinned scroll — the whole sticky block blurs and
        fades out so the next section blends in over it, instead of the
-       pin releasing abruptly. */
-    var EXIT_START = 0.9;
+       pin releasing abruptly. Shorter window on mobile (0.96 vs 0.9):
+       10% of the shorter mobile scroll runway was still a lot of scroll
+       distance spent watching the card fade, reading as a big dead gap
+       before the next section finally showed up. */
+    var EXIT_START = window.innerWidth <= 700 ? 0.96 : 0.9;
 
     var ticking = false;
+    // This section's own scroll listener (below) was running its
+    // getBoundingClientRect() + class-toggling work on every scroll frame
+    // for the entire rest of the page's life, even long after the user
+    // had scrolled past it into later sections — a wasted forced-layout
+    // read on every scroll tick site-wide, which is exactly the kind of
+    // thing that shows up as general scroll jank/jitter, especially on
+    // quick direction reversals. Gate it to only run near this section.
+    // No rootMargin buffer: .fd-roles starts immediately after this
+    // section with nothing in between, so a generous margin here (50% of
+    // a viewport height) kept the listener "active" well into the roles/
+    // proof section right after it — the gate never actually closed
+    // while scrolling through the section you were testing.
+    var isNearView = false;
+    var nearViewObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) { isNearView = entry.isIntersecting; });
+    });
+    nearViewObserver.observe(pinWrap);
 
     function apply() {
       ticking = false;
@@ -2118,13 +2158,26 @@ layout: base.njk
 
       if (sticky) {
         var exitProgress = progress > EXIT_START ? (progress - EXIT_START) / (1 - EXIT_START) : 0;
-        sticky.style.opacity = String(1 - exitProgress * 0.85);
+        // Fully to 0 opacity (not just faded) and translated up, so the
+        // pinned block reads as scrolling away and out of the viewport
+        // instead of dissolving into a faint ghost that just sits there.
+        var exitLift = (exitProgress * 60).toFixed(1) + 'px';
+        sticky.style.opacity = String(1 - exitProgress);
         sticky.style.filter = exitProgress > 0 ? 'blur(' + (exitProgress * 14).toFixed(1) + 'px)' : '';
+        sticky.style.transform = exitProgress > 0 ? 'translateY(-' + exitLift + ')' : '';
+
+        // Fade + lift the sticky heading in lockstep with the mockup,
+        // instead of it staying sharp while everything below it exits.
+        if (head) {
+          head.style.opacity = String(1 - exitProgress);
+          head.style.filter = exitProgress > 0 ? 'blur(' + (exitProgress * 14).toFixed(1) + 'px)' : '';
+          head.style.transform = exitProgress > 0 ? 'translateY(-' + exitLift + ')' : '';
+        }
       }
     }
 
     function requestUpdate() {
-      if (ticking) return;
+      if (ticking || !isNearView) return;
       ticking = true;
       requestAnimationFrame(apply);
     }
@@ -2140,13 +2193,23 @@ layout: base.njk
     
     var selectors = showcase.querySelectorAll('[data-role-select]');
     var displayContents = showcase.querySelectorAll('[data-role-content]');
-    var accordions = showcase.querySelectorAll('[data-accordion-item]');
+    // .fd-roles-accordion is a SIBLING of showcase now (see feature-detail.njk
+    // markup comment), not a descendant — querying it off showcase returned
+    // nothing, so no click listeners or scroll observers were ever attached.
+    var accordions = document.querySelectorAll('[data-accordion-item]');
     var rotationTimer = null;
     var currentIndex = 0;
     var isUserInteracted = false;
     var duration = 6000; // 6s per role
     var startTime = Date.now();
     var progressAnimFrame = null;
+    // Was auto-rotating every 6s in the background even while this section
+    // was scrolled off-screen (Date.now()-based timer, not gated on
+    // visibility) — scrolling back mid-rotation showed a role you never
+    // saw select itself, which read as a flash/glitch. Pause the loop
+    // while off-screen and restart it fresh (not from stale elapsed time)
+    // once it's back in view.
+    var isInView = false;
     
     function activateRole(index) {
       currentIndex = index;
@@ -2186,16 +2249,16 @@ layout: base.njk
     }
     
     function animateProgressBar() {
-      if (isUserInteracted) return;
+      if (isUserInteracted || !isInView) return;
       cancelAnimationFrame(progressAnimFrame);
-      
+
       var activeCard = showcase.querySelector('.fd-roles-selector-card.is-active');
       if (!activeCard) return;
       var bar = activeCard.querySelector('.fd-roles-selector-card__progress-bar');
       if (!bar) return;
-      
+
       function step() {
-        if (isUserInteracted) return;
+        if (isUserInteracted || !isInView) return;
         var now = Date.now();
         var progress = (now - startTime) / duration;
         if (progress >= 1) {
@@ -2228,12 +2291,14 @@ layout: base.njk
     });
     
     // Attach event listeners to mobile accordions
+    var lastManualTapAt = 0;
     accordions.forEach(function (acc) {
       var index = parseInt(acc.getAttribute('data-accordion-item'), 10);
       var trigger = acc.querySelector('.fd-roles-accordion-trigger');
       if (trigger) {
         trigger.addEventListener('click', function () {
           isUserInteracted = true;
+          lastManualTapAt = Date.now();
           cancelAnimationFrame(progressAnimFrame);
           // If already active, toggle it (collapsing all is fine for accordions, or keep one active)
           if (acc.classList.contains('is-active')) {
@@ -2244,9 +2309,41 @@ layout: base.njk
         });
       }
     });
-    
+
+    // Auto-expand each accordion item as it scrolls near the vertical
+    // center of the viewport — on top of (not instead of) the tap-to-
+    // expand above, so both scrolling and tapping control which role is
+    // open. rootMargin shrinks the observed area to a thin band around
+    // the center, so an item only "activates" once it's actually being
+    // read, not the instant it appears at the bottom edge.
+    var accordionScrollObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        // Don't fight a tap that just happened (e.g. the item the user
+        // tapped is still crossing the center band as it expands).
+        if (Date.now() - lastManualTapAt < 600) return;
+        var idx = parseInt(entry.target.getAttribute('data-accordion-item'), 10);
+        if (idx !== currentIndex) activateRole(idx);
+      });
+    }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
+    accordions.forEach(function (acc) { accordionScrollObserver.observe(acc); });
+
     // Start initial progress animation
     activateRole(0);
+
+    // Gate the auto-rotation on actual visibility (see isInView above).
+    var roleVisibilityObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        isInView = entry.isIntersecting;
+        if (isInView && !isUserInteracted) {
+          startTime = Date.now();
+          animateProgressBar();
+        } else {
+          cancelAnimationFrame(progressAnimFrame);
+        }
+      });
+    }, { threshold: 0.3 });
+    roleVisibilityObserver.observe(showcase);
   })();
 
   // Mockup Animations Helper
