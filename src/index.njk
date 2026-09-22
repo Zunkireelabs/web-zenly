@@ -246,30 +246,48 @@ title: Zennly — Online Booking & Operations Platform
   @media (max-width:860px){
     .v2-nav .v2-btn{display:none;}
     .v2-nav__toggle{display:flex;}
+    /* Sitewide mobile section gutter: 32px -> 16px (approved 2026-09-21).
+       .v2-wrap is the shared container every homepage section wraps with,
+       so this one override changes the left/right inset for the whole
+       page at once. Needs the #v2-root prefix to match the base rule's
+       specificity (an ID selector), otherwise this loses the cascade. */
+    #v2-root .v2-wrap{padding-inline:16px;}
     /* Balance the headline's line breaks so wrapped lines read as even,
        centered rows instead of one ragged-width line stacked on another. */
     .v2-hero h1{text-wrap:balance;}
     /* Force the headline into: "Built for the businesses" / "that run
        without the" / cycling word on its own line — each row centered
-       under the one above via the h1's existing text-align:center. */
-    .v2-hero-break{display:block;}
+       under the one above via the h1's existing text-align:center.
+       #v2-root prefix needed: the unconditional base .v2-hero-break rule
+       (display:none) is declared LATER in this file, so at equal
+       specificity it would otherwise win regardless of viewport width. */
+    #v2-root .v2-hero-break{display:block;}
+    /* The cycling word's own left margin (used on desktop to space it from
+       "the" on the same line) would otherwise shift it off-center on its
+       own forced row here — zero it so it centers exactly under row 2. */
+    #v2-root .v2-hero h1 em{margin-inline-start:0;}
+    /* Same idea for the lede: force its 2 rows instead of letting the
+       sentence auto-wrap to 3, each row centered under the other. */
+    #v2-root .v2-lede-break{display:block;}
+    /* The hero isn't built on .v2-wrap (it has its own outer padding) —
+       match it to the new 16px sitewide gutter too. Same #v2-root-prefix
+       reasoning as above: the base .v2-hero padding shorthand is declared
+       later in this file. */
+    #v2-root .v2-hero{padding-inline:16px; padding-top:120px;}
     /* Let the hero image tiles bleed all the way to the viewport edge —
-       cancels .v2-hero's 32px side padding (now uniform across the whole
-       mobile range) exactly so there's no leftover gutter and the tiles
-       read as big as possible. */
-    .v2-hero-media{margin-inline:-32px;}
-  }
-  @media (max-width:480px){
-    /* .v2-hero keeps the standard 32px side padding here (same as every
-       other section) instead of its old 20px phone-only override — that
-       kept the headline's forced single-line rows fitting, but at the cost
-       of a narrower outer gutter than the rest of the page. Restore the
-       same text width a different way instead: .v2-hero-text bleeds back
-       out via negative margin (32 outer - 8 bleed = 24px net inset,
-       identical to the old 20+4 combo), so the headline still fits on one
-       line per row without the section's own edge gutter being an outlier. */
-    .v2-hero-text{padding-inline:0; margin-inline:-8px;}
-    .v2-hero h1{font-size:clamp(30px,8.6vw,36px);}
+       cancels .v2-hero's own 16px side padding exactly so there's no
+       leftover gutter and the tiles read as big as possible. */
+    #v2-root .v2-hero-media{margin-inline:-16px;}
+    /* .v2-hero-text has its own extra 16px padding-inline on top of the
+       hero's (used at wider widths for a narrower text column) — cancel
+       it on mobile so the text sits flush at the hero's own 16px, same
+       as every other section, instead of stacking to 32px total. */
+    #v2-root .v2-hero-text{padding-inline:0;}
+    /* Kill the base rule's margin:0 auto — redundant with the parent's
+       own align-items:center, but it renders as visible left/right
+       margin in devtools and eats into the width available for text,
+       so the row-fit font-size below has less room than it needs to. */
+    #v2-root .v2-hero h1{font-size:clamp(26px,8.2vw,40px); margin:0;}
   }
   @media (min-width:861px){
     .v2-nav-mobile{display:none !important;}
@@ -302,10 +320,11 @@ title: Zennly — Online Booking & Operations Platform
     line-height:1.06; letter-spacing:-0.03em;
     max-width:860px; margin:0 auto;
   }
-  .v2-hero h1 em{font-family:var(--v2-serif); font-style:italic; font-weight:400; color:#3F6839; display:inline-block; transition:opacity .3s ease;}
+  .v2-hero h1 em{font-family:var(--v2-serif); font-style:italic; font-weight:400; color:#3F6839; display:inline-block; margin-inline-start:0.28em; transition:opacity .3s ease;}
   /* Mobile-only forced line breaks — hidden on desktop, where the natural
      wrap already reads fine at wider widths. */
   .v2-hero-break{display:none;}
+  .v2-lede-break{display:none;}
   .v2-hero .v2-lede{
     width:min(100%,580px); margin:0 auto; text-align:center;
     font-family:var(--v2-sans); font-weight:400; font-size:clamp(19px,1.5vw,26px); line-height:1.34; letter-spacing:-0.02em;
@@ -456,16 +475,14 @@ title: Zennly — Online Booking & Operations Platform
      stays visible + overlapping the dashboard on mobile. */
   @media (max-width:767px){ #v2-root .v2-practice-mobile{display:none;} }
   @media (max-width:767px){
-    /* .v2-practice__inner's 24px side padding was an unexplained outlier —
-       every other section's mobile gutter is 32px (.v2-wrap's own side
-       padding). Bump it to match. */
-    .v2-practice__inner{padding-inline:32px;}
+    /* .v2-practice__inner's side padding matches every other section's
+       mobile gutter (.v2-wrap's own side padding, now 16px). */
+    .v2-practice__inner{padding-inline:16px;}
     /* Dashboard is the only visual left in this section once the phone
-       mockup hides above — let it bleed past that 32px padding so it still
-       reads bigger instead of sitting in a narrower column (net inset:
-       32 - 24 = 8px, same as the old 24 - 16 = 8px it had before the
-       padding bump above, so the dashboard's own size is unchanged). */
-    .v2-practice-mock{margin-inline:-24px;}
+       mockup hides above — let it bleed past that 16px padding so it still
+       reads bigger instead of sitting in a narrower column (net inset kept
+       at 8px, same as before the gutter changed from 32px to 16px). */
+    .v2-practice-mock{margin-inline:-8px;}
   }
   /* Heading style matched 1:1 to getflect.app's .display-h2 / .practice-title */
   .v2-practice-title{
@@ -507,6 +524,16 @@ title: Zennly — Online Booking & Operations Platform
   .v2-bento-card--photo img{width:100%; height:100%; object-fit:cover; display:block;}
   .v2-bento-card__scrim{position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.65) 0%, rgba(0,0,0,.1) 50%, rgba(0,0,0,0) 100%); pointer-events:none;}
   .v2-bento-card__caption{position:absolute; left:24px; right:24px; bottom:24px; max-width:420px; z-index:1; color:#fff; font-size:19px; font-weight:500; line-height:1.5; margin:0;}
+  @media (max-width:640px){
+    /* Card height shrinks to a 16:9 mobile width, but the caption's
+       desktop font-size (19px, wraps up to 3 lines at this width) still
+       takes just as much vertical room — it creeps up far enough to
+       collide with the notification panel anchored near the card's top
+       (.v2-panel) on the third bento card. Give the card more height to
+       work with and shrink the caption so both have room. */
+    .v2-bento-card--photo{aspect-ratio:4/3;}
+    .v2-bento-card__caption{font-size:15px; line-height:1.45; left:16px; right:16px; bottom:16px;}
+  }
   .v2-bento-card--stack{display:flex; flex-direction:column; justify-content:space-between; min-height:520px;}
   .v2-bento-card__top{height:260px; display:flex; align-items:center; justify-content:center; overflow:visible;}
   .v2-bento-card__top img{width:100%; height:100%; object-fit:contain;}
@@ -634,7 +661,13 @@ title: Zennly — Online Booking & Operations Platform
   .v2-panel__body{flex:1; min-width:0;}
   .v2-panel__text{font-family:var(--v2-sans); font-size:0.75rem; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#fff;}
   .v2-panel__time{font-family:var(--v2-sans); font-size:0.6563rem; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:rgba(255,255,255,0.85);}
-  @media (max-width:640px){ .v2-panel{right:10px; width:180px;} }
+  @media (max-width:640px){
+    /* top:90px (the desktop value) was landing inside the caption's now-
+       taller wrapped-text area on the shorter mobile card — pull it up to
+       sit flush under the bell button (top:28px + 42px tall = ~70px)
+       instead, clear of the caption below. */
+    .v2-panel{right:10px; width:180px; top:74px;}
+  }
 
   /* COMPARISON — ported 1:1 from getflect.app's .comparison / #why-flect
      section (structure, positions, gradients, reveal timing), re-skinned
@@ -740,12 +773,14 @@ title: Zennly — Online Booking & Operations Platform
      section loads showing ~240px of blank space before the first card. */
   @media (max-width:767px){
     /* .v2-ind-wrap's -48px margin (desktop-only breakout past .v2-wrap's
-       32px padding) was still active here, net-ing the first card's gutter
-       down to just 4px (32 - 48 + 20). Cancel it exactly instead so the
-       track's own padding-left is the real, full gutter — set to match
-       .v2-wrap's own 32px side padding used everywhere else on the page. */
-    .v2-ind-wrap{margin-left:-32px; margin-right:-32px;}
-    .v2-ind-track{padding-left:32px; padding-right:32px;}
+       padding) was still active here, netting the first card's gutter to
+       an inconsistent value. Cancel it out entirely (0) so .v2-ind-wrap
+       sits flush with .v2-wrap's own 16px gutter, then add the track's
+       own 16px padding-left on top — this carousel intentionally gets a
+       32px left gutter (larger than the sitewide 16px) instead of
+       matching every other section. */
+    .v2-ind-wrap{margin-left:0; margin-right:0;}
+    .v2-ind-track{padding-left:16px; padding-right:16px;}
     /* vw-based instead of a fixed px so the card scales with the screen
        instead of looking small on wide phones / cramped on narrow ones;
        still leaves a peek of the next card to signal it's scrollable. */
@@ -848,6 +883,7 @@ title: Zennly — Online Booking & Operations Platform
   .v2-access-copy{display:flex; width:100%; flex-direction:column; align-items:center; gap:40px; text-align:center;}
   .v2-access-title{font-family:var(--v2-sans); font-weight:500; font-size:clamp(42px,3.48vw,60px); line-height:1.1; letter-spacing:-0.03em; color:var(--v2-bg-alt); margin:0;}
   .v2-access-lead{width:min(100%,712px); margin:0 auto; font-family:var(--v2-sans); font-weight:500; font-size:clamp(21px,1.51vw,26px); line-height:1.34; letter-spacing:-0.02em; color:var(--v2-bg-alt); opacity:.8;}
+  .v2-access-reassurance{margin:0; font-family:var(--v2-sans); font-weight:500; font-size:13.5px; letter-spacing:-0.01em; color:var(--v2-bg-alt); opacity:.6;}
   .v2-access-form{display:flex; align-items:center; gap:10px; width:528px; max-width:100%; min-height:88px; margin:0 auto; padding-inline:16px; border-bottom:1px solid rgba(236,247,189,0.72);}
   .v2-access-form input{flex:1 1 auto; min-width:0; border:none; background:transparent; font-family:var(--v2-sans); font-size:20px; line-height:1.34; font-weight:500; outline:none; color:var(--v2-bg-alt);}
   .v2-access-form input::placeholder{color:var(--v2-bg-alt); opacity:.8;}
@@ -2481,25 +2517,45 @@ title: Zennly — Online Booking & Operations Platform
     .v2-benefits-grid{grid-template-columns:1fr 1fr;}
     .v2-works-steps{position:static;}
     .v2-nav__links{display:none;}
-    .v2-access{padding:96px 0;}
+    /* .v2-section-head h2 / .v2-ind-h2 both floor at a fixed 42px on
+       mobile (3.48vw of a ~390px phone is only ~13.6px, well under the
+       clamp's 42px minimum) — badly oversized next to every other mobile
+       heading on the page (e.g. .v2-trust__heading floors at 24px). Bring
+       them down to the same order of magnitude as the rest of the page's
+       mobile headings. */
+    .v2-section-head h2, .v2-ind-h2{font-size:clamp(28px,7.5vw,38px);}
+    /* .v2-stats-h2's white-space:nowrap (fine on desktop, where the
+       clamp's larger min-width keeps it on one line) forces this same
+       phrase onto one line here too, but at mobile widths it's too wide
+       to fit — it was overflowing past both edges instead of wrapping. */
+    .v2-stats-h2{white-space:normal;}
+    /* Consistent mobile section rhythm (approved 2026-09-21): every
+       section's own top padding is the ONLY thing that creates the gap
+       above it — standardized to .v2-trust's existing 64px (its 130px
+       desktop value was never meant for phones, and was stacking with
+       .v2-hero's own trailing padding to create an oversized, inconsistent
+       gap above the very first section after the hero). */
+    .v2-hero{padding-bottom:0;}
+    .v2-section{padding:64px 0;}
+    .v2-closing{padding-top:64px;}
+    .v2-access{padding:64px 0;}
     .v2-access-inner{gap:56px;}
     .v2-access-copy{gap:24px;}
     .v2-access-title{font-size:clamp(34px,9vw,44px); line-height:1.08;}
     .v2-access-form{min-height:76px; padding-block:16px;}
     .v2-access-form input{font-size:17px;}
-    /* Bleed past .v2-wrap's 32px gutter (edge-to-edge) so the mockup below
-       has the full viewport width to grow into instead of being capped by
-       the reserved 280px box — it was rendering at 296px already (0.38
-       scale), narrower than even that box, and easy to miss/misread. */
-    .v2-access-gallery{height:320px; max-width:none; margin-inline:-32px;}
+    /* Bleed past .v2-wrap's gutter (edge-to-edge, now 16px) so the mockup
+       below has the full viewport width to grow into instead of being
+       capped by the reserved 280px box — it was rendering at 296px already
+       (0.38 scale), narrower than even that box, and easy to miss/misread. */
+    .v2-access-gallery{height:320px; max-width:none; margin-inline:-16px;}
     /* calc(88vw / 780px) gives a unitless scale factor, so the mockup's
        rendered width is always ~88% of the viewport (not a fixed px scale
        that's oversized on a 375px phone and undersized on a 430px one). */
     .v2-access-gallery__phone{--v2-hero-demo-scale:calc(88vw / 780px); width:calc(780px * var(--v2-hero-demo-scale)); height:calc(1598px * var(--v2-hero-demo-scale));}
     .v2-access-card{display:none;}
-    /* 32px side padding (not the old 16px) to match every other section's
-       mobile gutter. */
-    .v2-site-footer{padding:80px 32px 0;}
+    /* 16px side padding to match every other section's mobile gutter. */
+    .v2-site-footer{padding:80px 16px 0;}
     .v2-footer-content{gap:48px; padding-bottom:56px;}
     .v2-footer-top{flex-direction:column; gap:40px;}
     .v2-footer-brand{max-width:none;}
@@ -2792,8 +2848,8 @@ title: Zennly — Online Booking & Operations Platform
 
 <header class="v2-hero">
   <div class="v2-hero-text">
-    <h1 class="v2-reveal">Built for the businesses<br class="v2-hero-break"> that run without the<br class="v2-hero-break"> <em id="v2HeroRotate">chaos</em></h1>
-    <p class="v2-lede v2-reveal">Online booking, operational control, and financial clarity for any appointment-based business.</p>
+    <h1 class="v2-reveal">Built for the businesses<br class="v2-hero-break"> that run without the<br class="v2-hero-break"><em id="v2HeroRotate">chaos</em></h1><!-- space before "chaos" replaced by .v2-hero h1 em's margin-inline-start so the cycling word doesn't carry a leading-space offset when it's forced onto its own centered row on mobile -->
+    <p class="v2-lede v2-reveal">Online booking, operational control,<br class="v2-lede-break"> and financial clarity in one place.</p>
   </div>
   <form class="v2-hero-form v2-reveal" id="v2-hero-form">
     <input type="email" name="email" placeholder="Enter your email" required>
@@ -2828,6 +2884,7 @@ title: Zennly — Online Booking & Operations Platform
         <div class="v2-chip v2-chip--heavy">FLEX</div>
         <div class="v2-chip v2-chip--medium">The Tidiers</div>
         <div class="v2-chip v2-chip--light-italic">bloom studio</div>
+        <div class="v2-chip v2-chip--serif">Nuad Thai</div>
         <!-- Set 2 (duplicate for seamless infinite loop) -->
         <div class="v2-chip v2-chip--live">Zennly Spa</div>
         <div class="v2-chip v2-chip--light-italic">Pure Glow</div>
@@ -2844,6 +2901,7 @@ title: Zennly — Online Booking & Operations Platform
         <div class="v2-chip v2-chip--heavy">FLEX</div>
         <div class="v2-chip v2-chip--medium">The Tidiers</div>
         <div class="v2-chip v2-chip--light-italic">bloom studio</div>
+        <div class="v2-chip v2-chip--serif">Nuad Thai</div>
       </div>
     </div>
   </section>
@@ -2914,32 +2972,6 @@ title: Zennly — Online Booking & Operations Platform
   </div>
 </section>
 
-<section class="v2-section" id="v2-works" style="display:none;">
-  <div class="v2-wrap">
-    <div class="v2-section-head v2-reveal">
-      <h2>How Lorem works</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-    </div>
-    <div class="v2-works-grid">
-      <div class="v2-works-steps">
-        <div class="v2-step is-active" data-step="0">
-          <div class="v2-num">( 01 )</div>
-          <div><h4>Take note</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p></div>
-        </div>
-        <div class="v2-step" data-step="1">
-          <div class="v2-num">( 02 )</div>
-          <div><h4>Identify influences</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p></div>
-        </div>
-        <div class="v2-step" data-step="2">
-          <div class="v2-num">( 03 )</div>
-          <div><h4>Develop practices</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p></div>
-        </div>
-      </div>
-      <div class="v2-works-visual v2-reveal"><div class="v2-device" id="v2Device"></div></div>
-    </div>
-  </div>
-</section>
-
 <section class="v2-section">
   <div class="v2-wrap">
     <div class="v2-section-head v2-reveal">
@@ -2994,7 +3026,7 @@ title: Zennly — Online Booking & Operations Platform
               </div>
             </div>
           </div>
-          <div class="v2-bento-card__bottom"><h3>Every insight, on demand. Revenue, attendance, and performance always current.</h3></div>
+          <div class="v2-bento-card__bottom"><h3>Stop digging through spreadsheets to know how you're doing. Revenue, attendance, and performance — always current, on demand.</h3></div>
         </div>
         <div class="v2-bento-card v2-bento-card--stack v2-reveal" style="background:#E0F0BC;">
           <div class="v2-bento-card__top">
@@ -3042,7 +3074,7 @@ title: Zennly — Online Booking & Operations Platform
               </div>
             </div>
           </div>
-          <div class="v2-bento-card__bottom"><h3>One screen for every booking. Staff, managers, and admins stay synced.</h3></div>
+          <div class="v2-bento-card__bottom"><h3>Stop staff, managers, and admins working off different information. One screen, everyone in sync.</h3></div>
         </div>
       </div>
 
@@ -3264,11 +3296,11 @@ title: Zennly — Online Booking & Operations Platform
               <div class="v2-tcar__pills">
                 <span class="v2-tcar__pill v2-tcar__pill--name">Priya, Clinic Manager</span>
                 <span class="v2-tcar__connector" aria-hidden="true"><svg viewBox="0 0 14 10" preserveAspectRatio="none"><path d="M0 -2 V0 C0 0 5.09091 0.49688 5.09091 4 C5.09091 7.50312 0 8 0 8 V10 H14 V8 C14 8 8.90909 7.50312 8.90909 4 C8.90909 0.49688 14 0 14 0 V-2 Z"/></svg></span>
-                <span class="v2-tcar__pill v2-tcar__pill--role">Riverside Physiotherapy · Downtown</span>
+                <span class="v2-tcar__pill v2-tcar__pill--role">Physiotherapy Practice</span>
               </div>
             </div>
             <div class="v2-tcar__photo">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&fit=crop&q=80" alt="Priya, clinic manager at Riverside Physiotherapy">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&fit=crop&q=80" alt="Priya, at a physiotherapy practice">
             </div>
           </div>
         </div>
@@ -3286,11 +3318,11 @@ title: Zennly — Online Booking & Operations Platform
               <div class="v2-tcar__pills">
                 <span class="v2-tcar__pill v2-tcar__pill--name">Marcus, Admin</span>
                 <span class="v2-tcar__connector" aria-hidden="true"><svg viewBox="0 0 14 10" preserveAspectRatio="none"><path d="M0 -2 V0 C0 0 5.09091 0.49688 5.09091 4 C5.09091 7.50312 0 8 0 8 V10 H14 V8 C14 8 8.90909 7.50312 8.90909 4 C8.90909 0.49688 14 0 14 0 V-2 Z"/></svg></span>
-                <span class="v2-tcar__pill v2-tcar__pill--role">West End Aesthetics · West End</span>
+                <span class="v2-tcar__pill v2-tcar__pill--role">Aesthetics Clinic</span>
               </div>
             </div>
             <div class="v2-tcar__photo">
-              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&fit=crop&q=80" alt="Marcus, admin at West End Aesthetics">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&fit=crop&q=80" alt="Marcus, at an aesthetics clinic">
             </div>
           </div>
         </div>
@@ -3308,11 +3340,11 @@ title: Zennly — Online Booking & Operations Platform
               <div class="v2-tcar__pills">
                 <span class="v2-tcar__pill v2-tcar__pill--name">Elena, Manager</span>
                 <span class="v2-tcar__connector" aria-hidden="true"><svg viewBox="0 0 14 10" preserveAspectRatio="none"><path d="M0 -2 V0 C0 0 5.09091 0.49688 5.09091 4 C5.09091 7.50312 0 8 0 8 V10 H14 V8 C14 8 8.90909 7.50312 8.90909 4 C8.90909 0.49688 14 0 14 0 V-2 Z"/></svg></span>
-                <span class="v2-tcar__pill v2-tcar__pill--role">Lumière Salon Group</span>
+                <span class="v2-tcar__pill v2-tcar__pill--role">Salon Group</span>
               </div>
             </div>
             <div class="v2-tcar__photo">
-              <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&fit=crop&q=80" alt="Elena, manager at Lumière Salon Group">
+              <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&fit=crop&q=80" alt="Elena, at a salon group">
             </div>
           </div>
         </div>
@@ -3330,11 +3362,11 @@ title: Zennly — Online Booking & Operations Platform
               <div class="v2-tcar__pills">
                 <span class="v2-tcar__pill v2-tcar__pill--name">Mai, Owner</span>
                 <span class="v2-tcar__connector" aria-hidden="true"><svg viewBox="0 0 14 10" preserveAspectRatio="none"><path d="M0 -2 V0 C0 0 5.09091 0.49688 5.09091 4 C5.09091 7.50312 0 8 0 8 V10 H14 V8 C14 8 8.90909 7.50312 8.90909 4 C8.90909 0.49688 14 0 14 0 V-2 Z"/></svg></span>
-                <span class="v2-tcar__pill v2-tcar__pill--role">Nuad Thai Spa · Uptown</span>
+                <span class="v2-tcar__pill v2-tcar__pill--role">Spa &amp; Wellness Studio</span>
               </div>
             </div>
             <div class="v2-tcar__photo">
-              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&fit=crop&q=80" alt="Mai, owner of Nuad Thai Spa">
+              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&fit=crop&q=80" alt="Mai, at a spa and wellness studio">
             </div>
           </div>
         </div>
@@ -3352,11 +3384,11 @@ title: Zennly — Online Booking & Operations Platform
               <div class="v2-tcar__pills">
                 <span class="v2-tcar__pill v2-tcar__pill--name">Kevin, Founder</span>
                 <span class="v2-tcar__connector" aria-hidden="true"><svg viewBox="0 0 14 10" preserveAspectRatio="none"><path d="M0 -2 V0 C0 0 5.09091 0.49688 5.09091 4 C5.09091 7.50312 0 8 0 8 V10 H14 V8 C14 8 8.90909 7.50312 8.90909 4 C8.90909 0.49688 14 0 14 0 V-2 Z"/></svg></span>
-                <span class="v2-tcar__pill v2-tcar__pill--role">Greenwich Cycle Studio</span>
+                <span class="v2-tcar__pill v2-tcar__pill--role">Fitness Studio</span>
               </div>
             </div>
             <div class="v2-tcar__photo">
-              <img src="https://images.unsplash.com/photo-1701980889802-55ff39e2e973?w=600&fit=crop&q=80" alt="Kevin, founder of Greenwich Cycle Studio">
+              <img src="https://images.unsplash.com/photo-1701980889802-55ff39e2e973?w=600&fit=crop&q=80" alt="Kevin, at a fitness studio">
             </div>
           </div>
         </div>
@@ -3384,6 +3416,7 @@ title: Zennly — Online Booking & Operations Platform
       <div class="v2-access-copy v2-reveal">
         <h2 class="v2-access-title">Better operations start with a better system.</h2>
         <p class="v2-access-lead">See what Zennly can do for your business.</p>
+        <p class="v2-access-reassurance">No credit card required · Live in a day · Real support when you need it</p>
       </div>
       <form class="v2-access-form v2-reveal" id="v2-access-form">
         <input type="email" name="email" placeholder="Enter your email" required>
@@ -4011,7 +4044,7 @@ title: Zennly — Online Booking & Operations Platform
               <a href="/features#booking" class="v2-footer-link">Online Booking</a>
               <a href="/features#operations" class="v2-footer-link">Operations</a>
               <a href="/features#financial" class="v2-footer-link">Finance</a>
-              <a href="#pricing" class="v2-footer-link">Pricing</a>
+              <a href="/pricing" class="v2-footer-link">Pricing</a>
             </div>
             <div class="v2-footer-link-group">
               <h5 class="v2-footer-heading">Use Cases</h5>
@@ -4023,12 +4056,12 @@ title: Zennly — Online Booking & Operations Platform
               <h5 class="v2-footer-heading">Company</h5>
               <a href="#demo" class="v2-footer-link">Book a Demo</a>
               <a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener" class="v2-footer-link">See It Live</a>
-              <a href="mailto:info.zunkireelabs@gmail.com" class="v2-footer-link">Contact</a>
+              <a href="#demo" class="v2-footer-link">Contact</a>
             </div>
             <div class="v2-footer-link-group">
               <h5 class="v2-footer-heading">Legal</h5>
-              <a href="#" class="v2-footer-link">Privacy Policy</a>
-              <a href="#" class="v2-footer-link">Terms of Service</a>
+              <a href="/privacy-policy" class="v2-footer-link">Privacy Policy</a>
+              <a href="/terms-of-service" class="v2-footer-link">Terms of Service</a>
             </div>
           </div>
         </div>

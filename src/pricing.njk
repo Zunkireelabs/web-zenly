@@ -5,7 +5,8 @@ bodyClass: page--light-nav
 ---
 
 <main>
-  <section class="section" id="pricing" style="padding-top: var(--space-2xl);">
+  <div class="pricing-hero-wrap">
+  <section class="section" id="pricing" style="padding-top: var(--space-2xl); padding-bottom: var(--space-2xl);">
     <div class="section__inner">
 
       <div class="pricing-wrap">
@@ -48,6 +49,66 @@ bodyClass: page--light-nav
 
     </div>
   </section>
-</main>
+  </div>
 
-{% include "_footer-v2.njk" %}
+
+  <!-- ── PRICING QUESTIONS ────────────────────────────────────────────── -->
+  <section class="section" id="faq">
+    <div class="section__inner">
+      <div class="faq-header reveal">
+        <h2 class="section__h2">A few honest answers before you book a call.</h2>
+      </div>
+      <div class="faq-list" x-data="{ open: null }">
+        <div class="faq-item reveal" data-delay="1" :class="{ 'faq-item--open': open === 0 }">
+          <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
+            Why isn't there a fixed price list?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
+            <p>Because a one-branch salon and a four-branch spa chain don't use the same amount of platform. Rather than force you into a tier that's wrong in one direction or the other, we quote based on your branches, team size, and the features you actually need.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal" data-delay="2" :class="{ 'faq-item--open': open === 1 }">
+          <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
+            What happens during the trial?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
+            <p>You get the full platform &ndash; booking, payments, discounts, staff management, reports &ndash; not a limited preview. We want you to see exactly how it runs your business before you commit to anything.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal" data-delay="3" :class="{ 'faq-item--open': open === 2 }">
+          <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
+            How fast can we actually get a quote?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
+            <p>Book a 30-minute demo and we'll send a tailored quote within 24 hours. Most businesses are live on their first branch the same week.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal" data-delay="4" :class="{ 'faq-item--open': open === 3 }">
+          <button class="faq-item__q" @click="open = open === 3 ? null : 3" :aria-expanded="open === 3">
+            Does pricing change as we add branches?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === 3" x-cloak x-transition>
+            <p>Yes &ndash; your quote scales with your setup, not the other way around. When you open a new branch, we adjust the plan with you instead of pushing you into the next tier up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
+  <section class="bottom-cta" id="demo">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">Let's put together a quote for your business.</h2>
+      <p class="bottom-cta__sub">30 minutes, no obligation. We'll understand your setup and send a tailored quote within 24 hours.</p>
+      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
+  {% include "_footer-v2.njk" %}
+</main>
