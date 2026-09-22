@@ -9,6 +9,10 @@
     /* Lenis (main.js) owns smooth scrolling now — native smooth-scroll
        would fight its rAF loop on anchor-link clicks. */
     scrollbar-width: none;
+    /* Belt-and-suspenders with body's overflow-x:hidden below: mobile
+       Safari in particular can still compute a horizontally-scrollable
+       area from <html> even when <body> clips its own overflow. */
+    overflow-x: hidden;
   }
 
   html::-webkit-scrollbar {
@@ -23,6 +27,12 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* overflow-x:hidden does NOT belong here: on iOS Safari it makes body
+       compute overflow-y:auto too, turning body into a scroll container
+       that sits between the viewport and any position:sticky descendant
+       (e.g. .fd-workflow__sticky) — which breaks sticky pinning entirely.
+       html's overflow-x:hidden (above) already does the horizontal clip
+       without that side effect, since it stays the root/viewport scroller. */
   }
 
   :root {
@@ -111,6 +121,19 @@
     --v2-link:       #38430A;
     --v2-bg-alt:     #ECF7BD;
     --v2-flow-radius: clamp(34px,3.7vw,46px);
+
+    /* ── Sitewide mobile-consistent type scale ─────────────
+       Formalizes the sizes already used ad hoc across pages (0.75rem,
+       0.8125rem, 0.875rem, 0.9375rem) into shared fluid tokens so real
+       reading content (paragraphs, nav/footer links, captions, FAQ and
+       testimonial text) matches size across pages instead of drifting
+       per-template on mobile. Does not apply to decorative device-mockup
+       UI (app-, dash-, cal-, room-util-, entr-, fp-, fss- prefixed
+       classes), which is deliberately miniature and stays hardcoded. */
+    --fs-body:    clamp(1rem, 0.94rem + 0.3vw, 1.125rem);      /* ~16px -> 18px, base copy */
+    --fs-nav:     clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);      /* ~15px -> 16px, nav/footer links, buttons */
+    --fs-small:   clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem);/* ~14px -> 15px, secondary/meta text */
+    --fs-caption: clamp(0.8125rem, 0.8rem + 0.1vw, 0.875rem);  /* ~13px -> 14px, captions/labels floor */
   }
 }
 
@@ -352,6 +375,10 @@
 
   @media (max-width:860px){
     .v2-site-footer{padding:80px 16px 0;}
+    /* .v2-wrap's own 32px side padding was stacking on top of the
+       16px above (48px total) since .v2-wrap has no mobile override of
+       its own here — zero it out so the footer's 16px is the only gutter. */
+    .v2-site-footer .v2-wrap{padding-inline:0;}
     .v2-footer-content{gap:48px; padding-bottom:56px;}
     .v2-footer-top{flex-direction:column; gap:40px;}
     .v2-footer-brand{max-width:none;}
@@ -1006,7 +1033,7 @@
   }
 
   .nav__mobile-label {
-    font-size: 0.75rem;
+    font-size: var(--fs-caption);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.07em;
@@ -1046,7 +1073,7 @@
     background-color: var(--color-primary);
     color: #ffffff;
     font-family: var(--font-body);
-    font-size: 0.9375rem;
+    font-size: var(--fs-nav);
     font-weight: 500;
     line-height: 1;
     padding: 11px 22px;
@@ -1074,7 +1101,7 @@
     background-color: transparent;
     color: var(--color-text);
     font-family: var(--font-body);
-    font-size: 0.9375rem;
+    font-size: var(--fs-nav);
     font-weight: 500;
     line-height: 1;
     padding: 11px 22px;
@@ -1192,7 +1219,7 @@
     background-color: var(--color-primary);
     color: #ffffff;
     font-family: var(--font-body);
-    font-size: 0.9375rem;
+    font-size: var(--fs-nav);
     font-weight: 600;
     line-height: 1;
     padding: 13px 26px;
@@ -1232,7 +1259,7 @@
 
   .hero__support {
     font-family: var(--font-body);
-    font-size: 0.875rem;
+    font-size: var(--fs-small);
     font-weight: 400;
     color: var(--color-muted);
     margin-bottom: var(--space-lg);
@@ -1246,7 +1273,7 @@
     background-color: transparent;
     color: var(--color-text);
     font-family: var(--font-body);
-    font-size: 0.9375rem;
+    font-size: var(--fs-nav);
     font-weight: 500;
     line-height: 1;
     padding: 12px 22px;
@@ -1265,7 +1292,7 @@
 
   .hero__meta {
     font-family: var(--font-body);
-    font-size: 0.8125rem;
+    font-size: var(--fs-caption);
     color: var(--color-muted);
     letter-spacing: 0.01em;
   }
@@ -1404,7 +1431,7 @@
   }
 
   .booking-item__title {
-    font-size: 0.8125rem;
+    font-size: var(--fs-caption);
     font-weight: 600;
     color: #302E2D;
   }
@@ -1416,7 +1443,7 @@
   }
 
   .booking-item__price {
-    font-size: 0.8125rem;
+    font-size: var(--fs-caption);
     font-weight: 600;
     color: #3f6839; /* Forest Green price highlight */
   }
@@ -1458,7 +1485,7 @@
   }
 
   .calendar-day .day-num {
-    font-size: 0.875rem;
+    font-size: var(--fs-small);
     font-weight: 600;
     color: #302E2D;
     margin-top: 2px;
@@ -1487,7 +1514,7 @@
     background-color: #ffffff;
     border: 1px solid rgba(48, 46, 45, 0.08);
     border-radius: var(--radius-sm);
-    font-size: 0.75rem;
+    font-size: var(--fs-caption);
     font-weight: 500;
     color: #302E2D;
   }
@@ -3005,6 +3032,17 @@ body.page--case-study .section {
   white-space: nowrap;
 }
 
+@media (max-width: 700px) {
+  /* white-space:nowrap above forces this onto one line regardless of
+     screen width — fine on desktop where it fits, but on mobile it just
+     overflows/clips past the viewport edge instead of wrapping. Used by
+     .fd-proof, .fd-social, and .fd-objections' sub-copy, so this fixes
+     all three at once. */
+  .section__sub--center {
+    white-space: normal;
+  }
+}
+
 
 /* ── NODE BRIDGE — pain → solution transition ── */
 .node-bridge {
@@ -3536,7 +3574,7 @@ body.page--case-study .section {
 }
 
 .solution__label {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3631,14 +3669,14 @@ body.page--case-study .section {
   position: relative;
   z-index: 1;
   font-weight: 700;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-text);
 }
 
 .sol-card__tagline {
   position: relative;
   z-index: 1;
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: var(--color-muted);
   line-height: 1.5;
   margin: 0;
@@ -3703,7 +3741,7 @@ body.page--case-study .section {
 }
 
 .trust-band__line {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-muted);
   margin: 0;
   max-width: 420px;
@@ -3819,14 +3857,14 @@ body.page--case-study .section {
 
 .trust-chip--caps {
   font-weight: 600;
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .trust-chip--wide-caps {
   font-weight: 300;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -3844,12 +3882,12 @@ body.page--case-study .section {
 
 .trust-chip--medium {
   font-weight: 500;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
 }
 
 .trust-chip--dot {
   font-weight: 400;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
 }
 
 .trust-chip--serif {
@@ -3891,7 +3929,7 @@ body.page--case-study .section {
 }
 
 .value-nav__label {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 500;
   color: var(--color-muted);
   letter-spacing: 0.02em;
@@ -3904,7 +3942,7 @@ body.page--case-study .section {
 }
 
 .value-nav__link {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 500;
   color: var(--color-text);
   text-decoration: none;
@@ -3919,7 +3957,7 @@ body.page--case-study .section {
 }
 
 .value-nav__arrow {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   opacity: 0.45;
 }
 
@@ -3992,7 +4030,7 @@ body.page--case-study .section {
 }
 
 .pillar__desc {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-muted);
   line-height: 1.65;
   margin: 0;
@@ -4091,12 +4129,12 @@ body.page--case-study .section {
 .value-callout__label {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-text);
 }
 
 .value-callout__tagline {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   line-height: 1.45;
   margin: 0;
@@ -4425,7 +4463,7 @@ body.page--case-study .section {
 
 .mock-stat__num {
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 700;
   color: var(--color-text);
   line-height: 1;
@@ -4521,8 +4559,20 @@ body.page--case-study .section {
    FEATURES PAGE — HERO HEADER
 ───────────────────────────────────────────────────────────────────────── */
 
+/* Rounded gradient band around the hero — same full-bleed treatment as the
+   homepage's .v2-practice section (index.njk). */
+.feat-page-hero-wrap {
+  /* Top margin = nav clearance (80px) + the same 20px gap already used on
+     the sides, so the rounded card doesn't sit flush against the nav. */
+  margin: 100px 20px 0;
+  border-radius: clamp(24px, 3.2vw, 48px);
+  overflow: hidden;
+  background:
+    radial-gradient(60% 70% at 50% 30%, rgba(255,255,255,0.55) 0%, transparent 70%),
+    linear-gradient(160deg, #A7C9D0 0%, var(--color-surface-alt) 100%);
+}
+
 .feat-page-hero {
-  margin: 80px 20px 0;
   padding: var(--space-xl) 0 var(--space-xl);
   border-bottom: none;
   overflow: hidden;
@@ -4547,9 +4597,12 @@ body.page--case-study .section {
 }
 
 .feat-page-hero__h1 {
+  /* Matched to the individual /features/{slug} hero (.fd-hero__h1) instead
+     of its own one-off size/weight, so the index and detail hero headings
+     read as the same page family. */
   font-family: var(--font-body);
-  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
-  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--color-text);
@@ -4569,11 +4622,21 @@ body.page--case-study .section {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
+  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 
+/* Narrower than the shared .btn-primary/.btn-secondary default (22px side
+   padding, var(--fs-nav) text) — scoped to this hero only so every other
+   button on the site keeps its usual size. */
+.feat-page-hero__actions .btn-primary,
+.feat-page-hero__actions .btn-secondary {
+  padding: 11px 16px;
+  font-size: var(--fs-small);
+}
+
 .feat-page-hero__note {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin: 0 0 var(--space-lg);
 }
@@ -4587,7 +4650,7 @@ body.page--case-study .section {
 }
 
 .feat-page-hero__link {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 500;
   color: var(--color-muted);
   text-decoration: none;
@@ -4734,7 +4797,7 @@ body.page--case-study .section {
 
 .fph-apt__name {
   display: block;
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   color: #111;
   white-space: nowrap;
@@ -4794,7 +4857,7 @@ body.page--case-study .section {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   color: #6b7280;
 }
 
@@ -4809,7 +4872,7 @@ body.page--case-study .section {
 }
 
 .fph-footer-btn {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   color: #4A5F4B;
 }
@@ -4818,8 +4881,22 @@ body.page--case-study .section {
   .feat-page-hero__inner {
     grid-template-columns: 1fr;
   }
+  .feat-page-hero__text {
+    min-width: 0;
+    max-width: none;
+  }
   .feat-page-hero__visual {
     justify-content: center;
+  }
+  .feat-page-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .feat-page-hero__actions .btn-primary,
+  .feat-page-hero__actions .btn-secondary {
+    white-space: normal;
+    text-align: center;
+    width: 100%;
   }
 }
 
@@ -4903,7 +4980,7 @@ body.page--case-study .section {
   background-color: var(--color-primary);
   color: #ffffff;
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   line-height: 1;
   padding: 13px 28px;
@@ -5157,7 +5234,7 @@ body.page--case-study .section {
   border-radius: var(--radius-pill);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   display: inline-block;
   align-self: flex-start;
   margin-top: 12px;
@@ -5462,7 +5539,7 @@ body.page--case-study .section {
 }
 
 .c1-notif-title {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   color: rgba(255,255,255,0.9);
 }
@@ -6021,7 +6098,7 @@ body.page--case-study .section {
   border-radius: 10px;
   padding: 10px 14px;
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 500;
   color: rgba(255,255,255,0.90);
   border: 1px solid rgba(255,255,255,0.18);
@@ -6041,7 +6118,7 @@ body.page--case-study .section {
 
 .conflict-x {
   margin-left: auto;
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 700;
   color: #fca5a5;
   opacity: 0;
@@ -6150,7 +6227,7 @@ body.page--case-study .section {
 
 .scard__label {
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: #1c2b1d;
   text-align: center;
@@ -6228,7 +6305,7 @@ body.page--case-study .section {
 }
 
 .floating-insight__value {
-  font-size: 0.95rem;
+  font-size: var(--fs-nav);
   font-weight: 700;
   color: #ffffff;
   display: flex;
@@ -6299,7 +6376,7 @@ body.page--case-study .section {
 }
 
 .goal-percent {
-  font-size: 0.85rem;
+  font-size: var(--fs-small);
   font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
@@ -6536,7 +6613,7 @@ body.page--case-study .section {
 
 .eod-type {
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: rgba(255,255,255,0.60);
   font-weight: 500;
   flex: 1;
@@ -6544,14 +6621,14 @@ body.page--case-study .section {
 
 .eod-amt {
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: #fff;
 }
 
 .eod-check {
   color: #6ee7b7;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 700;
   opacity: 0;
   text-shadow: 0 0 8px rgba(110,231,183,0.6);
@@ -6559,7 +6636,7 @@ body.page--case-study .section {
 
 .eod-total {
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 700;
   color: #DAA520;
   padding: 4px 2px;
@@ -7028,7 +7105,7 @@ body.page--case-study .section {
 }
 
 .feat__desc {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: var(--color-muted);
   line-height: 1.65;
   margin: 0;
@@ -7053,7 +7130,7 @@ body.page--case-study .section {
 }
 
 .bw-label {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: var(--color-text);
 }
@@ -7062,7 +7139,7 @@ body.page--case-study .section {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   color: var(--color-primary);
   font-weight: 500;
 }
@@ -7084,7 +7161,7 @@ body.page--case-study .section {
 }
 
 .bw-chip {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 6px;
   padding: 6px 12px;
@@ -7153,7 +7230,7 @@ body.page--case-study .section {
   border: none;
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 500;
   cursor: pointer;
   text-align: center;
@@ -7303,7 +7380,7 @@ body.page--case-study .section {
 
 .compare-card__desc {
   margin: var(--space-sm) 0 var(--space-md);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-text-muted, rgba(48, 46, 45, 0.65));
   line-height: 1.6;
 }
@@ -7356,7 +7433,7 @@ body.page--case-study .section {
 }
 
 .compare-card__text {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.5;
@@ -7400,6 +7477,7 @@ body.page--case-study .section {
 .redline-header--left .section__h2 {
   text-align: left;
   white-space: nowrap;
+  font-size: clamp(1.5rem, 2.1vw, 2.125rem);
 }
 
 .redline-header--left .section__sub {
@@ -7439,7 +7517,7 @@ body.page--case-study .section {
 }
 
 .compare-card--v2 .compare-card__item-desc {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-text-muted, rgba(48, 46, 45, 0.65));
   line-height: 1.5;
   margin: 0;
@@ -7534,7 +7612,7 @@ body.page--case-study .section {
 .flow-card__label {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.3;
@@ -7559,7 +7637,7 @@ body.page--case-study .section {
   border-radius: 999px;
   padding: 7px 12px;
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   color: var(--color-text);
   opacity: 0;
@@ -7682,7 +7760,7 @@ body.page--case-study .section {
 
 .flow-bottom-card__label {
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 700;
   opacity: 0;
   color: var(--color-text);
@@ -7852,7 +7930,7 @@ body.page--case-study .section {
 }
 
 .ind-explore {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 500;
   color: var(--color-text);
   text-decoration: none;
@@ -7916,13 +7994,13 @@ body.page--case-study .section {
 }
 
 .stat-item__label {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: var(--color-muted);
   line-height: 1.4;
 }
 
 .stats-band__source {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin: 0;
   padding-top: var(--space-md);
@@ -8138,7 +8216,7 @@ body.page--case-study .section {
   align-items: center;
   border-radius: 4px;
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   padding: 5px 10px;
   background: var(--color-primary-tint);
   color: var(--color-primary);
@@ -8283,7 +8361,7 @@ body.page--case-study .section {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-text);
 }
 
@@ -8318,7 +8396,7 @@ body.page--case-study .section {
 }
 
 .pricing-card__sub {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-muted);
   line-height: 1.6;
   margin: 0 0 var(--space-md);
@@ -8338,7 +8416,7 @@ body.page--case-study .section {
 }
 
 .pricing-card__note {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin: 0;
   text-align: center;
@@ -8358,6 +8436,28 @@ body.page--case-study .section {
   .pricing-wrap {
     grid-template-columns: 1fr;
   }
+
+  /* Cancels .section__inner's own 24px side padding so the mint card's
+     content doesn't stack that on top of .pricing-hero-wrap's own margin. */
+  .pricing-hero-wrap .section__inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.pricing-hero-wrap {
+  /* Same banded-hero treatment as .feat-page-hero-wrap, sized for nav
+     clearance, just a flat tint instead of a gradient. */
+  margin: 100px 20px var(--space-xl);
+  border-radius: clamp(24px, 3.2vw, 48px);
+  overflow: hidden;
+  background: #D6F5EE;
+}
+
+.pricing-hero-wrap > .section {
+  /* .section sets its own opaque background-color, which otherwise
+     paints over this wrapper's tint edge-to-edge. */
+  background-color: transparent;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -8418,7 +8518,7 @@ body.page--case-study .section {
 }
 
 .faq-item__a p {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-muted);
   line-height: 1.7;
   margin: 0;
@@ -8479,7 +8579,7 @@ body.page--case-study .section {
   border-radius: var(--radius-pill);
   height: 44px;
   padding: 0 20px;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   text-decoration: none;
   transition: transform 0.25s ease, background 0.25s ease;
@@ -8505,7 +8605,7 @@ body.page--case-study .section {
 .bottom-cta__link {
   color: var(--v2-bg-alt);
   opacity: 0.72;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   text-decoration: none;
   margin-top: 4px;
@@ -8519,7 +8619,7 @@ body.page--case-study .section {
 .bottom-cta__reassurance {
   color: var(--v2-bg-alt);
   opacity: 0.72;
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   margin-top: 12px;
 }
 
@@ -8576,7 +8676,7 @@ body.page--case-study .section {
 }
 
 .footer__tagline {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: var(--color-muted);
   line-height: 1.6;
   margin: 0;
@@ -8587,13 +8687,13 @@ body.page--case-study .section {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin-top: 4px;
 }
 
 .footer__col-title {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -8611,7 +8711,7 @@ body.page--case-study .section {
 }
 
 .footer__links a {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: var(--color-muted);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -8633,12 +8733,12 @@ body.page--case-study .section {
 }
 
 .footer__copy {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
 }
 
 .footer__built {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   text-align: right;
 }
@@ -8943,7 +9043,7 @@ body.page--case-study .section {
 }
 
 .fo-card__desc {
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
   color: var(--color-muted);
   line-height: 1.6;
   margin: 0;
@@ -8951,7 +9051,7 @@ body.page--case-study .section {
 }
 
 .fo-card__link {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 500;
   color: var(--color-primary);
   margin-top: 8px;
@@ -8975,7 +9075,7 @@ body.page--case-study .section {
 /* ── Features Index: card grid (feat-idx-) ── */
 .feat-idx-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: var(--space-md);
   margin-top: var(--space-lg);
 }
@@ -8984,7 +9084,7 @@ body.page--case-study .section {
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 20px;
-  padding: var(--space-md);
+  padding: var(--space-lg);
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
@@ -8996,11 +9096,125 @@ body.page--case-study .section {
   color: inherit;
 }
 
+@media (min-width: 1024px) {
+  .feat-idx-card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    column-gap: var(--space-lg);
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .feat-idx-card__head {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 0;
+  }
+
+  .feat-idx-card__h3 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .feat-idx-card__body {
+    grid-column: 2;
+    grid-row: 3;
+    max-width: 640px;
+  }
+
+  .feat-idx-card__list {
+    grid-column: 2;
+    grid-row: 4;
+    border-top: none;
+    padding-top: 0;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .feat-idx-card__visual {
+    grid-column: 1;
+    grid-row: 1 / 5;
+    margin-top: 0;
+    align-self: stretch;
+  }
+}
+
+.feat-idx-card__visual {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: var(--space-sm);
+}
+
+.feat-idx-card__img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+@media (min-width: 1024px) {
+  .feat-idx-card__visual {
+    height: 100%;
+    min-height: 340px;
+  }
+
+  .feat-idx-card__img {
+    height: 100%;
+  }
+}
+
 .feat-idx-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
   border-color: rgba(63, 104, 57, 0.2);
   background: rgba(255, 255, 255, 0.72);
+}
+
+/* ── Per-feature card tint — a lighter wash of each feature's hero deck
+   color (see .fd-hero__deck[data-feature] above), so each card previews
+   the color it leads to. ── */
+.feat-idx-card[data-feature="booking"] {
+  background: color-mix(in srgb, var(--color-primary) 26%, #ffffff 74%);
+  border-color: color-mix(in srgb, var(--color-primary) 40%, #ffffff 60%);
+}
+.feat-idx-card[data-feature="booking"]:hover {
+  background: color-mix(in srgb, var(--color-primary) 34%, #ffffff 66%);
+}
+.feat-idx-card[data-feature="discount-management"] {
+  background: color-mix(in srgb, #F3B36B 32%, #ffffff 68%);
+  border-color: color-mix(in srgb, #F3B36B 48%, #ffffff 52%);
+}
+.feat-idx-card[data-feature="discount-management"]:hover {
+  background: color-mix(in srgb, #F3B36B 42%, #ffffff 58%);
+}
+.feat-idx-card[data-feature="payment-tracking"] {
+  background: color-mix(in srgb, #F0C86B 32%, #ffffff 68%);
+  border-color: color-mix(in srgb, #F0C86B 48%, #ffffff 52%);
+}
+.feat-idx-card[data-feature="payment-tracking"]:hover {
+  background: color-mix(in srgb, #F0C86B 42%, #ffffff 58%);
+}
+.feat-idx-card[data-feature="staff-management"] {
+  background: color-mix(in srgb, #9CC2F0 32%, #ffffff 68%);
+  border-color: color-mix(in srgb, #9CC2F0 48%, #ffffff 52%);
+}
+.feat-idx-card[data-feature="staff-management"]:hover {
+  background: color-mix(in srgb, #9CC2F0 42%, #ffffff 58%);
+}
+.feat-idx-card[data-feature="operational-visibility"] {
+  background: color-mix(in srgb, #7FE0C9 32%, #ffffff 68%);
+  border-color: color-mix(in srgb, #7FE0C9 48%, #ffffff 52%);
+}
+.feat-idx-card[data-feature="operational-visibility"]:hover {
+  background: color-mix(in srgb, #7FE0C9 42%, #ffffff 58%);
+}
+.feat-idx-card[data-feature="role-based-access"] {
+  background: color-mix(in srgb, #A9AEEA 32%, #ffffff 68%);
+  border-color: color-mix(in srgb, #A9AEEA 48%, #ffffff 52%);
+}
+.feat-idx-card[data-feature="role-based-access"]:hover {
+  background: color-mix(in srgb, #A9AEEA 42%, #ffffff 58%);
 }
 
 .feat-idx-card__head {
@@ -9027,7 +9241,7 @@ body.page--case-study .section {
 }
 
 .feat-idx-card__tag {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -9065,11 +9279,42 @@ body.page--case-study .section {
 }
 
 .feat-idx-card__body {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-muted);
   line-height: 1.6;
   margin: 0;
   flex-grow: 1;
+}
+
+.feat-idx-card__list {
+  list-style: none;
+  padding: var(--space-sm) 0 0;
+  margin: var(--space-xs) 0 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feat-idx-card__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-nav);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.feat-idx-card__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(63, 104, 57, 0.1);
+  color: var(--color-primary);
+  flex-shrink: 0;
 }
 
 .feat-idx-card--cta {
@@ -9091,16 +9336,87 @@ body.page--case-study .section {
   margin-top: 4px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .feat-idx-grid {
     grid-template-columns: 1fr;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .feat-idx-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 767px) {
+  .feat-idx-section .section__inner {
+    padding-left: 0;
+    padding-right: 0;
   }
+  .feat-idx-section .section__header {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+  .feat-idx-card {
+    padding: var(--space-sm) var(--space-sm) 24px;
+    gap: 12px;
+  }
+
+  .feat-idx-card__head {
+    margin-bottom: 0;
+  }
+
+  .feat-idx-card__visual {
+    margin-top: 0;
+  }
+
+  .feat-idx-card__img {
+    height: 160px;
+  }
+
+  .feat-idx-card__h3 {
+    font-size: 1.0625rem;
+    margin-bottom: 2px;
+  }
+
+  .feat-idx-card__body {
+    font-size: var(--fs-small);
+    line-height: 1.5;
+    flex-grow: 0;
+  }
+
+  .feat-idx-card__list {
+    gap: 12px;
+    padding-top: var(--space-md);
+    /* Pushes the list to consume any leftover vertical space in the card
+       instead of leaving it sitting empty below the description. */
+    margin-top: auto;
+  }
+
+  .feat-idx-card__list li {
+    font-size: var(--fs-small);
+  }
+
+  /* ── Stacked scroll effect — every card sticks at the exact same spot
+     right below the fixed nav, so as you scroll, the next card slides up
+     and completely covers the one before it (full overlap, not a
+     staggered fan of edges). Cards keep their normal compact height and
+     rounded corners, just like a regular card. ── */
+  .feat-idx-grid {
+    gap: 0;
+    padding-bottom: 0;
+  }
+
+  .feat-idx-card {
+    position: sticky;
+    top: calc(var(--v2-nav-inset, 8px) + var(--v2-nav-h, 76px) + 4px);
+    max-height: calc(100dvh - var(--v2-nav-inset, 8px) - var(--v2-nav-h, 76px) - 4px);
+    overflow: hidden;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.08);
+    margin-bottom: var(--space-md);
+  }
+
+  .feat-idx-card:nth-child(1) { z-index: 1; }
+  .feat-idx-card:nth-child(2) { z-index: 2; }
+  .feat-idx-card:nth-child(3) { z-index: 3; }
+  .feat-idx-card:nth-child(4) { z-index: 4; }
+  .feat-idx-card:nth-child(5) { z-index: 5; }
+  .feat-idx-card:nth-child(6) { z-index: 6; }
+  .feat-idx-card:nth-child(7) { z-index: 7; }
 }
 
 /* ── Industry overview strip (solutions.njk) — flat card variant ── */
@@ -9150,7 +9466,7 @@ body.page--case-study .section {
 }
 
 .sol-idx-card__tag {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -9489,7 +9805,7 @@ body.page--case-study .section {
 }
 
 .fd-breadcrumb__link {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 500;
   color: var(--color-muted);
   text-decoration: none;
@@ -9506,17 +9822,25 @@ body.page--case-study .section {
   overflow: visible;
   position: relative;
   background-color: var(--color-bg);
-  margin-top: 24px;
 }
 
 .fd-hero__inner {
   max-width: var(--max-w-visual);
   margin: 0 auto;
-  padding: calc(var(--space-sm) + 80px) var(--space-md) var(--space-xl);
+  /* 192px top offset matches the homepage nav-to-hero gap (.v2-hero,
+     src/index.njk) so the fixed nav reads the same distance from the
+     hero content on every page. */
+  padding: 192px var(--space-md) var(--space-xl);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-lg);
+}
+
+@media (max-width: 860px) {
+  .fd-hero__inner {
+    padding-top: 120px;
+  }
 }
 
 .fd-hero__text {
@@ -9572,19 +9896,35 @@ body.page--case-study .section {
 
 .fd-hero__actions--compact .btn-primary {
   padding: 10px 20px;
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   border-radius: var(--radius-sm);
 }
 
+/* Each feature's own hero.cta copy (e.g. "See it in a 20-minute demo →")
+   is approved desktop copy and stays as-is there — on mobile it just
+   makes the button unnecessarily wide, so swap in a shorter generic
+   label instead of shrinking the approved text down to fit. */
+.fd-hero__cta-short {
+  display: none;
+}
+@media (max-width: 700px) {
+  .fd-hero__cta-full {
+    display: none;
+  }
+  .fd-hero__cta-short {
+    display: inline;
+  }
+}
+
 .fd-hero__note {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin: 0;
 }
 
 .fd-hero__eyebrow {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -9596,7 +9936,7 @@ body.page--case-study .section {
 }
 
 .fd-hero__trust {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin: 12px auto 0;
   max-width: 440px;
@@ -9619,6 +9959,7 @@ body.page--case-study .section {
   position: relative;
   z-index: 1;
   overflow: hidden;
+  min-width: 0; /* flex item of .fd-hero__inner — same min-width:auto fix */
 }
 
 .fd-hero__deck::before {
@@ -9652,6 +9993,11 @@ body.page--case-study .section {
   gap: 24px;
   position: relative;
   z-index: 1;
+  /* Grid items default to min-width:auto (content-based), which lets long
+     subheadline text (e.g. the booking feature's) refuse to shrink below
+     its own intrinsic width, blowing out .fd-hero__deck past the viewport
+     on mobile instead of wrapping — this override lets it actually shrink. */
+  min-width: 0;
 }
 
 .fd-hero__deck-heading {
@@ -9675,7 +10021,7 @@ body.page--case-study .section {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   color: #ffffff;
 }
@@ -9696,6 +10042,7 @@ body.page--case-study .section {
   width: 100%;
   position: relative;
   z-index: 1;
+  min-width: 0; /* same grid min-width:auto fix as .fd-hero__deck-info */
 }
 
 @media (max-width: 820px) {
@@ -9812,7 +10159,7 @@ body.page--case-study .section {
 }
 
 .fd-hero__mockup-date {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
 }
@@ -9821,7 +10168,7 @@ body.page--case-study .section {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   color: #ffffff;
   background: rgba(255, 255, 255, 0.15);
@@ -9859,7 +10206,7 @@ body.page--case-study .section {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   color: #ffffff;
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -9870,14 +10217,14 @@ body.page--case-study .section {
 }
 
 .fd-hero__mockup-name {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   color: #ffffff;
   margin: 0;
 }
 
 .fd-hero__mockup-service {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: rgba(255, 255, 255, 0.7);
   margin: 2px 0 0;
   white-space: nowrap;
@@ -10028,7 +10375,7 @@ body.page--case-study .section {
 }
 
 .fd-stat__author {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: rgba(255,255,255,0.60);
   margin: 0;
 }
@@ -10043,7 +10390,7 @@ body.page--case-study .section {
 }
 
 .fd-stat__desc {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: rgba(255,255,255,0.75);
   line-height: 1.65;
   margin: 0;
@@ -10104,7 +10451,7 @@ body.page--case-study .section {
 }
 
 .fd-testimonial__author {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: rgba(255,255,255,0.60);
   margin: 0;
 }
@@ -10139,7 +10486,7 @@ body.page--case-study .section {
 }
 
 .fd-testimonial__stat-desc {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: rgba(255,255,255,0.60);
   margin: 0;
   line-height: 1.5;
@@ -10165,7 +10512,11 @@ body.page--case-study .section {
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 500;
   color: var(--color-text);
-  margin: 0 auto;
+  /* Cancels .section__inner's own 24px side padding (var(--space-md)) so
+     this text alone runs edge-to-edge instead of inheriting the section's
+     ambient gutter — it's centered either way, so this just gives it more
+     room before wrapping. */
+  margin: 0 calc(-1 * var(--space-md));
   line-height: 1.1;
   text-align: center;
 }
@@ -10176,12 +10527,37 @@ body.page--case-study .section {
   font-weight: 500;
   color: var(--color-text);
   line-height: 1.1;
-  margin: 0 auto var(--space-lg);
+  margin: 0 calc(-1 * var(--space-md)) var(--space-lg);
   text-align: center;
 }
 
 .fd-roles__sub-accent {
   color: var(--color-primary);
+}
+
+/* Balanced multi-line wrap on wider screens, matching .fd-trust__heading's
+   size/weight (was splitting raggedly, e.g. "The right view for" /
+   "every role."). */
+.fd-roles__heading,
+.fd-roles__sub {
+  text-wrap: balance;
+}
+
+@media (max-width: 700px) {
+  /* One row each on mobile. Sized independently per element (not both
+     forced to whatever the longer sentence needs) — "The right view for
+     every role." (31 chars) can stay noticeably bigger than "Built for
+     every person in your business." (41 chars) while both still fit on
+     one line at any width down to a 320px phone, now that the side
+     padding above is cancelled and they have the full viewport to use. */
+  .fd-roles__heading {
+    font-size: clamp(1.3rem, 6.8vw, 2.5rem);
+    white-space: nowrap;
+  }
+  .fd-roles__sub {
+    font-size: clamp(1.05rem, 5.2vw, 2rem);
+    white-space: nowrap;
+  }
 }
 
 .fd-roles-showcase {
@@ -10259,7 +10635,7 @@ body.page--case-study .section {
 }
 
 .fd-roles-selector-card__summary {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   line-height: 1.5;
   margin: 0;
@@ -10828,7 +11204,7 @@ body.page--case-study .section {
 }
 
 .fd-roles-accordion-summary {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: var(--color-muted);
   line-height: 1.5;
   margin: 14px 0;
@@ -10888,15 +11264,28 @@ body.page--case-study .section {
 }
 
 /* ── Responsive breakpoints ── */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  /* Widened from 900px: below that, the 2-column desktop grid
+     (.fd-roles-showcase, grid-template-columns:360px 1fr) doesn't have
+     enough room left for its second column (the feature-list + mockup
+     panel), so it was effectively invisible/cramped off-screen while the
+     left-hand selector-card list still rendered fine on its own — which
+     read as "the checklist content is just missing" at anything between
+     900px and full desktop width. */
   .fd-roles-showcase {
     display: none;
   }
-  
+
   .fd-roles-accordion {
     display: block;
     margin-top: var(--space-md);
   }
+}
+
+/* The accordion's own checklist (.fd-roles__list) already covers what
+   was missing above — the mockup visual next to it isn't needed there. */
+.fd-roles-accordion-visual-wrap {
+  display: none;
 }
 
 
@@ -10911,17 +11300,25 @@ body.page--case-study .section {
   z-index: 1;
 }
 
-/* Editorial header — left-aligned, serif display, sits above the pinned
-   scroll block (not part of the sticky unit itself). */
+/* Editorial header — left-aligned, serif display, now the first child of
+   .fd-workflow__pin-wrap (same containing block as .fd-workflow__sticky,
+   see feature-detail.njk) so it sticks/releases/fades in lockstep with
+   the phone mockup instead of on its own timing. */
 .fd-workflow__head {
   max-width: 760px;
   margin: 0 auto var(--space-sm);
   padding: 0 var(--space-md);
   text-align: center;
+  transition: opacity 0.15s ease-out, filter 0.15s ease-out, transform 0.15s ease-out;
+  will-change: opacity, filter, transform;
 }
 
 .fd-workflow__heading {
-  font-family: var(--font-display);
+  /* Feature-detail pages use the sans heading voice everywhere else
+     (.fd-page .section__h2 override above) — this was the one heading
+     still hardcoded to the serif display font, reading as inconsistent
+     against every other h2 on the page. */
+  font-family: var(--font-body);
   font-weight: 400;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.15;
@@ -10953,8 +11350,8 @@ body.page--case-study .section {
   min-height: calc(100vh - var(--v2-nav-h, 76px) - var(--v2-nav-inset, 8px) - var(--space-md));
   display: flex;
   align-items: center;
-  transition: opacity 0.15s ease-out, filter 0.15s ease-out;
-  will-change: opacity, filter;
+  transition: opacity 0.15s ease-out, filter 0.15s ease-out, transform 0.15s ease-out;
+  will-change: opacity, filter, transform;
 }
 
 .fd-workflow__layout {
@@ -12299,19 +12696,41 @@ body.page--case-study .section {
     gap: var(--space-md);
   }
   .fd-workflow__phone {
-    width: 220px;
+    width: 260px;
   }
-  .fd-workflow__step-title {
-    font-size: 1.1875rem;
+  /* .fd-workflow__phone-media's own contents (status bar, notification/
+     dashboard/form scenes) are all fixed px, sized for the 280px desktop
+     frame — they don't shrink with the frame, so they either look
+     cramped/overflow at a narrower width. zoom scales every fixed value
+     inside together (font-size, padding, radius, gaps) so the whole
+     scene stays proportional to the frame instead of needing every
+     .fd-workflow__notif-*/.fd-workflow__dash-*/.fd-workflow__form-*
+     value hand-tuned per breakpoint. */
+  .fd-workflow__phone-media {
+    zoom: 0.93; /* 260 / 280 */
   }
 }
 
 @media (max-width: 700px) {
   .fd-workflow__pin-wrap {
-    height: calc(var(--wf-steps, 5) * 65vh);
+    /* Shorter per-step scroll runway than desktop's 65vh — the mobile
+       content is more compact now, so the same 65vh/step felt like a lot
+       of "nothing happening" scroll, especially during the exit fade of
+       the last step (see EXIT_START in feature-detail.njk). */
+    height: calc(var(--wf-steps, 5) * 50vh);
+  }
+  /* Base rule vertically centers .fd-workflow__layout within the pinned
+     box (align-items:center) — fine on desktop where content roughly
+     fills it, but on mobile the now-compacted text + mockup are shorter
+     than the box, so centering left a dead gap above the step time. */
+  .fd-workflow__sticky {
+    align-items: flex-start;
   }
   .fd-workflow__layout {
-    flex-direction: column-reverse;
+    /* Step text above the mockup on mobile (DOM order: steps, rail,
+       phone-col — plain column keeps that order instead of reversing it). */
+    flex-direction: column;
+    align-items: center;
     gap: var(--space-md);
   }
   .fd-workflow__rail {
@@ -12319,18 +12738,85 @@ body.page--case-study .section {
   }
   .fd-workflow__steps {
     text-align: center;
+    /* .fd-workflow__sticky is position:sticky with only a min-height, not
+       a max — while it's pinned mid-scroll, anything taller than the
+       viewport is simply invisible (a stuck element can't be scrolled
+       into), so a long step body could get clipped by the viewport edge
+       with no way to reveal the rest. Give the step text its own
+       hard-capped, independently scrollable area so that can never
+       happen again regardless of the mockup's size or how long any
+       feature's step copy is.
+       min-height must be set explicitly alongside max-height here: a flex
+       item (this is one, via .fd-workflow__layout) with any overflow
+       other than visible loses its content-based automatic minimum size
+       and can be shrunk all the way to 0 by the flex algorithm when the
+       container's short on room — which is exactly what made the text
+       vanish entirely instead of just scrolling.
+       Reduced from 34vh: at that size, text + gap + the mockup below it
+       together exceeded the pinned sticky's height budget, so the
+       mockup's bottom half was the part getting cropped this time. */
+    min-height: 24vh;
+    max-height: 24vh;
+    overflow-y: auto;
   }
   .fd-workflow__step-row {
     flex-direction: column;
     align-items: center;
     gap: 2px;
+    /* Base rule's margin-bottom is var(--space-lg) (48px) — fine when the
+       title has a whole clamp()-sized desktop line to itself, but on
+       mobile that gap alone was a big chunk of the 24vh text box, forcing
+       longer titles + body copy into the scroll fallback (or right up
+       against the mockup below). */
+    margin-bottom: var(--space-xs);
+  }
+  .fd-workflow__step-title {
+    /* Base clamp() floors at 1.75rem (28px) — too tall for a 2-line
+       mobile title inside a compact, height-budgeted text box. */
+    font-size: 1.375rem;
+    line-height: 1.2;
   }
   .fd-workflow__step-body {
     max-width: none;
     margin: 0 auto;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+  .fd-workflow__step-time,
+  .fd-workflow__step-tag {
+    font-size: 0.875rem;
+  }
+  .fd-workflow__phone-col {
+    width: 100%;
+    justify-content: center;
   }
   .fd-workflow__phone {
-    width: 190px;
+    /* Dialed back again from 210px: text (now reserving a fixed 24vh
+       above it) plus gap plus the mockup together still need to fit
+       inside .fd-workflow__sticky's pinned height, and at 210px wide the
+       mockup's own height was pushing the total past that budget, so its
+       bottom half was going off-screen with no way to scroll to it.
+       Still bigger than the original 190px. */
+    width: 165px;
+    margin: 0 auto;
+  }
+  /* Same reasoning as the 992px breakpoint above: scale the fixed-px
+     scene content (status bar, notification/dashboard/form screens) to
+     match this frame width instead of leaving it sized for the 280px
+     desktop frame. */
+  .fd-workflow__phone-media {
+    zoom: 0.59; /* 165 / 280 */
+  }
+
+  /* No longer sticky (was eating the phone/step area's vertical budget
+     via .fd-workflow__sticky's top offset below, which is what caused
+     the step text to need cropping/scrolling in the first place). It's
+     still the first child of .fd-workflow__pin-wrap, so it just scrolls
+     away normally right as the pinned scroll begins, and .fd-workflow__sticky
+     goes back to its base top/min-height (no header offset to reserve). */
+  .fd-workflow__head {
+    padding: var(--space-xs) var(--space-md);
+    margin: 0 auto;
   }
 }
 
@@ -12484,7 +12970,7 @@ body.page--case-study .section {
 }
 
 .fd-bento__text {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   line-height: 1.5;
   color: var(--color-muted);
   margin: 0;
@@ -12551,13 +13037,13 @@ body.page--case-study .section {
 }
 
 .fd-bento__snap-label {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   color: #ffffff;
 }
 
 .fd-bento__snap-value {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   color: rgba(255, 255, 255, 0.85);
   margin-left: auto;
   text-align: right;
@@ -12649,7 +13135,7 @@ body.page--case-study .section {
 }
 
 .fd-problem__text {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   line-height: 1.55;
   color: var(--color-muted);
   margin: 0;
@@ -12710,6 +13196,12 @@ body.page--case-study .section {
   .sol-industry {
     border-radius: 40px 40px 0 0;
     margin-top: calc(-1 * var(--space-xl));
+    padding-top: var(--space-xl);
+  }
+
+  .sol-industry.section > .section__inner {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -12789,7 +13281,7 @@ body.page--case-study .section {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   line-height: 1.5;
   color: var(--color-text);
 }
@@ -12801,7 +13293,7 @@ body.page--case-study .section {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -12817,8 +13309,14 @@ body.page--case-study .section {
 }
 
 @media (max-width: 767px) {
+  /* Cancels .section__inner's own 24px side padding so the card doesn't
+     stack that on top of its own horizontal padding below. */
+  .fd-stopstart__grid {
+    margin-left: calc(-1 * var(--space-md));
+    margin-right: calc(-1 * var(--space-md));
+  }
   .fd-stopstart__col {
-    padding: var(--space-md);
+    padding: var(--space-md) var(--space-sm);
   }
   .fd-stopstart__col--stop {
     flex-direction: column;
@@ -12909,8 +13407,8 @@ body.page--case-study .section {
 }
 
 .fd-trust__rail .trust-chip--light-italic  { font-size: 1.0625rem; }
-.fd-trust__rail .trust-chip--caps          { font-size: 0.9375rem; }
-.fd-trust__rail .trust-chip--wide-caps     { font-size: 0.875rem;  }
+.fd-trust__rail .trust-chip--caps          { font-size: var(--fs-nav); }
+.fd-trust__rail .trust-chip--wide-caps     { font-size: var(--fs-small);  }
 .fd-trust__rail .trust-chip--heavy         { font-size: 1.5rem;    }
 .fd-trust__rail .trust-chip--serif         { font-size: 1.25rem;   }
 
@@ -13052,7 +13550,7 @@ body.page--case-study .section {
   align-items: center;
   gap: 6px;
   width: fit-content;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 500;
   color: var(--color-primary);
   text-decoration: none;
@@ -13123,7 +13621,8 @@ body.page--case-study .section {
 
 .fd-proof__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 300px));
+  justify-content: center;
   gap: var(--space-lg);
   margin-top: var(--space-lg);
 }
@@ -13132,7 +13631,7 @@ body.page--case-study .section {
   background: rgba(255, 255, 255, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 24px;
-  padding: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
   margin: 4px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -13142,7 +13641,7 @@ body.page--case-study .section {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -13164,14 +13663,14 @@ body.page--case-study .section {
   font-weight: 500;
   color: var(--color-primary);
   line-height: 1;
-  min-height: 2em;
+  min-height: 1.1em;
   display: flex;
   align-items: flex-start;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
 .fd-proof__label {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-muted);
   line-height: 1.6;
   margin: 0;
@@ -13181,7 +13680,7 @@ body.page--case-study .section {
   max-width: 60ch;
   margin: var(--space-lg) 0 0;
   color: var(--color-muted);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   line-height: 1.6;
 }
 
@@ -13198,7 +13697,7 @@ body.page--case-study .section {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -13233,6 +13732,18 @@ body.page--case-study .section {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
 }
 
+@media (max-width: 700px) {
+  /* var(--space-lg) (48px) on every side eats a big chunk of an
+     already-narrow mobile card width, leaving the quote text cramped
+     into a much narrower column than the card itself. */
+  .fd-social__card {
+    padding: var(--space-md) var(--space-sm);
+  }
+  .fd-social__footer {
+    padding-top: var(--space-sm);
+  }
+}
+
 .fd-social__grid > .fd-social__card:nth-child(2) {
   background: var(--color-surface-alt);
   border-color: rgba(63, 104, 57, 0.08);
@@ -13252,7 +13763,7 @@ body.page--case-study .section {
 }
 
 .fd-social__quote {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   line-height: 1.65;
   color: var(--color-text);
   margin: 0 0 var(--space-sm);
@@ -13276,14 +13787,14 @@ body.page--case-study .section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   flex-shrink: 0;
   text-transform: uppercase;
 }
 
 .fd-social__author {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: var(--color-text);
   margin: 0;
@@ -13299,6 +13810,16 @@ body.page--case-study .section {
 
 @media (max-width: 900px) {
   .fd-social__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  /* Cancels .section__inner's own 24px side padding (var(--space-md))
+     so the card runs edge-to-edge instead of having that gutter AND its
+     own internal padding stacked on top of each other. */
+  .fd-social__grid {
+    margin-left: calc(-1 * var(--space-md));
+    margin-right: calc(-1 * var(--space-md));
+  }
 }
 
 /* ── HOW IT WORKS PAGE ──────────────────────────────────── */
@@ -13355,7 +13876,7 @@ body.page--case-study .section {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: var(--color-muted);
   text-decoration: none;
@@ -13542,7 +14063,7 @@ body.page--case-study .section {
   background: rgba(48, 46, 45, 0.25);
   color: rgba(255,255,255,0.7);
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   letter-spacing: 0.03em;
   padding: 5px 14px;
@@ -13654,7 +14175,7 @@ body.page--case-study .section {
   background: rgba(63, 104, 57, 0.08);
   color: rgba(63, 104, 57, 0.3);
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -13809,6 +14330,7 @@ body.page--case-study .section {
 
 .hiw-gs-mock__lines {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -14049,6 +14571,7 @@ body.page--case-study .section {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  min-width: 0;
 }
 
 .hiw-steps__timeline::before {
@@ -14064,6 +14587,7 @@ body.page--case-study .section {
 
 .hiw-steps__item {
   position: relative;
+  min-width: 0;
 }
 
 .hiw-steps__num {
@@ -14079,7 +14603,7 @@ body.page--case-study .section {
   align-items: center;
   justify-content: center;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   z-index: 1;
   box-shadow: 0 0 0 3px #EFE9DD;
@@ -14110,7 +14634,7 @@ body.page--case-study .section {
 
 .hiw-steps__title {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   color: var(--color-text);
   margin: 0 0 4px;
@@ -14120,7 +14644,7 @@ body.page--case-study .section {
 }
 
 .hiw-steps__desc {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin: 0;
   line-height: 1.55;
@@ -14139,6 +14663,24 @@ body.page--case-study .section {
     position: static;
   }
   .hiw-steps__h2 { font-size: 1.75rem; }
+  .hiw-block--steps {
+    padding: var(--space-lg) var(--space-md);
+  }
+  .hiw-cal {
+    margin-left: calc(-1 * var(--space-md) - var(--space-md));
+    margin-right: calc(-1 * var(--space-md) - var(--space-md));
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  .sol-shared-caps .section__inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .blog-idx-hero .section__inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .hiw-block--last {
@@ -14209,7 +14751,7 @@ body.page--case-study .section {
 }
 
 .hiw-loop__event {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: var(--color-text);
   line-height: 1.55;
   margin: 0;
@@ -14250,7 +14792,7 @@ body.page--case-study .section {
 }
 
 .hiw-cal__weekday {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 500;
   color: var(--color-text);
 }
@@ -14261,7 +14803,7 @@ body.page--case-study .section {
 }
 
 .hiw-cal__chip {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 500;
   color: var(--color-primary);
   background: rgba(63, 104, 57, 0.08);
@@ -14353,7 +14895,7 @@ body.page--case-study .section {
 .hiw-cal__event--next    .hiw-cal__event-icon { background: rgba(74,139,158, 0.12);   color: #4A8B9E; }
 
 .hiw-cal__event-label {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   color: var(--color-text);
 }
@@ -14366,7 +14908,7 @@ body.page--case-study .section {
 }
 
 .hiw-cal__event-text {
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
   color: var(--color-muted);
   line-height: 1.6;
   margin: 0;
@@ -14404,14 +14946,14 @@ body.page--case-study .section {
 }
 
 .hiw-role__name {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   color: var(--color-text);
   letter-spacing: -0.01em;
 }
 
 .hiw-role__desc {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: var(--color-muted);
   line-height: 1.55;
   margin: 0;
@@ -14740,7 +15282,7 @@ body.page--case-study .section {
 }
 
 .demo-form__field label {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 500;
   color: var(--color-text);
 }
@@ -14751,7 +15293,7 @@ body.page--case-study .section {
 }
 
 .demo-form__hint {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin: -2px 0 0;
   line-height: 1.4;
@@ -14761,7 +15303,7 @@ body.page--case-study .section {
 .demo-form__field select,
 .demo-form__field textarea {
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-text);
   background: var(--color-bg);
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -14798,19 +15340,19 @@ body.page--case-study .section {
   width: 100%;
   box-sizing: border-box;
   margin-top: var(--space-xs);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   padding: 13px 22px;
 }
 
 .demo-card__reassure {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   line-height: 1.55;
   margin: var(--space-md) 0 0;
 }
 
 .demo-card__privacy {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   opacity: 0.75;
   margin: var(--space-xs) 0 0;
@@ -14848,7 +15390,7 @@ body.page--case-study .section {
 }
 
 .demo-stats__label {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-muted);
   margin-bottom: var(--space-sm);
 }
@@ -14909,7 +15451,7 @@ body.page--case-study .section {
 
 .blog-idx-card__meta {
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin: 0 0 var(--space-xs);
 }
@@ -14972,7 +15514,7 @@ body.page--case-study .section {
 }
 
 .blog-idx-row__tag {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -14993,7 +15535,7 @@ body.page--case-study .section {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin: 0;
 }
@@ -15030,12 +15572,31 @@ body.page--case-study .section {
 .article-hero__eyebrow {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-primary);
   margin: 0 0 var(--space-sm);
+}
+
+.article-hero__eyebrow--pill {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  margin: 0;
+}
+
+.article-hero__meta--icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.article-hero__meta--icon svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
 }
 
 .article-hero__h1 {
@@ -15050,8 +15611,125 @@ body.page--case-study .section {
 }
 
 .article-hero__meta {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-muted);
+}
+
+.article-hero__img-wrap {
+  max-width: 960px;
+  margin: var(--space-lg) auto 0;
+}
+
+.article-hero__img-wrap--top {
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  text-align: left;
+}
+
+.article-hero__img-wrap--top + .article-hero__img-wrap {
+  margin-top: 0;
+}
+
+.article-layout {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.article-sidebar {
+  position: sticky;
+  top: calc(var(--v2-nav-h) + var(--v2-nav-inset) + var(--space-md));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.article-share__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 var(--space-sm);
+}
+
+.article-share__icons {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.article-share__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.article-share__icon:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.article-share__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.article-sidebar-cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  background: var(--color-primary);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: var(--space-md);
+  text-decoration: none;
+}
+
+.article-sidebar-cta__h3 {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.article-sidebar-cta__body {
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  margin: 0 0 var(--space-xs);
+}
+
+.article-sidebar-cta .bottom-cta__banner-btn {
+  align-self: flex-start;
+}
+
+@media (max-width: 900px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .article-sidebar {
+    position: static;
+    order: 2;
+  }
+}
+
+.article-hero__img {
+  width: 100%;
+  height: clamp(220px, 40vw, 420px);
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
 }
 
 .cs-stats {
@@ -15064,6 +15742,17 @@ body.page--case-study .section {
 
 .cs-stat {
   text-align: left;
+  padding: 0 var(--space-md);
+  border-right: 1px solid var(--color-border);
+}
+
+.cs-stat:first-child {
+  padding-left: 0;
+}
+
+.cs-stat:last-child {
+  padding-right: 0;
+  border-right: none;
 }
 
 .cs-stats .fd-proof__num {
@@ -15128,7 +15817,7 @@ body.page--case-study .section {
   align-items: center;
   gap: 6px;
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 500;
   color: var(--color-muted);
   text-decoration: none;
@@ -15210,7 +15899,7 @@ body.page--case-study .section {
 
 .soln-btn--sm {
   padding: 8px 16px;
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   border-radius: var(--radius-pill);
 }
 
@@ -15304,7 +15993,7 @@ body.page--case-study .section {
   background: #ffffff;
   color: var(--color-text);
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   padding: 14px 30px;
   border-radius: var(--radius-sm);
@@ -15316,7 +16005,7 @@ body.page--case-study .section {
 .soln-photohero__btn:active { transform: translateY(1px); }
 
 .soln-photohero__caption {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: rgba(255,255,255,0.65);
   margin: 0;
 }
@@ -15348,7 +16037,7 @@ body.page--case-study .section {
 
 .soln-photohero__statusbar-time {
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   color: var(--color-text);
 }
@@ -15402,7 +16091,7 @@ body.page--case-study .section {
 }
 
 .soln-photohero__card-dates span {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   color: var(--color-text);
   padding: 6px 0;
@@ -15421,7 +16110,7 @@ body.page--case-study .section {
 }
 
 .soln-photohero__card-meta {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin: 0 0 var(--space-sm);
   padding-bottom: var(--space-sm);
@@ -15444,8 +16133,8 @@ body.page--case-study .section {
   color: #ffffff;
 }
 
-.soln-photohero__appt strong { font-size: 0.8125rem; font-weight: 700; }
-.soln-photohero__appt span { font-size: 0.75rem; opacity: 0.9; }
+.soln-photohero__appt strong { font-size: var(--fs-caption); font-weight: 700; }
+.soln-photohero__appt span { font-size: var(--fs-caption); opacity: 0.9; }
 
 .soln-photohero__appt--1 { background: var(--color-primary); }
 .soln-photohero__appt--2 { background: #B8860B; }
@@ -15523,7 +16212,7 @@ body.page--case-study .section {
   background: rgba(255,255,255,0.96);
   color: var(--color-text);
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   padding: 8px 14px;
   border-radius: var(--radius-sm);
@@ -15537,7 +16226,7 @@ body.page--case-study .section {
   background: rgba(255,255,255,0.96);
   color: var(--color-text);
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   padding: 10px 16px;
   border-radius: var(--radius-lg);
@@ -15571,7 +16260,7 @@ body.page--case-study .section {
   align-items: center;
   gap: 8px;
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   color: var(--color-text);
   padding: 12px 20px;
@@ -15663,14 +16352,20 @@ body.page--case-study .section {
     flex-direction: column;
     align-items: stretch;
     min-height: auto;
-    padding-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+  }
+  .soln-photohero__inner {
+    padding-bottom: 0;
+  }
+  .soln-photohero__text {
+    transform: none;
   }
   .soln-photohero__phone-wrap {
     position: static;
     transform: none;
-    max-width: 380px;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
+    max-width: 420px;
+    margin: 0 auto -200px;
+    padding: 0 var(--space-sm);
   }
   .soln-photohero__strip-wrap {
     display: none;
@@ -15680,11 +16375,26 @@ body.page--case-study .section {
   }
   .soln-photohero__inner--split {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
+    /* --split's own padding-top: var(--space-2xl) (96px) desktop rule was
+       still winning on mobile, giving the tattoo hero text more top space
+       than salon's plain .soln-photohero__inner (64px). Match salon. */
+    padding-top: var(--space-xl);
   }
   .soln-photohero__photocard {
+    /* Base rule's height:480px + width:auto computes a fixed 384px width
+       (480 * 4/5) regardless of viewport — narrower than a phone's content
+       area, so it either overflowed or got scaled oddly. Keep the same 4:5
+       ratio but drive it off width (100% of the column) instead, so it
+       scales down properly and never crops/overflows. */
+    height: auto;
+    width: 100%;
     max-width: 420px;
     margin: 0 auto;
+    /* Base 4:5 ratio reads too tall/portrait once it's full-width under
+       the hero text on a phone — shorter and wider so it doesn't dominate
+       the page. */
+    aspect-ratio: 4 / 3;
   }
   .soln-photohero__strip-wrap--top {
     display: none;
@@ -15729,7 +16439,7 @@ body.page--case-study .section {
 .soln-hero__eyebrow {
   position: relative;
   z-index: 1;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -15789,7 +16499,7 @@ body.page--case-study .section {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   color: var(--color-muted);
   padding-bottom: var(--space-sm);
@@ -15827,12 +16537,12 @@ body.page--case-study .section {
 }
 
 .soln-hero__panel-row-text strong {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: var(--color-text);
 }
 
 .soln-hero__panel-row-text span {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
 }
 
@@ -15845,7 +16555,7 @@ body.page--case-study .section {
   justify-content: center;
   color: #fff;
   font-weight: 700;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   flex-shrink: 0;
 }
 
@@ -15955,7 +16665,7 @@ body.page--case-study .section {
 .soln-row--flip .soln-row__visual { order: 1; }
 
 .soln-row__eyebrow {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -16059,7 +16769,7 @@ body.page--case-study .section {
   background: #ffffff;
   border-radius: var(--radius-pill);
   padding: 8px 14px;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 500;
   color: var(--color-muted);
   box-shadow: 0 10px 24px -10px rgba(20,30,20,0.3);
@@ -16099,7 +16809,7 @@ body.page--case-study .section {
 .soln-visual__step-arrow {
   color: var(--color-muted);
   opacity: 0.6;
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
 }
 
 .soln-visual__step--done,
@@ -16130,7 +16840,7 @@ body.page--case-study .section {
 }
 
 .soln-visual__approval-label {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -16162,7 +16872,7 @@ body.page--case-study .section {
 }
 
 .soln-visual__transfer-client {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   color: var(--color-muted);
   margin: 0 0 var(--space-xs);
@@ -16171,7 +16881,7 @@ body.page--case-study .section {
 }
 
 .soln-visual__transfer-branch {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   color: var(--color-text);
   background: var(--color-surface-alt);
@@ -16190,7 +16900,7 @@ body.page--case-study .section {
 }
 
 .soln-visual__transfer-date {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   margin: var(--space-xs) 0 0;
 }
@@ -16207,7 +16917,7 @@ body.page--case-study .section {
 }
 
 .soln-visual__golive-label {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -16215,7 +16925,7 @@ body.page--case-study .section {
 }
 
 .soln-visual__golive-time {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
 }
 
@@ -16227,7 +16937,7 @@ body.page--case-study .section {
 }
 
 .soln-visual__golive-service {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: var(--color-muted);
   margin: 2px 0 0;
 }
@@ -16252,7 +16962,7 @@ body.page--case-study .section {
 }
 
 .soln-visual__golive-paid {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 600;
   color: var(--color-primary);
   background: rgba(63,104,57,0.12);
@@ -16281,7 +16991,7 @@ body.page--case-study .section {
 }
 
 .soln-visual__mobile-stat span {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   color: var(--color-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -16362,6 +17072,18 @@ body.page--case-study .section {
   .soln-row__desc { max-width: 100%; }
   .soln-visual { padding: var(--space-xl) var(--space-md) var(--space-2xl); min-height: 380px; }
   .soln-visual__badge { left: var(--space-sm); bottom: var(--space-sm); font-size: 0.6875rem; padding: 6px 12px; }
+  /* .soln-visual__card's 48px (--space-lg) padding a side, plus the stat
+     columns' own gap, left barely any room for the label text at mobile
+     widths — "In-Progress"/"Confirmed" were wrapping mid-word. Same fix
+     as the how-it-works per-step card (see .soln-sscroll__item-visual). */
+  .soln-visual__card {
+    max-width: 100%;
+    padding: var(--space-md);
+  }
+  .soln-visual__card--mobile {
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-sm);
+  }
 }
 
 /* -- STATS --------------------------------------------------------------- */
@@ -16430,7 +17152,7 @@ body.page--case-study .section {
 .soln-bento-card__value--sm { font-size: 1.875rem; }
 .soln-bento-card__value--xs {
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 700;
   color: #1F4A1B;
   margin: 0;
@@ -16438,7 +17160,7 @@ body.page--case-study .section {
 }
 
 .soln-bento-card__label {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   color: rgba(15, 30, 12, 0.6);
   margin: 0;
   line-height: 1.4;
@@ -16622,7 +17344,7 @@ body.page--case-study .section {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   color: var(--color-text);
   margin: 0 0 var(--space-md);
@@ -16679,7 +17401,7 @@ body.page--case-study .section {
 .soln-sscroll__item-num {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   color: var(--color-accent);
   background: rgba(218,165,32,0.12);
@@ -16734,11 +17456,46 @@ body.page--case-study .section {
   pointer-events: auto;
 }
 
+/* Per-step mobile card — hidden on desktop, where the sticky visual-col
+   above already shows the scroll-synced swap version. */
+.soln-sscroll__item-visual {
+  display: none;
+}
+
 @media (max-width: 900px) {
+  .soln-sscroll { padding: var(--space-xl) var(--space-md); }
   .soln-sscroll__inner { grid-template-columns: 1fr; }
-  .soln-sscroll__visual-col { position: relative; top: 0; margin-bottom: var(--space-lg); }
+  /* Swapped for the per-step card below each item instead — a single
+     scroll-synced card far below all the step text read as disconnected
+     from the step it was supposed to match. */
+  .soln-sscroll__visual-col { display: none; }
   .soln-sscroll__header { position: relative; top: 0; background: none; }
   .soln-sscroll__item { opacity: 1 !important; }
+  .soln-sscroll__item-visual {
+    display: block;
+    margin-top: var(--space-md);
+  }
+  /* Override the .soln-row-tuned 380px min-height (main.css ~16632) — that
+     height was set for a full feature-section visual, but stacked directly
+     under one step's short copy here it left the card mostly empty
+     padding around a small stats/status block. Size to content instead. */
+  .soln-sscroll__item-visual .soln-visual {
+    min-height: 0;
+    padding: var(--space-lg) var(--space-sm);
+  }
+  /* .soln-visual__card's 420px max-width was fine on desktop's wider sticky
+     column, but the card's own padding (--space-lg, 48px a side) plus the
+     stat columns' gap left almost no room for the label text at this
+     card's actual mobile width — "In-Progress"/"Confirmed" were wrapping
+     mid-word and reading as cut off. Tighten both so the labels fit. */
+  .soln-sscroll__item-visual .soln-visual__card {
+    max-width: 100%;
+    padding: var(--space-md);
+  }
+  .soln-sscroll__item-visual .soln-visual__card--mobile {
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-sm);
+  }
 }
 
 /* -- SOCIAL PROOF ---------------------------------------------------------- */
@@ -16754,7 +17511,7 @@ body.page--case-study .section {
 }
 
 .soln-proof__eyebrow {
-  font-size: 0.75rem;
+  font-size: var(--fs-caption);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -16802,21 +17559,27 @@ body.page--case-study .section {
 }
 
 .soln-proof__author strong {
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   color: var(--color-text);
 }
 
 .soln-proof__author span {
-  font-size: 0.8125rem;
+  font-size: var(--fs-caption);
   color: rgba(48,46,45,0.65);
 }
 
 .soln-proof__link {
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: var(--color-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .soln-proof__card {
+    padding: var(--space-xl) var(--space-md);
+  }
 }
 
 /* -- FINAL CTA -------------------------------------------------------------- */
@@ -16880,7 +17643,7 @@ body.page--case-study .section {
   height: 44px;
   padding: 0 20px;
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   font-weight: 600;
   text-decoration: none;
   transition: transform 0.25s ease, background 0.25s ease;
@@ -16968,7 +17731,7 @@ body.page--case-study .section {
 
 .soln-faq__a p {
   color: var(--color-muted);
-  font-size: 0.9375rem;
+  font-size: var(--fs-nav);
   line-height: 1.7;
   margin: 0;
   max-width: 640px;

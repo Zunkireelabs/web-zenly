@@ -4,9 +4,13 @@ title: Features – Booking, payments, discounts & staff management for service 
 bodyClass: page--light-nav
 ---
 
-<main>
+<main class="fd-page">
 
   <!-- ── FEATURES HERO ─────────────────────────────────────────────────── -->
+  <!-- Wrapped in a rounded, full-bleed gradient band — same treatment as the
+       homepage's .v2-practice section, using this site's own sage/tan
+       palette instead of that section's teal (see .feat-page-hero-wrap). -->
+  <div class="feat-page-hero-wrap">
   <section class="feat-page-hero">
     <div class="feat-page-hero__inner">
 
@@ -26,6 +30,7 @@ bodyClass: page--light-nav
 
     </div>
   </section>
+  </div>
 
 
   <!-- ── FEATURE GRID ──────────────────────────────────────────────────── -->
@@ -39,7 +44,7 @@ bodyClass: page--light-nav
       <div class="feat-idx-grid reveal">
 
         <!-- Card 1: Booking management -->
-        <a href="/features/booking" class="feat-idx-card">
+        <a href="/features/booking" class="feat-idx-card" data-feature="booking">
           <div class="feat-idx-card__head">
             <span class="feat-idx-card__icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg>
@@ -49,12 +54,20 @@ bodyClass: page--light-nav
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
             </span>
           </div>
+          <div class="feat-idx-card__visual">
+            {% image "/assets/images/feat-idx-booking.png", "Zennly bookings list showing Pending, Confirmed, In-Progress and Completed statuses", { class: "feat-idx-card__img", loading: "lazy" } %}
+          </div>
           <h3 class="feat-idx-card__h3">Tracked from request to final payment</h3>
           <p class="feat-idx-card__body">Every status &ndash; Pending, Confirmed, In-Progress, Completed &ndash; visible to everyone in real time. No double bookings, no lost appointments.</p>
+          <ul class="feat-idx-card__list">
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Live status board across every branch</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No double-bookings, no lost appointments</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Full audit trail on every appointment</li>
+          </ul>
         </a>
 
         <!-- Card 2: Discount management -->
-        <a href="/features/discount-management" class="feat-idx-card">
+        <a href="/features/discount-management" class="feat-idx-card" data-feature="discount-management">
           <div class="feat-idx-card__head">
             <span class="feat-idx-card__icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24L4 3a1 1 0 0 0-1 1l.24 5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.83 0l4.35-4.35a2 2 0 0 0 0-2.82z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
@@ -64,12 +77,20 @@ bodyClass: page--light-nav
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
             </span>
           </div>
+          <div class="feat-idx-card__visual">
+            {% image "/assets/images/feat-idx-discount.png", "Discount request approval card showing 15% off pending manager approval", { class: "feat-idx-card__img", loading: "lazy" } %}
+          </div>
           <h3 class="feat-idx-card__h3">Every discount has a name and an approval</h3>
           <p class="feat-idx-card__body">Staff request, managers approve. Nothing slips through without a record.</p>
+          <ul class="feat-idx-card__list">
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Staff request, managers approve</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Every discount logged against the booking</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>A full audit trail, always</li>
+          </ul>
         </a>
 
         <!-- Card 3: Payment tracking -->
-        <a href="/features/payment-tracking" class="feat-idx-card">
+        <a href="/features/payment-tracking" class="feat-idx-card" data-feature="payment-tracking">
           <div class="feat-idx-card__head">
             <span class="feat-idx-card__icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="5" width="22" height="14" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
@@ -79,12 +100,20 @@ bodyClass: page--light-nav
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
             </span>
           </div>
+          <div class="feat-idx-card__visual">
+            {% image "/assets/images/feat-idx-payment.png", "Contactless card payment at a salon counter with an Amount received $120.00 confirmation card", { class: "feat-idx-card__img", loading: "lazy" } %}
+          </div>
           <h3 class="feat-idx-card__h3">Know what came in, at every branch</h3>
           <p class="feat-idx-card__body">Every payment logged the moment it's collected, against the booking it belongs to. No Sunday-night spreadsheet.</p>
+          <ul class="feat-idx-card__list">
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Every payment logged the moment it lands</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Reconciled against the exact booking, per branch</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Broken down by booking, therapist, and service</li>
+          </ul>
         </a>
 
         <!-- Card 4: Staff & therapist management -->
-        <a href="/features/staff-management" class="feat-idx-card">
+        <a href="/features/staff-management" class="feat-idx-card" data-feature="staff-management">
           <div class="feat-idx-card__head">
             <span class="feat-idx-card__icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -94,12 +123,20 @@ bodyClass: page--light-nav
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
             </span>
           </div>
+          <div class="feat-idx-card__visual">
+            {% image "/assets/images/feat-idx-staff.png", "Therapist checking a staff transfer notice for a branch move effective Friday", { class: "feat-idx-card__img", loading: "lazy" } %}
+          </div>
           <h3 class="feat-idx-card__h3">Your roster is always current</h3>
           <p class="feat-idx-card__body">Schedule therapist transfers across branches with an effective date. No calls, no confusion on the day.</p>
+          <ul class="feat-idx-card__list">
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Scheduled transfers with an effective date</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Roster stays accurate across every branch</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>See incoming transfers before they arrive</li>
+          </ul>
         </a>
 
         <!-- Card 5: Customer self-booking -->
-        <a href="/features/booking" class="feat-idx-card">
+        <a href="/features/booking" class="feat-idx-card" data-feature="booking">
           <div class="feat-idx-card__head">
             <span class="feat-idx-card__icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
@@ -109,12 +146,20 @@ bodyClass: page--light-nav
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
             </span>
           </div>
+          <div class="feat-idx-card__visual">
+            {% image "/assets/images/feat-idx-self-booking.png", "Customer booking an appointment from home, picking a service and therapist on her phone", { class: "feat-idx-card__img", loading: "lazy" } %}
+          </div>
           <h3 class="feat-idx-card__h3">Customers book themselves</h3>
           <p class="feat-idx-card__body">A branded flow where customers pick location, service, and therapist &ndash; no call to your front desk needed.</p>
+          <ul class="feat-idx-card__list">
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Customers pick location, service, and therapist</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Zero calls to your front desk</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Instant confirmation, no back-and-forth</li>
+          </ul>
         </a>
 
         <!-- Card 6: Real-time operational visibility -->
-        <a href="/features/operational-visibility" class="feat-idx-card">
+        <a href="/features/operational-visibility" class="feat-idx-card" data-feature="operational-visibility">
           <div class="feat-idx-card__head">
             <span class="feat-idx-card__icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -124,12 +169,20 @@ bodyClass: page--light-nav
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
             </span>
           </div>
+          <div class="feat-idx-card__visual">
+            {% image "/assets/images/feat-idx-visibility.png", "Owner checking a live branch feed showing Lazimpat, Patan and Boudha branches all live", { class: "feat-idx-card__img", loading: "lazy" } %}
+          </div>
           <h3 class="feat-idx-card__h3">See how the day is going, live</h3>
           <p class="feat-idx-card__body">Every status change is a live signal. Owners, managers, and staff see the same picture at the same time.</p>
+          <ul class="feat-idx-card__list">
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Every status change is a live signal</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Owners and managers see the same picture</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Watch the whole floor from one screen</li>
+          </ul>
         </a>
 
         <!-- Card 7: Role-based access -->
-        <a href="/features/role-based-access" class="feat-idx-card">
+        <a href="/features/role-based-access" class="feat-idx-card" data-feature="role-based-access">
           <div class="feat-idx-card__head">
             <span class="feat-idx-card__icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -139,8 +192,16 @@ bodyClass: page--light-nav
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
             </span>
           </div>
+          <div class="feat-idx-card__visual">
+            {% image "/assets/images/feat-idx-roles.png", "Two staff members at a front desk with an Access by role panel listing Admin, Manager and Staff permissions", { class: "feat-idx-card__img", loading: "lazy" } %}
+          </div>
           <h3 class="feat-idx-card__h3">Everyone sees exactly what they need</h3>
           <p class="feat-idx-card__body">Three roles &ndash; admin, manager, staff &ndash; each with exactly the access their job requires.</p>
+          <ul class="feat-idx-card__list">
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Three roles, three levels of access</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Staff see only what their job requires</li>
+            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No one sees what they shouldn't</li>
+          </ul>
         </a>
 
       </div>
