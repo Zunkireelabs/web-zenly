@@ -12698,14 +12698,13 @@ body.page--case-study .section {
   .fd-workflow__phone {
     width: 260px;
   }
-  /* .fd-workflow__phone-media's own contents (status bar, notification/
-     dashboard/form scenes) are all fixed px, sized for the 280px desktop
+  /* .fd-workflow__phone-media's own contents (status bar, notification,
+     dashboard, form scenes) are all fixed px, sized for the 280px desktop
      frame — they don't shrink with the frame, so they either look
      cramped/overflow at a narrower width. zoom scales every fixed value
      inside together (font-size, padding, radius, gaps) so the whole
      scene stays proportional to the frame instead of needing every
-     .fd-workflow__notif-*/.fd-workflow__dash-*/.fd-workflow__form-*
-     value hand-tuned per breakpoint. */
+     notif/dash/form value hand-tuned per breakpoint. */
   .fd-workflow__phone-media {
     zoom: 0.93; /* 260 / 280 */
   }
