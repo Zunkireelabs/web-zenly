@@ -66,6 +66,7 @@ title: Zennly — Online Booking & Operations Platform
   .v2-nav-col--center{justify-content:center;}
   .v2-nav-col--end{justify-content:flex-end;}
   #v2-root a.v2-nav__logo{display:flex; align-items:center; gap:8px; font-weight:700; font-size:23px; color:#3F6839; flex:0 0 auto;}
+  #v2-root .v2-nav__logo-img{display:block; height:28px; width:auto;}
   .v2-nav__links{display:flex; align-items:center; gap:32px;}
   .v2-nav__links > a, .v2-nav__links > .v2-nav__item--has-mega > .v2-nav__mega-trigger{
     font-size:18px; font-weight:500; letter-spacing:-0.02em; line-height:1; color:var(--v2-ink); position:relative;
@@ -2501,7 +2502,8 @@ title: Zennly — Online Booking & Operations Platform
   .v2-footer-content{max-width:1180px; margin:0 auto; padding-bottom:80px; display:flex; flex-direction:column; gap:60px;}
   .v2-footer-top{display:flex; gap:64px; justify-content:space-between;}
   .v2-footer-brand{display:flex; flex-direction:column; align-items:flex-start; gap:16px; max-width:264px; flex-shrink:0;}
-  .v2-footer-logo{font-family:var(--v2-sans); font-weight:700; font-size:22px; letter-spacing:-0.02em; color:var(--v2-link); text-decoration:none;}
+  .v2-footer-logo{font-family:var(--v2-sans); font-weight:700; font-size:22px; letter-spacing:-0.02em; color:var(--v2-link); text-decoration:none; display:inline-block;}
+  .v2-footer-logo-img{display:block; height:26px; width:auto;}
   .v2-footer-tagline{font-size:16px; line-height:1.5; letter-spacing:-0.01em; color:var(--v2-ink-soft); margin:0;}
   .v2-footer-status{display:flex; align-items:center; gap:8px; font-size:14px; letter-spacing:-0.01em; color:var(--v2-ink-soft);}
   .v2-live-dot{display:inline-block; width:8px; height:8px; border-radius:50%; background:#22c55e; flex-shrink:0;}
@@ -2652,7 +2654,7 @@ title: Zennly — Online Booking & Operations Platform
   <div class="v2-nav-inner">
     <div class="v2-nav-content">
       <div class="v2-nav-col v2-nav-col--start">
-        <a href="#" class="v2-nav__logo">Zennly</a>
+        <a href="#" class="v2-nav__logo"><img src="/assets/images/logo.png" alt="Zennly" class="v2-nav__logo-img"></a>
       </div>
       <nav class="v2-nav-col v2-nav-col--center v2-nav__links" aria-label="Main menu">
         <div class="v2-nav__item--has-mega" data-mega="features">
@@ -4031,7 +4033,7 @@ title: Zennly — Online Booking & Operations Platform
       <div class="v2-footer-content">
         <div class="v2-footer-top">
           <div class="v2-footer-brand">
-            <a href="/" class="v2-footer-logo">Zennly</a>
+            <a href="/" class="v2-footer-logo"><img src="/assets/images/logo.png" alt="Zennly" class="v2-footer-logo-img"></a>
             <p class="v2-footer-tagline">Online booking, operational control, and financial clarity for any appointment-based business.</p>
             <div class="v2-footer-status">
               <span class="v2-live-dot"></span>
