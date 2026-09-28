@@ -39,16 +39,49 @@ bodyClass: page--light-nav
               </div>
             </div>
 
-            <div class="demo-form__field">
-              <label for="demo-branches">Number of branches</label>
-              <select id="demo-branches" name="branches" required>
-                <option value="" disabled selected>Select&hellip;</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5+">5+</option>
-              </select>
+            <div class="demo-form__row">
+              <div class="demo-form__field">
+                <label for="demo-branches">Number of branches</label>
+                <select id="demo-branches" name="branches" required>
+                  <option value="" disabled selected>Select&hellip;</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5+">5+</option>
+                </select>
+              </div>
+              <div class="demo-form__field">
+                <label for="demo-business-type">Business type</label>
+                <select id="demo-business-type" name="businessType" required>
+                  <option value="" disabled selected>Select&hellip;</option>
+                  <option value="spa">Spa &amp; Wellness</option>
+                  <option value="salon">Hair &amp; Nail Salon</option>
+                  <option value="tattoo">Tattoo Studio</option>
+                  <option value="fitness">Gym / Fitness Studio</option>
+                  <option value="physiotherapy">Physiotherapy Clinic</option>
+                  <option value="cleaning">Cleaning Service</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="demo-form__row">
+              <div class="demo-form__field">
+                <label for="demo-country">Country <span class="demo-form__optional">(optional)</span></label>
+                <input type="text" id="demo-country" name="country" placeholder="e.g. Nepal">
+              </div>
+              <div class="demo-form__field">
+                <label for="demo-referral">How did you hear about us? <span class="demo-form__optional">(optional)</span></label>
+                <select id="demo-referral" name="referralSource">
+                  <option value="" disabled selected>Select&hellip;</option>
+                  <option value="google">Google Search</option>
+                  <option value="referral">Referral from someone</option>
+                  <option value="social">Social Media</option>
+                  <option value="directory">Business Directory</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
             </div>
 
             <div class="demo-form__field">
@@ -68,6 +101,14 @@ bodyClass: page--light-nav
         <div class="demo-hero__eyebrow">Book a demo</div>
         <h1 class="demo-hero__h1">See exactly how your branches run on one system.</h1>
         <p class="demo-hero__sub">Not a sales call. Not a slide deck. A live, 20&nbsp;minute walkthrough of the platform &mdash; configured around your business &mdash; so you can decide if it&rsquo;s right for you before committing to anything.</p>
+
+        <div class="demo-hero__cal-cta">
+          <p class="demo-card__cal-hint">Prefer to pick a time yourself?</p>
+          <a href="https://calendly.com/manjila-zunkireelabs/book-a-demo" class="btn-secondary demo-card__cal-btn" data-calendly-trigger>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book a call
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -102,13 +143,38 @@ bodyClass: page--light-nav
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">No pressure, no script &mdash; just Zennly, applied to your business.</h2>
       <p class="bottom-cta__sub">20 minutes. Bring your questions. We&rsquo;ll bring answers specific to how you operate.</p>
-      <a href="#demo-form" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <div class="bottom-cta__btn-row">
+        <a href="#demo-form" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+        <a href="https://calendly.com/manjila-zunkireelabs/book-a-demo" class="bottom-cta__banner-btn bottom-cta__banner-btn--outline" data-calendly-trigger>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book a call directly &rarr;
+        </a>
+      </div>
       <a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener" class="bottom-cta__link">See It Live &rarr;</a>
     </div>
   </section>
 
   <!-- ── FOOTER ─────────────────────────────────────────────────────── -->
   {% include "_footer-v2.njk" %}
+
+  <!-- Calendly popup widget — alternate booking path alongside the form above -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+  <script>
+    (function () {
+      document.querySelectorAll('[data-calendly-trigger]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (window.Calendly) {
+            window.Calendly.initPopupWidget({ url: link.href });
+          } else {
+            window.open(link.href, '_blank', 'noopener');
+          }
+        });
+      });
+    })();
+  </script>
 
   <script>
     (function () {
@@ -126,7 +192,10 @@ bodyClass: page--light-nav
         var f = form.elements;
         var body = [
           'Business name: ' + f.business.value,
+          'Business type: ' + f.businessType.value,
           'Number of branches: ' + f.branches.value,
+          'Country: ' + (f.country.value || '—'),
+          'How did you hear about us: ' + (f.referralSource.value || '—'),
           'Phone: ' + (f.phone.value || '—'),
           'Biggest operational challenge: ' + f.challenge.value
         ].join('\n');
