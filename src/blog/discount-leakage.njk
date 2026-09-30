@@ -1,8 +1,15 @@
 ﻿---
 layout: base.njk
 title: The real cost of undocumented staff discounts | Zennly
+metaDescription: "Undocumented staff discounts quietly erode margins in multi-branch service businesses. Here's how discount leakage happens and how to close the gap."
+datePublished: "2026-07-17"
+ogType: article
 bodyClass: page--light-nav
 ---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: title, url: page.url }]) }}
+{% from "schema/article.njk" import articleSchema with context %}
+{{ articleSchema(title, datePublished, page.url, metaDescription) }}
 
 <main>
 

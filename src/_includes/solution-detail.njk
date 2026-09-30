@@ -2,6 +2,11 @@
 layout: base.njk
 ---
 
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema(solution.faq) }}
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Solutions", url: "/solutions/" }, { name: solution.name, url: "/solutions/" + solution.slug + "/" }]) }}
+
 {% macro stripIcon(name) %}
   {% if name == 'massage' %}
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.5-2.4-8-6-8-10.5A4.5 4.5 0 0 1 8.5 6c1.4 0 2.7.7 3.5 1.8A4.5 4.5 0 0 1 15.5 6 4.5 4.5 0 0 1 20 10.5c0 4.5-3.5 8.1-8 10.5Z"/></svg>
@@ -369,14 +374,14 @@ layout: base.njk
       <p class="soln-proof__eyebrow">Live on Zennly</p>
       <h2 class="soln-proof__h2">The same system, already running a real, multi-branch business.</h2>
 
-      <a href="{{ solution.testimonial.href }}" class="soln-proof__card">
+      <{% if solution.testimonial.href %}a href="{{ solution.testimonial.href }}"{% else %}div{% endif %} class="soln-proof__card">
         <p class="soln-proof__quote">&ldquo;{{ solution.testimonial.quote }}&rdquo;</p>
         <div class="soln-proof__author">
           <strong>{{ solution.testimonial.author }}, {{ solution.testimonial.business }}</strong>
           <span>{{ solution.testimonial.meta }}</span>
         </div>
-        <span class="soln-proof__link">Read the case study &rarr;</span>
-      </a>
+        {% if solution.testimonial.href %}<span class="soln-proof__link">Read the case study &rarr;</span>{% endif %}
+      </{% if solution.testimonial.href %}a{% else %}div{% endif %}>
     </div>
   </section>
 
@@ -390,11 +395,11 @@ layout: base.njk
         {% for item in solution.faq %}
         <div class="soln-faq__item reveal" :class="{ 'soln-faq__item--open': open === {{ loop.index0 }} }">
           <button class="soln-faq__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
-            {{ item.q }}
+            {{ item.question }}
             <span class="soln-faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="soln-faq__a" x-show="open === {{ loop.index0 }}" x-cloak x-transition>
-            <p>{{ item.a }}</p>
+            <p>{{ item.answer }}</p>
           </div>
         </div>
         {% endfor %}

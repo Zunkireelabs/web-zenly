@@ -22,7 +22,7 @@ async function imageShortcode(src, alt, attrs = {}) {
   const inputPath = isRemote ? src : path.join(__dirname, "src", src);
 
   const metadata = await Image(inputPath, {
-    widths: [null], // keep the original pixel dimensions — no resizing
+    widths: [480, 768, 1024, 1600, null], // responsive srcset; null keeps a native-size fallback
     formats: ["webp"],
     outputDir: "./_site/assets/images/optimized/",
     urlPath: "/assets/images/optimized/",
@@ -34,7 +34,7 @@ async function imageShortcode(src, alt, attrs = {}) {
   });
 
   const imageAttributes = Object.assign(
-    { alt: alt || "", loading: "lazy", decoding: "async" },
+    { alt: alt || "", loading: "lazy", decoding: "async", sizes: "100vw" },
     attrs
   );
 

@@ -1,8 +1,11 @@
 ---
 layout: base.njk
-title: Pricing — Zennly
+title: "Zennly Pricing — Custom-Quote Booking Software Nepal"
+metaDescription: "Zennly pricing is quote-based, scaled to your branches, team size and features — no fixed tiers. See how pricing works for multi-branch spas, salons and gyms."
 bodyClass: page--light-nav
 ---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Pricing", url: "/pricing/" }]) }}
 
 <main>
   <div class="pricing-hero-wrap">
@@ -12,7 +15,7 @@ bodyClass: page--light-nav
       <div class="pricing-wrap">
 
         <div class="pricing-left">
-          <h2 class="section__h2">Pricing built around your business</h2>
+          <h1 class="section__h2">Pricing built around your business</h1>
           <p class="section__sub">No one-size-fits-all plans. Tell us about your branches, team size, and what you need — we'll put together a quote that fits.</p>
           <div class="pricing-signals">
             <div class="pricing-signal">

@@ -33,7 +33,7 @@ These pages use a distinct, new visual system, designed to closely replicate the
 structural/visual language of Calendly (composition, gradients, rounded hero
 container, stats section, how-it-works, final CTA) and Acuity Scheduling
 (alternating image/text feature showcase, testimonials, dark FAQ accordion) —
-using Zenly's own content, product data, and brand fonts/colors, not their
+using Zennly's own content, product data, and brand fonts/colors, not their
 content or branding.
 
 This exception is scoped to this one page family only. It does not extend to any

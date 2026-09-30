@@ -1,0 +1,17 @@
+{% macro articleSchema(headline, datePublished, url, description) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ headline | dump | safe }},
+  "description": {{ description | dump | safe }},
+  "datePublished": "{{ datePublished }}",
+  "dateModified": "{{ datePublished }}",
+  "image": "{{ site.url }}{{ site.defaultOgImage }}",
+  "inLanguage": "en",
+  "author": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}/" },
+  "publisher": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}/" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ site.url }}{{ url }}" }
+}
+</script>
+{% endmacro %}

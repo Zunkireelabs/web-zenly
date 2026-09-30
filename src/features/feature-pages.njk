@@ -3,9 +3,11 @@ pagination:
   data: features
   size: 1
   alias: feature
+  addAllPagesToCollections: true
 permalink: "/features/{{ feature.slug }}/"
 layout: feature-detail.njk
 eleventyComputed:
-  title: "{{ feature.name }} — Zennly"
+  title: "{{ (feature.seoTitle or (feature.name + ' — Zennly')) | safe }}"
+  metaDescription: "{{ feature.metaDescription | safe }}"
   bodyClass: "page--light-nav"
 ---
