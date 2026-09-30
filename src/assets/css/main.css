@@ -15673,6 +15673,20 @@ body.page--case-study .section {
   color: var(--color-muted);
 }
 
+/* Inline links inside the meta line (e.g. case study: Visit / Book at the client) —
+   brand green + underline so they read as links, not metadata text. */
+.article-hero__meta a {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.article-hero__meta a:hover {
+  opacity: 0.75;
+}
+
 .article-hero__img-wrap {
   max-width: 960px;
   margin: var(--space-lg) auto 0;
