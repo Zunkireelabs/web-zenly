@@ -193,20 +193,24 @@
       "headline": "Things we get asked.",
       "items": [
         {
-          "q": "Our staff won't switch to a new system.",
-          "a": "Your staff isn't switching to a new way of working – they're doing the same things they've always done: creating appointments, confirming them, marking them done. The difference is it's now tracked instead of remembered. Most front-desk staff are comfortable within a day."
+          "question": "Our staff won't switch to a new system.",
+          "answer": "Your staff isn't switching to a new way of working – they're doing the same things they've always done: creating appointments, confirming them, marking them done. The difference is it's now tracked instead of remembered. Most front-desk staff are comfortable within a day."
         },
         {
-          "q": "We have too many bookings to migrate.",
-          "a": "Starting fresh doesn't mean losing history. Existing appointments stay where they are. You start using the platform for new bookings, and the value is immediate – without a migration project."
+          "question": "We have too many bookings to migrate.",
+          "answer": "Starting fresh doesn't mean losing history. Existing appointments stay where they are. You start using the platform for new bookings, and the value is immediate – without a migration project."
         },
         {
-          "q": "We already tried booking software before. It didn't stick.",
-          "a": "Most booking tools are built for customers – not for the operational reality of a multi-branch team with managers, therapists, and admins. This one is built for how your business actually runs: with roles, branches, status flows, and a chain of accountability."
+          "question": "We already tried booking software before. It didn't stick.",
+          "answer": "Most booking tools are built for customers – not for the operational reality of a multi-branch team with managers, therapists, and admins. This one is built for how your business actually runs: with roles, branches, status flows, and a chain of accountability."
         },
         {
-          "q": "We're not sure we need all of this.",
-          "a": "You don't need to use everything on day one. Most businesses start with booking creation and status management – and that alone changes how the morning works. Everything else is there when you're ready."
+          "question": "We're not sure we need all of this.",
+          "answer": "You don't need to use everything on day one. Most businesses start with booking creation and status management – and that alone changes how the morning works. Everything else is there when you're ready."
+        },
+        {
+          "question": "How do you prevent double-bookings across multiple branches?",
+          "answer": "Zennly locks each time slot the moment a booking is created, checked against the specific branch, room, and staff member — so two people can't book the same slot, even across different devices or front-desk terminals."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -284,7 +288,9 @@
       "operations",
       "payment-tracking",
       "discount-management"
-    ]
+    ],
+    "metaDescription": "Multi-branch booking management software for service businesses in Nepal — track every appointment from first request to final payment.",
+    "seoTitle": "Multi-Branch Booking Software, No Double-Bookings | Zennly"
   },
   {
     "slug": "operational-visibility",
@@ -451,8 +457,9 @@
     "objections": {
       "headline": "Things we get asked.",
       "items": [
-        { "q": "Our managers are good at keeping us updated.", "a": "Good managers are valuable. But even the best manager is a bottleneck in an information chain. Real-time visibility doesn't replace your managers – it frees them from the burden of being your information conduit and lets them focus on managing their team." },
-        { "q": "We don't have time to watch a dashboard all day.", "a": "You don't have to. The value isn't constant monitoring. It's that when something feels off – when you have a hunch, when a manager's summary doesn't add up – you have a source of truth you can go to. That's worth more than any report." }
+        { "question": "Our managers are good at keeping us updated.", "answer": "Good managers are valuable. But even the best manager is a bottleneck in an information chain. Real-time visibility doesn't replace your managers – it frees them from the burden of being your information conduit and lets them focus on managing their team." },
+        { "question": "We don't have time to watch a dashboard all day.", "answer": "You don't have to. The value isn't constant monitoring. It's that when something feels off – when you have a hunch, when a manager's summary doesn't add up – you have a source of truth you can go to. That's worth more than any report." },
+        { "question": "How can an owner see all branches' bookings in one place?", "answer": "Zennly gives owners a single real-time dashboard showing every branch's bookings, staff status, and payments as they happen — no phone calls or manager check-ins required to know how the day is going." }
       ],
       "sub": "Answers to what owners ask before they switch."
     },
@@ -493,7 +500,9 @@
       "booking",
       "payment-tracking",
       "discount-management"
-    ]
+    ],
+    "metaDescription": "Real-time operational visibility for multi-branch spas, salons, and service businesses in Nepal — every booking, every branch, one dashboard.",
+    "seoTitle": "Multi-Branch Operations Dashboard for Owners | Zennly"
   },
   {
     "slug": "payment-tracking",
@@ -662,9 +671,10 @@
     "objections": {
       "headline": "Common questions.",
       "items": [
-        { "q": "We already track payments in another system.", "a": "If your current process doesn't connect payments to individual bookings, therapists, services, and branches in real time, you're only storing transactions. Zennly connects every payment to the work that generated it, giving you operational insight – not just accounting records." },
-        { "q": "What happens if a customer only pays part of the amount?", "a": "Partial payments are supported as part of the normal workflow. You can immediately see which bookings are fully settled and which still have an outstanding balance, making follow-ups simple and eliminating forgotten payments." },
-        { "q": "Will my staff have to do extra work?", "a": "No. Payment recording happens naturally as the booking is completed. Staff simply record the payment while closing the appointment, and everything else is updated automatically." }
+        { "question": "We already track payments in another system.", "answer": "If your current process doesn't connect payments to individual bookings, therapists, services, and branches in real time, you're only storing transactions. Zennly connects every payment to the work that generated it, giving you operational insight – not just accounting records." },
+        { "question": "What happens if a customer only pays part of the amount?", "answer": "Partial payments are supported as part of the normal workflow. You can immediately see which bookings are fully settled and which still have an outstanding balance, making follow-ups simple and eliminating forgotten payments." },
+        { "question": "Will my staff have to do extra work?", "answer": "No. Payment recording happens naturally as the booking is completed. Staff simply record the payment while closing the appointment, and everything else is updated automatically." },
+        { "question": "How do service businesses reconcile cash, card, and online payments daily?", "answer": "Every booking in Zennly closes with a connected payment record — amount, method, therapist, service, and branch — so the day's cash, card, and online totals are already reconciled by the time you open the dashboard." }
       ],
       "sub": "Answers to what owners ask before they switch."
     },
@@ -713,7 +723,9 @@
       "operations",
       "reports",
       "discount-management"
-    ]
+    ],
+    "metaDescription": "Payment tracking software for service businesses in Nepal — record every payment the moment it's collected, with a full financial record per booking.",
+    "seoTitle": "Payment Tracking & Daily Reconciliation Software | Zennly"
   },
   {
     "slug": "reports",
@@ -862,10 +874,11 @@
     "objections": {
       "headline": "Things we get asked.",
       "items": [
-        { "q": "We don't have anyone who knows how to read data.", "a": "You don't need a data analyst. The eight reports are built to be read in under a minute — a number, a trend line, a comparison. If you can read a bank statement, you can read these." },
-        { "q": "Eight reports sounds like a lot to check every day.", "a": "Nobody checks all eight every day. Owners tend to open revenue and staff performance daily, and glance at the rest weekly. The reports are there when you need them, not a checklist you have to clear." },
-        { "q": "How do we know these numbers are actually accurate?", "a": "Every report pulls directly from the same booking and payment records your staff enter during the day — nothing is recalculated or estimated separately, so there's no second system that can drift out of sync with the first." },
-        { "q": "We need a custom report specific to our business.", "a": "The eight built-in reports cover revenue, staff, discounts, referrals, and attendance across every branch we've onboarded so far. If a business genuinely needs something beyond that, we talk about it — but most owners find the built-in set already answers the question they were actually asking." }
+        { "question": "We don't have anyone who knows how to read data.", "answer": "You don't need a data analyst. The eight reports are built to be read in under a minute — a number, a trend line, a comparison. If you can read a bank statement, you can read these." },
+        { "question": "Eight reports sounds like a lot to check every day.", "answer": "Nobody checks all eight every day. Owners tend to open revenue and staff performance daily, and glance at the rest weekly. The reports are there when you need them, not a checklist you have to clear." },
+        { "question": "How do we know these numbers are actually accurate?", "answer": "Every report pulls directly from the same booking and payment records your staff enter during the day — nothing is recalculated or estimated separately, so there's no second system that can drift out of sync with the first." },
+        { "question": "We need a custom report specific to our business.", "answer": "The eight built-in reports cover revenue, staff, discounts, referrals, and attendance across every branch we've onboarded so far. If a business genuinely needs something beyond that, we talk about it — but most owners find the built-in set already answers the question they were actually asking." },
+        { "question": "What reports should a multi-branch service business check daily?", "answer": "Zennly automatically generates revenue, staff performance, discount, attendance, and referral reports for every branch — no configuration or exports needed, so owners can check the numbers that matter each morning without building anything." }
       ],
       "sub": "Answers to what owners ask before they switch."
     },
@@ -907,7 +920,9 @@
       "payment-tracking",
       "operations",
       "discount-management"
-    ]
+    ],
+    "metaDescription": "Built-in business reports for service businesses in Nepal — revenue, staff performance, discounts, attendance, and referrals in one place.",
+    "seoTitle": "Business Reports for Multi-Branch Services | Zennly"
   },
   {
     "slug": "staff-management",
@@ -1049,8 +1064,9 @@
     "objections": {
       "headline": "Things we get asked.",
       "items": [
-        { "q": "Our staff schedules change too often to plan ahead.", "a": "Transfers don't require advance planning – you can schedule a same-day transfer if needed. The point isn't that everything is planned weeks ahead. It's that when you do make a decision, it immediately propagates to everyone who needs to know." },
-        { "q": "We're only at two branches right now.", "a": "Two branches is exactly when this starts to matter. The coordination overhead grows faster than the number of branches. Getting the system in place at two locations means you're ready – and not scrambling – when you open a third." }
+        { "question": "Our staff schedules change too often to plan ahead.", "answer": "Transfers don't require advance planning – you can schedule a same-day transfer if needed. The point isn't that everything is planned weeks ahead. It's that when you do make a decision, it immediately propagates to everyone who needs to know." },
+        { "question": "We're only at two branches right now.", "answer": "Two branches is exactly when this starts to matter. The coordination overhead grows faster than the number of branches. Getting the system in place at two locations means you're ready – and not scrambling – when you open a third." },
+        { "question": "How do you schedule a staff transfer between branches?", "answer": "In Zennly, you schedule a transfer with the staff member, destination branch, and effective date — the origin and destination branches both see the change immediately, and existing bookings re-anchor to the new location automatically." }
       ],
       "sub": "Answers to what owners ask before their next staff transfer."
     },
@@ -1070,7 +1086,9 @@
     "relatedFeatures": [
       "booking",
       "operational-visibility"
-    ]
+    ],
+    "metaDescription": "Staff management software for multi-branch service businesses in Nepal — schedule staff transfers, assign therapists, and manage teams across locations.",
+    "seoTitle": "Staff Scheduling & Branch Transfer Software | Zennly"
   },
   {
     "slug": "discount-management",
@@ -1210,12 +1228,16 @@
       "headline": "Things we get asked.",
       "items": [
         {
-          "q": "Our staff will feel micromanaged.",
-          "a": "They won't, because the workflow is instant. Submitting a request takes seconds. Approval comes back in real time. It's not bureaucratic — it's structured. The difference is that now both sides have clarity: the staff member knows what they can offer, and the manager knows what's going out the door."
+          "question": "Our staff will feel micromanaged.",
+          "answer": "They won't, because the workflow is instant. Submitting a request takes seconds. Approval comes back in real time. It's not bureaucratic — it's structured. The difference is that now both sides have clarity: the staff member knows what they can offer, and the manager knows what's going out the door."
         },
         {
-          "q": "We trust our staff with discounts.",
-          "a": "Trust and visibility aren't opposites. You can trust your team completely and still want a record of what was approved and why. The audit trail protects them as much as it protects you."
+          "question": "We trust our staff with discounts.",
+          "answer": "Trust and visibility aren't opposites. You can trust your team completely and still want a record of what was approved and why. The audit trail protects them as much as it protects you."
+        },
+        {
+          "question": "How do you stop staff from giving unauthorized discounts?",
+          "answer": "Zennly requires every discount request to go through manager approval before it applies — each request is tied to a booking, staff member, and value, giving owners a full audit trail of where discounts are given and why."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -1264,7 +1286,9 @@
       "operations",
       "payment-tracking",
       "reports"
-    ]
+    ],
+    "metaDescription": "Discount management software for service businesses in Nepal — track every discount request with a full audit trail so margins stop leaking.",
+    "seoTitle": "Discount Approval & Audit Trail Software | Zennly"
   },
   {
     "slug": "role-based-access",
@@ -1413,16 +1437,20 @@
       "headline": "Things we get asked.",
       "items": [
         {
-          "q": "We're a small team. Everyone does everything.",
-          "a": "In a small team, role clarity matters more, not less. When one person wears many hats, they need to know exactly what they're responsible for in each context. Roles give structure to a team that might otherwise operate in comfortable ambiguity — until something goes wrong."
+          "question": "We're a small team. Everyone does everything.",
+          "answer": "In a small team, role clarity matters more, not less. When one person wears many hats, they need to know exactly what they're responsible for in each context. Roles give structure to a team that might otherwise operate in comfortable ambiguity — until something goes wrong."
         },
         {
-          "q": "Setting this up sounds complicated.",
-          "a": "Roles are assigned to users when they're added to the platform. There's no complex configuration. Admin, manager, or staff — that's the decision. The system handles the rest."
+          "question": "Setting this up sounds complicated.",
+          "answer": "Roles are assigned to users when they're added to the platform. There's no complex configuration. Admin, manager, or staff — that's the decision. The system handles the rest."
         },
         {
-          "q": "We trust everyone on our team.",
-          "a": "Role-based access isn't distrust — it's design. A well-designed kitchen has different stations for different functions. The chef doesn't design the menu and plate every dish simultaneously. Roles let your team operate at their level of authority without stepping on each other."
+          "question": "What access should managers vs. front-desk staff have in booking software?",
+          "answer": "In Zennly, front-desk staff handle bookings and check-ins, managers approve discounts and staff transfers for their branch, and admins see and control everything across every branch — each role only sees what its job requires."
+        },
+        {
+          "question": "We trust everyone on our team.",
+          "answer": "Role-based access isn't distrust — it's design. A well-designed kitchen has different stations for different functions. The chef doesn't design the menu and plate every dish simultaneously. Roles let your team operate at their level of authority without stepping on each other."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -1443,6 +1471,8 @@
       "staff-management",
       "operational-visibility",
       "discount-management"
-    ]
+    ],
+    "metaDescription": "Role-based access control for service businesses in Nepal — a three-tier permission model built around how a real service business is structured.",
+    "seoTitle": "Role-Based Access for Owners, Managers & Staff | Zennly"
   }
 ]

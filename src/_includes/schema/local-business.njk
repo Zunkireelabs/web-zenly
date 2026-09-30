@@ -1,0 +1,18 @@
+{% macro localBusinessSchema(business) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": {{ business.name | dump | safe }},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ business.streetAddress | dump | safe }},
+    "addressLocality": {{ business.addressLocality | dump | safe }},
+    "addressCountry": {{ business.addressCountry | dump | safe }}
+  }{% if business.telephone %},
+  "telephone": {{ business.telephone | dump | safe }}{% endif %}{% if business.url %},
+  "url": {{ business.url | dump | safe }}{% endif %}{% if business.sameAs and business.sameAs.length %},
+  "sameAs": {{ business.sameAs | dump | safe }}{% endif %}
+}
+</script>
+{% endmacro %}

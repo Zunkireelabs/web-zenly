@@ -1,8 +1,23 @@
 ﻿---
 layout: base.njk
-title: Case Study — Nuad Thai Spa Kathmandu runs on Zennly | Zennly
+title: "Zennly Case Study: Nuad Thai Spa's 4-Branch Booking"
+metaDescription: "See how a four-branch spa in Kathmandu runs 39 therapists, 12 rooms and 194 services on Zennly — a case study in multi-branch spa booking software in Nepal."
 bodyClass: page--light-nav page--case-study
 ---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Case Study — Nuad Thai Spa Kathmandu", url: "/case-study/" }]) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ site.url }}/case-study/#webpage",
+  "url": "{{ site.url }}/case-study/",
+  "name": "Zennly case study: multi-branch spa booking in Nepal",
+  "isPartOf": { "@id": "{{ site.url }}/#website" },
+  "about": { "@id": "{{ site.url }}/#software" },
+  "mentions": { "@type": "Organization", "name": {{ nuadThai.name | dump | safe }}, "url": {{ nuadThai.url | dump | safe }} }
+}
+</script>
 
 <main>
 
@@ -65,6 +80,13 @@ bodyClass: page--light-nav page--case-study
       <p>Every payment is logged at the point of service, against the booking it belongs to. The owner&rsquo;s morning call round has been replaced by a single dashboard that&rsquo;s already correct.</p>
 
       <blockquote>&ldquo;I used to spend my mornings calling every branch. Now I open the platform and everything is already there.&rdquo;</blockquote>
+      <p class="article-hero__meta">&mdash; Owner, {{ nuadThai.name }}</p>
+
+      <p class="article-hero__meta">
+        {{ nuadThai.name }} &middot; {{ nuadThai.streetAddress }}, {{ nuadThai.addressLocality }}
+        {%- if nuadThai.url %} &middot; <a href="{{ nuadThai.url }}" target="_blank" rel="noopener">Visit {{ nuadThai.name }}</a>{% endif %}
+        {%- if nuadThai.bookingUrl %} &middot; <a href="{{ nuadThai.bookingUrl }}" target="_blank" rel="noopener">Book at Nuad Thai</a>{% endif %}
+      </p>
 
       <h2>The result</h2>
       <p>Across the four branches, Nuad Thai Spa now runs roughly 350 bookings and 170 recorded payments a week through Zennly, with every discount request and staff transfer carrying its own audit trail. Nothing about the business got simpler &ndash; four branches, 39 therapists, and 194 services is still a lot to run. What changed is that the owner sees it as one operation instead of four separate ones held together by phone calls.</p>

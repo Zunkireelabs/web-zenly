@@ -1,4 +1,4 @@
-# COPY.md — Zenly Landing Page Copy
+# COPY.md — Zennly Landing Page Copy
 
 **Status:** Final draft — grounded in CONTEXT.md, informed by INSPO audits  
 **Tone:** Professional, warm, confident — not salesy  
@@ -8,7 +8,7 @@
 
 ## SECTION 1 — NAV
 
-**Logo wordmark:** Zenly
+**Logo wordmark:** Zennly
 
 **Nav links:** Features · How It Works · Pricing · FAQ
 
@@ -42,7 +42,7 @@
 > Trusted by service businesses that can't afford operational mistakes.
 
 **Tenant callout:**
-> Nuad Thai Spa · Kathmandu · 39 therapists · 12 rooms · 194 services · Live on Zenly
+> Nuad Thai Spa · Kathmandu · 39 therapists · 12 rooms · 194 services · Live on Zennly
 
 ---
 
@@ -52,7 +52,7 @@
 > Everything your business runs on. One platform.
 
 **Subheadline:**
-> Zenly isn't a booking widget. It's the complete operating system for your service business — from the first customer booking to the daily revenue close.
+> Zennly isn't a booking widget. It's the complete operating system for your service business — from the first customer booking to the daily revenue close.
 
 ### Pillar 1 — Online Booking
 **Title:** Online Booking
@@ -78,7 +78,7 @@
 > Built for how service businesses actually operate.
 
 **Section subheadline:**
-> Not a calendar app. Not a POS. Zenly is purpose-built for the full operational layer of appointment-based businesses — booking, staff, payments, and reconciliation in one system.
+> Not a calendar app. Not a POS. Zennly is purpose-built for the full operational layer of appointment-based businesses — booking, staff, payments, and reconciliation in one system.
 
 ---
 
@@ -96,7 +96,7 @@
 **Title:** Zero Double-Bookings. Guaranteed.
 **One-liner:** Database-level conflict prevention means no two bookings can ever share the same staff member, room, or time slot.
 **Body:**
-> Most scheduling tools rely on application logic to prevent conflicts. Zenly enforces it at the database level — so a double-booking is structurally impossible, not just unlikely. No race conditions, no edge cases, no awkward calls to customers.
+> Most scheduling tools rely on application logic to prevent conflicts. Zennly enforces it at the database level — so a double-booking is structurally impossible, not just unlikely. No race conditions, no edge cases, no awkward calls to customers.
 
 ---
 
@@ -114,7 +114,7 @@
 **Title:** One-Click Daily Close
 **One-liner:** Replace 30 minutes of Excel reconciliation with a single click. Gross revenue, net revenue, payment modes, discounts, pending — all calculated automatically.
 **Body:**
-> At end of day, your manager clicks Close Day. Zenly generates the full reconciliation report — cash, card, online payment breakdowns, discounts applied, net revenue, and any outstanding balances. The day locks from further edits, giving you a tamper-proof financial record every single day.
+> At end of day, your manager clicks Close Day. Zennly generates the full reconciliation report — cash, card, online payment breakdowns, discounts applied, net revenue, and any outstanding balances. The day locks from further edits, giving you a tamper-proof financial record every single day.
 
 ---
 
@@ -130,9 +130,9 @@
 ### Feature 6 — Works for Any Service Business
 
 **Title:** Works for Any Appointment Business
-**One-liner:** Spa, salon, dental, physio, fitness — Zenly speaks your industry's language out of the box. One platform, any vertical.
+**One-liner:** Spa, salon, dental, physio, fitness — Zennly speaks your industry's language out of the box. One platform, any vertical.
 **Body:**
-> Staff titles, room labels, service categories, gender preferences — all configured by industry type, not hardcoded. Adding a new vertical takes a single database record. Zenly adapts to how your business works, not the other way around.
+> Staff titles, room labels, service categories, gender preferences — all configured by industry type, not hardcoded. Adding a new vertical takes a single database record. Zennly adapts to how your business works, not the other way around.
 
 ---
 
@@ -151,7 +151,7 @@
 
 **Title:** Set up your business
 **Description:**
-> Add your services, staff profiles, and pricing. Zenly configures itself to your industry — room labels, staff titles, service categories. Our team walks you through it. Ready in minutes, not weeks.
+> Add your services, staff profiles, and pricing. Zennly configures itself to your industry — room labels, staff titles, service categories. Our team walks you through it. Ready in minutes, not weeks.
 
 ---
 
@@ -186,7 +186,7 @@
 > Built for your industry. Ready on day one.
 
 **Section subheadline:**
-> Zenly is a multi-vertical platform. Every industry gets its own terminology, workflow, and configuration — no generic setup, no mismatched labels.
+> Zennly is a multi-vertical platform. Every industry gets its own terminology, workflow, and configuration — no generic setup, no mismatched labels.
 
 ---
 
@@ -240,15 +240,15 @@
 > Real operations. Real results.
 
 **Section subheadline:**
-> Nuad Thai Spa in Kathmandu runs 39 therapists, 12 rooms, and 194 services on Zenly — every booking, payment, and daily close.
+> Nuad Thai Spa in Kathmandu runs 39 therapists, 12 rooms, and 194 services on Zennly — every booking, payment, and daily close.
 
 ---
 
 ### Testimonial
 
-> "We had 39 therapists and 12 rooms to coordinate every day. Scheduling conflicts, payment gaps, and end-of-day reconciliation were constant headaches. Zenly replaced all of it. The daily close alone saves me over an hour every single night."
+> "We had 39 therapists and 12 rooms to coordinate every day. Scheduling conflicts, payment gaps, and end-of-day reconciliation were constant headaches. Zennly replaced all of it. The daily close alone saves me over an hour every single night."
 
-**— Priya S., Operations Manager, Nuad Thai Spa**
+**— Owner, Nuad Thai Spa Kathmandu**
 Kathmandu, Nepal
 
 ---
@@ -259,7 +259,7 @@ Kathmandu, Nepal
 **Location:** Lazimpat, Kathmandu
 **Team size:** 39 therapists · 12 rooms
 **Services:** 194 — massage packages, aromatherapy, Himalayan treatments, premium facials, nail, wax, and hair services
-**Status:** Live on Zenly
+**Status:** Live on Zennly
 
 ---
 
@@ -293,13 +293,13 @@ Kathmandu, Nepal
 
 ---
 
-**Q1: What types of businesses can use Zenly?**
+**Q1: What types of businesses can use Zennly?**
 
-Zenly is built for any appointment-based service business — spas and wellness centers, hair salons, dental clinics, physiotherapy practices, personal training studios, tattoo studios, nail salons, and cleaning services. If your business runs on scheduled appointments and needs to manage staff, payments, and daily revenue, Zenly handles all of it.
+Zennly is built for any appointment-based service business — spas and wellness centers, hair salons, dental clinics, physiotherapy practices, personal training studios, tattoo studios, nail salons, and cleaning services. If your business runs on scheduled appointments and needs to manage staff, payments, and daily revenue, Zennly handles all of it.
 
 ---
 
-**Q2: Does Zenly replace our phone booking process?**
+**Q2: Does Zennly replace our phone booking process?**
 
 Yes. Customers can see your real-time availability, choose their service, pick a time, and confirm their booking online — 24 hours a day, without calling. Your team still has full control: you can block times, reassign bookings, and manage walk-ins from the staff dashboard. The phone doesn't have to ring for a booking to happen.
 
@@ -307,19 +307,19 @@ Yes. Customers can see your real-time availability, choose their service, pick a
 
 **Q3: How does the daily reconciliation work?**
 
-At the end of each business day, your manager clicks Close Day. Zenly automatically calculates gross revenue, discounts applied, net revenue, and a full payment breakdown by mode — cash, card, and online. The report is locked from edits after close, giving you an accurate, tamper-proof financial record every single day. Most businesses replace 30+ minutes of Excel work with a single click.
+At the end of each business day, your manager clicks Close Day. Zennly automatically calculates gross revenue, discounts applied, net revenue, and a full payment breakdown by mode — cash, card, and online. The report is locked from edits after close, giving you an accurate, tamper-proof financial record every single day. Most businesses replace 30+ minutes of Excel work with a single click.
 
 ---
 
 **Q4: Can we manage multiple branches from one account?**
 
-Yes. Zenly is built multi-branch from the ground up. Each location operates independently — its own staff, schedule, timezone, currency, and service menu. Your admin dashboard consolidates all locations into a single view. Adding a new branch doesn't require a new account, new software, or any engineering work.
+Yes. Zennly is built multi-branch from the ground up. Each location operates independently — its own staff, schedule, timezone, currency, and service menu. Your admin dashboard consolidates all locations into a single view. Adding a new branch doesn't require a new account, new software, or any engineering work.
 
 ---
 
 **Q5: How long does setup take?**
 
-Most businesses are fully live within a day. You add your services, staff profiles, and pricing — Zenly configures itself to your industry type. Our team provides hands-on onboarding support to ensure your setup matches exactly how your business operates, not a generic template.
+Most businesses are fully live within a day. You add your services, staff profiles, and pricing — Zennly configures itself to your industry type. Our team provides hands-on onboarding support to ensure your setup matches exactly how your business operates, not a generic template.
 
 ---
 
@@ -335,7 +335,7 @@ Yes. Each organisation's data is fully isolated — staff and managers only see 
 > Stop running your business on Excel and phone calls.
 
 **Subheadline:**
-> Zenly gives your team the tools to book smarter, operate cleaner, and close every day with confidence.
+> Zennly gives your team the tools to book smarter, operate cleaner, and close every day with confidence.
 
 **Primary CTA:** Book a Demo
 **Secondary CTA:** See It Live →
@@ -415,7 +415,7 @@ Yes. Each organisation's data is fully isolated — staff and managers only see 
 - No "free trial" CTA (per Q2 decision — demo request flow)
 
 ### Placeholder copy (swap before launch)
-- Testimonial quote and name (Priya S.) — crafted placeholder, get real quote from Nuad Thai manager
+- Testimonial quote — crafted placeholder, get a real quote and named attribution from the Nuad Thai owner/manager (currently attributed generically as "Owner, Nuad Thai Spa Kathmandu")
 - Stats (3,200+ bookings, 30 sec close) — replace with live Supabase numbers when available
 - Copyright year — update to current year at launch
 - Blog links — remove or update when blog exists

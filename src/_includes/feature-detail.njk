@@ -1,6 +1,10 @@
 ﻿---
 layout: base.njk
 ---
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema(feature.objections.items) }}
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Features", url: "/features/" }, { name: feature.name, url: "/features/" + feature.slug + "/" }]) }}
 
 <main class="fd-page">
 
@@ -2058,11 +2062,11 @@ layout: base.njk
         {% for item in feature.objections.items %}
         <div class="faq-item reveal" data-delay="{{ loop.index }}" :class="{ 'faq-item--open': open === {{ loop.index0 }} }">
           <button class="faq-item__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
-            {{ item.q }}
+            {{ item.question }}
             <span class="faq-item__icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-item__a" x-show="open === {{ loop.index0 }}" x-cloak x-transition>
-            <p>{{ item.a }}</p>
+            <p>{{ item.answer }}</p>
           </div>
         </div>
         {% endfor %}

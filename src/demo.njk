@@ -1,8 +1,11 @@
 ---
 layout: base.njk
-title: Book a Demo — Zennly
+title: "Book a Demo — Multi-Branch Booking Software | Zennly"
+metaDescription: "Book a 20-minute Zennly demo and see how multi-branch spas, salons and service businesses run booking, staff scheduling, payments and reconciliation."
 bodyClass: page--light-nav
 ---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Book a Demo", url: "/demo/" }]) }}
 
 <main>
 
@@ -150,7 +153,7 @@ bodyClass: page--light-nav
           Book a call directly &rarr;
         </a>
       </div>
-      <a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener" class="bottom-cta__link">See It Live &rarr;</a>
+      <a href="/case-study/" class="bottom-cta__link">See It Live &rarr;</a>
     </div>
   </section>
 

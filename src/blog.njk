@@ -1,8 +1,11 @@
 ﻿---
 layout: base.njk
-title: Blog — Guides for scaling a multi-branch service business | Zennly
+title: "Zennly Blog — Guides for Multi-Branch Spas & Salons"
+metaDescription: "Guides on running multi-branch spas, salons and service businesses — booking, staff scheduling, payments and daily reconciliation."
 bodyClass: page--light-nav page--blog
 ---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }]) }}
 
 <main>
 
@@ -15,6 +18,125 @@ bodyClass: page--light-nav page--blog
       </div>
 
       <div class="blog-idx-rows reveal">
+
+        <a href="/blog/how-to-manage-a-spa-in-nepal" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-spa.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Spa &amp; Wellness</p>
+              <h3 class="blog-idx-row__h3">How to manage a spa in Nepal: bookings, therapists and rooms</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>5 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/salon-booking-system-nepal" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-salon.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Salons</p>
+              <h3 class="blog-idx-row__h3">How to take salon and beauty parlour bookings without phone calls</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>4 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/tattoo-studio-booking-and-deposits" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-tattoo.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Tattoo Studios</p>
+              <h3 class="blog-idx-row__h3">How tattoo studios can manage artist schedules and deposits</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>4 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/gym-management-nepal" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-fitness.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Gyms &amp; Fitness</p>
+              <h3 class="blog-idx-row__h3">Gym management in Nepal: classes, trainers and memberships in one place</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>4 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/physiotherapy-clinic-scheduling" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-spa.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Physiotherapy</p>
+              <h3 class="blog-idx-row__h3">How physiotherapy clinics can keep a treatment course on schedule</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>4 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/cleaning-service-scheduling" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-salon.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Cleaning Services</p>
+              <h3 class="blog-idx-row__h3">How cleaning companies can schedule crews and track jobs on site</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>4 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/how-to-choose-booking-software-nepal" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/feat-hero-dashboard.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Buying Guide</p>
+              <h3 class="blog-idx-row__h3">How to choose booking software for a spa, salon or gym in Nepal</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>5 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
 
         <a href="/blog/spreadsheets-stop-working" class="blog-idx-row">
           <div class="blog-idx-row__img-wrap">
