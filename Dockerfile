@@ -4,6 +4,10 @@ COPY package.json package-lock.json ./
 RUN npm ci
 COPY src/ src/
 COPY .eleventy.js tailwind.config.js postcss.config.js ./
+# Production by default; the staging compose file passes ELEVENTY_ENV=development
+# so staging emits Disallow-all robots.txt, noindex meta and staging canonicals.
+ARG ELEVENTY_ENV=production
+ENV ELEVENTY_ENV=$ELEVENTY_ENV
 RUN npm run build
 
 FROM nginx:alpine

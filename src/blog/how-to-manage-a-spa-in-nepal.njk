@@ -1,0 +1,60 @@
+---
+layout: base.njk
+title: "Spa Management in Nepal: Bookings & Therapists | Zennly"
+metaDescription: "A practical guide to managing a spa or wellness centre in Nepal: bookings, therapist and room scheduling, discount control and daily revenue close."
+datePublished: "2026-09-30"
+ogType: article
+bodyClass: page--light-nav
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "How to manage a spa in Nepal: bookings, therapists and rooms", url: page.url }]) }}
+{% from "schema/article.njk" import articleSchema with context %}
+{{ articleSchema("How to manage a spa in Nepal: bookings, therapists and rooms", datePublished, page.url, metaDescription) }}
+
+<main>
+
+  <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="article-hero reveal">
+      <a href="/blog" class="article-back-link">&larr; Back to Blog</a>
+      <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Spa &amp; Wellness</p>
+      <h1 class="article-hero__h1">How to manage a spa in Nepal: bookings, therapists and rooms</h1>
+      <p class="article-hero__meta">5 min read</p>
+    </div>
+  </section>
+
+  <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="article-body reveal">
+
+<p>A spa looks calm from the outside. Behind the front desk, three things have to line up for every single treatment: a free therapist, a free room, and a time the guest can actually make. When any one of them is tracked in a notebook, a WhatsApp thread or someone&rsquo;s memory, things slip.</p>
+<p>This is a practical guide to running a spa or wellness centre in Nepal without those slips &ndash; whether you have one branch in Kathmandu or several across the valley.</p>
+<h2>1. Treat the therapist and the room as one booking</h2>
+<p>The most common spa mistake is booking a time slot without checking who and where. A guest is confirmed for 4 pm, but the therapist is on a break and the only free room is being cleaned. Good spa management software checks the guest, the therapist, the room and the time together, and refuses a booking that would clash. That is what <a href="/features/booking/">conflict-free booking</a> means in practice.</p>
+<h2>2. Let guests book without a phone call</h2>
+<p>Every booking that needs a phone call is a booking that competes with the call before it. Online booking lets guests choose a branch, a treatment and a time at any hour, and receive a booking number straight away. Your front desk then handles walk-ins and arrivals instead of answering the phone all day.</p>
+<h2>3. Put discounts through an approval step</h2>
+<p>Spas discount constantly: regulars, packages, slow afternoons. The risk is not the discount, it is the missing record. Have staff request a discount and let a manager approve it, with the amount logged. Our guide on <a href="/blog/discount-leakage/">discount leakage</a> covers why this matters for margin.</p>
+<h2>4. Record payment at the point of service</h2>
+<p>If payment is written down later, the day never quite adds up. Record cash, card and online payments against the booking as the guest pays, including part-payments. At closing time you are confirming numbers, not reconstructing them. See <a href="/blog/daily-reconciliation/">what daily reconciliation should actually take</a>.</p>
+<h2>5. Give owners one view across branches</h2>
+<p>Once you have a second branch, the owner needs one place to see bookings, staff and revenue for every location. Otherwise you are calling each branch manager for the same numbers every evening.</p>
+<h2>What this looks like in practice</h2>
+<p>Nuad Thai Spa in Kathmandu runs four branches, 39 therapists and 12 rooms this way &ndash; read the <a href="/case-study/">case study</a>. If you want to see it for your own spa, <a href="/solutions/spa/">explore Zennly for spas and wellness centres</a>.</p>
+
+    </div>
+  </section>
+
+  <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
+  <section class="bottom-cta" id="demo">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">Running a spa or wellness centre?</h2>
+      <p class="bottom-cta__sub">Book a 20-minute demo and see spa booking and management in Zennly.</p>
+      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
+  {% include "_footer-v2.njk" %}
+
+</main>

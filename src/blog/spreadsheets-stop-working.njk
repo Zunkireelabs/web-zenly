@@ -1,8 +1,15 @@
 ﻿---
 layout: base.njk
 title: Why spreadsheets stop working after your second branch | Zennly
+metaDescription: "Spreadsheets work fine for one location. Here's exactly where they break down once a service business opens a second branch, and what replaces them."
+datePublished: "2026-07-17"
+ogType: article
 bodyClass: page--light-nav
 ---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: title, url: page.url }]) }}
+{% from "schema/article.njk" import articleSchema with context %}
+{{ articleSchema(title, datePublished, page.url, metaDescription) }}
 
 <main>
 

@@ -1,0 +1,57 @@
+---
+layout: base.njk
+title: "Tattoo Studio Booking & Deposits in Nepal | Zennly"
+metaDescription: "How tattoo studios in Nepal can manage artist calendars, consultations and deposits so long sessions don't clash and no-shows cost less."
+datePublished: "2026-09-30"
+ogType: article
+bodyClass: page--light-nav
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "How tattoo studios can manage artist schedules and deposits", url: page.url }]) }}
+{% from "schema/article.njk" import articleSchema with context %}
+{{ articleSchema("How tattoo studios can manage artist schedules and deposits", datePublished, page.url, metaDescription) }}
+
+<main>
+
+  <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="article-hero reveal">
+      <a href="/blog" class="article-back-link">&larr; Back to Blog</a>
+      <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Tattoo Studios</p>
+      <h1 class="article-hero__h1">How tattoo studios can manage artist schedules and deposits</h1>
+      <p class="article-hero__meta">4 min read</p>
+    </div>
+  </section>
+
+  <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="article-body reveal">
+
+<p>A tattoo appointment is not a haircut. Sessions run for hours, some designs take several visits, and the artist you book is the whole point. That makes scheduling unusually unforgiving: a clash costs an artist half a day.</p>
+<h2>Schedule by artist, not by studio</h2>
+<p>Clients ask for a specific artist, so the calendar has to be per artist. A booking system should show each artist&rsquo;s day, block the right amount of time for the session, and stop anyone else booking over it.</p>
+<h2>Separate consultations from sessions</h2>
+<p>A short consultation and a four-hour session need different amounts of time. Set them up as different services with their own durations, so the calendar reflects reality and artists are not surprised by their day.</p>
+<h2>Take deposits seriously</h2>
+<p>Deposits protect the studio from no-shows. Whatever amount you ask for, record it against the booking at the time, and record the balance when the session is done. Payments made in parts are common in this trade, so make sure your system handles part-payments rather than one lump sum.</p>
+<h2>Handle walk-ins without breaking the calendar</h2>
+<p>Walk-ins are part of studio life. The important thing is that a walk-in is entered into the same calendar as everything else, so an artist is never promised to two people at once.</p>
+<h2>Keep a record you can trust</h2>
+<p>When every booking, deposit and payment sits in one place, the end of the day is a check, not a search through messages. <a href="/solutions/tattoo/">See how Zennly works for tattoo studios</a>.</p>
+
+    </div>
+  </section>
+
+  <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
+  <section class="bottom-cta" id="demo">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">Running a tattoo studio?</h2>
+      <p class="bottom-cta__sub">Book a 20-minute demo and see artist scheduling and payment tracking in Zennly.</p>
+      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
+  {% include "_footer-v2.njk" %}
+
+</main>

@@ -1,0 +1,38 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organization",
+      "name": "{{ site.name }}",
+      "url": "{{ site.url }}/",
+      "description": {{ site.defaultDescription | dump | safe }},
+      "areaServed": { "@type": "Country", "name": "Nepal" },
+      "parentOrganization": { "@type": "Organization", "name": "Zunkireelabs", "url": "https://zunkireelabs.com" }{% if site.sameAs and site.sameAs.length %},
+      "sameAs": {{ site.sameAs | dump | safe }}{% endif %}
+    },
+    {% if page.url == "/" %}{
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "{{ site.name }}",
+      "inLanguage": "en",
+      "publisher": { "@id": "{{ site.url }}/#organization" }
+    },
+    {% endif %}{
+      "@type": "SoftwareApplication",
+      "@id": "{{ site.url }}/#software",
+      "name": "{{ site.name }}",
+      "url": "{{ site.url }}/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": {{ site.defaultDescription | dump | safe }},
+      "inLanguage": "en",
+      "audience": { "@type": "BusinessAudience", "audienceType": "Spas, salons, tattoo studios, gyms, physiotherapy clinics and cleaning services" },
+      "areaServed": { "@type": "Country", "name": "Nepal" },
+      "publisher": { "@id": "{{ site.url }}/#organization" }
+    }
+  ]
+}
+</script>
