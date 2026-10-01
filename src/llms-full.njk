@@ -1,0 +1,34 @@
+---
+permalink: /llms-full.txt
+eleventyExcludeFromCollections: true
+---
+# Zennly — full reference
+
+Zennly is a multi-branch booking and operations platform for appointment-based service businesses in Nepal (spas, salons, tattoo studios, gyms, physiotherapy clinics, cleaning services). Founded 2026. Contact: info@zennly.io. Website: {{ site.url }}/ — Demo: {{ site.url }}/demo/ — Pricing: contact for a quote.
+
+## What it does
+- Online booking with conflict prevention: staff member, room and time are booked together; clashes are refused at database level, even across branches.
+- Staff, therapist and room scheduling, including scheduled staff transfers between branches.
+- Discount requests by staff with manager approval and a full audit trail.
+- Payment tracking by method (cash, card, online), including part-payments, recorded at point of service.
+- Daily revenue reconciliation and a locked daily close.
+- Role-based access for owners, managers and front desk.
+- Reports: revenue, staff performance, discounts, attendance, referrals.
+- Multi-branch dashboard for owners.
+
+## What it does not claim
+No fixed public pricing tiers, no free plan, no public API, no mobile-wallet payment integrations are advertised.
+
+## Proof
+Live at Nuad Thai Spa Kathmandu: 4 branches, 39 therapists, 12 rooms, 194 services. {{ site.url }}/case-study/
+
+## Industries
+{% for s in solutions %}- {{ s.name or s.title or s.slug }}: {{ site.url }}/solutions/{{ s.slug }}/
+{% endfor %}
+## Glossary
+{% for t in glossary %}- {{ t.term }}: {{ t.definition | safe }}
+{% endfor %}
+## Links
+- About: {{ site.url }}/about/
+- Glossary: {{ site.url }}/glossary/
+- Blog guides: {{ site.url }}/blog/

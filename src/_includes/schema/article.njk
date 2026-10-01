@@ -1,4 +1,4 @@
-{% macro articleSchema(headline, datePublished, url, description) %}
+{% macro articleSchema(headline, datePublished, url, description, dateModified) %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -6,10 +6,10 @@
   "headline": {{ headline | dump | safe }},
   "description": {{ description | dump | safe }},
   "datePublished": "{{ datePublished }}",
-  "dateModified": "{{ datePublished }}",
+  "dateModified": "{{ dateModified or datePublished }}",
   "image": "{{ site.url }}{{ site.defaultOgImage }}",
   "inLanguage": "en",
-  "author": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}/" },
+  "author": { "@type": "Organization", "@id": "{{ site.url }}/#organization", "name": "{{ site.name }}", "url": "{{ site.url }}/about/" },
   "publisher": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}/" },
   "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ site.url }}{{ url }}" }
 }

@@ -8,8 +8,12 @@
       "name": "{{ site.name }}",
       "url": "{{ site.url }}/",
       "description": {{ site.defaultDescription | dump | safe }},
+      "foundingDate": "{{ site.foundingDate }}",
+      "slogan": {{ site.slogan | dump | safe }},
+      "logo": { "@type": "ImageObject", "url": "{{ site.url }}{{ site.logo }}" },
+      "knowsAbout": ["Appointment scheduling software", "Multi-branch booking", "Spa management software", "Salon booking software", "Gym management software", "Staff scheduling", "Daily revenue reconciliation", "Discount approval workflows"],
       "areaServed": { "@type": "Country", "name": "Nepal" },
-      "parentOrganization": { "@type": "Organization", "name": "Zunkireelabs", "url": "https://zunkireelabs.com" }{% if site.sameAs and site.sameAs.length %},
+      "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "email": "info@zennly.io", "areaServed": "NP", "availableLanguage": "English" }{% if site.sameAs and site.sameAs.length %},
       "sameAs": {{ site.sameAs | dump | safe }}{% endif %}
     },
     {% if page.url == "/" %}{

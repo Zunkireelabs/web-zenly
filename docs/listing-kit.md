@@ -18,11 +18,12 @@ Purpose: backlinks + citations + brand mentions that help Zennly rank in Nepal a
 | Product name | Zennly |
 | Website | https://zennly.io |
 | Demo / contact link | https://zennly.io/demo/ |
-| Contact email | info.zunkireelabs@gmail.com |
-| Company / builder | Zunkireelabs (https://zunkireelabs.com) |
+| Contact email | info@zennly.io |
+| Company | Zennly — a product made by Zunkireelabs (https://zunkireelabs.com) |
+| Launched | 2026 |
 | Country / market | Nepal |
 | Category | Appointment scheduling; Business management software; Salon & spa software; Gym / fitness software |
-| Pricing | Custom quote, based on branches, team size and features (no fixed tiers) |
+| Pricing | Not published yet — leave pricing blank / "contact for quote" on listings |
 | Platform | Web (browser-based) |
 | Open API | No |
 | Customers | Nuad Thai Spa Kathmandu — 4 branches, 39 therapists, 12 rooms, 194 services (live client; get their OK before naming them on third-party sites) |
@@ -72,10 +73,10 @@ Do the free ones first. Check each site's current rules; some review/marketplace
 
 | # | Site | Why | Notes |
 |---|---|---|---|
-| 1 | Google Business Profile | Local pack + brand panel | Needs a real Nepal business address / service area; use the company's, not Nuad Thai's |
+| 1 | Google Business Profile | Local pack + brand panel | DONE — created (https://share.google/BgkNn87IT8ReCAgUt) |
 | 2 | Yellow Pages Nepal | Listed competitors already rank here | Free listing; use NAP above |
 | 3 | Inquiry Nepal | Same | Free listing |
-| 4 | LinkedIn Company page (Zennly, or under Zunkireelabs) | Strong brand signal; quoted by AI engines | Add website + description; link from site later |
+| 4 | LinkedIn Company page (Zennly as its own page; mention "a Zunkireelabs product") | Strong brand signal; quoted by AI engines | Add website + description; link from site later |
 | 5 | Facebook Business page | Very common in Nepal; local trust | Same NAP |
 | 6 | Capterra / GetApp / Software Advice | Software comparison buyers | Category: Appointment Scheduling, Salon/Spa software; answer "Open API?" = No |
 | 7 | G2 | Review site AI engines cite | Needs reviews to matter |
