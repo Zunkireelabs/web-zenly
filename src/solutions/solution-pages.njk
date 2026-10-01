@@ -3,9 +3,11 @@ pagination:
   data: solutions
   size: 1
   alias: solution
+  addAllPagesToCollections: true
 permalink: "/solutions/{{ solution.slug }}/"
 layout: solution-detail.njk
 eleventyComputed:
-  title: "{{ solution.name }} — Zenly"
+  title: "{{ (solution.seoTitle or (solution.name + ' — Zennly')) | safe }}"
+  metaDescription: "{{ solution.metaDescription | safe }}"
   bodyClass: "page--light-nav"
 ---

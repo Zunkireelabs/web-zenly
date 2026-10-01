@@ -1,4 +1,49 @@
+const path = require("path");
+const Image = require("@11ty/eleventy-img");
+const { generateHTML } = Image;
+
+// Converts local /assets/images/*.png|jpg screenshots to WebP at their native
+// resolution (no downscaling) so visual quality/pixel dimensions are
+// unchanged, but file weight drops sharply — this is what was causing slow /
+// broken-looking image loads in production. Already-optimized remote URLs
+// (e.g. Unsplash links with their own ?w=&q= params) are left untouched.
+async function imageShortcode(src, alt, attrs = {}) {
+  if (!src) return "";
+
+  const isRemote = /^https?:\/\//.test(src);
+  if (isRemote && src.includes("?")) {
+    // Already served through an image CDN with its own sizing/quality params.
+    const rest = Object.entries(attrs)
+      .map(([key, value]) => (value === undefined || value === null ? "" : ` ${key}="${value}"`))
+      .join("");
+    return `<img src="${src}" alt="${alt || ""}"${rest}>`;
+  }
+
+  const inputPath = isRemote ? src : path.join(__dirname, "src", src);
+
+  const metadata = await Image(inputPath, {
+    widths: [480, 768, 1024, 1600, null], // responsive srcset; null keeps a native-size fallback
+    formats: ["webp"],
+    outputDir: "./_site/assets/images/optimized/",
+    urlPath: "/assets/images/optimized/",
+    sharpWebpOptions: { quality: 90, effort: 6 },
+    filenameFormat: (id, filePath, width, format) => {
+      const name = path.basename(filePath, path.extname(filePath)).replace(/[^a-z0-9-]/gi, "-");
+      return `${name}-${id}.${format}`;
+    }
+  });
+
+  const imageAttributes = Object.assign(
+    { alt: alt || "", loading: "lazy", decoding: "async", sizes: "100vw" },
+    attrs
+  );
+
+  return generateHTML(metadata, imageAttributes);
+}
+
 module.exports = function (eleventyConfig) {
+
+  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
 

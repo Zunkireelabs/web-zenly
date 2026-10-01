@@ -141,7 +141,7 @@ Just accurate numbers, available whenever you need them.
 **"We already track payments in another system."**
 If your current process doesn't connect payments to individual bookings, therapists, services, and branches in real time, you're only storing transactions.
 
-Zenly connects every payment to the work that generated it, giving you operational insight — not just accounting records.
+Zennly connects every payment to the work that generated it, giving you operational insight — not just accounting records.
 
 **"What happens if a customer only pays part of the amount?"**
 Partial payments are supported as part of the normal workflow.

@@ -1,4 +1,4 @@
-# Zenly Landing Page — Design Brief & Content Plan
+# Zennly Landing Page — Design Brief & Content Plan
 
 **Status:** Approved  
 **Last updated:** 2026-06-11  
@@ -8,7 +8,7 @@
 
 ## 1. What We're Building and Who It's For
 
-**Product:** Zenly — a multi-tenant booking and operations platform. Not a calendar widget. Three value pillars: online booking (customer-facing 6-step flow) + operational control (staff/manager dashboards, real-time scheduling) + financial clarity (daily revenue reconciliation, discount audit trail, payment breakdown). Replaces Excel + phone bookings + disconnected tools with one system.
+**Product:** Zennly — a multi-tenant booking and operations platform. Not a calendar widget. Three value pillars: online booking (customer-facing 6-step flow) + operational control (staff/manager dashboards, real-time scheduling) + financial clarity (daily revenue reconciliation, discount audit trail, payment breakdown). Replaces Excel + phone bookings + disconnected tools with one system.
 
 **Buyer (landing page target):** Service business owners and branch managers — spa owners, salon operators, clinic managers — who are currently running operations on Excel and managing bookings by phone. They feel the pain of manual reconciliation, double-bookings, no audit trail.
 
@@ -91,7 +91,7 @@
 
 | # | Section | Notes |
 |---|---------|-------|
-| 1 | **Nav** | "Zenly" text wordmark \| Product / Industries / Pricing / Demo \| Sign In + "Book a Demo" |
+| 1 | **Nav** | "Zennly" text wordmark \| Product / Industries / Pricing / Demo \| Sign In + "Book a Demo" |
 | 2 | **Hero** | Left-aligned H1 (Playfair Display) + sub + dual CTAs + meta text + full-width booking UI screenshot |
 | 3 | **Trust band** | "Trusted by service businesses that can't afford mistakes." + Nuad Thai callout |
 | 4 | **3-Pillar value prop** | Booking / Operations / Financial Clarity — 3-column cards |
@@ -112,7 +112,7 @@
 **Headline:**
 > "Your customers book online. Your team runs smarter."
 
-**Why it won:** Only option that addresses both audiences (customers + staff) simultaneously — which is Zenly's actual differentiator over Calendly/lightweight tools.
+**Why it won:** Only option that addresses both audiences (customers + staff) simultaneously — which is Zennly's actual differentiator over Calendly/lightweight tools.
 
 **Subheadline:**
 > "Online booking, staff dashboards, and daily revenue reconciliation — in one platform built for any appointment-based business."
@@ -129,12 +129,12 @@
 ## 5. Content Spec
 
 ### Value Prop Framing
-> "Zenly isn't a booking widget. It's the complete operating system for your service business — from the first customer booking to the daily revenue close."
+> "Zennly isn't a booking widget. It's the complete operating system for your service business — from the first customer booking to the daily revenue close."
 
 ### Social Proof (Placeholder — swap before launch)
 
 **Testimonial:**
-> "We had 39 therapists and 12 rooms to coordinate every day. Scheduling conflicts, payment gaps, and end-of-day reconciliation were constant headaches. Zenly replaced all of it. The daily close alone saves me over an hour every single night."
+> "We had 39 therapists and 12 rooms to coordinate every day. Scheduling conflicts, payment gaps, and end-of-day reconciliation were constant headaches. Zennly replaced all of it. The daily close alone saves me over an hour every single night."
 >
 > — Anish M., Operations Manager, Nuad Thai Spa
 
@@ -166,10 +166,10 @@
 | Pricing model | No public pricing — "Custom quote" section |
 | Primary CTA | "Book a Demo" → contact/quote form |
 | Geographic positioning | Global — no geographic framing |
-| Brand name | Just "Zenly" — name stands alone |
+| Brand name | Just "Zennly" — name stands alone |
 | Vertical focus | Lead with Spa / Salon / Dental + 5 overflow |
 | Social proof | Crafted Nuad Thai placeholder — swap before launch |
-| Logo | Text wordmark "Zenly" — no image asset |
+| Logo | Text wordmark "Zennly" — no image asset |
 | Live demo URL | `https://zenly.zunkireelabs.com` |
 
 ---

@@ -1,12 +1,12 @@
-
-  # CONTEXT.md — Zenly Landing Page Brief                                                                                                                       
+﻿
+  # CONTEXT.md — Zennly Landing Page Brief                                                                                                                       
                                                                                                                                                                 
   ---
                                                                                                                                                                 
   ## PRODUCT                                                                                                                                                  
 
   **What it does (one sentence):**                                                                                                                              
-  Zenly is a multi-tenant booking and operations platform that lets customers book appointments online while giving staff, managers, and admins a unified ERP
+  Zennly is a multi-tenant booking and operations platform that lets customers book appointments online while giving staff, managers, and admins a unified ERP
   for managing bookings, staff, locations, payments, and daily reconciliation — for any appointment-based service business.                                     
                                                                                                                                                               
   **Core problem it solves:**                                                                                                                                   
@@ -90,7 +90,7 @@
                                                                                                                                                                 
   ## PLATFORM SCOPE — GENERIC MULTI-VERTICAL                                                                                                                  
 
-  Zenly is NOT spa-only. The architecture is a **multi-vertical, multi-tenant booking platform** that can serve any appointment-based service business. The spa 
+  Zennly is NOT spa-only. The architecture is a **multi-vertical, multi-tenant booking platform** that can serve any appointment-based service business. The spa 
   (Nuad Thai) is the first live tenant — not the product definition.
                                                                                                                                                                 
   ### Industries Already Supported (via config only, zero code changes)                                                                                         
@@ -169,7 +169,7 @@
    
   **Secondary CTAs:**                                                                                                                                           
   - "See It Live" → link to Nuad Thai booking flow as live demo                                                                                               
-  - "Get Zenly for Your Business" → vertical-specific landing or contact form                                                                                   
+  - "Get Zennly for Your Business" → vertical-specific landing or contact form                                                                                   
                                                                                                                                                                 
   ---                                                                                                                                                           
                                                                                                                                                                 
@@ -184,7 +184,7 @@
   - "Need Help? We're here for you."                                                                                                                            
                                                                                                                                                                 
   **Existing taglines/copy:**                                                                                                                                   
-  - Brand name: **Zenly**                                                                                                                                     
+  - Brand name: **Zennly**                                                                                                                                     
   - Subtitle seen in UI: "AI Booking Engine"                                                                                                                    
   - Footer: "Nepal's premier spa booking platform" *(update for generic positioning)*                                                                           
   - Help section: "Need Help?" with call/email/chat                                                                                                             
@@ -200,17 +200,29 @@
   2. **Operational Control** — Real-time schedules, staff dashboards, discount governance                                                                       
   3. **Financial Clarity** — Daily revenue close, payment tracking, full audit trail                                                                            
    
-  **Brand colors:**                                                                                                                                             
-  | Token | Hex | Usage |                                                                                                                                     
-  |-------|-----|-------|                                                                                                                                       
-  | Primary | `#2D5A27` | Deep forest green — brand primary |
-  | Secondary | `#8B4513` | Warm earth brown |                                                                                                                  
-  | Accent | `#DAA520` | Refined gold |                                                                                                                         
-  | Background | `#FAFAF9` | Off-white page background |                                                                                                        
-  | Surface | `#FFFFFF` | Cards / panels |                                                                                                                      
-  | Success | `#10B981` | Emerald green |                                                                                                                     
-  | Warning | `#D97706` | Amber |                                                                                                                               
-  | Error | `#DC2626` | Red |                                                                                                                                   
+  **Brand colors (homepage — `src/index.njk`, `--v2-*` tokens):**
+  | Token | Hex | Usage |
+  |-------|-----|-------|
+  | Background | `#FFFFFF` | Page background |
+  | Background Alt / Accent | `#ECF7BD` | Lime accent — chips, highlight cards |
+  | Ink (text) | `#2E1919` | Primary text color |
+  | Ink Soft | `rgba(46,25,25,0.62)` | Secondary text |
+  | Muted | `rgba(46,25,25,0.42)` | Tertiary / metadata text |
+  | Card | `#FFFFFF` | Card surfaces |
+  | Accent Ink | `#2E1919` | Text on accent surfaces |
+  | Link | `#38430A` | Links, emphasis text |
+  | Line / Border | `rgba(46,25,25,0.12)` | Dividers, rule lines |
+  | Sage (brand) | `#3F6839` | Zennly forest green — retained brand accent |
+  | Sage Tint | `rgba(63,104,57,0.08)` | Subtle brand wash |
+
+  **Legacy brand colors (used on other pages via `main.css`, not the homepage):**
+  | Token | Hex | Usage |
+  |-------|-----|-------|
+  | Secondary | `#8B4513` | Warm earth brown |
+  | Accent | `#DAA520` | Refined gold |
+  | Success | `#10B981` | Emerald green |
+  | Warning | `#D97706` | Amber |
+  | Error | `#DC2626` | Red |
    
   **Typography:**                                                                                                                                               
   | Family | Font | Usage |                                                                                                                                   
@@ -249,7 +261,7 @@
   - **Target verticals for launch** — Market to all verticals at once, or start with 2–3 anchor verticals?
   - **Pricing model** — Per-branch SaaS? Per-booking fee? Flat monthly?                                                                                         
   - **Onboarding story** — Self-serve signup or white-glove setup?     
-  - **Brand name** — Is "Zenly" the product? Or "Zenly Booking" / "Zenly ERP"?                                                                                  
+  - **Brand name** — Is "Zennly" the product? Or "Zennly Booking" / "Zennly ERP"?                                                                                  
   - **Geographic focus** — Nepal-first, or positioning for international markets?                                                                             
   - **Social proof** — Nuad Thai as hero case study; any others live or in pipeline?                                                                            
   - **Primary CTA** — Free trial self-serve, or demo-request sales flow?

@@ -1,6 +1,11 @@
----
+﻿---
 layout: base.njk
 ---
+
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema(solution.faq) }}
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Solutions", url: "/solutions/" }, { name: solution.name, url: "/solutions/" + solution.slug + "/" }]) }}
 
 {% macro stripIcon(name) %}
   {% if name == 'massage' %}
@@ -23,6 +28,14 @@ layout: base.njk
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-1.5-4-3-6.5-3-9a3 3 0 0 1 6 0c0 2.5-1.5 5-3 9Z"/><path d="M9 3.5c1 1 1.5 2 1.5 3M15 3.5c-1 1-1.5 2-1.5 3"/></svg>
   {% else %}
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c1.5-3 2.5-3 4 0s2.5 3 4 0-1-3 .5-6M13 12c1.5-3 2.5-3 4 0s2.5 3 4 0"/></svg>
+  {% endif %}
+{% endmacro %}
+
+{% macro heroBadgeIcon(name) %}
+  {% if name == 'calendar' %}
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+  {% else %}
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
   {% endif %}
 {% endmacro %}
 
@@ -96,6 +109,24 @@ layout: base.njk
       <span class="soln-visual__badge-dot" aria-hidden="true"></span>
       {{ data.badgeLabel if data else 'Transfer' }} &middot; <strong>{{ data.badgeValue if data else 'Scheduled' }}</strong>
     </div>
+  {% elif visual == 'golive' %}
+    <div class="soln-visual__card soln-visual__card--golive">
+      <div class="soln-visual__golive-top">
+        <span class="soln-visual__golive-label">New booking</span>
+        <span class="soln-visual__golive-time">Just now</span>
+      </div>
+      <p class="soln-visual__golive-client">{{ data.client if data else 'Priya Sharma' }}</p>
+      <p class="soln-visual__golive-service">{{ data.service if data else 'Cut &amp; Colour, 4:30 PM' }}</p>
+      <div class="soln-visual__golive-divider"></div>
+      <div class="soln-visual__golive-pay">
+        <span class="soln-visual__golive-amount">{{ data.amount if data else 'NPR 1,800' }}</span>
+        <span class="soln-visual__golive-paid">Paid</span>
+      </div>
+    </div>
+    <div class="soln-visual__badge">
+      <span class="soln-visual__badge-dot" aria-hidden="true"></span>
+      Booked online &middot; <strong>Payment recorded</strong>
+    </div>
   {% else %}
     <div class="soln-visual__card soln-visual__card--mobile">
       <div class="soln-visual__mobile-stat"><strong>12</strong><span>Pending</span></div>
@@ -109,7 +140,7 @@ layout: base.njk
   {% endif %}
 {% endmacro %}
 
-<main class="soln">
+<main class="soln" data-slug="{{ solution.slug }}">
 
   <!-- ── HERO (Acuity-style: full-bleed photo + floating calendar card) ─── -->
   {% if solution.slug == 'tattoo' %}
@@ -125,7 +156,7 @@ layout: base.njk
 
       <div class="soln-photohero__photocard-wrap">
         <div class="soln-photohero__photocard reveal-scale" data-delay="1">
-          <img src="{{ solution.hero.image }}" alt="{{ solution.hero.imageAlt }}" class="soln-photohero__photocard-img" loading="eager">
+          {% image solution.hero.image, solution.hero.imageAlt, { class: "soln-photohero__photocard-img", loading: "eager" } %}
         </div>
 
         {% if solution.heroTreatments %}
@@ -138,7 +169,7 @@ layout: base.njk
   </section>
   {% else %}
   <section class="soln-photohero">
-    <img src="{{ solution.hero.image }}" alt="{{ solution.hero.imageAlt }}" class="soln-photohero__bg" loading="eager">
+    {% image solution.hero.image, solution.hero.imageAlt, { class: "soln-photohero__bg", loading: "eager" } %}
     <div class="soln-photohero__scrim" aria-hidden="true"></div>
 
     <div class="soln-photohero__inner">
@@ -193,6 +224,17 @@ layout: base.njk
       {{ heroStrip(solution.heroTreatments) }}
     </div>
     {% endif %}
+
+    {% if solution.heroBadges %}
+    <div class="soln-photohero__badges">
+      {% for badge in solution.heroBadges %}
+      <div class="soln-photohero__badge soln-photohero__badge--{{ badge.style }} soln-photohero__badge--{{ loop.index }} reveal-scale" data-delay="{{ loop.index }}">
+        <span class="soln-photohero__badge-icon" aria-hidden="true">{{ heroBadgeIcon(badge.icon) }}</span>
+        {{ badge.label }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
   </section>
   {% endif %}
 
@@ -210,7 +252,7 @@ layout: base.njk
         <div class="soln-row__visual">
           {% if item.image %}
           <div class="soln-visual soln-visual--{{ item.visual }} soln-visual--photo">
-            <img src="{{ item.image }}" alt="{{ item.imageAlt }}" class="soln-visual__photo" loading="lazy" style="object-position: center {{ item.imageFocus or '0%' }};">
+            {% image item.image, item.imageAlt, { class: "soln-visual__photo", loading: "lazy", style: "object-position: center " ~ (item.imageFocus or '0%') ~ ";" ~ (" object-fit: " ~ item.imageFit ~ ";" if item.imageFit else "") } %}
           </div>
           {% else %}
           <div class="soln-visual soln-visual--{{ item.visual }}">
@@ -298,6 +340,15 @@ layout: base.njk
           <span class="soln-sscroll__item-num">{{ step.num }}</span>
           <h3 class="soln-sscroll__item-title">{{ step.title }}</h3>
           <p class="soln-sscroll__item-desc">{{ step.desc }}</p>
+          <!-- Mobile-only: each step gets its own card right below it instead
+               of the desktop scroll-synced swap (see .soln-sscroll__item-visual
+               media query) — hidden on desktop where the sticky visual-col
+               below already covers this. -->
+          <div class="soln-sscroll__item-visual">
+            <div class="soln-visual">
+              {{ solnVisual(step.visual) }}
+            </div>
+          </div>
         </div>
         {% endfor %}
       </div>
@@ -320,17 +371,17 @@ layout: base.njk
   <!-- ── SOCIAL PROOF ─────────────────────────────────────────────────── -->
   <section class="soln-proof">
     <div class="soln-proof__inner reveal">
-      <p class="soln-proof__eyebrow">Live on Zenly</p>
+      <p class="soln-proof__eyebrow">Live on Zennly</p>
       <h2 class="soln-proof__h2">The same system, already running a real, multi-branch business.</h2>
 
-      <a href="{{ solution.testimonial.href }}" class="soln-proof__card">
+      <{% if solution.testimonial.href %}a href="{{ solution.testimonial.href }}"{% else %}div{% endif %} class="soln-proof__card">
         <p class="soln-proof__quote">&ldquo;{{ solution.testimonial.quote }}&rdquo;</p>
         <div class="soln-proof__author">
           <strong>{{ solution.testimonial.author }}, {{ solution.testimonial.business }}</strong>
           <span>{{ solution.testimonial.meta }}</span>
         </div>
-        <span class="soln-proof__link">Read the case study &rarr;</span>
-      </a>
+        {% if solution.testimonial.href %}<span class="soln-proof__link">Read the case study &rarr;</span>{% endif %}
+      </{% if solution.testimonial.href %}a{% else %}div{% endif %}>
     </div>
   </section>
 
@@ -344,11 +395,11 @@ layout: base.njk
         {% for item in solution.faq %}
         <div class="soln-faq__item reveal" :class="{ 'soln-faq__item--open': open === {{ loop.index0 }} }">
           <button class="soln-faq__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
-            {{ item.q }}
+            {{ item.question }}
             <span class="soln-faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="soln-faq__a" x-show="open === {{ loop.index0 }}" x-cloak x-transition>
-            <p>{{ item.a }}</p>
+            <p>{{ item.answer }}</p>
           </div>
         </div>
         {% endfor %}
@@ -367,67 +418,6 @@ layout: base.njk
   </section>
 
   <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
-  <footer class="footer">
-    <div class="footer__inner">
-
-      <div class="footer__col footer__col--brand">
-        <a href="/" class="footer__logo">Zenly</a>
-        <p class="footer__tagline">Online booking, operational control, and financial clarity &mdash; for any appointment-based business.</p>
-        <div class="footer__status">
-          <span class="live-dot"></span>
-          <span>All systems operational</span>
-        </div>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Product</div>
-        <ul class="footer__links">
-          <li><a href="/features/booking">Online Booking</a></li>
-          <li><a href="/features/operational-visibility">Operations</a></li>
-          <li><a href="/features/payment-tracking">Finance</a></li>
-          <li><a href="/features/reports">Reports</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Use Cases</div>
-        <ul class="footer__links">
-          <li><a href="/solutions/spa">Spas & Wellness</a></li>
-          <li><a href="/solutions/salon">Hair & Nail Salons</a></li>
-          <li><a href="/solutions/tattoo">Tattoo Studios</a></li>
-          <li><a href="/solutions/fitness">Fitness & PT</a></li>
-          <li><a href="/solutions/physiotherapy">Physiotherapy</a></li>
-          <li><a href="/solutions/cleaning">Cleaning Service</a></li>
-          <li><a href="/solutions">More verticals</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Company</div>
-        <ul class="footer__links">
-          <li><a href="#demo">Book a Demo</a></li>
-          <li><a href="https://zenly.zunkireelabs.com" target="_blank" rel="noopener">See It Live</a></li>
-          <li><a href="mailto:info.zunkireelabs@gmail.com">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Legal</div>
-        <ul class="footer__links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer__bottom">
-      <div class="footer__inner">
-        <span class="footer__copy">&copy; 2026 Zunkireelabs. All rights reserved.</span>
-        <span class="footer__built">Built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></span>
-      </div>
-    </div>
-  </footer>
+  {% include "_footer-v2.njk" %}
 
 </main>

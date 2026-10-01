@@ -12,3 +12,6 @@ src/_archived/
 /INSPO_*.md
 /DESIGN_*.md
 /SESSION_CONTEXT.md
+
+# Contains live proxy credentials
+dev_tools/page-cloner/proxies.txt

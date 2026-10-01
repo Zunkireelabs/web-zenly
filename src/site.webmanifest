@@ -1,0 +1,10 @@
+{
+  "name": "Zennly",
+  "short_name": "Zennly",
+  "icons": [
+    { "src": "/assets/images/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#3F6839",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

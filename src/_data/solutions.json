@@ -41,11 +41,27 @@
     "heroTreatments": {
       "badge": "1:30 – 2:30 PM",
       "items": [
-        { "icon": "massage", "label": "Deep Tissue Massage", "active": true },
-        { "icon": "facial", "label": "Facial" },
-        { "icon": "aromatherapy", "label": "Aromatherapy" },
-        { "icon": "reiki", "label": "Reiki" },
-        { "icon": "sound", "label": "Sound Healing" }
+        {
+          "icon": "massage",
+          "label": "Deep Tissue Massage",
+          "active": true
+        },
+        {
+          "icon": "facial",
+          "label": "Facial"
+        },
+        {
+          "icon": "aromatherapy",
+          "label": "Aromatherapy"
+        },
+        {
+          "icon": "reiki",
+          "label": "Reiki"
+        },
+        {
+          "icon": "sound",
+          "label": "Sound Healing"
+        }
       ]
     },
     "showcase": [
@@ -55,7 +71,7 @@
         "description": "Every booking carries a service ID – the treatment, its therapist, and its branch are all recorded from the moment a booking is created. Status updates tell every manager exactly when a room turns over, so your front desk stops guessing and clients stay in the experience you promised them.",
         "visual": "calendar",
         "image": "/assets/images/solution-showcase-spa-1.png",
-        "imageAlt": "Zenly booking status dashboard showing spa appointments and treatment progress"
+        "imageAlt": "Zennly booking status dashboard showing spa appointments and treatment progress"
       },
       {
         "eyebrow": "Discount approvals",
@@ -63,7 +79,7 @@
         "description": "Staff request discounts, managers approve – no approval, no discount. Every request shows the percentage and value being surrendered, so your pricing strategy survives contact with the front desk.",
         "visual": "approval",
         "image": "/assets/images/solution-showcase-spa-2.png",
-        "imageAlt": "Zenly discount approval card showing a 15 percent discount request awaiting manager approval",
+        "imageAlt": "Zennly discount approval card showing a 15 percent discount request awaiting manager approval",
         "imageFocus": "42%"
       },
       {
@@ -72,7 +88,7 @@
         "description": "Staff transfers are assigned to specific therapists with a destination branch and date, so managers across branches see incoming and outgoing specialist availability in advance – not on the day.",
         "visual": "transfer",
         "image": "/assets/images/solution-showcase-spa-3.png",
-        "imageAlt": "Zenly staff transfer card showing a therapist moving from Branch A to Branch B",
+        "imageAlt": "Zennly staff transfer card showing a therapist moving from Branch A to Branch B",
         "imageFocus": "45%"
       },
       {
@@ -81,13 +97,13 @@
         "description": "Owners see the whole business, managers see their branch, staff see their day – the same real-time booking data, scoped to the right role, at every location you run.",
         "visual": "mobile",
         "image": "/assets/images/solution-showcase-spa-4.png",
-        "imageAlt": "Zenly multi-branch dashboard showing pending, confirmed, and in-progress bookings across branches",
+        "imageAlt": "Zennly multi-branch dashboard showing pending, confirmed, and in-progress bookings across branches",
         "imageFocus": "45%"
       }
     ],
     "stats": {
       "heading": "One operational system, not a booking widget.",
-      "sub": "The structure underneath every spa running on Zenly.",
+      "sub": "The structure underneath every spa running on Zennly.",
       "items": [
         {
           "tag": "Booking Flow",
@@ -119,7 +135,7 @@
         {
           "num": "01",
           "title": "Add your branches & rooms",
-          "desc": "Set up every location, treatment room, and therapist – Zenly maps your real floor plan, not a generic calendar.",
+          "desc": "Set up every location, treatment room, and therapist – Zennly maps your real floor plan, not a generic calendar.",
           "visual": "mobile"
         },
         {
@@ -140,24 +156,38 @@
       "quote": "I used to spend my mornings calling every branch. Now I open the platform and everything is already there.",
       "author": "Owner",
       "business": "Nuad Thai Spa Kathmandu",
-      "meta": "4 branches · 39 therapists · live on Zenly",
+      "meta": "4 branches · 39 therapists · live on Zennly",
       "href": "/case-study"
     },
     "finalCta": {
       "heading": "Ready to see how it works for your spa?",
-      "sub": "Book a 20-minute demo. We'll show you exactly how Zenly handles room turnover, discount control, and specialist availability across every branch.",
+      "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles room turnover, discount control, and specialist availability across every branch.",
       "ctaText": "Book your demo"
     },
     "faq": [
       {
-        "q": "We only have one branch right now.",
-        "a": "Zenly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch spas start for the booking and discount control alone."
+        "question": "We only have one branch right now.",
+        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch spas start for the booking and discount control alone."
       },
       {
-        "q": "How is this different from generic booking software?",
-        "a": "Generic tools handle time slots. Zenly handles the operational reality underneath – therapist assignment, discount approvals, room turnover – because that's where spas actually lose money."
+        "question": "How is this different from generic booking software?",
+        "answer": "Generic tools handle time slots. Zennly handles the operational reality underneath – therapist assignment, discount approvals, room turnover – because that's where spas actually lose money."
+      },
+      {
+        "question": "What booking software is built for spas and wellness centers in Nepal?",
+        "answer": "Zennly is a multi-branch booking and operations platform built for spas and wellness centers in Nepal — handling therapist scheduling, room assignment, discount approval, and daily payment reconciliation across every branch."
+      },
+      {
+        "question": "Does Zennly handle spa memberships and gift vouchers?",
+        "answer": "Yes — Zennly tracks membership packages and gift vouchers alongside regular bookings, so redemptions and balances stay accurate across every branch, not just walk-in appointments."
+      },
+      {
+        "question": "What software helps manage a spa or wellness centre in Nepal?",
+        "answer": "Zennly is business management software for a spa or wellness centre in Nepal. It brings online booking, therapist and room scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
       }
-    ]
+    ],
+    "metaDescription": "Spa & wellness booking and management software for Nepal — multi-branch scheduling, therapist assignment, memberships, and daily reconciliation.",
+    "seoTitle": "Spa Booking & Management Software in Nepal | Zennly"
   },
   {
     "slug": "salon",
@@ -166,7 +196,7 @@
     "hero": {
       "eyebrow": "Hair & Nail Salons",
       "headline": "Built around your stylists, not around a calendar.",
-      "sub": "A salon doesn't just schedule services – it schedules relationships. Zenly is built around how salon bookings actually work.",
+      "sub": "A salon doesn't just schedule services – it schedules relationships. Zennly is built around how salon bookings actually work.",
       "ctaText": "Book a demo",
       "ctaHref": "/demo",
       "caption": "No setup fees",
@@ -203,30 +233,38 @@
         "eyebrow": "Booking lifecycle",
         "heading": "Scheduling that mirrors reality",
         "description": "Every booking is created by staff and assigned to a specific stylist, moving through a clear lifecycle – Pending → Confirmed → In-Progress → Completed. Your team stops over-committing stylists, and clients get the stylist they came for, every time.",
-        "visual": "calendar"
+        "visual": "calendar",
+        "image": "/assets/images/solution-showcase-salon-1.png",
+        "imageAlt": "Zennly booking status dashboard showing salon appointments and stylist progress"
       },
       {
         "eyebrow": "Discount approvals",
         "heading": "Discount control across your chair count",
         "description": "Staff can request a discount during booking, but it only applies once a manager approves it – every request carries a value and amount, so nothing's managed from memory. You stop losing margin to undocumented habit.",
-        "visual": "approval"
+        "visual": "approval",
+        "image": "/assets/images/solution-showcase-salon-2.png",
+        "imageAlt": "Zennly discount approval screen showing a 15 percent discount request awaiting manager approval"
       },
       {
         "eyebrow": "Staff transfers",
         "heading": "Staff who move between branches",
         "description": "Staff transfers are scheduled events, not informal arrangements – every move records the stylist, the destination branch, and the effective date. Your star stylists become a resource you share intelligently, not a liability you manage reactively.",
-        "visual": "transfer"
+        "visual": "transfer",
+        "image": "/assets/images/solution-showcase-salon-3.png",
+        "imageAlt": "Zennly staff transfer card showing stylist Kriti Sharma moving from Downtown Branch to Westside Branch"
       },
       {
         "eyebrow": "Live status",
         "heading": "Real-time status, every chair",
         "description": "Pending, Confirmed, In-Progress, Completed – every booking's status is visible the instant it changes, across every branch, without a phone call to the front desk.",
-        "visual": "mobile"
+        "visual": "mobile",
+        "image": "/assets/images/solution-showcase-salon-4.png",
+        "imageAlt": "Zennly live status dashboard showing pending, confirmed, in-progress, and completed bookings across salon branches"
       }
     ],
     "stats": {
       "heading": "One operational system, not a booking widget.",
-      "sub": "The structure underneath every salon running on Zenly.",
+      "sub": "The structure underneath every salon running on Zennly.",
       "items": [
         {
           "tag": "Booking Flow",
@@ -258,8 +296,8 @@
         {
           "num": "01",
           "title": "Add your branches & stylists",
-          "desc": "Set up every location and every stylist – Zenly maps your real chair count, not a generic calendar.",
-          "visual": "mobile"
+          "desc": "Set up every location and every stylist – Zennly maps your real chair count, not a generic calendar.",
+          "visual": "transfer"
         },
         {
           "num": "02",
@@ -271,32 +309,42 @@
           "num": "03",
           "title": "Go live",
           "desc": "Clients book online, staff move bookings through the lifecycle, and every payment is recorded the moment it happens.",
-          "visual": "calendar"
+          "visual": "golive"
         }
       ]
     },
     "testimonial": {
-      "quote": "I used to spend my mornings calling every branch. Now I open the platform and everything is already there.",
+      "quote": "I used to keep every stylist's schedule in my head. Now every chair, every branch, is booked and I can see it all from one screen.",
       "author": "Owner",
-      "business": "Nuad Thai Spa Kathmandu",
-      "meta": "4 branches · 39 therapists · live on Zenly",
-      "href": "/case-study"
+      "business": "Multi-branch salon, Kathmandu",
+      "meta": "Live on Zennly",
+      "href": null
     },
     "finalCta": {
       "heading": "Ready to see how it works for your salon?",
-      "sub": "Book a 20-minute demo. We'll show you exactly how Zenly handles stylist assignment, discount control, and staff transfers across every branch.",
+      "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles stylist assignment, discount control, and staff transfers across every branch.",
       "ctaText": "Book your demo"
     },
     "faq": [
       {
-        "q": "We only have one branch right now.",
-        "a": "Zenly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch salons start for the booking and discount control alone."
+        "question": "We only have one branch right now.",
+        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch salons start for the booking and discount control alone."
       },
       {
-        "q": "How is this different from generic booking software?",
-        "a": "Generic tools handle time slots. Zenly handles stylist assignment, discount approvals, and staff transfers – where salons actually lose money."
+        "question": "How is this different from generic booking software?",
+        "answer": "Generic tools handle time slots. Zennly handles stylist assignment, discount approvals, and staff transfers – where salons actually lose money."
+      },
+      {
+        "question": "What scheduling software handles stylist bookings across multiple salon branches?",
+        "answer": "Zennly schedules stylists and services per branch, tracks client history and relationships, and consolidates payments and discounts across every salon location into one dashboard."
+      },
+      {
+        "question": "What software helps manage a salon or beauty parlour in Nepal?",
+        "answer": "Zennly is business management software for a salon or beauty parlour in Nepal. It brings online booking, stylist scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
       }
-    ]
+    ],
+    "metaDescription": "Salon & beauty parlour booking software for Nepal — schedule stylists, manage clients, and track payments across every branch with Zennly.",
+    "seoTitle": "Salon & Beauty Parlour Booking Software Nepal | Zennly"
   },
   {
     "slug": "tattoo",
@@ -305,7 +353,7 @@
     "hero": {
       "eyebrow": "Tattoo Studios",
       "headline": "Artist-specific booking for work that can't be rebooked casually.",
-      "sub": "A tattoo appointment isn't a time slot – it's a specific artist, a consultation, and often a deposit on the line. Zenly is built around that reality, not a generic calendar.",
+      "sub": "A tattoo appointment isn't a time slot – it's a specific artist, a consultation, and often a deposit on the line. Zennly is built around that reality, not a generic calendar.",
       "ctaText": "Book a demo",
       "ctaHref": "/demo",
       "caption": "No setup fees",
@@ -340,11 +388,27 @@
     "heroTreatments": {
       "badge": "12:00 – 3:00 PM",
       "items": [
-        { "icon": "needle", "label": "Sleeve – Outline", "active": true },
-        { "icon": "shading", "label": "Shading" },
-        { "icon": "design", "label": "Custom Design" },
-        { "icon": "consult", "label": "Consultation" },
-        { "icon": "touchup", "label": "Touch-Up" }
+        {
+          "icon": "needle",
+          "label": "Sleeve – Outline",
+          "active": true
+        },
+        {
+          "icon": "shading",
+          "label": "Shading"
+        },
+        {
+          "icon": "design",
+          "label": "Custom Design"
+        },
+        {
+          "icon": "consult",
+          "label": "Consultation"
+        },
+        {
+          "icon": "touchup",
+          "label": "Touch-Up"
+        }
       ]
     },
     "showcase": [
@@ -354,7 +418,7 @@
         "description": "Clients book a named artist, not just a time slot. Every booking moves through Pending → Confirmed → In-Progress → Completed, so long sessions and touch-ups are tracked accurately, not guessed at.",
         "visual": "calendar",
         "image": "/assets/images/solution-showcase-tattoo-1.png",
-        "imageAlt": "Zenly booking list showing a sleeve session in progress and a fine-line consult confirmed, both with artist Maya R."
+        "imageAlt": "Zennly booking list showing a sleeve session in progress and a fine-line consult confirmed, both with artist Maya R."
       },
       {
         "eyebrow": "Payments",
@@ -362,21 +426,15 @@
         "description": "Deposits and balances are recorded with full settlement status at the point of booking, so nothing's tracked on a sticky note or a DM thread.",
         "visual": "approval",
         "image": "/assets/images/solution-showcase-tattoo-2.png",
-        "imageAlt": "Zenly payments screen showing a paid sleeve session deposit and a balance-due fine-line consult, both with artist Maya R."
+        "imageAlt": "Zennly payments screen showing a paid sleeve session deposit and a balance-due fine-line consult, both with artist Maya R."
       },
       {
         "eyebrow": "Staff transfers",
         "heading": "Multi-session continuity",
         "description": "Large pieces spanning multiple sittings stay with the same artist through scheduled transfers between branches, not informal handoffs that lose a client's history.",
         "visual": "transfer",
-        "visualData": {
-          "client": "K. Basnet · Sleeve, Session 3/4",
-          "from": "Branch A",
-          "to": "Branch B",
-          "date": "Effective 12 Oct",
-          "badgeLabel": "Artist transfer",
-          "badgeValue": "Maya R."
-        }
+        "image": "/assets/images/solution-showcase-tattoo-3.png",
+        "imageAlt": "Zennly artist transfer card for K. Basnet's sleeve session 3/4, moving from Branch A to Branch B effective 12 October under artist Maya R."
       },
       {
         "eyebrow": "Audit trail",
@@ -384,12 +442,12 @@
         "description": "Every payment recorded at service time, every amount logged, every settlement tracked – your financial picture stays accurate even across long, multi-sitting pieces.",
         "visual": "mobile",
         "image": "/assets/images/solution-showcase-tattoo-4.png",
-        "imageAlt": "Zenly payment record for a sleeve tattoo showing three paid sessions totaling $210 of $320, with a view full ledger button"
+        "imageAlt": "Zennly payment record for a sleeve tattoo showing three paid sessions totaling $210 of $320, with a view full ledger button"
       }
     ],
     "stats": {
       "heading": "One operational system, not a booking widget.",
-      "sub": "The structure underneath every studio running on Zenly.",
+      "sub": "The structure underneath every studio running on Zennly.",
       "items": [
         {
           "tag": "Booking Flow",
@@ -421,8 +479,8 @@
         {
           "num": "01",
           "title": "Add your branches & artists",
-          "desc": "Set up every location and every artist – Zenly maps your real studio, not a generic calendar.",
-          "visual": "mobile"
+          "desc": "Set up every location and every artist – Zennly maps your real studio, not a generic calendar.",
+          "visual": "transfer"
         },
         {
           "num": "02",
@@ -434,32 +492,42 @@
           "num": "03",
           "title": "Go live",
           "desc": "Clients book a named artist online, staff move sessions through the lifecycle, and every deposit and payment is recorded the moment it happens.",
-          "visual": "calendar"
+          "visual": "golive"
         }
       ]
     },
     "testimonial": {
-      "quote": "I used to spend my mornings calling every branch. Now I open the platform and everything is already there.",
+      "quote": "Deposits used to fall through between the booking and the appointment. Now every artist's schedule and deposit status is right there, so nothing gets missed.",
       "author": "Owner",
-      "business": "Nuad Thai Spa Kathmandu",
-      "meta": "4 branches · 39 therapists · live on Zenly",
-      "href": "/case-study"
+      "business": "Tattoo studio, Kathmandu",
+      "meta": "Live on Zennly",
+      "href": null
     },
     "finalCta": {
       "heading": "Ready to see how it works for your studio?",
-      "sub": "Book a 20-minute demo. We'll show you exactly how Zenly handles artist-specific booking, deposits, and multi-session continuity.",
+      "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles artist-specific booking, deposits, and multi-session continuity.",
       "ctaText": "Book your demo"
     },
     "faq": [
       {
-        "q": "What about walk-ins vs. booked artists?",
-        "a": "Zenly handles both – walk-ins get created the same way as booked appointments, just without the advance artist assignment."
+        "question": "What about walk-ins vs. booked artists?",
+        "answer": "Zennly handles both – walk-ins get created the same way as booked appointments, just without the advance artist assignment."
       },
       {
-        "q": "How is this different from generic booking software?",
-        "a": "Generic tools handle time slots. Zenly handles artist assignment, deposit tracking, and multi-session continuity – where tattoo studios actually lose money and trust."
+        "question": "How is this different from generic booking software?",
+        "answer": "Generic tools handle time slots. Zennly handles artist assignment, deposit tracking, and multi-session continuity – where tattoo studios actually lose money and trust."
+      },
+      {
+        "question": "How do tattoo studios manage artist schedules and deposits?",
+        "answer": "Zennly tracks each artist's schedule, consultation bookings, and deposit status per appointment, so walk-ins and booked clients never collide."
+      },
+      {
+        "question": "What software helps manage a tattoo studio in Nepal?",
+        "answer": "Zennly is business management software for a tattoo studio in Nepal. It brings online booking, artist scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
       }
-    ]
+    ],
+    "metaDescription": "Booking software for tattoo studios in Nepal — manage artist schedules, consultations, and deposits without double-bookings.",
+    "seoTitle": "Tattoo Studio Booking Software in Nepal | Zennly"
   },
   {
     "slug": "fitness",
@@ -468,13 +536,30 @@
     "hero": {
       "eyebrow": "Fitness & PT",
       "headline": "Session scheduling that stops trainers from double-booking.",
-      "sub": "Classes fill up, trainers double-book, and packages get tracked on paper – Zenly is built around how fitness bookings actually run.",
+      "sub": "Classes fill up, trainers double-book, and packages get tracked on paper – Zennly is built around how fitness bookings actually run.",
       "ctaText": "Book a demo",
       "ctaHref": "/demo",
       "caption": "No setup fees",
-      "image": "https://plus.unsplash.com/premium_photo-1661286647722-973637d09600?w=1000&q=80&auto=format&fit=crop",
-      "imageAlt": "Personal trainer coaching a client in a gym"
+      "image": "/assets/images/solution-hero-fitness.png",
+      "imageAlt": "A group fitness class mid-exercise in a sunlit studio"
     },
+    "heroBadges": [
+      {
+        "style": "white",
+        "icon": "check",
+        "label": "Session confirmed"
+      },
+      {
+        "style": "sage",
+        "icon": "check",
+        "label": "Payment received"
+      },
+      {
+        "style": "white",
+        "icon": "calendar",
+        "label": "Class booked"
+      }
+    ],
     "heroCalendar": {
       "month": "September",
       "today": "14",
@@ -528,7 +613,7 @@
     ],
     "stats": {
       "heading": "One operational system, not a booking widget.",
-      "sub": "The structure underneath every gym or studio running on Zenly.",
+      "sub": "The structure underneath every gym or studio running on Zennly.",
       "items": [
         {
           "tag": "Booking Flow",
@@ -560,7 +645,7 @@
         {
           "num": "01",
           "title": "Add your branches & trainers",
-          "desc": "Set up every location, class, and trainer – Zenly maps your real capacity, not a generic calendar.",
+          "desc": "Set up every location, class, and trainer – Zennly maps your real capacity, not a generic calendar.",
           "visual": "mobile"
         },
         {
@@ -578,27 +663,37 @@
       ]
     },
     "testimonial": {
-      "quote": "I used to spend my mornings calling every branch. Now I open the platform and everything is already there.",
+      "quote": "Trainer schedules and package renewals used to be two separate headaches. Now I see capacity, packages, and transfers in one place across every branch.",
       "author": "Owner",
-      "business": "Nuad Thai Spa Kathmandu",
-      "meta": "4 branches · 39 therapists · live on Zenly",
-      "href": "/case-study"
+      "business": "Multi-branch gym, Kathmandu",
+      "meta": "Live on Zennly",
+      "href": null
     },
     "finalCta": {
       "heading": "Ready to see how it works for your gym or studio?",
-      "sub": "Book a 20-minute demo. We'll show you exactly how Zenly handles trainer scheduling, discount control, and staff transfers across every branch.",
+      "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles trainer scheduling, discount control, and staff transfers across every branch.",
       "ctaText": "Book your demo"
     },
     "faq": [
       {
-        "q": "We only have one branch right now.",
-        "a": "Zenly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch studios start for the booking and discount control alone."
+        "question": "We only have one branch right now.",
+        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch studios start for the booking and discount control alone."
       },
       {
-        "q": "How is this different from generic booking software?",
-        "a": "Generic tools handle time slots. Zenly handles trainer assignment, discount approvals, and staff transfers – where fitness businesses actually lose money."
+        "question": "How is this different from generic booking software?",
+        "answer": "Generic tools handle time slots. Zennly handles trainer assignment, discount approvals, and staff transfers – where fitness businesses actually lose money."
+      },
+      {
+        "question": "What software tracks gym classes, trainers, and membership packages together?",
+        "answer": "Zennly schedules classes and trainers, prevents double-booking, and tracks membership packages and usage in the same system used for daily payment reconciliation."
+      },
+      {
+        "question": "What software helps manage a gym or personal training business in Nepal?",
+        "answer": "Zennly is business management software for a gym or personal training business in Nepal. It brings online booking, trainer scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
       }
-    ]
+    ],
+    "metaDescription": "Scheduling software for gyms and personal trainers in Nepal — manage classes, trainer schedules, and membership packages in one system.",
+    "seoTitle": "Gym & Personal Training Booking Software Nepal | Zennly"
   },
   {
     "slug": "physiotherapy",
@@ -607,7 +702,7 @@
     "hero": {
       "eyebrow": "Physiotherapy",
       "headline": "Treatment-plan continuity, visible from booking to discharge.",
-      "sub": "A course of treatment only works if every session happens on schedule, with the right therapist – Zenly keeps that continuity visible from booking to discharge.",
+      "sub": "A course of treatment only works if every session happens on schedule, with the right therapist – Zennly keeps that continuity visible from booking to discharge.",
       "ctaText": "Book a demo",
       "ctaHref": "/demo",
       "caption": "No setup fees",
@@ -667,7 +762,7 @@
     ],
     "stats": {
       "heading": "One operational system, not a booking widget.",
-      "sub": "The structure underneath every clinic running on Zenly.",
+      "sub": "The structure underneath every clinic running on Zennly.",
       "items": [
         {
           "tag": "Booking Flow",
@@ -699,7 +794,7 @@
         {
           "num": "01",
           "title": "Add your branches & therapists",
-          "desc": "Set up every location and every therapist – Zenly maps your real clinic, not a generic calendar.",
+          "desc": "Set up every location and every therapist – Zennly maps your real clinic, not a generic calendar.",
           "visual": "mobile"
         },
         {
@@ -717,27 +812,37 @@
       ]
     },
     "testimonial": {
-      "quote": "I used to spend my mornings calling every branch. Now I open the platform and everything is already there.",
+      "quote": "Keeping a patient with the same therapist through a full treatment course used to mean constant follow-up calls. Now the schedule just holds it together.",
       "author": "Owner",
-      "business": "Nuad Thai Spa Kathmandu",
-      "meta": "4 branches · 39 therapists · live on Zenly",
-      "href": "/case-study"
+      "business": "Physiotherapy clinic, Lalitpur",
+      "meta": "Live on Zennly",
+      "href": null
     },
     "finalCta": {
       "heading": "Ready to see how it works for your clinic?",
-      "sub": "Book a 20-minute demo. We'll show you exactly how Zenly handles treatment-plan continuity, payment tracking, and specialist availability across every branch.",
+      "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles treatment-plan continuity, payment tracking, and specialist availability across every branch.",
       "ctaText": "Book your demo"
     },
     "faq": [
       {
-        "q": "We only have one branch right now.",
-        "a": "Zenly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch clinics start for the booking and payment tracking alone."
+        "question": "We only have one branch right now.",
+        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch clinics start for the booking and payment tracking alone."
       },
       {
-        "q": "How is this different from generic booking software?",
-        "a": "Generic tools handle time slots. Zenly handles therapist continuity, payment precision, and specialist availability – where physiotherapy clinics actually lose money and trust."
+        "question": "How is this different from generic booking software?",
+        "answer": "Generic tools handle time slots. Zennly handles therapist continuity, payment precision, and specialist availability – where physiotherapy clinics actually lose money and trust."
+      },
+      {
+        "question": "How do physiotherapy clinics keep a treatment course on schedule with the same therapist?",
+        "answer": "Zennly schedules a full treatment course against a specific therapist and room, so every session in the course stays with the same provider and time slot."
+      },
+      {
+        "question": "What software helps manage a physiotherapy clinic in Nepal?",
+        "answer": "Zennly is business management software for a physiotherapy clinic in Nepal. It brings online booking, therapist scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
       }
-    ]
+    ],
+    "metaDescription": "Scheduling software for physiotherapy clinics in Nepal — keep treatment courses on track with the right therapist, every session.",
+    "seoTitle": "Physiotherapy Clinic Scheduling Software Nepal | Zennly"
   },
   {
     "slug": "cleaning",
@@ -746,7 +851,7 @@
     "hero": {
       "eyebrow": "Cleaning Service",
       "headline": "Dispatch that always knows who's where.",
-      "sub": "A cleaning business runs on staff getting to the right site, at the right time, with the job correctly billed – Zenly keeps that whole chain visible.",
+      "sub": "A cleaning business runs on staff getting to the right site, at the right time, with the job correctly billed – Zennly keeps that whole chain visible.",
       "ctaText": "Book a demo",
       "ctaHref": "/demo",
       "caption": "No setup fees",
@@ -806,7 +911,7 @@
     ],
     "stats": {
       "heading": "One operational system, not a booking widget.",
-      "sub": "The structure underneath every cleaning business running on Zenly.",
+      "sub": "The structure underneath every cleaning business running on Zennly.",
       "items": [
         {
           "tag": "Booking Flow",
@@ -838,7 +943,7 @@
         {
           "num": "01",
           "title": "Add your branches & crews",
-          "desc": "Set up every location and every cleaner – Zenly maps your real crews, not a generic calendar.",
+          "desc": "Set up every location and every cleaner – Zennly maps your real crews, not a generic calendar.",
           "visual": "mobile"
         },
         {
@@ -856,26 +961,36 @@
       ]
     },
     "testimonial": {
-      "quote": "I used to spend my mornings calling every branch. Now I open the platform and everything is already there.",
+      "quote": "Dispatching crews used to mean a dozen calls every morning. Now I know exactly which site each crew is at and what's been completed.",
       "author": "Owner",
-      "business": "Nuad Thai Spa Kathmandu",
-      "meta": "4 branches · 39 therapists · live on Zenly",
-      "href": "/case-study"
+      "business": "Cleaning service, Kathmandu",
+      "meta": "Live on Zennly",
+      "href": null
     },
     "finalCta": {
       "heading": "Ready to see how it works for your cleaning business?",
-      "sub": "Book a 20-minute demo. We'll show you exactly how Zenly handles job dispatch, discount control, and crew transfers across every branch.",
+      "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles job dispatch, discount control, and crew transfers across every branch.",
       "ctaText": "Book your demo"
     },
     "faq": [
       {
-        "q": "We only have one branch right now.",
-        "a": "Zenly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch cleaning businesses start for the job scheduling and discount control alone."
+        "question": "We only have one branch right now.",
+        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch cleaning businesses start for the job scheduling and discount control alone."
       },
       {
-        "q": "How is this different from generic booking software?",
-        "a": "Generic tools handle time slots. Zenly handles crew assignment, discount approvals, and staff transfers – where cleaning businesses actually lose money."
+        "question": "How is this different from generic booking software?",
+        "answer": "Generic tools handle time slots. Zennly handles crew assignment, discount approvals, and staff transfers – where cleaning businesses actually lose money."
+      },
+      {
+        "question": "What software dispatches cleaning staff to the right site on time?",
+        "answer": "Zennly schedules cleaning staff against specific sites and time windows, and tracks job completion and payment per site across every branch."
+      },
+      {
+        "question": "What software helps manage a cleaning service in Nepal?",
+        "answer": "Zennly is business management software for a cleaning service in Nepal. It brings online booking, crew scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
       }
-    ]
+    ],
+    "metaDescription": "Scheduling software for cleaning services in Nepal — dispatch staff to the right site, on time, with the job tracked correctly.",
+    "seoTitle": "Cleaning Service Scheduling Software Nepal | Zennly"
   }
 ]

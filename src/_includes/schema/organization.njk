@@ -1,0 +1,42 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organization",
+      "name": "{{ site.name }}",
+      "url": "{{ site.url }}/",
+      "description": {{ site.defaultDescription | dump | safe }},
+      "foundingDate": "{{ site.foundingDate }}",
+      "slogan": {{ site.slogan | dump | safe }},
+      "logo": { "@type": "ImageObject", "url": "{{ site.url }}{{ site.logo }}" },
+      "knowsAbout": ["Appointment scheduling software", "Multi-branch booking", "Spa management software", "Salon booking software", "Gym management software", "Staff scheduling", "Daily revenue reconciliation", "Discount approval workflows"],
+      "areaServed": { "@type": "Country", "name": "Nepal" },
+      "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "email": "info@zennly.io", "areaServed": "NP", "availableLanguage": "English" }{% if site.sameAs and site.sameAs.length %},
+      "sameAs": {{ site.sameAs | dump | safe }}{% endif %}
+    },
+    {% if page.url == "/" %}{
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "{{ site.name }}",
+      "inLanguage": "en",
+      "publisher": { "@id": "{{ site.url }}/#organization" }
+    },
+    {% endif %}{
+      "@type": "SoftwareApplication",
+      "@id": "{{ site.url }}/#software",
+      "name": "{{ site.name }}",
+      "url": "{{ site.url }}/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": {{ site.defaultDescription | dump | safe }},
+      "inLanguage": "en",
+      "audience": { "@type": "BusinessAudience", "audienceType": "Spas, salons, tattoo studios, gyms, physiotherapy clinics and cleaning services" },
+      "areaServed": { "@type": "Country", "name": "Nepal" },
+      "publisher": { "@id": "{{ site.url }}/#organization" }
+    }
+  ]
+}
+</script>

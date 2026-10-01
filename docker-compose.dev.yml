@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        ELEVENTY_ENV: development
     networks:
       - hosting
     restart: unless-stopped

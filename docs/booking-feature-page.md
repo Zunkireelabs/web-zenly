@@ -3,7 +3,7 @@
 
 ## Meta
 
-- **Meta title:** Booking management for salons, spas & clinics | Zenly
+- **Meta title:** Booking management for salons, spas & clinics | Zennly
 - **Meta description:** Track every appointment from creation to payment across multiple branches. Real-time status updates, full audit trails, and role-based access for owners, managers, and staff.
 - **URL slug:** /features/booking-management
 - **H1:** Booking management for multi-branch service businesses

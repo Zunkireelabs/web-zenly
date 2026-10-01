@@ -1,0 +1,76 @@
+---
+layout: base.njk
+title: About Zennly — Booking & Operations Software Built in Nepal
+metaDescription: "Zennly is a Nepal software company, founded in 2026, building multi-branch booking and operations software for spas, salons, gyms and clinics."
+dateModified: "2026-10-01"
+bodyClass: page--light-nav
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "About", url: "/about/" }]) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "{{ site.url }}/about/#webpage",
+  "url": "{{ site.url }}/about/",
+  "name": "About Zennly",
+  "dateModified": "{{ dateModified }}",
+  "inLanguage": "en",
+  "about": { "@id": "{{ site.url }}/#organization" },
+  "mainEntity": { "@id": "{{ site.url }}/#organization" }
+}
+</script>
+
+<main>
+
+  <section class="section" style="padding-bottom:0; padding-top:calc(var(--v2-nav-h) + var(--v2-nav-inset) + var(--space-lg));">
+    <div class="article-hero" style="padding:0 0 var(--space-sm); text-align:left; max-width:var(--max-w-copy); margin:0 auto;">
+      <p class="article-hero__eyebrow article-hero__eyebrow--pill">Company</p>
+      <h1 class="article-hero__h1" style="margin-top:var(--space-sm);">About Zennly</h1>
+      <p class="article-hero__meta">Last updated: October 1, 2026</p>
+    </div>
+    <hr style="border:none; border-top:1px solid var(--color-border); max-width:var(--max-w-copy); margin:var(--space-lg) auto;" />
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="article-body reveal">
+
+      <p><strong>Zennly is a multi-branch booking and operations platform for appointment-based service businesses in Nepal.</strong> It was founded in 2026 and serves spas, salons, tattoo studios, gyms, physiotherapy clinics and cleaning services.</p>
+
+      <h2>What Zennly does</h2>
+      <p>Zennly replaces phone calls and spreadsheets with one system: online booking, staff and room scheduling, discount requests with manager approval and an audit trail, payment tracking by method, and a locked daily reconciliation across every branch. A therapist, stylist, artist or trainer, the room, and the time are booked together, and clashes are refused at database level, so double-bookings cannot happen.</p>
+
+      <h2>Who it is for</h2>
+      <p>Owners and managers of appointment-based businesses in Nepal &ndash; single-branch or multi-branch &ndash; who need one view of bookings, staff and revenue. See the industries we serve: <a href="/solutions/spa">spas</a>, <a href="/solutions/salon">salons</a>, <a href="/solutions/tattoo">tattoo studios</a>, <a href="/solutions/fitness">gyms</a>, <a href="/solutions/physiotherapy">physiotherapy clinics</a> and <a href="/solutions/cleaning">cleaning services</a>.</p>
+
+      <h2>Proof it works in the real world</h2>
+      <p>Zennly runs live at Nuad Thai Spa Kathmandu across four branches, 39 therapists, 12 rooms and 194 services. Read the <a href="/case-study/">full case study</a>.</p>
+
+      <h2>Key facts</h2>
+      <ul>
+        <li><strong>Name:</strong> Zennly</li>
+        <li><strong>Founded:</strong> 2026</li>
+        <li><strong>Market:</strong> Nepal</li>
+        <li><strong>Product type:</strong> Web-based booking and business management software</li>
+        <li><strong>Pricing:</strong> Contact us for a quote</li>
+        <li><strong>Contact:</strong> <a href="mailto:info@zennly.io">info@zennly.io</a></li>
+        <li><strong>Website:</strong> <a href="{{ site.url }}/">{{ site.url }}</a></li>
+      </ul>
+
+      <h2>Learn more</h2>
+      <p>New to the terms? Browse the <a href="/glossary/">Zennly glossary</a>, or read our <a href="/blog/">guides for service businesses in Nepal</a>.</p>
+
+    </div>
+  </section>
+
+  <section class="bottom-cta" id="demo">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">See Zennly running your kind of business.</h2>
+      <p class="bottom-cta__sub">Book a 20-minute demo and we&rsquo;ll walk you through it.</p>
+      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+    </div>
+  </section>
+
+  {% include "_footer-v2.njk" %}
+
+</main>

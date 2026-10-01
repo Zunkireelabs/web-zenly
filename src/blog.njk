@@ -1,24 +1,146 @@
----
+﻿---
 layout: base.njk
-title: Blog — Guides for scaling a multi-branch service business | Zenly
+title: "Zennly Blog — Guides for Multi-Branch Spas & Salons"
+metaDescription: "Guides on running multi-branch spas, salons and service businesses — booking, staff scheduling, payments and daily reconciliation."
 bodyClass: page--light-nav page--blog
 ---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }]) }}
 
 <main>
 
   <!-- ── HERO + POST GRID ─────────────────────────────────────────────── -->
-  <section class="section" style="padding-top:var(--space-2xl);">
+  <section class="section blog-idx-hero" style="padding-top:var(--space-2xl);">
     <div class="section__inner">
       <div class="section__header reveal" style="text-align:center;">
-        <h1 class="section__h2">The Zenly blog</h1>
+        <h1 class="section__h2">The Zennly blog</h1>
         <p class="section__sub section__sub--center" style="white-space: normal;">Honest guides on the operational problems that show up once a service business has more than one branch.</p>
       </div>
 
       <div class="blog-idx-rows reveal">
 
+        <a href="/blog/how-to-manage-a-spa-in-nepal" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-spa.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Spa &amp; Wellness</p>
+              <h3 class="blog-idx-row__h3">How to manage a spa in Nepal: bookings, therapists and rooms</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>5 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/salon-booking-system-nepal" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-salon.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Salons</p>
+              <h3 class="blog-idx-row__h3">How to take salon and beauty parlour bookings without phone calls</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>4 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/tattoo-studio-booking-and-deposits" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-tattoo.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Tattoo Studios</p>
+              <h3 class="blog-idx-row__h3">How tattoo studios can manage artist schedules and deposits</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>4 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/gym-management-nepal" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-fitness.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Gyms &amp; Fitness</p>
+              <h3 class="blog-idx-row__h3">Gym management in Nepal: classes, trainers and memberships in one place</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>4 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/physiotherapy-clinic-scheduling" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-spa.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Physiotherapy</p>
+              <h3 class="blog-idx-row__h3">How physiotherapy clinics can keep a treatment course on schedule</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>4 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/cleaning-service-scheduling" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-salon.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Cleaning Services</p>
+              <h3 class="blog-idx-row__h3">How cleaning companies can schedule crews and track jobs on site</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>4 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
+        <a href="/blog/how-to-choose-booking-software-nepal" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/feat-hero-dashboard.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Buying Guide</p>
+              <h3 class="blog-idx-row__h3">How to choose booking software for a spa, salon or gym in Nepal</h3>
+            </div>
+            <p class="blog-idx-row__foot">
+              <span>5 min read</span>
+              <span class="blog-idx-row__foot-divider"></span>
+              <span>September 30, 2026</span>
+            </p>
+          </div>
+        </a>
+
         <a href="/blog/spreadsheets-stop-working" class="blog-idx-row">
           <div class="blog-idx-row__img-wrap">
-            <img src="/assets/images/feat-role-owners.jpg" alt="" class="blog-idx-row__img" loading="lazy">
+            {% image "/assets/images/feat-role-owners.jpg", "", { class: "blog-idx-row__img", loading: "lazy" } %}
           </div>
           <div class="blog-idx-row__content">
             <div>
@@ -35,7 +157,7 @@ bodyClass: page--light-nav page--blog
 
         <a href="/blog/discount-leakage" class="blog-idx-row">
           <div class="blog-idx-row__img-wrap">
-            <img src="/assets/images/feat-role-managers.jpg" alt="" class="blog-idx-row__img" loading="lazy">
+            {% image "/assets/images/feat-role-managers.jpg", "", { class: "blog-idx-row__img", loading: "lazy" } %}
           </div>
           <div class="blog-idx-row__content">
             <div>
@@ -52,7 +174,7 @@ bodyClass: page--light-nav page--blog
 
         <a href="/blog/daily-reconciliation" class="blog-idx-row">
           <div class="blog-idx-row__img-wrap">
-            <img src="/assets/images/feat-role-frontdesk.jpg" alt="" class="blog-idx-row__img" loading="lazy">
+            {% image "/assets/images/feat-role-frontdesk.jpg", "", { class: "blog-idx-row__img", loading: "lazy" } %}
           </div>
           <div class="blog-idx-row__content">
             <div>
@@ -75,71 +197,12 @@ bodyClass: page--light-nav page--blog
   <section class="bottom-cta" id="demo">
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Recognize any of these problems?</h2>
-      <p class="bottom-cta__sub">Book a 20-minute demo and we&rsquo;ll show you exactly how Zenly solves it for your branches.</p>
+      <p class="bottom-cta__sub">Book a 20-minute demo and we&rsquo;ll show you exactly how Zennly solves it for your branches.</p>
       <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
     </div>
   </section>
 
   <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
-  <footer class="footer">
-    <div class="footer__inner">
-
-      <div class="footer__col footer__col--brand">
-        <a href="/" class="footer__logo">Zenly</a>
-        <p class="footer__tagline">Online booking, operational control, and financial clarity &mdash; for any appointment-based business.</p>
-        <div class="footer__status">
-          <span class="live-dot"></span>
-          <span>All systems operational</span>
-        </div>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Product</div>
-        <ul class="footer__links">
-          <li><a href="/features/booking">Online Booking</a></li>
-          <li><a href="/features/operational-visibility">Operations</a></li>
-          <li><a href="/features/payment-tracking">Finance</a></li>
-          <li><a href="/features/reports">Reports</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Use Cases</div>
-        <ul class="footer__links">
-          <li><a href="/solutions#salons">Salons &amp; Beauty Studios</a></li>
-          <li><a href="/solutions#spas">Spas &amp; Wellness</a></li>
-          <li><a href="/solutions#clinics">Aesthetic Clinics</a></li>
-          <li><a href="/solutions">More verticals</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Company</div>
-        <ul class="footer__links">
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/case-study">Case Study</a></li>
-          <li><a href="#demo">Book a Demo</a></li>
-          <li><a href="mailto:info.zunkireelabs@gmail.com">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <div class="footer__col-title">Legal</div>
-        <ul class="footer__links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer__bottom">
-      <div class="footer__inner">
-        <span class="footer__copy">&copy; 2026 Zunkireelabs. All rights reserved.</span>
-        <span class="footer__built">Built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></span>
-      </div>
-    </div>
-  </footer>
+  {% include "_footer-v2.njk" %}
 
 </main>
