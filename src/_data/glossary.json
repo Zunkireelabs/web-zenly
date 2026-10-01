@@ -1,0 +1,47 @@
+[
+  {
+    "term": "Appointment scheduling software",
+    "slug": "appointment-scheduling-software",
+    "definition": "Appointment scheduling software lets a business take, manage and confirm bookings online instead of by phone or paper. For service businesses such as spas, salons and clinics it also assigns the staff member and room for each booking and prevents overlaps."
+  },
+  {
+    "term": "Multi-branch booking software",
+    "slug": "multi-branch-booking-software",
+    "definition": "Multi-branch booking software manages bookings, staff, rooms and revenue for a business with more than one location in a single system. Owners see every branch at once, and staff can be scheduled to transfer between branches."
+  },
+  {
+    "term": "Double booking",
+    "slug": "double-booking",
+    "definition": "A double booking happens when the same staff member, room or time slot is booked for two customers at once. Zennly refuses conflicting bookings at database level, so a double booking cannot be saved, even across branches."
+  },
+  {
+    "term": "Daily reconciliation",
+    "slug": "daily-reconciliation",
+    "definition": "Daily reconciliation is the end-of-day check that recorded payments match the money actually received, by method (cash, card, online). When each payment is recorded against its booking at the point of service, the daily close is a read rather than a rebuild."
+  },
+  {
+    "term": "Discount approval workflow",
+    "slug": "discount-approval-workflow",
+    "definition": "A discount approval workflow requires staff to request a discount and a manager to approve it before it applies. Every request and decision is logged, which prevents untracked discounts and revenue leakage."
+  },
+  {
+    "term": "Audit trail",
+    "slug": "audit-trail",
+    "definition": "An audit trail is a permanent record of who did what and when, such as who requested and approved a discount. It lets owners review decisions after the fact without relying on memory."
+  },
+  {
+    "term": "Role-based access control",
+    "slug": "role-based-access-control",
+    "definition": "Role-based access control limits what each person can see and do according to their job. In Zennly, owners, managers and front-desk staff each get a different level of access to bookings, payments and reports."
+  },
+  {
+    "term": "Part-payment",
+    "slug": "part-payment",
+    "definition": "A part-payment is a partial payment toward a booking, such as a deposit paid up front with the balance settled later. Tracking each part-payment against the booking keeps the settlement status accurate."
+  },
+  {
+    "term": "Staff transfer",
+    "slug": "staff-transfer",
+    "definition": "A staff transfer schedules an employee to work at a different branch on given days. In a multi-branch system the transfer is planned ahead so the staff member's availability is correct at both locations."
+  }
+]

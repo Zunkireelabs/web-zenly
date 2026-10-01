@@ -8,8 +8,9 @@ module.exports = {
   defaultDescription:
     "Zennly is the multi-branch booking and operations platform for spas, salons, and appointment-based service businesses in Nepal — online booking, staff scheduling, payments, and daily reconciliation in one system.",
   defaultOgImage: "/assets/images/og-default.jpg",
-  // Brand is a text wordmark only (per docs/design_brief.md) — no logo image asset exists yet.
-  logo: null,
+  logo: "/assets/images/logo.png",
+  foundingDate: "2026",
+  slogan: "Booking & operations software for service businesses in Nepal",
   locale: "en_NP",
   sameAs: ["https://share.google/BgkNn87IT8ReCAgUt"]
 };

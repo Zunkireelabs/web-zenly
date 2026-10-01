@@ -1,0 +1,64 @@
+---
+layout: base.njk
+title: Booking & Operations Glossary for Service Businesses
+metaDescription: "Plain-language definitions of multi-branch booking, double booking, daily reconciliation, discount approval workflows and other terms service businesses in Nepal use."
+dateModified: "2026-10-01"
+bodyClass: page--light-nav
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Glossary", url: "/glossary/" }]) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "{{ site.url }}/glossary/#termset",
+  "name": "Zennly booking and operations glossary",
+  "url": "{{ site.url }}/glossary/",
+  "dateModified": "{{ dateModified }}",
+  "publisher": { "@id": "{{ site.url }}/#organization" },
+  "hasDefinedTerm": [
+    {% for t in glossary %}{
+      "@type": "DefinedTerm",
+      "@id": "{{ site.url }}/glossary/#{{ t.slug }}",
+      "name": {{ t.term | dump | safe }},
+      "description": {{ t.definition | dump | safe }},
+      "url": "{{ site.url }}/glossary/#{{ t.slug }}",
+      "inDefinedTermSet": "{{ site.url }}/glossary/#termset"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<main>
+
+  <section class="section" style="padding-bottom:0; padding-top:calc(var(--v2-nav-h) + var(--v2-nav-inset) + var(--space-lg));">
+    <div class="article-hero" style="padding:0 0 var(--space-sm); text-align:left; max-width:var(--max-w-copy); margin:0 auto;">
+      <p class="article-hero__eyebrow article-hero__eyebrow--pill">Glossary</p>
+      <h1 class="article-hero__h1" style="margin-top:var(--space-sm);">Booking &amp; operations glossary</h1>
+      <p class="article-hero__meta">Last updated: October 1, 2026</p>
+    </div>
+    <hr style="border:none; border-top:1px solid var(--color-border); max-width:var(--max-w-copy); margin:var(--space-lg) auto;" />
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="article-body reveal">
+      <p>Plain-language definitions of the terms spas, salons, gyms and clinics in Nepal run into when choosing booking software.</p>
+      {% for t in glossary %}
+      <h2 id="{{ t.slug }}">{{ t.term }}</h2>
+      <p>{{ t.definition }}</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="bottom-cta" id="demo">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">See these ideas in a live system.</h2>
+      <p class="bottom-cta__sub">Book a 20-minute demo and we&rsquo;ll show you how Zennly handles them.</p>
+      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+    </div>
+  </section>
+
+  {% include "_footer-v2.njk" %}
+
+</main>
