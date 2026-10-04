@@ -142,7 +142,7 @@
         },
         {
           "tag": "Tracking",
-          "value": "~2.5Ã—",
+          "value": "~2.5×",
           "label": "Status updates per booking – the full lifecycle is actively tracked, not just logged and forgotten"
         },
         {
@@ -211,6 +211,10 @@
         {
           "question": "How do you prevent double-bookings across multiple branches?",
           "answer": "Zennly locks each time slot the moment a booking is created, checked against the specific branch, room, and staff member — so two people can't book the same slot, even across different devices or front-desk terminals."
+        },
+        {
+          "question": "How do you prevent double-bookings across multiple branches?",
+          "answer": "Zennly books the staff member, room and time together and refuses a conflicting booking at database level, so a clash cannot be saved even across branches."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -409,7 +413,7 @@
       }
     ],
     "stat": {
-      "value": "3Ã—",
+      "value": "3×",
       "label": "Faster day-close",
       "description": "Teams close out the day three times faster with live operations tracking."
     },
@@ -422,9 +426,21 @@
       "eyebrow": "Proof through numbers",
       "headline": "This is what real-time visibility looks like in production.",
       "stats": [
-        { "tag": "Volume", "value": "800+", "label": "Status changes processed in a single week – every one of them a live signal about what's happening at a branch, visible in real time" },
-        { "tag": "Lifecycle", "value": "4 statuses", "label": "Pending → Confirmed → In-Progress → Completed. Every booking is somewhere on this path. You can always see where." },
-        { "tag": "Coverage", "value": "All 3 roles", "label": "Staff, managers, and admins all make status changes – meaning the live view reflects ground-level reality, not just managerial summaries" }
+        {
+          "tag": "Volume",
+          "value": "800+",
+          "label": "Status changes processed in a single week – every one of them a live signal about what's happening at a branch, visible in real time"
+        },
+        {
+          "tag": "Lifecycle",
+          "value": "4 statuses",
+          "label": "Pending → Confirmed → In-Progress → Completed. Every booking is somewhere on this path. You can always see where."
+        },
+        {
+          "tag": "Coverage",
+          "value": "All 3 roles",
+          "label": "Staff, managers, and admins all make status changes – meaning the live view reflects ground-level reality, not just managerial summaries"
+        }
       ],
       "sub": "Real numbers from branches running on the platform today."
     },
@@ -432,9 +448,21 @@
       "eyebrow": "Social proof",
       "headline": "What managers say once they stop walking the floor every 20 minutes.",
       "quotes": [
-        { "quote": "I used to physically check each room to know what was going on. Now I glance at one screen between meetings and I have the full picture.", "author": "Manager", "business": "Multi-branch salon, Pokhara" },
-        { "quote": "Discounts were the one thing I couldn't control before. Now every exception comes to me before it happens, not after I see it on the receipt.", "author": "Owner", "business": "Day spa, Kathmandu" },
-        { "quote": "Closing the day used to mean an hour on the phone with each branch. Now I open the dashboard at 7pm and it's already done.", "author": "Owner", "business": "Multi-branch clinic, Lalitpur" }
+        {
+          "quote": "I used to physically check each room to know what was going on. Now I glance at one screen between meetings and I have the full picture.",
+          "author": "Manager",
+          "business": "Multi-branch salon, Pokhara"
+        },
+        {
+          "quote": "Discounts were the one thing I couldn't control before. Now every exception comes to me before it happens, not after I see it on the receipt.",
+          "author": "Owner",
+          "business": "Day spa, Kathmandu"
+        },
+        {
+          "quote": "Closing the day used to mean an hour on the phone with each branch. Now I open the dashboard at 7pm and it's already done.",
+          "author": "Owner",
+          "business": "Multi-branch clinic, Lalitpur"
+        }
       ],
       "sub": "Feedback from the people running the floor day to day."
     },
@@ -457,9 +485,22 @@
     "objections": {
       "headline": "Things we get asked.",
       "items": [
-        { "question": "Our managers are good at keeping us updated.", "answer": "Good managers are valuable. But even the best manager is a bottleneck in an information chain. Real-time visibility doesn't replace your managers – it frees them from the burden of being your information conduit and lets them focus on managing their team." },
-        { "question": "We don't have time to watch a dashboard all day.", "answer": "You don't have to. The value isn't constant monitoring. It's that when something feels off – when you have a hunch, when a manager's summary doesn't add up – you have a source of truth you can go to. That's worth more than any report." },
-        { "question": "How can an owner see all branches' bookings in one place?", "answer": "Zennly gives owners a single real-time dashboard showing every branch's bookings, staff status, and payments as they happen — no phone calls or manager check-ins required to know how the day is going." }
+        {
+          "question": "Our managers are good at keeping us updated.",
+          "answer": "Good managers are valuable. But even the best manager is a bottleneck in an information chain. Real-time visibility doesn't replace your managers – it frees them from the burden of being your information conduit and lets them focus on managing their team."
+        },
+        {
+          "question": "We don't have time to watch a dashboard all day.",
+          "answer": "You don't have to. The value isn't constant monitoring. It's that when something feels off – when you have a hunch, when a manager's summary doesn't add up – you have a source of truth you can go to. That's worth more than any report."
+        },
+        {
+          "question": "How can an owner see all branches' bookings in one place?",
+          "answer": "Zennly gives owners a single real-time dashboard showing every branch's bookings, staff status, and payments as they happen — no phone calls or manager check-ins required to know how the day is going."
+        },
+        {
+          "question": "How can an owner see all branches' bookings in one place?",
+          "answer": "The multi-branch dashboard shows every branch's bookings and their status in real time, so the owner does not need to phone each manager."
+        }
       ],
       "sub": "Answers to what owners ask before they switch."
     },
@@ -486,10 +527,34 @@
     "workflowHeading": "What it feels like to have real <span class=\"fd-workflow__heading-accent\">operational visibility.</span>",
     "workflowSub": "A real timeline of one day, across every branch.",
     "workflow": [
-      { "num": "01", "time": "9:00am", "title": "The morning check-in", "body": "You open the platform. You see the morning's confirmed bookings across all branches. You don't need to call anyone to know whether the day has started well.", "status": "Confirmed" },
-      { "num": "02", "time": "11:30am", "title": "A booking runs long", "body": "A booking at Branch 2 has been In-Progress for longer than expected. You see it. You can check in before it becomes a problem – or before the next customer is kept waiting.", "status": "In-Progress" },
-      { "num": "03", "time": "2:00pm", "title": "A pattern shows up", "body": "Branch 3 has had three cancellations today. The pattern is visible. You can ask why, investigate, and address it – not discover it at the end of the week.", "status": "Pending" },
-      { "num": "04", "time": "6:00pm", "title": "The day closes itself", "body": "You see how many bookings were completed, how many were cancelled, what was paid, what discounts went through. Across all branches. Without a single summary call.", "status": "Reconciled" }
+      {
+        "num": "01",
+        "time": "9:00am",
+        "title": "The morning check-in",
+        "body": "You open the platform. You see the morning's confirmed bookings across all branches. You don't need to call anyone to know whether the day has started well.",
+        "status": "Confirmed"
+      },
+      {
+        "num": "02",
+        "time": "11:30am",
+        "title": "A booking runs long",
+        "body": "A booking at Branch 2 has been In-Progress for longer than expected. You see it. You can check in before it becomes a problem – or before the next customer is kept waiting.",
+        "status": "In-Progress"
+      },
+      {
+        "num": "03",
+        "time": "2:00pm",
+        "title": "A pattern shows up",
+        "body": "Branch 3 has had three cancellations today. The pattern is visible. You can ask why, investigate, and address it – not discover it at the end of the week.",
+        "status": "Pending"
+      },
+      {
+        "num": "04",
+        "time": "6:00pm",
+        "title": "The day closes itself",
+        "body": "You see how many bookings were completed, how many were cancelled, what was paid, what discounts went through. Across all branches. Without a single summary call.",
+        "status": "Reconciled"
+      }
     ],
     "bottomCta": {
       "headline": "Stop managing by message. Start managing by data.",
@@ -634,9 +699,21 @@
       "eyebrow": "Proof through numbers",
       "headline": "Real payments. Real numbers. Tracked in real time.",
       "stats": [
-        { "tag": "Volume", "value": "173", "label": "Payments recorded during a single peak week across multiple branches — all logged by front-desk staff as appointments were completed" },
-        { "tag": "Range (NPR)", "value": "200–7,200", "label": "The real range of payment values processed on the platform — from quick services to premium multi-treatment bookings" },
-        { "tag": "Accuracy", "value": "100%", "label": "Of fully paid bookings stored as a complete financial record, making reporting and reconciliation straightforward" }
+        {
+          "tag": "Volume",
+          "value": "173",
+          "label": "Payments recorded during a single peak week across multiple branches — all logged by front-desk staff as appointments were completed"
+        },
+        {
+          "tag": "Range (NPR)",
+          "value": "200–7,200",
+          "label": "The real range of payment values processed on the platform — from quick services to premium multi-treatment bookings"
+        },
+        {
+          "tag": "Accuracy",
+          "value": "100%",
+          "label": "Of fully paid bookings stored as a complete financial record, making reporting and reconciliation straightforward"
+        }
       ],
       "sub": "Real numbers from live branches running today."
     },
@@ -644,9 +721,21 @@
       "eyebrow": "Social proof",
       "headline": "What operators say once payments stop living in a notebook.",
       "quotes": [
-        { "quote": "The first thing I noticed was that my morning call with branch managers got shorter. Then it disappeared completely. I just check the platform now.", "author": "Owner", "business": "Multi-branch spa, Kathmandu" },
-        { "quote": "We used to find out about missing payments a week later. Now if something's unpaid, I see it the same day.", "author": "Branch manager", "business": "Premium salon" },
-        { "quote": "We had a payment issue we didn't even know about until we started seeing the data broken down by branch.", "author": "Admin", "business": "Aesthetic clinic group" }
+        {
+          "quote": "The first thing I noticed was that my morning call with branch managers got shorter. Then it disappeared completely. I just check the platform now.",
+          "author": "Owner",
+          "business": "Multi-branch spa, Kathmandu"
+        },
+        {
+          "quote": "We used to find out about missing payments a week later. Now if something's unpaid, I see it the same day.",
+          "author": "Branch manager",
+          "business": "Premium salon"
+        },
+        {
+          "quote": "We had a payment issue we didn't even know about until we started seeing the data broken down by branch.",
+          "author": "Admin",
+          "business": "Aesthetic clinic group"
+        }
       ],
       "sub": "Feedback from owners and managers using the platform."
     },
@@ -671,10 +760,26 @@
     "objections": {
       "headline": "Common questions.",
       "items": [
-        { "question": "We already track payments in another system.", "answer": "If your current process doesn't connect payments to individual bookings, therapists, services, and branches in real time, you're only storing transactions. Zennly connects every payment to the work that generated it, giving you operational insight – not just accounting records." },
-        { "question": "What happens if a customer only pays part of the amount?", "answer": "Partial payments are supported as part of the normal workflow. You can immediately see which bookings are fully settled and which still have an outstanding balance, making follow-ups simple and eliminating forgotten payments." },
-        { "question": "Will my staff have to do extra work?", "answer": "No. Payment recording happens naturally as the booking is completed. Staff simply record the payment while closing the appointment, and everything else is updated automatically." },
-        { "question": "How do service businesses reconcile cash, card, and online payments daily?", "answer": "Every booking in Zennly closes with a connected payment record — amount, method, therapist, service, and branch — so the day's cash, card, and online totals are already reconciled by the time you open the dashboard." }
+        {
+          "question": "We already track payments in another system.",
+          "answer": "If your current process doesn't connect payments to individual bookings, therapists, services, and branches in real time, you're only storing transactions. Zennly connects every payment to the work that generated it, giving you operational insight – not just accounting records."
+        },
+        {
+          "question": "What happens if a customer only pays part of the amount?",
+          "answer": "Partial payments are supported as part of the normal workflow. You can immediately see which bookings are fully settled and which still have an outstanding balance, making follow-ups simple and eliminating forgotten payments."
+        },
+        {
+          "question": "Will my staff have to do extra work?",
+          "answer": "No. Payment recording happens naturally as the booking is completed. Staff simply record the payment while closing the appointment, and everything else is updated automatically."
+        },
+        {
+          "question": "How do service businesses reconcile cash, card, and online payments daily?",
+          "answer": "Every booking in Zennly closes with a connected payment record — amount, method, therapist, service, and branch — so the day's cash, card, and online totals are already reconciled by the time you open the dashboard."
+        },
+        {
+          "question": "How do service businesses reconcile cash, card and online payments daily?",
+          "answer": "Record each payment by method against its booking at the point of service. The daily close then compares recorded payments by method, so it is a read, not a rebuild."
+        }
       ],
       "sub": "Answers to what owners ask before they switch."
     },
@@ -707,11 +812,41 @@
     "workflowHeading": "How payment recording runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
     "workflowSub": "A real timeline of payments across one branch, hour by hour.",
     "workflow": [
-      { "num": "01", "time": "9:15am", "title": "The first payment comes in", "body": "A customer pays in full after her service. Front desk records the amount against the booking – instantly linked to the therapist, service, and branch.", "status": "Confirmed" },
-      { "num": "02", "time": "11:40am", "title": "A partial payment is logged", "body": "Another customer pays part now and settles later. The balance stays visible until it's cleared – nothing forgotten.", "status": "Pending" },
-      { "num": "03", "time": "12:30pm", "title": "The branch manager checks today's total", "body": "Revenue so far, broken down by booking, therapist, and service, is already on the dashboard – no call to the front desk needed.", "status": "In-Progress" },
-      { "num": "04", "time": "3:00pm", "title": "The outstanding balance is settled", "body": "The customer from 11:40am returns and pays the rest. The booking's payment record updates – nothing owed, nothing missed.", "status": "Completed" },
-      { "num": "05", "time": "7:00pm", "title": "The owner checks in across every branch", "body": "Not by calling managers. By opening the dashboard and seeing today's revenue, across every location, in one place.", "status": "Reconciled" }
+      {
+        "num": "01",
+        "time": "9:15am",
+        "title": "The first payment comes in",
+        "body": "A customer pays in full after her service. Front desk records the amount against the booking – instantly linked to the therapist, service, and branch.",
+        "status": "Confirmed"
+      },
+      {
+        "num": "02",
+        "time": "11:40am",
+        "title": "A partial payment is logged",
+        "body": "Another customer pays part now and settles later. The balance stays visible until it's cleared – nothing forgotten.",
+        "status": "Pending"
+      },
+      {
+        "num": "03",
+        "time": "12:30pm",
+        "title": "The branch manager checks today's total",
+        "body": "Revenue so far, broken down by booking, therapist, and service, is already on the dashboard – no call to the front desk needed.",
+        "status": "In-Progress"
+      },
+      {
+        "num": "04",
+        "time": "3:00pm",
+        "title": "The outstanding balance is settled",
+        "body": "The customer from 11:40am returns and pays the rest. The booking's payment record updates – nothing owed, nothing missed.",
+        "status": "Completed"
+      },
+      {
+        "num": "05",
+        "time": "7:00pm",
+        "title": "The owner checks in across every branch",
+        "body": "Not by calling managers. By opening the dashboard and seeing today's revenue, across every location, in one place.",
+        "status": "Reconciled"
+      }
     ],
     "bottomCta": {
       "headline": "Your revenue shouldn't live in a notebook.",
@@ -855,9 +990,21 @@
       "eyebrow": "Proof through numbers",
       "headline": "This isn't a dashboard nobody opens. It's checked every day, in real branches.",
       "stats": [
-        { "tag": "Adoption", "value": "94%", "label": "Of branch managers who open reports without being asked" },
-        { "tag": "Volume", "value": "2,300", "label": "Report views logged across branches in the past 30 days" },
-        { "tag": "Time saved", "value": "5 hrs", "label": "Average time saved per manager, per week, on manual data compilation" }
+        {
+          "tag": "Adoption",
+          "value": "94%",
+          "label": "Of branch managers who open reports without being asked"
+        },
+        {
+          "tag": "Volume",
+          "value": "2,300",
+          "label": "Report views logged across branches in the past 30 days"
+        },
+        {
+          "tag": "Time saved",
+          "value": "5 hrs",
+          "label": "Average time saved per manager, per week, on manual data compilation"
+        }
       ],
       "sub": "Real numbers from live branches running today."
     },
@@ -865,20 +1012,51 @@
       "eyebrow": "Social proof",
       "headline": "What owners and managers say once they stop building their own spreadsheets.",
       "quotes": [
-        { "quote": "The first week, I stopped asking for the monthly Excel sheet. It's just there now, and it's more accurate than what we used to build by hand.", "author": "Owner", "business": "Multi-branch spa, Pokhara" },
-        { "quote": "I used to wait for the front desk to close out the day to know how we did. Now I open the app before I even get to the branch.", "author": "Branch Manager", "business": "Salon, Kathmandu" },
-        { "quote": "We found out that two of our 'top' referral sources barely converted at all. We reallocated the marketing budget the same week.", "author": "Marketing Lead", "business": "Clinic chain, Lalitpur" }
+        {
+          "quote": "The first week, I stopped asking for the monthly Excel sheet. It's just there now, and it's more accurate than what we used to build by hand.",
+          "author": "Owner",
+          "business": "Multi-branch spa, Pokhara"
+        },
+        {
+          "quote": "I used to wait for the front desk to close out the day to know how we did. Now I open the app before I even get to the branch.",
+          "author": "Branch Manager",
+          "business": "Salon, Kathmandu"
+        },
+        {
+          "quote": "We found out that two of our 'top' referral sources barely converted at all. We reallocated the marketing budget the same week.",
+          "author": "Marketing Lead",
+          "business": "Clinic chain, Lalitpur"
+        }
       ],
       "sub": "Feedback from owners and managers using the platform."
     },
     "objections": {
       "headline": "Things we get asked.",
       "items": [
-        { "question": "We don't have anyone who knows how to read data.", "answer": "You don't need a data analyst. The eight reports are built to be read in under a minute — a number, a trend line, a comparison. If you can read a bank statement, you can read these." },
-        { "question": "Eight reports sounds like a lot to check every day.", "answer": "Nobody checks all eight every day. Owners tend to open revenue and staff performance daily, and glance at the rest weekly. The reports are there when you need them, not a checklist you have to clear." },
-        { "question": "How do we know these numbers are actually accurate?", "answer": "Every report pulls directly from the same booking and payment records your staff enter during the day — nothing is recalculated or estimated separately, so there's no second system that can drift out of sync with the first." },
-        { "question": "We need a custom report specific to our business.", "answer": "The eight built-in reports cover revenue, staff, discounts, referrals, and attendance across every branch we've onboarded so far. If a business genuinely needs something beyond that, we talk about it — but most owners find the built-in set already answers the question they were actually asking." },
-        { "question": "What reports should a multi-branch service business check daily?", "answer": "Zennly automatically generates revenue, staff performance, discount, attendance, and referral reports for every branch — no configuration or exports needed, so owners can check the numbers that matter each morning without building anything." }
+        {
+          "question": "We don't have anyone who knows how to read data.",
+          "answer": "You don't need a data analyst. The eight reports are built to be read in under a minute — a number, a trend line, a comparison. If you can read a bank statement, you can read these."
+        },
+        {
+          "question": "Eight reports sounds like a lot to check every day.",
+          "answer": "Nobody checks all eight every day. Owners tend to open revenue and staff performance daily, and glance at the rest weekly. The reports are there when you need them, not a checklist you have to clear."
+        },
+        {
+          "question": "How do we know these numbers are actually accurate?",
+          "answer": "Every report pulls directly from the same booking and payment records your staff enter during the day — nothing is recalculated or estimated separately, so there's no second system that can drift out of sync with the first."
+        },
+        {
+          "question": "We need a custom report specific to our business.",
+          "answer": "The eight built-in reports cover revenue, staff, discounts, referrals, and attendance across every branch we've onboarded so far. If a business genuinely needs something beyond that, we talk about it — but most owners find the built-in set already answers the question they were actually asking."
+        },
+        {
+          "question": "What reports should a multi-branch service business check daily?",
+          "answer": "Zennly automatically generates revenue, staff performance, discount, attendance, and referral reports for every branch — no configuration or exports needed, so owners can check the numbers that matter each morning without building anything."
+        },
+        {
+          "question": "What reports should a multi-branch service business check daily?",
+          "answer": "Daily revenue by branch, staff performance, discounts given and bookings completed. Zennly's built-in reports show these across every branch."
+        }
       ],
       "sub": "Answers to what owners ask before they switch."
     },
@@ -905,11 +1083,41 @@
     "workflowHeading": "How reporting runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
     "workflowSub": "A real timeline of how owners and managers use reports, hour by hour.",
     "workflow": [
-      { "num": "01", "time": "8:00am", "title": "Owner checks yesterday's number", "body": "Before opening messages or calling any branch, the owner opens the dashboard. Yesterday's revenue, by branch, is already there.", "status": "Pending" },
-      { "num": "02", "time": "11:00am", "title": "Branch manager reviews staff performance", "body": "Mid-morning, the branch manager scans bookings completed and discounts applied per staff member — before the lunch rush makes it harder to catch anything.", "status": "Confirmed" },
-      { "num": "03", "time": "2:00pm", "title": "A discount pattern gets flagged", "body": "Discount analytics show one staff member applying discounts well above the branch average. The manager brings it up that afternoon, not at month-end.", "status": "In-Progress" },
-      { "num": "04", "time": "Friday, 5:00pm", "title": "Weekly revenue trend gets reviewed", "body": "The owner compares this week's revenue across all branches against last week — no export, no waiting on someone to build the comparison.", "status": "Completed" },
-      { "num": "05", "time": "Month-end", "title": "Reports get exported for the accountant", "body": "Revenue, discount, and staff reports are downloaded as CSV and handed off — the same numbers the team has been checking all month, not a separately built spreadsheet.", "status": "Reconciled" }
+      {
+        "num": "01",
+        "time": "8:00am",
+        "title": "Owner checks yesterday's number",
+        "body": "Before opening messages or calling any branch, the owner opens the dashboard. Yesterday's revenue, by branch, is already there.",
+        "status": "Pending"
+      },
+      {
+        "num": "02",
+        "time": "11:00am",
+        "title": "Branch manager reviews staff performance",
+        "body": "Mid-morning, the branch manager scans bookings completed and discounts applied per staff member — before the lunch rush makes it harder to catch anything.",
+        "status": "Confirmed"
+      },
+      {
+        "num": "03",
+        "time": "2:00pm",
+        "title": "A discount pattern gets flagged",
+        "body": "Discount analytics show one staff member applying discounts well above the branch average. The manager brings it up that afternoon, not at month-end.",
+        "status": "In-Progress"
+      },
+      {
+        "num": "04",
+        "time": "Friday, 5:00pm",
+        "title": "Weekly revenue trend gets reviewed",
+        "body": "The owner compares this week's revenue across all branches against last week — no export, no waiting on someone to build the comparison.",
+        "status": "Completed"
+      },
+      {
+        "num": "05",
+        "time": "Month-end",
+        "title": "Reports get exported for the accountant",
+        "body": "Revenue, discount, and staff reports are downloaded as CSV and handed off — the same numbers the team has been checking all month, not a separately built spreadsheet.",
+        "status": "Reconciled"
+      }
     ],
     "bottomCta": {
       "headline": "Stop asking for the numbers. Just open the dashboard.",
@@ -945,9 +1153,21 @@
       "headline": "Multi-branch staff coordination is a full-time job you didn't sign up for.",
       "body": "You have a great therapist at your Thamel branch. But this week, the Lazimpat location is slammed and short-staffed. You want to move them over for three days. So you call the therapist. You call the Thamel manager to cover the gap. You call the Lazimpat manager to prepare. You update the schedule – on paper, or in a message thread, or in a mental note you'll forget by Wednesday. By Thursday morning, the therapist shows up at the wrong branch because someone's message got buried. A customer at Lazimpat waits. A customer at Thamel gets an apology. This is not a staffing problem. This is a coordination problem. And coordination problems have a system solution.",
       "panels": [
-        { "emoji": "ðŸ“²", "title": "Coordination via messages", "body": "Staff assignments communicated in group chats, over calls, on sticky notes. Easy to miss. Impossible to reference. Gone the next time someone has a question." },
-        { "emoji": "ðŸ—“ï¸", "title": "No forward planning", "body": "You can react when someone is sick or a branch is overwhelmed. But you can't proactively plan therapist rotations, plan capacity, or build a schedule that holds across locations." },
-        { "emoji": "â“", "title": "Who works where today?", "body": "The question no multi-branch owner should have to ask – but most do, every single morning." }
+        {
+          "emoji": "ðŸ“²",
+          "title": "Coordination via messages",
+          "body": "Staff assignments communicated in group chats, over calls, on sticky notes. Easy to miss. Impossible to reference. Gone the next time someone has a question."
+        },
+        {
+          "emoji": "ðŸ—“ï¸",
+          "title": "No forward planning",
+          "body": "You can react when someone is sick or a branch is overwhelmed. But you can't proactively plan therapist rotations, plan capacity, or build a schedule that holds across locations."
+        },
+        {
+          "emoji": "â“",
+          "title": "Who works where today?",
+          "body": "The question no multi-branch owner should have to ask – but most do, every single morning."
+        }
       ]
     },
     "primaryFeatures": [
@@ -1031,9 +1251,21 @@
       "eyebrow": "Proof through numbers",
       "headline": "Real staff operations, running across real branches.",
       "stats": [
-        { "tag": "Volume", "value": "30", "label": "Staff transfers scheduled in 90 days across the platform – roughly one every three days" },
-        { "tag": "Scale", "value": "4", "label": "Branches actively receiving transferred staff – true multi-location coordination, not a single-location workaround" },
-        { "tag": "Planning", "value": "0", "label": "Last-minute scrambles – every transfer has an effective date attached before it happens" }
+        {
+          "tag": "Volume",
+          "value": "30",
+          "label": "Staff transfers scheduled in 90 days across the platform – roughly one every three days"
+        },
+        {
+          "tag": "Scale",
+          "value": "4",
+          "label": "Branches actively receiving transferred staff – true multi-location coordination, not a single-location workaround"
+        },
+        {
+          "tag": "Planning",
+          "value": "0",
+          "label": "Last-minute scrambles – every transfer has an effective date attached before it happens"
+        }
       ],
       "sub": "Real numbers from multi-branch accounts running today."
     },
@@ -1041,9 +1273,21 @@
       "eyebrow": "Social proof",
       "headline": "What owners say once staff transfers stop being a coordination project.",
       "quotes": [
-        { "quote": "I used to make three phone calls every time a therapist moved branches. Now I set the date once and every branch just knows.", "author": "Owner", "business": "4-branch spa group, Kathmandu" },
-        { "quote": "A transfer used to mean a scramble the morning it happened. Now the destination branch sees it days before, so nobody's caught off guard.", "author": "Branch manager", "business": "Salon, Lazimpat" },
-        { "quote": "I can see every branch's roster from my phone. I don't call to ask who's working where anymore – I just look.", "author": "Area manager", "business": "Multi-branch clinic chain" }
+        {
+          "quote": "I used to make three phone calls every time a therapist moved branches. Now I set the date once and every branch just knows.",
+          "author": "Owner",
+          "business": "4-branch spa group, Kathmandu"
+        },
+        {
+          "quote": "A transfer used to mean a scramble the morning it happened. Now the destination branch sees it days before, so nobody's caught off guard.",
+          "author": "Branch manager",
+          "business": "Salon, Lazimpat"
+        },
+        {
+          "quote": "I can see every branch's roster from my phone. I don't call to ask who's working where anymore – I just look.",
+          "author": "Area manager",
+          "business": "Multi-branch clinic chain"
+        }
       ],
       "sub": "Feedback from owners, managers, and staff using the platform."
     },
@@ -1064,19 +1308,56 @@
     "objections": {
       "headline": "Things we get asked.",
       "items": [
-        { "question": "Our staff schedules change too often to plan ahead.", "answer": "Transfers don't require advance planning – you can schedule a same-day transfer if needed. The point isn't that everything is planned weeks ahead. It's that when you do make a decision, it immediately propagates to everyone who needs to know." },
-        { "question": "We're only at two branches right now.", "answer": "Two branches is exactly when this starts to matter. The coordination overhead grows faster than the number of branches. Getting the system in place at two locations means you're ready – and not scrambling – when you open a third." },
-        { "question": "How do you schedule a staff transfer between branches?", "answer": "In Zennly, you schedule a transfer with the staff member, destination branch, and effective date — the origin and destination branches both see the change immediately, and existing bookings re-anchor to the new location automatically." }
+        {
+          "question": "Our staff schedules change too often to plan ahead.",
+          "answer": "Transfers don't require advance planning – you can schedule a same-day transfer if needed. The point isn't that everything is planned weeks ahead. It's that when you do make a decision, it immediately propagates to everyone who needs to know."
+        },
+        {
+          "question": "We're only at two branches right now.",
+          "answer": "Two branches is exactly when this starts to matter. The coordination overhead grows faster than the number of branches. Getting the system in place at two locations means you're ready – and not scrambling – when you open a third."
+        },
+        {
+          "question": "How do you schedule a staff transfer between branches?",
+          "answer": "In Zennly, you schedule a transfer with the staff member, destination branch, and effective date — the origin and destination branches both see the change immediately, and existing bookings re-anchor to the new location automatically."
+        },
+        {
+          "question": "How do you schedule a staff transfer between branches?",
+          "answer": "Schedule it as an event with an effective date. Managers at both branches see the change coming, and the staff member's availability is correct at each location."
+        }
       ],
       "sub": "Answers to what owners ask before their next staff transfer."
     },
     "workflowHeading": "What staff management looks like when it's built into your system.",
     "workflowSub": "A real timeline of a staff transfer, start to finish.",
     "workflow": [
-      { "num": "01", "time": "Monday morning", "title": "The need is identified", "body": "A branch manager flags that they're under capacity for the coming week. An owner reviews the rosters across all branches and identifies available capacity.", "status": "Pending" },
-      { "num": "02", "time": "Monday, 11:00am", "title": "The transfer is scheduled", "body": "Therapist selected. Destination branch selected. Effective date set. The transfer is logged. Both branches see it before it happens.", "status": "Confirmed" },
-      { "num": "03", "time": "Thursday, effective date", "title": "The effective date arrives", "body": "The therapist's schedule is at the new branch. Bookings can be assigned to them there. No one had to remind anyone. No one had to confirm.", "status": "In-Progress" },
-      { "num": "04", "time": "Every day after", "title": "The roster is always current", "body": "Any manager, at any branch, can see who's working where today and next week – without a call to the owner and without a group message that will be buried in an hour.", "status": "Reconciled" }
+      {
+        "num": "01",
+        "time": "Monday morning",
+        "title": "The need is identified",
+        "body": "A branch manager flags that they're under capacity for the coming week. An owner reviews the rosters across all branches and identifies available capacity.",
+        "status": "Pending"
+      },
+      {
+        "num": "02",
+        "time": "Monday, 11:00am",
+        "title": "The transfer is scheduled",
+        "body": "Therapist selected. Destination branch selected. Effective date set. The transfer is logged. Both branches see it before it happens.",
+        "status": "Confirmed"
+      },
+      {
+        "num": "03",
+        "time": "Thursday, effective date",
+        "title": "The effective date arrives",
+        "body": "The therapist's schedule is at the new branch. Bookings can be assigned to them there. No one had to remind anyone. No one had to confirm.",
+        "status": "In-Progress"
+      },
+      {
+        "num": "04",
+        "time": "Every day after",
+        "title": "The roster is always current",
+        "body": "Any manager, at any branch, can see who's working where today and next week – without a call to the owner and without a group message that will be buried in an hour.",
+        "status": "Reconciled"
+      }
     ],
     "bottomCta": {
       "headline": "Your team should know where to be without you telling them.",
@@ -1238,6 +1519,10 @@
         {
           "question": "How do you stop staff from giving unauthorized discounts?",
           "answer": "Zennly requires every discount request to go through manager approval before it applies — each request is tied to a booking, staff member, and value, giving owners a full audit trail of where discounts are given and why."
+        },
+        {
+          "question": "How do you stop staff from giving unauthorized discounts?",
+          "answer": "Make a discount a request, not a decision. Staff submit the exact percentage and amount, it applies only after a manager approves, and every request keeps an audit trail."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -1271,10 +1556,34 @@
     "workflowHeading": "What discount control looks like in a real service business.",
     "workflowSub": "A real timeline of a discount request, start to finish.",
     "workflow": [
-      { "num": "01", "time": "At checkout", "title": "The customer asks for a discount", "body": "A client mentions the wait was long. The staff member wants to make it right. Instead of applying 20% and hoping no one notices, they submit a request — service, booking, reason, and the percentage they think is fair.", "status": "Pending" },
-      { "num": "02", "time": "Moments later", "title": "The manager reviews in real time", "body": "The branch manager sees the request. They decide: is this justified? Is this within policy? They approve or decline. The staff member gets the answer. The customer gets a clear outcome.", "status": "Confirmed" },
-      { "num": "03", "time": "Immediately after", "title": "The discount is applied — with a record", "body": "If approved, the discount is applied to the booking. The NPR amount is calculated and logged. The booking's final amount reflects it. The payment records it. The audit trail is complete.", "status": "Completed" },
-      { "num": "04", "time": "Every month-end", "title": "The pattern becomes visible", "body": "You can see every discount given across every branch. Who requested. Who approved. What percentage. What value. Which services. Which customers. Pattern recognition, not guesswork.", "status": "Reconciled" }
+      {
+        "num": "01",
+        "time": "At checkout",
+        "title": "The customer asks for a discount",
+        "body": "A client mentions the wait was long. The staff member wants to make it right. Instead of applying 20% and hoping no one notices, they submit a request — service, booking, reason, and the percentage they think is fair.",
+        "status": "Pending"
+      },
+      {
+        "num": "02",
+        "time": "Moments later",
+        "title": "The manager reviews in real time",
+        "body": "The branch manager sees the request. They decide: is this justified? Is this within policy? They approve or decline. The staff member gets the answer. The customer gets a clear outcome.",
+        "status": "Confirmed"
+      },
+      {
+        "num": "03",
+        "time": "Immediately after",
+        "title": "The discount is applied — with a record",
+        "body": "If approved, the discount is applied to the booking. The NPR amount is calculated and logged. The booking's final amount reflects it. The payment records it. The audit trail is complete.",
+        "status": "Completed"
+      },
+      {
+        "num": "04",
+        "time": "Every month-end",
+        "title": "The pattern becomes visible",
+        "body": "You can see every discount given across every branch. Who requested. Who approved. What percentage. What value. Which services. Which customers. Pattern recognition, not guesswork.",
+        "status": "Reconciled"
+      }
     ],
     "bottomCta": {
       "headline": "Discounts should be a decision, not a default.",
@@ -1413,9 +1722,21 @@
       "eyebrow": "Social proof",
       "headline": "What owners say once access finally matches responsibility.",
       "quotes": [
-        { "quote": "I stopped worrying about a new hire accidentally changing something a manager had already confirmed. The system just doesn't let them.", "author": "Owner", "business": "Multi-branch spa, Kathmandu" },
-        { "quote": "My branch managers finally have real authority — they approve their own discounts, they don't wait on me for every small decision.", "author": "Admin", "business": "Salon chain, Lalitpur" },
-        { "quote": "Our front desk sees exactly what they need for the day. Nobody's digging through revenue numbers that were never theirs to see.", "author": "Branch manager", "business": "Aesthetic clinic group" }
+        {
+          "quote": "I stopped worrying about a new hire accidentally changing something a manager had already confirmed. The system just doesn't let them.",
+          "author": "Owner",
+          "business": "Multi-branch spa, Kathmandu"
+        },
+        {
+          "quote": "My branch managers finally have real authority — they approve their own discounts, they don't wait on me for every small decision.",
+          "author": "Admin",
+          "business": "Salon chain, Lalitpur"
+        },
+        {
+          "quote": "Our front desk sees exactly what they need for the day. Nobody's digging through revenue numbers that were never theirs to see.",
+          "author": "Branch manager",
+          "business": "Aesthetic clinic group"
+        }
       ],
       "sub": "Feedback from owners, managers, and staff using the platform."
     },
@@ -1451,6 +1772,10 @@
         {
           "question": "We trust everyone on our team.",
           "answer": "Role-based access isn't distrust — it's design. A well-designed kitchen has different stations for different functions. The chef doesn't design the menu and plate every dish simultaneously. Roles let your team operate at their level of authority without stepping on each other."
+        },
+        {
+          "question": "What access should managers and front-desk staff have in booking software?",
+          "answer": "Owners see everything across branches, managers see their branch and approve discounts, and front-desk staff handle bookings and payments. Role-based access limits each person to what they need."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -1458,10 +1783,34 @@
     "workflowHeading": "How the same action looks different depending on who's doing it.",
     "workflowSub": "A real look at how role boundaries hold during a normal day.",
     "workflow": [
-      { "num": "01", "time": "At checkout", "title": "A staff member requests a discount", "body": "The staff role allows them to request a discount. They submit it, and it goes to a manager for approval. They don't apply it themselves — the boundary is structural, not a matter of trust.", "status": "Pending" },
-      { "num": "02", "time": "Moments later", "title": "A manager confirms a booking", "body": "The manager role gives them authority over their branch's schedule. They confirm pending bookings, manage therapist assignments, and see the full day's picture for their location.", "status": "Confirmed" },
-      { "num": "03", "time": "Any time", "title": "An admin reviews all branches", "body": "The admin sees everything: all branches, all bookings, all discounts requested and applied, all payments recorded, all staff transfers. The single source of truth for the business.", "status": "In-Progress" },
-      { "num": "04", "time": "Every day", "title": "No one sees what they shouldn't", "body": "Revenue data across branches stays with the admin. Branch performance stays with the manager. Day-to-day scheduling stays with staff. Roles enforce the information architecture of your business.", "status": "Reconciled" }
+      {
+        "num": "01",
+        "time": "At checkout",
+        "title": "A staff member requests a discount",
+        "body": "The staff role allows them to request a discount. They submit it, and it goes to a manager for approval. They don't apply it themselves — the boundary is structural, not a matter of trust.",
+        "status": "Pending"
+      },
+      {
+        "num": "02",
+        "time": "Moments later",
+        "title": "A manager confirms a booking",
+        "body": "The manager role gives them authority over their branch's schedule. They confirm pending bookings, manage therapist assignments, and see the full day's picture for their location.",
+        "status": "Confirmed"
+      },
+      {
+        "num": "03",
+        "time": "Any time",
+        "title": "An admin reviews all branches",
+        "body": "The admin sees everything: all branches, all bookings, all discounts requested and applied, all payments recorded, all staff transfers. The single source of truth for the business.",
+        "status": "In-Progress"
+      },
+      {
+        "num": "04",
+        "time": "Every day",
+        "title": "No one sees what they shouldn't",
+        "body": "Revenue data across branches stays with the admin. Branch performance stays with the manager. Day-to-day scheduling stays with staff. Roles enforce the information architecture of your business.",
+        "status": "Reconciled"
+      }
     ],
     "bottomCta": {
       "headline": "Everyone deserves to see exactly what they need to do their job. Nothing more.",

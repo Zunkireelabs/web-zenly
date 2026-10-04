@@ -8,6 +8,7 @@
 {% if noindex or env != "production" %}<meta name="robots" content="noindex,nofollow" />{% endif %}
 
 <link rel="alternate" hreflang="en" href="{{ pageUrl }}" />
+<link rel="alternate" hreflang="en-NP" href="{{ pageUrl }}" />
 <link rel="alternate" hreflang="x-default" href="{{ pageUrl }}" />
 
 <meta property="og:type" content="{{ ogType or 'website' }}" />
@@ -17,11 +18,21 @@
 <meta property="og:url" content="{{ pageUrl }}" />
 <meta property="og:image" content="{{ pageImage }}" />
 <meta property="og:locale" content="{{ site.locale }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Zennly: booking and operations software for service businesses in Nepal" />
+{% if ogType == 'article' and datePublished %}<meta property="article:published_time" content="{{ datePublished }}" />
+<meta property="article:modified_time" content="{{ dateModified or datePublished }}" />
+<meta property="article:author" content="{{ site.url }}/about/" />{% endif %}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ pageTitle }}" />
 <meta name="twitter:description" content="{{ pageDescription }}" />
 <meta name="twitter:image" content="{{ pageImage }}" />
 
+<meta name="author" content="{{ site.name }}" />
+<meta name="geo.region" content="NP-BA" />
+<meta name="geo.placename" content="Lalitpur, Nepal" />
+<meta name="theme-color" content="#3F6839" />
 <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 <link rel="manifest" href="/site.webmanifest" />
 

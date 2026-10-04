@@ -2,46 +2,163 @@
   {
     "term": "Appointment scheduling software",
     "slug": "appointment-scheduling-software",
-    "definition": "Appointment scheduling software lets a business take, manage and confirm bookings online instead of by phone or paper. For service businesses such as spas, salons and clinics it also assigns the staff member and room for each booking and prevents overlaps."
+    "definition": "Appointment scheduling software lets a business take, manage and confirm bookings online instead of by phone or paper. For service businesses such as spas, salons and clinics it also assigns the staff member and room for each booking and prevents overlaps.",
+    "category": "Booking",
+    "relatedLabel": "Spa and salon booking software",
+    "relatedHref": "/solutions/",
+    "aka": "appointment booking software, scheduling software, booking app"
   },
   {
     "term": "Multi-branch booking software",
     "slug": "multi-branch-booking-software",
-    "definition": "Multi-branch booking software manages bookings, staff, rooms and revenue for a business with more than one location in a single system. Owners see every branch at once, and staff can be scheduled to transfer between branches."
+    "definition": "Multi-branch booking software manages bookings, staff, rooms and revenue for a business with more than one location in a single system. Owners see every branch at once, and staff can be scheduled to transfer between branches.",
+    "category": "Booking",
+    "relatedLabel": "Multi-location booking software guide",
+    "relatedHref": "/blog/multi-location-booking-software/",
+    "aka": "multi-location booking software, multi-site booking software, multi-outlet booking software"
   },
   {
     "term": "Double booking",
     "slug": "double-booking",
-    "definition": "A double booking happens when the same staff member, room or time slot is booked for two customers at once. Zennly refuses conflicting bookings at database level, so a double booking cannot be saved, even across branches."
+    "definition": "A double booking happens when the same staff member, room or time slot is booked for two customers at once. Zennly refuses conflicting bookings at database level, so a double booking cannot be saved, even across branches.",
+    "category": "Booking",
+    "relatedLabel": "Conflict-free booking",
+    "relatedHref": "/features/booking/",
+    "aka": "overbooking, scheduling conflict"
   },
   {
     "term": "Daily reconciliation",
     "slug": "daily-reconciliation",
-    "definition": "Daily reconciliation is the end-of-day check that recorded payments match the money actually received, by method (cash, card, online). When each payment is recorded against its booking at the point of service, the daily close is a read rather than a rebuild."
+    "definition": "Daily reconciliation is the end-of-day check that recorded payments match the money actually received, by method (cash, card, online). When each payment is recorded against its booking at the point of service, the daily close is a read rather than a rebuild.",
+    "category": "Finance",
+    "relatedLabel": "Payment tracking and daily reconciliation",
+    "relatedHref": "/features/payment-tracking/",
+    "aka": "end-of-day reconciliation, daily cash-up, till reconciliation, daily close"
   },
   {
     "term": "Discount approval workflow",
     "slug": "discount-approval-workflow",
-    "definition": "A discount approval workflow requires staff to request a discount and a manager to approve it before it applies. Every request and decision is logged, which prevents untracked discounts and revenue leakage."
+    "definition": "A discount approval workflow requires staff to request a discount and a manager to approve it before it applies. Every request and decision is logged, which prevents untracked discounts and revenue leakage.",
+    "category": "Finance",
+    "relatedLabel": "Discount management",
+    "relatedHref": "/features/discount-management/",
+    "aka": "discount authorization, discount authorisation, manager approval for discounts"
   },
   {
     "term": "Audit trail",
     "slug": "audit-trail",
-    "definition": "An audit trail is a permanent record of who did what and when, such as who requested and approved a discount. It lets owners review decisions after the fact without relying on memory."
+    "definition": "An audit trail is a permanent record of who did what and when, such as who requested and approved a discount. It lets owners review decisions after the fact without relying on memory.",
+    "category": "Security",
+    "relatedLabel": "Discount approval with an audit trail",
+    "relatedHref": "/features/discount-management/",
+    "aka": "audit log, activity log"
   },
   {
     "term": "Role-based access control",
     "slug": "role-based-access-control",
-    "definition": "Role-based access control limits what each person can see and do according to their job. In Zennly, owners, managers and front-desk staff each get a different level of access to bookings, payments and reports."
+    "definition": "Role-based access control limits what each person can see and do according to their job. In Zennly, owners, managers and front-desk staff each get a different level of access to bookings, payments and reports.",
+    "category": "Security",
+    "relatedLabel": "Role-based access",
+    "relatedHref": "/features/role-based-access/",
+    "aka": "RBAC, staff permissions, user permissions"
   },
   {
     "term": "Part-payment",
     "slug": "part-payment",
-    "definition": "A part-payment is a partial payment toward a booking, such as a deposit paid up front with the balance settled later. Tracking each part-payment against the booking keeps the settlement status accurate."
+    "definition": "A part-payment is a partial payment toward a booking, such as a deposit paid up front with the balance settled later. Tracking each part-payment against the booking keeps the settlement status accurate.",
+    "category": "Finance",
+    "relatedLabel": "Payment tracking",
+    "relatedHref": "/features/payment-tracking/",
+    "aka": "partial payment, deposit and balance, split payment"
   },
   {
     "term": "Staff transfer",
     "slug": "staff-transfer",
-    "definition": "A staff transfer schedules an employee to work at a different branch on given days. In a multi-branch system the transfer is planned ahead so the staff member's availability is correct at both locations."
+    "definition": "A staff transfer schedules an employee to work at a different branch on given days. In a multi-branch system the transfer is planned ahead so the staff member's availability is correct at both locations.",
+    "category": "Operations",
+    "relatedLabel": "Staff scheduling and transfers",
+    "relatedHref": "/features/staff-management/",
+    "aka": "employee transfer between locations, cross-location staffing"
+  },
+  {
+    "term": "No-show",
+    "slug": "no-show",
+    "definition": "A no-show is a client who books an appointment and does not turn up or cancel. For service businesses it means an empty slot that cannot be resold, which is why many studios and clinics take a deposit or send confirmations.",
+    "category": "Booking",
+    "relatedLabel": "Booking software for spas and salons",
+    "relatedHref": "/solutions/",
+    "aka": "missed appointment, did not attend (DNA)"
+  },
+  {
+    "term": "Deposit",
+    "slug": "deposit",
+    "definition": "A deposit is a part-payment taken when a booking is made, to hold the slot. It is recorded against the booking, and the balance is recorded when the service is complete. Deposits are common in tattoo studios and for long treatments.",
+    "category": "Finance",
+    "relatedLabel": "Tattoo studio booking and deposits",
+    "relatedHref": "/blog/tattoo-studio-booking-and-deposits/",
+    "aka": "booking deposit, advance payment, prepayment"
+  },
+  {
+    "term": "Booking software",
+    "slug": "booking-software",
+    "definition": "Booking software lets a business take appointments online and manage them in one calendar. Spas, salons, gyms and clinics use it to replace phone calls and paper books, assign staff and rooms, and track payments per booking.",
+    "category": "Booking",
+    "relatedLabel": "How to choose booking software in Nepal",
+    "relatedHref": "/blog/how-to-choose-booking-software-nepal/",
+    "aka": "online booking software, reservation software"
+  },
+  {
+    "term": "Booking lifecycle",
+    "slug": "booking-lifecycle",
+    "definition": "The booking lifecycle is the set of stages a booking moves through, such as Pending, Confirmed, In-Progress and Completed. Tracking the stage of every booking shows the owner what is happening across all branches in real time.",
+    "category": "Operations",
+    "relatedLabel": "Real-time operations dashboard",
+    "relatedHref": "/features/operational-visibility/",
+    "aka": "appointment status workflow, booking status"
+  },
+  {
+    "term": "Online booking system",
+    "slug": "online-booking-system",
+    "definition": "An online booking system lets customers choose a service, staff member and time on a web page or phone, and holds the slot straight away. For businesses it replaces phone and chat bookings with one calendar that other staff and branches can see.",
+    "category": "Booking",
+    "relatedLabel": "Booking software",
+    "relatedHref": "/blog/stop-taking-bookings-on-whatsapp-nepal/",
+    "aka": "online appointment booking, web booking, self-booking"
+  },
+  {
+    "term": "Spa management software",
+    "slug": "spa-management-software",
+    "definition": "Spa management software combines online booking, therapist and room scheduling, payments and reporting for a spa or wellness centre. Multi-location spas also need one view of every site, so owners can compare bookings and revenue.",
+    "category": "Operations",
+    "relatedLabel": "Spa management software: how to choose",
+    "relatedHref": "/blog/spa-management-software/",
+    "aka": "spa booking software, wellness center software, wellness centre software"
+  },
+  {
+    "term": "Salon management software",
+    "slug": "salon-management-software",
+    "definition": "Salon management software handles bookings, stylist schedules, payments and reports for a hair or beauty salon. For salons with several branches it also shows every location in one place and controls discounts.",
+    "category": "Operations",
+    "relatedLabel": "Salon management software: how to choose",
+    "relatedHref": "/blog/salon-management-software/",
+    "aka": "salon booking software, hair salon software, beauty parlour software"
+  },
+  {
+    "term": "Resource scheduling",
+    "slug": "resource-scheduling",
+    "definition": "Resource scheduling means booking everything a service needs together, such as the staff member, the room and the time, so that none of them is double-booked. It matters most when a treatment needs both a person and a room.",
+    "category": "Booking",
+    "relatedLabel": "Staff scheduling and transfers",
+    "relatedHref": "/features/staff-management/",
+    "aka": "staff and room scheduling, resource booking"
+  },
+  {
+    "term": "Walk-in booking",
+    "slug": "walk-in-booking",
+    "definition": "A walk-in booking is an appointment entered for a customer who arrives without booking in advance. Entering it in the same calendar as online bookings keeps staff and rooms from being promised twice.",
+    "category": "Booking",
+    "relatedLabel": "Conflict-free booking",
+    "relatedHref": "/features/booking/",
+    "aka": "walk-in appointment, drop-in booking"
   }
 ]

@@ -1,0 +1,83 @@
+---
+layout: base.njk
+title: "Stop Taking Salon and Spa Bookings on WhatsApp | Zennly"
+metaDescription: "Taking bookings on WhatsApp, Viber and calls leads to double-bookings and lost messages. Here is how a salon or spa in Nepal can move to online booking."
+datePublished: "2026-10-04"
+dateModified: "2026-10-04"
+ogType: article
+bodyClass: page--light-nav
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "Why salons and spas in Nepal should stop taking bookings on WhatsApp", url: page.url }]) }}
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema([{"question": "How can a salon in Nepal take bookings without WhatsApp?", "answer": "Give clients an online booking link. They pick the service, stylist and time, the slot is locked, and you can still answer questions by chat."}, {"question": "Can I keep using WhatsApp and Viber with online booking?", "answer": "Yes. Use chat for questions and send the booking link, so the booking itself is recorded in one calendar."}]) }}
+{% from "schema/article.njk" import articleSchema with context %}
+{{ articleSchema("Why salons and spas in Nepal should stop taking bookings on WhatsApp", datePublished, page.url, metaDescription, dateModified) }}
+
+<main>
+
+  <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="article-hero reveal">
+      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
+      <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Booking</p>
+      <h1 class="article-hero__h1">Why salons and spas in Nepal should stop taking bookings on WhatsApp</h1>
+      <p class="article-hero__meta">4 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
+    </div>
+  </section>
+
+  <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="article-body reveal">
+
+      <p><strong>Salons and spas in Nepal can stop taking bookings on WhatsApp, Viber and phone calls by giving clients an online booking link that checks the stylist or therapist and the time, refuses clashes and records the booking. Clients can still message you, but the calendar stays correct.</strong></p>
+
+      <h2>Why chat bookings break</h2>
+      <p>A chat does not check whether the stylist is free. Messages get buried, a booking lives in one person's phone, and nobody can see another branch's day. The same slot gets promised twice, and the client finds out at the door.</p>
+
+      <h2>Keep the chat, change where bookings live</h2>
+      <p>You do not need to stop using WhatsApp or Viber. Share a booking link in your chat replies, on Facebook and Instagram, and on Google. Clients choose a branch, a service and a time, and the system holds the slot.</p>
+
+      <h2>What to move first</h2>
+      <p>Start with online booking and payment recording, then add discount approval and reports. Many businesses begin with one branch and expand. See <a href="/blog/salon-booking-system-nepal/">how to take salon bookings without phone calls</a>.</p>
+
+      <h2>What changes for your team</h2>
+      <p>Front-desk staff stop copying messages into a notebook. Managers see the whole day in one view, and the owner can check every branch without phoning each manager.</p>
+
+      <h2>A simple switch plan</h2>
+      <ul>
+        <li>Put your services and prices into the system</li>
+        <li>Share one booking link in chat, on Facebook, Instagram and Google</li>
+        <li>Enter walk-ins into the same calendar</li>
+        <li>Record every payment against its booking</li>
+      </ul>
+
+      <h2>Common questions</h2>
+      <h3>How can a salon in Nepal take bookings without WhatsApp?</h3>
+      <p>Give clients an online booking link. They pick the service, stylist and time, the slot is locked, and you can still answer questions by chat.</p>
+      <h3>Can I keep using WhatsApp and Viber with online booking?</h3>
+      <p>Yes. Use chat for questions and send the booking link, so the booking itself is recorded in one calendar.</p>
+
+      <h2>Related reading</h2>
+      <ul>
+        <li><a href="/solutions/salon/">Salon and beauty parlour booking software for Nepal</a></li>
+        <li><a href="/solutions/spa/">Spa booking and management software for Nepal</a></li>
+        <li><a href="/blog/spreadsheets-stop-working/">Why spreadsheets stop working after your second branch</a></li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
+  <section class="bottom-cta" id="demo">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">See Zennly running your kind of business.</h2>
+      <p class="bottom-cta__sub">Book a 20-minute demo and we&rsquo;ll walk you through it.</p>
+      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
+  {% include "_footer-v2.njk" %}
+
+</main>

@@ -1,6 +1,7 @@
 const isProd = (process.env.ELEVENTY_ENV || "production") === "production";
 
 module.exports = {
+  isProd,
   name: "Zennly",
   url: isProd ? "https://zennly.io" : "https://dev-web.zenly.zunkireelabs.com",
   titleTemplate: "%s | Zennly",
@@ -12,5 +13,21 @@ module.exports = {
   foundingDate: "2026",
   slogan: "Booking & operations software for service businesses in Nepal",
   locale: "en_NP",
-  sameAs: ["https://share.google/BgkNn87IT8ReCAgUt"]
+  alternateName: "Zennly booking software",
+  disambiguatingDescription:
+    "Zennly (zennly.io) is booking and operations software for service businesses in Nepal. It is not related to zennly.org.",
+  telephone: "+977-9747491787",
+  address: {
+    locality: "Lalitpur",
+    region: "Bagmati Province",
+    postalCode: "44600",
+    country: "NP"
+  },
+  parentOrganization: { name: "Zunkireelabs", url: "https://zunkireelabs.com" },
+  // Add only live, verified profile URLs (listings, socials) below.
+  sameAs: [
+    "https://share.google/BgkNn87IT8ReCAgUt",
+    "https://www.g2.com/products/zennly/reviews",
+    "https://www.goodfirms.co/software/zennly"
+  ]
 };

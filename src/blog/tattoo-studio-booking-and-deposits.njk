@@ -3,29 +3,34 @@ layout: base.njk
 title: "Tattoo Studio Booking & Deposits in Nepal | Zennly"
 metaDescription: "How tattoo studios in Nepal can manage artist calendars, consultations and deposits so long sessions don't clash and no-shows cost less."
 datePublished: "2026-09-30"
+dateModified: "2026-10-04"
 ogType: article
 bodyClass: page--light-nav
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "How tattoo studios can manage artist schedules and deposits", url: page.url }]) }}
 {% from "schema/article.njk" import articleSchema with context %}
-{{ articleSchema("How tattoo studios can manage artist schedules and deposits", datePublished, page.url, metaDescription) }}
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema([{"question": "How do tattoo studios in Nepal manage artist schedules?", "answer": "Keep one calendar per artist, set consultations and sessions as separate services with their own durations, and enter walk-ins into the same calendar so no artist is promised twice."}, {"question": "How should a tattoo studio record deposits?", "answer": "Record the deposit against the booking when it is paid, then record the balance when the session is complete, so part-payments are never lost."}]) }}
+{{ articleSchema("How tattoo studios can manage artist schedules and deposits", datePublished, page.url, metaDescription, dateModified) }}
 
 <main>
 
   <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
   <section class="section" style="padding-bottom:0;">
     <div class="article-hero reveal">
-      <a href="/blog" class="article-back-link">&larr; Back to Blog</a>
+      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
       <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Tattoo Studios</p>
       <h1 class="article-hero__h1">How tattoo studios can manage artist schedules and deposits</h1>
-      <p class="article-hero__meta">4 min read</p>
+      <p class="article-hero__meta">4 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
     </div>
   </section>
 
   <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
   <section class="section">
     <div class="article-body reveal">
+
+      <p><strong>Tattoo studios in Nepal can manage artist schedules and deposits by booking per artist, giving consultations and long sessions different durations, and recording the deposit and balance against each booking. Zennly supports artist scheduling and part-payments in one calendar.</strong></p>
 
 <p>A tattoo appointment is not a haircut. Sessions run for hours, some designs take several visits, and the artist you book is the whole point. That makes scheduling unusually unforgiving: a clash costs an artist half a day.</p>
 <h2>Schedule by artist, not by studio</h2>
@@ -39,6 +44,21 @@ bodyClass: page--light-nav
 <h2>Keep a record you can trust</h2>
 <p>When every booking, deposit and payment sits in one place, the end of the day is a check, not a search through messages. <a href="/solutions/tattoo/">See how Zennly works for tattoo studios</a>.</p>
 
+      <h2>Tattoo studio booking in Nepal: keep it simple</h2>
+      <p>Most tattoo studios in Nepal are small, often a single studio with a few artists. That makes the basics matter most: one calendar per artist, a deposit recorded when the client commits, and a clear record of the balance on the day. You can add more branches later if the studio grows.</p>
+
+      <h2>Common questions</h2>
+      <h3>How do tattoo studios in Nepal manage artist schedules?</h3>
+      <p>Keep one calendar per artist, set consultations and sessions as separate services with their own durations, and enter walk-ins into the same calendar so no artist is promised twice.</p>
+      <h3>How should a tattoo studio record deposits?</h3>
+      <p>Record the deposit against the booking when it is paid, then record the balance when the session is complete, so part-payments are never lost.</p>
+
+      <h2>Related reading</h2>
+      <ul>
+        <li><a href="/solutions/tattoo/">Tattoo studio booking software for Nepal</a></li>
+        <li><a href="/blog/how-to-choose-booking-software-nepal/">How to choose booking software in Nepal</a></li>
+      </ul>
+
     </div>
   </section>
 
@@ -47,7 +67,7 @@ bodyClass: page--light-nav
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Running a tattoo studio?</h2>
       <p class="bottom-cta__sub">Book a 20-minute demo and see artist scheduling and payment tracking in Zennly.</p>
-      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
     </div>
   </section>
 
