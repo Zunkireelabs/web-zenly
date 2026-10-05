@@ -27,7 +27,11 @@ module.exports = {
   // Add only live, verified profile URLs (listings, socials) below.
   sameAs: [
     "https://share.google/BgkNn87IT8ReCAgUt",
-    "https://www.g2.com/products/zennly/reviews",
-    "https://www.goodfirms.co/software/zennly"
+    "https://www.g2.com/products/zennly",
+    "https://www.goodfirms.co/software/zennly",
+    "https://share.google/OMw78VXlwqW4GTaON",
+    "https://www.capterra.com/p/10263080/Zennly/",
+    "https://www.softwareadvice.com.au/software/764131/Zennly",
+    "https://www.getapp.com.au/software/2367946/zennly"
   ]
 };
