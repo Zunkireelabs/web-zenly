@@ -26,7 +26,6 @@ module.exports = {
   parentOrganization: { name: "Zunkireelabs", url: "https://zunkireelabs.com" },
   // Add only live, verified profile URLs (listings, socials) below.
   sameAs: [
-    "https://share.google/BgkNn87IT8ReCAgUt",
     "https://www.g2.com/products/zennly",
     "https://www.goodfirms.co/software/zennly",
     "https://share.google/OMw78VXlwqW4GTaON",
