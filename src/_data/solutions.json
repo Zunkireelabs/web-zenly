@@ -1088,5 +1088,521 @@
     ],
     "metaDescription": "Scheduling software for cleaning services in Nepal — dispatch staff to the right site, on time, with the job tracked correctly.",
     "seoTitle": "Cleaning Service Scheduling Software Nepal | Zennly"
+  },
+  {
+    "slug": "barbershop",
+    "name": "Barbershops",
+    "navLabel": "Barbershops",
+    "hero": {
+      "eyebrow": "Barbershops",
+      "headline": "Chair-by-chair booking for barbershops that never stand still.",
+      "sub": "Walk-ins, regulars who ask for their barber by name, and a queue that changes every ten minutes – Zennly keeps every chair, barber and payment visible.",
+      "ctaText": "Book a demo",
+      "ctaHref": "/demo/",
+      "caption": "No setup fees",
+      "image": "/assets/images/solution-hero-barbershop.jpg",
+      "imageAlt": "Barbers cutting hair in a barbershop"
+    },
+    "heroCalendar": {
+      "month": "October",
+      "today": "7",
+      "meta": "8 bookings · 2 branches",
+      "appts": [
+        {
+          "name": "A. Thapa",
+          "service": "Haircut & beard trim",
+          "time": "10:00 – 10:45am",
+          "color": "1"
+        },
+        {
+          "name": "S. Karki",
+          "service": "Skin fade",
+          "time": "11:00 – 11:45am",
+          "color": "2"
+        },
+        {
+          "name": "B. Lama",
+          "service": "Shave",
+          "time": "12:30 – 1:00pm",
+          "color": "3"
+        }
+      ]
+    },
+    "heroTreatments": {
+      "badge": "10:00 – 10:45 AM",
+      "items": [
+        {
+          "icon": "scissors",
+          "label": "Haircut & Beard Trim",
+          "active": true
+        },
+        {
+          "icon": "razor",
+          "label": "Shave"
+        },
+        {
+          "icon": "clipper",
+          "label": "Skin Fade"
+        }
+      ]
+    },
+    "showcase": [
+      {
+        "eyebrow": "Booking lifecycle",
+        "heading": "Every barber's chair, accounted for",
+        "description": "Every booking is assigned to a specific barber and moves through Pending → Confirmed → In-Progress → Completed. Walk-ins are created the same way as booked appointments, so the chair schedule always matches who is actually in the shop.",
+        "visual": "calendar"
+      },
+      {
+        "eyebrow": "Discount approvals",
+        "heading": "Regular-customer discounts with a record",
+        "description": "Staff can request a discount at the chair, but it only applies once a manager approves it. Every request carries a value and an amount, so loyalty discounts stop being a habit nobody can account for.",
+        "visual": "approval"
+      },
+      {
+        "eyebrow": "Payments",
+        "heading": "Every cut paid, every day closed",
+        "description": "Each payment is recorded by cash, card or online against its booking, so closing the day means checking one report instead of counting slips.",
+        "visual": "mobile"
+      },
+      {
+        "eyebrow": "Staff transfers",
+        "heading": "Barbers who cover other branches",
+        "description": "Moving a barber between branches is a scheduled event with a destination and an effective date, so no chair is left uncovered.",
+        "visual": "transfer"
+      }
+    ],
+    "stats": {
+      "heading": "One operational system, not a booking widget.",
+      "sub": "The structure underneath every barbershop running on Zennly.",
+      "items": [
+        {
+          "tag": "Booking Flow",
+          "value": "4",
+          "label": "Booking stages tracked – Pending to Completed"
+        },
+        {
+          "tag": "Team Access",
+          "value": "3",
+          "label": "Role levels – Admin, Manager, Staff"
+        },
+        {
+          "tag": "Discount Control",
+          "value": "100%",
+          "label": "Discount requests carry an approval trail"
+        },
+        {
+          "tag": "Multi-Branch",
+          "value": "∞",
+          "label": "Branches on one account"
+        }
+      ]
+    },
+    "howItWorks": {
+      "eyebrow": "Get started",
+      "heading": "Live in three steps",
+      "sub": "No migration project. Set it up once, run every branch from it.",
+      "steps": [
+        {
+          "num": "01",
+          "title": "Add your branches & barbers",
+          "desc": "Set up every shop and every barber – Zennly maps your real floor, not a generic calendar.",
+          "visual": "mobile"
+        },
+        {
+          "num": "02",
+          "title": "Configure services & pricing",
+          "desc": "Haircuts, shaves and packages with durations and prices, set once and applied at booking.",
+          "visual": "approval"
+        },
+        {
+          "num": "03",
+          "title": "Go live",
+          "desc": "Customers book online, walk-ins are added at the desk and every payment is recorded as it happens.",
+          "visual": "calendar"
+        }
+      ]
+    },
+    "finalCta": {
+      "heading": "Ready to see how it works for your barbershop?",
+      "sub": "Book a 20-minute demo. We'll show you how Zennly handles barber-specific booking, walk-ins, discount approval and daily reconciliation across every shop.",
+      "ctaText": "Book your demo"
+    },
+    "faq": [
+      {
+        "question": "We only have one branch right now.",
+        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch barbershops start for the booking and payment tracking alone."
+      },
+      {
+        "question": "How is this different from generic booking software?",
+        "answer": "Generic tools handle time slots. Zennly handles barber assignment, discount approvals and daily payment reconciliation – where barbershops actually lose money."
+      },
+      {
+        "question": "What booking software works for a barbershop in Nepal?",
+        "answer": "Zennly is booking and operations software for barbershops in Nepal. It assigns every booking to a specific barber, handles walk-ins, records payments by cash, card and online, and reconciles the day across branches."
+      },
+      {
+        "question": "Can a barbershop handle walk-ins and appointments together?",
+        "answer": "Yes. Walk-ins are created the same way as booked appointments, assigned to a barber and moved through the same booking stages, so the schedule shows both."
+      },
+      {
+        "question": "How do I stop barbers giving unrecorded discounts?",
+        "answer": "Staff request a discount with an exact value and amount, and it applies only after a manager approves it. Every request stays in an audit trail."
+      },
+      {
+        "question": "How much does barbershop booking software cost in Nepal?",
+        "answer": "Zennly pricing is a custom quote based on your number of branches, team size and the features you use. Book a 20-minute demo and you get a tailored quote within 24 hours."
+      },
+      {
+        "question": "Is Zennly used by a real business in Nepal?",
+        "answer": "Yes. Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly, the same system used for scheduling, discount control and daily reconciliation."
+      }
+    ],
+    "metaDescription": "Booking and operations software for barbershops in Nepal — barber-specific scheduling, walk-ins, discount approval and daily payment reconciliation.",
+    "seoTitle": "Barbershop Booking Software in Nepal | Zennly"
+  },
+  {
+    "slug": "beauty-clinic",
+    "name": "Beauty Clinics",
+    "navLabel": "Beauty Clinics",
+    "hero": {
+      "eyebrow": "Beauty Clinics",
+      "headline": "Practitioner-led booking for clinics where every treatment has a room and a record.",
+      "sub": "Skin, laser and aesthetic treatments depend on the right practitioner, the right room and an accurate payment trail – Zennly keeps all three in one system.",
+      "ctaText": "Book a demo",
+      "ctaHref": "/demo/",
+      "caption": "No setup fees",
+      "image": "/assets/images/solution-hero-beauty-clinic.jpg",
+      "imageAlt": "Client receiving a facial treatment at a beauty clinic"
+    },
+    "heroCalendar": {
+      "month": "October",
+      "today": "7",
+      "meta": "8 bookings · 2 branches",
+      "appts": [
+        {
+          "name": "R. Gurung",
+          "service": "Facial treatment",
+          "time": "10:00 – 11:00am",
+          "color": "1"
+        },
+        {
+          "name": "M. Shah",
+          "service": "Skin consultation",
+          "time": "11:30am – 12:00pm",
+          "color": "2"
+        },
+        {
+          "name": "P. Joshi",
+          "service": "Laser session",
+          "time": "2:00 – 2:45pm",
+          "color": "3"
+        }
+      ]
+    },
+    "heroTreatments": {
+      "badge": "10:00 – 11:00 AM",
+      "items": [
+        {
+          "icon": "facial",
+          "label": "Facial Treatment",
+          "active": true
+        },
+        {
+          "icon": "consult",
+          "label": "Skin Consultation"
+        },
+        {
+          "icon": "laser",
+          "label": "Laser Session"
+        }
+      ]
+    },
+    "showcase": [
+      {
+        "eyebrow": "Booking lifecycle",
+        "heading": "Practitioner and room, booked together",
+        "description": "Every booking is tied to a practitioner and a room and moves through Pending → Confirmed → In-Progress → Completed, so treatment rooms are not double-booked and clients see the practitioner they chose.",
+        "visual": "calendar"
+      },
+      {
+        "eyebrow": "Payments",
+        "heading": "Treatment payments recorded at the point of service",
+        "description": "Each payment is recorded against its booking by cash, card or online, so higher-value treatments reconcile from one source of truth.",
+        "visual": "approval"
+      },
+      {
+        "eyebrow": "Discount approvals",
+        "heading": "Promotions with an approval trail",
+        "description": "Staff request a discount with an exact value and amount, and a manager approves it before it applies. Nothing is offered from memory.",
+        "visual": "mobile"
+      },
+      {
+        "eyebrow": "Role-based access",
+        "heading": "The right access for every role",
+        "description": "Admin, Manager and Staff roles keep financial reports with owners and managers while front-desk staff handle bookings.",
+        "visual": "transfer"
+      }
+    ],
+    "stats": {
+      "heading": "One operational system, not a booking widget.",
+      "sub": "The structure underneath every beauty clinic running on Zennly.",
+      "items": [
+        {
+          "tag": "Booking Flow",
+          "value": "4",
+          "label": "Booking stages tracked – Pending to Completed"
+        },
+        {
+          "tag": "Team Access",
+          "value": "3",
+          "label": "Role levels – Admin, Manager, Staff"
+        },
+        {
+          "tag": "Payment Tracking",
+          "value": "100%",
+          "label": "Payments recorded by cash, card or online"
+        },
+        {
+          "tag": "Multi-Branch",
+          "value": "∞",
+          "label": "Branches on one account"
+        }
+      ]
+    },
+    "howItWorks": {
+      "eyebrow": "Get started",
+      "heading": "Live in three steps",
+      "sub": "No migration project. Set it up once, run every branch from it.",
+      "steps": [
+        {
+          "num": "01",
+          "title": "Add your branches & practitioners",
+          "desc": "Set up every clinic, room and practitioner – Zennly maps your real setup.",
+          "visual": "mobile"
+        },
+        {
+          "num": "02",
+          "title": "Configure treatments & pricing",
+          "desc": "Treatment durations and prices, set once and applied at booking.",
+          "visual": "approval"
+        },
+        {
+          "num": "03",
+          "title": "Go live",
+          "desc": "Clients book online, staff move treatments through the lifecycle and every payment is recorded on the spot.",
+          "visual": "calendar"
+        }
+      ]
+    },
+    "finalCta": {
+      "heading": "Ready to see how it works for your beauty clinic?",
+      "sub": "Book a 20-minute demo. We'll show you how Zennly handles practitioner and room booking, payment tracking and access control across every clinic.",
+      "ctaText": "Book your demo"
+    },
+    "faq": [
+      {
+        "question": "We only have one branch right now.",
+        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch beauty clinics start for the booking and payment tracking alone."
+      },
+      {
+        "question": "How is this different from generic booking software?",
+        "answer": "Generic tools handle time slots. Zennly handles practitioner assignment, discount approvals and daily payment reconciliation – where beauty clinics actually lose money."
+      },
+      {
+        "question": "What software helps manage a beauty clinic in Nepal?",
+        "answer": "Zennly is booking and operations software for beauty clinics in Nepal. It schedules practitioners and rooms, takes online bookings, tracks payments by cash, card and online, and gives owners a daily report across branches."
+      },
+      {
+        "question": "Can Zennly stop treatment rooms being double-booked?",
+        "answer": "Yes. Zennly books staff, room and time together, so a room or practitioner cannot be booked twice for the same slot."
+      },
+      {
+        "question": "Who can see financial reports in a clinic?",
+        "answer": "Access is role-based. Owners and managers see payment and revenue reports, while front-desk staff work with bookings."
+      },
+      {
+        "question": "How much does beauty clinic booking software cost in Nepal?",
+        "answer": "Zennly pricing is a custom quote based on your number of branches, team size and the features you use. Book a 20-minute demo and you get a tailored quote within 24 hours."
+      },
+      {
+        "question": "Is Zennly used by a real business in Nepal?",
+        "answer": "Yes. Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly, the same system used for scheduling, discount control and daily reconciliation."
+      }
+    ],
+    "metaDescription": "Booking and operations software for beauty and aesthetic clinics in Nepal — practitioner and room scheduling, payment tracking and daily reconciliation.",
+    "seoTitle": "Beauty Clinic Booking Software in Nepal | Zennly"
+  },
+  {
+    "slug": "bridal-makeup",
+    "name": "Bridal & Makeup Studios",
+    "navLabel": "Bridal & Makeup",
+    "hero": {
+      "eyebrow": "Bridal & Makeup Studios",
+      "headline": "Artist-specific booking for bridal and makeup work that can't be double-booked.",
+      "sub": "A bridal date is booked for one artist and one day. Zennly assigns every booking to a named artist and keeps the schedule and payments clear.",
+      "ctaText": "Book a demo",
+      "ctaHref": "/demo/",
+      "caption": "No setup fees",
+      "image": "/assets/images/solution-hero-bridal-makeup.jpg",
+      "imageAlt": "Makeup artist preparing a bride before her wedding"
+    },
+    "heroCalendar": {
+      "month": "October",
+      "today": "7",
+      "meta": "8 bookings · 2 branches",
+      "appts": [
+        {
+          "name": "S. Pradhan",
+          "service": "Bridal makeup",
+          "time": "6:00 – 9:00am",
+          "color": "1"
+        },
+        {
+          "name": "N. Rana",
+          "service": "Party makeup",
+          "time": "11:00am – 12:30pm",
+          "color": "2"
+        },
+        {
+          "name": "D. Tamang",
+          "service": "Makeup trial",
+          "time": "2:00 – 3:00pm",
+          "color": "3"
+        }
+      ]
+    },
+    "heroTreatments": {
+      "badge": "6:00 – 9:00 AM",
+      "items": [
+        {
+          "icon": "makeup",
+          "label": "Bridal Makeup",
+          "active": true
+        },
+        {
+          "icon": "hair",
+          "label": "Hair Styling"
+        },
+        {
+          "icon": "trial",
+          "label": "Makeup Trial"
+        }
+      ]
+    },
+    "showcase": [
+      {
+        "eyebrow": "Booking lifecycle",
+        "heading": "The right artist, on the right day",
+        "description": "Every booking is assigned to a specific artist and moves through Pending → Confirmed → In-Progress → Completed, so a bridal date is held for the artist the client chose.",
+        "visual": "calendar"
+      },
+      {
+        "eyebrow": "Payments",
+        "heading": "Every payment tied to its booking",
+        "description": "Payments are recorded by cash, card or online against the booking, so the studio can see what has been paid for every date.",
+        "visual": "approval"
+      },
+      {
+        "eyebrow": "Discount approvals",
+        "heading": "Package discounts, approved",
+        "description": "Staff request a discount with an exact value and amount, and a manager approves it before it applies.",
+        "visual": "mobile"
+      },
+      {
+        "eyebrow": "Staff transfers",
+        "heading": "Artists who work across locations",
+        "description": "Moving an artist between branches is a scheduled event with a destination and effective date, so coverage is planned in advance.",
+        "visual": "transfer"
+      }
+    ],
+    "stats": {
+      "heading": "One operational system, not a booking widget.",
+      "sub": "The structure underneath every makeup studio running on Zennly.",
+      "items": [
+        {
+          "tag": "Booking Flow",
+          "value": "4",
+          "label": "Booking stages tracked – Pending to Completed"
+        },
+        {
+          "tag": "Team Access",
+          "value": "3",
+          "label": "Role levels – Admin, Manager, Staff"
+        },
+        {
+          "tag": "Payment Tracking",
+          "value": "100%",
+          "label": "Payments recorded by cash, card or online"
+        },
+        {
+          "tag": "Multi-Branch",
+          "value": "∞",
+          "label": "Branches on one account"
+        }
+      ]
+    },
+    "howItWorks": {
+      "eyebrow": "Get started",
+      "heading": "Live in three steps",
+      "sub": "No migration project. Set it up once, run every branch from it.",
+      "steps": [
+        {
+          "num": "01",
+          "title": "Add your branches & artists",
+          "desc": "Set up every studio and every artist – Zennly maps your real team.",
+          "visual": "mobile"
+        },
+        {
+          "num": "02",
+          "title": "Configure services & pricing",
+          "desc": "Bridal, party and trial services with durations and prices, set once.",
+          "visual": "approval"
+        },
+        {
+          "num": "03",
+          "title": "Go live",
+          "desc": "Clients book online, staff track each booking through its stages and every payment is recorded.",
+          "visual": "calendar"
+        }
+      ]
+    },
+    "finalCta": {
+      "heading": "Ready to see how it works for your makeup studio?",
+      "sub": "Book a 20-minute demo. We'll show you how Zennly handles artist-specific booking, payments and discount approval for your studio.",
+      "ctaText": "Book your demo"
+    },
+    "faq": [
+      {
+        "question": "We only have one branch right now.",
+        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch makeup studios start for the booking and payment tracking alone."
+      },
+      {
+        "question": "How is this different from generic booking software?",
+        "answer": "Generic tools handle time slots. Zennly handles artist assignment, discount approvals and daily payment reconciliation – where makeup studios actually lose money."
+      },
+      {
+        "question": "What booking software suits a bridal makeup studio in Nepal?",
+        "answer": "Zennly is booking and operations software for makeup and bridal studios in Nepal. It assigns every booking to a named artist, records payments by cash, card and online, and approves discounts with an audit trail."
+      },
+      {
+        "question": "Can I book a makeup trial and the bridal date separately?",
+        "answer": "Yes. Each is its own booking tied to an artist, so a trial and the main date are scheduled and tracked separately."
+      },
+      {
+        "question": "How do I avoid double-booking an artist on a busy date?",
+        "answer": "Zennly books staff and time together, so an artist cannot be booked twice for overlapping slots."
+      },
+      {
+        "question": "How much does makeup studio booking software cost in Nepal?",
+        "answer": "Zennly pricing is a custom quote based on your number of branches, team size and the features you use. Book a 20-minute demo and you get a tailored quote within 24 hours."
+      },
+      {
+        "question": "Is Zennly used by a real business in Nepal?",
+        "answer": "Yes. Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly, the same system used for scheduling, discount control and daily reconciliation."
+      }
+    ],
+    "metaDescription": "Booking and operations software for bridal and makeup studios in Nepal — artist-specific scheduling, payment tracking and discount approval.",
+    "seoTitle": "Bridal & Makeup Studio Booking Software in Nepal | Zennly"
   }
 ]

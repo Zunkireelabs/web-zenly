@@ -1823,5 +1823,2233 @@
     ],
     "metaDescription": "Role-based access control for service businesses in Nepal — a three-tier permission model built around how a real service business is structured.",
     "seoTitle": "Role-Based Access for Owners, Managers & Staff | Zennly"
+  },
+  {
+    "slug": "memberships",
+    "name": "Memberships",
+    "badge": "Prepaid Memberships",
+    "hero": {
+      "eyebrow": "Memberships",
+      "headline": "Prepaid memberships,<br> <span class=\"fd-hero__h1-accent\">tracked to the last rupee.</span>",
+      "subheadline": "Customers pay in advance for a membership tier. Zennly keeps the balance, the validity period and every transaction in one record.",
+      "cta": "See it in a 20-minute demo →",
+      "image": "/assets/images/feat-finance.png",
+      "imageAlt": "Membership balance and transactions",
+      "bg": "#E4EEDC"
+    },
+    "intro": {
+      "headline": "A prepaid wallet for your regular customers.",
+      "body": "Set up tiers once, enrol customers, and let the balance pay for visits."
+    },
+    "primaryFeatures": [
+      {
+        "title": "Membership tiers",
+        "description": "Each tier has a name, an advance amount and a validity period in days."
+      },
+      {
+        "title": "Wallet balance",
+        "description": "Every deposit and deduction is a ledger entry, so the balance always adds up."
+      },
+      {
+        "title": "Pay with membership",
+        "description": "Membership is a payment mode at checkout and debits the wallet in one step."
+      },
+      {
+        "title": "Renewals and extensions",
+        "description": "Managers can top up, renew a depleted or lapsed membership, or extend its expiry."
+      }
+    ],
+    "howItWorks": [
+      {
+        "step": "01",
+        "icon": "tag",
+        "title": "Choose a tier",
+        "description": "Pick a tier with its advance amount and validity period."
+      },
+      {
+        "step": "02",
+        "icon": "check",
+        "title": "Customer deposits",
+        "description": "Deposits are recorded. When they reach the tier's advance amount, the membership activates and the expiry date is set."
+      },
+      {
+        "step": "03",
+        "icon": "activity",
+        "title": "Pay with the wallet",
+        "description": "At checkout, staff choose Membership as the payment mode and the amount is deducted from the balance."
+      },
+      {
+        "step": "04",
+        "icon": "check",
+        "title": "Renew when needed",
+        "description": "When a membership is depleted or lapsed, a manager renews it, optionally on a different tier."
+      }
+    ],
+    "stopStart": {
+      "stop": [
+        "Tracking prepaid balances in a notebook",
+        "Not knowing who has credit left",
+        "Losing track of expiry dates",
+        "Adjusting balances without a record"
+      ],
+      "start": [
+        "One wallet per member with a full transaction history",
+        "Automatic activation and expiry dates",
+        "Membership as a payment mode at checkout",
+        "Manager-only top-ups, renewals and adjustments"
+      ]
+    },
+    "objections": {
+      "headline": "Things we get asked.",
+      "sub": "Answers to what owners ask before they switch.",
+      "items": [
+        {
+          "question": "Who can top up or adjust a membership?",
+          "answer": "Top-ups, renewals and adjustments are limited to managers and admins. Staff can take payment from a membership at checkout."
+        },
+        {
+          "question": "Does the balance ever get out of sync?",
+          "answer": "The balance is calculated from an append-only ledger of deposits, deductions and adjustments, so every change is on record."
+        },
+        {
+          "question": "How much does it cost?",
+          "answer": "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you get a tailored quote within 24 hours."
+        }
+      ]
+    },
+    "bottomCta": {
+      "headline": "Run prepaid memberships without a notebook.",
+      "subheadline": "See tiers, balances and renewals working across your branches.",
+      "ctaLabel": "Book your live demo →",
+      "reassurance": "No commitment. We'll walk through it live with your branch setup."
+    },
+    "relatedFeatures": [
+      "payment-tracking",
+      "discount-management",
+      "role-based-access"
+    ],
+    "metaDescription": "Membership management software for spas, salons and gyms in Nepal — prepaid tiers, wallet balances, validity dates and renewals in one system.",
+    "seoTitle": "Membership Management Software Nepal | Zennly",
+    "heroMockup": {
+      "title": "Membership wallets",
+      "date": "Thu, 3 Jul · Lazimpat branch",
+      "rows": [
+        {
+          "avatar": "S",
+          "name": "S. Koirala · Premium",
+          "service": "Balance NPR 62,400 · expires 14 Mar",
+          "status": "Active",
+          "done": true
+        },
+        {
+          "avatar": "R",
+          "name": "R. Gurung · Deluxe",
+          "service": "Balance NPR 8,200 · expires 2 Nov",
+          "status": "Active",
+          "done": true
+        },
+        {
+          "avatar": "M",
+          "name": "M. Tamang · Deluxe",
+          "service": "Balance NPR 0 · expired 30 Jun",
+          "status": "Renew",
+          "done": false
+        }
+      ]
+    },
+    "workflowHeading": "How a membership runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
+    "workflowSub": "A real timeline of one membership, from sign-up to renewal.",
+    "workflow": [
+      {
+        "num": "01",
+        "time": "At the front desk",
+        "title": "A regular asks about a membership",
+        "body": "Staff pick a tier with its advance amount and validity period, and enrol the customer on the spot.",
+        "status": "Pending",
+        "scene": {
+          "type": "form",
+          "head": "New membership",
+          "bannerTitle": "Customer at the desk",
+          "bannerSub": "Enrol her while she is here.",
+          "fields": [
+            [
+              "Customer",
+              "Sita Koirala"
+            ],
+            [
+              "Tier",
+              "Premium"
+            ],
+            [
+              [
+                "Advance",
+                "NPR 100,000"
+              ],
+              [
+                "Validity",
+                "365 days"
+              ]
+            ]
+          ],
+          "submit": "Record deposit"
+        }
+      },
+      {
+        "num": "02",
+        "time": "Deposit day",
+        "title": "The deposit is recorded",
+        "body": "Every deposit is a ledger entry. When deposits reach the tier's advance amount, the membership activates and the expiry date is set.",
+        "status": "Confirmed",
+        "scene": {
+          "type": "review",
+          "badge": "Awaiting deposit",
+          "label": "Wallet ledger",
+          "rowLabel": "Deposit · NPR 100,000",
+          "rowValue": "Sita Koirala · Premium",
+          "plainLabel": "Status",
+          "plainValue": "Active once the advance is reached",
+          "button": "Record deposit"
+        }
+      },
+      {
+        "num": "03",
+        "time": "At checkout",
+        "title": "The visit is paid from the wallet",
+        "body": "Membership is a payment mode. Staff choose it at checkout and the amount is deducted from the balance in one step.",
+        "status": "Completed",
+        "scene": {
+          "type": "receipt",
+          "badge": "Paid",
+          "rows": [
+            [
+              "Service",
+              "Hot stone massage"
+            ],
+            [
+              "Payment mode",
+              "Membership"
+            ]
+          ],
+          "total": [
+            "Deducted",
+            "NPR 6,500"
+          ],
+          "caption": "Balance updated · ledger entry saved"
+        }
+      },
+      {
+        "num": "04",
+        "time": "Weeks later",
+        "title": "The balance runs low",
+        "body": "Status is worked out from the balance and expiry date, so staff always see whether a membership is active, lapsed or depleted.",
+        "status": "In-Progress",
+        "scene": {
+          "type": "live",
+          "label": "Running low",
+          "time": "Today",
+          "title": "Sita Koirala · Premium",
+          "sub": "NPR 3,100 left · expires in 41 days",
+          "steps": [
+            [
+              "Pending",
+              "done"
+            ],
+            [
+              "Active",
+              "done"
+            ],
+            [
+              "Depleted or lapsed",
+              ""
+            ]
+          ],
+          "caption": "Status is calculated, never typed in."
+        }
+      },
+      {
+        "num": "05",
+        "time": "Renewal",
+        "title": "A manager renews it",
+        "body": "A manager renews a depleted or lapsed membership, optionally on a different tier, with a fresh deposit and a reset validity window.",
+        "status": "Reconciled",
+        "scene": {
+          "type": "report",
+          "title": "Membership renewed",
+          "badge": "Renewed",
+          "sub": "Manager action",
+          "banner": [
+            [
+              "NPR 100,000",
+              "deposit"
+            ],
+            [
+              "365 days",
+              "validity"
+            ]
+          ],
+          "insightsLabel": "What changed",
+          "insights": [
+            [
+              "Tier",
+              "Premium"
+            ],
+            [
+              "Balance",
+              "Topped up"
+            ],
+            [
+              "Expiry",
+              "Reset"
+            ]
+          ],
+          "caption": "Top-ups, renewals and adjustments are manager-only."
+        }
+      }
+    ],
+    "roles": [
+      {
+        "persona": "Front-desk staff",
+        "summary": "Take payment from a member's wallet in one step and see the balance as you go.",
+        "icon": "users",
+        "image": "/assets/images/feat-role-frontdesk.jpg",
+        "imageAlt": "Front-desk staff at a salon reception desk",
+        "features": [
+          {
+            "title": "Pay from the wallet",
+            "description": "Choose Membership as the payment mode and the amount is deducted."
+          },
+          {
+            "title": "See the balance",
+            "description": "The remaining balance and expiry date are on the customer's record."
+          },
+          {
+            "title": "Enrol a customer",
+            "description": "Record the first deposit while the customer is at the desk."
+          }
+        ]
+      },
+      {
+        "persona": "Branch managers",
+        "summary": "Top up, renew and adjust memberships, with every change on the ledger.",
+        "icon": "layout",
+        "image": "/assets/images/feat-role-managers.jpg",
+        "imageAlt": "Branch manager reviewing the schedule on a tablet",
+        "features": [
+          {
+            "title": "Top-ups and renewals",
+            "description": "Renew a depleted or lapsed membership, optionally on a new tier."
+          },
+          {
+            "title": "Extend an expiry",
+            "description": "Extend a membership's validity when it is the right call."
+          },
+          {
+            "title": "Adjustments on record",
+            "description": "Every adjustment is a ledger entry, not an edit."
+          }
+        ]
+      },
+      {
+        "persona": "Owners & admins",
+        "summary": "See how much prepaid money sits in memberships and how it is being used.",
+        "icon": "bar-chart",
+        "image": "/assets/images/feat-role-owners.jpg",
+        "imageAlt": "Owner reviewing reports at a bright office desk",
+        "features": [
+          {
+            "title": "A ledger for every member",
+            "description": "Deposits, deductions and adjustments in one append-only record."
+          },
+          {
+            "title": "Four clear states",
+            "description": "Pending, active, lapsed or depleted, calculated from balance and expiry."
+          },
+          {
+            "title": "Controlled changes",
+            "description": "Only managers and admins can change a balance."
+          }
+        ]
+      }
+    ],
+    "proof": {
+      "eyebrow": "Under the hood",
+      "headline": "Built to leave a record.",
+      "stats": [
+        {
+          "tag": "Record",
+          "value": "1",
+          "label": "One append-only ledger per membership, so every change is on record"
+        },
+        {
+          "tag": "States",
+          "value": "4",
+          "label": "Pending, active, lapsed or depleted, calculated from balance and expiry"
+        },
+        {
+          "tag": "Control",
+          "value": "Manager",
+          "label": "Top-ups, renewals and adjustments are manager-only"
+        }
+      ],
+      "sub": "How it works inside the product."
+    }
+  },
+  {
+    "slug": "packages",
+    "name": "Packages",
+    "badge": "Session Packages",
+    "hero": {
+      "eyebrow": "Packages",
+      "headline": "Sell session packages,<br> <span class=\"fd-hero__h1-accent\">know every session left.</span>",
+      "subheadline": "A package is a bundle of sessions for one service at a set price. Zennly counts sessions down at checkout and shows what is left and what is still owed.",
+      "cta": "See it in a 20-minute demo →",
+      "image": "/assets/images/feat-operations.png",
+      "imageAlt": "Package balance and session redemptions",
+      "bg": "#F5E6C8"
+    },
+    "intro": {
+      "headline": "Bundles of sessions, redeemed one visit at a time.",
+      "body": "Define a package once, issue it to a customer and redeem sessions as they come in."
+    },
+    "primaryFeatures": [
+      {
+        "title": "Package types",
+        "description": "Each type is tied to a service, with a default number of sessions, a standard price and a validity period."
+      },
+      {
+        "title": "Session balance",
+        "description": "Sessions remaining and status are always visible: unused, partial, fully redeemed or expired."
+      },
+      {
+        "title": "Redeem at checkout",
+        "description": "Staff redeem a session against the package when the customer pays."
+      },
+      {
+        "title": "Amount due",
+        "description": "Final amount minus paid amount shows what a customer still owes."
+      }
+    ],
+    "howItWorks": [
+      {
+        "step": "01",
+        "icon": "tag",
+        "title": "Create a package type",
+        "description": "Choose the service, number of sessions, price and validity."
+      },
+      {
+        "step": "02",
+        "icon": "check",
+        "title": "Issue it to a customer",
+        "description": "The package is recorded with its sessions, expiry date and the amount paid."
+      },
+      {
+        "step": "03",
+        "icon": "activity",
+        "title": "Redeem each visit",
+        "description": "At checkout, staff find the customer's active package for that service and redeem one session."
+      },
+      {
+        "step": "04",
+        "icon": "check",
+        "title": "See what is left",
+        "description": "Sessions remaining and any balance due update after every redemption."
+      }
+    ],
+    "stopStart": {
+      "stop": [
+        "Counting package sessions on paper",
+        "Arguing over how many sessions are left",
+        "Missing expiry dates",
+        "Not knowing what a customer still owes"
+      ],
+      "start": [
+        "A session-by-session redemption record",
+        "A live balance for every package",
+        "Expiry dates on every package",
+        "Customers able to see their own packages"
+      ]
+    },
+    "objections": {
+      "headline": "Things we get asked.",
+      "sub": "Answers to what owners ask before they switch.",
+      "items": [
+        {
+          "question": "Can a package be used at any branch?",
+          "answer": "Packages belong to your business account, and staff redeem sessions at checkout. Ask in the demo how your branches are set up."
+        },
+        {
+          "question": "What happens when a package expires?",
+          "answer": "Status shows as expired once the expiry date passes, so staff can see it before redeeming."
+        },
+        {
+          "question": "How much does it cost?",
+          "answer": "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you get a tailored quote within 24 hours."
+        }
+      ]
+    },
+    "bottomCta": {
+      "headline": "Package sales you can actually track.",
+      "subheadline": "See issuing, redeeming and balances on your own services.",
+      "ctaLabel": "Book your live demo →",
+      "reassurance": "No commitment. We'll walk through it live with your branch setup."
+    },
+    "relatedFeatures": [
+      "memberships",
+      "vouchers",
+      "payment-tracking"
+    ],
+    "metaDescription": "Package and session bundle software for spas and salons in Nepal — issue packages, redeem sessions at checkout and track balances.",
+    "seoTitle": "Spa Package Management Software Nepal | Zennly",
+    "heroMockup": {
+      "title": "Package balances",
+      "date": "Thu, 3 Jul · Lazimpat branch",
+      "rows": [
+        {
+          "avatar": "A",
+          "name": "A. Sharma · 10 massages",
+          "service": "7 sessions remaining",
+          "status": "Partial",
+          "done": false
+        },
+        {
+          "avatar": "P",
+          "name": "P. Joshi · 6 facials",
+          "service": "Fully redeemed",
+          "status": "Used",
+          "done": true
+        },
+        {
+          "avatar": "D",
+          "name": "D. Rai · 8 hot stone",
+          "service": "8 sessions remaining",
+          "status": "Unused",
+          "done": true
+        }
+      ]
+    },
+    "workflowHeading": "How a package runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
+    "workflowSub": "A real timeline of one package, from sale to the last session.",
+    "workflow": [
+      {
+        "num": "01",
+        "time": "Setup",
+        "title": "A package type is defined",
+        "body": "Choose the service, the number of sessions, the standard price and how long the package stays valid.",
+        "status": "Pending",
+        "scene": {
+          "type": "form",
+          "head": "New package type",
+          "bannerTitle": "Define it once",
+          "bannerSub": "Then sell it as often as you like.",
+          "fields": [
+            [
+              "Service",
+              "Hot stone massage"
+            ],
+            [
+              [
+                "Sessions",
+                "10"
+              ],
+              [
+                "Validity",
+                "180 days"
+              ]
+            ],
+            [
+              "Standard price",
+              "NPR 45,000"
+            ]
+          ],
+          "submit": "Save package type"
+        }
+      },
+      {
+        "num": "02",
+        "time": "At the desk",
+        "title": "A customer buys one",
+        "body": "The package is issued to the customer with its sessions, its expiry date and the amount paid so far.",
+        "status": "Confirmed",
+        "scene": {
+          "type": "review",
+          "badge": "Issued",
+          "label": "New package",
+          "rowLabel": "10 × Hot stone massage",
+          "rowValue": "A. Sharma · paid NPR 45,000",
+          "plainLabel": "Expires",
+          "plainValue": "180 days from today",
+          "button": "Issue package"
+        }
+      },
+      {
+        "num": "03",
+        "time": "At checkout",
+        "title": "A session is redeemed",
+        "body": "When the customer comes in, staff find the active package for that service and redeem one session at checkout.",
+        "status": "Completed",
+        "scene": {
+          "type": "receipt",
+          "badge": "Redeemed",
+          "rows": [
+            [
+              "Service",
+              "Hot stone massage"
+            ],
+            [
+              "Payment",
+              "Package session"
+            ]
+          ],
+          "total": [
+            "Sessions left",
+            "7 of 10"
+          ],
+          "caption": "One session redeemed · record saved"
+        }
+      },
+      {
+        "num": "04",
+        "time": "Over the weeks",
+        "title": "Sessions count down",
+        "body": "Sessions remaining and status (unused, partial, fully redeemed or expired) update after every visit.",
+        "status": "In-Progress",
+        "scene": {
+          "type": "live",
+          "label": "In use",
+          "time": "Today",
+          "title": "A. Sharma · Hot stone massage",
+          "sub": "7 of 10 sessions remaining",
+          "steps": [
+            [
+              "Unused",
+              "done"
+            ],
+            [
+              "Partial",
+              "active"
+            ],
+            [
+              "Fully redeemed",
+              ""
+            ]
+          ],
+          "caption": "Nobody has to count sessions on paper."
+        }
+      },
+      {
+        "num": "05",
+        "time": "Anytime",
+        "title": "Amount due and expiry stay visible",
+        "body": "Final amount minus paid amount shows what a customer still owes, and customers can see their own packages.",
+        "status": "Reconciled",
+        "scene": {
+          "type": "report",
+          "title": "Package balance",
+          "badge": "Tracked",
+          "sub": "Staff view and customer view",
+          "banner": [
+            [
+              "7",
+              "sessions left"
+            ],
+            [
+              "NPR 0",
+              "due"
+            ]
+          ],
+          "insightsLabel": "Details",
+          "insights": [
+            [
+              "Status",
+              "Partial"
+            ],
+            [
+              "Expires",
+              "In 41 days"
+            ],
+            [
+              "Final amount",
+              "NPR 45,000"
+            ]
+          ],
+          "caption": "One record, however long the package runs."
+        }
+      }
+    ],
+    "roles": [
+      {
+        "persona": "Front-desk staff",
+        "summary": "Redeem a session in seconds and see exactly what is left.",
+        "icon": "users",
+        "image": "/assets/images/feat-role-frontdesk.jpg",
+        "imageAlt": "Front-desk staff at a salon reception desk",
+        "features": [
+          {
+            "title": "Find the package",
+            "description": "See a customer's active packages for the service they booked."
+          },
+          {
+            "title": "Redeem at checkout",
+            "description": "One session at a time, each on record."
+          },
+          {
+            "title": "See what is owed",
+            "description": "Final amount minus paid amount is shown on the package."
+          }
+        ]
+      },
+      {
+        "persona": "Branch managers",
+        "summary": "Set up package types and keep an eye on what is unused or expiring.",
+        "icon": "layout",
+        "image": "/assets/images/feat-role-managers.jpg",
+        "imageAlt": "Branch manager reviewing the schedule on a tablet",
+        "features": [
+          {
+            "title": "Package types",
+            "description": "Service, sessions, price and validity, set once."
+          },
+          {
+            "title": "Status at a glance",
+            "description": "Unused, partial, fully redeemed or expired."
+          },
+          {
+            "title": "Corrections on record",
+            "description": "Admins can correct a package and the change is recorded."
+          }
+        ]
+      },
+      {
+        "persona": "Owners & admins",
+        "summary": "Know how many sessions customers have prepaid for and how they are used.",
+        "icon": "bar-chart",
+        "image": "/assets/images/feat-role-owners.jpg",
+        "imageAlt": "Owner reviewing reports at a bright office desk",
+        "features": [
+          {
+            "title": "Prepaid sessions",
+            "description": "Every package's sessions, redeemed or remaining."
+          },
+          {
+            "title": "Dates handled locally",
+            "description": "Expiry is calculated on Nepal time."
+          },
+          {
+            "title": "Customers can check",
+            "description": "Customers see their own packages themselves."
+          }
+        ]
+      }
+    ],
+    "proof": {
+      "eyebrow": "Under the hood",
+      "headline": "Every session accounted for.",
+      "stats": [
+        {
+          "tag": "States",
+          "value": "4",
+          "label": "Unused, partial, fully redeemed or expired"
+        },
+        {
+          "tag": "Redeem",
+          "value": "1",
+          "label": "Session redeemed at a time, each one on record"
+        },
+        {
+          "tag": "Visible",
+          "value": "Customers",
+          "label": "Customers can see their own packages"
+        }
+      ],
+      "sub": "How it works inside the product."
+    }
+  },
+  {
+    "slug": "vouchers",
+    "name": "Vouchers",
+    "badge": "Gift Vouchers",
+    "hero": {
+      "eyebrow": "Vouchers",
+      "headline": "Gift vouchers<br> <span class=\"fd-hero__h1-accent\">with a balance you can trust.</span>",
+      "subheadline": "Issue prepaid or gift vouchers with a unique code and an expiry date. Customers redeem them as a payment, in one visit or over several.",
+      "cta": "See it in a 20-minute demo →",
+      "image": "/assets/images/feat-finance.png",
+      "imageAlt": "Voucher code and balance",
+      "bg": "#ECF7BD"
+    },
+    "intro": {
+      "headline": "Vouchers that behave like money, because they are tracked like money.",
+      "body": "Every voucher has a code, a balance and an expiry date, and every claim is on record."
+    },
+    "primaryFeatures": [
+      {
+        "title": "Unique codes",
+        "description": "Codes are generated from a prefix, or entered manually."
+      },
+      {
+        "title": "Partial claims",
+        "description": "Wallet-style vouchers can be claimed over several visits, with the balance updating each time."
+      },
+      {
+        "title": "Pay with a voucher",
+        "description": "A voucher is a payment on a booking, including split payments."
+      },
+      {
+        "title": "Corrections on record",
+        "description": "Admins can correct a balance or void a claim, and the change is recorded."
+      }
+    ],
+    "howItWorks": [
+      {
+        "step": "01",
+        "icon": "tag",
+        "title": "Issue a voucher",
+        "description": "Choose a voucher type. A code is generated and an expiry date is set, 90 days from issue by default."
+      },
+      {
+        "step": "02",
+        "icon": "check",
+        "title": "Customer buys it",
+        "description": "The purchase can be paid by split payment, including from a membership wallet."
+      },
+      {
+        "step": "03",
+        "icon": "activity",
+        "title": "Redeem at checkout",
+        "description": "Staff enter the code and claim the amount against the booking. Expired vouchers are refused."
+      },
+      {
+        "step": "04",
+        "icon": "check",
+        "title": "Track the balance",
+        "description": "Remaining balance and status update after each claim."
+      }
+    ],
+    "stopStart": {
+      "stop": [
+        "Paper vouchers nobody can verify",
+        "Unknown balances on gift cards",
+        "Vouchers redeemed twice",
+        "Expired vouchers being honoured by mistake"
+      ],
+      "start": [
+        "A code and balance for every voucher",
+        "A claim ledger for every redemption",
+        "Expiry enforced when a voucher is claimed",
+        "Admin corrections that leave a record"
+      ]
+    },
+    "objections": {
+      "headline": "Things we get asked.",
+      "sub": "Answers to what owners ask before they switch.",
+      "items": [
+        {
+          "question": "Are these discount codes?",
+          "answer": "No. Vouchers are prepaid or gift vouchers with a value. For percentage promotions, see Campaigns."
+        },
+        {
+          "question": "Can a voucher be used more than once?",
+          "answer": "Wallet-style vouchers can be claimed in several visits until the balance is used."
+        },
+        {
+          "question": "How much does it cost?",
+          "answer": "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you get a tailored quote within 24 hours."
+        }
+      ]
+    },
+    "bottomCta": {
+      "headline": "Vouchers without the paper trail problem.",
+      "subheadline": "See issuing, claiming and expiry in a live demo.",
+      "ctaLabel": "Book your live demo →",
+      "reassurance": "No commitment. We'll walk through it live with your branch setup."
+    },
+    "relatedFeatures": [
+      "memberships",
+      "packages",
+      "payment-tracking"
+    ],
+    "metaDescription": "Gift voucher software for spas and salons in Nepal — unique codes, balances, partial claims and expiry tracking.",
+    "seoTitle": "Gift Voucher Software Nepal | Zennly",
+    "heroMockup": {
+      "title": "Voucher claims",
+      "date": "Thu, 3 Jul · Lazimpat branch",
+      "rows": [
+        {
+          "avatar": "G",
+          "name": "NT 4326-0012",
+          "service": "NPR 5,000 · claimed in full",
+          "status": "Claimed",
+          "done": true
+        },
+        {
+          "avatar": "N",
+          "name": "NT 4326-0013",
+          "service": "NPR 3,000 left of 10,000",
+          "status": "Partial",
+          "done": false
+        },
+        {
+          "avatar": "E",
+          "name": "NT 4326-0009",
+          "service": "Expired 1 Jul",
+          "status": "Expired",
+          "done": false
+        }
+      ]
+    },
+    "workflowHeading": "How a voucher runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
+    "workflowSub": "A real timeline of one voucher, from issue to the last rupee.",
+    "workflow": [
+      {
+        "num": "01",
+        "time": "Issue",
+        "title": "A voucher is issued",
+        "body": "Choose a voucher type. A unique code is generated from a prefix, or entered manually, and an expiry date is set.",
+        "status": "Pending",
+        "scene": {
+          "type": "form",
+          "head": "Issue voucher",
+          "bannerTitle": "Prepaid or gift",
+          "bannerSub": "Every voucher gets its own code.",
+          "fields": [
+            [
+              "Voucher type",
+              "Gift voucher"
+            ],
+            [
+              [
+                "Value",
+                "NPR 10,000"
+              ],
+              [
+                "Expires",
+                "90 days"
+              ]
+            ],
+            [
+              "Code",
+              "GV-0012 (automatic)"
+            ]
+          ],
+          "submit": "Issue voucher"
+        }
+      },
+      {
+        "num": "02",
+        "time": "Purchase",
+        "title": "The customer pays for it",
+        "body": "The purchase can be paid by split payment, including from a membership wallet.",
+        "status": "Confirmed",
+        "scene": {
+          "type": "review",
+          "badge": "Paid",
+          "label": "Voucher purchase",
+          "rowLabel": "GV-0012 · NPR 10,000",
+          "rowValue": "Split payment · card and membership",
+          "plainLabel": "Expiry",
+          "plainValue": "90 days from issue",
+          "button": "Confirm purchase"
+        }
+      },
+      {
+        "num": "03",
+        "time": "At checkout",
+        "title": "It is redeemed as a payment",
+        "body": "Staff enter the code and claim the amount against the booking. Expired vouchers are refused.",
+        "status": "Completed",
+        "scene": {
+          "type": "receipt",
+          "badge": "Claimed",
+          "rows": [
+            [
+              "Booking",
+              "Full body massage"
+            ],
+            [
+              "Payment",
+              "Voucher GV-0012"
+            ]
+          ],
+          "total": [
+            "Claimed",
+            "NPR 4,000"
+          ],
+          "caption": "Claim recorded · balance updated"
+        }
+      },
+      {
+        "num": "04",
+        "time": "Next visit",
+        "title": "It is used over several visits",
+        "body": "Wallet-style vouchers can be claimed more than once, and the remaining balance updates after every claim.",
+        "status": "In-Progress",
+        "scene": {
+          "type": "live",
+          "label": "Balance",
+          "time": "Today",
+          "title": "GV-0012",
+          "sub": "NPR 6,000 left of NPR 10,000",
+          "steps": [
+            [
+              "Issued",
+              "done"
+            ],
+            [
+              "Partly claimed",
+              "active"
+            ],
+            [
+              "Fully claimed",
+              ""
+            ]
+          ],
+          "caption": "The balance is always the ledger's answer."
+        }
+      },
+      {
+        "num": "05",
+        "time": "Anytime",
+        "title": "Corrections leave a record",
+        "body": "Admins can correct a balance or void a claim, and the change is recorded. Customers can view their own vouchers.",
+        "status": "Reconciled",
+        "scene": {
+          "type": "report",
+          "title": "Voucher ledger",
+          "badge": "On record",
+          "sub": "Every claim, in order",
+          "banner": [
+            [
+              "2",
+              "claims"
+            ],
+            [
+              "NPR 6,000",
+              "left"
+            ]
+          ],
+          "insightsLabel": "Controls",
+          "insights": [
+            [
+              "Expiry",
+              "Checked at claim"
+            ],
+            [
+              "Corrections",
+              "Admin only"
+            ],
+            [
+              "Voided claims",
+              "Kept on record"
+            ]
+          ],
+          "caption": "Nothing changes without a record."
+        }
+      }
+    ],
+    "roles": [
+      {
+        "persona": "Front-desk staff",
+        "summary": "Issue and redeem vouchers quickly, with the balance in front of you.",
+        "icon": "users",
+        "image": "/assets/images/feat-role-frontdesk.jpg",
+        "imageAlt": "Front-desk staff at a salon reception desk",
+        "features": [
+          {
+            "title": "Enter the code",
+            "description": "Claim the amount against the booking."
+          },
+          {
+            "title": "Partial claims",
+            "description": "Use part of a voucher now, keep the rest for later."
+          },
+          {
+            "title": "Expiry enforced",
+            "description": "Expired vouchers are refused at claim."
+          }
+        ]
+      },
+      {
+        "persona": "Branch managers",
+        "summary": "Keep vouchers under control without chasing paper.",
+        "icon": "layout",
+        "image": "/assets/images/feat-role-managers.jpg",
+        "imageAlt": "Branch manager reviewing the schedule on a tablet",
+        "features": [
+          {
+            "title": "Voucher types",
+            "description": "Prefix, standard price and category, set once."
+          },
+          {
+            "title": "Split payments",
+            "description": "Pay for a voucher with more than one tender."
+          },
+          {
+            "title": "A claim ledger",
+            "description": "Every redemption is an entry."
+          }
+        ]
+      },
+      {
+        "persona": "Owners & admins",
+        "summary": "Know how much prepaid value is outstanding.",
+        "icon": "bar-chart",
+        "image": "/assets/images/feat-role-owners.jpg",
+        "imageAlt": "Owner reviewing reports at a bright office desk",
+        "features": [
+          {
+            "title": "Balances you can trust",
+            "description": "Remaining balance and status for every voucher."
+          },
+          {
+            "title": "Admin corrections",
+            "description": "Correct a balance or void a claim, on record."
+          },
+          {
+            "title": "Customers can check",
+            "description": "Customers see their own vouchers."
+          }
+        ]
+      }
+    ],
+    "proof": {
+      "eyebrow": "Under the hood",
+      "headline": "Vouchers that behave like money.",
+      "stats": [
+        {
+          "tag": "Claims",
+          "value": "Append-only",
+          "label": "Every claim is a ledger entry"
+        },
+        {
+          "tag": "Expiry",
+          "value": "90 days",
+          "label": "Default expiry from the issue date"
+        },
+        {
+          "tag": "Payment",
+          "value": "Split",
+          "label": "Voucher purchases can be paid by split tender"
+        }
+      ],
+      "sub": "How it works inside the product."
+    }
+  },
+  {
+    "slug": "campaigns",
+    "name": "Campaigns",
+    "badge": "Promotions",
+    "hero": {
+      "eyebrow": "Campaigns",
+      "headline": "Run a promotion,<br> <span class=\"fd-hero__h1-accent\">and it shows up in booking.</span>",
+      "subheadline": "Set a percentage offer for chosen services and dates. Zennly applies it to prices and shows a banner on your online booking site while it runs.",
+      "cta": "See it in a 20-minute demo →",
+      "image": "/assets/images/feat-reports.png",
+      "imageAlt": "Campaign banner and discounted service prices",
+      "bg": "#F5E6C8"
+    },
+    "intro": {
+      "headline": "A promotion with a start date, an end date and a clear target.",
+      "body": "Pick the services, set the percentage and the dates, and it switches on and off by itself."
+    },
+    "primaryFeatures": [
+      {
+        "title": "Percentage offers",
+        "description": "A campaign is a percentage discount, set once."
+      },
+      {
+        "title": "Date window",
+        "description": "It is live between the start and end dates, and only while switched on."
+      },
+      {
+        "title": "Chosen services",
+        "description": "Link specific services or whole categories, and a direct service link takes priority."
+      },
+      {
+        "title": "Online banner",
+        "description": "Your public booking site shows a banner and popup while the campaign is live."
+      }
+    ],
+    "howItWorks": [
+      {
+        "step": "01",
+        "icon": "tag",
+        "title": "Create the campaign",
+        "description": "Name it, set the percentage, write the message and optionally add a banner image."
+      },
+      {
+        "step": "02",
+        "icon": "check",
+        "title": "Choose what it covers",
+        "description": "Link the services or categories the offer applies to."
+      },
+      {
+        "step": "03",
+        "icon": "activity",
+        "title": "It goes live",
+        "description": "Between the start and end dates, campaign prices flow into online booking."
+      },
+      {
+        "step": "04",
+        "icon": "check",
+        "title": "It ends on its own",
+        "description": "After the end date the campaign stops, with no one to remember to switch it off."
+      }
+    ],
+    "stopStart": {
+      "stop": [
+        "Offering ad-hoc discounts nobody recorded",
+        "Forgetting to end a promotion",
+        "Telling customers one price and charging another",
+        "Updating prices service by service"
+      ],
+      "start": [
+        "Percentage promotions on chosen services",
+        "Automatic start and end dates",
+        "Promotion prices in online booking",
+        "Manager-only control of campaigns"
+      ]
+    },
+    "objections": {
+      "headline": "Things we get asked.",
+      "sub": "Answers to what owners ask before they switch.",
+      "items": [
+        {
+          "question": "Is this the same as discount approval?",
+          "answer": "No. A campaign is a planned promotion for a period. Discount approval is for individual requests at checkout, and managers approve those one by one."
+        },
+        {
+          "question": "Who can create a campaign?",
+          "answer": "Managers and admins."
+        },
+        {
+          "question": "How much does it cost?",
+          "answer": "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you get a tailored quote within 24 hours."
+        }
+      ]
+    },
+    "bottomCta": {
+      "headline": "Promotions that start and stop on schedule.",
+      "subheadline": "See a campaign go live on online booking.",
+      "ctaLabel": "Book your live demo →",
+      "reassurance": "No commitment. We'll walk through it live with your branch setup."
+    },
+    "relatedFeatures": [
+      "discount-management",
+      "booking",
+      "reports"
+    ],
+    "metaDescription": "Promotion and campaign software for spas and salons in Nepal — dated percentage offers on chosen services, shown in online booking.",
+    "seoTitle": "Spa & Salon Promotions Software Nepal | Zennly",
+    "heroMockup": {
+      "title": "Active campaigns",
+      "date": "Thu, 3 Jul · Online booking",
+      "rows": [
+        {
+          "avatar": "D",
+          "name": "Dashain Offer · 15% off",
+          "service": "Massage category · 1–15 Oct",
+          "status": "Live",
+          "done": true
+        },
+        {
+          "avatar": "W",
+          "name": "Weekday Facial · 10% off",
+          "service": "Facial · Mon–Thu",
+          "status": "Live",
+          "done": true
+        },
+        {
+          "avatar": "N",
+          "name": "New Year Offer · 20% off",
+          "service": "Starts 1 Jan",
+          "status": "Scheduled",
+          "done": false
+        }
+      ]
+    },
+    "workflowHeading": "How a campaign runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
+    "workflowSub": "A real timeline of one promotion, from planning to the end date.",
+    "workflow": [
+      {
+        "num": "01",
+        "time": "Plan",
+        "title": "A campaign is created",
+        "body": "Name it, set the percentage, the start and end dates and the message, and add a banner image if you like.",
+        "status": "Pending",
+        "scene": {
+          "type": "form",
+          "head": "New campaign",
+          "bannerTitle": "Plan the promotion",
+          "bannerSub": "Percentage offers on chosen services.",
+          "fields": [
+            [
+              "Name",
+              "Dashain offer"
+            ],
+            [
+              [
+                "Discount",
+                "15%"
+              ],
+              [
+                "Dates",
+                "1–15 Oct"
+              ]
+            ],
+            [
+              "Applies to",
+              "Massage category"
+            ]
+          ],
+          "submit": "Save campaign"
+        }
+      },
+      {
+        "num": "02",
+        "time": "Targeting",
+        "title": "Services are linked",
+        "body": "Link specific services or whole categories. A direct service link takes priority over a category link.",
+        "status": "Confirmed",
+        "scene": {
+          "type": "review",
+          "badge": "Linked",
+          "label": "Campaign targets",
+          "rowLabel": "Massage category",
+          "rowValue": "Hot stone linked directly",
+          "plainLabel": "Priority",
+          "plainValue": "Direct service link wins",
+          "button": "Save targets"
+        }
+      },
+      {
+        "num": "03",
+        "time": "Start date",
+        "title": "The campaign goes live",
+        "body": "It is live between the start and end dates, and only while switched on. Your online booking site shows a banner and popup.",
+        "status": "In-Progress",
+        "scene": {
+          "type": "live",
+          "label": "Live now",
+          "time": "1 Oct",
+          "title": "Dashain offer · 15% off",
+          "sub": "Shown on your online booking site",
+          "steps": [
+            [
+              "Scheduled",
+              "done"
+            ],
+            [
+              "Live",
+              "active"
+            ],
+            [
+              "Ended",
+              ""
+            ]
+          ],
+          "caption": "Prices in online booking reflect the offer while it runs."
+        }
+      },
+      {
+        "num": "04",
+        "time": "Booking",
+        "title": "Customers see the offer price",
+        "body": "Campaign prices flow into online booking, so the price a customer sees is the price they book at.",
+        "status": "Completed",
+        "scene": {
+          "type": "receipt",
+          "badge": "Offer applied",
+          "rows": [
+            [
+              "Service",
+              "Hot stone massage"
+            ],
+            [
+              "Campaign",
+              "Dashain offer"
+            ]
+          ],
+          "total": [
+            "Discount",
+            "15% off"
+          ],
+          "caption": "Offer applied in online booking"
+        }
+      },
+      {
+        "num": "05",
+        "time": "End date",
+        "title": "It ends on its own",
+        "body": "After the end date the campaign stops. No one has to remember to switch it off.",
+        "status": "Reconciled",
+        "scene": {
+          "type": "report",
+          "title": "Campaign ended",
+          "badge": "Closed",
+          "sub": "After 15 Oct",
+          "banner": [
+            [
+              "15%",
+              "offer"
+            ],
+            [
+              "15 Oct",
+              "end date"
+            ]
+          ],
+          "insightsLabel": "Afterwards",
+          "insights": [
+            [
+              "Banner",
+              "Removed"
+            ],
+            [
+              "Prices",
+              "Back to normal"
+            ],
+            [
+              "Switch-off",
+              "Not needed"
+            ]
+          ],
+          "caption": "Promotions stop when you said they would."
+        }
+      }
+    ],
+    "roles": [
+      {
+        "persona": "Front-desk staff",
+        "summary": "Quote the right price without checking a note on the wall.",
+        "icon": "users",
+        "image": "/assets/images/feat-role-frontdesk.jpg",
+        "imageAlt": "Front-desk staff at a salon reception desk",
+        "features": [
+          {
+            "title": "Offer prices applied",
+            "description": "Campaign prices show in booking."
+          },
+          {
+            "title": "No manual maths",
+            "description": "The percentage is applied for you."
+          },
+          {
+            "title": "Clear end dates",
+            "description": "You always know when an offer stops."
+          }
+        ]
+      },
+      {
+        "persona": "Branch managers",
+        "summary": "Run promotions on chosen services without chasing staff.",
+        "icon": "layout",
+        "image": "/assets/images/feat-role-managers.jpg",
+        "imageAlt": "Branch manager reviewing the schedule on a tablet",
+        "features": [
+          {
+            "title": "Percentage offers",
+            "description": "Set once for the services you choose."
+          },
+          {
+            "title": "Date window",
+            "description": "Start and end dates are handled for you."
+          },
+          {
+            "title": "Manager-only",
+            "description": "Only managers and admins create campaigns."
+          }
+        ]
+      },
+      {
+        "persona": "Owners & admins",
+        "summary": "Promote what you want, when you want, with control.",
+        "icon": "bar-chart",
+        "image": "/assets/images/feat-role-owners.jpg",
+        "imageAlt": "Owner reviewing reports at a bright office desk",
+        "features": [
+          {
+            "title": "Targeted offers",
+            "description": "Services or whole categories."
+          },
+          {
+            "title": "Online banner",
+            "description": "A banner and popup on your booking site."
+          },
+          {
+            "title": "Separate from discounts",
+            "description": "Planned promotions, apart from one-off discount requests."
+          }
+        ]
+      }
+    ],
+    "proof": {
+      "eyebrow": "Under the hood",
+      "headline": "Promotions with a clear start and end.",
+      "stats": [
+        {
+          "tag": "Targets",
+          "value": "2",
+          "label": "Services or categories, and a direct service link takes priority"
+        },
+        {
+          "tag": "Control",
+          "value": "Manager",
+          "label": "Only managers and admins can create campaigns"
+        },
+        {
+          "tag": "Timing",
+          "value": "Auto",
+          "label": "Live between the start and end dates, with no one switching it on or off"
+        }
+      ],
+      "sub": "How it works inside the product."
+    }
+  },
+  {
+    "slug": "outreach",
+    "name": "Customer Outreach",
+    "badge": "Customer Outreach",
+    "hero": {
+      "eyebrow": "Outreach",
+      "headline": "Bring customers back,<br> <span class=\"fd-hero__h1-accent\">without chasing them.</span>",
+      "subheadline": "Zennly emails customers who have not visited in a while and asks for a review after a visit, using templates your team writes.",
+      "cta": "See it in a 20-minute demo →",
+      "image": "/assets/images/feat-hero-dashboard.png",
+      "imageAlt": "Outreach rules and message queue",
+      "bg": "#E4EEDC"
+    },
+    "intro": {
+      "headline": "Messages that go out at the right moment, with your approval if you want it.",
+      "body": "Set a rule, write a template and choose whether messages send automatically or wait for review."
+    },
+    "primaryFeatures": [
+      {
+        "title": "Win-back emails",
+        "description": "Customers whose last completed booking is older than your chosen number of days are found every day."
+      },
+      {
+        "title": "Review requests",
+        "description": "A review request is queued after a booking is completed."
+      },
+      {
+        "title": "Templates",
+        "description": "Write subject and body once, with the customer's name filled in."
+      },
+      {
+        "title": "Review queue",
+        "description": "Choose automatic sending, or have staff approve and edit each message first."
+      }
+    ],
+    "howItWorks": [
+      {
+        "step": "01",
+        "icon": "tag",
+        "title": "Write a template",
+        "description": "Subject and body, with placeholders like the customer's name."
+      },
+      {
+        "step": "02",
+        "icon": "check",
+        "title": "Set a rule",
+        "description": "Choose the trigger, the timing and whether messages send automatically or go to a review queue."
+      },
+      {
+        "step": "03",
+        "icon": "activity",
+        "title": "Zennly finds the customers",
+        "description": "Every day, customers past your lapsed-days limit are queued. Completed bookings queue a review request."
+      },
+      {
+        "step": "04",
+        "icon": "check",
+        "title": "Messages are sent",
+        "description": "Approved messages are sent by email and the result is recorded."
+      }
+    ],
+    "stopStart": {
+      "stop": [
+        "Remembering to message lapsed customers",
+        "Asking for reviews by hand",
+        "Sending the same message to everyone",
+        "Messages going out nobody checked"
+      ],
+      "start": [
+        "Automatic win-back and review emails",
+        "A review queue when you want control",
+        "Templates your team writes",
+        "A record of every message sent"
+      ]
+    },
+    "objections": {
+      "headline": "Things we get asked.",
+      "sub": "Answers to what owners ask before they switch.",
+      "items": [
+        {
+          "question": "Does it send SMS or WhatsApp?",
+          "answer": "Email is live today. SMS and WhatsApp are not available yet."
+        },
+        {
+          "question": "Can we approve messages before they go?",
+          "answer": "Yes. A rule can send automatically or put each message in a review queue for staff to approve or edit."
+        },
+        {
+          "question": "Who can change the rules?",
+          "answer": "Managers and admins."
+        },
+        {
+          "question": "How much does it cost?",
+          "answer": "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you get a tailored quote within 24 hours."
+        }
+      ]
+    },
+    "bottomCta": {
+      "headline": "Customers who come back, because you asked.",
+      "subheadline": "See win-back and review emails running on your customer list.",
+      "ctaLabel": "Book your live demo →",
+      "reassurance": "No commitment. We'll walk through it live with your branch setup."
+    },
+    "relatedFeatures": [
+      "reports",
+      "memberships",
+      "campaigns"
+    ],
+    "metaDescription": "Customer outreach software for spas and salons in Nepal — automatic win-back and review request emails with an approval queue.",
+    "seoTitle": "Customer Outreach & Win-Back Software Nepal | Zennly",
+    "heroMockup": {
+      "title": "Outreach queue",
+      "date": "Thu, 3 Jul · Email",
+      "rows": [
+        {
+          "avatar": "W",
+          "name": "Win-back · M. Thapa",
+          "service": "Last visit 62 days ago",
+          "status": "In review",
+          "done": false
+        },
+        {
+          "avatar": "R",
+          "name": "Review request · S. Rai",
+          "service": "After completed booking",
+          "status": "Sent",
+          "done": true
+        },
+        {
+          "avatar": "W",
+          "name": "Win-back · K. Basnet",
+          "service": "Last visit 75 days ago",
+          "status": "Sent",
+          "done": true
+        }
+      ]
+    },
+    "workflowHeading": "How outreach runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
+    "workflowSub": "A real timeline of one win-back email, from rule to review request.",
+    "workflow": [
+      {
+        "num": "01",
+        "time": "Setup",
+        "title": "A rule is set",
+        "body": "Choose the trigger, the timing, the channel and whether messages send automatically or wait in a review queue.",
+        "status": "Pending",
+        "scene": {
+          "type": "form",
+          "head": "New outreach rule",
+          "bannerTitle": "Win back lapsed customers",
+          "bannerSub": "Set it once, it runs every day.",
+          "fields": [
+            [
+              "Trigger",
+              "Win-back"
+            ],
+            [
+              [
+                "Lapsed after",
+                "60 days"
+              ],
+              [
+                "Channel",
+                "Email"
+              ]
+            ],
+            [
+              "Send mode",
+              "Review queue"
+            ]
+          ],
+          "submit": "Save rule"
+        }
+      },
+      {
+        "num": "02",
+        "time": "Every morning",
+        "title": "Zennly finds the customers",
+        "body": "Each day, customers whose last completed booking is older than your lapsed-days limit are queued.",
+        "status": "Confirmed",
+        "scene": {
+          "type": "report",
+          "title": "Daily scan",
+          "badge": "Scanned",
+          "sub": "Runs every morning",
+          "banner": [
+            [
+              "60+",
+              "days away"
+            ],
+            [
+              "Email",
+              "channel"
+            ]
+          ],
+          "insightsLabel": "What it finds",
+          "insights": [
+            [
+              "Last booking",
+              "Completed"
+            ],
+            [
+              "Last visit",
+              "Over 60 days ago"
+            ],
+            [
+              "Queued",
+              "For review"
+            ]
+          ],
+          "caption": "No list to build by hand."
+        }
+      },
+      {
+        "num": "03",
+        "time": "In review",
+        "title": "A staff member checks it",
+        "body": "In review mode, a message waits for staff to approve it or edit it first. Automatic mode skips this step.",
+        "status": "In-Progress",
+        "scene": {
+          "type": "review",
+          "badge": "In review",
+          "label": "Message queue",
+          "rowLabel": "We miss you, Mina",
+          "rowValue": "Win-back · email",
+          "plainLabel": "Template",
+          "plainValue": "Customer name filled in",
+          "button": "Approve and send"
+        }
+      },
+      {
+        "num": "04",
+        "time": "Sent",
+        "title": "The email goes out",
+        "body": "Approved messages are sent by email and the result of every send is recorded.",
+        "status": "Completed",
+        "scene": {
+          "type": "live",
+          "label": "Sent",
+          "time": "9:05 AM",
+          "title": "Win-back email",
+          "sub": "To Mina Thapa",
+          "steps": [
+            [
+              "Queued",
+              "done"
+            ],
+            [
+              "Approved",
+              "done"
+            ],
+            [
+              "Sent",
+              "active"
+            ]
+          ],
+          "caption": "Every send has a record."
+        }
+      },
+      {
+        "num": "05",
+        "time": "After the visit",
+        "title": "A review request follows",
+        "body": "When a booking is completed, a review request is queued using your template.",
+        "status": "Reconciled",
+        "scene": {
+          "type": "receipt",
+          "badge": "Queued",
+          "rows": [
+            [
+              "Trigger",
+              "Completed booking"
+            ],
+            [
+              "Channel",
+              "Email"
+            ]
+          ],
+          "total": [
+            "Status",
+            "Queued"
+          ],
+          "caption": "Sent after the visit · result recorded"
+        }
+      }
+    ],
+    "roles": [
+      {
+        "persona": "Front-desk staff",
+        "summary": "See what is going out to customers and help when a message needs editing.",
+        "icon": "users",
+        "image": "/assets/images/feat-role-frontdesk.jpg",
+        "imageAlt": "Front-desk staff at a salon reception desk",
+        "features": [
+          {
+            "title": "Review queue",
+            "description": "Messages waiting for approval show up for staff."
+          },
+          {
+            "title": "Edit before sending",
+            "description": "Approve with edits or cancel."
+          },
+          {
+            "title": "Customer name filled in",
+            "description": "Templates personalise each message."
+          }
+        ]
+      },
+      {
+        "persona": "Branch managers",
+        "summary": "Decide how much is automatic and how much is reviewed.",
+        "icon": "layout",
+        "image": "/assets/images/feat-role-managers.jpg",
+        "imageAlt": "Branch manager reviewing the schedule on a tablet",
+        "features": [
+          {
+            "title": "Rules and templates",
+            "description": "Write them once, change them any time."
+          },
+          {
+            "title": "Automatic or reviewed",
+            "description": "Choose per rule."
+          },
+          {
+            "title": "Manager-only",
+            "description": "Only managers and admins change rules."
+          }
+        ]
+      },
+      {
+        "persona": "Owners & admins",
+        "summary": "Bring lapsed customers back without a marketing team.",
+        "icon": "bar-chart",
+        "image": "/assets/images/feat-role-owners.jpg",
+        "imageAlt": "Owner reviewing reports at a bright office desk",
+        "features": [
+          {
+            "title": "Win-back emails",
+            "description": "Customers who have not visited in a while."
+          },
+          {
+            "title": "Review requests",
+            "description": "After a completed booking."
+          },
+          {
+            "title": "A record of every send",
+            "description": "The result of each message is stored."
+          }
+        ]
+      }
+    ],
+    "proof": {
+      "eyebrow": "Under the hood",
+      "headline": "Messages that send themselves.",
+      "stats": [
+        {
+          "tag": "Triggers",
+          "value": "2",
+          "label": "Live today: win-back and review request"
+        },
+        {
+          "tag": "Channel",
+          "value": "Email",
+          "label": "Email is live today"
+        },
+        {
+          "tag": "Modes",
+          "value": "2",
+          "label": "Send automatically, or hold each message in a review queue"
+        }
+      ],
+      "sub": "How it works inside the product."
+    }
+  },
+  {
+    "slug": "payroll",
+    "name": "Payroll",
+    "badge": "Staff Payroll",
+    "hero": {
+      "eyebrow": "Payroll",
+      "headline": "Payroll for your therapists,<br> <span class=\"fd-hero__h1-accent\">calculated, not guessed.</span>",
+      "subheadline": "Each month, per branch, Zennly works out salary, absence deductions and commission from your attendance and bookings records.",
+      "cta": "See it in a 20-minute demo →",
+      "image": "/assets/images/feat-reports.png",
+      "imageAlt": "Monthly payroll run for a branch",
+      "bg": "#EAE6F2"
+    },
+    "intro": {
+      "headline": "From attendance and bookings to a finished payroll run.",
+      "body": "Set salary and commission once. Generate the month, review it, then lock it."
+    },
+    "primaryFeatures": [
+      {
+        "title": "Salary and commission",
+        "description": "Each therapist has a monthly salary and a commission rate."
+      },
+      {
+        "title": "Attendance deductions",
+        "description": "Absent days, half days and unpaid leave reduce pay by the day."
+      },
+      {
+        "title": "Commission from bookings",
+        "description": "Service commission comes from completed, paid bookings assigned to the therapist."
+      },
+      {
+        "title": "Draft, then final",
+        "description": "Review a draft run, then finalize it to lock the numbers."
+      }
+    ],
+    "howItWorks": [
+      {
+        "step": "01",
+        "icon": "tag",
+        "title": "Set compensation",
+        "description": "Enter each therapist's monthly salary and commission rate."
+      },
+      {
+        "step": "02",
+        "icon": "check",
+        "title": "Attendance is recorded",
+        "description": "Present, absent, half-day and leave statuses feed the calculation."
+      },
+      {
+        "step": "03",
+        "icon": "activity",
+        "title": "Generate the run",
+        "description": "Pick the branch and month. Zennly calculates salary, deductions and commissions per therapist."
+      },
+      {
+        "step": "04",
+        "icon": "check",
+        "title": "Review and finalize",
+        "description": "Check the draft, regenerate if needed, then finalize to lock it."
+      }
+    ],
+    "stopStart": {
+      "stop": [
+        "Calculating commission in a spreadsheet",
+        "Disputes over attendance",
+        "Rerunning the month by hand",
+        "Changing numbers after payday"
+      ],
+      "start": [
+        "One payroll run per branch per month",
+        "Deductions and commission from your records",
+        "A draft you can review before it is final",
+        "A locked record once finalized"
+      ]
+    },
+    "objections": {
+      "headline": "Things we get asked.",
+      "sub": "Answers to what owners ask before they switch.",
+      "items": [
+        {
+          "question": "Who can see payroll?",
+          "answer": "Payroll is limited to admins."
+        },
+        {
+          "question": "How is commission calculated?",
+          "answer": "Service commission is the therapist's commission rate applied to the value of their completed and paid bookings. Referral commission is added per booking."
+        },
+        {
+          "question": "Can a finalized run be changed?",
+          "answer": "No. Finalizing locks the run."
+        },
+        {
+          "question": "How much does it cost?",
+          "answer": "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you get a tailored quote within 24 hours."
+        }
+      ]
+    },
+    "bottomCta": {
+      "headline": "Month-end payroll without the spreadsheet.",
+      "subheadline": "See a payroll run from attendance to final.",
+      "ctaLabel": "Book your live demo →",
+      "reassurance": "No commitment. We'll walk through it live with your branch setup."
+    },
+    "relatedFeatures": [
+      "staff-management",
+      "role-based-access",
+      "reports"
+    ],
+    "metaDescription": "Payroll software for spas and salons in Nepal — monthly salary, attendance deductions and commission calculated per branch.",
+    "seoTitle": "Spa & Salon Payroll Software Nepal | Zennly",
+    "heroMockup": {
+      "title": "Payroll run",
+      "date": "July · Lazimpat branch",
+      "rows": [
+        {
+          "avatar": "S",
+          "name": "Sita Gurung",
+          "service": "Salary less 1 absent day, plus commission",
+          "status": "Draft",
+          "done": false
+        },
+        {
+          "avatar": "R",
+          "name": "Ram Shrestha",
+          "service": "Salary plus service commission",
+          "status": "Draft",
+          "done": false
+        },
+        {
+          "avatar": "A",
+          "name": "Anu Rai",
+          "service": "Salary plus service and referral commission",
+          "status": "Draft",
+          "done": false
+        }
+      ]
+    },
+    "workflowHeading": "How payroll runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
+    "workflowSub": "A real timeline of one payroll month, from setup to the final run.",
+    "workflow": [
+      {
+        "num": "01",
+        "time": "Setup",
+        "title": "Compensation is set",
+        "body": "Enter each therapist's monthly salary and commission rate once.",
+        "status": "Pending",
+        "scene": {
+          "type": "form",
+          "head": "Compensation",
+          "bannerTitle": "Set it once",
+          "bannerSub": "Salary and commission per therapist.",
+          "fields": [
+            [
+              "Therapist",
+              "Sita Gurung"
+            ],
+            [
+              [
+                "Monthly salary",
+                "NPR 30,000"
+              ],
+              [
+                "Commission",
+                "5%"
+              ]
+            ]
+          ],
+          "submit": "Save"
+        }
+      },
+      {
+        "num": "02",
+        "time": "All month",
+        "title": "Attendance is recorded",
+        "body": "Present, absent, half-day and leave statuses feed the calculation. Sick and annual leave have paid caps and the excess becomes unpaid.",
+        "status": "Confirmed",
+        "scene": {
+          "type": "review",
+          "badge": "Recorded",
+          "label": "Attendance",
+          "rowLabel": "1 absent · 1 half day",
+          "rowValue": "Sita Gurung · July",
+          "plainLabel": "Leave",
+          "plainValue": "Paid caps, excess unpaid",
+          "button": "Save attendance"
+        }
+      },
+      {
+        "num": "03",
+        "time": "Month end",
+        "title": "The run is generated",
+        "body": "Pick the branch and the month. Salary, deductions and commissions are calculated for every therapist.",
+        "status": "In-Progress",
+        "scene": {
+          "type": "report",
+          "title": "July payroll",
+          "badge": "Draft",
+          "sub": "Lazimpat branch",
+          "banner": [
+            [
+              "Draft",
+              "status"
+            ],
+            [
+              "July",
+              "month"
+            ]
+          ],
+          "insightsLabel": "Per therapist",
+          "insights": [
+            [
+              "Salary",
+              "Less absences"
+            ],
+            [
+              "Service commission",
+              "On paid bookings"
+            ],
+            [
+              "Referral commission",
+              "Per booking"
+            ]
+          ],
+          "caption": "Regenerate the draft until it is right."
+        }
+      },
+      {
+        "num": "04",
+        "time": "Review",
+        "title": "One therapist's pay, line by line",
+        "body": "Service commission comes from completed, paid bookings assigned to the therapist. Referral commission is added per booking.",
+        "status": "Completed",
+        "scene": {
+          "type": "receipt",
+          "badge": "Draft",
+          "rows": [
+            [
+              "Salary",
+              "NPR 30,000"
+            ],
+            [
+              "Deduction",
+              "– NPR 1,500"
+            ],
+            [
+              "Commission",
+              "+ NPR 8,200"
+            ]
+          ],
+          "total": [
+            "Net pay",
+            "NPR 36,700"
+          ],
+          "caption": "Net = salary – deduction + commission"
+        }
+      },
+      {
+        "num": "05",
+        "time": "Payday",
+        "title": "Finalized and locked",
+        "body": "Finalizing the run locks it. A finalized run cannot be changed.",
+        "status": "Reconciled",
+        "scene": {
+          "type": "live",
+          "label": "Final",
+          "time": "End of month",
+          "title": "July · Lazimpat",
+          "sub": "Locked for editing",
+          "steps": [
+            [
+              "Generated",
+              "done"
+            ],
+            [
+              "Draft",
+              "done"
+            ],
+            [
+              "Finalized",
+              "active"
+            ]
+          ],
+          "caption": "A finalized run stays as it was."
+        }
+      }
+    ],
+    "roles": [
+      {
+        "persona": "Front-desk staff",
+        "summary": "See your own attendance and bookings recorded accurately.",
+        "icon": "users",
+        "image": "/assets/images/feat-role-frontdesk.jpg",
+        "imageAlt": "Front-desk staff at a salon reception desk",
+        "features": [
+          {
+            "title": "Attendance statuses",
+            "description": "Present, absent, half-day and leave."
+          },
+          {
+            "title": "Bookings on record",
+            "description": "Completed, paid bookings feed commission."
+          },
+          {
+            "title": "Referrals credited",
+            "description": "Referral commission is added per booking."
+          }
+        ]
+      },
+      {
+        "persona": "Branch managers",
+        "summary": "Keep attendance and bookings clean so the month closes without disputes.",
+        "icon": "layout",
+        "image": "/assets/images/feat-role-managers.jpg",
+        "imageAlt": "Branch manager reviewing the schedule on a tablet",
+        "features": [
+          {
+            "title": "Attendance calendar",
+            "description": "Record each day's status."
+          },
+          {
+            "title": "Leave with paid caps",
+            "description": "Excess leave becomes unpaid."
+          },
+          {
+            "title": "Bookings assigned",
+            "description": "Commission follows the assigned therapist."
+          }
+        ]
+      },
+      {
+        "persona": "Owners & admins",
+        "summary": "Run payroll once a month, per branch, and lock it.",
+        "icon": "bar-chart",
+        "image": "/assets/images/feat-role-owners.jpg",
+        "imageAlt": "Owner reviewing reports at a bright office desk",
+        "features": [
+          {
+            "title": "Admin-only",
+            "description": "Payroll is limited to admins."
+          },
+          {
+            "title": "Draft then final",
+            "description": "Review before you lock."
+          },
+          {
+            "title": "One run per branch per month",
+            "description": "No duplicates."
+          }
+        ]
+      }
+    ],
+    "proof": {
+      "eyebrow": "Under the hood",
+      "headline": "Calculated, reviewed, then locked.",
+      "stats": [
+        {
+          "tag": "Run",
+          "value": "1",
+          "label": "One payroll run per branch per month"
+        },
+        {
+          "tag": "Access",
+          "value": "Admin",
+          "label": "Payroll is limited to admins"
+        },
+        {
+          "tag": "States",
+          "value": "2",
+          "label": "Draft until finalized, then locked"
+        }
+      ],
+      "sub": "How it works inside the product."
+    }
   }
 ]

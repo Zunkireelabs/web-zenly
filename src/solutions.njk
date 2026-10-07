@@ -446,6 +446,165 @@ bodyClass: page--sol-nav
         </div>
       </div>
 
+
+      <div class="sol-split reveal" id="barbershop" style="margin-top:var(--space-2xl);">
+        <div class="sol-split__img-col">
+          <div class="fd-sscroll__img-wrap">
+            {% image "/assets/images/solution-hero-barbershop.jpg", "Barbers cutting hair in a barbershop", { class: "fd-sscroll__img", loading: "lazy" } %}
+          </div>
+        </div>
+
+        <div class="sol-split__text-col">
+          <h3 class="fd-sscroll__title">Barbershops</h3>
+          <p class="sol-split__intro">Walk-ins, regulars and a queue that never stops &ndash; Zennly keeps every chair, barber and payment visible.</p>
+
+          <div class="faq-list" x-data="{ open: null }">
+            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
+              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
+                Barber-specific booking
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
+                <p>Every booking is assigned to a specific barber, and walk-ins are created the same way as booked appointments.</p>
+              </div>
+            </div>
+            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
+              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
+                Discount control
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
+                <p>Staff request a discount, and it only applies once a manager approves it.</p>
+              </div>
+            </div>
+            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
+              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
+                Daily close
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
+                <p>Every payment is recorded by cash, card or online, so the day closes from one report.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sol-split__explore">
+          <a href="/solutions/barbershop/" class="sol-split__link" aria-label="Explore Barbershops solutions">
+            Explore
+            <span class="sol-split__link-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="sol-split reveal" id="beauty-clinic" style="margin-top:var(--space-2xl);">
+        <div class="sol-split__img-col">
+          <div class="fd-sscroll__img-wrap">
+            {% image "/assets/images/solution-hero-beauty-clinic.jpg", "Client receiving a facial treatment at a beauty clinic", { class: "fd-sscroll__img", loading: "lazy" } %}
+          </div>
+        </div>
+
+        <div class="sol-split__text-col">
+          <h3 class="fd-sscroll__title">Beauty Clinics</h3>
+          <p class="sol-split__intro">Skin, laser and aesthetic treatments need the right practitioner, the right room and an accurate payment trail.</p>
+
+          <div class="faq-list" x-data="{ open: null }">
+            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
+              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
+                Practitioner and room together
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
+                <p>Staff, room and time are booked together, so rooms are never double-booked.</p>
+              </div>
+            </div>
+            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
+              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
+                Payment records
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
+                <p>Each payment is recorded against its booking at the point of service.</p>
+              </div>
+            </div>
+            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
+              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
+                Role-based access
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
+                <p>Admin, Manager and Staff roles keep financial reports with the right people.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sol-split__explore">
+          <a href="/solutions/beauty-clinic/" class="sol-split__link" aria-label="Explore Beauty Clinics solutions">
+            Explore
+            <span class="sol-split__link-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="sol-split reveal" id="bridal-makeup" style="margin-top:var(--space-2xl);">
+        <div class="sol-split__img-col">
+          <div class="fd-sscroll__img-wrap">
+            {% image "/assets/images/solution-hero-bridal-makeup.jpg", "Makeup artist preparing a bride before her wedding", { class: "fd-sscroll__img", loading: "lazy" } %}
+          </div>
+        </div>
+
+        <div class="sol-split__text-col">
+          <h3 class="fd-sscroll__title">Bridal &amp; Makeup Studios</h3>
+          <p class="sol-split__intro">A bridal date is held for one artist on one day &ndash; Zennly keeps each booking tied to a named artist.</p>
+
+          <div class="faq-list" x-data="{ open: null }">
+            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
+              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
+                Artist-specific booking
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
+                <p>Every booking is assigned to a named artist, so a date is held for the artist the client chose.</p>
+              </div>
+            </div>
+            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
+              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
+                Payments per booking
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
+                <p>Payments are recorded by cash, card or online against each booking.</p>
+              </div>
+            </div>
+            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
+              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
+                Discount approvals
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
+                <p>Package discounts apply only after a manager approves them.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sol-split__explore">
+          <a href="/solutions/bridal-makeup/" class="sol-split__link" aria-label="Explore Bridal &amp; Makeup Studios solutions">
+            Explore
+            <span class="sol-split__link-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 

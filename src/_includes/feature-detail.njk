@@ -369,6 +369,28 @@ layout: base.njk
               </div>
             </div>
           </div>
+          {% elif feature.heroMockup %}
+          <div class="fd-hero__mockup" aria-hidden="true">
+            <div class="fd-hero__mockup-top">
+              <div>
+                <p class="fd-hero__mockup-title">{{ feature.heroMockup.title }}</p>
+                <p class="fd-hero__mockup-date">{{ feature.heroMockup.date }}</p>
+              </div>
+              <span class="fd-hero__mockup-live"><span class="live-dot"></span>Live</span>
+            </div>
+            <div class="fd-hero__mockup-list">
+              {% for row in feature.heroMockup.rows %}
+              <div class="fd-hero__mockup-row">
+                <span class="fd-hero__mockup-avatar">{{ row.avatar }}</span>
+                <div class="fd-hero__mockup-info">
+                  <p class="fd-hero__mockup-name">{{ row.name }}</p>
+                  <p class="fd-hero__mockup-service">{{ row.service }}</p>
+                </div>
+                <span class="fd-hero__mockup-status{% if row.done %} is-done{% endif %}">{{ row.status }}</span>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
           {% else %}
           <div class="fd-hero__img-wrap">
             {% image feature.hero.image, feature.hero.imageAlt, { class: "fd-hero__img", loading: "eager" } %}
@@ -571,7 +593,140 @@ layout: base.njk
                     {% set isOpsPattern = feature.slug == "operational-visibility" and loop.index0 == 2 %}
                     {% set isOpsDayCloses = feature.slug == "operational-visibility" and loop.index0 == 3 %}
 
-                    {% if isBookingCreate %}
+                    {% if item.scene and item.scene.type == "form" %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__form">
+                        <div class="fd-workflow__form-head">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                          <span>{{ item.scene.head }}</span>
+                        </div>
+                        <div class="fd-workflow__form-banner">
+                          <span class="fd-workflow__form-banner-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+                          <div>
+                            <p class="fd-workflow__form-banner-title">{{ item.scene.bannerTitle }}</p>
+                            <p class="fd-workflow__form-banner-sub">{{ item.scene.bannerSub }}</p>
+                          </div>
+                        </div>
+                        {% for f in item.scene.fields %}
+                        {% if f[0] is string %}
+                        <div class="fd-workflow__form-field">
+                          <span class="fd-workflow__form-label">{{ f[0] }}</span>
+                          <div class="fd-workflow__form-select"><span>{{ f[1] }}</span><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                        </div>
+                        {% else %}
+                        <div class="fd-workflow__form-row">
+                          {% for g in f %}
+                          <div class="fd-workflow__form-field">
+                            <span class="fd-workflow__form-label">{{ g[0] }}</span>
+                            <div class="fd-workflow__form-select"><span>{{ g[1] }}</span><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                          </div>
+                          {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        <button class="fd-workflow__form-submit" type="button">{{ item.scene.submit }}<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></button>
+                      </div>
+                    </div>
+                    {% elif item.scene and item.scene.type == "review" %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__review">
+                        <div class="fd-workflow__notif fd-workflow__review-notif">
+                          <div class="fd-workflow__notif-head">
+                            <span class="fd-workflow__notif-logo">Z</span>
+                            <span class="fd-workflow__notif-app">Zennly</span>
+                            <span class="fd-workflow__notif-time">Just now</span>
+                          </div>
+                          <div class="fd-workflow__notif-body"><strong>{{ item.title }}</strong></div>
+                          <div class="fd-workflow__notif-foot">
+                            <span class="fd-workflow__phone-badge fd-workflow__phone-badge--pending">{{ item.scene.badge }}</span>
+                            <span class="fd-workflow__notif-step">STEP {{ item.num }}</span>
+                          </div>
+                        </div>
+                        <span class="fd-workflow__review-label">{{ item.scene.label }}</span>
+                        <div class="fd-workflow__review-card">
+                          <div class="fd-workflow__review-row">
+                            <span class="fd-workflow__review-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            <div class="fd-workflow__review-field">
+                              <span class="fd-workflow__review-field-label">{{ item.scene.rowLabel }}</span>
+                              <span class="fd-workflow__review-field-value">{{ item.scene.rowValue }}</span>
+                            </div>
+                          </div>
+                          <div class="fd-workflow__review-field fd-workflow__review-field--plain">
+                            <span class="fd-workflow__review-field-label">{{ item.scene.plainLabel }}</span>
+                            <span class="fd-workflow__review-field-value">{{ item.scene.plainValue }}</span>
+                          </div>
+                        </div>
+                        <button class="fd-workflow__form-submit" type="button"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>{{ item.scene.button }}</button>
+                      </div>
+                    </div>
+                    {% elif item.scene and item.scene.type == "live" %}
+                    <div class="fd-workflow__scene{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__live">
+                        <div class="fd-workflow__live-card">
+                          <div class="fd-workflow__live-top">
+                            <span class="fd-sch-dot pulsing"></span>
+                            <span class="fd-workflow__live-label">{{ item.scene.label }}</span>
+                            <span class="fd-workflow__notif-time">{{ item.scene.time }}</span>
+                          </div>
+                          <p class="fd-workflow__live-title">{{ item.scene.title }}</p>
+                          <p class="fd-workflow__live-sub">{{ item.scene.sub }}</p>
+                        </div>
+                        <div class="fd-workflow__live-steps">
+                          {% for s in item.scene.steps %}
+                          <div class="fd-workflow__live-step{% if s[1] %} is-{{ s[1] }}{% endif %}"><span></span>{{ s[0] }}</div>
+                          {% endfor %}
+                        </div>
+                        <p class="fd-workflow__live-caption">{{ item.scene.caption }}</p>
+                      </div>
+                    </div>
+                    {% elif item.scene and item.scene.type == "receipt" %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__receipt">
+                        <div class="fd-workflow__success fd-workflow__receipt-success">
+                          <span class="fd-workflow__success-check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                          <p class="fd-workflow__success-title">{{ item.title }}</p>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--completed">{{ item.scene.badge }}</span>
+                        </div>
+                        <div class="fd-workflow__receipt-card">
+                          {% for r in item.scene.rows %}
+                          <div class="fd-workflow__receipt-row"><span>{{ r[0] }}</span><span>{{ r[1] }}</span></div>
+                          {% endfor %}
+                          <div class="fd-workflow__receipt-row fd-workflow__receipt-row--total"><span>{{ item.scene.total[0] }}</span><span>{{ item.scene.total[1] }}</span></div>
+                        </div>
+                        <p class="fd-workflow__receipt-caption"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>{{ item.scene.caption }}</p>
+                      </div>
+                    </div>
+                    {% elif item.scene and item.scene.type == "report" %}
+                    <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
+                      <div class="fd-workflow__report">
+                        <div class="fd-workflow__report-head">
+                          <span class="fd-workflow__report-title">{{ item.scene.title }}</span>
+                          <span class="fd-workflow__phone-badge fd-workflow__phone-badge--reconciled">{{ item.scene.badge }}</span>
+                        </div>
+                        <p class="fd-workflow__report-sub">{{ item.scene.sub }}</p>
+                        <div class="fd-workflow__report-banner">
+                          <span class="fd-workflow__form-banner-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                          {% for b in item.scene.banner %}
+                          <div class="fd-workflow__report-banner-stat">
+                            <span class="fd-workflow__report-banner-value">{{ b[0] }}</span>
+                            <span class="fd-workflow__report-banner-label">{{ b[1] }}</span>
+                          </div>
+                          {% endfor %}
+                        </div>
+                        <span class="fd-workflow__review-label">{{ item.scene.insightsLabel }}</span>
+                        <div class="fd-workflow__report-insights">
+                          {% for i in item.scene.insights %}
+                          <div class="fd-workflow__report-insight">
+                            <span class="fd-workflow__review-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            <span class="fd-workflow__report-insight-label">{{ i[0] }}</span>
+                            <span class="fd-workflow__report-insight-value">{{ i[1] }}</span>
+                          </div>
+                          {% endfor %}
+                        </div>
+                        <p class="fd-workflow__dash-caption">{{ item.scene.caption }}</p>
+                      </div>
+                    </div>
+                    {% elif isBookingCreate %}
                     <div class="fd-workflow__scene fd-workflow__scene--form{% if loop.first %} is-active{% endif %}">
                       <div class="fd-workflow__form">
                         <div class="fd-workflow__form-head">
@@ -1984,7 +2139,7 @@ layout: base.njk
           {% if stat.tag %}
           <p class="fd-proof__tag"><span class="fd-proof__dot" aria-hidden="true"></span>{{ stat.tag }}</p>
           {% endif %}
-          <div class="fd-proof__num" data-count-target="{{ stat.value }}">{{ stat.value }}</div>
+          <div class="fd-proof__num" style="--len: {{ stat.value | string | length }};" data-count-target="{{ stat.value }}">{{ stat.value }}</div>
           <p class="fd-proof__label">{{ stat.label }}</p>
         </div>
         {% endfor %}

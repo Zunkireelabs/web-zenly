@@ -10,6 +10,11 @@
         smoothWheel: true,
       });
 
+      // Shared with pages that run their own inline script (the homepage), so
+      // they reuse this instance instead of creating a second Lenis. Two
+      // instances drive the same scroll position and read as jitter.
+      window.__zennlyLenis = lenis;
+
       lenis.on('scroll', function () {
         if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update();
       });

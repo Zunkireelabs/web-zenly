@@ -1,0 +1,69 @@
+---
+layout: base.njk
+title: "Zennly vs Spreadsheets, WhatsApp & Paper | Booking Software Nepal"
+metaDescription: "Compare Zennly with spreadsheets, WhatsApp and paper registers for running a spa, salon or gym in Nepal: double bookings, discounts, payments and the daily close."
+dateModified: "2026-10-07"
+bodyClass: page--light-nav
+compareFaq:
+  - question: "Is booking software better than a spreadsheet for a spa or salon in Nepal?"
+    answer: "A spreadsheet works for one person and one branch. It stops working once several staff book, discount and take payments, because nothing stops two bookings for the same therapist or room and nobody approves discounts. Booking software books staff, room and time together and records every payment against its booking."
+  - question: "Can WhatsApp be used to manage bookings?"
+    answer: "It works for conversations, but bookings become scattered across chats. There is no single schedule, no record of who approved a discount and no daily total. Zennly keeps one schedule and one payment record for every branch."
+  - question: "What should I look for when choosing booking software in Nepal?"
+    answer: "Check that it prevents double bookings across staff and rooms, requires approval for discounts, records payments by cash, card and online, gives one report across branches, controls who can see what, and is quoted in a way you can plan for."
+  - question: "When should a business switch from spreadsheets to booking software?"
+    answer: "Usually when a second branch opens, when more than one person takes bookings, or when the owner can no longer close the day without counting slips and chats."
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Compare", url: "/compare/" }]) }}
+{{ faqSchema(compareFaq) }}
+
+<main>
+<section class="v2-section faq-page" id="v2-compare">
+  <div class="v2-wrap">
+    <div class="v2-section-head">
+      <h1>Booking software or spreadsheets? <em>Compared.</em></h1>
+      <p>Zennly against spreadsheets, WhatsApp and paper registers, in plain words.</p>
+    </div>
+    <div class="v2-answers">
+      <article class="v2-answer v2-answer--lead">
+        <span class="v2-answer__tag">The short answer</span>
+        <h3>Spreadsheets and chats record what happened. Zennly controls it.</h3>
+        <p>Zennly books staff, room and time together, requires a manager to approve every discount, records each payment against its booking and gives the owner one daily report across every branch.</p>
+      </article>
+    </div>
+    <div class="v2-compare-wrap">
+      <table class="v2-compare">
+        <thead>
+          <tr><th scope="col"></th><th scope="col">Spreadsheet, WhatsApp or paper</th><th scope="col" class="v2-compare__us">Zennly</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Double bookings</th><td>Found out when two clients arrive</td><td>Staff, room and time are booked together</td></tr>
+          <tr><th scope="row">Discounts</th><td>Agreed in conversation, rarely recorded</td><td>Requested with a value and amount, applied after manager approval</td></tr>
+          <tr><th scope="row">Payments</th><td>Notebook, slips and chat screenshots</td><td>Recorded by cash, card or online against each booking</td></tr>
+          <tr><th scope="row">Daily close</th><td>Counted by hand, branch by branch</td><td>One dashboard across every branch</td></tr>
+          <tr><th scope="row">Several branches</th><td>A separate file or chat for each</td><td>One account, every branch</td></tr>
+          <tr><th scope="row">Staff moving between branches</th><td>A message the day before</td><td>A scheduled transfer with a destination and date</td></tr>
+          <tr><th scope="row">Who sees what</th><td>Everyone with the file sees everything</td><td>Admin, Manager and Staff roles</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="v2-answers" style="margin-top:20px;">
+      {% for f in compareFaq %}
+      <article class="v2-answer">
+        <div class="v2-answer__top"><span class="v2-answer__num">0{{ loop.index }}</span></div>
+        <h3>{{ f.question }}</h3>
+        <p>{{ f.answer }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="v2-answers-cta">
+      <a href="/demo/" class="v2-btn">Book a demo &rarr;</a>
+      <a href="/blog/spreadsheets-stop-working/" class="v2-answers-link">Why spreadsheets stop working &rarr;</a>
+      <a href="/faq/" class="v2-answers-link">Read the FAQ &rarr;</a>
+    </div>
+  </div>
+</section>
+{% include "_footer-v2.njk" %}
+</main>
