@@ -368,6 +368,7 @@ layout: base.njk
   </section>
 
 
+  {% if solution.testimonial %}
   <!-- ── SOCIAL PROOF ─────────────────────────────────────────────────── -->
   <section class="soln-proof">
     <div class="soln-proof__inner reveal">
@@ -384,6 +385,7 @@ layout: base.njk
       </{% if solution.testimonial.href %}a{% else %}div{% endif %}>
     </div>
   </section>
+  {% endif %}
 
 
   <!-- ── FAQ ──────────────────────────────────────────────────────────── -->
