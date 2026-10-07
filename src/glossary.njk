@@ -1,8 +1,8 @@
 ---
 layout: base.njk
 title: Booking & Operations Glossary for Service Businesses
-metaDescription: "Plain-language definitions of multi-branch booking, double booking, daily reconciliation, discount approval workflows and other terms service businesses in Nepal use."
-dateModified: "2026-10-01"
+metaDescription: "Plain-language booking and operations glossary for spas, salons and clinics: multi-branch, no-show, deposit, reconciliation and more, with regional names."
+dateModified: "2026-10-04"
 bodyClass: page--light-nav
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
@@ -17,10 +17,11 @@ bodyClass: page--light-nav
   "dateModified": "{{ dateModified }}",
   "publisher": { "@id": "{{ site.url }}/#organization" },
   "hasDefinedTerm": [
-    {% for t in glossary %}{
+    {% for t in glossary | sort(false, false, "term") %}{
       "@type": "DefinedTerm",
       "@id": "{{ site.url }}/glossary/#{{ t.slug }}",
       "name": {{ t.term | dump | safe }},
+      "alternateName": {{ t.aka.split(", ") | dump | safe }},
       "description": {{ t.definition | dump | safe }},
       "url": "{{ site.url }}/glossary/#{{ t.slug }}",
       "inDefinedTermSet": "{{ site.url }}/glossary/#termset"
@@ -32,22 +33,53 @@ bodyClass: page--light-nav
 
 <main>
 
-  <section class="section" style="padding-bottom:0; padding-top:calc(var(--v2-nav-h) + var(--v2-nav-inset) + var(--space-lg));">
-    <div class="article-hero" style="padding:0 0 var(--space-sm); text-align:left; max-width:var(--max-w-copy); margin:0 auto;">
-      <p class="article-hero__eyebrow article-hero__eyebrow--pill">Glossary</p>
-      <h1 class="article-hero__h1" style="margin-top:var(--space-sm);">Booking &amp; operations glossary</h1>
-      <p class="article-hero__meta">Last updated: October 1, 2026</p>
+  <section class="section" style="padding-top:var(--space-2xl); padding-bottom:var(--space-md);">
+    <div class="section__inner">
+      <div class="section__header reveal" style="text-align:center;">
+        <p class="article-hero__eyebrow article-hero__eyebrow--pill" style="display:inline-block;">Glossary</p>
+        <h1 class="section__h2" style="margin-top:var(--space-sm);">Booking &amp; operations glossary</h1>
+        <p class="section__sub section__sub--center" style="white-space: normal;">Plain-language definitions of the terms spas, salons, gyms and clinics use when choosing booking software, including the names used in the USA, UK, Canada, Australia, the UAE and Nepal.</p>
+        <p class="article-hero__meta" style="margin-top:var(--space-sm);">Last updated: October 4, 2026</p>
+      </div>
     </div>
-    <hr style="border:none; border-top:1px solid var(--color-border); max-width:var(--max-w-copy); margin:var(--space-lg) auto;" />
   </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="article-body reveal">
-      <p>Plain-language definitions of the terms spas, salons, gyms and clinics in Nepal run into when choosing booking software.</p>
-      {% for t in glossary %}
-      <h2 id="{{ t.slug }}">{{ t.term }}</h2>
-      <p>{{ t.definition }}</p>
-      {% endfor %}
+  <section class="section" style="padding-top:var(--space-md);"
+    x-data='{ q: "", cat: "All", items: [{% for t in glossary %}{ k: {{ t.slug | dump | replace("'", "&#39;") | safe }}, c: {{ t.category | dump | replace("'", "&#39;") | safe }}, s: {{ (t.term + ' ' + t.aka + ' ' + t.definition) | lower | dump | replace("'", "&#39;") | safe }} }{% if not loop.last %}, {% endif %}{% endfor %}],
+      ok(k) { const i = this.items.find(x => x.k === k); return (this.cat === "All" || this.cat === i.c) && i.s.includes(this.q.toLowerCase().trim()); },
+      count() { return this.items.filter(i => this.ok(i.k)).length; } }'>
+    <div class="section__inner">
+
+      <div class="reveal" style="max-width:1040px; margin:0 auto var(--space-lg);">
+        <label for="glossary-search" style="position:absolute; left:-9999px;">Search the glossary</label>
+        <input id="glossary-search" type="search" x-model="q" placeholder="Search terms, e.g. multi-location, cash-up, no-show"
+          style="width:100%; box-sizing:border-box; padding:14px 22px; border:1px solid var(--color-border); border-radius:var(--radius-pill); background:#fff; font:inherit; color:var(--color-text);" />
+        <div style="display:flex; flex-wrap:wrap; gap:var(--space-xs); margin-top:var(--space-sm);" role="group" aria-label="Filter by topic">
+          {% for c in ["All", "Booking", "Operations", "Finance", "Security"] %}
+          <button type="button" @click="cat = '{{ c }}'" :aria-pressed="cat === '{{ c }}'"
+            class="article-hero__eyebrow article-hero__eyebrow--pill"
+            :style="cat === '{{ c }}' ? 'background:var(--color-primary); color:#fff; border-color:var(--color-primary);' : 'background:#fff;'"
+            style="cursor:pointer; text-transform:none; letter-spacing:0; font-family:inherit;">{{ c }}</button>
+          {% endfor %}
+          <span class="article-hero__meta" style="margin-left:auto; align-self:center;" x-text="count() + ' of ' + items.length + ' terms'"></span>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap:var(--space-md); max-width:1040px; margin:0 auto;">
+        {% for t in glossary | sort(false, false, "term") %}
+        <article class="pricing-card reveal" id="{{ t.slug }}" style="scroll-margin-top:120px;" x-show="ok('{{ t.slug }}')">
+          <p class="pricing-card__eyebrow">{{ t.category }}</p>
+          <h2 class="pricing-card__headline">{{ t.term }}</h2>
+          <p class="pricing-card__note" style="text-align:left; margin:0 0 var(--space-sm);">Also called: {{ t.aka }}</p>
+          <p class="pricing-card__sub">{{ t.definition }}</p>
+          <div class="pricing-card__divider"></div>
+          <a href="{{ t.relatedHref }}" class="pricing-card__link">{{ t.relatedLabel }} &rarr;</a>
+        </article>
+        {% endfor %}
+      </div>
+
+      <p class="section__sub section__sub--center" style="white-space:normal; margin-top:var(--space-lg);" x-show="count() === 0" x-cloak>No terms match your search. Try a shorter word or clear the filter.</p>
+
     </div>
   </section>
 
@@ -55,7 +87,7 @@ bodyClass: page--light-nav
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">See these ideas in a live system.</h2>
       <p class="bottom-cta__sub">Book a 20-minute demo and we&rsquo;ll show you how Zennly handles them.</p>
-      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
     </div>
   </section>
 

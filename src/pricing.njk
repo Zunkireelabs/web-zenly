@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: "Zennly Pricing — Custom-Quote Booking Software Nepal"
+dateModified: "2026-10-04"
 metaDescription: "Zennly pricing is quote-based, scaled to your branches, team size and features — no fixed tiers. See how pricing works for multi-branch spas, salons and gyms."
 bodyClass: page--light-nav
 ---
@@ -41,8 +42,8 @@ bodyClass: page--light-nav
           <div class="pricing-card">
             <div class="pricing-card__eyebrow">Custom quote</div>
             <div class="pricing-card__headline">Let's talk about your setup</div>
-            <p class="pricing-card__sub">Book a 30-minute demo. We'll understand your business, show you the platform, and send you a tailored quote within 24 hours.</p>
-            <a href="/demo" class="btn-primary pricing-card__btn">Book a Demo</a>
+            <p class="pricing-card__sub">Book a 20-minute demo. We'll understand your business, show you the platform, and send you a tailored quote within 24 hours.</p>
+            <a href="/demo/" class="btn-primary pricing-card__btn">Book a Demo</a>
             <div class="pricing-card__divider"></div>
             <p class="pricing-card__note">Already know what you need? <a href="mailto:info@zennly.io" class="pricing-card__link">Email us directly →</a></p>
           </div>
@@ -86,7 +87,7 @@ bodyClass: page--light-nav
             <span class="faq-item__icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-            <p>Book a 30-minute demo and we'll send a tailored quote within 24 hours. Most businesses are live on their first branch the same week.</p>
+            <p>Book a 20-minute demo and we'll send a tailored quote within 24 hours. Most businesses are live on their first branch the same week.</p>
           </div>
         </div>
         <div class="faq-item reveal" data-delay="4" :class="{ 'faq-item--open': open === 3 }">
@@ -98,6 +99,15 @@ bodyClass: page--light-nav
             <p>Yes &ndash; your quote scales with your setup, not the other way around. When you open a new branch, we adjust the plan with you instead of pushing you into the next tier up.</p>
           </div>
         </div>
+        <div class="faq-item reveal" data-delay="5" :class="{ 'faq-item--open': open === 4 }">
+          <button class="faq-item__q" @click="open = open === 4 ? null : 4" :aria-expanded="open === 4">
+            How much does booking software cost in Nepal?
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__a" x-show="open === 4" x-cloak x-transition>
+            <p>Zennly is quoted per business, not per fixed tier. The price depends on how many branches you run, how big your team is and which features you use, such as discount approval, staff transfers and reports. Book a 20-minute demo and you receive a tailored quote within 24 hours. There are no setup fees. Read <a href="/blog/booking-software-price-nepal/">what affects booking software price in Nepal</a>.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -107,8 +117,8 @@ bodyClass: page--light-nav
   <section class="bottom-cta" id="demo">
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Let's put together a quote for your business.</h2>
-      <p class="bottom-cta__sub">30 minutes, no obligation. We'll understand your setup and send a tailored quote within 24 hours.</p>
-      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <p class="bottom-cta__sub">20 minutes, no obligation. We'll understand your setup and send a tailored quote within 24 hours.</p>
+      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
     </div>
   </section>
 

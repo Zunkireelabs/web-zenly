@@ -29,7 +29,7 @@ Purpose: backlinks + citations + brand mentions that help Zennly rank in Nepal a
 | Customers | Nuad Thai Spa Kathmandu — 4 branches, 39 therapists, 12 rooms, 194 services (live client; get their OK before naming them on third-party sites) |
 | Logo | `src/assets/images/logo.png` (brand is a wordmark; favicon at `src/assets/images/favicon.svg`) |
 | Screenshot | `src/assets/images/og-default.jpg` (1200x630 dashboard) and `src/assets/images/dashboard-mockup.png` |
-| Social profile already known | https://share.google/BgkNn87IT8ReCAgUt (Google listing, in site schema `sameAs`) |
+| Social profile already known | https://share.google/OMw78VXlwqW4GTaON (Google listing, in site schema `sameAs`) |
 
 ## Copy blocks
 
@@ -73,7 +73,7 @@ Do the free ones first. Check each site's current rules; some review/marketplace
 
 | # | Site | Why | Notes |
 |---|---|---|---|
-| 1 | Google Business Profile | Local pack + brand panel | DONE — created (https://share.google/BgkNn87IT8ReCAgUt) |
+| 1 | Google Business Profile | Local pack + brand panel | DONE — created (https://share.google/OMw78VXlwqW4GTaON) |
 | 2 | Yellow Pages Nepal | Listed competitors already rank here | Free listing; use NAP above |
 | 3 | Inquiry Nepal | Same | Free listing |
 | 4 | LinkedIn Company page (Zennly as its own page; mention "a Zunkireelabs product") | Strong brand signal; quoted by AI engines | Add website + description; link from site later |

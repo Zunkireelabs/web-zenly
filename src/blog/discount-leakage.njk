@@ -3,23 +3,24 @@ layout: base.njk
 title: The real cost of undocumented staff discounts | Zennly
 metaDescription: "Undocumented staff discounts quietly erode margins in multi-branch service businesses. Here's how discount leakage happens and how to close the gap."
 datePublished: "2026-07-17"
+dateModified: "2026-10-04"
 ogType: article
 bodyClass: page--light-nav
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: title, url: page.url }]) }}
 {% from "schema/article.njk" import articleSchema with context %}
-{{ articleSchema(title, datePublished, page.url, metaDescription) }}
+{{ articleSchema(title, datePublished, page.url, metaDescription, dateModified) }}
 
 <main>
 
   <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
   <section class="section" style="padding-bottom:0;">
     <div class="article-hero reveal">
-      <a href="/blog" class="article-back-link">&larr; Back to Blog</a>
+      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
       <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Finance</p>
       <h1 class="article-hero__h1">The real cost of undocumented staff discounts</h1>
-      <p class="article-hero__meta">4 min read</p>
+      <p class="article-hero__meta">4 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
     </div>
   </section>
 
@@ -36,10 +37,17 @@ bodyClass: page--light-nav
 
       <h2>Why the fix isn&rsquo;t &ldquo;stop discounting&rdquo;</h2>
       <p>Banning discounts outright doesn&rsquo;t work &ndash; front-line staff need the flexibility to handle real situations. The fix is separating the request from the decision. Staff can still flag a discount. It only takes effect once a manager approves it, and the approval carries the exact percentage and amount.</p>
-      <p>That single change does two things: it stops silent discounting, and it gives owners an audit trail instead of a guess. This is exactly how <a href="/features/discount-management">Zennly&rsquo;s discount management</a> works &ndash; every request is visible, every approval is logged, and nothing applies without both.</p>
+      <p>That single change does two things: it stops silent discounting, and it gives owners an audit trail instead of a guess. This is exactly how <a href="/features/discount-management/">Zennly&rsquo;s discount management</a> works &ndash; every request is visible, every approval is logged, and nothing applies without both.</p>
 
       <h2>What it looks like once it&rsquo;s fixed</h2>
       <p>Managers stop finding out about discounts after the fact. Owners can see, branch by branch, exactly how much margin is being given away and to whom. And staff still have the flexibility to take care of a client &ndash; they just do it inside a process that has a record, instead of outside one that doesn&rsquo;t.</p>
+
+      <h2>Related reading</h2>
+      <ul>
+        <li><a href="/features/discount-management/">Discount management: request, approval and audit trail</a></li>
+        <li><a href="/case-study/">Case study: how Nuad Thai Spa controls discounts across four branches</a></li>
+        <li><a href="/blog/daily-reconciliation/">What daily revenue reconciliation should take</a></li>
+      </ul>
 
     </div>
   </section>
@@ -49,7 +57,7 @@ bodyClass: page--light-nav
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Not sure how much discounting is costing you?</h2>
       <p class="bottom-cta__sub">Book a 20-minute demo and see how discount approval works in practice.</p>
-      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
     </div>
   </section>
 

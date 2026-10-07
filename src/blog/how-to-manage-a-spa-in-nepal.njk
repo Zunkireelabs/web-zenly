@@ -3,29 +3,32 @@ layout: base.njk
 title: "Spa Management in Nepal: Bookings & Therapists | Zennly"
 metaDescription: "A practical guide to managing a spa or wellness centre in Nepal: bookings, therapist and room scheduling, discount control and daily revenue close."
 datePublished: "2026-09-30"
+dateModified: "2026-10-04"
 ogType: article
 bodyClass: page--light-nav
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "How to manage a spa in Nepal: bookings, therapists and rooms", url: page.url }]) }}
 {% from "schema/article.njk" import articleSchema with context %}
-{{ articleSchema("How to manage a spa in Nepal: bookings, therapists and rooms", datePublished, page.url, metaDescription) }}
+{{ articleSchema("How to manage a spa in Nepal: bookings, therapists and rooms", datePublished, page.url, metaDescription, dateModified) }}
 
 <main>
 
   <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
   <section class="section" style="padding-bottom:0;">
     <div class="article-hero reveal">
-      <a href="/blog" class="article-back-link">&larr; Back to Blog</a>
+      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
       <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Spa &amp; Wellness</p>
       <h1 class="article-hero__h1">How to manage a spa in Nepal: bookings, therapists and rooms</h1>
-      <p class="article-hero__meta">5 min read</p>
+      <p class="article-hero__meta">5 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
     </div>
   </section>
 
   <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
   <section class="section">
     <div class="article-body reveal">
+
+      <p><strong>To manage a spa in Nepal without slips, book the therapist, the room and the time together as one booking, require manager approval for discounts, record every payment against its booking, and close the day from one report. Zennly does this across multiple spa branches.</strong></p>
 
 <p>A spa looks calm from the outside. Behind the front desk, three things have to line up for every single treatment: a free therapist, a free room, and a time the guest can actually make. When any one of them is tracked in a notebook, a WhatsApp thread or someone&rsquo;s memory, things slip.</p>
 <p>This is a practical guide to running a spa or wellness centre in Nepal without those slips &ndash; whether you have one branch in Kathmandu or several across the valley.</p>
@@ -42,6 +45,16 @@ bodyClass: page--light-nav
 <h2>What this looks like in practice</h2>
 <p>Nuad Thai Spa in Kathmandu runs four branches, 39 therapists and 12 rooms this way &ndash; read the <a href="/case-study/">case study</a>. If you want to see it for your own spa, <a href="/solutions/spa/">explore Zennly for spas and wellness centres</a>.</p>
 
+      <h2>Related reading</h2>
+      <ul>
+        <li><a href="/blog/spa-management-software/">Spa management software: features and how to choose</a></li>
+        <li><a href="/blog/manage-multiple-spa-salon-branches-nepal/">Manage multiple spa or salon branches in Nepal</a></li>
+        <li><a href="/solutions/spa/">Spa booking and management software for Nepal</a></li>
+        <li><a href="/case-study/">Case study: Nuad Thai Spa Kathmandu</a></li>
+        <li><a href="/blog/discount-leakage/">Discount leakage in multi-branch spas</a></li>
+        <li><a href="/blog/daily-reconciliation/">Daily reconciliation for spas</a></li>
+      </ul>
+
     </div>
   </section>
 
@@ -50,7 +63,7 @@ bodyClass: page--light-nav
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Running a spa or wellness centre?</h2>
       <p class="bottom-cta__sub">Book a 20-minute demo and see spa booking and management in Zennly.</p>
-      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
     </div>
   </section>
 

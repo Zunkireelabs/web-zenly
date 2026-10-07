@@ -3,29 +3,34 @@ layout: base.njk
 title: "Physiotherapy Clinic Scheduling in Nepal | Zennly"
 metaDescription: "How physiotherapy clinics in Nepal can schedule treatment courses with the same therapist, reduce missed sessions and track payments."
 datePublished: "2026-09-30"
+dateModified: "2026-10-04"
 ogType: article
 bodyClass: page--light-nav
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "How physiotherapy clinics can keep a treatment course on schedule", url: page.url }]) }}
 {% from "schema/article.njk" import articleSchema with context %}
-{{ articleSchema("How physiotherapy clinics can keep a treatment course on schedule", datePublished, page.url, metaDescription) }}
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema([{"question": "How can a physiotherapy clinic keep patients on their course of sessions?", "answer": "Book the follow-up sessions at the front desk before the patient leaves, with the same therapist at times that suit them."}, {"question": "How should a clinic record payments across several visits?", "answer": "Record each payment against the booking it belongs to, so paid and outstanding amounts are always visible."}]) }}
+{{ articleSchema("How physiotherapy clinics can keep a treatment course on schedule", datePublished, page.url, metaDescription, dateModified) }}
 
 <main>
 
   <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
   <section class="section" style="padding-bottom:0;">
     <div class="article-hero reveal">
-      <a href="/blog" class="article-back-link">&larr; Back to Blog</a>
+      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
       <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Physiotherapy</p>
       <h1 class="article-hero__h1">How physiotherapy clinics can keep a treatment course on schedule</h1>
-      <p class="article-hero__meta">4 min read</p>
+      <p class="article-hero__meta">4 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
     </div>
   </section>
 
   <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
   <section class="section">
     <div class="article-body reveal">
+
+      <p><strong>Physiotherapy clinics in Nepal can keep a treatment course on schedule by booking follow-up sessions while the patient is still at the desk, tying each patient to a therapist, and recording part-payments across visits. Zennly schedules by therapist and room and tracks payments per booking.</strong></p>
 
 <p>Physiotherapy is rarely one visit. Patients come back for a course of sessions, ideally with the same therapist, on a regular rhythm. If the schedule slips, so does recovery &ndash; and so does the clinic&rsquo;s income.</p>
 <h2>Book the course, not just the next visit</h2>
@@ -39,6 +44,21 @@ bodyClass: page--light-nav
 <h2>Give the owner visibility</h2>
 <p>If the clinic has more than one branch, or more than one therapist, reports on revenue and staff performance make planning easier. <a href="/solutions/physiotherapy/">See how Zennly works for physiotherapy clinics</a>.</p>
 
+      <h2>Physiotherapy scheduling in Nepal: practical points</h2>
+      <p>Patients in Kathmandu Valley often travel some distance, so a missed or double-booked session costs more than an hour. Confirm the next appointments before the patient leaves, keep the same therapist where you can, and record each part-payment so the clinic always knows the outstanding balance.</p>
+
+      <h2>Common questions</h2>
+      <h3>How can a physiotherapy clinic keep patients on their course of sessions?</h3>
+      <p>Book the follow-up sessions at the front desk before the patient leaves, with the same therapist at times that suit them.</p>
+      <h3>How should a clinic record payments across several visits?</h3>
+      <p>Record each payment against the booking it belongs to, so paid and outstanding amounts are always visible.</p>
+
+      <h2>Related reading</h2>
+      <ul>
+        <li><a href="/solutions/physiotherapy/">Physiotherapy clinic scheduling software for Nepal</a></li>
+        <li><a href="/blog/how-to-choose-booking-software-nepal/">How to choose booking software in Nepal</a></li>
+      </ul>
+
     </div>
   </section>
 
@@ -47,7 +67,7 @@ bodyClass: page--light-nav
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Running a physiotherapy clinic?</h2>
       <p class="bottom-cta__sub">Book a 20-minute demo and see therapist scheduling and payment tracking in Zennly.</p>
-      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
     </div>
   </section>
 

@@ -3,23 +3,24 @@ layout: base.njk
 title: What daily revenue reconciliation should actually take | Zennly
 metaDescription: "What should daily revenue reconciliation actually take for a multi-branch service business? A practical breakdown of cash, card, and discount reconciliation."
 datePublished: "2026-07-17"
+dateModified: "2026-10-04"
 ogType: article
 bodyClass: page--light-nav
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: title, url: page.url }]) }}
 {% from "schema/article.njk" import articleSchema with context %}
-{{ articleSchema(title, datePublished, page.url, metaDescription) }}
+{{ articleSchema(title, datePublished, page.url, metaDescription, dateModified) }}
 
 <main>
 
   <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
   <section class="section" style="padding-bottom:0;">
     <div class="article-hero reveal">
-      <a href="/blog" class="article-back-link">&larr; Back to Blog</a>
+      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
       <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Finance</p>
       <h1 class="article-hero__h1">What daily revenue reconciliation should actually take</h1>
-      <p class="article-hero__meta">4 min read</p>
+      <p class="article-hero__meta">4 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
     </div>
   </section>
 
@@ -34,11 +35,18 @@ bodyClass: page--light-nav
 
       <h2>The one-record principle</h2>
       <p>The fix is structural, not procedural: every payment should be recorded against the booking it belongs to, at the moment it happens &ndash; not batched at the end of the day from memory or a paper slip. When the payment and the booking are the same record, reconciliation stops being a separate task. The numbers are already correct because they were never allowed to drift apart.</p>
-      <p>This is the core idea behind <a href="/features/payment-tracking">Zennly&rsquo;s payment tracking</a> &ndash; every payment logs the total amount and settlement status at the point of service, so the daily close is a read, not a rebuild.</p>
+      <p>This is the core idea behind <a href="/features/payment-tracking/">Zennly&rsquo;s payment tracking</a> &ndash; every payment logs the total amount and settlement status at the point of service, so the daily close is a read, not a rebuild.</p>
 
       <h2>What &ldquo;fast&rdquo; actually looks like</h2>
       <p>With a single source of truth per branch, a daily close should take under a minute per branch &ndash; open the dashboard, confirm the total matches what&rsquo;s in the till, done. For a four-branch business, that&rsquo;s the difference between an hour of cross-checking every morning and a five-minute review before the day starts.</p>
       <p>If your reconciliation still takes longer than your last service of the day, the process is the bottleneck &ndash; not your team.</p>
+
+      <h2>Related reading</h2>
+      <ul>
+        <li><a href="/features/payment-tracking/">Payment tracking and daily reconciliation</a></li>
+        <li><a href="/blog/discount-leakage/">The real cost of undocumented staff discounts</a></li>
+        <li><a href="/case-study/">Case study: Nuad Thai Spa, four branches on one dashboard</a></li>
+      </ul>
 
     </div>
   </section>
@@ -48,7 +56,7 @@ bodyClass: page--light-nav
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Curious what a 30-second close actually looks like?</h2>
       <p class="bottom-cta__sub">Book a 20-minute demo and we&rsquo;ll show you the daily reconciliation flow.</p>
-      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
     </div>
   </section>
 

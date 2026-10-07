@@ -8,7 +8,7 @@
       "headline": "Scheduling software built for how spas actually run.",
       "sub": "Spas are where operational imprecision is most expensive – every mistake fills the room, blocks the revenue, and damages the experience you've spent years building.",
       "ctaText": "Book a demo",
-      "ctaHref": "/demo",
+      "ctaHref": "/demo/",
       "caption": "No setup fees",
       "image": "/assets/images/solution-hero-spa.png",
       "imageAlt": "Woman relaxing during a spa treatment"
@@ -157,7 +157,7 @@
       "author": "Owner",
       "business": "Nuad Thai Spa Kathmandu",
       "meta": "4 branches · 39 therapists · live on Zennly",
-      "href": "/case-study"
+      "href": "/case-study/"
     },
     "finalCta": {
       "heading": "Ready to see how it works for your spa?",
@@ -184,6 +184,30 @@
       {
         "question": "What software helps manage a spa or wellness centre in Nepal?",
         "answer": "Zennly is business management software for a spa or wellness centre in Nepal. It brings online booking, therapist and room scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
+      },
+      {
+        "question": "Which spa in Nepal runs on Zennly?",
+        "answer": "Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly. It is Zennly's first live client, and the full story is in the case study."
+      },
+      {
+        "question": "How does a multi-branch spa in Nepal control discounts and close the day?",
+        "answer": "On Zennly a therapist requests a discount with the exact percentage and amount, and it applies only after a manager approves it. Every payment is recorded against its booking, so the owner closes the day from one dashboard for all branches."
+      },
+      {
+        "question": "How much does spa booking software cost in Nepal?",
+        "answer": "Zennly pricing is a custom quote based on your number of branches, team size and the features you use. Book a 20-minute demo and you get a tailored quote within 24 hours."
+      },
+      {
+        "question": "Is there a spa booking app for Nepal?",
+        "answer": "Zennly is web-based spa booking and management software built for Nepal. Guests book from a link on their phone, and your team manages therapists, rooms, discounts and payments from one dashboard, with no app to install."
+      },
+      {
+        "question": "What is the best multi-branch spa booking software?",
+        "answer": "Zennly is multi-branch spa booking software. It books the therapist, room and time together, refuses clashes across branches, requires manager approval for discounts and gives the owner one daily report for every location."
+      },
+      {
+        "question": "What software helps manage a spa with several locations?",
+        "answer": "Zennly brings online booking, therapist and room scheduling, discount approval, payment tracking and daily reconciliation for every spa branch into one system."
       }
     ],
     "metaDescription": "Spa & wellness booking and management software for Nepal — multi-branch scheduling, therapist assignment, memberships, and daily reconciliation.",
@@ -198,7 +222,7 @@
       "headline": "Built around your stylists, not around a calendar.",
       "sub": "A salon doesn't just schedule services – it schedules relationships. Zennly is built around how salon bookings actually work.",
       "ctaText": "Book a demo",
-      "ctaHref": "/demo",
+      "ctaHref": "/demo/",
       "caption": "No setup fees",
       "image": "/assets/images/solution-hero-salon.png",
       "imageAlt": "Stylist curling a client's hair in a modern salon"
@@ -341,6 +365,30 @@
       {
         "question": "What software helps manage a salon or beauty parlour in Nepal?",
         "answer": "Zennly is business management software for a salon or beauty parlour in Nepal. It brings online booking, stylist scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
+      },
+      {
+        "question": "What is the best booking software for salons and beauty parlours in Nepal?",
+        "answer": "Zennly is built for multi-branch salons and beauty parlours in Nepal. It handles stylist scheduling, online booking, discount approval and daily payment reconciliation across every branch in one system."
+      },
+      {
+        "question": "How much does salon booking software cost in Nepal?",
+        "answer": "Zennly pricing is a custom quote based on your number of branches, team size and the features you use. Book a 20-minute demo and you get a tailored quote within 24 hours."
+      },
+      {
+        "question": "Is Zennly used by a real spa or salon business in Nepal?",
+        "answer": "Yes. Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly, the same system used for salon scheduling, discount control and daily reconciliation."
+      },
+      {
+        "question": "Is there a salon appointment app or management software in Kathmandu?",
+        "answer": "Zennly is web-based salon management software used in Nepal. Clients book a stylist online from their phone, and owners see bookings, staff and payments for every branch in one place."
+      },
+      {
+        "question": "What is the best salon management software for multiple branches?",
+        "answer": "Zennly is salon management software for multi-branch salons. It schedules stylists across locations, takes online bookings, records payments by method and gives owners one dashboard for every salon."
+      },
+      {
+        "question": "How can a salon prevent double bookings across branches?",
+        "answer": "Use booking software that books the stylist and time together and refuses a conflicting booking at database level. Zennly does this across every branch."
       }
     ],
     "metaDescription": "Salon & beauty parlour booking software for Nepal — schedule stylists, manage clients, and track payments across every branch with Zennly.",
@@ -355,7 +403,7 @@
       "headline": "Artist-specific booking for work that can't be rebooked casually.",
       "sub": "A tattoo appointment isn't a time slot – it's a specific artist, a consultation, and often a deposit on the line. Zennly is built around that reality, not a generic calendar.",
       "ctaText": "Book a demo",
-      "ctaHref": "/demo",
+      "ctaHref": "/demo/",
       "caption": "No setup fees",
       "image": "/assets/images/solution-hero-tattoo.png",
       "imageAlt": "Tattoo artist's hands tattooing fine-line floral linework on a client's forearm"
@@ -524,6 +572,18 @@
       {
         "question": "What software helps manage a tattoo studio in Nepal?",
         "answer": "Zennly is business management software for a tattoo studio in Nepal. It brings online booking, artist scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
+      },
+      {
+        "question": "What is the best tattoo shop booking software in Nepal?",
+        "answer": "Zennly is built for tattoo studios in Nepal. It gives each artist their own calendar, separates consultations from long sessions, records deposits and balances against each booking, and refuses double-bookings."
+      },
+      {
+        "question": "Is there a tattoo appointment app for studios in Nepal?",
+        "answer": "Zennly runs in the browser on phone and computer. Clients book an artist and a time from a link, and the studio records the deposit against the booking."
+      },
+      {
+        "question": "What is the best tattoo studio booking software?",
+        "answer": "Zennly gives each artist their own calendar, separates consultations from long sessions, records deposits and balances against each booking and refuses double-bookings."
       }
     ],
     "metaDescription": "Booking software for tattoo studios in Nepal — manage artist schedules, consultations, and deposits without double-bookings.",
@@ -538,7 +598,7 @@
       "headline": "Session scheduling that stops trainers from double-booking.",
       "sub": "Classes fill up, trainers double-book, and packages get tracked on paper – Zennly is built around how fitness bookings actually run.",
       "ctaText": "Book a demo",
-      "ctaHref": "/demo",
+      "ctaHref": "/demo/",
       "caption": "No setup fees",
       "image": "/assets/images/solution-hero-fitness.png",
       "imageAlt": "A group fitness class mid-exercise in a sunlit studio"
@@ -690,6 +750,18 @@
       {
         "question": "What software helps manage a gym or personal training business in Nepal?",
         "answer": "Zennly is business management software for a gym or personal training business in Nepal. It brings online booking, trainer scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
+      },
+      {
+        "question": "What gym management software can I use in Nepal?",
+        "answer": "Zennly suits gyms that book personal training, classes and sessions across trainers and branches. It tracks trainer availability, payments by method and revenue per branch. If you only need recurring memberships, compare dedicated gym products as well."
+      },
+      {
+        "question": "How do gyms in Nepal let members book personal trainers online?",
+        "answer": "Members choose a trainer and a time online. The booking checks the trainer's availability and refuses clashes, so sessions are never double-booked."
+      },
+      {
+        "question": "What gym management software handles personal training bookings?",
+        "answer": "Zennly books personal training and classes against trainer availability, records payments by method and shows revenue by branch. For recurring memberships alone, compare dedicated gym products as well."
       }
     ],
     "metaDescription": "Scheduling software for gyms and personal trainers in Nepal — manage classes, trainer schedules, and membership packages in one system.",
@@ -704,7 +776,7 @@
       "headline": "Treatment-plan continuity, visible from booking to discharge.",
       "sub": "A course of treatment only works if every session happens on schedule, with the right therapist – Zennly keeps that continuity visible from booking to discharge.",
       "ctaText": "Book a demo",
-      "ctaHref": "/demo",
+      "ctaHref": "/demo/",
       "caption": "No setup fees",
       "image": "https://plus.unsplash.com/premium_photo-1661913622608-946e8d907c7b?w=1000&q=80&auto=format&fit=crop",
       "imageAlt": "Physiotherapist working with a patient"
@@ -839,6 +911,18 @@
       {
         "question": "What software helps manage a physiotherapy clinic in Nepal?",
         "answer": "Zennly is business management software for a physiotherapy clinic in Nepal. It brings online booking, therapist scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
+      },
+      {
+        "question": "What physiotherapy clinic software is available in Nepal?",
+        "answer": "Zennly schedules physiotherapy appointments by therapist and room, keeps each patient with the same therapist, and records payments against each booking across visits."
+      },
+      {
+        "question": "How do I schedule a course of physiotherapy sessions with the same therapist?",
+        "answer": "Book the follow-up sessions while the patient is at the front desk, each tied to the same therapist and their real availability, so the course stays on schedule."
+      },
+      {
+        "question": "What is the best physiotherapy clinic scheduling software?",
+        "answer": "Zennly schedules physiotherapy appointments by therapist and room, keeps each patient with the same therapist across a course of sessions and records payments against each booking."
       }
     ],
     "metaDescription": "Scheduling software for physiotherapy clinics in Nepal — keep treatment courses on track with the right therapist, every session.",
@@ -853,7 +937,7 @@
       "headline": "Dispatch that always knows who's where.",
       "sub": "A cleaning business runs on staff getting to the right site, at the right time, with the job correctly billed – Zennly keeps that whole chain visible.",
       "ctaText": "Book a demo",
-      "ctaHref": "/demo",
+      "ctaHref": "/demo/",
       "caption": "No setup fees",
       "image": "https://plus.unsplash.com/premium_photo-1663011218145-c1d0c3ba3542?w=1000&q=80&auto=format&fit=crop",
       "imageAlt": "Cleaning service staff at a client site"
@@ -988,6 +1072,18 @@
       {
         "question": "What software helps manage a cleaning service in Nepal?",
         "answer": "Zennly is business management software for a cleaning service in Nepal. It brings online booking, crew scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
+      },
+      {
+        "question": "What software helps cleaning companies in Nepal schedule staff?",
+        "answer": "Zennly attaches named staff to each job with a date, time and site, refuses to book the same person twice at once, and records status and payment per job."
+      },
+      {
+        "question": "How do I dispatch cleaners to the right site on time?",
+        "answer": "Give every job a date, time, site and named crew in one schedule. The office sees each job's status through the day without calling crews for updates."
+      },
+      {
+        "question": "What software helps a cleaning company schedule staff and jobs?",
+        "answer": "Zennly gives every job a date, time, site and named staff, refuses to book the same person twice at once, and tracks status and payment per job."
       }
     ],
     "metaDescription": "Scheduling software for cleaning services in Nepal — dispatch staff to the right site, on time, with the job tracked correctly.",

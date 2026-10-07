@@ -6,14 +6,19 @@
       "@type": "Organization",
       "@id": "{{ site.url }}/#organization",
       "name": "{{ site.name }}",
+      "alternateName": {{ site.alternateName | dump | safe }},
       "url": "{{ site.url }}/",
       "description": {{ site.defaultDescription | dump | safe }},
+      "disambiguatingDescription": {{ site.disambiguatingDescription | dump | safe }},
+      "telephone": "{{ site.telephone }}",
+      "address": { "@type": "PostalAddress", "addressLocality": "{{ site.address.locality }}", "addressRegion": "{{ site.address.region }}", "postalCode": "{{ site.address.postalCode }}", "addressCountry": "{{ site.address.country }}" },
+      "parentOrganization": { "@type": "Organization", "name": "{{ site.parentOrganization.name }}", "url": "{{ site.parentOrganization.url }}" },
       "foundingDate": "{{ site.foundingDate }}",
       "slogan": {{ site.slogan | dump | safe }},
       "logo": { "@type": "ImageObject", "url": "{{ site.url }}{{ site.logo }}" },
-      "knowsAbout": ["Appointment scheduling software", "Multi-branch booking", "Spa management software", "Salon booking software", "Gym management software", "Staff scheduling", "Daily revenue reconciliation", "Discount approval workflows"],
-      "areaServed": { "@type": "Country", "name": "Nepal" },
-      "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "email": "info@zennly.io", "areaServed": "NP", "availableLanguage": "English" }{% if site.sameAs and site.sameAs.length %},
+      "knowsAbout": ["Appointment scheduling software", "Booking software Nepal", "Online booking system Nepal", "Multi-branch booking", "Multi-branch spa management", "Spa management software", "Spa booking software", "Salon booking software", "Beauty parlour software", "Tattoo studio booking software", "Gym management software", "Physiotherapy clinic scheduling software", "Cleaning service scheduling software", "Staff scheduling", "Staff transfers between branches", "Discount approval workflows", "Daily revenue reconciliation", "Payment tracking by method", "Role-based access control"],
+      "areaServed": [{ "@type": "Country", "name": "Nepal" }, { "@type": "Country", "name": "United States" }, { "@type": "Country", "name": "United Kingdom" }, { "@type": "Country", "name": "Canada" }, { "@type": "Country", "name": "Australia" }, { "@type": "Country", "name": "United Arab Emirates" }, { "@type": "Place", "name": "Worldwide" }],
+      "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "email": "info@zennly.io", "telephone": "{{ site.telephone }}", "areaServed": ["NP", "Worldwide"], "availableLanguage": "English" }{% if site.sameAs and site.sameAs.length %},
       "sameAs": {{ site.sameAs | dump | safe }}{% endif %}
     },
     {% if page.url == "/" %}{
@@ -33,8 +38,10 @@
       "operatingSystem": "Web",
       "description": {{ site.defaultDescription | dump | safe }},
       "inLanguage": "en",
+      "keywords": "booking software Nepal, booking software for spas and salons, multi-branch booking software, spa management software, salon management software, appointment scheduling software, online booking system Nepal, spa booking software, salon booking software, beauty parlour software, gym management software, physiotherapy clinic software, cleaning service scheduling, multi-branch scheduling, daily reconciliation, discount approval",
+      "featureList": ["Online booking with conflict prevention", "Staff and room scheduling", "Scheduled staff transfers between branches", "Discount approval with an audit trail", "Payment tracking by method", "Daily revenue reconciliation", "Role-based access", "Multi-branch reports"],
       "audience": { "@type": "BusinessAudience", "audienceType": "Spas, salons, tattoo studios, gyms, physiotherapy clinics and cleaning services" },
-      "areaServed": { "@type": "Country", "name": "Nepal" },
+      "areaServed": [{ "@type": "Country", "name": "Nepal" }, { "@type": "Country", "name": "United States" }, { "@type": "Country", "name": "United Kingdom" }, { "@type": "Country", "name": "Canada" }, { "@type": "Country", "name": "Australia" }, { "@type": "Country", "name": "United Arab Emirates" }, { "@type": "Place", "name": "Worldwide" }],
       "publisher": { "@id": "{{ site.url }}/#organization" }
     }
   ]
