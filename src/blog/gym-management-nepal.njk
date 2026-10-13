@@ -24,6 +24,9 @@ bodyClass: page--light-nav
       <h1 class="article-hero__h1">Gym management in Nepal: classes, trainers and memberships in one place</h1>
       <p class="article-hero__meta">4 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
     </div>
+  <figure class="article-cover reveal">
+      {% image "/assets/images/feat-visibility-real.png", "Gyms &amp; Fitness", { class: "article-cover__img", loading: "eager" } %}
+    </figure>
   </section>
 
   <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
@@ -70,6 +73,50 @@ bodyClass: page--light-nav
   </section>
 
   <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
+  <section class="section article-more">
+    <div class="article-more__inner reveal">
+      <h2 class="article-more__h2">Keep reading</h2>
+      <div class="blog-idx-rows">
+        <a href="/blog/clinic-appointment-software-nepal/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/feat-role-frontdesk.jpg", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Clinics</p>
+              <h3 class="blog-idx-row__h3">Clinic appointment software in Nepal: physiotherapy and beauty clinics</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>5 min read</span></p>
+          </div>
+        </a>
+        <a href="/blog/physiotherapy-clinic-scheduling/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/feat-role-managers.jpg", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Physiotherapy</p>
+              <h3 class="blog-idx-row__h3">How physiotherapy clinics can keep a treatment course on schedule</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>4 min read</span></p>
+          </div>
+        </a>
+        <a href="/blog/cleaning-service-scheduling/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/feat-industries.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Cleaning Services</p>
+              <h3 class="blog-idx-row__h3">How cleaning companies can schedule crews and track jobs on site</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>4 min read</span></p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="bottom-cta" id="demo">
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Running a gym or fitness studio?</h2>

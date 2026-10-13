@@ -28,6 +28,8 @@
 
   {{ content | safe }}
 
+  {% if not ownNav %}{% include "_trial-modal.njk" %}{% endif %}
+
   <script src="/assets/vendor/alpine.min.js" defer></script>
   <script src="/assets/vendor/gsap.min.js" defer></script>
   <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>

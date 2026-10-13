@@ -10,6 +10,8 @@ bodyClass: page--light-nav
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: title, url: page.url }]) }}
 {% from "schema/article.njk" import articleSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema([{"question": "What is discount leakage?", "answer": "Discount leakage is margin lost to staff discounts that nobody approved or recorded. Each is small, but together they can be a large share of revenue."}, {"question": "How do you stop staff giving unauthorised discounts?", "answer": "Route every discount through an approval step: staff request it, a manager approves it, and the record is kept. Zennly works this way."}, {"question": "Should a business stop discounting altogether?", "answer": "No. The fix is visibility and approval, not banning discounts."}]) }}
 {{ articleSchema(title, datePublished, page.url, metaDescription, dateModified) }}
 
 <main>
@@ -22,6 +24,9 @@ bodyClass: page--light-nav
       <h1 class="article-hero__h1">The real cost of undocumented staff discounts</h1>
       <p class="article-hero__meta">4 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
     </div>
+    <figure class="article-cover reveal">
+      {% image "/assets/images/feat-idx-discount.png", "Finance", { class: "article-cover__img", loading: "eager" } %}
+    </figure>
   </section>
 
   <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
@@ -42,6 +47,14 @@ bodyClass: page--light-nav
       <h2>What it looks like once it&rsquo;s fixed</h2>
       <p>Managers stop finding out about discounts after the fact. Owners can see, branch by branch, exactly how much margin is being given away and to whom. And staff still have the flexibility to take care of a client &ndash; they just do it inside a process that has a record, instead of outside one that doesn&rsquo;t.</p>
 
+      <h2>Common questions</h2>
+      <h3>What is discount leakage?</h3>
+      <p>Discount leakage is margin lost to staff discounts that nobody approved or recorded. Each is small, but together they can be a large share of revenue.</p>
+      <h3>How do you stop staff giving unauthorised discounts?</h3>
+      <p>Route every discount through an approval step: staff request it, a manager approves it, and the record is kept. Zennly works this way.</p>
+      <h3>Should a business stop discounting altogether?</h3>
+      <p>No. The fix is visibility and approval, not banning discounts.</p>
+      
       <h2>Related reading</h2>
       <ul>
         <li><a href="/features/discount-management/">Discount management: request, approval and audit trail</a></li>
@@ -54,6 +67,50 @@ bodyClass: page--light-nav
   </section>
 
   <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
+  <section class="section article-more">
+    <div class="article-more__inner reveal">
+      <h2 class="article-more__h2">Keep reading</h2>
+      <div class="blog-idx-rows">
+        <a href="/blog/daily-reconciliation/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/hiw-daily-loop.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Finance</p>
+              <h3 class="blog-idx-row__h3">What daily revenue reconciliation should actually take</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>4 min read</span></p>
+          </div>
+        </a>
+        <a href="/blog/online-booking-system-nepal/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/hero-v2-booking-confirmed.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Booking</p>
+              <h3 class="blog-idx-row__h3">Online booking system in Nepal for service businesses: a plain guide</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>5 min read</span></p>
+          </div>
+        </a>
+        <a href="/blog/multi-location-booking-software/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/feat-multibranch.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Buying guide</p>
+              <h3 class="blog-idx-row__h3">Multi-location booking software: what to look for</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>6 min read</span></p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="bottom-cta" id="demo">
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Not sure how much discounting is costing you?</h2>

@@ -48,11 +48,25 @@ module.exports = function (eleventyConfig) {
   });
 
 
+  eleventyConfig.addFilter("letterGroups", (items) => {
+    const sorted = [...items].sort((a, b) => a.term.localeCompare(b.term));
+    const groups = [];
+    for (const it of sorted) {
+      const l = it.term[0].toUpperCase();
+      let g = groups[groups.length - 1];
+      if (!g || g.letter !== l) { g = { letter: l, items: [] }; groups.push(g); }
+      g.items.push(it);
+    }
+    return groups;
+  });
+  eleventyConfig.addFilter("dateIso", (d) => new Date(d).toISOString().slice(0, 10));
+
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
 
   eleventyConfig.addPassthroughCopy("src/site.webmanifest");
+  eleventyConfig.addPassthroughCopy("src/10666449c543422a85b0f3a9700e1039.txt");
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/assets/videos");
   eleventyConfig.addPassthroughCopy("src/assets/images");
