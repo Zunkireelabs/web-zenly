@@ -249,6 +249,53 @@
 
       back.addEventListener('click', function () { show(cur - 1); });
 
+      // ── Lead capture (EdgeX form "try-for-free") ─────────────────
+      var EDGEX_KEY = {{ edgex.key | dump | safe }};
+      var EDGEX_URL = {{ (edgex.base + edgex.forms.trial) | dump | safe }};
+      var LEAD_MAP = {
+        businessType: { 'Spa & Wellness': 'spa_wellness', 'Hair & Nail Salon': 'hair_nail_salon', 'Tattoo Studio': 'tattoo_studio', 'Gym / Fitness Studio': 'gym_fitness', 'Physiotherapy Clinic': 'physiotherapy', 'Cleaning Service': 'cleaning_service', 'Other': 'other' },
+        branches: { '1': '1', '2': '2', '3': '3', '4': '4', '5+': '5_plus' },
+        team: { '1\u20135': '1_5', '6\u201315': '6_15', '16\u201340': '16_40', '40+': '40_plus' },
+        tools: { 'Paper diary': 'paper_diary', 'Spreadsheets': 'spreadsheets', 'WhatsApp / phone calls': 'whatsapp_phone', 'Another booking software': 'other_software' },
+        retail: { 'Yes': 'yes', 'No': 'no' },
+        products: { 'Booking Engine': 'booking_engine', 'Operations': 'operations', 'Finance & Reconciliation': 'finance_reconciliation', 'Live Reports': 'live_reports', 'Discount Management': 'discount_management', 'Staff Management': 'staff_management' },
+        priority: { 'Stop double bookings': 'stop_double_bookings', 'Get online bookings': 'get_online_bookings', 'Track payments & revenue': 'track_payments_revenue', 'Manage staff & branches': 'manage_staff_branches' },
+        decision: { 'Just me': 'just_me', 'Me + a partner': 'me_and_partner', 'A team decides': 'team_decides' },
+        via: { 'Email': 'email', 'WhatsApp': 'whatsapp' }
+      };
+      var lastLead = '';
+      function mapOne(group, v) { return LEAD_MAP[group][v] || v; }
+      function mapMany(group, csv) { return csv.split(', ').filter(Boolean).map(function (v) { return mapOne(group, v); }).join(', '); }
+      // Fire-and-forget: a failed lead post never blocks the verification step.
+      function postLead(f, val, list, via) {
+        if (!EDGEX_KEY) return;
+        var body = {
+          full_name: f.name.value.trim(),
+          email: f.email.value.trim(),
+          phone: f.phone.value.trim() ? f.countryCode.value + ' ' + f.phone.value.trim() : null,
+          intake_source: 'Website',
+          intake_account: window.location.pathname,
+          custom_fields: {
+            business_name: f.business.value.trim(),
+            code_via: mapOne('via', via),
+            business_type: mapOne('businessType', val('businessType')),
+            branches: mapOne('branches', val('branches')),
+            team_size: mapOne('team', val('team')),
+            current_tools: mapMany('tools', list('tools')),
+            sells_retail: mapOne('retail', val('retail')),
+            products_to_try: mapMany('products', list('products')),
+            top_priority: mapOne('priority', val('priority')),
+            decision_makers: mapOne('decision', val('decision')),
+            trial_success: f.notes.value.trim() || null
+          }
+        };
+        var sig = JSON.stringify(body);
+        if (sig === lastLead) return;
+        lastLead = sig;
+        fetch(EDGEX_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + EDGEX_KEY }, body: sig, keepalive: true })
+          .catch(function () { lastLead = ''; });
+      }
+
       // ── Verification ─────────────────────────────────────────────
       // TODO(trial-credentials): wire these to the real backend.
       //   window.zennlySendCode({ via, dest, answers })  -> Promise (sends the code)
@@ -361,6 +408,7 @@
           'Trial success: ' + (f.notes.value || '—')
         ].join('\n');
         ctx = { via: via, dest: dest, email: f.email.value, business: f.business.value, answers: answers };
+        postLead(f, val, list, via);
         sendCode().then(function () {
           var vc = document.getElementById('tf-verify-copy'); vc.textContent = 'We sent a 6-digit code by ' + via + ' to '; var vs = document.createElement('strong'); vs.textContent = dest; vc.appendChild(vs); vc.appendChild(document.createTextNode('.'));
           document.getElementById('tf-verify-dev').hidden = !(isLocal && !window.zennlyVerifyCode);

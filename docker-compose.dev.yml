@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
       args:
         ELEVENTY_ENV: development
+        EDGEX_API_KEY: ${EDGEX_API_KEY:-}
     networks:
       - hosting
     restart: unless-stopped

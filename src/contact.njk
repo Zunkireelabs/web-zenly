@@ -24,7 +24,7 @@ bodyClass: page--light-nav
             <div class="demo-form__row">
               <div class="demo-form__field">
                 <label for="contact-name">Full name</label>
-                <input type="text" id="contact-name" name="name" autocomplete="name" required>
+                <input type="text" id="contact-name" name="full_name" autocomplete="name" required>
               </div>
               <div class="demo-form__field">
                 <label for="contact-email">Email address</label>
@@ -40,12 +40,12 @@ bodyClass: page--light-nav
             <div class="demo-form__field">
               <p class="tf-label">What is this about?</p>
               <div class="tf-chips tf-chips--grid" role="radiogroup" aria-label="What is this about?">
-                  <label class="tf-chip"><input type="radio" name="topic" value="General question"><span>General question</span></label>
-                  <label class="tf-chip"><input type="radio" name="topic" value="Pricing"><span>Pricing</span></label>
-                  <label class="tf-chip"><input type="radio" name="topic" value="Support"><span>Support</span></label>
-                  <label class="tf-chip"><input type="radio" name="topic" value="Partnership"><span>Partnership</span></label>
-                  <label class="tf-chip"><input type="radio" name="topic" value="Press"><span>Press</span></label>
-                  <label class="tf-chip"><input type="radio" name="topic" value="Other"><span>Other</span></label>
+                  <label class="tf-chip"><input type="radio" name="topic" value="general_question"><span>General question</span></label>
+                  <label class="tf-chip"><input type="radio" name="topic" value="pricing"><span>Pricing</span></label>
+                  <label class="tf-chip"><input type="radio" name="topic" value="support"><span>Support</span></label>
+                  <label class="tf-chip"><input type="radio" name="topic" value="partnership"><span>Partnership</span></label>
+                  <label class="tf-chip"><input type="radio" name="topic" value="press"><span>Press</span></label>
+                  <label class="tf-chip"><input type="radio" name="topic" value="other"><span>Other</span></label>
               </div>
             </div>
 
@@ -92,30 +92,52 @@ bodyClass: page--light-nav
   <!-- ── FOOTER ─────────────────────────────────────────────────────── -->
   {% include "_footer-v2.njk" %}
 
+  {% include "_edgex-lead.njk" %}
+
   <script>
     (function () {
       var form = document.getElementById('contact-form');
       if (!form) return;
-
       var err = document.getElementById('contact-error');
       var chips = form.querySelectorAll('input[name="topic"]');
+      var btn = form.querySelector('.demo-form__submit');
+      var btnText = btn.innerHTML;
+      var LABELS = { general_question: 'General question', pricing: 'Pricing', support: 'Support', partnership: 'Partnership', press: 'Press', other: 'Other' };
 
       // Preselect topic from ?topic=pricing etc.
-      var want = (new URLSearchParams(window.location.search).get('topic') || '').toLowerCase();
-      chips.forEach(function (c) { if (c.value.toLowerCase() === want) c.checked = true; });
+      var want = (new URLSearchParams(window.location.search).get('topic') || '').toLowerCase().replace(/[\s-]+/g, '_');
+      chips.forEach(function (c) { if (c.value === want) c.checked = true; });
       chips.forEach(function (c) { c.addEventListener('change', function () { err.hidden = true; }); });
 
-      // TODO(supabase): replace this mailto fallback with a POST to the leads endpoint once Supabase is connected.
+      function mailFallback(f, topic) {
+        var body = 'Name: ' + f.full_name.value + '\nEmail: ' + f.email.value + '\nPhone: ' + (f.phone.value || '—') + '\nTopic: ' + LABELS[topic] + '\n\n' + f.message.value;
+        window.location.href = 'mailto:info@zennly.io'
+          + '?subject=' + encodeURIComponent('Contact — ' + LABELS[topic])
+          + '&body=' + encodeURIComponent(body);
+      }
+
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var f = form.elements;
-        var topic = form.querySelector('input[name="topic"]:checked');
-        if (!topic) { err.textContent = 'Pick what this is about so we can route it to the right person.'; err.hidden = false; return; }
+        var picked = form.querySelector('input[name="topic"]:checked');
+        if (!picked) { err.textContent = 'Pick what this is about so we can route it to the right person.'; err.hidden = false; return; }
+        var topic = picked.value;
         err.hidden = true;
-        var body = 'Name: ' + f.name.value + '\nEmail: ' + f.email.value + '\nPhone: ' + (f.phone.value || '—') + '\nTopic: ' + topic.value + '\n\n' + f.message.value;
-        window.location.href = 'mailto:info@zennly.io'
-          + '?subject=' + encodeURIComponent('Contact — ' + topic.value)
-          + '&body=' + encodeURIComponent(body);
+        btn.disabled = true; btn.textContent = 'Sending\u2026';
+        window.zennlyPostLead('contact-us', {
+          full_name: f.full_name.value.trim(),
+          email: f.email.value.trim(),
+          phone: f.phone.value.trim() || null,
+          intake_source: 'Website',
+          intake_account: window.location.pathname,
+          custom_fields: { topic: topic, message: f.message.value.trim() }
+        }).then(function () {
+          var card = form.closest('.demo-card');
+          card.innerHTML = '<div class="tf-done"><div class="tf-done__tick" aria-hidden="true">&#10003;</div><h2 class="demo-card__headline">Message sent.</h2><p class="demo-form__hint">Thanks. We reply within one working day.</p></div>';
+        }).catch(function () {
+          btn.disabled = false; btn.innerHTML = btnText;
+          mailFallback(f, topic);
+        });
       });
     })();
   </script>

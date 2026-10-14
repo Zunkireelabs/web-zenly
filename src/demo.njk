@@ -24,11 +24,11 @@ bodyClass: page--light-nav
             <div class="demo-form__row">
               <div class="demo-form__field">
                 <label for="demo-name">Full name</label>
-                <input type="text" id="demo-name" name="name" required>
+                <input type="text" id="demo-name" name="full_name" required>
               </div>
               <div class="demo-form__field">
                 <label for="demo-business">Business name</label>
-                <input type="text" id="demo-business" name="business" required>
+                <input type="text" id="demo-business" name="business_name" required>
               </div>
             </div>
 
@@ -46,25 +46,25 @@ bodyClass: page--light-nav
             <div class="demo-form__row">
               <div class="demo-form__field">
                 <label for="demo-branches">Number of branches</label>
-                <select id="demo-branches" name="branches" required>
+                <select id="demo-branches" name="number_of_branches" required>
                   <option value="" disabled selected>Select&hellip;</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
-                  <option value="5+">5+</option>
+                  <option value="5_plus">5+</option>
                 </select>
               </div>
               <div class="demo-form__field">
                 <label for="demo-business-type">Business type</label>
-                <select id="demo-business-type" name="businessType" required>
+                <select id="demo-business-type" name="business_type" required>
                   <option value="" disabled selected>Select&hellip;</option>
-                  <option value="spa">Spa &amp; Wellness</option>
-                  <option value="salon">Hair &amp; Nail Salon</option>
-                  <option value="tattoo">Tattoo Studio</option>
-                  <option value="fitness">Gym / Fitness Studio</option>
+                  <option value="spa_wellness">Spa &amp; Wellness</option>
+                  <option value="hair_nail_salon">Hair &amp; Nail Salon</option>
+                  <option value="tattoo_studio">Tattoo Studio</option>
+                  <option value="gym_fitness">Gym / Fitness Studio</option>
                   <option value="physiotherapy">Physiotherapy Clinic</option>
-                  <option value="cleaning">Cleaning Service</option>
+                  <option value="cleaning_service">Cleaning Service</option>
                   <option value="other">Other</option>
                 </select>
               </div>
@@ -77,12 +77,12 @@ bodyClass: page--light-nav
               </div>
               <div class="demo-form__field">
                 <label for="demo-referral">How did you hear about us? <span class="demo-form__optional">(optional)</span></label>
-                <select id="demo-referral" name="referralSource">
+                <select id="demo-referral" name="referral_source">
                   <option value="" disabled selected>Select&hellip;</option>
-                  <option value="google">Google Search</option>
+                  <option value="google_search">Google Search</option>
                   <option value="referral">Referral from someone</option>
-                  <option value="social">Social Media</option>
-                  <option value="directory">Business Directory</option>
+                  <option value="social_media">Social Media</option>
+                  <option value="business_directory">Business Directory</option>
                   <option value="other">Other</option>
                 </select>
               </div>
@@ -180,34 +180,61 @@ bodyClass: page--light-nav
     })();
   </script>
 
+  {% include "_edgex-lead.njk" %}
+
   <script>
     (function () {
       var form = document.getElementById('demo-form');
       if (!form) return;
+      var btn = form.querySelector('.demo-form__submit');
+      var btnText = btn.innerHTML;
 
       var prefillEmail = new URLSearchParams(window.location.search).get('email');
       if (prefillEmail) {
-        form.email.value = prefillEmail;
-        form.name.focus();
+        form.elements.email.value = prefillEmail;
+        form.elements.full_name.focus();
+      }
+
+      function mailFallback(f) {
+        var body = [
+          'Business name: ' + f.business_name.value,
+          'Business type: ' + f.business_type.value,
+          'Number of branches: ' + f.number_of_branches.value,
+          'Country: ' + (f.country.value || '—'),
+          'How did you hear about us: ' + (f.referral_source.value || '—'),
+          'Phone: ' + (f.phone.value || '—'),
+          'Biggest operational challenge: ' + f.challenge.value
+        ].join('\n');
+        window.location.href = 'mailto:info@zennly.io'
+          + '?subject=' + encodeURIComponent('Book a Demo — ' + f.business_name.value)
+          + '&body=' + encodeURIComponent('Name: ' + f.full_name.value + '\nEmail: ' + f.email.value + '\n\n' + body);
       }
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var f = form.elements;
-        var body = [
-          'Business name: ' + f.business.value,
-          'Business type: ' + f.businessType.value,
-          'Number of branches: ' + f.branches.value,
-          'Country: ' + (f.country.value || '—'),
-          'How did you hear about us: ' + (f.referralSource.value || '—'),
-          'Phone: ' + (f.phone.value || '—'),
-          'Biggest operational challenge: ' + f.challenge.value
-        ].join('\n');
-        var subject = 'Book a Demo — ' + f.business.value;
-        var mailto = 'mailto:info@zennly.io'
-          + '?subject=' + encodeURIComponent(subject)
-          + '&body=' + encodeURIComponent('Name: ' + f.name.value + '\nEmail: ' + f.email.value + '\n\n' + body);
-        window.location.href = mailto;
+        btn.disabled = true; btn.textContent = 'Sending\u2026';
+        window.zennlyPostLead('book-a-call', {
+          full_name: f.full_name.value.trim(),
+          email: f.email.value.trim(),
+          phone: f.phone.value.trim() || null,
+          intake_source: 'Website',
+          intake_account: window.location.pathname,
+          custom_fields: {
+            business_name: f.business_name.value.trim(),
+            number_of_branches: f.number_of_branches.value,
+            business_type: f.business_type.value,
+            country: f.country.value.trim() || null,
+            referral_source: f.referral_source.value || null,
+            challenge: f.challenge.value.trim()
+          }
+        }).then(function () {
+          var card = form.closest('.demo-card');
+          card.innerHTML = '<div class="tf-done"><div class="tf-done__tick" aria-hidden="true">&#10003;</div><h2 class="demo-card__headline">Your request is in.</h2><p class="demo-form__hint">Thanks. We&rsquo;ll reach out shortly to confirm a time for your demo.</p></div>';
+        }).catch(function () {
+          btn.disabled = false; btn.innerHTML = btnText;
+          mailFallback(f);
+        });
       });
     })();
   </script>
