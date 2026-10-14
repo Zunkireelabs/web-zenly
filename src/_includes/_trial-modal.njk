@@ -1,7 +1,7 @@
 <!-- "Try for free" popup — opened by any [data-trial-open] link (nav buttons). -->
 <div class="tf-modal" id="tf-modal" aria-hidden="true">
   <div class="tf-modal__backdrop" data-trial-close></div>
-  <div class="demo-card tf-card" role="dialog" aria-modal="true" aria-labelledby="tf-title">
+  <div class="demo-card tf-card" role="dialog" aria-modal="true" aria-labelledby="tf-title" data-lenis-prevent>
           <button type="button" class="tf-close" aria-label="Close" data-trial-close>&times;</button>
           <div class="tf-progress" aria-hidden="true"><span class="tf-progress__bar" id="tf-bar"></span></div>
           <div class="demo-card__eyebrow" id="tf-eyebrow">Try for free · Step 1 of 5</div>
@@ -35,9 +35,9 @@
                 <p class="tf-label">Send my access code via</p>
                 <div class="tf-chips tf-chips--fill" role="radiogroup" aria-label="Send my access code via">
                   <label class="tf-chip"><input type="radio" name="codeVia" value="Email" checked><span>Email</span></label>
-                  <label class="tf-chip"><input type="radio" name="codeVia" value="WhatsApp"><span>WhatsApp</span></label>
-                  {# SMS chip hidden until an SMS provider is set up. Restore:
-                  <label class="tf-chip"><input type="radio" name="codeVia" value="SMS"><span>SMS</span></label> #}
+                  <label class="tf-chip"><input type="radio" name="codeVia" value="SMS"><span>SMS</span></label>
+                  {# WhatsApp chip hidden until the WhatsApp Business API is set up. Restore:
+                  <label class="tf-chip"><input type="radio" name="codeVia" value="WhatsApp"><span>WhatsApp</span></label> #}
                 </div>
                 <p class="demo-form__hint" id="tf-via-hint">We&rsquo;ll send your trial login code to your email.</p>
               </div>
@@ -185,11 +185,13 @@
         lastFocus = document.activeElement;
         modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false');
         document.documentElement.classList.add('tf-lock');
+        if (window.__zennlyLenis) window.__zennlyLenis.stop();
         setTimeout(function () { (form.querySelector('input') || modal).focus(); }, 50);
       }
       function close() {
         modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true');
         document.documentElement.classList.remove('tf-lock');
+        if (window.__zennlyLenis) window.__zennlyLenis.start();
         if (lastFocus && lastFocus.focus) lastFocus.focus();
       }
       document.querySelectorAll('[data-trial-open]').forEach(function (a) {
@@ -261,7 +263,7 @@
         products: { 'Booking Engine': 'booking_engine', 'Operations': 'operations', 'Finance & Reconciliation': 'finance_reconciliation', 'Live Reports': 'live_reports', 'Discount Management': 'discount_management', 'Staff Management': 'staff_management' },
         priority: { 'Stop double bookings': 'stop_double_bookings', 'Get online bookings': 'get_online_bookings', 'Track payments & revenue': 'track_payments_revenue', 'Manage staff & branches': 'manage_staff_branches' },
         decision: { 'Just me': 'just_me', 'Me + a partner': 'me_and_partner', 'A team decides': 'team_decides' },
-        via: { 'Email': 'email', 'WhatsApp': 'whatsapp' }
+        via: { 'Email': 'email', 'SMS': 'sms' }
       };
       var lastLead = '';
       function mapOne(group, v) { return LEAD_MAP[group][v] || v; }
