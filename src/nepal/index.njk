@@ -1,0 +1,33 @@
+---
+layout: base.njk
+title: "Booking Software in Nepal by City | Zennly"
+metaDescription: "Zennly booking and scheduling software for spas, salons, gyms and clinics across Nepal: Kathmandu, Lalitpur, Bhaktapur, Pokhara, Biratnagar and Chitwan."
+dateModified: "2026-10-07"
+bodyClass: page--light-nav
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Nepal", url: "/nepal/" }]) }}
+<main>
+<section class="v2-section faq-page" id="v2-nepal">
+  <div class="v2-wrap">
+    <div class="v2-section-head">
+      <h1>Booking software across <em>Nepal.</em></h1>
+      <p>Zennly is built in Nepal for spas, salons, gyms and clinics, from one branch to many.</p>
+    </div>
+    <div class="v2-answers">
+      {% for c in cities %}
+      <article class="v2-answer">
+        <div class="v2-answer__top"><span class="v2-answer__num">0{{ loop.index }}</span><span class="v2-answer__tag">{{ c.region }}</span></div>
+        <h3><a href="/nepal/{{ c.slug }}/">{{ c.name }}</a></h3>
+        <p>{{ c.intro }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="v2-answers-cta">
+      <a href="/demo/" class="v2-btn">Book a demo &rarr;</a>
+      <a href="/solutions/" class="v2-answers-link">Explore industries &rarr;</a>
+    </div>
+  </div>
+</section>
+{% include "_footer-v2.njk" %}
+</main>

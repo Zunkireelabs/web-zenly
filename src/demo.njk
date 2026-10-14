@@ -1,4 +1,5 @@
 ---
+dateModified: "2026-10-04"
 layout: base.njk
 title: "Book a Demo — Multi-Branch Booking Software | Zennly"
 metaDescription: "Book a 20-minute Zennly demo and see how multi-branch spas, salons and service businesses run booking, staff scheduling, payments and reconciliation."
@@ -203,7 +204,7 @@ bodyClass: page--light-nav
           'Biggest operational challenge: ' + f.challenge.value
         ].join('\n');
         var subject = 'Book a Demo — ' + f.business.value;
-        var mailto = 'mailto:info.zunkireelabs@gmail.com'
+        var mailto = 'mailto:info@zennly.io'
           + '?subject=' + encodeURIComponent(subject)
           + '&body=' + encodeURIComponent('Name: ' + f.name.value + '\nEmail: ' + f.email.value + '\n\n' + body);
         window.location.href = mailto;

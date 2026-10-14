@@ -74,6 +74,38 @@ Confirmed with the team (2026-09-28) this is currently in development. **No page
 - Candidate keywords once live: "AI receptionist for bookings Nepal," "AI phone booking assistant," "automated appointment calls software," "AI chatbot for salon bookings," "24/7 booking assistant Nepal." Likely a strong Gap cluster — none of the Nepal competitors found in the live search check (M AND R Solution, Delta Tech Nepal, FitFlow, MeroGym, etc.) mention AI call/chat handling at all.
 - When it ships: add a `/features/ai-assistant/` (or similar) entry to `features.json` following the existing schema (hero, metaDescription, objections.items for FAQ), and it will automatically pick up JSON-LD FAQ/breadcrumb schema via the existing shared template — no new plumbing needed, just content.
 
+## Added 2026-10-07 (FAQ, compare, city layer, new industries, new features)
+
+| Route | Primary keyword | Secondary keywords | AEO question form |
+|---|---|---|---|
+| `/faq/` | booking software Nepal FAQ | what is Zennly, multi-branch booking software, scheduling app Nepal, online booking system Nepal | "What booking software can I use for my business in Nepal?" |
+| `/compare/` | booking software vs spreadsheets | WhatsApp vs booking software, spreadsheet scheduling problems, paper register vs software | "Is booking software better than a spreadsheet for a spa or salon in Nepal?" |
+| `/nepal/` and `/nepal/{city}/` | booking software {city} Nepal | spa booking software {city}, salon software {city}, online booking {city} | "What booking software can I use for my business in {city}?" |
+| `/solutions/barbershop/` | barbershop booking software Nepal | barber shop appointment app, barber scheduling software, walk-in and appointment barbershop software | "What booking software works for a barbershop in Nepal?" |
+| `/solutions/beauty-clinic/` | beauty clinic booking software Nepal | aesthetic clinic scheduling software, skin clinic appointment software, practitioner and room booking | "What software helps manage a beauty clinic in Nepal?" |
+| `/solutions/bridal-makeup/` | bridal makeup studio booking software Nepal | makeup artist booking app, bridal booking software, makeup studio scheduling | "What booking software suits a bridal makeup studio in Nepal?" |
+| `/features/memberships/` | membership management software Nepal | prepaid membership software, spa membership software, wallet balance membership | "How do I run prepaid memberships for a spa or gym?" |
+| `/features/packages/` | spa package management software Nepal | session package software, treatment package tracking, package redemption software | "How do I track session packages and redemptions?" |
+| `/features/vouchers/` | gift voucher software Nepal | spa gift voucher system, prepaid voucher tracking, voucher balance software | "How do I manage gift vouchers for a spa or salon?" |
+| `/features/campaigns/` | spa and salon promotions software Nepal | discount campaign scheduling, promotion banner online booking, seasonal offer software | "How do I run a promotion that shows in online booking?" |
+| `/features/outreach/` | customer outreach software Nepal | win-back email for salons, review request automation, lapsed customer emails | "How do I win back customers who stopped visiting?" |
+| `/features/payroll/` | spa and salon payroll software Nepal | therapist commission calculation, attendance deduction payroll, branch payroll software | "How do I calculate therapist commission and payroll per branch?" |
+
+Brand rule still applies: no Nuad Thai brand keywords; Nuad Thai is named only as proof.
+
+## Built but not yet on stage/main — do NOT publish until live (noted 2026-10-07)
+
+Confirmed by the team: these are part of the product plan but are not on the stage/main branch yet. Pages must not claim them until they ship, same rule as AI call/chat handling above.
+
+| Feature | Page to update when live | What to add |
+|---|---|---|
+| Outreach via SMS and WhatsApp (email only today) | `/features/outreach/` (`features.json`, slug `outreach`) | Replace the "Email is live today. SMS and WhatsApp are not available yet." FAQ answer; add channels to the hero/primary features |
+| Birthday, renewal-reminder and rebooking messages | `/features/outreach/` | Add as primary features and in the how-it-works steps |
+| Membership tier discount rules applied automatically | `/features/memberships/` | Add a primary feature and an FAQ; today staff enter discounts per booking |
+| Payroll Excel export | `/features/payroll/` | Add a primary feature once the export is confirmed live |
+
+When any of these ships: edit the entry in `src/_data/features.json`, add the new keywords here, bump `dateModified`, and update `llms.txt`/`llms-full.txt` if the one-line description changes.
+
 ## Blog (existing pain-point content — keywords already implicit, now formalized)
 
 | Route | Primary keyword | AEO question form |

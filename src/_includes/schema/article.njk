@@ -1,4 +1,4 @@
-{% macro articleSchema(headline, datePublished, url, description) %}
+{% macro articleSchema(headline, datePublished, url, description, dateModified) %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -6,11 +6,12 @@
   "headline": {{ headline | dump | safe }},
   "description": {{ description | dump | safe }},
   "datePublished": "{{ datePublished }}",
-  "dateModified": "{{ datePublished }}",
+  "dateModified": "{{ dateModified or datePublished }}",
   "image": "{{ site.url }}{{ site.defaultOgImage }}",
   "inLanguage": "en",
-  "author": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}/" },
-  "publisher": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}/" },
+  "author": { "@type": "Organization", "@id": "{{ site.url }}/#organization", "name": "{{ site.name }}", "url": "{{ site.url }}/about/" },
+  "publisher": { "@type": "Organization", "@id": "{{ site.url }}/#organization", "name": "{{ site.name }}", "url": "{{ site.url }}/", "logo": { "@type": "ImageObject", "url": "{{ site.url }}{{ site.logo }}" } },
+  "about": { "@id": "{{ site.url }}/#software" },
   "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ site.url }}{{ url }}" }
 }
 </script>

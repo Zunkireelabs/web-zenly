@@ -42,11 +42,17 @@ async function imageShortcode(src, alt, attrs = {}) {
 }
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addFilter("readableDate", (iso) => {
+    const d = new Date(iso + "T00:00:00Z");
+    return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+  });
+
 
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
 
+  eleventyConfig.addPassthroughCopy("src/site.webmanifest");
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/assets/videos");
   eleventyConfig.addPassthroughCopy("src/assets/images");

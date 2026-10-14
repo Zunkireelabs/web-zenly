@@ -368,6 +368,7 @@ layout: base.njk
   </section>
 
 
+  {% if solution.testimonial %}
   <!-- ── SOCIAL PROOF ─────────────────────────────────────────────────── -->
   <section class="soln-proof">
     <div class="soln-proof__inner reveal">
@@ -384,6 +385,7 @@ layout: base.njk
       </{% if solution.testimonial.href %}a{% else %}div{% endif %}>
     </div>
   </section>
+  {% endif %}
 
 
   <!-- ── FAQ ──────────────────────────────────────────────────────────── -->
@@ -413,7 +415,7 @@ layout: base.njk
     <div class="soln-cta__inner reveal">
       <h2 class="soln-cta__h2">{{ solution.finalCta.heading }}</h2>
       <p class="soln-cta__sub">{{ solution.finalCta.sub }}</p>
-      <a href="/demo" class="soln-cta__btn">{{ solution.finalCta.ctaText }} &rarr;</a>
+      <a href="/demo/" class="soln-cta__btn">{{ solution.finalCta.ctaText }} &rarr;</a>
     </div>
   </section>
 

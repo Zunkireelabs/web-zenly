@@ -2,6 +2,7 @@
 layout: base.njk
 title: "Zennly Case Study: Nuad Thai Spa's 4-Branch Booking"
 metaDescription: "See how a four-branch spa in Kathmandu runs 39 therapists, 12 rooms and 194 services on Zennly — a case study in multi-branch spa booking software in Nepal."
+dateModified: "2026-10-04"
 bodyClass: page--light-nav page--case-study
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
@@ -13,9 +14,24 @@ bodyClass: page--light-nav page--case-study
   "@id": "{{ site.url }}/case-study/#webpage",
   "url": "{{ site.url }}/case-study/",
   "name": "Zennly case study: multi-branch spa booking in Nepal",
+  "dateModified": "{{ dateModified }}",
+  "inLanguage": "en",
+  "publisher": { "@id": "{{ site.url }}/#organization" },
   "isPartOf": { "@id": "{{ site.url }}/#website" },
   "about": { "@id": "{{ site.url }}/#software" },
   "mentions": { "@type": "Organization", "name": {{ nuadThai.name | dump | safe }}, "url": {{ nuadThai.url | dump | safe }} }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Which spa booking software runs a multi-branch spa in Nepal?", "acceptedAnswer": { "@type": "Answer", "text": "Nuad Thai Spa Kathmandu runs its four branches, 39 therapists, 12 rooms and 194 services on Zennly, a multi-branch booking and operations platform built in Nepal." } },
+    { "@type": "Question", "name": "How does a multi-branch spa control discounts?", "acceptedAnswer": { "@type": "Answer", "text": "On Zennly a therapist submits a discount as a request with the exact percentage and amount. It applies only after a manager approves it, and every request keeps an audit trail." } },
+    { "@type": "Question", "name": "How does Nuad Thai Spa reconcile payments across branches?", "acceptedAnswer": { "@type": "Answer", "text": "Every payment is recorded at the point of service against its booking, so the owner sees one dashboard for all four branches instead of calling each manager." } },
+    { "@type": "Question", "name": "How are staff transfers between spa branches handled?", "acceptedAnswer": { "@type": "Answer", "text": "A transfer is a scheduled event with an effective date, visible to managers at both branches before it happens." } }
+  ]
 }
 </script>
 
@@ -24,10 +40,10 @@ bodyClass: page--light-nav page--case-study
   <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
   <section class="section" style="padding-bottom:0; padding-top:calc(var(--v2-nav-h) + var(--v2-nav-inset) + var(--space-sm));">
     <div class="article-hero__img-wrap article-hero__img-wrap--top reveal">
-      <a href="/blog" class="article-back-link">&larr; Back to Blog</a>
+      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
     </div>
     <div class="article-hero__img-wrap reveal">
-      {% image "/assets/images/solution-hero-spa.png", "", { class: "article-hero__img", loading: "eager" } %}
+      {% image "/assets/images/solution-hero-spa.png", "Zennly booking calendar for a multi-branch spa in Nepal, as used at Nuad Thai Spa Kathmandu", { class: "article-hero__img", loading: "eager" } %}
     </div>
   </section>
 
@@ -48,6 +64,8 @@ bodyClass: page--light-nav page--case-study
         </div>
 
         <hr style="border:none; border-top:1px solid var(--color-border); margin:0 0 var(--space-lg);" />
+
+        <p><strong>Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly, a multi-branch booking and operations platform built in Nepal.</strong> Bookings, staff transfers, discount approvals and daily payment reconciliation now sit in one system instead of four separate branches held together by phone calls. Nuad Thai is Zennly&rsquo;s first live client.</p>
 
         <div class="cs-stats reveal" style="justify-content:flex-start; flex-wrap:nowrap; gap:0; margin-top:0; margin-bottom:var(--space-lg);">
           <div class="cs-stat">
@@ -88,13 +106,33 @@ bodyClass: page--light-nav page--case-study
         {%- if nuadThai.bookingUrl %} &middot; <a href="{{ nuadThai.bookingUrl }}" target="_blank" rel="noopener">Book at Nuad Thai</a>{% endif %}
       </p>
 
+      <h2>Key facts</h2>
+      <ul>
+        <li><strong>Client:</strong> {{ nuadThai.name }}, Kathmandu, Nepal</li>
+        <li><strong>Industry:</strong> Spa &amp; wellness (<a href="/solutions/spa/">spa booking software</a>)</li>
+        <li><strong>Scale:</strong> 4 branches, 39 therapists, 12 treatment rooms, 194 services</li>
+        <li><strong>Volume:</strong> roughly 350 bookings and 170 recorded payments a week (single-week snapshot)</li>
+        <li><strong>What it replaced:</strong> phone confirmations, branch-by-branch tracking and end-of-day till checks</li>
+        <li><strong>Features used:</strong> <a href="/features/booking/">multi-branch booking</a>, <a href="/features/discount-management/">discount approval</a>, <a href="/features/staff-management/">staff transfers</a>, <a href="/features/payment-tracking/">payment tracking and daily reconciliation</a></li>
+      </ul>
+
       <h2>The result</h2>
       <p>Across the four branches, Nuad Thai Spa now runs roughly 350 bookings and 170 recorded payments a week through Zennly, with every discount request and staff transfer carrying its own audit trail. Nothing about the business got simpler &ndash; four branches, 39 therapists, and 194 services is still a lot to run. What changed is that the owner sees it as one operation instead of four separate ones held together by phone calls.</p>
+
+      <h2>Questions about this case study</h2>
+      <h3>Which spa booking software runs a multi-branch spa in Nepal?</h3>
+      <p>Nuad Thai Spa Kathmandu runs its four branches, 39 therapists, 12 rooms and 194 services on Zennly, a multi-branch booking and operations platform built in Nepal.</p>
+      <h3>How does a multi-branch spa control discounts?</h3>
+      <p>A therapist submits a discount as a request with the exact percentage and amount. It applies only after a manager approves it, and every request keeps an audit trail. See <a href="/features/discount-management/">discount management</a> and the guide on <a href="/blog/discount-leakage/">discount leakage</a>.</p>
+      <h3>How does Nuad Thai Spa reconcile payments across branches?</h3>
+      <p>Every payment is recorded at the point of service against its booking, so the owner sees one dashboard for all four branches. Read <a href="/blog/daily-reconciliation/">what daily reconciliation should take</a>.</p>
+      <h3>How are staff transfers between spa branches handled?</h3>
+      <p>A transfer is a scheduled event with an effective date, visible to managers at both branches before it happens. Read <a href="/blog/how-to-manage-a-spa-in-nepal/">spa management in Nepal</a>.</p>
 
       </div>
 
       <aside class="article-sidebar reveal">
-        <a href="/demo" class="article-sidebar-cta">
+        <a href="/demo/" class="article-sidebar-cta">
           <h3 class="article-sidebar-cta__h3">Want this on your branches?</h3>
           <p class="article-sidebar-cta__body">See the same platform, configured around your business.</p>
           <span class="bottom-cta__banner-btn">Book a demo &rarr;</span>
@@ -120,7 +158,7 @@ bodyClass: page--light-nav page--case-study
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Want to see this running on your own branches?</h2>
       <p class="bottom-cta__sub">Book a 20-minute demo. We&rsquo;ll show you the same platform, configured around your business.</p>
-      <a href="/demo" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
     </div>
   </section>
 

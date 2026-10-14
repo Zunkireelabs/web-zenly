@@ -1,0 +1,71 @@
+---
+dateModified: "2026-10-07"
+pagination:
+  data: cities
+  size: 1
+  alias: city
+  addAllPagesToCollections: true
+permalink: "/nepal/{{ city.slug }}/"
+layout: base.njk
+bodyClass: page--light-nav
+eleventyComputed:
+  title: "Booking Software in {{ city.name }}, Nepal | Zennly"
+  metaDescription: "Booking and scheduling software for spas, salons, gyms and clinics in {{ city.name }}, Nepal. Online booking, staff scheduling, discount approval and daily reconciliation."
+---
+{% set cityFaq = [
+  { question: "What booking software can I use for my business in " + city.name + "?", answer: "Zennly is web-based booking and operations software for " + city.focus + " in " + city.name + ", " + city.region + ". It covers online booking, staff and room scheduling, discount approval with an audit trail, payment tracking and daily reconciliation." },
+  { question: "Is there an online booking system for spas and salons in " + city.name + "?", answer: "Yes. Customers book online from their phone, and your team manages bookings, staff, rooms and payments from one dashboard." },
+  { question: "How much does booking software cost in " + city.name + "?", answer: "Zennly is quoted per business, based on the number of branches, team size and features you use. Book a 20-minute demo and you receive a tailored quote within 24 hours." },
+  { question: "Can I run more than one branch from one account?", answer: "Yes. Zennly runs one branch or many from a single account, with one daily report across all of them." }
+] %}
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Nepal", url: "/nepal/" }, { name: city.name, url: "/nepal/" + city.slug + "/" }]) }}
+{{ faqSchema(cityFaq) }}
+
+<main>
+<section class="v2-section faq-page" id="v2-city">
+  <div class="v2-wrap">
+    <div class="v2-section-head">
+      <h1>Booking software in {{ city.name }}, <em>Nepal.</em></h1>
+      <p>For {{ city.focus }} in {{ city.region }}.</p>
+    </div>
+    <div class="v2-answers">
+      <article class="v2-answer v2-answer--lead">
+        <span class="v2-answer__tag">The short answer</span>
+        <h3>What booking software works in {{ city.name }}?</h3>
+        <p>{{ city.intro }}</p>
+        <ul class="v2-answer__facts" aria-label="What Zennly covers">
+          <li><strong>Online</strong> booking</li>
+          <li><strong>Staff</strong> &amp; rooms</li>
+          <li><strong>Discount</strong> approval</li>
+          <li><strong>Daily</strong> reconciliation</li>
+          <li class="v2-answer__facts-note">{{ city.proof }}</li>
+        </ul>
+      </article>
+      {% for f in cityFaq %}
+      <article class="v2-answer">
+        <div class="v2-answer__top"><span class="v2-answer__num">0{{ loop.index }}</span></div>
+        <h3>{{ f.question }}</h3>
+        <p>{{ f.answer }}</p>
+      </article>
+      {% endfor %}
+      <article class="v2-answer">
+        <div class="v2-answer__top"><span class="v2-answer__num">05</span><span class="v2-answer__tag">Who it's for</span></div>
+        <h3>Which businesses in {{ city.name }} is Zennly for?</h3>
+        <p><a href="/solutions/spa/">Spas</a>, <a href="/solutions/salon/">salons</a>, <a href="/solutions/barbershop/">barbershops</a>, <a href="/solutions/beauty-clinic/">beauty clinics</a>, <a href="/solutions/bridal-makeup/">bridal and makeup studios</a>, <a href="/solutions/tattoo/">tattoo studios</a>, <a href="/solutions/fitness/">gyms</a>, <a href="/solutions/physiotherapy/">physiotherapy clinics</a> and <a href="/solutions/cleaning/">cleaning companies</a>.</p>
+      </article>
+      <article class="v2-answer">
+        <div class="v2-answer__top"><span class="v2-answer__num">06</span><span class="v2-answer__tag">Other cities</span></div>
+        <h3>Do you serve other cities in Nepal?</h3>
+        <p>Yes. Zennly is available in {% for c in cities %}{% if c.slug != city.slug %}<a href="/nepal/{{ c.slug }}/">{{ c.name }}</a>, {% endif %}{% endfor %}and the rest of Nepal.</p>
+      </article>
+    </div>
+    <div class="v2-answers-cta">
+      <a href="/demo/" class="v2-btn">Book a demo &rarr;</a>
+      <a href="/faq/" class="v2-answers-link">Read the FAQ &rarr;</a>
+    </div>
+  </div>
+</section>
+{% include "_footer-v2.njk" %}
+</main>

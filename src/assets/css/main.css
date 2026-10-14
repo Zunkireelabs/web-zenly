@@ -216,6 +216,7 @@
 
   .v2-nav-mega__container{display:flex; min-height:320px;}
   .v2-nav-mega--sm{width:min(320px,calc(100vw - 32px));}
+  .v2-nav-mega--wide{width:min(600px,calc(100vw - 32px));}
   .v2-nav-mega--sm .v2-nav-mega__container{min-height:0;}
 
   .v2-nav-mega__left{flex:1.2; padding:26px 26px 22px; background:var(--v2-card);}
@@ -13679,7 +13680,10 @@ body.page--case-study .section {
 
 .fd-proof__num {
   font-family: var(--font-mono);
-  font-size: clamp(2.75rem, 5vw, 4rem);
+  /* Long values ("4 statuses", "NPR 200–1,450") shrink to fit the card on one line;
+     short values keep the original clamp. --len is set per stat in feature-detail.njk. */
+  font-size: min(clamp(2.75rem, 5vw, 4rem), calc(196px / (var(--len, 1) * 0.62)));
+  white-space: nowrap;
   font-weight: 500;
   color: var(--color-primary);
   line-height: 1;
@@ -17810,54 +17814,150 @@ body.page--case-study .section {
 }
 
 /* ── Salon page: swap the generic green mockup accent for a navy tone,
-   matching the salon showcase mockup images (distinct from spa's green). ── */
-.soln[data-slug="salon"] .soln-visual {
+   matching the salon showcase mockup images (distinct from spa's green). */
+.soln[data-slug="salon"] .soln-visual{
   background: linear-gradient(155deg, #E7EEF7 0%, #EDF0F5 55%, #E9EEF6 100%);
   box-shadow: 0 24px 60px -24px rgba(47,76,107,0.25), inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
-.soln[data-slug="salon"] .soln-visual::before {
+.soln[data-slug="salon"] .soln-visual::before{
   background-image: repeating-linear-gradient(90deg, rgba(47,76,107,0.05) 0 1px, transparent 1px 28px);
 }
 
-.soln[data-slug="salon"] .soln-visual::after {
+.soln[data-slug="salon"] .soln-visual::after{
   background: radial-gradient(circle, rgba(47,76,107,0.25) 0%, transparent 70%);
 }
 
-.soln[data-slug="salon"] .soln-visual__badge-dot {
+.soln[data-slug="salon"] .soln-visual__badge-dot{
   background: #2F4C6B;
   box-shadow: 0 0 0 3px rgba(47,76,107,0.15);
 }
 
 .soln[data-slug="salon"] .soln-visual__step--done,
-.soln[data-slug="salon"] .soln-visual__card-head-done {
+.soln[data-slug="salon"] .soln-visual__card-head-done{
   background: #2F4C6B;
 }
 
-.soln[data-slug="salon"] .soln-visual__bar--1 {
+.soln[data-slug="salon"] .soln-visual__bar--1{
   background: rgba(47,76,107,0.18);
 }
 
-.soln[data-slug="salon"] .soln-visual__transfer-branch--to {
+.soln[data-slug="salon"] .soln-visual__transfer-branch--to{
   background: rgba(47,76,107,0.12);
   color: #2F4C6B;
 }
 
-.soln[data-slug="salon"] .soln-sscroll__eyebrow-icon {
+.soln[data-slug="salon"] .soln-sscroll__eyebrow-icon{
   background: #2F4C6B;
 }
 
-.soln[data-slug="salon"] .soln-photohero__appt--1 {
+.soln[data-slug="salon"] .soln-photohero__appt--1{
   background: #2F4C6B;
 }
 
 .soln[data-slug="salon"] .soln-visual__golive-label,
-.soln[data-slug="salon"] .soln-visual__golive-paid {
+.soln[data-slug="salon"] .soln-visual__golive-paid{
   color: #2F4C6B;
 }
 
-.soln[data-slug="salon"] .soln-visual__golive-paid {
+.soln[data-slug="salon"] .soln-visual__golive-paid{
   background: rgba(47,76,107,0.12);
+}
+
+/* ── Barbershop (leather brown): own accent so the page reads distinct from salon/spa/tattoo. ── */
+.soln[data-slug="barbershop"] .soln-visual {
+  background: linear-gradient(155deg, #F3ECE3 0%, #F1E9DF 55%, #EEE4D8 100%);
+  box-shadow: 0 24px 60px -24px rgba(122,75,42,0.28), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+.soln[data-slug="barbershop"] .soln-visual::before {
+  background-image: repeating-linear-gradient(90deg, rgba(122,75,42,0.05) 0 1px, transparent 1px 28px);
+}
+.soln[data-slug="barbershop"] .soln-visual::after {
+  background: radial-gradient(circle, rgba(122,75,42,0.25) 0%, transparent 70%);
+}
+.soln[data-slug="barbershop"] .soln-visual__badge-dot {
+  background: #7A4B2A;
+  box-shadow: 0 0 0 3px rgba(122,75,42,0.15);
+}
+.soln[data-slug="barbershop"] .soln-visual__step--done,
+.soln[data-slug="barbershop"] .soln-visual__card-head-done,
+.soln[data-slug="barbershop"] .soln-sscroll__eyebrow-icon {
+  background: #7A4B2A;
+}
+.soln[data-slug="barbershop"] .soln-visual__bar--1 {
+  background: rgba(122,75,42,0.18);
+}
+.soln[data-slug="barbershop"] .soln-visual__transfer-branch--to,
+.soln[data-slug="barbershop"] .soln-visual__golive-paid {
+  background: rgba(122,75,42,0.12);
+  color: #7A4B2A;
+}
+.soln[data-slug="barbershop"] .soln-visual__golive-label {
+  color: #7A4B2A;
+}
+
+/* ── Beauty clinic (clinical teal): own accent so the page reads distinct from salon/spa/tattoo. ── */
+.soln[data-slug="beauty-clinic"] .soln-visual {
+  background: linear-gradient(155deg, #E6F1F0 0%, #E9F2F1 55%, #E2EEED 100%);
+  box-shadow: 0 24px 60px -24px rgba(47,111,109,0.28), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+.soln[data-slug="beauty-clinic"] .soln-visual::before {
+  background-image: repeating-linear-gradient(90deg, rgba(47,111,109,0.05) 0 1px, transparent 1px 28px);
+}
+.soln[data-slug="beauty-clinic"] .soln-visual::after {
+  background: radial-gradient(circle, rgba(47,111,109,0.25) 0%, transparent 70%);
+}
+.soln[data-slug="beauty-clinic"] .soln-visual__badge-dot {
+  background: #2F6F6D;
+  box-shadow: 0 0 0 3px rgba(47,111,109,0.15);
+}
+.soln[data-slug="beauty-clinic"] .soln-visual__step--done,
+.soln[data-slug="beauty-clinic"] .soln-visual__card-head-done,
+.soln[data-slug="beauty-clinic"] .soln-sscroll__eyebrow-icon {
+  background: #2F6F6D;
+}
+.soln[data-slug="beauty-clinic"] .soln-visual__bar--1 {
+  background: rgba(47,111,109,0.18);
+}
+.soln[data-slug="beauty-clinic"] .soln-visual__transfer-branch--to,
+.soln[data-slug="beauty-clinic"] .soln-visual__golive-paid {
+  background: rgba(47,111,109,0.12);
+  color: #2F6F6D;
+}
+.soln[data-slug="beauty-clinic"] .soln-visual__golive-label {
+  color: #2F6F6D;
+}
+
+/* ── Bridal & makeup (rose plum): own accent so the page reads distinct from salon/spa/tattoo. ── */
+.soln[data-slug="bridal-makeup"] .soln-visual {
+  background: linear-gradient(155deg, #F7EAEE 0%, #F5ECEF 55%, #F3E6EB 100%);
+  box-shadow: 0 24px 60px -24px rgba(142,63,92,0.28), inset 0 1px 0 rgba(255,255,255,0.4);
+}
+.soln[data-slug="bridal-makeup"] .soln-visual::before {
+  background-image: repeating-linear-gradient(90deg, rgba(142,63,92,0.05) 0 1px, transparent 1px 28px);
+}
+.soln[data-slug="bridal-makeup"] .soln-visual::after {
+  background: radial-gradient(circle, rgba(142,63,92,0.25) 0%, transparent 70%);
+}
+.soln[data-slug="bridal-makeup"] .soln-visual__badge-dot {
+  background: #8E3F5C;
+  box-shadow: 0 0 0 3px rgba(142,63,92,0.15);
+}
+.soln[data-slug="bridal-makeup"] .soln-visual__step--done,
+.soln[data-slug="bridal-makeup"] .soln-visual__card-head-done,
+.soln[data-slug="bridal-makeup"] .soln-sscroll__eyebrow-icon {
+  background: #8E3F5C;
+}
+.soln[data-slug="bridal-makeup"] .soln-visual__bar--1 {
+  background: rgba(142,63,92,0.18);
+}
+.soln[data-slug="bridal-makeup"] .soln-visual__transfer-branch--to,
+.soln[data-slug="bridal-makeup"] .soln-visual__golive-paid {
+  background: rgba(142,63,92,0.12);
+  color: #8E3F5C;
+}
+.soln[data-slug="bridal-makeup"] .soln-visual__golive-label {
+  color: #8E3F5C;
 }
 
 .soln[data-slug="tattoo"] .soln-visual {
@@ -17875,4 +17975,92 @@ body.page--case-study .section {
 
 .soln[data-slug="tattoo"] .soln-visual__bar--3 {
   background: rgba(31,61,46,0.14);
+}
+
+
+/* ── v2 answer cards / FAQ-style pages (/faq/, /nepal/*, /compare/) ── */
+.faq-page.v2-section{padding:130px 0 130px;}
+.faq-page.v2-section{padding-top:170px;}
+.faq-page .v2-section-head{max-width:620px; margin:0 auto 56px; text-align:center;}
+.faq-page .v2-section-head h1{font-family:var(--v2-sans); font-weight:500; font-size:clamp(42px,3.48vw,60px); line-height:1.1; letter-spacing:-0.03em; margin:0 0 12px; color:var(--v2-ink);}
+.faq-page .v2-section-head h1 em{font-family:var(--v2-serif); font-style:italic; font-weight:400;}
+.faq-page .v2-section-head p{color:var(--v2-ink-soft); font-size:15.5px; line-height:1.6; margin:0;}
+.v2-answers{max-width:1040px; margin:0 auto; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px;}
+.v2-answer{background:#fff; border:1px solid var(--v2-line); border-radius:20px; padding:30px 32px 32px; display:flex; flex-direction:column;}
+.v2-answer--lead{grid-column:1 / -1; background:var(--v2-accent); border-color:transparent; padding:40px 44px;}
+.v2-answer__top{display:flex; align-items:baseline; gap:12px; margin-bottom:14px;}
+.v2-answer__num{font-family:var(--v2-serif); font-style:italic; font-size:22px; line-height:1; color:var(--v2-sage);}
+.v2-answer__tag{font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--v2-sage);}
+.v2-answer--lead .v2-answer__tag{display:block; margin-bottom:14px; color:var(--v2-link);}
+.v2-answer h3{font-family:var(--v2-sans); font-weight:500; font-size:21px; line-height:1.28; letter-spacing:-0.015em; margin:0 0 10px; color:var(--v2-ink);}
+.v2-answer p{color:var(--v2-ink-soft); font-size:15.5px; line-height:1.65; margin:0;}
+.v2-answer--lead h3{font-size:clamp(28px,2.6vw,40px); letter-spacing:-0.025em; margin-bottom:14px;}
+.v2-answer--lead p{color:var(--v2-ink); font-size:clamp(16.5px,1.3vw,19px); line-height:1.6; max-width:760px;}
+.v2-answer a{color:inherit; text-decoration:underline; text-underline-offset:3px;}
+.v2-answer__facts{list-style:none; margin:28px 0 0; padding:0; display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px;}
+.v2-answer__facts li{background:#fff; border-radius:var(--v2-r-pill); padding:8px 16px; font-size:14.5px; color:var(--v2-ink);}
+.v2-answer__facts li strong{font-weight:600; margin-right:4px;}
+.v2-answer__facts .v2-answer__facts-note{background:transparent; padding:8px 4px; color:var(--v2-ink-soft);}
+.v2-answers-cta{max-width:1040px; margin:40px auto 0; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:20px 28px;}
+.v2-answers-link{color:var(--v2-ink); font-size:15.5px; font-weight:500; text-decoration:underline; text-underline-offset:4px;}
+@media (max-width:860px){ .v2-answers{grid-template-columns:1fr; gap:16px;} .v2-answer{padding:24px 22px 26px;} .v2-answer--lead{padding:28px 22px;} }
+@media (max-width:860px){ .faq-page.v2-section{padding:64px 0;} .faq-page.v2-section{padding-top:120px;} .faq-page .v2-section-head h1{font-size:clamp(28px,7.5vw,38px);} }
+.faq-page .v2-compare-wrap{max-width:1040px; margin:20px auto 0; overflow-x:auto;}
+.v2-compare{width:100%; border-collapse:separate; border-spacing:0; background:#fff; border:1px solid var(--v2-line); border-radius:20px; overflow:hidden; font-size:15.5px; line-height:1.5;}
+.v2-compare th, .v2-compare td{padding:16px 22px; text-align:left; vertical-align:top; border-bottom:1px solid var(--v2-line); color:var(--v2-ink-soft); font-weight:400;}
+.v2-compare thead th{font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--v2-sage);}
+.v2-compare tbody th{color:var(--v2-ink); font-weight:500;}
+.v2-compare .v2-compare__us{background:var(--v2-accent); color:var(--v2-ink);}
+.v2-compare td:last-child{background:var(--v2-accent); color:var(--v2-ink);}
+.v2-compare tbody tr:last-child th, .v2-compare tbody tr:last-child td{border-bottom:0;}
+@media (max-width:860px){ .v2-compare{min-width:640px;} .v2-compare th, .v2-compare td{padding:14px 16px;} }
+
+/* ── New feature pages: own hero deck colour + matching index card tint ── */
+.fd-hero__deck[data-feature="memberships"] { background: linear-gradient(to bottom right, #F0A3B8 0%, #8A2E4D 100%); }
+.fd-hero__deck[data-feature="packages"] { background: linear-gradient(to bottom right, #EFA68A 0%, #8A3D22 100%); }
+.fd-hero__deck[data-feature="vouchers"] { background: linear-gradient(to bottom right, #8ED1E8 0%, #17607A 100%); }
+.fd-hero__deck[data-feature="campaigns"] { background: linear-gradient(to bottom right, #DDA0EB 0%, #6B2A80 100%); }
+.fd-hero__deck[data-feature="outreach"] { background: linear-gradient(to bottom right, #C9E27A 0%, #4C6B12 100%); }
+.fd-hero__deck[data-feature="payroll"] { background: linear-gradient(to bottom right, #D6C3A3 0%, #5E4A2B 100%); }
+.feat-idx-card[data-feature="memberships"] {
+  background: color-mix(in srgb, #F0A3B8 32%, #ffffff 68%);
+  border-color: color-mix(in srgb, #F0A3B8 48%, #ffffff 52%);
+}
+.feat-idx-card[data-feature="memberships"]:hover {
+  background: color-mix(in srgb, #F0A3B8 42%, #ffffff 58%);
+}
+.feat-idx-card[data-feature="packages"] {
+  background: color-mix(in srgb, #EFA68A 32%, #ffffff 68%);
+  border-color: color-mix(in srgb, #EFA68A 48%, #ffffff 52%);
+}
+.feat-idx-card[data-feature="packages"]:hover {
+  background: color-mix(in srgb, #EFA68A 42%, #ffffff 58%);
+}
+.feat-idx-card[data-feature="vouchers"] {
+  background: color-mix(in srgb, #8ED1E8 32%, #ffffff 68%);
+  border-color: color-mix(in srgb, #8ED1E8 48%, #ffffff 52%);
+}
+.feat-idx-card[data-feature="vouchers"]:hover {
+  background: color-mix(in srgb, #8ED1E8 42%, #ffffff 58%);
+}
+.feat-idx-card[data-feature="campaigns"] {
+  background: color-mix(in srgb, #DDA0EB 32%, #ffffff 68%);
+  border-color: color-mix(in srgb, #DDA0EB 48%, #ffffff 52%);
+}
+.feat-idx-card[data-feature="campaigns"]:hover {
+  background: color-mix(in srgb, #DDA0EB 42%, #ffffff 58%);
+}
+.feat-idx-card[data-feature="outreach"] {
+  background: color-mix(in srgb, #C9E27A 32%, #ffffff 68%);
+  border-color: color-mix(in srgb, #C9E27A 48%, #ffffff 52%);
+}
+.feat-idx-card[data-feature="outreach"]:hover {
+  background: color-mix(in srgb, #C9E27A 42%, #ffffff 58%);
+}
+.feat-idx-card[data-feature="payroll"] {
+  background: color-mix(in srgb, #D6C3A3 32%, #ffffff 68%);
+  border-color: color-mix(in srgb, #D6C3A3 48%, #ffffff 52%);
+}
+.feat-idx-card[data-feature="payroll"]:hover {
+  background: color-mix(in srgb, #D6C3A3 42%, #ffffff 58%);
 }

@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "kathmandu",
+    "name": "Kathmandu",
+    "region": "Bagmati Province",
+    "intro": "Kathmandu has the densest mix of spas, salons, gyms and clinics in Nepal, and many of them run more than one branch. Zennly gives those businesses one system for bookings, staff, payments and the daily close.",
+    "proof": "Zennly's first live client, Nuad Thai Spa Kathmandu, runs four branches, 39 therapists, 12 rooms and 194 services on it.",
+    "focus": "multi-branch spas, salons and gyms"
+  },
+  {
+    "slug": "lalitpur",
+    "name": "Lalitpur",
+    "region": "Bagmati Province",
+    "intro": "Lalitpur (Patan) is where Zennly is based. Spas, salons, clinics and studios here can book a demo with the team that builds the software.",
+    "proof": "Zennly is headquartered in Lalitpur, Bagmati Province.",
+    "focus": "salons, clinics and studios"
+  },
+  {
+    "slug": "bhaktapur",
+    "name": "Bhaktapur",
+    "region": "Bagmati Province",
+    "intro": "Service businesses in Bhaktapur, from salons and beauty parlours to gyms and clinics, can run bookings, staff and payments from one dashboard instead of phone calls and notebooks.",
+    "proof": "Zennly works for a single shop or several branches, so a Bhaktapur business can start with one location.",
+    "focus": "salons, beauty parlours and gyms"
+  },
+  {
+    "slug": "pokhara",
+    "name": "Pokhara",
+    "region": "Gandaki Province",
+    "intro": "Pokhara's wellness and hospitality trade serves residents and visitors all year. Zennly helps spas, salons and massage studios keep bookings, therapists and payments in order, including across more than one branch.",
+    "proof": "Zennly is web-based, so customers book online from their phone and your team manages staff, rooms and payments from one dashboard.",
+    "focus": "spas, massage studios and salons"
+  },
+  {
+    "slug": "biratnagar",
+    "name": "Biratnagar",
+    "region": "Koshi Province",
+    "intro": "Biratnagar is eastern Nepal's main commercial city. Salons, clinics, gyms and studios here can use Zennly for online booking, staff scheduling, discount approval and daily payment reconciliation.",
+    "proof": "Zennly can be set up for service businesses anywhere in Nepal. Book a 20-minute demo to confirm how it fits your business.",
+    "focus": "salons, clinics and gyms"
+  },
+  {
+    "slug": "chitwan",
+    "name": "Chitwan (Bharatpur)",
+    "region": "Bagmati Province",
+    "intro": "In Chitwan and Bharatpur, spas, salons, gyms and clinics can use Zennly to take online bookings, schedule staff and rooms and see every payment in one place.",
+    "proof": "Zennly works for one branch or many, so a Chitwan business can start small and add branches later.",
+    "focus": "spas, salons and gyms"
+  }
+]
