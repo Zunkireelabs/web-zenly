@@ -10,7 +10,7 @@ layout: base.njk
 bodyClass: page--light-nav
 eleventyComputed:
   title: "Booking Software in {{ city.name }}, Nepal | Zennly"
-  metaDescription: "Booking and scheduling software for spas, salons, gyms and clinics in {{ city.name }}, Nepal. Online booking, staff scheduling, discount approval and daily reconciliation."
+  metaDescription: "Booking software for spas, salons, gyms and clinics in {{ city.name }}, Nepal: online booking, staff scheduling, discount approval and daily reconciliation."
 ---
 {% set cityFaq = [
   { question: "What booking software can I use for my business in " + city.name + "?", answer: "Zennly is web-based booking and operations software for " + city.focus + " in " + city.name + ", " + city.region + ". It covers online booking, staff and room scheduling, discount approval with an audit trail, payment tracking and daily reconciliation." },
@@ -18,54 +18,115 @@ eleventyComputed:
   { question: "How much does booking software cost in " + city.name + "?", answer: "Zennly is quoted per business, based on the number of branches, team size and features you use. Book a 20-minute demo and you receive a tailored quote within 24 hours." },
   { question: "Can I run more than one branch from one account?", answer: "Yes. Zennly runs one branch or many from a single account, with one daily report across all of them." }
 ] %}
+{% set cityFaq = cityFaq.concat(city.faqs) %}
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {% from "schema/faq.njk" import faqSchema %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Nepal", url: "/nepal/" }, { name: city.name, url: "/nepal/" + city.slug + "/" }]) }}
 {{ faqSchema(cityFaq) }}
 
-<main>
-<section class="v2-section faq-page" id="v2-city">
-  <div class="v2-wrap">
-    <div class="v2-section-head">
-      <h1>Booking software in {{ city.name }}, <em>Nepal.</em></h1>
-      <p>For {{ city.focus }} in {{ city.region }}.</p>
-    </div>
-    <div class="v2-answers">
-      <article class="v2-answer v2-answer--lead">
-        <span class="v2-answer__tag">The short answer</span>
-        <h3>What booking software works in {{ city.name }}?</h3>
+<main class="pg-page">
+<header class="pg-hero pg-tone{{ city.tone }}">
+  <span class="pg-hero__eyebrow">{{ city.region }}</span>
+  <h1>Booking software in {{ city.name }}, <em>Nepal.</em></h1>
+  <p class="pg-hero__lede">For {{ city.focus }} in {{ city.region }}.</p>
+  <div class="pg-hero__actions">
+    <a href="/demo/" class="v2-btn">Book a demo &rarr;</a>
+    <a href="/nepal/" class="v2-answers-link">All cities &rarr;</a>
+  </div>
+</header>
+
+<div class="pg-wrap">
+  <section class="pg-section" style="padding-top:24px;">
+    {% set areaList = (city.areas | replace(" and ", ", ")).split(", ") %}
+    <div class="pg-answer pg-tone{{ city.tone }}">
+      <div class="pg-answer__main">
+        <span class="pg-answer__tag">The short answer</span>
+        <h2>What booking software works in {{ city.name }}?</h2>
         <p>{{ city.intro }}</p>
-        <ul class="v2-answer__facts" aria-label="What Zennly covers">
-          <li><strong>Online</strong> booking</li>
-          <li><strong>Staff</strong> &amp; rooms</li>
-          <li><strong>Discount</strong> approval</li>
-          <li><strong>Daily</strong> reconciliation</li>
-          <li class="v2-answer__facts-note">{{ city.proof }}</li>
-        </ul>
-      </article>
-      {% for f in cityFaq %}
-      <article class="v2-answer">
-        <div class="v2-answer__top"><span class="v2-answer__num">0{{ loop.index }}</span></div>
-        <h3>{{ f.question }}</h3>
-        <p>{{ f.answer }}</p>
-      </article>
-      {% endfor %}
-      <article class="v2-answer">
-        <div class="v2-answer__top"><span class="v2-answer__num">05</span><span class="v2-answer__tag">Who it's for</span></div>
-        <h3>Which businesses in {{ city.name }} is Zennly for?</h3>
-        <p><a href="/solutions/spa/">Spas</a>, <a href="/solutions/salon/">salons</a>, <a href="/solutions/barbershop/">barbershops</a>, <a href="/solutions/beauty-clinic/">beauty clinics</a>, <a href="/solutions/bridal-makeup/">bridal and makeup studios</a>, <a href="/solutions/tattoo/">tattoo studios</a>, <a href="/solutions/fitness/">gyms</a>, <a href="/solutions/physiotherapy/">physiotherapy clinics</a> and <a href="/solutions/cleaning/">cleaning companies</a>.</p>
-      </article>
-      <article class="v2-answer">
-        <div class="v2-answer__top"><span class="v2-answer__num">06</span><span class="v2-answer__tag">Other cities</span></div>
-        <h3>Do you serve other cities in Nepal?</h3>
-        <p>Yes. Zennly is available in {% for c in cities %}{% if c.slug != city.slug %}<a href="/nepal/{{ c.slug }}/">{{ c.name }}</a>, {% endif %}{% endfor %}and the rest of Nepal.</p>
-      </article>
+        <p class="pg-answer__note">{{ city.proof }}</p>
+      </div>
+      <ul class="pg-gives">
+        <li><span class="pg-gives__ic" aria-hidden="true">1</span><div><strong>Online booking</strong><span>Customers book from their phone, at any hour.</span></div></li>
+        <li><span class="pg-gives__ic" aria-hidden="true">2</span><div><strong>Staff and rooms</strong><span>Staff, room and time are booked together.</span></div></li>
+        <li><span class="pg-gives__ic" aria-hidden="true">3</span><div><strong>Discount approval</strong><span>A manager approves every discount.</span></div></li>
+        <li><span class="pg-gives__ic" aria-hidden="true">4</span><div><strong>Daily reconciliation</strong><span>One report across every branch.</span></div></li>
+      </ul>
+      <div class="pg-answer__stats">
+        <div><strong>{{ areaList.length }}</strong><span>areas covered in {{ city.name }}</span></div>
+        <div><strong>9</strong><span>industries served</span></div>
+        <div><strong>24h</strong><span>to a tailored quote after your demo</span></div>
+      </div>
     </div>
-    <div class="v2-answers-cta">
-      <a href="/demo/" class="v2-btn">Book a demo &rarr;</a>
-      <a href="/faq/" class="v2-answers-link">Read the FAQ &rarr;</a>
+  </section>
+
+  <section class="pg-section pg-context pg-tone{{ city.tone }}">
+    <span class="pg-ghost" aria-hidden="true">{{ city.name | replace(" (Bharatpur)", "") }}</span>
+    <div class="pg-split">
+      <div>
+        <p class="pg-label">Local context</p>
+        <h2 class="pg-h2">How businesses in {{ city.name }} <em>run bookings today.</em></h2>
+      </div>
+      <div>
+        <p>{{ city.context }}</p>
+      </div>
     </div>
+    <p class="pg-label" style="margin-top:56px;">Areas covered in {{ city.name }}</p>
+    <ol class="pg-route">
+      {% for a in (city.areas | replace(" and ", ", ")).split(", ") %}<li class="pg-stop"><span class="pg-stop__n">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span><span class="pg-stop__name">{{ a }}</span></li>{% endfor %}
+    </ol>
+  </section>
+</div>
+
+<section class="pg-band">
+  <div class="pg-wrap">
+    <p class="pg-label" style="color:#BFD98A;">A typical day</p>
+    <h2 class="pg-h2">A day in {{ city.name }}, <em>on Zennly.</em></h2>
+    <p class="pg-band__text">{{ city.typicalDay }}</p>
   </div>
 </section>
+
+<div class="pg-wrap">
+  <section class="pg-section">
+    <p class="pg-searchline"><span>What people in {{ city.name }} search for:</span> {% for t in city.searchTerms.split(", ") %}{{ t }}{% if not loop.last %} <i>&middot;</i> {% endif %}{% endfor %}</p>
+  </section>
+
+  <section class="pg-section">
+    <h2 class="pg-h2">Who it&rsquo;s for in <em>{{ city.name }}.</em></h2>
+    <p class="pg-sub">Pick your type of business to see how Zennly fits.</p>
+    <div class="pg-rows pg-rows--3">
+      {% for s in solutions %}
+      <a class="pg-row pg-row--stack" href="/solutions/{{ s.slug }}/"><small>Industry</small><strong>{{ s.name }}</strong><i aria-hidden="true">&rarr;</i></a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="pg-section">
+    <h2 class="pg-h2">Common <em>questions.</em></h2>
+    <p class="pg-sub">Booking software in {{ city.name }}, answered.</p>
+    <div class="pg-faq">
+      {% for f in cityFaq %}
+      <details>
+        <summary>{{ f.question }}</summary>
+        <p>{{ f.answer }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="pg-section pg-end">
+    <h2 class="pg-h2">Other <em>cities.</em></h2>
+    <p class="pg-sub" style="margin-bottom:24px;">Zennly is web-based, so it works anywhere in Nepal.</p>
+    <p class="pg-citylinks">{% for c in cities %}{% if c.slug != city.slug %}<a href="/nepal/{{ c.slug }}/">{{ c.name }}</a>{% endif %}{% endfor %}<a href="/nepal/">All of Nepal</a></p>
+  </section>
+</div>
+
+<section class="bottom-cta" id="demo">
+  <div class="bottom-cta__card bottom-cta__card--banner reveal">
+    <h2 class="bottom-cta__h2">Running a business in {{ city.name }}?</h2>
+    <p class="bottom-cta__sub">Book a 20-minute demo and see booking, staff scheduling and daily reconciliation in Zennly.</p>
+    <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+  </div>
+</section>
+
 {% include "_footer-v2.njk" %}
 </main>

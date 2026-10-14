@@ -1,8 +1,8 @@
 ---
 dateModified: "2026-10-04"
 layout: base.njk
-title: "Zennly | Booking Software for Spas, Salons & Gyms in Nepal"
-metaDescription: "Multi-branch booking and scheduling software for spas, salons, gyms and clinics, built in Nepal. Staff scheduling, payments and daily reconciliation."
+title: "Booking Software Nepal | Spa, Salon & Gym Management System | Zennly"
+metaDescription: "Online booking and management software for spas, beauty parlours, salons, gyms and clinics in Nepal. Multi-branch scheduling, discount approval and daily reconciliation."
 ownNav: true
 extraHead: |
   <style>
@@ -170,6 +170,10 @@ extraHead: |
     .v2-nav.hero-cta-active .v2-btn{opacity:1; visibility:visible; transform:none; transition:opacity .5s ease, transform .5s ease;}
     .v2-nav .v2-btn{background:#3F6839; color:#fff !important; height:44px; padding:0 20px;}
     .v2-nav .v2-btn:hover{background:#345929;}
+    .v2-nav .v2-btn--ghost{background:transparent; color:var(--v2-ink) !important; box-shadow:inset 0 0 0 1px rgba(46,25,25,.18);}
+    .v2-nav .v2-btn--ghost:hover{background:rgba(63,104,57,.08); color:var(--v2-ink) !important;}
+    .v2-nav-mobile .v2-btn--ghost{background:transparent; color:var(--v2-ink); box-shadow:inset 0 0 0 1px rgba(46,25,25,.18);}
+    .v2-nav-mobile .v2-btn--ghost:hover{background:rgba(63,104,57,.08);}
     .v2-btn{
       display:inline-flex; align-items:center; gap:8px; background:var(--v2-accent); color:var(--v2-accent-ink);
       padding:11px 20px; border-radius:var(--v2-r-pill); font-size:13.5px; font-weight:600; border:none;
@@ -876,7 +880,7 @@ extraHead: |
        .footer-flow/.access-placeholder/.site-footer (dark-olive CTA stacked
        on a lime footer, both top-curved, joined by a hard-edged shadow seam). */
     :root{ --v2-flow-radius:clamp(34px,3.7vw,46px); }
-    .v2-footer-flow{border-top-left-radius:var(--v2-flow-radius); border-top-right-radius:var(--v2-flow-radius); overflow:hidden; isolation:isolate;}
+    .v2-footer-flow{border-top-left-radius:var(--v2-flow-radius); border-top-right-radius:var(--v2-flow-radius); overflow:hidden; isolation:isolate; background:var(--v2-link);}
 
     .v2-access{width:min(100%,1920px); margin:0 auto; padding:136px 0; border-radius:var(--v2-flow-radius) var(--v2-flow-radius) 0 0; background:var(--v2-link); color:var(--v2-bg-alt); overflow:hidden;}
     .v2-access-inner{display:flex; flex-direction:column; align-items:center; gap:80px;}
@@ -2497,7 +2501,7 @@ extraHead: |
       }
     }
 
-    .v2-site-footer{position:relative; padding:136px 32px 0; border-top-left-radius:var(--v2-flow-radius); border-top-right-radius:var(--v2-flow-radius); background:var(--v2-bg-alt); box-shadow:0 calc(-1 * var(--v2-flow-radius)) 0 0 var(--v2-link);}
+    .v2-site-footer{position:relative; padding:136px 32px 0; border-top-left-radius:var(--v2-flow-radius); border-top-right-radius:var(--v2-flow-radius); background:var(--v2-bg-alt);}
     .v2-footer-content{max-width:1180px; margin:0 auto; padding-bottom:80px; display:flex; flex-direction:column; gap:60px;}
     .v2-footer-top{display:flex; gap:64px; justify-content:space-between;}
     .v2-footer-brand{display:flex; flex-direction:column; align-items:flex-start; gap:16px; max-width:264px; flex-shrink:0;}
@@ -2678,6 +2682,7 @@ extraHead: |
         <button type="button" id="v2-nav-toggle" class="v2-nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="v2-nav-mobile">
           <span></span><span></span><span></span>
         </button>
+        <a href="#try-free" class="v2-btn v2-btn--ghost" data-trial-open>Try for free</a>
         <a href="/demo/" class="v2-btn">Book a demo</a>
       </div>
     </div>
@@ -2869,6 +2874,7 @@ extraHead: |
       <a href="/nepal/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Booking software by city</a>
     </div>
   </div>
+  <a href="#try-free" class="v2-btn v2-btn--ghost" data-trial-open>Try for free</a>
   <a href="/demo/" class="v2-btn">Book a demo</a>
 </nav>
 
@@ -2878,10 +2884,12 @@ extraHead: |
      target. Mobile-only: hidden at 861px+ alongside .v2-nav-mobile. -->
 <div id="v2-nav-mobile-scrim" class="v2-nav-mobile-scrim" aria-hidden="true"></div>
 
+{% include "_trial-modal.njk" %}
+
 <header class="v2-hero">
   <div class="v2-hero-text">
     <h1 class="v2-reveal">Built for the businesses<br class="v2-hero-break"> that run without the<br class="v2-hero-break"><em id="v2HeroRotate">chaos</em></h1><!-- space before "chaos" replaced by .v2-hero h1 em's margin-inline-start so the cycling word doesn't carry a leading-space offset when it's forced onto its own centered row on mobile -->
-    <p class="v2-lede v2-reveal">Online booking, operational control,<br class="v2-lede-break"> and financial clarity in one place.</p>
+    <p class="v2-lede v2-reveal">Booking software for spas, salons and gyms in Nepal:<br class="v2-lede-break"> online booking, operational control and financial clarity.</p>
   </div>
   <form class="v2-hero-form v2-reveal" id="v2-hero-form">
     <input type="email" name="email" placeholder="Enter your email" required>
@@ -4088,9 +4096,10 @@ extraHead: |
               <h5 class="v2-footer-heading">Company</h5>
               <a href="/about/" class="v2-footer-link">About</a>
               <a href="/glossary/" class="v2-footer-link">Glossary</a>
+              <a href="/global/" class="v2-footer-link">Worldwide</a>
               <a href="/demo/" class="v2-footer-link">Book a Demo</a>
               <a href="/case-study/" class="v2-footer-link">See It Live</a>
-              <a href="mailto:info@zennly.io" class="v2-footer-link">Contact</a>
+              <a href="/contact/" class="v2-footer-link">Contact</a>
             </div>
             <div class="v2-footer-link-group">
               <h5 class="v2-footer-heading">Legal</h5>

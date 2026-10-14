@@ -8,7 +8,7 @@
 {% if noindex or env != "production" %}<meta name="robots" content="noindex,nofollow" />{% endif %}
 
 <link rel="alternate" hreflang="en" href="{{ pageUrl }}" />
-<link rel="alternate" hreflang="en-NP" href="{{ pageUrl }}" />
+{% if not globalPage %}<link rel="alternate" hreflang="en-NP" href="{{ pageUrl }}" />{% endif %}
 <link rel="alternate" hreflang="x-default" href="{{ pageUrl }}" />
 
 <meta property="og:type" content="{{ ogType or 'website' }}" />

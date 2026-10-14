@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: "Zennly vs Spreadsheets, WhatsApp & Paper | Booking Software Nepal"
+title: "Zennly vs Spreadsheets, WhatsApp & Paper | Zennly"
 metaDescription: "Compare Zennly with spreadsheets, WhatsApp and paper registers for running a spa, salon or gym in Nepal: double bookings, discounts, payments and the daily close."
 dateModified: "2026-10-07"
 bodyClass: page--light-nav
@@ -19,21 +19,28 @@ compareFaq:
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Compare", url: "/compare/" }]) }}
 {{ faqSchema(compareFaq) }}
 
-<main>
-<section class="v2-section faq-page" id="v2-compare">
-  <div class="v2-wrap">
-    <div class="v2-section-head">
-      <h1>Booking software or spreadsheets? <em>Compared.</em></h1>
-      <p>Zennly against spreadsheets, WhatsApp and paper registers, in plain words.</p>
+<main class="pg-page">
+<header class="pg-hero">
+  <span class="pg-hero__eyebrow">Compare</span>
+  <h1>Booking software or spreadsheets? <em>Compared.</em></h1>
+  <p class="pg-hero__lede">Zennly against spreadsheets, WhatsApp and paper registers, in plain words.</p>
+  <div class="pg-hero__actions">
+    <a href="/demo/" class="v2-btn">Book a demo &rarr;</a>
+    <a href="/blog/spreadsheets-stop-working/" class="v2-answers-link">Why spreadsheets stop working &rarr;</a>
+  </div>
+</header>
+<div class="pg-wrap">
+  <section class="pg-section" style="padding-top:24px;">
+    <div class="pg-lead">
+      <span class="v2-answer__tag">The short answer</span>
+      <h2>Spreadsheets and chats record what happened. Zennly controls it.</h2>
+      <p>Zennly books staff, room and time together, requires a manager to approve every discount, records each payment against its booking and gives the owner one daily report across every branch.</p>
     </div>
-    <div class="v2-answers">
-      <article class="v2-answer v2-answer--lead">
-        <span class="v2-answer__tag">The short answer</span>
-        <h3>Spreadsheets and chats record what happened. Zennly controls it.</h3>
-        <p>Zennly books staff, room and time together, requires a manager to approve every discount, records each payment against its booking and gives the owner one daily report across every branch.</p>
-      </article>
-    </div>
-    <div class="v2-compare-wrap">
+  </section>
+  <section class="pg-section">
+    <h2 class="pg-h2">Side by <em>side.</em></h2>
+    <p class="pg-sub">Seven things that decide whether a spa, salon or gym stays in control.</p>
+    <div class="pg-table-wrap"><div class="v2-compare-wrap">
       <table class="v2-compare">
         <thead>
           <tr><th scope="col"></th><th scope="col">Spreadsheet, WhatsApp or paper</th><th scope="col" class="v2-compare__us">Zennly</th></tr>
@@ -48,22 +55,37 @@ compareFaq:
           <tr><th scope="row">Who sees what</th><td>Everyone with the file sees everything</td><td>Admin, Manager and Staff roles</td></tr>
         </tbody>
       </table>
+    </div></div>
+  </section>
+  <section class="pg-section">
+    <h2 class="pg-h2">Compare by <em>business type.</em></h2>
+    <p class="pg-sub">See Zennly next to named options for your kind of business.</p>
+    <div class="pg-pills">
+      <a class="pg-pill" href="/compare/spa-salon-software-nepal/">Spa &amp; salon software compared &rarr;</a>
+      <a class="pg-pill" href="/compare/gym-software-nepal/">Gym software compared &rarr;</a>
     </div>
-    <div class="v2-answers" style="margin-top:20px;">
+  </section>
+  <section class="pg-section pg-end">
+    <h2 class="pg-h2">Common <em>questions.</em></h2>
+    <p class="pg-sub">Choosing between booking software and what you use today.</p>
+    <div class="pg-faq">
       {% for f in compareFaq %}
-      <article class="v2-answer">
-        <div class="v2-answer__top"><span class="v2-answer__num">0{{ loop.index }}</span></div>
-        <h3>{{ f.question }}</h3>
+      <details>
+        <summary>{{ f.question }}</summary>
         <p>{{ f.answer }}</p>
-      </article>
+      </details>
       {% endfor %}
     </div>
-    <div class="v2-answers-cta">
-      <a href="/demo/" class="v2-btn">Book a demo &rarr;</a>
-      <a href="/blog/spreadsheets-stop-working/" class="v2-answers-link">Why spreadsheets stop working &rarr;</a>
-      <a href="/faq/" class="v2-answers-link">Read the FAQ &rarr;</a>
-    </div>
+  </section>
+</div>
+
+<section class="bottom-cta" id="demo">
+  <div class="bottom-cta__card bottom-cta__card--banner reveal">
+    <h2 class="bottom-cta__h2">See how Zennly compares, live.</h2>
+    <p class="bottom-cta__sub">Book a 20-minute demo and judge it on your own branches and bookings.</p>
+    <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
   </div>
 </section>
+
 {% include "_footer-v2.njk" %}
 </main>

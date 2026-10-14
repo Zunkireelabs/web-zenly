@@ -8,6 +8,9 @@ COPY .eleventy.js tailwind.config.js postcss.config.js ./
 # so staging emits Disallow-all robots.txt, noindex meta and staging canonicals.
 ARG ELEVENTY_ENV=production
 ENV ELEVENTY_ENV=$ELEVENTY_ENV
+# Public EdgeX form key, supplied by compose from the server's .env file.
+ARG EDGEX_API_KEY=
+ENV EDGEX_API_KEY=$EDGEX_API_KEY
 RUN npm run build
 
 FROM nginx:alpine

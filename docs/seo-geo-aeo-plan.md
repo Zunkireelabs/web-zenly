@@ -69,4 +69,5 @@ Blog cadence: 2 posts per month, each answering one real question, each linking 
 - `solution-hero-barbershop.jpg` — Pexels photo 1813272
 - `solution-hero-beauty-clinic.jpg` — Pexels photo 3738349
 - `solution-hero-bridal-makeup.jpg` — Pexels photo 20593111
+- `feat-idx-ai-assistant.jpg` — Pexels photo 8204403
 Source new images from Pexels from now on; download into `src/assets/images/` (don't hotlink) so the build converts them to WebP.

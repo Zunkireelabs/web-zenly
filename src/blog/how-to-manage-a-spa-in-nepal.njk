@@ -10,6 +10,8 @@ bodyClass: page--light-nav
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "How to manage a spa in Nepal: bookings, therapists and rooms", url: page.url }]) }}
 {% from "schema/article.njk" import articleSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema([{"question": "How do you manage a spa in Nepal?", "answer": "Book the therapist and the room together, let guests book online, put every discount through manager approval, record each payment at the point of service, and give the owner one view across branches. Booking software such as Zennly does these in one system."}, {"question": "How do I stop double-booking therapists and rooms?", "answer": "Use booking software that locks staff, room and time together, so a slot that is taken cannot be booked again."}, {"question": "Can I see all my spa branches in one place?", "answer": "Yes. Zennly runs one branch or many from one account, with one daily report across all of them."}]) }}
 {{ articleSchema("How to manage a spa in Nepal: bookings, therapists and rooms", datePublished, page.url, metaDescription, dateModified) }}
 
 <main>
@@ -22,6 +24,9 @@ bodyClass: page--light-nav
       <h1 class="article-hero__h1">How to manage a spa in Nepal: bookings, therapists and rooms</h1>
       <p class="article-hero__meta">5 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
     </div>
+  <figure class="article-cover reveal">
+      {% image "/assets/images/solution-showcase-spa-4.png", "Spa &amp; Wellness", { class: "article-cover__img", loading: "eager" } %}
+    </figure>
   </section>
 
   <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
@@ -39,12 +44,20 @@ bodyClass: page--light-nav
 <h2>3. Put discounts through an approval step</h2>
 <p>Spas discount constantly: regulars, packages, slow afternoons. The risk is not the discount, it is the missing record. Have staff request a discount and let a manager approve it, with the amount logged. Our guide on <a href="/blog/discount-leakage/">discount leakage</a> covers why this matters for margin.</p>
 <h2>4. Record payment at the point of service</h2>
-<p>If payment is written down later, the day never quite adds up. Record cash, card and online payments against the booking as the guest pays, including part-payments. At closing time you are confirming numbers, not reconstructing them. See <a href="/blog/daily-reconciliation/">what daily reconciliation should actually take</a>.</p>
+<p>If payment is written down later, the day never quite adds up. Record cash, card and online payments against the booking as the guest pays, including part-payments. At closing time you are confirming numbers, not reconstructing them. See <a href="/blog/daily-reconciliation/">what daily reconciliation should actually take</a>, or print our <a href="/daily-close-checklist/">daily close checklist</a>.</p>
 <h2>5. Give owners one view across branches</h2>
 <p>Once you have a second branch, the owner needs one place to see bookings, staff and revenue for every location. Otherwise you are calling each branch manager for the same numbers every evening.</p>
 <h2>What this looks like in practice</h2>
 <p>Nuad Thai Spa in Kathmandu runs four branches, 39 therapists and 12 rooms this way &ndash; read the <a href="/case-study/">case study</a>. If you want to see it for your own spa, <a href="/solutions/spa/">explore Zennly for spas and wellness centres</a>.</p>
 
+      <h2>Common questions</h2>
+      <h3>How do you manage a spa in Nepal?</h3>
+      <p>Book the therapist and the room together, let guests book online, put every discount through manager approval, record each payment at the point of service, and give the owner one view across branches. Booking software such as Zennly does these in one system.</p>
+      <h3>How do I stop double-booking therapists and rooms?</h3>
+      <p>Use booking software that locks staff, room and time together, so a slot that is taken cannot be booked again.</p>
+      <h3>Can I see all my spa branches in one place?</h3>
+      <p>Yes. Zennly runs one branch or many from one account, with one daily report across all of them.</p>
+      
       <h2>Related reading</h2>
       <ul>
         <li><a href="/blog/spa-management-software/">Spa management software: features and how to choose</a></li>
@@ -61,6 +74,50 @@ bodyClass: page--light-nav
   </section>
 
   <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
+  <section class="section article-more">
+    <div class="article-more__inner reveal">
+      <h2 class="article-more__h2">Keep reading</h2>
+      <div class="blog-idx-rows">
+        <a href="/blog/therapist-commission-payroll-nepal/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/feat-idx-payroll.jpg", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Operations</p>
+              <h3 class="blog-idx-row__h3">How to calculate therapist commission and payroll for a spa or salon in Nepal</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>5 min read</span></p>
+          </div>
+        </a>
+        <a href="/blog/reduce-no-shows-salon-spa-nepal/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/calendar-zero-double-bookings.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Booking</p>
+              <h3 class="blog-idx-row__h3">How to reduce missed appointments at a salon or spa in Nepal</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>5 min read</span></p>
+          </div>
+        </a>
+        <a href="/blog/spa-booking-app-nepal/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-hero-spa.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Spa & Wellness</p>
+              <h3 class="blog-idx-row__h3">Spa booking app in Nepal: how guests and tourists can book online</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>5 min read</span></p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="bottom-cta" id="demo">
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Running a spa or wellness centre?</h2>

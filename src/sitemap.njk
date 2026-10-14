@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
 {%- if not item.data.noindex and item.url %}
   <url>
     <loc>{{ site.url }}{{ item.url }}</loc>
-    {%- set lastmod = item.data.dateModified or item.data.datePublished %}
+    {%- set lastmod = item.data.dateModified or item.data.datePublished or (item.date | dateIso) %}
     {%- if lastmod %}
     <lastmod>{{ lastmod }}</lastmod>
     {%- endif %}

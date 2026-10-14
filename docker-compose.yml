@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        EDGEX_API_KEY: ${EDGEX_API_KEY:-}
     networks:
       - hosting
     restart: unless-stopped

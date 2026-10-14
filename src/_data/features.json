@@ -1839,7 +1839,7 @@
     },
     "intro": {
       "headline": "A prepaid wallet for your regular customers.",
-      "body": "Set up tiers once, enrol customers, and let the balance pay for visits."
+      "body": "Set up tiers once, enrol customers, and let the balance pay for visits. Built for spas, beauty parlours and gyms in Nepal that sell prepaid cards or monthly tiers, it replaces the notebook of who paid what with a wallet, an expiry date and a full transaction history."
     },
     "primaryFeatures": [
       {
@@ -1910,6 +1910,26 @@
         {
           "question": "Does the balance ever get out of sync?",
           "answer": "The balance is calculated from an append-only ledger of deposits, deductions and adjustments, so every change is on record."
+        },
+        {
+          "question": "How do I run prepaid memberships for a spa or gym in Nepal?",
+          "answer": "Set up membership tiers with an advance amount and validity period, record the customer's deposit, and let staff choose Membership as the payment mode at checkout. Zennly deducts the amount from the wallet and keeps every deposit and deduction as a ledger entry."
+        },
+        {
+          "question": "How does a membership activate?",
+          "answer": "Deposits are recorded, and when they reach the tier's advance amount the membership activates and its expiry date is set."
+        },
+        {
+          "question": "What happens when a membership runs out or expires?",
+          "answer": "A manager can renew a depleted or lapsed membership, optionally on a different tier, or extend its expiry. Every change is on record."
+        },
+        {
+          "question": "Can members use their balance across branches?",
+          "answer": "Memberships belong to your business account and staff take payment from the wallet at checkout. Ask in the demo how your branches should be set up."
+        },
+        {
+          "question": "Is a membership the same as a gift voucher or a session package?",
+          "answer": "No. A membership is a prepaid wallet, a voucher is a coded gift or prepaid value, and a package is a bundle of sessions for one service. Zennly tracks all three."
         },
         {
           "question": "How much does it cost?",
@@ -2209,7 +2229,7 @@
     },
     "intro": {
       "headline": "Bundles of sessions, redeemed one visit at a time.",
-      "body": "Define a package once, issue it to a customer and redeem sessions as they come in."
+      "body": "Define a package once, issue it to a customer and redeem sessions as they come in. Bridal packages, facial courses and massage bundles are common in Nepal. Zennly counts each session down at checkout so you never argue over how many a customer has left."
     },
     "primaryFeatures": [
       {
@@ -2282,6 +2302,22 @@
           "answer": "Status shows as expired once the expiry date passes, so staff can see it before redeeming."
         },
         {
+          "question": "How do I track session packages and redemptions for a spa or salon?",
+          "answer": "Create a package type for a service with a number of sessions, price and validity, issue it to a customer, and redeem one session at checkout. Sessions remaining and any balance due update after every redemption."
+        },
+        {
+          "question": "Can I sell a package and let the customer pay in instalments?",
+          "answer": "Zennly shows the final amount, the paid amount and what is still owed, so staff can see the amount due on a package at any time."
+        },
+        {
+          "question": "How do I know how many sessions a customer has left?",
+          "answer": "Open the package: sessions remaining and status (unused, partial, fully redeemed or expired) are always visible."
+        },
+        {
+          "question": "Is a package the same as a membership?",
+          "answer": "No. A package is a bundle of sessions for one service at a set price. A membership is a prepaid wallet. Zennly supports both."
+        },
+        {
           "question": "How much does it cost?",
           "answer": "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you get a tailored quote within 24 hours."
         }
@@ -2299,7 +2335,7 @@
       "payment-tracking"
     ],
     "metaDescription": "Package and session bundle software for spas and salons in Nepal — issue packages, redeem sessions at checkout and track balances.",
-    "seoTitle": "Spa Package Management Software Nepal | Zennly",
+    "seoTitle": "Spa & Salon Package Software Nepal | Zennly",
     "heroMockup": {
       "title": "Package balances",
       "date": "Thu, 3 Jul · Lazimpat branch",
@@ -2579,7 +2615,7 @@
     },
     "intro": {
       "headline": "Vouchers that behave like money, because they are tracked like money.",
-      "body": "Every voucher has a code, a balance and an expiry date, and every claim is on record."
+      "body": "Every voucher has a code, a balance and an expiry date, and every claim is on record. Gift vouchers sell well around Dashain, Tihar and the wedding season. Zennly gives every voucher a unique code, a balance and an expiry date, so a voucher is as safe to hand over as cash."
     },
     "primaryFeatures": [
       {
@@ -2652,6 +2688,22 @@
           "answer": "Wallet-style vouchers can be claimed in several visits until the balance is used."
         },
         {
+          "question": "How do I manage gift vouchers for a spa or salon in Nepal?",
+          "answer": "Issue a voucher with a generated or manual code and an expiry date, record how it was paid for, and have staff enter the code at checkout to claim the amount. Remaining balance and status update after each claim."
+        },
+        {
+          "question": "How long is a voucher valid?",
+          "answer": "By default, 90 days from issue, and expired vouchers are refused at checkout."
+        },
+        {
+          "question": "Can a voucher be part of a split payment?",
+          "answer": "Yes. A voucher is a payment on a booking, including a split payment alongside cash, card or a membership wallet."
+        },
+        {
+          "question": "What if a voucher balance is wrong?",
+          "answer": "Admins can correct a balance or void a claim, and the change is recorded."
+        },
+        {
           "question": "How much does it cost?",
           "answer": "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you get a tailored quote within 24 hours."
         }
@@ -2669,7 +2721,7 @@
       "payment-tracking"
     ],
     "metaDescription": "Gift voucher software for spas and salons in Nepal — unique codes, balances, partial claims and expiry tracking.",
-    "seoTitle": "Gift Voucher Software Nepal | Zennly",
+    "seoTitle": "Gift Voucher Software Nepal for Spas & Salons | Zennly",
     "heroMockup": {
       "title": "Voucher claims",
       "date": "Thu, 3 Jul · Lazimpat branch",
@@ -2949,7 +3001,7 @@
     },
     "intro": {
       "headline": "A promotion with a start date, an end date and a clear target.",
-      "body": "Pick the services, set the percentage and the dates, and it switches on and off by itself."
+      "body": "Pick the services, set the percentage and the dates, and it switches on and off by itself. Festival offers, wedding-season deals and slow-day promotions all need a start date, an end date and the right services. A campaign handles all three and shows the offer where customers book."
     },
     "primaryFeatures": [
       {
@@ -3022,6 +3074,22 @@
           "answer": "Managers and admins."
         },
         {
+          "question": "How do I run a promotion that shows in online booking?",
+          "answer": "Create a campaign with a percentage, link the services or categories it covers and set the start and end dates. While it runs, campaign prices flow into online booking and a banner appears on your booking site."
+        },
+        {
+          "question": "Does a campaign switch off automatically?",
+          "answer": "Yes. After the end date it stops on its own, and it is live only while switched on."
+        },
+        {
+          "question": "Can I run a Dashain or Tihar offer for specific services?",
+          "answer": "Yes. Link chosen services or whole categories, and set the dates for the festival period."
+        },
+        {
+          "question": "Can a campaign apply to just one service?",
+          "answer": "Yes. A direct service link takes priority over a category link."
+        },
+        {
           "question": "How much does it cost?",
           "answer": "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you get a tailored quote within 24 hours."
         }
@@ -3039,7 +3107,7 @@
       "reports"
     ],
     "metaDescription": "Promotion and campaign software for spas and salons in Nepal — dated percentage offers on chosen services, shown in online booking.",
-    "seoTitle": "Spa & Salon Promotions Software Nepal | Zennly",
+    "seoTitle": "Spa & Salon Promotion Software Nepal | Zennly",
     "heroMockup": {
       "title": "Active campaigns",
       "date": "Thu, 3 Jul · Online booking",
@@ -3311,7 +3379,7 @@
     "hero": {
       "eyebrow": "Outreach",
       "headline": "Bring customers back,<br> <span class=\"fd-hero__h1-accent\">without chasing them.</span>",
-      "subheadline": "Zennly emails customers who have not visited in a while and asks for a review after a visit, using templates your team writes.",
+      "subheadline": "Zennly messages customers who have not visited in a while and asks for a review after a visit, using templates your team writes. Email, SMS and WhatsApp channels are available.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-hero-dashboard.png",
       "imageAlt": "Outreach rules and message queue",
@@ -3319,11 +3387,11 @@
     },
     "intro": {
       "headline": "Messages that go out at the right moment, with your approval if you want it.",
-      "body": "Set a rule, write a template and choose whether messages send automatically or wait for review."
+      "body": "Set a rule, write a template and choose whether messages send automatically or wait for review. Most salons and spas lose regulars quietly. Outreach finds customers who have stopped visiting and asks happy customers for a review, so repeat business does not depend on someone remembering to message."
     },
     "primaryFeatures": [
       {
-        "title": "Win-back emails",
+        "title": "Win-back messages",
         "description": "Customers whose last completed booking is older than your chosen number of days are found every day."
       },
       {
@@ -3337,6 +3405,10 @@
       {
         "title": "Review queue",
         "description": "Choose automatic sending, or have staff approve and edit each message first."
+      },
+      {
+        "title": "Email, SMS and WhatsApp",
+        "description": "Send by email, or ask us to enable SMS and WhatsApp for your business."
       }
     ],
     "howItWorks": [
@@ -3362,7 +3434,7 @@
         "step": "04",
         "icon": "check",
         "title": "Messages are sent",
-        "description": "Approved messages are sent by email and the result is recorded."
+        "description": "Approved messages are sent by email, or by SMS or WhatsApp where enabled for your business, and the result is recorded."
       }
     ],
     "stopStart": {
@@ -3384,8 +3456,12 @@
       "sub": "Answers to what owners ask before they switch.",
       "items": [
         {
-          "question": "Does it send SMS or WhatsApp?",
-          "answer": "Email is live today. SMS and WhatsApp are not available yet."
+          "question": "Can Zennly send win-back messages by SMS or WhatsApp?",
+          "answer": "Yes. Zennly can send outreach by email, SMS and WhatsApp. Email is the default; ask in your demo and we will enable SMS and WhatsApp for your business."
+        },
+        {
+          "question": "Can I send review requests by SMS in Nepal?",
+          "answer": "Yes. SMS is available for review requests and win-back messages. Ask us to enable it for your business during your demo."
         },
         {
           "question": "Can we approve messages before they go?",
@@ -3394,6 +3470,22 @@
         {
           "question": "Who can change the rules?",
           "answer": "Managers and admins."
+        },
+        {
+          "question": "How do I win back customers who stopped visiting my salon or spa?",
+          "answer": "Set a win-back rule with a number of lapsed days and a template. Each day Zennly finds customers whose last completed booking is older than that limit and queues an email, which you can approve first."
+        },
+        {
+          "question": "How do I get more Google reviews for a salon or spa?",
+          "answer": "A review request is queued after a booking is completed, using a template your team writes. You can send it automatically or approve each one first."
+        },
+        {
+          "question": "Can I write the email myself?",
+          "answer": "Yes. Write the subject and body once, with placeholders such as the customer's name."
+        },
+        {
+          "question": "Can I check messages before they are sent?",
+          "answer": "Yes. A rule can send automatically or put each message in a review queue for staff to approve or edit."
         },
         {
           "question": "How much does it cost?",
@@ -3412,8 +3504,8 @@
       "memberships",
       "campaigns"
     ],
-    "metaDescription": "Customer outreach software for spas and salons in Nepal — automatic win-back and review request emails with an approval queue.",
-    "seoTitle": "Customer Outreach & Win-Back Software Nepal | Zennly",
+    "metaDescription": "Customer outreach software for spas and salons in Nepal: automatic win-back and review requests by email, SMS or WhatsApp, with an approval queue.",
+    "seoTitle": "Win-Back & Review Request Software Nepal | Zennly",
     "heroMockup": {
       "title": "Outreach queue",
       "date": "Thu, 3 Jul · Email",
@@ -3693,7 +3785,7 @@
     },
     "intro": {
       "headline": "From attendance and bookings to a finished payroll run.",
-      "body": "Set salary and commission once. Generate the month, review it, then lock it."
+      "body": "Set salary and commission once. Generate the month, review it, then lock it. Therapists in Nepal are often paid a salary plus commission. Payroll turns attendance and completed bookings into a finished monthly run per branch, so month-end stops being a weekend of spreadsheets."
     },
     "primaryFeatures": [
       {
@@ -3770,6 +3862,22 @@
           "answer": "No. Finalizing locks the run."
         },
         {
+          "question": "How do I calculate therapist commission and payroll per branch?",
+          "answer": "Set each therapist's salary and commission rate, record attendance, then pick the branch and month. Zennly calculates salary, absence deductions and commissions, you review the draft, and you finalise to lock it."
+        },
+        {
+          "question": "How are absences handled in payroll?",
+          "answer": "Absent days, half days and unpaid leave reduce pay by the day. Present and leave statuses feed the calculation."
+        },
+        {
+          "question": "Does commission include referrals?",
+          "answer": "Referral commission is added per booking on top of service commission."
+        },
+        {
+          "question": "Can I regenerate a draft payroll run?",
+          "answer": "Yes. Check the draft and regenerate if needed, then finalise to lock it."
+        },
+        {
           "question": "How much does it cost?",
           "answer": "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you get a tailored quote within 24 hours."
         }
@@ -3787,7 +3895,7 @@
       "reports"
     ],
     "metaDescription": "Payroll software for spas and salons in Nepal — monthly salary, attendance deductions and commission calculated per branch.",
-    "seoTitle": "Spa & Salon Payroll Software Nepal | Zennly",
+    "seoTitle": "Spa & Salon Payroll & Commission Software Nepal | Zennly",
     "heroMockup": {
       "title": "Payroll run",
       "date": "July · Lazimpat branch",
@@ -4051,5 +4159,372 @@
       ],
       "sub": "How it works inside the product."
     }
+  },
+  {
+    "slug": "ai-assistant",
+    "name": "AI Receptionist",
+    "badge": "AI Receptionist",
+    "hero": {
+      "eyebrow": "AI receptionist",
+      "headline": "Never miss a booking,<br> <span class=\"fd-hero__h1-accent\">even when nobody answers.</span>",
+      "subheadline": "An AI receptionist that answers customer calls and chats for your spa, salon, gym or clinic and helps them book, so enquiries are not lost while your team is with a customer or the doors are closed. Available on request.",
+      "cta": "See it in a 20-minute demo →",
+      "image": "/assets/images/feat-hero-dashboard.png",
+      "imageAlt": "AI receptionist answering booking enquiries",
+      "bg": "#E4EEDC"
+    },
+    "intro": {
+      "headline": "An AI receptionist for businesses that cannot answer every call.",
+      "body": "In Nepal, most bookings still start with a phone call or a message. When the phone rings during a treatment, a class or a late evening, the customer often moves on to the next business. Zennly can provide an AI receptionist that answers calls and chat messages, handles the common questions and helps customers book, then places the request in your Zennly schedule. It is available on request and is set up with your own services, branches and rules."
+    },
+    "primaryFeatures": [
+      {
+        "title": "Calls and chat",
+        "description": "Answers customer questions and booking requests by phone call and by chat."
+      },
+      {
+        "title": "Always on",
+        "description": "Picks up outside opening hours and while your team is busy with customers."
+      },
+      {
+        "title": "Set up for your business",
+        "description": "Configured with your services, branches and rules during your demo."
+      },
+      {
+        "title": "Feeds your schedule",
+        "description": "Booking requests land in your Zennly schedule, where your team manages them."
+      },
+      {
+        "title": "Your team stays in control",
+        "description": "It covers the calls and chats you cannot take. It does not replace your reception."
+      },
+      {
+        "title": "Available on request",
+        "description": "Ask for it in your demo and we will set it up for your business."
+      }
+    ],
+    "howItWorks": [
+      {
+        "step": "01",
+        "icon": "tag",
+        "title": "Tell us about your business",
+        "description": "Share your branches, services, opening hours and the rules you want it to follow."
+      },
+      {
+        "step": "02",
+        "icon": "check",
+        "title": "We set it up with you",
+        "description": "We configure the assistant for your business and connect it to your Zennly schedule."
+      },
+      {
+        "step": "03",
+        "icon": "activity",
+        "title": "Customers call or chat",
+        "description": "The assistant answers questions and helps with booking requests, day and night."
+      },
+      {
+        "step": "04",
+        "icon": "check",
+        "title": "Bookings reach your schedule",
+        "description": "Requests appear in Zennly, where your team confirms and manages them as usual."
+      },
+      {
+        "step": "05",
+        "icon": "activity",
+        "title": "Review and refine",
+        "description": "Check how it is doing with our team and adjust it as your business changes."
+      }
+    ],
+    "stopStart": {
+      "stop": [
+        "Missed calls during treatments and classes",
+        "Lost bookings after closing",
+        "Reception tied to the phone all day",
+        "Customers who give up and book elsewhere",
+        "Repeating the same opening-hours answer"
+      ],
+      "start": [
+        "Every call and chat answered",
+        "Booking requests captured around the clock",
+        "Reception free for the customers in the room",
+        "Common questions answered without interrupting your team",
+        "Everything in one Zennly schedule"
+      ]
+    },
+    "objections": {
+      "headline": "Things we get asked.",
+      "sub": "Answers to what owners ask before they add it.",
+      "items": [
+        {
+          "question": "What is an AI receptionist for a spa or salon?",
+          "answer": "It is an AI assistant that answers customer calls and chat messages for your business and helps them book, so enquiries are not missed when your team is busy or closed."
+        },
+        {
+          "question": "Is an AI receptionist available in Nepal?",
+          "answer": "Zennly can provide an AI assistant for businesses in Nepal. It is available on request: ask for it in your demo and we will set it up for your business."
+        },
+        {
+          "question": "Why would a spa, salon or clinic need an AI receptionist?",
+          "answer": "Most bookings start with a call or a message, and those arrive while staff are with customers or after closing. An AI receptionist answers them so the booking is not lost to the next business."
+        },
+        {
+          "question": "Does it replace my reception team?",
+          "answer": "No. It covers calls and chats your team cannot take, and your team keeps control of the schedule in Zennly."
+        },
+        {
+          "question": "Where do the bookings go?",
+          "answer": "Booking requests land in your Zennly schedule, alongside every other booking, so your team manages everything in one place."
+        },
+        {
+          "question": "How do I get it?",
+          "answer": "Ask for it when you book a 20-minute demo. We set it up with your services, branches and rules."
+        },
+        {
+          "question": "Do I need Zennly booking software to use it?",
+          "answer": "The assistant is designed to work with your Zennly schedule. Book a demo to discuss your setup."
+        },
+        {
+          "question": "How much does it cost?",
+          "answer": "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you get a tailored quote within 24 hours."
+        }
+      ]
+    },
+    "bottomCta": {
+      "headline": "Answer every enquiry, even after closing.",
+      "subheadline": "Ask about the AI receptionist in your 20-minute demo.",
+      "ctaLabel": "Book your live demo →",
+      "reassurance": "No commitment. We'll walk through it live with your branch setup."
+    },
+    "relatedFeatures": [
+      "booking",
+      "outreach",
+      "reports"
+    ],
+    "metaDescription": "AI receptionist for spas, salons and clinics in Nepal: an AI assistant that answers calls and chats and helps customers book. Available on request.",
+    "seoTitle": "AI Receptionist for Spas & Salons in Nepal | Zennly",
+    "roles": [
+      {
+        "persona": "Front-desk staff",
+        "summary": "Spend less time tied to the phone and more time with the customers in front of you.",
+        "icon": "users",
+        "image": "/assets/images/feat-role-frontdesk.jpg",
+        "imageAlt": "Front-desk staff at a salon reception desk",
+        "features": [
+          {
+            "title": "Fewer interruptions",
+            "description": "Calls and chats are handled while you are with a customer."
+          },
+          {
+            "title": "Requests land in the schedule",
+            "description": "Booking requests appear in Zennly, ready for your team to confirm."
+          },
+          {
+            "title": "Same questions, answered once",
+            "description": "Opening hours, services and availability stop eating your day."
+          }
+        ]
+      },
+      {
+        "persona": "Branch managers",
+        "summary": "Decide how the assistant speaks for your branch, then review how it is doing.",
+        "icon": "layout",
+        "image": "/assets/images/feat-role-managers.jpg",
+        "imageAlt": "Branch manager reviewing the schedule on a tablet",
+        "features": [
+          {
+            "title": "Your services and branches",
+            "description": "Set up around what you actually offer and where."
+          },
+          {
+            "title": "Your rules",
+            "description": "Configured with our team in the demo, and adjustable later."
+          },
+          {
+            "title": "Review and refine",
+            "description": "Look at how it is doing and improve it with us."
+          }
+        ]
+      },
+      {
+        "persona": "Owners & admins",
+        "summary": "Stop losing enquiries you never knew you missed, across every branch.",
+        "icon": "bar-chart",
+        "image": "/assets/images/feat-role-owners.jpg",
+        "imageAlt": "Owner reviewing reports at a bright office desk",
+        "features": [
+          {
+            "title": "Cover after-hours enquiries",
+            "description": "Evening and early-morning calls no longer go unanswered."
+          },
+          {
+            "title": "One schedule across branches",
+            "description": "Requests flow into the same Zennly schedule as every other booking."
+          },
+          {
+            "title": "Available on request",
+            "description": "Switch it on for the businesses that need it, nothing to install."
+          }
+        ]
+      }
+    ],
+    "proof": {
+      "eyebrow": "At a glance",
+      "headline": "Built to cover the calls you cannot take.",
+      "stats": [
+        {
+          "tag": "Coverage",
+          "value": "24/7",
+          "label": "Answers outside opening hours and while your team is busy"
+        },
+        {
+          "tag": "Channels",
+          "value": "2",
+          "label": "Customer calls and chat messages"
+        },
+        {
+          "tag": "Schedule",
+          "value": "1",
+          "label": "Booking requests land in your Zennly schedule"
+        }
+      ],
+      "sub": "What you get when you ask for it in your demo."
+    },
+    "heroMockup": {
+      "title": "Enquiries",
+      "date": "Sample · Calls and chat",
+      "rows": [
+        {
+          "avatar": "C",
+          "name": "Call · Booking request",
+          "service": "Deep tissue massage, Saturday",
+          "status": "Booked",
+          "done": true
+        },
+        {
+          "avatar": "C",
+          "name": "Chat · Opening hours",
+          "service": "Asked about Sunday hours",
+          "status": "Answered",
+          "done": true
+        },
+        {
+          "avatar": "C",
+          "name": "Call · After closing",
+          "service": "Facial enquiry, 8:40 pm",
+          "status": "Captured",
+          "done": false
+        }
+      ]
+    },
+    "workflowHeading": "How the AI receptionist runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
+    "workflowSub": "A sample timeline of one enquiry, from a call after closing to a booking in your schedule.",
+    "workflow": [
+      {
+        "num": "01",
+        "time": "Setup",
+        "title": "We set it up for your business",
+        "body": "Share your branches, services, opening hours and rules, and we configure the assistant with you in the demo.",
+        "status": "Pending",
+        "scene": {
+          "type": "form",
+          "head": "AI receptionist setup",
+          "bannerTitle": "Set up for your business",
+          "bannerSub": "Your services, branches and rules.",
+          "fields": [
+            [
+              "Branches",
+              "Your locations"
+            ],
+            [
+              [
+                "Services",
+                "Your list"
+              ],
+              [
+                "Channels",
+                "Calls and chat"
+              ]
+            ],
+            [
+              "Hours",
+              "Your opening hours"
+            ]
+          ],
+          "submit": "Save setup"
+        }
+      },
+      {
+        "num": "02",
+        "time": "After closing",
+        "title": "A customer calls or chats",
+        "body": "Someone asks about a massage or a haircut when nobody can pick up. The assistant answers instead of the call going unanswered.",
+        "status": "Confirmed",
+        "scene": {
+          "type": "live",
+          "label": "Incoming",
+          "time": "8:40 PM",
+          "title": "Booking enquiry",
+          "sub": "Call after closing",
+          "steps": [
+            [
+              "Received",
+              "done"
+            ],
+            [
+              "Answered",
+              "done"
+            ],
+            [
+              "Understood",
+              "active"
+            ]
+          ],
+          "caption": "No missed call."
+        }
+      },
+      {
+        "num": "03",
+        "time": "On the call",
+        "title": "It answers and helps them book",
+        "body": "The assistant answers common questions about your services and hours, and helps the customer choose a time.",
+        "status": "In-Progress",
+        "scene": {
+          "type": "review",
+          "badge": "Booking request",
+          "label": "Enquiry",
+          "rowLabel": "Deep tissue massage",
+          "rowValue": "Saturday · afternoon",
+          "plainLabel": "Source",
+          "plainValue": "Call or chat",
+          "button": "Request captured"
+        }
+      },
+      {
+        "num": "04",
+        "time": "In your schedule",
+        "title": "The request reaches your team",
+        "body": "The booking request lands in your Zennly schedule alongside every other booking, so your team confirms and manages it as usual.",
+        "status": "Completed",
+        "scene": {
+          "type": "receipt",
+          "badge": "In schedule",
+          "rows": [
+            [
+              "Source",
+              "Call or chat"
+            ],
+            [
+              "Status",
+              "Waiting for your team"
+            ]
+          ],
+          "total": [
+            "Where",
+            "Zennly schedule"
+          ],
+          "caption": "Your team stays in control."
+        }
+      }
+    ]
   }
 ]

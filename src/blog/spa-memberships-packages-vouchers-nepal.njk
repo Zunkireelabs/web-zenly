@@ -1,0 +1,131 @@
+---
+layout: base.njk
+title: "Spa Membership & Voucher Software Nepal | Zennly"
+metaDescription: "How spas and salons in Nepal can sell prepaid memberships, session packages and gift vouchers, and always know the balance, expiry and amount due."
+datePublished: "2026-10-12"
+dateModified: "2026-10-12"
+ogType: article
+bodyClass: page--light-nav
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "Spa memberships, packages and gift vouchers in Nepal: how to track them properly", url: page.url }]) }}
+{% from "schema/article.njk" import articleSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema([{"question": "What is the difference between a spa membership, a package and a voucher?", "answer": "A membership is a prepaid wallet with a tier and validity period. A package is a bundle of sessions for one service at a set price. A voucher is a prepaid or gift value with a unique code. Each has its own balance."}, {"question": "Can a gift voucher be used over several visits?", "answer": "Yes. Wallet-style vouchers in Zennly can be claimed over several visits until the balance is used."}, {"question": "Who can top up or adjust a membership in Zennly?", "answer": "Top-ups, renewals and adjustments are limited to managers and admins. Staff can take payment from a membership at checkout."}, {"question": "What happens when a package expires?", "answer": "The status shows as expired once the expiry date passes, so staff can see it before redeeming a session."}]) }}
+{{ articleSchema("Spa memberships, packages and gift vouchers in Nepal: how to track them properly", datePublished, page.url, metaDescription, dateModified) }}
+
+<main>
+
+  <section class="section" style="padding-bottom:0;">
+    <div class="article-hero reveal">
+      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
+      <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Spa & Wellness</p>
+      <h1 class="article-hero__h1">Spa memberships, packages and gift vouchers in Nepal: how to track them properly</h1>
+      <p class="article-hero__meta">6 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
+    </div>
+  <figure class="article-cover reveal">
+      {% image "/assets/images/feat-idx-memberships.jpg", "Spa & Wellness", { class: "article-cover__img", loading: "eager" } %}
+    </figure>
+  </section>
+
+  <section class="section">
+    <div class="article-body reveal">
+
+<p><strong>Memberships, packages and gift vouchers all hold customer money in advance, so each needs its own balance and expiry that update automatically. A membership holds a wallet, a package holds a count of sessions for one service, and a voucher holds a value with a code. Tracking them in software keeps balances correct.</strong></p>
+<p>Prepaid products are great for a spa or salon: cash arrives early and customers return. They are also a common source of arguments. A client says they bought ten sessions, the notebook says eight were used, and nobody can prove which is right. The fix is not a better notebook; it is a record that updates itself.</p>
+<h2>Three products, three balances</h2>
+<h3>Memberships</h3>
+<p>A customer pays in advance for a tier with a set amount and validity period. The balance is a wallet: deposits add, payments at checkout deduct. Because every change is a ledger entry, the balance always adds up. See <a href="/features/memberships/">memberships</a>.</p>
+<h3>Packages</h3>
+<p>A package is a bundle of sessions for one service at a set price, such as six facials or ten massage sessions. Each visit redeems one session, and the record shows sessions left, status (unused, partial, fully redeemed or expired) and the amount still due. See <a href="/features/packages/">packages</a>.</p>
+<h3>Gift vouchers</h3>
+<p>A voucher has a unique code, a value and an expiry date. It can be used as a payment, including part of a split payment, and wallet-style vouchers can be claimed over several visits. See <a href="/features/vouchers/">vouchers</a>. Vouchers are not discount codes; for percentage promotions, use <a href="/features/campaigns/">campaigns</a>.</p>
+<h2>Festival and wedding season</h2>
+<p>Gift vouchers and packages sell well around Dashain, Tihar and the wedding season. That is exactly when staff are busiest and mistakes happen. Set up your products and expiry rules before the rush so staff only need to enter a code or tap a redeem button at checkout.</p>
+<h2>Rules worth setting</h2>
+<ul>
+<li>Who may top up, renew or adjust a balance (we suggest managers and admins only).</li>
+<li>How long each product stays valid.</li>
+<li>Whether a package can be used at any branch. Decide this before you sell it.</li>
+<li>How corrections are recorded, so an adjustment is never silent.</li>
+</ul>
+<h2>Reconcile daily</h2>
+<p>Redeemed sessions and voucher claims are not cash, so they must not be mixed into the daily cash count. Recording each payment by method keeps the close clean. See <a href="/blog/daily-reconciliation/">daily reconciliation</a> and <a href="/features/payment-tracking/">payment tracking</a>.</p>
+
+      <h2>Common questions</h2>
+      <h3>What is the difference between a spa membership, a package and a voucher?</h3>
+      <p>A membership is a prepaid wallet with a tier and validity period. A package is a bundle of sessions for one service at a set price. A voucher is a prepaid or gift value with a unique code. Each has its own balance.</p>
+      <h3>Can a gift voucher be used over several visits?</h3>
+      <p>Yes. Wallet-style vouchers in Zennly can be claimed over several visits until the balance is used.</p>
+      <h3>Who can top up or adjust a membership in Zennly?</h3>
+      <p>Top-ups, renewals and adjustments are limited to managers and admins. Staff can take payment from a membership at checkout.</p>
+      <h3>What happens when a package expires?</h3>
+      <p>The status shows as expired once the expiry date passes, so staff can see it before redeeming a session.</p>
+      
+      <h2>Related reading</h2>
+      <ul>
+        <li><a href="/features/memberships/">Membership management for spas, salons and gyms</a></li>
+        <li><a href="/features/packages/">Session packages</a></li>
+        <li><a href="/features/vouchers/">Gift vouchers</a></li>
+        <li><a href="/blog/daily-reconciliation/">Daily revenue reconciliation</a></li>
+        <li><a href="/solutions/spa/">Spa booking software for Nepal</a></li>
+        </ul>
+
+    </div>
+  </section>
+
+  <section class="section article-more">
+    <div class="article-more__inner reveal">
+      <h2 class="article-more__h2">Keep reading</h2>
+      <div class="blog-idx-rows">
+        <a href="/blog/spa-management-software/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-showcase-spa-3.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Buying guide</p>
+              <h3 class="blog-idx-row__h3">Spa management software: features, costs and how to choose</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>6 min read</span></p>
+          </div>
+        </a>
+        <a href="/blog/how-to-manage-a-spa-in-nepal/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/solution-showcase-spa-4.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Spa &amp; Wellness</p>
+              <h3 class="blog-idx-row__h3">How to manage a spa in Nepal: bookings, therapists and rooms</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>5 min read</span></p>
+          </div>
+        </a>
+        <a href="/blog/therapist-commission-payroll-nepal/" class="blog-idx-row">
+          <div class="blog-idx-row__img-wrap">
+            {% image "/assets/images/feat-idx-payroll.jpg", "", { class: "blog-idx-row__img", loading: "lazy" } %}
+          </div>
+          <div class="blog-idx-row__content">
+            <div>
+              <p class="blog-idx-row__tag">Operations</p>
+              <h3 class="blog-idx-row__h3">How to calculate therapist commission and payroll for a spa or salon in Nepal</h3>
+            </div>
+            <p class="blog-idx-row__foot"><span>5 min read</span></p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta" id="demo">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">Selling memberships and packages?</h2>
+      <p class="bottom-cta__sub">Book a 20-minute demo and see memberships, packages and vouchers tracked to the last rupee in Zennly.</p>
+      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+    </div>
+  </section>
+
+  {% include "_footer-v2.njk" %}
+
+</main>

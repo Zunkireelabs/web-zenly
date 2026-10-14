@@ -1,0 +1,427 @@
+<!-- "Try for free" popup — opened by any [data-trial-open] link (nav buttons). -->
+<div class="tf-modal" id="tf-modal" aria-hidden="true">
+  <div class="tf-modal__backdrop" data-trial-close></div>
+  <div class="demo-card tf-card" role="dialog" aria-modal="true" aria-labelledby="tf-title" data-lenis-prevent>
+          <button type="button" class="tf-close" aria-label="Close" data-trial-close>&times;</button>
+          <div class="tf-progress" aria-hidden="true"><span class="tf-progress__bar" id="tf-bar"></span></div>
+          <div class="demo-card__eyebrow" id="tf-eyebrow">Try for free · Step 1 of 5</div>
+
+          <form class="demo-form tf-form" id="tf-form" novalidate>
+
+            <!-- Step 1: you -->
+            <fieldset class="tf-step is-active" data-step="1">
+              <legend class="demo-card__headline"><span id="tf-title">First, who are we setting up?</span></legend>
+              <div class="demo-form__row">
+                <div class="demo-form__field">
+                  <label for="tf-name">Full name</label>
+                  <input type="text" id="tf-name" name="name" autocomplete="name" required>
+                </div>
+                <div class="demo-form__field">
+                  <label for="tf-business">Business name</label>
+                  <input type="text" id="tf-business" name="business" autocomplete="organization" required>
+                </div>
+              </div>
+              <div class="demo-form__row">
+                <div class="demo-form__field">
+                  <label for="tf-email">Work email</label>
+                  <input type="email" id="tf-email" name="email" autocomplete="email" required>
+                </div>
+                <div class="demo-form__field">
+                  <label for="tf-phone">Phone <span class="demo-form__optional">(optional)</span></label>
+                  <div class="tf-phone"><select id="tf-cc" name="countryCode" aria-label="Country code" autocomplete="tel-country-code"><option value="+977" selected>🇳🇵 +977</option><option value="+91">🇮🇳 +91</option><option value="+880">🇧🇩 +880</option><option value="+94">🇱🇰 +94</option><option value="+975">🇧🇹 +975</option><option value="+92">🇵🇰 +92</option><option value="+971">🇦🇪 +971</option><option value="+974">🇶🇦 +974</option><option value="+966">🇸🇦 +966</option><option value="+60">🇲🇾 +60</option><option value="+65">🇸🇬 +65</option><option value="+66">🇹🇭 +66</option><option value="+61">🇦🇺 +61</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select><input type="tel" id="tf-phone" name="phone" autocomplete="tel-national" inputmode="tel" placeholder="Phone number"></div>
+                </div>
+              </div>
+              <div class="demo-form__field">
+                <p class="tf-label">Send my access code via</p>
+                <div class="tf-chips tf-chips--fill" role="radiogroup" aria-label="Send my access code via">
+                  <label class="tf-chip"><input type="radio" name="codeVia" value="Email" checked><span>Email</span></label>
+                  <label class="tf-chip"><input type="radio" name="codeVia" value="SMS"><span>SMS</span></label>
+                  {# WhatsApp chip hidden until the WhatsApp Business API is set up. Restore:
+                  <label class="tf-chip"><input type="radio" name="codeVia" value="WhatsApp"><span>WhatsApp</span></label> #}
+                </div>
+                <p class="demo-form__hint" id="tf-via-hint">We&rsquo;ll send your trial login code to your email.</p>
+              </div>
+            </fieldset>
+
+            <!-- Step 2: your business (type + size) -->
+            <fieldset class="tf-step" data-step="2">
+              <legend class="demo-card__headline">Tell us about your business</legend>
+              <p class="tf-label">What kind of business do you run?</p>
+              <div class="tf-chips tf-chips--grid">
+                <label class="tf-chip"><input type="radio" name="businessType" value="Spa &amp; Wellness" required><span>Spa &amp; Wellness</span></label>
+                <label class="tf-chip"><input type="radio" name="businessType" value="Hair &amp; Nail Salon"><span>Hair &amp; Nail Salon</span></label>
+                <label class="tf-chip"><input type="radio" name="businessType" value="Tattoo Studio"><span>Tattoo Studio</span></label>
+                <label class="tf-chip"><input type="radio" name="businessType" value="Gym / Fitness Studio"><span>Gym / Fitness</span></label>
+                <label class="tf-chip"><input type="radio" name="businessType" value="Physiotherapy Clinic"><span>Physiotherapy</span></label>
+                <label class="tf-chip"><input type="radio" name="businessType" value="Cleaning Service"><span>Cleaning Service</span></label>
+                <label class="tf-chip"><input type="radio" name="businessType" value="Other"><span>Something else</span></label>
+              </div>
+              <p class="tf-label">Branches</p>
+              <div class="tf-chips tf-chips--fill">
+                <label class="tf-chip"><input type="radio" name="branches" value="1" required><span>1</span></label>
+                <label class="tf-chip"><input type="radio" name="branches" value="2"><span>2</span></label>
+                <label class="tf-chip"><input type="radio" name="branches" value="3"><span>3</span></label>
+                <label class="tf-chip"><input type="radio" name="branches" value="4"><span>4</span></label>
+                <label class="tf-chip"><input type="radio" name="branches" value="5+"><span>5+</span></label>
+              </div>
+            </fieldset>
+
+            <!-- Step 3: how they manage today -->
+            <fieldset class="tf-step" data-step="3" data-require-one="tools">
+              <legend class="demo-card__headline">How do you manage things today?</legend>
+              <p class="tf-label">Team members who take or manage bookings</p>
+              <div class="tf-chips tf-chips--fill">
+                <label class="tf-chip"><input type="radio" name="team" value="1–5" required><span>1–5</span></label>
+                <label class="tf-chip"><input type="radio" name="team" value="6–15"><span>6–15</span></label>
+                <label class="tf-chip"><input type="radio" name="team" value="16–40"><span>16–40</span></label>
+                <label class="tf-chip"><input type="radio" name="team" value="40+"><span>40+</span></label>
+              </div>
+              <p class="tf-label">How do you handle bookings right now?</p>
+              <p class="demo-form__hint">Pick all that apply.</p>
+              <div class="tf-chips tf-chips--grid">
+                <label class="tf-chip"><input type="checkbox" name="tools" value="Paper diary"><span>Paper diary</span></label>
+                <label class="tf-chip"><input type="checkbox" name="tools" value="Spreadsheets"><span>Spreadsheets</span></label>
+                <label class="tf-chip"><input type="checkbox" name="tools" value="WhatsApp / phone calls"><span>WhatsApp / phone calls</span></label>
+                <label class="tf-chip"><input type="checkbox" name="tools" value="Another booking software"><span>Another booking software</span></label>
+              </div>
+              <p class="tf-label">Do you sell retail products or manage stock/inventory alongside services?</p>
+              <div class="tf-chips tf-chips--fill">
+                <label class="tf-chip"><input type="radio" name="retail" value="Yes" required><span>Yes</span></label>
+                <label class="tf-chip"><input type="radio" name="retail" value="No"><span>No</span></label>
+              </div>
+            </fieldset>
+
+            <!-- Step 4: products -->
+            <fieldset class="tf-step" data-step="4" data-require-one="products">
+              <legend class="demo-card__headline">Which products do you want to try?</legend>
+              <p class="demo-form__hint">Pick all that apply &mdash; we&rsquo;ll switch them on in your trial workspace.</p>
+              <div class="tf-products">
+                <label class="tf-product"><input type="checkbox" name="products" value="Booking Engine"><span class="tf-product__box"><span class="tf-product__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="tf-product__text"><strong>Booking Engine</strong><small>6-step flow, no double bookings</small></span></span></label>
+                <label class="tf-product"><input type="checkbox" name="products" value="Operations"><span class="tf-product__box"><span class="tf-product__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></span><span class="tf-product__text"><strong>Operations</strong><small>Live floor view, rosters, dashboards</small></span></span></label>
+                <label class="tf-product"><input type="checkbox" name="products" value="Finance &amp; Reconciliation"><span class="tf-product__box"><span class="tf-product__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span class="tf-product__text"><strong>Finance &amp; Reconciliation</strong><small>Payments and daily revenue close</small></span></span></label>
+                <label class="tf-product"><input type="checkbox" name="products" value="Live Reports"><span class="tf-product__box"><span class="tf-product__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><span class="tf-product__text"><strong>Live Reports</strong><small>8 real-time utilization reports</small></span></span></label>
+                <label class="tf-product"><input type="checkbox" name="products" value="Discount Management"><span class="tf-product__box"><span class="tf-product__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><span class="tf-product__text"><strong>Discount Management</strong><small>Request and manager approval</small></span></span></label>
+                <label class="tf-product"><input type="checkbox" name="products" value="Staff Management"><span class="tf-product__box"><span class="tf-product__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="tf-product__text"><strong>Staff Management</strong><small>Schedules and branch transfers</small></span></span></label>
+              </div>
+            </fieldset>
+
+            <!-- Step 5: goals -->
+            <fieldset class="tf-step" data-step="5">
+              <legend class="demo-card__headline">Make the trial yours</legend>
+              <p class="tf-label">What matters most to you right now?</p>
+              <div class="tf-chips tf-chips--grid">
+                <label class="tf-chip"><input type="radio" name="priority" value="Stop double bookings" required><span>Stop double bookings</span></label>
+                <label class="tf-chip"><input type="radio" name="priority" value="Get online bookings"><span>Get online bookings</span></label>
+                <label class="tf-chip"><input type="radio" name="priority" value="Track payments &amp; revenue"><span>Track payments &amp; revenue</span></label>
+                <label class="tf-chip"><input type="radio" name="priority" value="Manage staff &amp; branches"><span>Manage staff &amp; branches</span></label>
+              </div>
+              <p class="tf-label">Who else is involved in choosing new software?</p>
+              <div class="tf-chips tf-chips--fill">
+                <label class="tf-chip"><input type="radio" name="decision" value="Just me" required><span>Just me</span></label>
+                <label class="tf-chip"><input type="radio" name="decision" value="Me + a partner"><span>Me + a partner</span></label>
+                <label class="tf-chip"><input type="radio" name="decision" value="A team decides"><span>A team decides</span></label>
+              </div>
+              <div class="demo-form__field">
+                <label for="tf-notes">What would make this trial a success for you? <span class="demo-form__optional">(optional)</span></label>
+                <textarea id="tf-notes" name="notes" rows="2" placeholder="Anything you&rsquo;d like answered by the end of your first week."></textarea>
+              </div>
+            </fieldset>
+
+            <p class="tf-error" id="tf-error" role="alert" hidden></p>
+
+            <div class="tf-actions">
+              <button type="button" class="btn-secondary" id="tf-back" hidden>&larr; Back</button>
+              <button type="submit" class="btn-primary tf-actions__next" id="tf-next">Continue &rarr;</button>
+            </div>
+          </form>
+
+          <div class="tf-verify" id="tf-verify" hidden>
+            <div class="tf-verify__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+            <h2 class="demo-card__headline">Check your inbox</h2>
+            <p class="demo-form__hint tf-verify__copy" id="tf-verify-copy"></p>
+            <div class="tf-otp" id="tf-otp"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="one-time-code" maxlength="1" placeholder=" " aria-label="Digit 1"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 2"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 3"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 4"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 5"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 6"></div>
+            <p class="tf-error" id="tf-verify-error" role="alert" hidden></p>
+            <p class="tf-verify__dev" id="tf-verify-dev" hidden>Demo mode &middot; use code <strong>123456</strong></p>
+            <button type="button" class="btn-primary tf-verify__btn" id="tf-verify-btn">Verify &amp; get my login &rarr;</button>
+            <p class="tf-verify__links">
+              <button type="button" class="tf-linkbtn" id="tf-resend">Resend code</button>
+              <span aria-hidden="true">&middot;</span>
+              <button type="button" class="tf-linkbtn" id="tf-change">Change details</button>
+            </p>
+          </div>
+
+          <div class="tf-done" id="tf-done" hidden>
+            <div class="tf-done__tick" aria-hidden="true">&#10003;</div>
+            <h2 class="demo-card__headline">Your free trial is ready.</h2>
+            <p class="demo-form__hint">You&rsquo;re verified. Use these details to log in to your Zennly workspace.</p>
+            <dl class="tf-creds">
+              <div class="tf-creds__row"><dt>Login email</dt><dd id="tf-cred-email"></dd><button type="button" class="tf-creds__copy" data-copy="tf-cred-email">Copy</button></div>
+              <div class="tf-creds__row"><dt>Password</dt><dd id="tf-cred-pass"></dd><button type="button" class="tf-creds__copy" data-copy="tf-cred-pass">Copy</button></div>
+            </dl>
+            <div class="tf-done__actions">
+              <a href="https://dev-zenly.zunkireelabs.com/nuad-thai-spa/login" class="btn-primary" id="tf-login-btn" target="_blank" rel="noopener">Log in to Zennly &rarr;</a>
+            </div>
+          </div>
+
+          <p class="demo-card__reassure">No credit card. No lock-in. We don&rsquo;t share your information. Ever.</p>
+  </div>
+</div>
+
+<script>
+    (function () {
+      var form = document.getElementById('tf-form');
+      var modal = document.getElementById('tf-modal');
+      if (!form || !modal) return;
+      var steps = Array.prototype.slice.call(form.querySelectorAll('.tf-step'));
+      var back = document.getElementById('tf-back');
+      var next = document.getElementById('tf-next');
+      var bar = document.getElementById('tf-bar');
+      var eyebrow = document.getElementById('tf-eyebrow');
+      var err = document.getElementById('tf-error');
+      var cur = 0;
+
+      var lastFocus = null;
+      function open() {
+        lastFocus = document.activeElement;
+        modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false');
+        document.documentElement.classList.add('tf-lock');
+        if (window.__zennlyLenis) window.__zennlyLenis.stop();
+        setTimeout(function () { (form.querySelector('input') || modal).focus(); }, 50);
+      }
+      function close() {
+        modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true');
+        document.documentElement.classList.remove('tf-lock');
+        if (window.__zennlyLenis) window.__zennlyLenis.start();
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+      document.querySelectorAll('[data-trial-open]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var m = document.getElementById('v2-nav-mobile-scrim'); if (m) m.click();
+          open();
+        });
+      });
+      modal.querySelectorAll('[data-trial-close]').forEach(function (el) { el.addEventListener('click', close); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) close(); });
+      if (location.hash === '#try-free') open();
+
+      function show(i) {
+        cur = i;
+        steps.forEach(function (s, n) { s.classList.toggle('is-active', n === i); });
+        back.hidden = i === 0;
+        next.innerHTML = i === steps.length - 1 ? 'Send verification code &rarr;' : 'Continue &rarr;';
+        eyebrow.textContent = 'Try for free \u00b7 Step ' + (i + 1) + ' of ' + steps.length;
+        bar.style.width = ((i + 1) / steps.length * 100) + '%';
+        err.hidden = true;
+      }
+
+      function valid() {
+        var ok = true, msg = '';
+        steps[cur].querySelectorAll('input[required]').forEach(function (el) {
+          if (!ok) return;
+          if (el.type === 'radio') {
+            if (!form.querySelector('input[name="' + el.name + '"]:checked')) { ok = false; msg = 'Please choose an option to continue.'; }
+          } else if (!el.checkValidity()) {
+            ok = false; msg = 'Please complete the highlighted field.'; el.focus();
+          }
+        });
+        var grp = steps[cur].getAttribute('data-require-one');
+        if (ok && grp && !form.querySelector('input[name="' + grp + '"]:checked')) { ok = false; msg = grp === 'tools' ? 'Pick at least one option to continue.' : 'Pick at least one product to continue.'; }
+        if (ok && cur === 0) {
+          var via = form.querySelector('input[name="codeVia"]:checked').value;
+          if (via !== 'Email' && !form.phone.value.trim()) { ok = false; msg = 'Add your phone number to get the code on ' + via + '.'; form.phone.focus(); }
+        }
+        err.textContent = msg; err.hidden = ok;
+        return ok;
+      }
+
+      document.querySelectorAll('[data-copy]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var t = document.getElementById(b.getAttribute('data-copy')).textContent;
+          if (navigator.clipboard) navigator.clipboard.writeText(t);
+          b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500);
+        });
+      });
+
+      var viaHint = document.getElementById('tf-via-hint');
+      var viaText = { Email: 'your email', WhatsApp: 'your WhatsApp number', SMS: 'your phone by SMS' };
+      form.querySelectorAll('input[name="codeVia"]').forEach(function (r) {
+        r.addEventListener('change', function () { viaHint.innerHTML = 'We&rsquo;ll send your trial login code to ' + viaText[r.value] + '.'; });
+      });
+
+      back.addEventListener('click', function () { show(cur - 1); });
+
+      // ── Lead capture (EdgeX form "try-for-free") ─────────────────
+      var EDGEX_KEY = {{ edgex.key | dump | safe }};
+      var EDGEX_URL = {{ (edgex.base + edgex.forms.trial) | dump | safe }};
+      var LEAD_MAP = {
+        businessType: { 'Spa & Wellness': 'spa_wellness', 'Hair & Nail Salon': 'hair_nail_salon', 'Tattoo Studio': 'tattoo_studio', 'Gym / Fitness Studio': 'gym_fitness', 'Physiotherapy Clinic': 'physiotherapy', 'Cleaning Service': 'cleaning_service', 'Other': 'other' },
+        branches: { '1': '1', '2': '2', '3': '3', '4': '4', '5+': '5_plus' },
+        team: { '1\u20135': '1_5', '6\u201315': '6_15', '16\u201340': '16_40', '40+': '40_plus' },
+        tools: { 'Paper diary': 'paper_diary', 'Spreadsheets': 'spreadsheets', 'WhatsApp / phone calls': 'whatsapp_phone', 'Another booking software': 'other_software' },
+        retail: { 'Yes': 'yes', 'No': 'no' },
+        products: { 'Booking Engine': 'booking_engine', 'Operations': 'operations', 'Finance & Reconciliation': 'finance_reconciliation', 'Live Reports': 'live_reports', 'Discount Management': 'discount_management', 'Staff Management': 'staff_management' },
+        priority: { 'Stop double bookings': 'stop_double_bookings', 'Get online bookings': 'get_online_bookings', 'Track payments & revenue': 'track_payments_revenue', 'Manage staff & branches': 'manage_staff_branches' },
+        decision: { 'Just me': 'just_me', 'Me + a partner': 'me_and_partner', 'A team decides': 'team_decides' },
+        via: { 'Email': 'email', 'SMS': 'sms' }
+      };
+      var lastLead = '';
+      function mapOne(group, v) { return LEAD_MAP[group][v] || v; }
+      function mapMany(group, csv) { return csv.split(', ').filter(Boolean).map(function (v) { return mapOne(group, v); }).join(', '); }
+      // Fire-and-forget: a failed lead post never blocks the verification step.
+      function postLead(f, val, list, via) {
+        if (!EDGEX_KEY) return;
+        var body = {
+          full_name: f.name.value.trim(),
+          email: f.email.value.trim(),
+          phone: f.phone.value.trim() ? f.countryCode.value + ' ' + f.phone.value.trim() : null,
+          intake_source: 'Website',
+          intake_account: window.location.pathname,
+          custom_fields: {
+            business_name: f.business.value.trim(),
+            code_via: mapOne('via', via),
+            business_type: mapOne('businessType', val('businessType')),
+            branches: mapOne('branches', val('branches')),
+            team_size: mapOne('team', val('team')),
+            current_tools: mapMany('tools', list('tools')),
+            sells_retail: mapOne('retail', val('retail')),
+            products_to_try: mapMany('products', list('products')),
+            top_priority: mapOne('priority', val('priority')),
+            decision_makers: mapOne('decision', val('decision')),
+            trial_success: f.notes.value.trim() || null
+          }
+        };
+        var sig = JSON.stringify(body);
+        if (sig === lastLead) return;
+        lastLead = sig;
+        fetch(EDGEX_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + EDGEX_KEY }, body: sig, keepalive: true })
+          .catch(function () { lastLead = ''; });
+      }
+
+      // ── Verification ─────────────────────────────────────────────
+      // TODO(trial-credentials): wire these to the real backend.
+      //   window.zennlySendCode({ via, dest, answers })  -> Promise (sends the code)
+      //   window.zennlyVerifyCode(code, answers)         -> Promise<{ email, password, loginUrl }> (rejects on a wrong code)
+      // Until they exist, demo mode (code 123456) runs on localhost only; on a live domain no code is accepted until these are wired.
+      var verifyEl = document.getElementById('tf-verify');
+      var doneEl = document.getElementById('tf-done');
+      var boxes = Array.prototype.slice.call(document.querySelectorAll('.tf-otp__box'));
+      var vErr = document.getElementById('tf-verify-error');
+      var resend = document.getElementById('tf-resend');
+      var ctx = null, timer = null;
+      // Demo code 123456 works on local development only. On a real domain the code must come from zennlySendCode / zennlyVerifyCode.
+      var isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+      // Shared demo account shown to everyone who verifies a trial (unless the backend returns its own credentials).
+      var DEMO_CREDS = { email: 'demo.customer@zunkireelabs.com', password: 'ZenlyDemo2026!', loginUrl: 'https://dev-zenly.zunkireelabs.com/nuad-thai-spa/login' };
+
+      // Keep the credentials visible if the user navigates away to log in and comes back (cleared when the tab closes).
+      var CREDS_KEY = 'zennlyTrialCreds';
+      function showCreds(creds) {
+        document.getElementById('tf-cred-email').textContent = creds.email;
+        document.getElementById('tf-cred-pass').textContent = creds.password;
+        document.getElementById('tf-login-btn').href = creds.loginUrl || '#';
+        form.hidden = true; verifyEl.hidden = true; doneEl.hidden = false;
+        form.closest('.tf-card').classList.add('is-done');
+      }
+      try { var saved = JSON.parse(sessionStorage.getItem(CREDS_KEY) || 'null'); if (saved && saved.email) showCreds(saved); } catch (e) {}
+
+      function startCooldown() {
+        var n = 30; clearInterval(timer); resend.disabled = true;
+        resend.textContent = 'Resend code in ' + n + 's';
+        timer = setInterval(function () {
+          n--;
+          if (n <= 0) { clearInterval(timer); resend.disabled = false; resend.textContent = 'Resend code'; }
+          else resend.textContent = 'Resend code in ' + n + 's';
+        }, 1000);
+      }
+      function sendCode() {
+        if (window.zennlySendCode) return Promise.resolve(window.zennlySendCode(ctx));
+        if (isLocal) return Promise.resolve(); // demo mode: no email draft, use code 123456
+        window.location.href = 'mailto:info@zennly.io?subject=' + encodeURIComponent('Free trial request — ' + ctx.business) + '&body=' + encodeURIComponent(ctx.answers);
+        return Promise.resolve();
+      }
+      function code() { return boxes.map(function (b) { return b.value; }).join(''); }
+      function verifyCode() {
+        var c = code();
+        if (c.length < 6) { vErr.textContent = 'Enter all 6 digits.'; vErr.hidden = false; return; }
+        vErr.hidden = true;
+        var p = window.zennlyVerifyCode ? Promise.resolve(window.zennlyVerifyCode(c, ctx.answers))
+          : (isLocal && c === '123456' ? Promise.resolve(DEMO_CREDS) : Promise.reject());
+        p.then(function (creds) {
+          creds = creds || DEMO_CREDS;
+          try { sessionStorage.setItem(CREDS_KEY, JSON.stringify(creds)); } catch (e) {}
+          showCreds(creds);
+        }).catch(function () {
+          vErr.textContent = 'That code isn\u2019t right. Check it and try again.'; vErr.hidden = false;
+          boxes.forEach(function (b) { b.value = ''; }); boxes[0].focus();
+        });
+      }
+      boxes.forEach(function (b, k) {
+        b.addEventListener('input', function () {
+          b.value = b.value.replace(/\D/g, '').slice(-1);
+          if (b.value && k < boxes.length - 1) boxes[k + 1].focus();
+          if (code().length === 6) verifyCode();
+        });
+        b.addEventListener('keydown', function (e) {
+          if (e.key === 'Backspace' && !b.value && k > 0) boxes[k - 1].focus();
+          if (e.key === 'ArrowLeft' && k > 0) boxes[k - 1].focus();
+          if (e.key === 'ArrowRight' && k < boxes.length - 1) boxes[k + 1].focus();
+        });
+        b.addEventListener('paste', function (e) {
+          var t = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '').slice(0, 6);
+          if (!t) return;
+          e.preventDefault();
+          t.split('').forEach(function (d, i) { boxes[i].value = d; });
+          boxes[Math.min(t.length, 5)].focus();
+          if (t.length === 6) verifyCode();
+        });
+      });
+      document.getElementById('tf-verify-btn').addEventListener('click', verifyCode);
+      resend.addEventListener('click', function () { sendCode().then(startCooldown); });
+      document.getElementById('tf-change').addEventListener('click', function () {
+        clearInterval(timer); verifyEl.hidden = true; form.hidden = false;
+        eyebrow.textContent = 'Try for free \u00b7 Step ' + steps.length + ' of ' + steps.length;
+        show(0);
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!valid()) return;
+        if (cur < steps.length - 1) { show(cur + 1); return; }
+        var f = form.elements;
+        var val = function (n) { return form.querySelector('input[name="' + n + '"]:checked').value; };
+        var list = function (n) { return Array.prototype.map.call(form.querySelectorAll('input[name="' + n + '"]:checked'), function (c) { return c.value; }).join(', '); };
+        var via = val('codeVia');
+        var dest = via === 'Email' ? f.email.value : f.countryCode.value + ' ' + f.phone.value;
+        var answers = [
+          'Name: ' + f.name.value,
+          'Email: ' + f.email.value,
+          'Send access code via: ' + via,
+          'Phone: ' + (f.phone.value ? f.countryCode.value + ' ' + f.phone.value : '—'),
+          'Business name: ' + f.business.value,
+          'Business type: ' + val('businessType'),
+          'Branches: ' + val('branches'),
+          'Team size: ' + val('team'),
+          'Manages bookings with: ' + list('tools'),
+          'Sells retail / manages stock: ' + val('retail'),
+          'Products to try: ' + list('products'),
+          'Most important: ' + val('priority'),
+          'Decision-maker: ' + val('decision'),
+          'Trial success: ' + (f.notes.value || '—')
+        ].join('\n');
+        ctx = { via: via, dest: dest, email: f.email.value, business: f.business.value, answers: answers };
+        postLead(f, val, list, via);
+        sendCode().then(function () {
+          var vc = document.getElementById('tf-verify-copy'); vc.textContent = 'We sent a 6-digit code by ' + via + ' to '; var vs = document.createElement('strong'); vs.textContent = dest; vc.appendChild(vs); vc.appendChild(document.createTextNode('.'));
+          document.getElementById('tf-verify-dev').hidden = !(isLocal && !window.zennlyVerifyCode);
+          form.hidden = true; verifyEl.hidden = false;
+          eyebrow.textContent = 'Try for free \u00b7 Verify';
+          bar.style.width = '100%';
+          boxes.forEach(function (b) { b.value = ''; });
+          vErr.hidden = true; startCooldown(); boxes[0].focus();
+        });
+      });
+
+      show(0);
+    })();
+  </script>

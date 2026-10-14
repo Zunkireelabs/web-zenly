@@ -123,3 +123,25 @@ When any of these ships: edit the entry in `src/_data/features.json`, add the ne
 ## Rule: never compete with the client on their own brand (2026-09-30)
 
 Nuad Thai's own site owns searches for "Nuad Thai Spa" and will always rank first for them. Zennly pages must not target Nuad Thai brand keywords. The case study leads with Zennly and the generic keyword "multi-branch spa booking software Nepal"; Nuad Thai is named in the page body as proof, and in schema only as a `mentions` reference (no address or phone, so Google does not read our page as their business listing). Zennly should outrank Nuad Thai only for generic booking-software searches.
+
+## Top-reach keyword set (added 2026-10-12)
+
+No search-volume data was available, so these are chosen from how Nepal owners phrase the need, not from measured volume. Check each in GSC → Performance after 4-6 weeks and double down on what shows impressions.
+
+| Keyword | Where it lives |
+|---|---|
+| booking software Nepal, online booking system Nepal | `/`, `/blog/online-booking-system-nepal/` |
+| salon software Nepal, best salon software Nepal, salon management system Nepal | `/solutions/salon/`, `/blog/best-salon-software-nepal/` |
+| beauty parlour software / management system | `/blog/beauty-parlour-software-nepal/`, glossary |
+| spa software Nepal, spa booking app Nepal | `/solutions/spa/`, `/blog/spa-booking-app-nepal/` |
+| gym management software Nepal, gym membership software | `/solutions/fitness/`, `/blog/gym-membership-management-software-nepal/`, `/compare/gym-software-nepal/` |
+| clinic / physiotherapy appointment software Nepal | `/blog/clinic-appointment-software-nepal/`, `/solutions/physiotherapy/` |
+| barbershop booking app Nepal | `/blog/barbershop-booking-app-nepal/` |
+| bridal makeup booking Nepal | `/blog/bridal-makeup-artist-booking-nepal/` |
+| how to start a spa / salon business in Nepal | the two "how to start" posts (top-of-funnel) |
+| membership / package / voucher / payroll / campaign software Nepal | six feature pages |
+
+Not targeted until the product supports it: POS or full billing/invoicing, Khalti/eSewa, SMS/WhatsApp outreach, AI receptionist.
+
+## Update 2026-10-12: SMS, WhatsApp and AI receptionist now publishable as "available on request"
+Per the team, email/SMS/WhatsApp outreach and the AI call/chat assistant are built (on dev) and can be provided to any client who asks. They are published as "available on request", not as default features. Pages: `/features/outreach/`, `/features/ai-assistant/`. Candidate keywords now in use: AI receptionist for bookings Nepal, AI phone booking assistant, SMS review requests Nepal. Khalti/eSewa and an open API are still NOT to be claimed.

@@ -2,32 +2,121 @@
 layout: base.njk
 title: "Booking Software in Nepal by City | Zennly"
 metaDescription: "Zennly booking and scheduling software for spas, salons, gyms and clinics across Nepal: Kathmandu, Lalitpur, Bhaktapur, Pokhara, Biratnagar and Chitwan."
-dateModified: "2026-10-07"
+dateModified: "2026-10-12"
 bodyClass: page--light-nav
+nepalFaq:
+  - question: "What is the best booking software for spas and salons in Nepal?"
+    answer: "The right choice depends on whether you run one branch or several. Zennly is booking and operations software built in Nepal for spas, beauty parlours, salons, gyms and clinics. It books staff, room and time together, requires manager approval for discounts, records payments by method and gives the owner one daily report across branches."
+  - question: "Which cities in Nepal does Zennly serve?"
+    answer: "Zennly is web-based, so it works anywhere in Nepal with an internet connection. We have dedicated guides for Kathmandu, Lalitpur, Bhaktapur, Pokhara, Biratnagar and Chitwan (Bharatpur and Sauraha)."
+  - question: "Which businesses in Nepal use booking software like Zennly?"
+    answer: "Spas, salons and beauty parlours, barbershops, gyms and fitness studios, physiotherapy and beauty clinics, tattoo studios, bridal makeup studios and cleaning companies."
+  - question: "Do I need to install anything to use Zennly in Nepal?"
+    answer: "No. Zennly runs in the browser on a phone, tablet or computer, and customers book from a web page, so there is no app to download."
+  - question: "Is Zennly built in Nepal?"
+    answer: "Yes. Zennly is built by Zunkireelabs in Lalitpur, Bagmati Province, and Nepal businesses can get an in-person or video demo."
+  - question: "How much does booking software cost in Nepal?"
+    answer: "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you receive a tailored quote within 24 hours."
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Nepal", url: "/nepal/" }]) }}
-<main>
-<section class="v2-section faq-page" id="v2-nepal">
-  <div class="v2-wrap">
-    <div class="v2-section-head">
-      <h1>Booking software across <em>Nepal.</em></h1>
-      <p>Zennly is built in Nepal for spas, salons, gyms and clinics, from one branch to many.</p>
+{{ faqSchema(nepalFaq) }}
+<main class="pg-page">
+<header class="pg-hero">
+  <span class="pg-hero__eyebrow">Zennly in Nepal</span>
+  <h1>Booking software across <em>Nepal.</em></h1>
+  <p class="pg-hero__lede">Built in Lalitpur for spas, salons, gyms and clinics, from one branch to many.</p>
+  <div class="pg-hero__actions">
+    <a href="/demo/" class="v2-btn">Book a demo &rarr;</a>
+    <a href="#cities" class="v2-answers-link">Choose your city &darr;</a>
+  </div>
+  <div class="pg-hero__media">
+    <div class="pg-hero__tile">{% image "/assets/images/feat-role-frontdesk.jpg", "Front-desk staff checking in a customer at a salon in Nepal", { loading: "eager" } %}</div>
+    <div class="pg-hero__tile">{% image "/assets/images/feat-role-owners.jpg", "Business owner reviewing reports on Zennly", { loading: "eager" } %}</div>
+  </div>
+</header>
+
+<div class="pg-wrap">
+  <section class="pg-section" style="padding-top:56px;">
+    <div class="pg-lead">
+      <span class="v2-answer__tag">The short answer</span>
+      <h2>What booking software can service businesses use in Nepal?</h2>
+      <p>Zennly is online booking and operations software built in Lalitpur for appointment-based businesses across Nepal. It gives spas, beauty parlours, salons, gyms and clinics online booking, staff and room scheduling, discount approval, payment tracking and one daily report across every branch. Pick your city below to see how businesses there use it.</p>
+      <ul class="v2-answer__facts" aria-label="What Zennly covers">
+        <li><strong>Online</strong> booking</li>
+        <li><strong>Staff</strong> &amp; rooms</li>
+        <li><strong>Discount</strong> approval</li>
+        <li><strong>Daily</strong> reconciliation</li>
+        <li class="v2-answer__facts-note">Zennly's first live client, Nuad Thai Spa Kathmandu, runs four branches, 39 therapists, 12 rooms and 194 services on it.</li>
+      </ul>
     </div>
-    <div class="v2-answers">
+  </section>
+
+  <section class="pg-section" id="cities">
+    <h2 class="pg-h2">Choose your <em>city.</em></h2>
+    <p class="pg-sub">Each guide covers how businesses there run bookings, and what a typical day looks like on Zennly.</p>
+    <div class="pg-tiles">
       {% for c in cities %}
-      <article class="v2-answer">
-        <div class="v2-answer__top"><span class="v2-answer__num">0{{ loop.index }}</span><span class="v2-answer__tag">{{ c.region }}</span></div>
-        <h3><a href="/nepal/{{ c.slug }}/">{{ c.name }}</a></h3>
+      <a class="pg-tile pg-tone{{ c.tone }}" href="/nepal/{{ c.slug }}/">
+        <span class="pg-tile__region">{{ c.region }}</span>
+        <span class="pg-tile__go" aria-hidden="true">&rarr;</span>
+        <h3>{{ c.name }}</h3>
         <p>{{ c.intro }}</p>
-      </article>
+      </a>
       {% endfor %}
     </div>
-    <div class="v2-answers-cta">
-      <a href="/demo/" class="v2-btn">Book a demo &rarr;</a>
-      <a href="/solutions/" class="v2-answers-link">Explore industries &rarr;</a>
+  </section>
+</div>
+
+<section class="pg-band">
+  <div class="pg-wrap">
+    <h2 class="pg-h2">One system for every business, <em>in every city.</em></h2>
+    <div class="pg-stats">
+      <div class="pg-stat"><strong>6</strong><span>city guides across Nepal</span></div>
+      <div class="pg-stat"><strong>9</strong><span>industries, from spas to cleaning companies</span></div>
+      <div class="pg-stat"><strong>4</strong><span>branches live at Nuad Thai Spa Kathmandu</span></div>
+      <div class="pg-stat"><strong>24h</strong><span>to get a tailored quote after your demo</span></div>
     </div>
   </div>
 </section>
+
+<div class="pg-wrap">
+  <section class="pg-section">
+    <h2 class="pg-h2">Who it&rsquo;s <em>for.</em></h2>
+    <p class="pg-sub">Online booking and management software for appointment-based businesses. Read the <a href="/blog/online-booking-system-nepal/" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">online booking system guide</a> or <a href="/blog/best-salon-software-nepal/" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">how to choose salon software</a>.</p>
+    <div class="pg-ind">
+      {% for s in solutions %}
+      <a class="pg-ind__item" href="/solutions/{{ s.slug }}/">
+        <img src="{{ s.hero.image }}" alt="{{ s.name }} booking software in Nepal" loading="lazy">
+        <span class="pg-ind__name">{{ s.name }}</span>
+        <span class="pg-ind__go" aria-hidden="true">&rarr;</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="pg-section pg-end">
+    <h2 class="pg-h2">Common <em>questions.</em></h2>
+    <p class="pg-sub">Straight answers about booking software in Nepal.</p>
+    <div class="pg-faq">
+      {% for f in nepalFaq %}
+      <details>
+        <summary>{{ f.question }}</summary>
+        <p>{{ f.answer }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<section class="bottom-cta" id="demo">
+  <div class="bottom-cta__card bottom-cta__card--banner reveal">
+    <h2 class="bottom-cta__h2">Running a business in Nepal?</h2>
+    <p class="bottom-cta__sub">Book a 20-minute demo and see booking, staff scheduling and daily reconciliation in Zennly.</p>
+    <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+  </div>
+</section>
+
 {% include "_footer-v2.njk" %}
 </main>
