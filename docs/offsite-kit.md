@@ -15,6 +15,17 @@ Facts to reuse: Zennly (zennly.io), booking and operations software for spas, sa
 
 Ask for a link from their website to `/case-study/`. Reply to every review within two days.
 
+### 1b. Nuad Thai asks (planned, not yet sent)
+
+Checked 2026-10-14: nuadthainepal.com already links to `https://zennly.io` in its footer ("Booking powered by Zennly"). It is a followed link on the homepage only, in small text, pointing at the homepage. Next, in this order:
+
+1. **Contextual link.** A line on an About or booking page, such as "We run all four branches on Zennly", linking to `https://zennly.io/case-study/`.
+2. **Named testimonial.** A short written quote with the owner's or manager's name and role. Use it on `/case-study/`, in the solution-page testimonials (currently generic placeholders) and in the G2 and Capterra reviews.
+3. **Matching profiles.** The same "powered by Zennly" wording on their Google Business Profile and social pages.
+4. **Written permission** to name Nuad Thai and quote its numbers in directory listings and press.
+
+Send the message in section 1 with these four asks added. Do not claim the link or quote exists until it is live.
+
 ## 2. Forum and group answers (Facebook groups, LinkedIn, Reddit, Quora)
 
 Answer the question first. Mention Zennly once, and only when it fits.
