@@ -36,7 +36,8 @@
                 <div class="tf-chips tf-chips--fill" role="radiogroup" aria-label="Send my access code via">
                   <label class="tf-chip"><input type="radio" name="codeVia" value="Email" checked><span>Email</span></label>
                   <label class="tf-chip"><input type="radio" name="codeVia" value="WhatsApp"><span>WhatsApp</span></label>
-                  <label class="tf-chip"><input type="radio" name="codeVia" value="SMS"><span>SMS</span></label>
+                  {# SMS chip hidden until an SMS provider is set up. Restore:
+                  <label class="tf-chip"><input type="radio" name="codeVia" value="SMS"><span>SMS</span></label> #}
                 </div>
                 <p class="demo-form__hint" id="tf-via-hint">We&rsquo;ll send your trial login code to your email.</p>
               </div>
@@ -158,7 +159,7 @@
               <div class="tf-creds__row"><dt>Password</dt><dd id="tf-cred-pass"></dd><button type="button" class="tf-creds__copy" data-copy="tf-cred-pass">Copy</button></div>
             </dl>
             <div class="tf-done__actions">
-              <a href="#" class="btn-primary" id="tf-login-btn">Log in to Zennly &rarr;</a>
+              <a href="https://dev-zenly.zunkireelabs.com/nuad-thai-spa/login" class="btn-primary" id="tf-login-btn" target="_blank" rel="noopener">Log in to Zennly &rarr;</a>
             </div>
           </div>
 
@@ -261,6 +262,19 @@
       var ctx = null, timer = null;
       // Demo code 123456 works on local development only. On a real domain the code must come from zennlySendCode / zennlyVerifyCode.
       var isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+      // Shared demo account shown to everyone who verifies a trial (unless the backend returns its own credentials).
+      var DEMO_CREDS = { email: 'demo.customer@zunkireelabs.com', password: 'ZenlyDemo2026!', loginUrl: 'https://dev-zenly.zunkireelabs.com/nuad-thai-spa/login' };
+
+      // Keep the credentials visible if the user navigates away to log in and comes back (cleared when the tab closes).
+      var CREDS_KEY = 'zennlyTrialCreds';
+      function showCreds(creds) {
+        document.getElementById('tf-cred-email').textContent = creds.email;
+        document.getElementById('tf-cred-pass').textContent = creds.password;
+        document.getElementById('tf-login-btn').href = creds.loginUrl || '#';
+        form.hidden = true; verifyEl.hidden = true; doneEl.hidden = false;
+        form.closest('.tf-card').classList.add('is-done');
+      }
+      try { var saved = JSON.parse(sessionStorage.getItem(CREDS_KEY) || 'null'); if (saved && saved.email) showCreds(saved); } catch (e) {}
 
       function startCooldown() {
         var n = 30; clearInterval(timer); resend.disabled = true;
@@ -273,6 +287,7 @@
       }
       function sendCode() {
         if (window.zennlySendCode) return Promise.resolve(window.zennlySendCode(ctx));
+        if (isLocal) return Promise.resolve(); // demo mode: no email draft, use code 123456
         window.location.href = 'mailto:info@zennly.io?subject=' + encodeURIComponent('Free trial request — ' + ctx.business) + '&body=' + encodeURIComponent(ctx.answers);
         return Promise.resolve();
       }
@@ -282,13 +297,11 @@
         if (c.length < 6) { vErr.textContent = 'Enter all 6 digits.'; vErr.hidden = false; return; }
         vErr.hidden = true;
         var p = window.zennlyVerifyCode ? Promise.resolve(window.zennlyVerifyCode(c, ctx.answers))
-          : (isLocal && c === '123456' ? Promise.resolve({ email: ctx.email, password: 'Generated at sign-up', loginUrl: '#' }) : Promise.reject());
+          : (isLocal && c === '123456' ? Promise.resolve(DEMO_CREDS) : Promise.reject());
         p.then(function (creds) {
-          document.getElementById('tf-cred-email').textContent = creds.email;
-          document.getElementById('tf-cred-pass').textContent = creds.password;
-          document.getElementById('tf-login-btn').href = creds.loginUrl || '#';
-          verifyEl.hidden = true; doneEl.hidden = false;
-          form.closest('.tf-card').classList.add('is-done');
+          creds = creds || DEMO_CREDS;
+          try { sessionStorage.setItem(CREDS_KEY, JSON.stringify(creds)); } catch (e) {}
+          showCreds(creds);
         }).catch(function () {
           vErr.textContent = 'That code isn\u2019t right. Check it and try again.'; vErr.hidden = false;
           boxes.forEach(function (b) { b.value = ''; }); boxes[0].focus();
