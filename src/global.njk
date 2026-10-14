@@ -1,0 +1,145 @@
+---
+layout: base.njk
+title: "Multi-Branch Booking Software for Spas, Salons and Clinics Worldwide | Zennly"
+metaDescription: "Zennly is web-based multi-branch booking and operations software for spas, salons, gyms and clinics. Built in Nepal, available on request in the USA, UK, Canada, Australia and the UAE."
+dateModified: "2026-10-14"
+bodyClass: page--light-nav
+globalPage: true
+globalFaq:
+  - question: "Can I use Zennly outside Nepal?"
+    answer: "Yes, on request. Zennly is Nepal-first and web-based, so it runs in any browser. We set it up for service businesses in other countries, including the USA, UK, Canada, Australia and the UAE. Book a demo and tell us your country and number of branches."
+  - question: "What is the best multi-branch spa and salon management software?"
+    answer: "It depends on whether you run one location or several. Zennly is built for multi-branch service businesses. It locks each appointment to a branch, room and staff member so double bookings cannot happen, requires manager approval for discounts, records payments by method and reconciles each day across every branch."
+  - question: "Does Zennly work for spas, salons, gyms and clinics in any country?"
+    answer: "The booking, staff scheduling, discount approval and daily reconciliation workflow is the same in any country. It fits spas, salons, barbershops, gyms, physiotherapy and beauty clinics, tattoo studios and cleaning companies."
+  - question: "Do I need to install anything?"
+    answer: "No. Zennly runs in the browser on a phone, tablet or computer, and customers book from a web page, so there is no app to download."
+  - question: "Who built Zennly?"
+    answer: "Zennly is built by Zunkireelabs, founded in 2018 in Lalitpur, Nepal. Its first live client, Nuad Thai Spa Kathmandu, runs four branches, 39 therapists and 194 services on it."
+  - question: "How much does Zennly cost?"
+    answer: "Zennly is quoted per business, based on branches, team size and features. Book a 20-minute demo and you receive a tailored quote within 24 hours."
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Worldwide", url: "/global/" }]) }}
+{{ faqSchema(globalFaq) }}
+<main class="pg-page">
+<header class="pg-hero">
+  <span class="pg-hero__eyebrow">Zennly worldwide</span>
+  <h1>Multi-branch booking software, <em>wherever you operate.</em></h1>
+  <p class="pg-hero__lede">Built in Nepal for spas, salons, gyms and clinics that run more than one location. Available on request in the USA, UK, Canada, Australia and the UAE.</p>
+  <div class="pg-hero__actions">
+    <a href="/demo/" class="v2-btn">Book a demo &rarr;</a>
+    <a href="#markets" class="v2-answers-link">See where we work &darr;</a>
+  </div>
+  <div class="pg-hero__media">
+    <div class="pg-hero__tile">{% image "/assets/images/feat-role-frontdesk.jpg", "Front-desk staff checking in a customer at a spa", { loading: "eager" } %}</div>
+    <div class="pg-hero__tile">{% image "/assets/images/feat-role-owners.jpg", "Business owner reviewing multi-branch reports on Zennly", { loading: "eager" } %}</div>
+  </div>
+</header>
+
+<div class="pg-wrap">
+  <section class="pg-section" style="padding-top:56px;">
+    <div class="pg-lead">
+      <span class="v2-answer__tag">The short answer</span>
+      <h2>What is Zennly, and can I use it in my country?</h2>
+      <p>Zennly is web-based booking and operations software for appointment-based businesses with one or many locations. It books staff, room and time together, requires manager approval for discounts, records payments by method and reconciles every day across every branch. It runs in any browser, so it can be set up for a business in any country on request.</p>
+      <ul class="v2-answer__facts" aria-label="What Zennly covers">
+        <li><strong>Online</strong> booking</li>
+        <li><strong>Staff</strong> &amp; rooms</li>
+        <li><strong>Discount</strong> approval</li>
+        <li><strong>Daily</strong> reconciliation</li>
+        <li class="v2-answer__facts-note">Zennly's first live client, Nuad Thai Spa Kathmandu, runs four branches, 39 therapists and 194 services on it.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pg-section" id="markets">
+    <h2 class="pg-h2">Where you can <em>use it.</em></h2>
+    <p class="pg-sub">Nepal is our home market. Everywhere else, we set Zennly up on request.</p>
+    <div class="pg-tiles">
+      <a class="pg-tile pg-tone1" href="/nepal/">
+        <span class="pg-tile__region">Home market</span>
+        <span class="pg-tile__go" aria-hidden="true">&rarr;</span>
+        <h3>Nepal</h3>
+        <p>Built in Lalitpur and live at Nuad Thai Spa Kathmandu. City guides for Kathmandu, Lalitpur, Bhaktapur, Pokhara, Biratnagar and Chitwan.</p>
+      </a>
+      <a class="pg-tile pg-tone2" href="/demo/">
+        <span class="pg-tile__region">North America</span>
+        <span class="pg-tile__go" aria-hidden="true">&rarr;</span>
+        <h3>USA &amp; Canada</h3>
+        <p>Multi-location spa, salon and clinic booking, with staff scheduling and daily reconciliation across every branch.</p>
+      </a>
+      <a class="pg-tile pg-tone3" href="/demo/">
+        <span class="pg-tile__region">Europe</span>
+        <span class="pg-tile__go" aria-hidden="true">&rarr;</span>
+        <h3>United Kingdom</h3>
+        <p>Booking and branch management for salons, barbershops, clinics and wellness studios.</p>
+      </a>
+      <a class="pg-tile pg-tone4" href="/demo/">
+        <span class="pg-tile__region">Asia-Pacific</span>
+        <span class="pg-tile__go" aria-hidden="true">&rarr;</span>
+        <h3>Australia</h3>
+        <p>Online booking, staff and room scheduling and discount control for appointment-based businesses.</p>
+      </a>
+      <a class="pg-tile pg-tone5" href="/demo/">
+        <span class="pg-tile__region">Middle East</span>
+        <span class="pg-tile__go" aria-hidden="true">&rarr;</span>
+        <h3>United Arab Emirates</h3>
+        <p>Multi-branch spa, salon and clinic management with one view of every location.</p>
+      </a>
+    </div>
+  </section>
+</div>
+
+<section class="pg-band">
+  <div class="pg-wrap">
+    <h2 class="pg-h2">One system for every location, <em>in any country.</em></h2>
+    <div class="pg-stats">
+      <div class="pg-stat"><strong>9</strong><span>industries, from spas to cleaning companies</span></div>
+      <div class="pg-stat"><strong>4</strong><span>branches live at Nuad Thai Spa Kathmandu</span></div>
+      <div class="pg-stat"><strong>0</strong><span>apps to install, it runs in the browser</span></div>
+      <div class="pg-stat"><strong>24h</strong><span>to get a tailored quote after your demo</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="pg-wrap">
+  <section class="pg-section">
+    <h2 class="pg-h2">Who it&rsquo;s <em>for.</em></h2>
+    <p class="pg-sub">Spa management, salon management, gym and clinic scheduling and more, for businesses with one location or many.</p>
+    <div class="pg-ind">
+      {% for s in solutions %}
+      <a class="pg-ind__item" href="/solutions/{{ s.slug }}/">
+        <img src="{{ s.hero.image }}" alt="{{ s.name }} booking software" loading="lazy">
+        <span class="pg-ind__name">{{ s.name }}</span>
+        <span class="pg-ind__go" aria-hidden="true">&rarr;</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="pg-section pg-end">
+    <h2 class="pg-h2">Common <em>questions.</em></h2>
+    <p class="pg-sub">Straight answers about using Zennly outside Nepal.</p>
+    <div class="pg-faq">
+      {% for f in globalFaq %}
+      <details>
+        <summary>{{ f.question }}</summary>
+        <p>{{ f.answer }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<section class="bottom-cta" id="demo">
+  <div class="bottom-cta__card bottom-cta__card--banner reveal">
+    <h2 class="bottom-cta__h2">Running locations in another country?</h2>
+    <p class="bottom-cta__sub">Book a 20-minute demo, tell us where you operate, and we will show you Zennly set up for your business.</p>
+    <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+  </div>
+</section>
+
+{% include "_footer-v2.njk" %}
+</main>

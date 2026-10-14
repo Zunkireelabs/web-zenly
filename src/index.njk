@@ -880,7 +880,7 @@ extraHead: |
        .footer-flow/.access-placeholder/.site-footer (dark-olive CTA stacked
        on a lime footer, both top-curved, joined by a hard-edged shadow seam). */
     :root{ --v2-flow-radius:clamp(34px,3.7vw,46px); }
-    .v2-footer-flow{border-top-left-radius:var(--v2-flow-radius); border-top-right-radius:var(--v2-flow-radius); overflow:hidden; isolation:isolate;}
+    .v2-footer-flow{border-top-left-radius:var(--v2-flow-radius); border-top-right-radius:var(--v2-flow-radius); overflow:hidden; isolation:isolate; background:var(--v2-link);}
 
     .v2-access{width:min(100%,1920px); margin:0 auto; padding:136px 0; border-radius:var(--v2-flow-radius) var(--v2-flow-radius) 0 0; background:var(--v2-link); color:var(--v2-bg-alt); overflow:hidden;}
     .v2-access-inner{display:flex; flex-direction:column; align-items:center; gap:80px;}
@@ -2501,7 +2501,7 @@ extraHead: |
       }
     }
 
-    .v2-site-footer{position:relative; padding:136px 32px 0; border-top-left-radius:var(--v2-flow-radius); border-top-right-radius:var(--v2-flow-radius); background:var(--v2-bg-alt); box-shadow:0 calc(-1 * var(--v2-flow-radius)) 0 0 var(--v2-link);}
+    .v2-site-footer{position:relative; padding:136px 32px 0; border-top-left-radius:var(--v2-flow-radius); border-top-right-radius:var(--v2-flow-radius); background:var(--v2-bg-alt);}
     .v2-footer-content{max-width:1180px; margin:0 auto; padding-bottom:80px; display:flex; flex-direction:column; gap:60px;}
     .v2-footer-top{display:flex; gap:64px; justify-content:space-between;}
     .v2-footer-brand{display:flex; flex-direction:column; align-items:flex-start; gap:16px; max-width:264px; flex-shrink:0;}
@@ -4096,9 +4096,10 @@ extraHead: |
               <h5 class="v2-footer-heading">Company</h5>
               <a href="/about/" class="v2-footer-link">About</a>
               <a href="/glossary/" class="v2-footer-link">Glossary</a>
+              <a href="/global/" class="v2-footer-link">Worldwide</a>
               <a href="/demo/" class="v2-footer-link">Book a Demo</a>
               <a href="/case-study/" class="v2-footer-link">See It Live</a>
-              <a href="mailto:info@zennly.io" class="v2-footer-link">Contact</a>
+              <a href="/contact/" class="v2-footer-link">Contact</a>
             </div>
             <div class="v2-footer-link-group">
               <h5 class="v2-footer-heading">Legal</h5>
