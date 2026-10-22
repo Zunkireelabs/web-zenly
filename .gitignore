@@ -15,3 +15,7 @@ src/_archived/
 
 # Contains live proxy credentials
 dev_tools/page-cloner/proxies.txt
+
+# Placeholder hero video (third-party ad, local design work only; never commit or deploy)
+src/assets/videos/*Square*
+src/assets/videos/placeholder-*

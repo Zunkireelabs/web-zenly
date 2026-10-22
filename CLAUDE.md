@@ -39,3 +39,14 @@ content or branding.
 This exception is scoped to this one page family only. It does not extend to any
 other page — every other page on the site still follows the base Design Rules
 above without exception.
+
+# Exception: About Page Dark Top (/about/)
+
+Approved 2026-10-22. The first section of `/about/` is a dark (#1C1C1C, the button
+colour) block modelled on the structure of Square's About page (squareup.com/us/en/about):
+a rounded-square video sized to fit the first screen with the headline overlaid, a
+centred statement, a two-column "About Zennly", a stats row and three white link cards.
+It uses Zennly's own video, content, fonts and colours, not Square's footage or branding.
+
+Scoped to that one section of `/about/` only. The rest of the About page, and every
+other page, still follows the base Design Rules above.
