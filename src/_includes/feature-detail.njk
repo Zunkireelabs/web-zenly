@@ -15,8 +15,8 @@ layout: base.njk
       <h1 class="fd-hero__h1">{{ feature.hero.headline | safe }}</h1>
       {% if feature.hero.subheadline %}<p class="fd-hero__lede">{{ feature.hero.subheadline }}</p>{% endif %}
       <div class="fd-btns">
-        <a href="/demo/" class="fd-btn fd-btn--dark">Book a free demo</a>
-        <button type="button" class="fd-btn fd-btn--soft" data-trial-open>Try for free</button>
+        <span class="cta-cap"><button type="button" class="fd-btn fd-btn--dark" data-trial-open>Try a free demo</button><span class="cta-cap__note">Instant access · no call needed</span></span>
+        <span class="cta-cap"><a href="/contact/" class="fd-btn fd-btn--soft">Talk to us</a><span class="cta-cap__note">Questions? Our team replies</span></span>
       </div>
       {% if feature.hero.trustLine %}
       <p class="fd-hero__trust">{{ feature.hero.trustLine }}</p>
@@ -2921,8 +2921,8 @@ layout: base.njk
       <h2 class="fd-h2">{{ feature.bottomCta.headline if feature.bottomCta else "Ready to see it in action?" }}</h2>
       {% if feature.bottomCta.subheadline %}<p class="fd-final__sub">{{ feature.bottomCta.subheadline }}</p>{% endif %}
       <div class="fd-btns">
-        <a href="/demo/" class="fd-btn fd-btn--white">Book a free demo</a>
-        <button type="button" class="fd-btn fd-btn--glass" data-trial-open>Try for free</button>
+        <span class="cta-cap"><button type="button" class="fd-btn fd-btn--white" data-trial-open>Try a free demo</button><span class="cta-cap__note">Instant access · no call needed</span></span>
+        <span class="cta-cap"><a href="/contact/" class="fd-btn fd-btn--glass">Talk to us</a><span class="cta-cap__note">Questions? Our team replies</span></span>
       </div>
       <p class="fd-final__note">No credit card required · Live in a day · Real support when you need it</p>
     </div>

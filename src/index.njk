@@ -44,13 +44,13 @@ extraHead: |
     #v2-root .v2-wrap{max-width:var(--v2-container); margin:0 auto; padding:0 var(--v2-gutter);}
 
     /* NAV — floating pill nav, structurally matched to getflect.app's header/.nav-inner/.nav-content */
-    :root{ --v2-nav-h:76px; --v2-nav-inset:8px; --v2-nav-radius:12px; }
+    :root{ --v2-nav-h:76px; --v2-nav-inset:0px; --v2-nav-radius:0px; }
     .v2-nav{
       position:fixed; top:var(--v2-nav-inset); left:var(--v2-nav-inset); right:var(--v2-nav-inset);
       z-index:100; height:var(--v2-nav-h); pointer-events:none;
     }
     .v2-nav-inner{
-      width:100%; height:100%; border-radius:var(--v2-nav-radius); border:1px solid transparent;
+      width:100%; height:100%; border-radius:var(--v2-nav-radius); border:0;
       overflow:hidden; pointer-events:auto; display:flex; align-items:center;
       transition:background .45s ease, backdrop-filter .45s ease, border-color .45s ease;
     }
@@ -77,9 +77,9 @@ extraHead: |
     /* tighter links where the nav is narrow (see 861–1199px column rule above) */
     @media (min-width:861px) and (max-width:1199px){ .v2-nav__links{gap:24px;} }
     .v2-nav__links > a, .v2-nav__links > .v2-nav__item--has-mega > .v2-nav__mega-trigger{
-      font-size:18px; font-weight:500; letter-spacing:-0.02em; line-height:1; color:var(--v2-ink); position:relative; white-space:nowrap;
+      font-size:15px; font-weight:600; letter-spacing:-0.005em; line-height:1; color:var(--v2-ink); position:relative; white-space:nowrap;
     }
-    @media (min-width:861px) and (max-width:1023px){ .v2-nav__links{gap:20px;} .v2-nav__links > a, .v2-nav__links > .v2-nav__item--has-mega > .v2-nav__mega-trigger{font-size:16px;} }
+    @media (min-width:861px) and (max-width:1023px){ .v2-nav__links{gap:20px;} .v2-nav__links > a, .v2-nav__links > .v2-nav__item--has-mega > .v2-nav__mega-trigger{font-size:14px;} }
     .v2-nav__links > a::after, .v2-nav__links > .v2-nav__item--has-mega > .v2-nav__mega-trigger::after{
       content:''; position:absolute; left:0; right:0; bottom:-4px; height:1px; background:currentColor;
       transform:scaleX(0); transform-origin:right center; transition:transform .5s ease;
@@ -101,77 +101,19 @@ extraHead: |
     .v2-nav__item--has-mega.is-open .v2-nav__chevron{transform:rotate(180deg);}
 
     .v2-nav-backdrop{
-      position:fixed; inset:0; background:rgba(46,25,25,0.14);
-      backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-      opacity:0; pointer-events:none; transition:opacity .25s var(--v2-ease-out); z-index:90;
+      position:fixed; inset:0; background:rgba(28,22,22,0.08);
+      backdrop-filter:blur(18px) saturate(1.4); -webkit-backdrop-filter:blur(18px) saturate(1.4);
+      opacity:0; pointer-events:none; transition:opacity .35s var(--v2-ease-out); z-index:90;
     }
     .v2-nav:has(.v2-nav__item--has-mega:hover) ~ .v2-nav-backdrop,
     .v2-nav:has(.v2-nav__item--has-mega:focus-within) ~ .v2-nav-backdrop,
     .v2-nav:has(.v2-nav__item--has-mega.is-open) ~ .v2-nav-backdrop{opacity:1; pointer-events:auto;}
+    /* dropdown open: the bar keeps a solid bg above the blurred page */
+    .v2-nav:has(.v2-nav__item--has-mega:hover) .v2-nav-inner,
+    .v2-nav:has(.v2-nav__item--has-mega:focus-within) .v2-nav-inner,
+    .v2-nav:has(.v2-nav__item--has-mega.is-open) .v2-nav-inner{background:var(--v2-card); backdrop-filter:none; -webkit-backdrop-filter:none; border-color:var(--v2-line);}
 
-    .v2-nav-mega{
-      position:fixed; top:calc(var(--v2-nav-inset) + var(--v2-nav-h) + 10px); left:50%;
-      transform:translateX(-50%) translateY(-6px); width:min(820px,calc(100vw - 32px));
-      max-height:calc(100vh - var(--v2-nav-inset) - var(--v2-nav-h) - 26px);
-      background:var(--v2-card); border-radius:20px;
-      box-shadow:0 24px 56px -12px rgba(46,25,25,0.18), 0 0 0 1px var(--v2-line);
-      opacity:0; pointer-events:none;
-      transition:opacity .22s var(--v2-ease-out), transform .22s var(--v2-ease-out);
-      z-index:110; overflow-x:hidden; overflow-y:auto;
-    }
-    .v2-nav-mega::before{
-      content:''; position:absolute; top:-5px; left:var(--mega-caret-left, 50%); transform:translateX(-50%) rotate(45deg);
-      width:10px; height:10px; background:var(--v2-card);
-      border-top:1px solid var(--v2-line); border-left:1px solid var(--v2-line); z-index:-1;
-    }
-    .v2-nav-mega.is-open{opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0);}
-
-    .v2-nav-mega__container{display:flex; min-height:320px;}
-    .v2-nav-mega--sm{width:min(320px,calc(100vw - 32px));}
-    .v2-nav-mega--wide{width:min(600px,calc(100vw - 32px));}
-    .v2-nav-mega--sm .v2-nav-mega__container{min-height:0;}
-
-    .v2-nav-mega__left{flex:1.2; padding:26px 26px 22px; background:var(--v2-card);}
-    .v2-nav-mega__eyebrow{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--v2-sage); margin-bottom:10px; padding-left:12px;}
-    .v2-nav-mega__heading{font-family:var(--v2-sans); font-weight:600; font-size:19px; letter-spacing:-0.02em; line-height:1.3; color:var(--v2-ink); margin:0 0 6px; padding-left:12px;}
-    .v2-nav-mega__subtext{font-size:12.5px; line-height:1.45; color:var(--v2-ink-soft); margin:0 0 18px; padding-left:12px; max-width:420px;}
-    .v2-nav-mega__grid{display:grid; grid-template-columns:1fr 1fr; row-gap:22px; column-gap:4px;}
-    .v2-nav-mega__item{display:flex; align-items:flex-start; gap:12px; padding:10px 12px; border-radius:12px; transition:background-color .15s ease;}
-    .v2-nav-mega__item:hover{background:var(--v2-sage-tint);}
-    .v2-nav-mega__icon-wrap{flex-shrink:0; width:32px; height:32px; border-radius:50%; background:var(--v2-sage-tint); display:flex; align-items:center; justify-content:center; color:var(--v2-sage); transition:background-color .15s ease;}
-    .v2-nav-mega__item:hover .v2-nav-mega__icon-wrap{background:var(--v2-sage); color:#fff;}
-    .v2-nav-mega__body{display:flex; flex-direction:column; gap:3px;}
-    .v2-nav-mega__name{font-size:14px; font-weight:600; color:var(--v2-ink); line-height:1.25; transition:color .15s ease;}
-    .v2-nav-mega__item:hover .v2-nav-mega__name{color:var(--v2-sage);}
-    .v2-nav-mega__desc{font-size:12.5px; color:var(--v2-ink-soft); line-height:1.4;}
-
-    .v2-nav-mega__right{width:280px; margin:16px 16px 16px 0; border-radius:16px; background:var(--v2-sage-tint); padding:22px; display:flex; flex-direction:column;}
-    .v2-nav-mega__right-tag{align-self:flex-start; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.09em; color:var(--v2-sage); background:rgba(63,104,57,0.12); padding:3px 9px; border-radius:var(--v2-r-pill); margin-bottom:12px;}
-    .v2-nav-mega__right-title{font-family:var(--v2-serif); font-style:italic; font-weight:400; font-size:20px; color:var(--v2-ink); margin:0 0 6px; line-height:1.25;}
-    .v2-nav-mega__right-text{font-size:12.5px; color:var(--v2-ink-soft); line-height:1.45; margin:0 0 16px;}
-    .v2-nav-mega__verticals{display:flex; flex-direction:column; gap:10px; margin-bottom:16px;}
-    .v2-nav-mega__vertical-link{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:var(--v2-ink); transition:color .15s ease, transform .15s ease;}
-    .v2-nav-mega__vertical-link:hover{color:var(--v2-sage); transform:translateX(2px);}
-    .v2-nav-mega__vertical-bullet{font-size:12px; color:var(--v2-muted);}
-
-    .v2-nav-mega__industry-cards{display:flex; gap:10px; margin-top:auto;}
-    .v2-nav-mega__industry-card{
-      position:relative; flex:1; aspect-ratio:16/9; border-radius:12px; overflow:hidden;
-      background-color:var(--v2-sage-tint); background-size:cover; background-position:center;
-      transition:transform .15s ease;
-    }
-    .v2-nav-mega__industry-card:hover{transform:translateY(-2px);}
-
-    .v2-nav-mega__right-cta{display:inline-flex; align-items:center; gap:4px; font-size:13px; font-weight:600; color:var(--v2-sage); margin-top:16px; transition:opacity .15s ease;}
-    .v2-nav-mega__right-cta:hover{opacity:.75;}
-    .v2-nav-mega__right-cta svg{transition:transform .2s ease;}
-    .v2-nav-mega__right-cta:hover svg{transform:translateX(2px);}
-
-    .v2-nav-mega__footer{background:transparent; border-top:none; padding:0 26px 14px; display:flex; align-items:center; justify-content:flex-start; gap:24px;}
-    .v2-nav-mega__footer-text{display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--v2-ink-soft);}
-    .v2-nav-mega__footer-text::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--v2-sage); flex-shrink:0;}
-    .v2-nav-mega__footer-link{font-size:13px; font-weight:600; color:var(--v2-ink); text-decoration:underline; text-underline-offset:3px; transition:opacity .15s ease;}
-    .v2-nav-mega__footer-link:hover{opacity:.75;}
+    /* Mega panel + menu content styles live in main.css (.v2-nav-mega / .v2-mm*). */
 
     .v2-nav .v2-btn, .v2-nav-mobile .v2-btn{background:var(--v2-cta); color:#fff !important; height:44px; padding:0 20px; border-radius:var(--v2-btn-r); font-size:14px;}
     .v2-nav .v2-btn:hover, .v2-nav-mobile .v2-btn:hover{background:var(--v2-cta-hover); transform:none;}
@@ -195,62 +137,7 @@ extraHead: |
     .v2-nav.menu-open .v2-nav__toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
     .v2-nav.menu-open .v2-nav__toggle span:nth-child(2){opacity:0;}
     .v2-nav.menu-open .v2-nav__toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    .v2-nav.menu-open .v2-nav-inner{
-      background:rgba(255,255,255,.6); backdrop-filter:blur(5px) saturate(1.15);
-      -webkit-backdrop-filter:blur(5px) saturate(1.15); border-color:var(--v2-line);
-    }
-
-    .v2-nav-mobile{
-      position:fixed; top:calc(var(--v2-nav-inset) + var(--v2-nav-h) + 8px); left:var(--v2-nav-inset); right:var(--v2-nav-inset);
-      background:var(--v2-card); border-radius:var(--v2-nav-radius); box-shadow:0 24px 56px -12px rgba(46,25,25,0.18);
-      padding:20px; display:none; flex-direction:column; gap:4px; z-index:95;
-    }
-    .v2-nav.menu-open ~ .v2-nav-mobile{display:flex;}
-    .v2-nav-mobile a{font-size:19px; font-weight:500; color:var(--v2-ink); padding:12px 8px;}
-    .v2-nav-mobile .v2-btn{align-self:flex-start; margin-top:8px; opacity:1 !important; visibility:visible !important; transform:none !important;}
-
-    /* Divider line under each top-level row (not the CTA button, which is
-       already visually set apart as a pill). */
-    .v2-nav-mobile > a:not(.v2-btn){border-bottom:1px solid var(--v2-line);}
-
-    /* Features/Resources accordion — tap equivalent of the desktop mega menu.
-       Sub-items are visually demoted (smaller, lighter, indented behind a rail)
-       so they read as children of the trigger, not as more top-level links. */
-    .v2-nav-mobile__group{display:flex; flex-direction:column;}
-    .v2-nav-mobile__trigger{
-      display:flex; align-items:center; justify-content:space-between; width:100%;
-      font-family:inherit; font-size:19px; font-weight:600; color:var(--v2-ink);
-      padding:12px 8px; background:none; border:none; border-bottom:1px solid var(--v2-line); text-align:left; cursor:pointer;
-    }
-    .v2-nav-mobile__chevron{flex-shrink:0; color:var(--v2-ink-soft); transition:transform .2s ease;}
-    .v2-nav-mobile__group.is-open .v2-nav-mobile__chevron{transform:rotate(180deg);}
-    .v2-nav-mobile__submenu{
-      display:flex; flex-direction:column; max-height:0; overflow:hidden;
-      margin:0 8px 0 18px; border-left:1.5px solid var(--v2-line);
-      transition:max-height .3s ease;
-    }
-    .v2-nav-mobile__group.is-open .v2-nav-mobile__submenu{max-height:560px; padding:2px 0 6px;}
-    .v2-nav-mobile__submenu a{
-      display:flex; align-items:center; gap:10px;
-      font-size:17px; font-weight:400; letter-spacing:-0.01em; color:var(--v2-ink-soft);
-      padding:8px 8px 8px 16px; line-height:1.3;
-    }
-    .v2-nav-mobile__submenu a:first-child{font-weight:600; color:var(--v2-ink);}
-    /* Icon circles — same treatment as the desktop mega menu's .v2-nav-mega__icon-wrap */
-    .v2-nav-mobile__icon-wrap{
-      flex-shrink:0; width:28px; height:28px; border-radius:50%;
-      background:var(--v2-sage-tint); color:var(--v2-sage);
-      display:flex; align-items:center; justify-content:center;
-    }
-
-    /* Solid scrim behind the mobile menu — opaque, not blurred, so page content
-       underneath is fully hidden (not left half-visible) while the menu is open. */
-    .v2-nav-mobile-scrim{
-      position:fixed; inset:0; background:rgba(46,25,25,0.4);
-      opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:94;
-    }
-    .v2-nav-mobile-scrim.is-open{opacity:1; pointer-events:auto;}
-    @media (min-width:861px){ .v2-nav-mobile-scrim{display:none !important;} }
+    /* Mobile menu sheet + accordion + scrim styles live in main.css (.v2-nav-mobile*). */
 
     @media (max-width:860px){
       .v2-nav .v2-btn{display:none;}
@@ -2347,236 +2234,12 @@ extraHead: |
 
 
 
+{# Shared site nav (src/_includes/_nav-v2.njk). Sits outside #v2-root so that
+   page's #v2-root-scoped resets (e.g. `#v2-root a{color:inherit}`) don't
+   override the menu's link colours; it's position:fixed, so placement is visual no-op. #}
+{% include "_nav-v2.njk" %}
+
 <div id="v2-root">
-<header class="v2-nav" id="v2Nav" aria-label="Primary navigation">
-  <div class="v2-nav-inner">
-    <div class="v2-nav-content">
-      <div class="v2-nav-col v2-nav-col--start">
-        <a href="#" class="v2-nav__logo"><img src="/assets/images/logo.png" alt="Zennly" class="v2-nav__logo-img"></a>
-      </div>
-      <nav class="v2-nav-col v2-nav-col--center v2-nav__links" aria-label="Main menu">
-        <div class="v2-nav__item--has-mega" data-mega="features">
-          <a href="/features/" class="v2-nav__mega-trigger">
-            Features
-            <svg class="v2-nav__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-
-        <a href="/how-it-works/">How it Works</a>
-        <a href="/solutions/">Solutions</a>
-
-        <div class="v2-nav__item--has-mega" data-mega="resources">
-          <a href="/blog/" class="v2-nav__mega-trigger">
-            Resources
-            <svg class="v2-nav__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </nav>
-      <div class="v2-nav-col v2-nav-col--end">
-        <button type="button" id="v2-nav-toggle" class="v2-nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="v2-nav-mobile">
-          <span></span><span></span><span></span>
-        </button>
-        <a href="#try-free" class="v2-btn v2-btn--ghost" data-trial-open>Try for free</a>
-        <a href="/demo/" class="v2-btn">Book a demo</a>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- Mega menu panels — deliberately NOT nested inside .v2-nav-inner: that
-     element gets a backdrop-filter once scrolled (.is-scrolled), and a
-     backdrop-filter on an ancestor creates a new containing block for
-     position:fixed descendants, which combined with .v2-nav-inner's own
-     overflow:hidden (for its pill shape) was clipping these panels down to
-     the 76px-tall nav bar and making them invisible. Siblings of the nav
-     instead, positioned via JS-toggled .is-open (see the script below). -->
-<div class="v2-nav-mega" id="v2Mega-features" role="region" aria-label="Features menu">
-  <div class="v2-nav-mega__container">
-    <div class="v2-nav-mega__left">
-      <div class="v2-nav-mega__eyebrow">Core Capabilities</div>
-      <h3 class="v2-nav-mega__heading">The operating system behind every booking.</h3>
-      <p class="v2-nav-mega__subtext">From bookings to payments, staff to reports &ndash; everything you need to run multiple branches, in one place.</p>
-      <div class="v2-nav-mega__grid">
-        <a href="/features/booking/" class="v2-nav-mega__item">
-          <div class="v2-nav-mega__icon-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          </div>
-          <div class="v2-nav-mega__body">
-            <span class="v2-nav-mega__name">Booking Engine</span>
-            <span class="v2-nav-mega__desc">6-step flow with database-enforced conflict prevention.</span>
-          </div>
-        </a>
-        <a href="/features/operational-visibility/" class="v2-nav-mega__item">
-          <div class="v2-nav-mega__icon-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
-          </div>
-          <div class="v2-nav-mega__body">
-            <span class="v2-nav-mega__name">Operations</span>
-            <span class="v2-nav-mega__desc">Real-time floor visibility, rosters, and staff dashboards.</span>
-          </div>
-        </a>
-        <a href="/features/payment-tracking/" class="v2-nav-mega__item">
-          <div class="v2-nav-mega__icon-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <div class="v2-nav-mega__body">
-            <span class="v2-nav-mega__name">Finance &amp; Reconciliation</span>
-            <span class="v2-nav-mega__desc">30-second daily revenue closes and payment audits.</span>
-          </div>
-        </a>
-        <a href="/features/reports/" class="v2-nav-mega__item">
-          <div class="v2-nav-mega__icon-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-          <div class="v2-nav-mega__body">
-            <span class="v2-nav-mega__name">Live Reports</span>
-            <span class="v2-nav-mega__desc">8 built-in reports showing real-time utilization.</span>
-          </div>
-        </a>
-        <a href="/features/discount-management/" class="v2-nav-mega__item">
-          <div class="v2-nav-mega__icon-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
-          </div>
-          <div class="v2-nav-mega__body">
-            <span class="v2-nav-mega__name">Discount Management</span>
-            <span class="v2-nav-mega__desc">Request-based discounts with real-time manager approval.</span>
-          </div>
-        </a>
-        <a href="/features/staff-management/" class="v2-nav-mega__item">
-          <div class="v2-nav-mega__icon-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="v2-nav-mega__body">
-            <span class="v2-nav-mega__name">Staff Management</span>
-            <span class="v2-nav-mega__desc">Schedule staff transfers between branches with an effective date.</span>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="v2-nav-mega__right">
-      <div class="v2-nav-mega__right-tag">Industry Engine</div>
-      <h4 class="v2-nav-mega__right-title">Built for any vertical</h4>
-      <p class="v2-nav-mega__right-text">Database-driven configuration overrides terminology and business rules out-of-the-box.</p>
-      <div class="v2-nav-mega__verticals">
-        <a href="/solutions/salon/" class="v2-nav-mega__vertical-link"><span class="v2-nav-mega__vertical-bullet">&#9679;</span> Hair &amp; Nail Salons</a>
-        <a href="/solutions/spa/" class="v2-nav-mega__vertical-link"><span class="v2-nav-mega__vertical-bullet">&#9679;</span> Spas &amp; Wellness</a>
-        <a href="/solutions/tattoo/" class="v2-nav-mega__vertical-link"><span class="v2-nav-mega__vertical-bullet">&#9679;</span> Tattoo Studios</a>
-      </div>
-      <div class="v2-nav-mega__industry-cards">
-        <div class="v2-nav-mega__industry-card" style="background-image:url('/assets/images/solution-hero-spa.png');"></div>
-      </div>
-      <a href="/solutions/" class="v2-nav-mega__right-cta">
-        See how it works
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="display:inline; margin-left:2px;"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </div>
-  <div class="v2-nav-mega__footer">
-    <span class="v2-nav-mega__footer-text">351 bookings managed across 4 branches, every week.</span>
-    <a href="/features/" class="v2-nav-mega__footer-link">See All Features &rarr;</a>
-  </div>
-</div>
-
-<div class="v2-nav-mega v2-nav-mega--sm v2-nav-mega--wide" id="v2Mega-resources" role="region" aria-label="Resources menu">
-  <div class="v2-nav-mega__container">
-    <div class="v2-nav-mega__left">
-      <div class="v2-nav-mega__grid">
-        <a href="/blog/" class="v2-nav-mega__item">
-          <div class="v2-nav-mega__icon-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          </div>
-          <div class="v2-nav-mega__body">
-            <span class="v2-nav-mega__name">Blog</span>
-            <span class="v2-nav-mega__desc">Guides on running a multi-branch service business.</span>
-          </div>
-        </a>
-        <a href="/case-study/" class="v2-nav-mega__item">
-          <div class="v2-nav-mega__icon-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-          <div class="v2-nav-mega__body">
-            <span class="v2-nav-mega__name">Case Study</span>
-            <span class="v2-nav-mega__desc">How Nuad Thai Spa runs four branches on Zennly.</span>
-          </div>
-        </a>
-        <a href="/faq/" class="v2-nav-mega__item">
-          <div class="v2-nav-mega__icon-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2.5-3 4"/><line x1="12" y1="17.5" x2="12.01" y2="17.5"/></svg>
-          </div>
-          <div class="v2-nav-mega__body">
-            <span class="v2-nav-mega__name">FAQ</span>
-            <span class="v2-nav-mega__desc">Booking software for Nepal, answered.</span>
-          </div>
-        </a>
-        <a href="/compare/" class="v2-nav-mega__item">
-          <div class="v2-nav-mega__icon-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M21 3l-7 7"/><path d="M8 21H3v-5"/><path d="M3 21l7-7"/></svg>
-          </div>
-          <div class="v2-nav-mega__body">
-            <span class="v2-nav-mega__name">Compare</span>
-            <span class="v2-nav-mega__desc">Zennly versus spreadsheets, WhatsApp and paper.</span>
-          </div>
-        </a>
-        <a href="/nepal/" class="v2-nav-mega__item">
-          <div class="v2-nav-mega__icon-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div class="v2-nav-mega__body">
-            <span class="v2-nav-mega__name">Booking software by city</span>
-            <span class="v2-nav-mega__desc">Kathmandu, Lalitpur, Pokhara and more.</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Blur backdrop for the active mega menu — same pattern as base.njk's .nav-backdrop-overlay -->
-<div class="v2-nav-backdrop" aria-hidden="true"></div>
-
-<!-- Mobile menu — shown below 860px in place of .v2-nav__links, which has no fallback on its own.
-     Features/Resources use a tap accordion instead of the desktop mega menu's hover/:has()
-     sibling selectors, which have no touch equivalent. -->
-<nav id="v2-nav-mobile" class="v2-nav-mobile" aria-hidden="true">
-  <div class="v2-nav-mobile__group">
-    <button type="button" class="v2-nav-mobile__trigger" aria-expanded="false" aria-controls="v2-nav-mobile-features">
-      Features
-      <svg class="v2-nav-mobile__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-    <div class="v2-nav-mobile__submenu" id="v2-nav-mobile-features">
-      <a href="/features/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>All Features</a>
-      <a href="/features/booking/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>Booking Engine</a>
-      <a href="/features/operational-visibility/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></span>Operations</a>
-      <a href="/features/payment-tracking/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>Finance &amp; Reconciliation</a>
-      <a href="/features/reports/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>Live Reports</a>
-      <a href="/features/discount-management/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>Discount Management</a>
-      <a href="/features/staff-management/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Staff Management</a>
-    </div>
-  </div>
-  <a href="/how-it-works/">How it Works</a>
-  <a href="/solutions/">Solutions</a>
-  <div class="v2-nav-mobile__group">
-    <button type="button" class="v2-nav-mobile__trigger" aria-expanded="false" aria-controls="v2-nav-mobile-resources">
-      Resources
-      <svg class="v2-nav-mobile__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-    <div class="v2-nav-mobile__submenu" id="v2-nav-mobile-resources">
-      <a href="/blog/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Blog</a>
-      <a href="/case-study/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>Case Study</a>
-      <a href="/faq/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2.5-3 4"/><line x1="12" y1="17.5" x2="12.01" y2="17.5"/></svg></span>FAQ</a>
-      <a href="/compare/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M21 3l-7 7"/><path d="M8 21H3v-5"/><path d="M3 21l7-7"/></svg></span>Compare</a>
-      <a href="/nepal/"><span class="v2-nav-mobile__icon-wrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Booking software by city</a>
-    </div>
-  </div>
-  <a href="#try-free" class="v2-btn v2-btn--ghost" data-trial-open>Try for free</a>
-  <a href="/demo/" class="v2-btn">Book a demo</a>
-</nav>
-
-<!-- Solid scrim behind the mobile menu — the panel itself has no backdrop, so
-     the hero text underneath was showing through half-faded (mid GSAP reveal),
-     reading as a stray "blur"; this also gives the menu a tap-outside-to-close
-     target. Mobile-only: hidden at 861px+ alongside .v2-nav-mobile. -->
-<div id="v2-nav-mobile-scrim" class="v2-nav-mobile-scrim" aria-hidden="true"></div>
 
 {% include "_trial-modal.njk" %}
 
@@ -3035,8 +2698,8 @@ extraHead: |
       <div class="v2-access-copy v2-reveal">
         <h2 class="v2-access-title">Better operations start with a better system.</h2>
         <div class="v2-cta-btns">
-          <a class="is-primary" href="/demo/">Book a free demo</a>
-          <button type="button" class="is-ghost" data-trial-open>Try for free</button>
+          <span class="cta-cap"><button type="button" class="is-primary" data-trial-open>Try a free demo</button><span class="cta-cap__note">Instant access · no call needed</span></span>
+          <span class="cta-cap"><a class="is-ghost" href="/contact/">Talk to us</a><span class="cta-cap__note">Questions? Our team replies</span></span>
         </div>
         <p class="v2-access-reassurance">No credit card required · Live in a day · Real support when you need it</p>
       </div>
@@ -3669,166 +3332,8 @@ document.addEventListener('DOMContentLoaded', function(){
     onUpdate: function(self){ nav.classList.toggle('is-scrolled', self.scroll() > 40); }
   });
 
-  // ---- Mobile nav: hamburger toggle ----
-  (function () {
-    var toggle = document.getElementById('v2-nav-toggle');
-    var mobile = document.getElementById('v2-nav-mobile');
-    var scrim = document.getElementById('v2-nav-mobile-scrim');
-    if (!toggle || !mobile || !nav) return;
-
-    // Lenis intercepts wheel/touch scrolling directly, so plain CSS
-    // `overflow:hidden` on the body won't stop the page scrolling behind
-    // the open menu — stop/start Lenis itself instead.
-    var setOpen = function (isOpen) {
-      nav.classList.toggle('menu-open', isOpen);
-      toggle.setAttribute('aria-expanded', String(isOpen));
-      mobile.setAttribute('aria-hidden', String(!isOpen));
-      if (scrim) {
-        scrim.classList.toggle('is-open', isOpen);
-        scrim.setAttribute('aria-hidden', String(!isOpen));
-      }
-      if (isOpen) { lenis.stop(); } else { lenis.start(); }
-    };
-
-    toggle.addEventListener('click', function () {
-      setOpen(!nav.classList.contains('menu-open'));
-    });
-
-    if (scrim) {
-      scrim.addEventListener('click', function () { setOpen(false); });
-    }
-
-    mobile.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () { setOpen(false); });
-    });
-
-    // Features/Resources accordion — tap equivalent of the desktop mega menu,
-    // which relies on hover/:has() sibling selectors with no touch equivalent.
-    mobile.querySelectorAll('.v2-nav-mobile__group').forEach(function (group) {
-      var trigger = group.querySelector('.v2-nav-mobile__trigger');
-      if (!trigger) return;
-      trigger.addEventListener('click', function () {
-        var isOpen = group.classList.toggle('is-open');
-        trigger.setAttribute('aria-expanded', String(isOpen));
-      });
-    });
-  })();
-
-  // ---- Hero email capture: hand off to the /demo form, pre-filled ----
-  (function () {
-    var form = document.getElementById('v2-hero-form');
-    if (!form) return;
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = form.email.value.trim();
-      window.location.href = '/demo/' + (email ? '?email=' + encodeURIComponent(email) : '');
-    });
-  })();
-
-  // ---- Footer CTA email capture: hand off to the /demo form, pre-filled ----
-  (function () {
-    var form = document.getElementById('v2-access-form');
-    if (!form) return;
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = form.email.value.trim();
-      window.location.href = '/demo/' + (email ? '?email=' + encodeURIComponent(email) : '');
-    });
-  })();
-
-  // ---- Nav mega menu: click-to-toggle + hover ----
-  // The panels live as top-level siblings of .v2-nav (not nested inside the
-  // trigger's <li>-equivalent), so open state is tracked on both the
-  // trigger item (for the chevron flip / aria) and the panel itself (for
-  // its own is-open visibility), linked via matching data-mega / id.
-  (function () {
-    var megaItems = document.querySelectorAll('.v2-nav__item--has-mega');
-    if (!megaItems.length) return;
-
-    var panelFor = function (item) {
-      return document.getElementById('v2Mega-' + item.dataset.mega);
-    };
-
-    var closeAllMegas = function (except) {
-      megaItems.forEach(function (item) {
-        if (item === except) return;
-        item.classList.remove('is-open');
-        var panel = panelFor(item);
-        if (panel) panel.classList.remove('is-open');
-        var trigger = item.querySelector('.v2-nav__mega-trigger');
-        if (trigger) trigger.setAttribute('aria-expanded', 'false');
-      });
-    };
-
-    // The panel is fixed + centered on the viewport, not anchored under the
-    // trigger, so the cursor crosses empty space moving from trigger to
-    // panel. Bridge that gap with a short close-delay so hover isn't lost.
-    var closeTimer = null;
-    var cancelClose = function () {
-      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
-    };
-    var positionAnchoredPanel = function (item, panel) {
-      if (!panel || !panel.classList.contains('v2-nav-mega--sm')) return;
-      var rect = item.getBoundingClientRect();
-      var panelWidth = panel.offsetWidth;
-      var margin = 16;
-      var triggerCenter = rect.left + rect.width / 2;
-      var minCenterRef = margin + panelWidth / 2;
-      var maxCenterRef = window.innerWidth - margin - panelWidth / 2;
-      var centerRef = Math.min(Math.max(triggerCenter, minCenterRef), maxCenterRef);
-      panel.style.left = centerRef + 'px';
-      var caretLeft = (rect.left + rect.width / 2) - (centerRef - panelWidth / 2);
-      panel.style.setProperty('--mega-caret-left', caretLeft + 'px');
-    };
-
-    var open = function (item) {
-      cancelClose();
-      closeAllMegas(item);
-      item.classList.add('is-open');
-      var panel = panelFor(item);
-      if (panel) {
-        panel.classList.add('is-open');
-        positionAnchoredPanel(item, panel);
-      }
-      var trigger = item.querySelector('.v2-nav__mega-trigger');
-      if (trigger) trigger.setAttribute('aria-expanded', 'true');
-    };
-    var scheduleClose = function (item) {
-      cancelClose();
-      closeTimer = setTimeout(function () { closeAllMegas(); }, 250);
-    };
-
-    megaItems.forEach(function (item) {
-      var trigger = item.querySelector('.v2-nav__mega-trigger');
-      var panel = panelFor(item);
-      if (!trigger) return;
-
-      trigger.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (item.classList.contains('is-open')) closeAllMegas();
-        else open(item);
-      });
-      trigger.addEventListener('focus', function () { open(item); });
-
-      item.addEventListener('mouseenter', function () { open(item); });
-      item.addEventListener('mouseleave', function () { scheduleClose(item); });
-
-      if (panel) {
-        panel.addEventListener('mouseenter', cancelClose);
-        panel.addEventListener('mouseleave', function () { scheduleClose(item); });
-      }
-    });
-
-    document.addEventListener('click', function (e) {
-      if (e.target.closest('.v2-nav__item--has-mega') || e.target.closest('.v2-nav-mega')) return;
-      closeAllMegas();
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeAllMegas();
-    });
-  })();
+  // Mobile hamburger + mega menu behaviour comes from /assets/js/main.js
+  // (shared nav), so it isn't bound twice here.
 
   // ---- Hero headline: rotating word, fade swap ----
   var heroRotate = document.getElementById('v2HeroRotate');

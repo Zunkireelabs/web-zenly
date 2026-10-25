@@ -7,8 +7,8 @@
       "eyebrow": "Spas & Wellness",
       "headline": "Scheduling software built for how spas actually run.",
       "sub": "Spas are where operational imprecision is most expensive – every mistake fills the room, blocks the revenue, and damages the experience you've spent years building.",
-      "ctaText": "Book a demo",
-      "ctaHref": "/demo/",
+      "ctaText": "Try a free demo",
+      "ctaHref": "#try-free",
       "caption": "No setup fees",
       "image": "/assets/images/solution-hero-spa.png",
       "imageAlt": "Woman relaxing during a spa treatment"
@@ -162,7 +162,7 @@
     "finalCta": {
       "heading": "Ready to see how it works for your spa?",
       "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles room turnover, discount control, and specialist availability across every branch.",
-      "ctaText": "Book your demo"
+      "ctaText": "Try a free demo"
     },
     "faq": [
       {
@@ -174,44 +174,439 @@
         "answer": "Generic tools handle time slots. Zennly handles the operational reality underneath – therapist assignment, discount approvals, room turnover – because that's where spas actually lose money."
       },
       {
-        "question": "What booking software is built for spas and wellness centers in Nepal?",
-        "answer": "Zennly is a multi-branch booking and operations platform built for spas and wellness centers in Nepal — handling therapist scheduling, room assignment, discount approval, and daily payment reconciliation across every branch."
-      },
-      {
         "question": "Does Zennly handle spa memberships and gift vouchers?",
         "answer": "Yes — Zennly tracks membership packages and gift vouchers alongside regular bookings, so redemptions and balances stay accurate across every branch, not just walk-in appointments."
-      },
-      {
-        "question": "What software helps manage a spa or wellness centre in Nepal?",
-        "answer": "Zennly is business management software for a spa or wellness centre in Nepal. It brings online booking, therapist and room scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
-      },
-      {
-        "question": "Which spa in Nepal runs on Zennly?",
-        "answer": "Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly. It is Zennly's first live client, and the full story is in the case study."
       },
       {
         "question": "How does a multi-branch spa in Nepal control discounts and close the day?",
         "answer": "On Zennly a therapist requests a discount with the exact percentage and amount, and it applies only after a manager approves it. Every payment is recorded against its booking, so the owner closes the day from one dashboard for all branches."
       },
       {
+        "question": "Which spa in Nepal runs on Zennly?",
+        "answer": "Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly. It is Zennly's first live client, and the full story is in the case study."
+      },
+      {
         "question": "How much does spa booking software cost in Nepal?",
         "answer": "Zennly pricing is a custom quote based on your number of branches, team size and the features you use. Book a 20-minute demo and you get a tailored quote within 24 hours."
+      },
+      {
+        "question": "What booking software is built for spas and wellness centers in Nepal?",
+        "answer": "Zennly is booking and management software built for spas and wellness centers in Nepal. It brings online booking, therapist and room scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
       },
       {
         "question": "Is there a spa booking app for Nepal?",
         "answer": "Zennly is web-based spa booking and management software built for Nepal. Guests book from a link on their phone, and your team manages therapists, rooms, discounts and payments from one dashboard, with no app to install."
       },
       {
-        "question": "What is the best multi-branch spa booking software?",
+        "question": "What is the best booking software for a spa with several locations?",
         "answer": "Zennly is multi-branch spa booking software. It books the therapist, room and time together, refuses clashes across branches, requires manager approval for discounts and gives the owner one daily report for every location."
-      },
-      {
-        "question": "What software helps manage a spa with several locations?",
-        "answer": "Zennly brings online booking, therapist and room scheduling, discount approval, payment tracking and daily reconciliation for every spa branch into one system."
       }
     ],
     "metaDescription": "Spa booking app and management software for Nepal: online booking, therapist and room scheduling, memberships, packages and daily reconciliation across branches.",
-    "seoTitle": "Spa Booking & Management Software in Nepal | Zennly"
+    "seoTitle": "Spa Booking & Management Software in Nepal | Zennly",
+    "sq": {
+      "eyebrow": "Zennly for spas",
+      "h1": "Scheduling software built for how spas",
+      "h1Accent": "actually run.",
+      "sub": "Book the therapist, room and time together, approve every discount, and close every branch from one calm screen.",
+      "heroImageFocus": "30%",
+      "heroCard": {
+        "meta": "Thursday · Downtown",
+        "status": "Confirmed",
+        "client": "Ashley Carter",
+        "service": "Deep Tissue · 60 min · $120",
+        "staff": "Emily C. · Room 2 · 1:00 PM"
+      },
+      "proofChip": "Live at Nuad Thai Spa · 4 branches",
+      "steps": [
+        {
+          "icon": "building",
+          "title": "Add your branches and rooms",
+          "desc": "Every location, treatment room and therapist, set up once, so the calendar matches your real floor.",
+          "linkText": "Book a setup demo",
+          "href": "/demo/"
+        },
+        {
+          "icon": "tag",
+          "title": "Set your menu and prices",
+          "desc": "Treatment lengths, prices and discount limits. The front desk works inside them from day one.",
+          "linkText": "See pricing",
+          "href": "/pricing/"
+        },
+        {
+          "icon": "check",
+          "title": "Go live",
+          "desc": "Share your booking link. Clients book online, and every booking and payment is on record.",
+          "linkText": "How it works",
+          "href": "/how-it-works/"
+        }
+      ],
+      "carousel": {
+        "heading": "Spa software that frees up",
+        "accent": "your headspace.",
+        "sub": "One Thursday at Downtown, from the first booking to the day's close.",
+        "slides": [
+          {
+            "type": "calendar",
+            "title": "Rooms and therapists, booked together.",
+            "desc": "Every treatment books the therapist, the room and the time in one go, so two clients never land in the same room.",
+            "screen": {
+              "title": "Thursday · Downtown",
+              "meta": "Rooms 1–4 · 3 therapists on",
+              "from": 10,
+              "hours": [
+                "10 AM",
+                "11 AM",
+                "12 PM",
+                "1 PM",
+                "2 PM",
+                "3 PM"
+              ],
+              "cols": [
+                {
+                  "name": "Emily C.",
+                  "appts": [
+                    {
+                      "client": "Sarah M.",
+                      "service": "Deep Tissue 60m · Room 2",
+                      "start": 1,
+                      "len": 1,
+                      "tone": "g"
+                    },
+                    {
+                      "client": "Ashley Carter",
+                      "service": "Deep Tissue 60m · Room 2",
+                      "start": 3,
+                      "len": 1,
+                      "tone": "g",
+                      "selected": true
+                    }
+                  ]
+                },
+                {
+                  "name": "Brooke R.",
+                  "appts": [
+                    {
+                      "client": "Nicole K.",
+                      "service": "Signature Facial 60m · Room 4",
+                      "start": 0.5,
+                      "len": 1,
+                      "tone": "p"
+                    },
+                    {
+                      "client": "Megan T.",
+                      "service": "Hot Stone 90m · Room 3",
+                      "start": 2.5,
+                      "len": 1.5,
+                      "tone": "l"
+                    }
+                  ]
+                },
+                {
+                  "name": "Amanda G.",
+                  "appts": [
+                    {
+                      "client": "Katie R.",
+                      "service": "Swedish 60m · Room 1",
+                      "start": 1.5,
+                      "len": 1,
+                      "tone": "o"
+                    },
+                    {
+                      "client": "Stacy Collins",
+                      "service": "Hot Stone 90m · Room 3",
+                      "start": 4,
+                      "len": 1.5,
+                      "tone": "l"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "discount",
+            "title": "Discounts need a manager's yes.",
+            "desc": "The front desk asks, a manager approves. Every discount shows the amount and the reason, so your premium prices hold.",
+            "screen": {
+              "title": "Discount request",
+              "time": "2:10 PM",
+              "status": "Needs approval",
+              "client": "Ashley Carter · Deep Tissue 60m · 1:00 PM",
+              "amount": "20% · $24",
+              "rows": [
+                [
+                  "Reason",
+                  "Service delay · started 15 min late"
+                ],
+                [
+                  "Requested by",
+                  "Sophie B. · front desk"
+                ],
+                [
+                  "Price",
+                  "$120 → $96"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "transfer",
+            "title": "Specialist cover from another branch.",
+            "desc": "Move a therapist to another branch for a day or for good. Their bookings follow, and both managers see it in advance.",
+            "screen": {
+              "title": "Staff transfer",
+              "status": "Scheduled",
+              "name": "Paige N.",
+              "role": "Massage therapist",
+              "from": "Downtown",
+              "to": "Midtown",
+              "when": "From Thursday",
+              "listTitle": "Midtown · bookings assigned to Paige",
+              "items": [
+                [
+                  "Lily W.",
+                  "Hot Stone 90m",
+                  "3:00 PM"
+                ],
+                [
+                  "Ben A.",
+                  "Deep Tissue 60m",
+                  "5:00 PM"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "close",
+            "title": "Every branch, closed by 8 PM.",
+            "desc": "Each payment is recorded against its booking, so the owner closes all three branches from one screen.",
+            "screen": {
+              "title": "Day close · Thursday",
+              "status": "Closed",
+              "total": "$5,240",
+              "label": "Collected across 3 branches",
+              "bars": [
+                [
+                  "Downtown",
+                  "$1,860",
+                  100
+                ],
+                [
+                  "Midtown",
+                  "$1,700",
+                  91
+                ],
+                [
+                  "Uptown",
+                  "$1,680",
+                  90
+                ]
+              ],
+              "foot": "2 discounts approved · $0 outstanding"
+            }
+          }
+        ]
+      },
+      "features": {
+        "heading": "Everything a spa runs on,",
+        "accent": "in one place.",
+        "items": [
+          {
+            "icon": "calendar",
+            "title": "Book online, day or night",
+            "desc": "Clients book from your link at any hour. The booking lands with its therapist and room.",
+            "linkText": "Online booking",
+            "href": "/features/booking/"
+          },
+          {
+            "icon": "clock",
+            "title": "See the day as it happens",
+            "desc": "Who is in which room, who is running over and what is next, at every branch.",
+            "linkText": "Operations",
+            "href": "/features/operational-visibility/"
+          },
+          {
+            "icon": "tag",
+            "title": "Discounts with approval",
+            "desc": "Staff ask, managers approve. Every discount shows the amount and the reason.",
+            "linkText": "Discount control",
+            "href": "/features/discount-management/"
+          },
+          {
+            "icon": "card",
+            "title": "Payments and daily close",
+            "desc": "Cash, card and online payments recorded against each booking. Close the day in one place.",
+            "linkText": "Payments",
+            "href": "/features/payment-tracking/"
+          },
+          {
+            "icon": "userplus",
+            "title": "Staff and cover",
+            "desc": "Move a therapist to another branch for a day or for good. Their bookings follow.",
+            "linkText": "Staff management",
+            "href": "/features/staff-management/"
+          },
+          {
+            "icon": "shield",
+            "title": "The right access for each role",
+            "desc": "Owners see every branch, managers their own, staff their day.",
+            "linkText": "Roles and access",
+            "href": "/features/role-based-access/"
+          }
+        ]
+      },
+      "stats": {
+        "heading": "Running live at a four-branch spa.",
+        "items": [
+          [
+            "4",
+            "branches on one system"
+          ],
+          [
+            "39",
+            "therapists scheduled"
+          ],
+          [
+            "12",
+            "treatment rooms"
+          ],
+          [
+            "194",
+            "services on the menu"
+          ]
+        ],
+        "source": "At Nuad Thai Spa Kathmandu, Zennly’s first live client."
+      },
+      "grow": {
+        "heading": "Grow more than",
+        "accent": "bookings.",
+        "sub": "Bring clients back with memberships, packages, gift vouchers and offers, all on the same system.",
+        "cards": [
+          {
+            "type": "membership",
+            "tone": "blush",
+            "title": "Memberships",
+            "desc": "Prepaid balances clients spend visit by visit, with every deduction on record.",
+            "linkText": "Memberships",
+            "href": "/features/memberships/",
+            "photo": "/assets/images/nuad/thai-massage.jpg",
+            "photoAlt": "A therapist giving a massage at Nuad Thai Spa",
+            "screen": {
+              "label": "Premium membership",
+              "name": "Stacy Collins",
+              "from": 240,
+              "to": 80,
+              "caption": "balance left",
+              "row": [
+                "Hot Stone 90m · paid from balance",
+                "−$160"
+              ],
+              "foot": "104 days to expiry"
+            }
+          },
+          {
+            "type": "package",
+            "tone": "lilac",
+            "title": "Packages",
+            "desc": "Sell ten sessions up front and track each one used, with any balance still due.",
+            "linkText": "Packages",
+            "href": "/features/packages/",
+            "screen": {
+              "label": "10 × Deep Tissue 60m",
+              "name": "Ashley Carter",
+              "total": 10,
+              "used": 1,
+              "caption": "sessions left",
+              "row": [
+                "First session · Emily C.",
+                "Redeemed"
+              ],
+              "foot": "Expires Sep 30"
+            }
+          },
+          {
+            "type": "voucher",
+            "tone": "peach",
+            "title": "Gift vouchers",
+            "desc": "Gifts claimed in parts, with the balance always right and the expiry date in view.",
+            "linkText": "Vouchers",
+            "href": "/features/vouchers/",
+            "screen": {
+              "label": "GV-0012 · gift for Lily Wong",
+              "name": "From Rosa Garcia",
+              "steps": [
+                250,
+                130,
+                35
+              ],
+              "caption": "left to spend",
+              "rows": [
+                [
+                  "Jan 8 · Deep Tissue 60m",
+                  "−$120"
+                ],
+                [
+                  "Feb 20 · Facial",
+                  "−$95"
+                ]
+              ],
+              "foot": "Expires Mar 12"
+            }
+          },
+          {
+            "type": "campaign",
+            "tone": "green",
+            "title": "Offers and outreach",
+            "desc": "Seasonal offers that start and end by themselves, and win-back messages to clients who haven't been in.",
+            "linkText": "Campaigns",
+            "href": "/features/campaigns/",
+            "screen": {
+              "label": "Fall Offer · 15% off massage",
+              "status": "Live",
+              "sub": "Oct 1–15 · all branches",
+              "to": 84,
+              "caption": "bookings from the offer",
+              "bars": [
+                [
+                  "Downtown",
+                  36
+                ],
+                [
+                  "Midtown",
+                  28
+                ],
+                [
+                  "Uptown",
+                  20
+                ]
+              ],
+              "toast": [
+                "Nicole K. booked Deep Tissue",
+                "$102"
+              ]
+            }
+          }
+        ]
+      },
+      "faq": {
+        "heading": "Spa questions,",
+        "accent": "answered.",
+        "visible": 6
+      },
+      "final": {
+        "heading": "See your spa's day",
+        "accent": "on Zennly."
+      },
+      "quote": {
+        "text": "I used to spend my mornings calling every branch. Now I open the platform and everything is already there.",
+        "author": "Owner",
+        "meta": "Nuad Thai Spa Kathmandu · 4 branches",
+        "href": "/case-study/",
+        "photo": "/assets/images/nuad/thai-massage.jpg",
+        "photoAlt": "A therapist at work at Nuad Thai Spa Kathmandu"
+      }
+    }
   },
   {
     "slug": "salon",
@@ -221,8 +616,8 @@
       "eyebrow": "Hair & Nail Salons",
       "headline": "Built around your stylists, not around a calendar.",
       "sub": "A salon doesn't just schedule services – it schedules relationships. Zennly is built around how salon bookings actually work.",
-      "ctaText": "Book a demo",
-      "ctaHref": "/demo/",
+      "ctaText": "Try a free demo",
+      "ctaHref": "#try-free",
       "caption": "No setup fees",
       "image": "/assets/images/solution-hero-salon.png",
       "imageAlt": "Stylist curling a client's hair in a modern salon"
@@ -340,52 +735,439 @@
     "finalCta": {
       "heading": "Ready to see how it works for your salon?",
       "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles stylist assignment, discount control, and staff transfers across every branch.",
-      "ctaText": "Book your demo"
+      "ctaText": "Try a free demo"
     },
     "faq": [
       {
-        "question": "We only have one branch right now.",
-        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch salons start for the booking and discount control alone."
+        "question": "We only have one salon right now. Is Zennly still for us?",
+        "answer": "Yes. Zennly works the same at one salon as at ten. You get online booking, stylist and chair scheduling, discount approval and payment tracking from day one, and the multi-branch views are there when you open a second location."
       },
       {
-        "question": "How is this different from generic booking software?",
-        "answer": "Generic tools handle time slots. Zennly handles stylist assignment, discount approvals, and staff transfers – where salons actually lose money."
+        "question": "How does Zennly stop double-booking stylists and chairs?",
+        "answer": "Every booking holds the branch, the stylist, the chair and the service's real length together. Once a slot is taken it can't be booked again, even from another device or branch, so two clients never land in the same chair."
       },
       {
-        "question": "What scheduling software handles stylist bookings across multiple salon branches?",
-        "answer": "Zennly schedules stylists and services per branch, tracks client history and relationships, and consolidates payments and discounts across every salon location into one dashboard."
+        "question": "Can every booking be tied to a specific stylist?",
+        "answer": "Yes. Each booking is created against a branch, a service and a named stylist, so every stylist sees their own day and the front desk knows exactly who is doing what."
       },
       {
-        "question": "What software helps manage a salon or beauty parlour in Nepal?",
-        "answer": "Zennly is business management software for a salon or beauty parlour in Nepal. It brings online booking, stylist scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
+        "question": "Can Zennly handle long color services like balayage?",
+        "answer": "Yes. Each service has its own length and price, so a balayage blocks its stylist and chair for the full three hours while a blowout only takes its 45 minutes."
       },
       {
-        "question": "What is the best booking software for salons and beauty parlours in Nepal?",
-        "answer": "Zennly is built for multi-branch salons and beauty parlours in Nepal. It handles stylist scheduling, online booking, discount approval and daily payment reconciliation across every branch in one system."
-      },
-      {
-        "question": "How much does salon booking software cost in Nepal?",
-        "answer": "Zennly pricing is a custom quote based on your number of branches, team size and the features you use. Book a 20-minute demo and you get a tailored quote within 24 hours."
-      },
-      {
-        "question": "Is Zennly used by a real spa or salon business in Nepal?",
-        "answer": "Yes. Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly, the same system used for salon scheduling, discount control and daily reconciliation."
-      },
-      {
-        "question": "Is there a salon appointment app or management software in Kathmandu?",
-        "answer": "Zennly is web-based salon management software used in Nepal. Clients book a stylist online from their phone, and owners see bookings, staff and payments for every branch in one place."
+        "question": "Does Zennly handle salon memberships, packages and gift vouchers?",
+        "answer": "Yes. Memberships, prepaid packages and gift vouchers sit alongside regular bookings, so every redemption and remaining balance stays accurate across all your branches."
       },
       {
         "question": "What is the best salon management software for multiple branches?",
-        "answer": "Zennly is salon management software for multi-branch salons. It schedules stylists across locations, takes online bookings, records payments by method and gives owners one dashboard for every salon."
+        "answer": "Zennly is built for multi-branch salons. It books the stylist, chair and time together, refuses clashes across branches, requires manager approval for discounts and gives the owner one daily close for every location."
       },
       {
-        "question": "How can a salon prevent double bookings across branches?",
-        "answer": "Use booking software that books the stylist and time together and refuses a conflicting booking at database level. Zennly does this across every branch."
+        "question": "What salon and beauty parlour software is built for Nepal?",
+        "answer": "Zennly is booking and management software built in Nepal for salons and beauty parlours. It covers online booking, stylist and chair scheduling, discount approval, payment tracking by cash, card and online, and a daily close for every branch."
+      },
+      {
+        "question": "Is there a salon appointment app in Kathmandu?",
+        "answer": "Zennly is web-based salon booking software used from Kathmandu and across Nepal. Clients book from a link on their phone, and your team runs stylists, chairs, discounts and payments from one dashboard, with no app to install."
+      },
+      {
+        "question": "How much does salon booking software cost in Nepal?",
+        "answer": "Zennly is quoted per business, based on your branches, team size and the features you use. There are no setup fees, and you can try every feature free before you decide."
       }
     ],
     "metaDescription": "Salon and beauty parlour management software for Nepal: online booking app, stylist scheduling, discount approval and payment tracking across every branch.",
-    "seoTitle": "Salon & Beauty Parlour Booking Software Nepal | Zennly"
+    "seoTitle": "Salon & Beauty Parlour Booking Software Nepal | Zennly",
+    "sq": {
+      "eyebrow": "Zennly for salons",
+      "h1": "Built around your stylists,",
+      "h1Accent": "not around a calendar.",
+      "sub": "Book the stylist, chair and real service length together, approve every discount, and close every branch from one calm screen.",
+      "heroImageFocus": "35%",
+      "heroCard": {
+        "meta": "Saturday · Midtown",
+        "status": "Confirmed",
+        "client": "Allison T.",
+        "service": "Balayage · 3 h · $240",
+        "staff": "Jessica T. · Chair 2 · 9:00 AM"
+      },
+      "chip": "Built for multi-branch salons",
+      "proofPlaceholder": true,
+      "steps": [
+        {
+          "icon": "building",
+          "title": "Add your branches, chairs and stylists",
+          "desc": "Every location, chair, nail station and stylist, set up once, so the calendar matches your real floor.",
+          "linkText": "Book a setup demo",
+          "href": "/demo/"
+        },
+        {
+          "icon": "tag",
+          "title": "Set services, lengths and prices",
+          "desc": "A blowout takes 45 minutes and a balayage takes three hours. Set each once and the calendar books them that way.",
+          "linkText": "See pricing",
+          "href": "/pricing/"
+        },
+        {
+          "icon": "check",
+          "title": "Go live",
+          "desc": "Share your booking link. Clients book online, and every booking and payment is on record.",
+          "linkText": "How it works",
+          "href": "/how-it-works/"
+        }
+      ],
+      "carousel": {
+        "heading": "Salon software that keeps",
+        "accent": "Saturdays on time.",
+        "sub": "One Saturday at Midtown, from the first balayage to the day's close.",
+        "slides": [
+          {
+            "type": "calendar",
+            "title": "Every chair, booked for the real length.",
+            "desc": "Each service books the stylist and the chair for its full length, so a three-hour balayage never gets squeezed into an hour.",
+            "screen": {
+              "title": "Saturday · Midtown",
+              "meta": "Chairs 1–6 · 3 stylists on",
+              "hours": [
+                "9 AM",
+                "10 AM",
+                "11 AM",
+                "12 PM",
+                "1 PM",
+                "2 PM"
+              ],
+              "cols": [
+                {
+                  "name": "Jessica T.",
+                  "appts": [
+                    {
+                      "client": "Allison T.",
+                      "service": "Balayage 3h · Chair 2",
+                      "start": 0,
+                      "len": 3,
+                      "tone": "g",
+                      "selected": true
+                    },
+                    {
+                      "client": "Katie R.",
+                      "service": "Cut & Style 60m · Chair 2",
+                      "start": 3.5,
+                      "len": 1,
+                      "tone": "o"
+                    }
+                  ]
+                },
+                {
+                  "name": "Madison L.",
+                  "appts": [
+                    {
+                      "client": "Megan T.",
+                      "service": "Color & Gloss 2h · Chair 4",
+                      "start": 1,
+                      "len": 2,
+                      "tone": "l"
+                    },
+                    {
+                      "client": "Sarah M.",
+                      "service": "Cut & Style 60m · Chair 4",
+                      "start": 4,
+                      "len": 1,
+                      "tone": "g"
+                    }
+                  ]
+                },
+                {
+                  "name": "Taylor B.",
+                  "appts": [
+                    {
+                      "client": "Nicole K.",
+                      "service": "Gel Manicure 60m · Nail bar",
+                      "start": 1.5,
+                      "len": 1,
+                      "tone": "p"
+                    },
+                    {
+                      "client": "Chloe M.",
+                      "service": "Gel Manicure 60m · Nail bar",
+                      "start": 3,
+                      "len": 1,
+                      "tone": "p"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "discount",
+            "title": "Discounts need a manager's yes.",
+            "desc": "The front desk asks, a manager approves. Every discount shows the amount and the reason, so your prices hold.",
+            "screen": {
+              "title": "Discount request",
+              "status": "Needs approval",
+              "client": "Megan T. · Color & Gloss 2h · 10:00 AM",
+              "amount": "15% · $24",
+              "rows": [
+                [
+                  "Reason",
+                  "Ran 30 min over"
+                ],
+                [
+                  "Requested by",
+                  "Kayla M. · front desk"
+                ],
+                [
+                  "Price",
+                  "$160 → $136"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "transfer",
+            "title": "Your best colorist where she's needed.",
+            "desc": "Move a stylist to another branch for a day or for good. Their bookings follow, and both managers see it in advance.",
+            "screen": {
+              "title": "Staff transfer",
+              "status": "Scheduled",
+              "name": "Brianna K.",
+              "role": "Colorist",
+              "from": "Downtown",
+              "to": "Uptown",
+              "when": "This Saturday",
+              "listTitle": "Uptown · bookings assigned to Brianna",
+              "items": [
+                [
+                  "Ashley Carter",
+                  "Highlights 2h",
+                  "1:00 PM"
+                ],
+                [
+                  "Rosa Garcia",
+                  "Color & Gloss 2h",
+                  "3:30 PM"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "close",
+            "title": "Every branch, closed by 8 PM.",
+            "desc": "Each payment is recorded against its booking, so the owner closes all three salons from one screen.",
+            "screen": {
+              "title": "Day close · Saturday",
+              "status": "Closed",
+              "total": "$7,860",
+              "label": "Collected across 3 branches",
+              "bars": [
+                [
+                  "Downtown",
+                  "$2,940",
+                  100
+                ],
+                [
+                  "Midtown",
+                  "$2,760",
+                  94
+                ],
+                [
+                  "Uptown",
+                  "$2,160",
+                  73
+                ]
+              ],
+              "foot": "3 discounts approved · $0 outstanding"
+            }
+          }
+        ]
+      },
+      "features": {
+        "heading": "Everything a salon runs on,",
+        "accent": "in one place.",
+        "items": [
+          {
+            "icon": "calendar",
+            "title": "Book online, day or night",
+            "desc": "Clients book from your link at any hour. The booking lands with its stylist and chair.",
+            "linkText": "Online booking",
+            "href": "/features/booking/"
+          },
+          {
+            "icon": "clock",
+            "title": "See every chair live",
+            "desc": "Who is in which chair, who is running over and who is next, at every branch.",
+            "linkText": "Operations",
+            "href": "/features/operational-visibility/"
+          },
+          {
+            "icon": "tag",
+            "title": "Discounts with approval",
+            "desc": "Staff ask, managers approve. Every discount shows the amount and the reason.",
+            "linkText": "Discount control",
+            "href": "/features/discount-management/"
+          },
+          {
+            "icon": "card",
+            "title": "Payments and daily close",
+            "desc": "Cash, card and online payments recorded against each booking. Close the day in one place.",
+            "linkText": "Payments",
+            "href": "/features/payment-tracking/"
+          },
+          {
+            "icon": "userplus",
+            "title": "Stylists and cover",
+            "desc": "Move a stylist to another branch for a day or for good. Their bookings follow.",
+            "linkText": "Staff management",
+            "href": "/features/staff-management/"
+          },
+          {
+            "icon": "shield",
+            "title": "The right access for each role",
+            "desc": "Owners see every branch, managers their own, stylists their day.",
+            "linkText": "Roles and access",
+            "href": "/features/role-based-access/"
+          }
+        ]
+      },
+      "stats": {
+        "heading": "Running at a three-branch salon.",
+        "items": [
+          [
+            "3",
+            "branches on one system"
+          ],
+          [
+            "18",
+            "stylists scheduled"
+          ],
+          [
+            "22",
+            "chairs and stations"
+          ],
+          [
+            "86",
+            "services on the menu"
+          ]
+        ]
+      },
+      "quote": {
+        "text": "We stopped double-booking chairs the week we switched. Saturdays finally run on time.",
+        "author": "Salon owner",
+        "meta": "Three branches"
+      },
+      "grow": {
+        "heading": "Grow more than",
+        "accent": "bookings.",
+        "sub": "Bring clients back with memberships, packages, gift vouchers and rebook reminders, all on the same system.",
+        "cards": [
+          {
+            "type": "membership",
+            "tone": "blush",
+            "title": "Memberships",
+            "desc": "Prepaid balances clients spend visit by visit, with every deduction on record.",
+            "linkText": "Memberships",
+            "href": "/features/memberships/",
+            "screen": {
+              "label": "Blowout Club",
+              "name": "Katie R.",
+              "from": 200,
+              "to": 145,
+              "caption": "balance left",
+              "row": [
+                "Blowout 45m · paid from balance",
+                "−$55"
+              ],
+              "foot": "Valid until Mar 1"
+            }
+          },
+          {
+            "type": "package",
+            "tone": "lilac",
+            "title": "Packages",
+            "desc": "Sell five blowouts up front and track each one used, with any balance still due.",
+            "linkText": "Packages",
+            "href": "/features/packages/",
+            "screen": {
+              "label": "5 × Blowout 45m",
+              "name": "Sarah M.",
+              "total": 5,
+              "used": 1,
+              "caption": "blowouts left",
+              "row": [
+                "First blowout · Madison L.",
+                "Redeemed"
+              ],
+              "foot": "Expires Jan 31"
+            }
+          },
+          {
+            "type": "voucher",
+            "tone": "peach",
+            "title": "Gift vouchers",
+            "desc": "Gifts claimed in parts, with the balance always right and the expiry date in view.",
+            "linkText": "Vouchers",
+            "href": "/features/vouchers/",
+            "screen": {
+              "label": "GV-0031 · gift for Nicole K.",
+              "name": "From Allison T.",
+              "steps": [
+                150,
+                65
+              ],
+              "caption": "left to spend",
+              "rows": [
+                [
+                  "Oct 4 · Cut & Style 60m",
+                  "−$85"
+                ]
+              ],
+              "foot": "Expires Jan 4"
+            }
+          },
+          {
+            "type": "campaign",
+            "tone": "green",
+            "title": "Offers and outreach",
+            "desc": "Rebook reminders six weeks after a visit, and offers that start and end by themselves.",
+            "linkText": "Campaigns",
+            "href": "/features/campaigns/",
+            "screen": {
+              "label": "6-week rebook reminder",
+              "status": "Live",
+              "sub": "Email · all branches · September",
+              "to": 112,
+              "caption": "clients rebooked",
+              "bars": [
+                [
+                  "Downtown",
+                  44
+                ],
+                [
+                  "Midtown",
+                  38
+                ],
+                [
+                  "Uptown",
+                  30
+                ]
+              ],
+              "toast": [
+                "Megan T. rebooked Color & Gloss",
+                "$160"
+              ]
+            }
+          }
+        ]
+      },
+      "faq": {
+        "heading": "Salon questions,",
+        "accent": "answered.",
+        "visible": 6
+      },
+      "final": {
+        "heading": "See your salon's Saturday",
+        "accent": "on Zennly."
+      }
+    }
   },
   {
     "slug": "tattoo",
@@ -395,11 +1177,11 @@
       "eyebrow": "Tattoo Studios",
       "headline": "Artist-specific booking for work that can't be rebooked casually.",
       "sub": "A tattoo appointment isn't a time slot – it's a specific artist, a consultation, and often a deposit on the line. Zennly is built around that reality, not a generic calendar.",
-      "ctaText": "Book a demo",
-      "ctaHref": "/demo/",
+      "ctaText": "Try a free demo",
+      "ctaHref": "#try-free",
       "caption": "No setup fees",
       "image": "/assets/images/solution-hero-tattoo.png",
-      "imageAlt": "Tattoo artist's hands tattooing fine-line floral linework on a client's forearm"
+      "imageAlt": "Gloved tattoo artist working fine-line floral linework on a client's forearm"
     },
     "heroCalendar": {
       "month": "September",
@@ -540,40 +1322,448 @@
     "finalCta": {
       "heading": "Ready to see how it works for your studio?",
       "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles artist-specific booking, deposits, and multi-session continuity.",
-      "ctaText": "Book your demo"
+      "ctaText": "Try a free demo"
     },
     "faq": [
       {
-        "question": "What about walk-ins vs. booked artists?",
-        "answer": "Zennly handles both – walk-ins get created the same way as booked appointments, just without the advance artist assignment."
+        "question": "What is the best booking software for tattoo studios?",
+        "answer": "Look for software built around the artist, not the time slot. Zennly gives every artist their own calendar, books consultations and long sessions at their real length, records deposits and balances against each booking, and refuses double-bookings across every studio you run."
       },
       {
-        "question": "How is this different from generic booking software?",
-        "answer": "Generic tools handle time slots. Zennly handles artist assignment, deposit tracking, and multi-session continuity – where tattoo studios actually lose money and trust."
+        "question": "How do I take deposits for tattoo appointments?",
+        "answer": "Record the deposit against the booking when the client books or at the consultation, by cash, card or online. Zennly keeps the deposit, any part-payments and the balance on that booking, so the front desk sees exactly what is due on the day."
       },
       {
-        "question": "How do tattoo studios manage artist schedules and deposits?",
-        "answer": "Zennly tracks each artist's schedule, consultation bookings, and deposit status per appointment, so walk-ins and booked clients never collide."
+        "question": "Can clients book a specific tattoo artist online?",
+        "answer": "Yes. Clients pick the artist and the service from your booking link, and the booking lands on that artist's calendar. Every booking in Zennly is tied to a named staff member, so work is never assigned to whoever happens to be free."
+      },
+      {
+        "question": "How do I manage multi-session tattoos like sleeves?",
+        "answer": "Sell the piece as a package with the number of sessions it needs. Each sitting is booked with the same artist and redeemed from the package, so you always see how many sessions are done and how many are left."
+      },
+      {
+        "question": "Can I take walk-ins and flash alongside booked work?",
+        "answer": "Yes. Zennly fits walk-ins into the available gaps in each artist's calendar, so a flash piece or a quick touch-up never collides with a booked session."
+      },
+      {
+        "question": "How do guest spots or artists across several studios work?",
+        "answer": "Transfer an artist to another studio for a set period or permanently. Their bookings follow them, and the managers at both studios see the change before it happens. Owners see every studio, managers their own and artists their day."
       },
       {
         "question": "What software helps manage a tattoo studio in Nepal?",
-        "answer": "Zennly is business management software for a tattoo studio in Nepal. It brings online booking, artist scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
-      },
-      {
-        "question": "What is the best tattoo shop booking software in Nepal?",
-        "answer": "Zennly is built for tattoo studios in Nepal. It gives each artist their own calendar, separates consultations from long sessions, records deposits and balances against each booking, and refuses double-bookings."
+        "answer": "Zennly is business management software for tattoo studios in Nepal. It brings online booking, artist scheduling, deposits and balances, discount approval, payment tracking and multi-branch reports into one system, so owners stop running the studio from DMs, phone calls and notebooks."
       },
       {
         "question": "Is there a tattoo appointment app for studios in Nepal?",
-        "answer": "Zennly runs in the browser on phone and computer. Clients book an artist and a time from a link, and the studio records the deposit against the booking."
+        "answer": "Zennly runs in the browser on phone and computer, with nothing to install. Clients book an artist and a time from your link, and the studio records the deposit against the booking."
       },
       {
-        "question": "What is the best tattoo studio booking software?",
-        "answer": "Zennly gives each artist their own calendar, separates consultations from long sessions, records deposits and balances against each booking and refuses double-bookings."
+        "question": "How much does tattoo studio software cost?",
+        "answer": "Zennly is quoted per business, based on your studios and team. There are no setup fees, and you can try the free demo before you commit."
       }
     ],
-    "metaDescription": "Tattoo studio booking software for Nepal: artist scheduling, consultations and deposits, with no double-bookings.",
-    "seoTitle": "Tattoo Studio Booking Software in Nepal | Zennly"
+    "metaDescription": "Tattoo studio booking software for Nepal: artist scheduling, consultations, deposits and multi-session pieces, with no double-bookings.",
+    "seoTitle": "Tattoo Studio Booking Software in Nepal | Zennly",
+    "sq": {
+      "eyebrow": "Zennly for tattoo studios",
+      "h1": "Tattoo studio software that books",
+      "h1Accent": "the artist, not just the hour.",
+      "sub": "Book a named artist and station, take a deposit at the consultation, keep a sleeve with its artist from the first session to the last, and close every studio from one screen.",
+      "heroImageFocus": "56%",
+      "heroCard": {
+        "meta": "Saturday · Midtown",
+        "status": "Confirmed",
+        "client": "Noah B.",
+        "service": "Sleeve package · session 3 of 4 · 3h",
+        "staff": "Dante V. · Station 1 · 11:00 AM"
+      },
+      "chip": "Built for tattoo studios",
+      "proofPlaceholder": true,
+      "steps": [
+        {
+          "icon": "building",
+          "title": "Add your studios, stations and artists",
+          "desc": "Every location, station and artist, set up once, so the calendar matches your real studio.",
+          "linkText": "Book a setup demo",
+          "href": "/demo/"
+        },
+        {
+          "icon": "tag",
+          "title": "Set consultations, sessions and prices",
+          "desc": "A consult is 30 minutes and a sleeve sitting is three hours. Set each once and the calendar books them that way.",
+          "linkText": "See pricing",
+          "href": "/pricing/"
+        },
+        {
+          "icon": "check",
+          "title": "Go live",
+          "desc": "Share your booking link. Clients book a named artist online, and every deposit and payment is on record.",
+          "linkText": "How it works",
+          "href": "/how-it-works/"
+        }
+      ],
+      "carousel": {
+        "heading": "Studio software built for",
+        "accent": "long sessions.",
+        "sub": "One Saturday at Midtown, from an 11 AM sleeve sitting to the day's close.",
+        "slides": [
+          {
+            "type": "calendar",
+            "title": "Every artist, every station, no clashes.",
+            "desc": "Each booking holds the artist, the station and the real session length, and walk-ins fill the gaps that are actually free.",
+            "screen": {
+              "title": "Saturday · Midtown",
+              "meta": "Stations 1–3 · 3 artists on",
+              "hourScale": 1.5,
+              "hourScaleMobile": 1.1,
+              "hours": [
+                "11 AM",
+                "12 PM",
+                "1 PM",
+                "2 PM"
+              ],
+              "cols": [
+                {
+                  "name": "Dante V.",
+                  "appts": [
+                    {
+                      "client": "Noah B.",
+                      "service": "Sleeve session 3 of 4 · Station 1",
+                      "start": 0,
+                      "len": 3,
+                      "tone": "p",
+                      "selected": true
+                    },
+                    {
+                      "client": "Lucas G.",
+                      "service": "Touch-up 30m · Station 1",
+                      "start": 3.5,
+                      "len": 0.5,
+                      "tone": "l"
+                    }
+                  ]
+                },
+                {
+                  "name": "Riley S.",
+                  "appts": [
+                    {
+                      "client": "Hailey R.",
+                      "service": "Consultation 30m · Station 2",
+                      "start": 0,
+                      "len": 0.5,
+                      "tone": "o"
+                    },
+                    {
+                      "client": "Avery J.",
+                      "service": "Fine-line 1h · Station 2",
+                      "start": 1,
+                      "len": 1,
+                      "tone": "l"
+                    },
+                    {
+                      "client": "Harper W.",
+                      "service": "Fine-line 1h · Station 2",
+                      "start": 3,
+                      "len": 1,
+                      "tone": "l"
+                    }
+                  ]
+                },
+                {
+                  "name": "Kai M.",
+                  "appts": [
+                    {
+                      "client": "Camila D.",
+                      "service": "Color session 3h · Station 3",
+                      "start": 0.5,
+                      "len": 3,
+                      "tone": "g"
+                    },
+                    {
+                      "client": "Walk-in",
+                      "service": "Flash 30m · Station 3",
+                      "start": 3.5,
+                      "len": 0.5,
+                      "tone": "o"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "discount",
+            "title": "Deposits that sit on the booking.",
+            "desc": "Take a deposit at the consultation and the balance on the day. Every payment is recorded against the session, not in a DM thread.",
+            "screen": {
+              "title": "Session booking",
+              "status": "Deposit paid",
+              "statusTone": "ok",
+              "noActions": true,
+              "client": "Camila D. · Color session 3h · Kai M.",
+              "amount": "$100 paid",
+              "rows": [
+                [
+                  "Session",
+                  "$480"
+                ],
+                [
+                  "Deposit · at consult · card",
+                  "$100"
+                ],
+                [
+                  "Due today",
+                  "$380"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "transfer",
+            "title": "Guest weeks without the guesswork.",
+            "desc": "Move an artist to another studio for a week or for good. Their bookings follow, and both managers see it in advance.",
+            "screen": {
+              "title": "Staff transfer",
+              "status": "Scheduled",
+              "name": "Riley S.",
+              "role": "Fine-line artist",
+              "from": "Midtown",
+              "to": "Downtown",
+              "when": "From next Saturday",
+              "listTitle": "Downtown · bookings assigned to Riley",
+              "items": [
+                [
+                  "Mia K.",
+                  "Fine-line 1h",
+                  "11:00 AM"
+                ],
+                [
+                  "Jules T.",
+                  "Consultation 30m",
+                  "1:00 PM"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "close",
+            "title": "Every studio, closed in one place.",
+            "desc": "Deposits, balances and walk-ins are recorded against their bookings, so the owner closes all three studios from one screen.",
+            "screen": {
+              "title": "Day close · Saturday",
+              "status": "Closed",
+              "total": "$6,480",
+              "label": "Collected across 3 studios",
+              "bars": [
+                [
+                  "Midtown",
+                  "$2,560",
+                  100
+                ],
+                [
+                  "Downtown",
+                  "$2,140",
+                  84
+                ],
+                [
+                  "Uptown",
+                  "$1,780",
+                  70
+                ]
+              ],
+              "foot": "4 deposits taken · $0 outstanding"
+            }
+          }
+        ]
+      },
+      "features": {
+        "heading": "Everything a studio runs on,",
+        "accent": "in one place.",
+        "items": [
+          {
+            "icon": "calendar",
+            "title": "Book online, day or night",
+            "desc": "Clients book a consultation with a named artist from your link at any hour. It lands on that artist's calendar.",
+            "linkText": "Online booking",
+            "href": "/features/booking/"
+          },
+          {
+            "icon": "clock",
+            "title": "See every station live",
+            "desc": "Which station is in use, which session is running long and who is next, at every studio.",
+            "linkText": "Operations",
+            "href": "/features/operational-visibility/"
+          },
+          {
+            "icon": "tag",
+            "title": "Discounts with approval",
+            "desc": "Staff ask, managers approve. Every flash or touch-up discount shows the amount and the reason.",
+            "linkText": "Discount control",
+            "href": "/features/discount-management/"
+          },
+          {
+            "icon": "card",
+            "title": "Deposits, balances and daily close",
+            "desc": "Deposits, part-payments and balances recorded against each session. Close the day in one place.",
+            "linkText": "Payments",
+            "href": "/features/payment-tracking/"
+          },
+          {
+            "icon": "userplus",
+            "title": "Guest spots and cover",
+            "desc": "Move an artist to another studio for a week or for good. Their bookings follow.",
+            "linkText": "Staff management",
+            "href": "/features/staff-management/"
+          },
+          {
+            "icon": "shield",
+            "title": "The right access for each role",
+            "desc": "Owners see every studio, managers their own, artists their day.",
+            "linkText": "Roles and access",
+            "href": "/features/role-based-access/"
+          }
+        ]
+      },
+      "stats": {
+        "heading": "Running at a three-studio tattoo business.",
+        "items": [
+          [
+            "3",
+            "studios on one system"
+          ],
+          [
+            "12",
+            "artists scheduled"
+          ],
+          [
+            "14",
+            "stations"
+          ],
+          [
+            "22",
+            "services on the menu"
+          ]
+        ]
+      },
+      "quote": {
+        "text": "Deposits used to live in DMs and a notebook. Now every one is on the booking, and a no-show doesn't cost us the day.",
+        "author": "Studio owner",
+        "meta": "Three studios"
+      },
+      "grow": {
+        "heading": "Grow more than",
+        "accent": "bookings.",
+        "sub": "Deposits, multi-session packages, gift vouchers and flash days, all on the same system.",
+        "cards": [
+          {
+            "type": "membership",
+            "tone": "blush",
+            "title": "Deposits and balances",
+            "desc": "Take a deposit at the consultation and collect the balance after the session, all against one booking.",
+            "linkText": "Payments",
+            "href": "/features/payment-tracking/",
+            "screen": {
+              "label": "Color session · $480",
+              "name": "Camila D.",
+              "from": 380,
+              "to": 0,
+              "caption": "balance due",
+              "row": [
+                "Balance paid today · card",
+                "−$380"
+              ],
+              "foot": "Paid in full · today"
+            }
+          },
+          {
+            "type": "package",
+            "tone": "lilac",
+            "title": "Multi-session packages",
+            "desc": "Sell a sleeve as one package and track every sitting with the same artist.",
+            "linkText": "Packages",
+            "href": "/features/packages/",
+            "screen": {
+              "label": "Sleeve · 4 sessions",
+              "name": "Noah B.",
+              "total": 4,
+              "used": 3,
+              "caption": "session left",
+              "row": [
+                "Session 3 · Dante V.",
+                "Redeemed"
+              ],
+              "foot": "Final session · Nov 14"
+            }
+          },
+          {
+            "type": "voucher",
+            "tone": "peach",
+            "title": "Gift vouchers",
+            "desc": "Tattoo gift vouchers spent across visits, with the balance always right.",
+            "linkText": "Vouchers",
+            "href": "/features/vouchers/",
+            "screen": {
+              "label": "GV-0084 · gift for Avery J.",
+              "name": "From Harper W.",
+              "steps": [
+                200,
+                50
+              ],
+              "caption": "left to spend",
+              "rows": [
+                [
+                  "Today · Fine-line 1h",
+                  "−$150"
+                ]
+              ],
+              "foot": "Expires Apr 17"
+            }
+          },
+          {
+            "type": "campaign",
+            "tone": "green",
+            "title": "Flash days and offers",
+            "desc": "Flash-day offers that start and end by themselves, at every studio.",
+            "linkText": "Campaigns",
+            "href": "/features/campaigns/",
+            "screen": {
+              "label": "Friday the 13th Flash · 20% off",
+              "status": "Live",
+              "sub": "Nov 13 · all studios",
+              "to": 63,
+              "caption": "flash bookings",
+              "bars": [
+                [
+                  "Midtown",
+                  27
+                ],
+                [
+                  "Downtown",
+                  21
+                ],
+                [
+                  "Uptown",
+                  15
+                ]
+              ],
+              "toast": [
+                "Elena V. booked Flash 30m",
+                "$64"
+              ]
+            }
+          }
+        ]
+      },
+      "faq": {
+        "heading": "Tattoo studio questions,",
+        "accent": "answered.",
+        "visible": 6
+      },
+      "final": {
+        "heading": "See your studio's busiest Saturday",
+        "accent": "on Zennly."
+      }
+    }
   },
   {
     "slug": "fitness",
@@ -583,8 +1773,8 @@
       "eyebrow": "Fitness & PT",
       "headline": "Session scheduling that stops trainers from double-booking.",
       "sub": "Classes fill up, trainers double-book, and packages get tracked on paper – Zennly is built around how fitness bookings actually run.",
-      "ctaText": "Book a demo",
-      "ctaHref": "/demo/",
+      "ctaText": "Try a free demo",
+      "ctaHref": "#try-free",
       "caption": "No setup fees",
       "image": "/assets/images/solution-hero-fitness.png",
       "imageAlt": "A group fitness class mid-exercise in a sunlit studio"
@@ -711,40 +1901,451 @@
     "finalCta": {
       "heading": "Ready to see how it works for your gym or studio?",
       "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles trainer scheduling, discount control, and staff transfers across every branch.",
-      "ctaText": "Book your demo"
+      "ctaText": "Try a free demo"
     },
     "faq": [
       {
-        "question": "We only have one branch right now.",
-        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch studios start for the booking and discount control alone."
+        "question": "We only have one gym right now. Is Zennly still for us?",
+        "answer": "Yes. Zennly works the same at one gym as at ten. You get online booking, trainer and studio scheduling, discount approval and payment tracking from day one, and the multi-location views are there when you open a second gym."
       },
       {
-        "question": "How is this different from generic booking software?",
-        "answer": "Generic tools handle time slots. Zennly handles trainer assignment, discount approvals, and staff transfers – where fitness businesses actually lose money."
+        "question": "How does Zennly stop trainers being double-booked?",
+        "answer": "Every session holds the gym, the trainer, the studio and the session's real length together. Once a trainer or studio is taken at that time it can't be booked again, even from another device or location."
       },
       {
-        "question": "What software tracks gym classes, trainers, and membership packages together?",
-        "answer": "Zennly schedules classes and trainers, prevents double-booking, and tracks membership packages and usage in the same system used for daily payment reconciliation."
+        "question": "Is every session tied to a named trainer?",
+        "answer": "Yes. Each session is created against a gym, a service and a named trainer, so every trainer sees their own day and the front desk knows who is in which studio."
       },
       {
-        "question": "What software helps manage a gym or personal training business in Nepal?",
-        "answer": "Zennly is business management software for a gym or personal training business in Nepal. It brings online booking, trainer scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
+        "question": "Does Zennly handle PT packages and memberships?",
+        "answer": "Yes. Prepaid session packages, memberships and gift vouchers sit alongside regular bookings, so every session used and every remaining balance stays accurate at every gym."
+      },
+      {
+        "question": "Can we control discounts on packages and memberships?",
+        "answer": "Yes. Staff request a discount with the exact percentage and amount, and it only applies after a manager approves it, so every discounted package has a record of who asked and who approved."
+      },
+      {
+        "question": "Can a trainer work at more than one location?",
+        "answer": "Yes. Trainer transfers are scheduled with the destination gym and date, for a single day or for good, so their sessions follow them and both managers see the change in advance."
+      },
+      {
+        "question": "What is the best booking software for multi-location gyms and PT studios?",
+        "answer": "Zennly is built for multi-location gyms and personal training studios. It books the trainer, studio and time together, refuses clashes across locations, requires manager approval for discounts and gives the owner one daily close for every gym."
       },
       {
         "question": "What gym management software can I use in Nepal?",
-        "answer": "Zennly suits gyms that book personal training, classes and sessions across trainers and branches. It tracks trainer availability, payments by method and revenue per branch. If you only need recurring memberships, compare dedicated gym products as well."
+        "answer": "Zennly is gym and personal training software built in Nepal. It covers online booking, trainer and studio scheduling, session packages, discount approval, payment tracking by cash, card and online, and a daily close for every location."
       },
       {
         "question": "How do gyms in Nepal let members book personal trainers online?",
-        "answer": "Members choose a trainer and a time online. The booking checks the trainer's availability and refuses clashes, so sessions are never double-booked."
-      },
-      {
-        "question": "What gym management software handles personal training bookings?",
-        "answer": "Zennly books personal training and classes against trainer availability, records payments by method and shows revenue by branch. For recurring memberships alone, compare dedicated gym products as well."
+        "answer": "With Zennly, members book a session from a link on their phone, and it lands with its trainer, studio and time already set. It is web-based, so there is no app to install, and your team runs the day from one dashboard."
       }
     ],
     "metaDescription": "Gym management and booking software for Nepal: classes, trainer schedules, membership tiers and session packages in one system.",
-    "seoTitle": "Gym & Personal Training Booking Software Nepal | Zennly"
+    "seoTitle": "Gym & Personal Training Booking Software Nepal | Zennly",
+    "sq": {
+      "eyebrow": "Zennly for gyms and PT studios",
+      "h1": "Session scheduling that stops trainers from",
+      "h1Accent": "double-booking.",
+      "sub": "Book the trainer, studio and session length together, approve every package discount, and close every gym from one calm screen.",
+      "heroImageFocus": "55%",
+      "heroCard": {
+        "meta": "Monday · Midtown",
+        "status": "Confirmed",
+        "client": "Laura M.",
+        "service": "PT Session · 60 min · $85",
+        "staff": "Jason R. · Studio 1 · 7:00 AM"
+      },
+      "chip": "Built for multi-location gyms and PT studios",
+      "proofPlaceholder": true,
+      "steps": [
+        {
+          "icon": "building",
+          "title": "Add your gyms, studios and trainers",
+          "desc": "Every location, studio and trainer, set up once, so the calendar matches the floor you actually run.",
+          "linkText": "Book a setup demo",
+          "href": "/demo/"
+        },
+        {
+          "icon": "tag",
+          "title": "Set sessions, lengths and prices",
+          "desc": "A PT session takes 60 minutes and a mobility session takes 30. Set each once and the calendar books them that way.",
+          "linkText": "See pricing",
+          "href": "/pricing/"
+        },
+        {
+          "icon": "check",
+          "title": "Go live",
+          "desc": "Share your booking link. Members book their trainer online, and every session and payment is on record.",
+          "linkText": "How it works",
+          "href": "/how-it-works/"
+        }
+      ],
+      "carousel": {
+        "heading": "Gym software built for",
+        "accent": "the 7 AM rush.",
+        "sub": "One Monday morning at Midtown, from the first session to the day's close.",
+        "slides": [
+          {
+            "type": "calendar",
+            "title": "Trainer and studio, booked together.",
+            "desc": "Every session books the trainer, the studio and its real length in one go, so two trainers never land in the same studio at 7 AM.",
+            "screen": {
+              "title": "Monday · Midtown",
+              "meta": "Studios 1–3 · 3 trainers on",
+              "hourScale": 1.5,
+              "hours": [
+                "6 AM",
+                "7 AM",
+                "8 AM"
+              ],
+              "cols": [
+                {
+                  "name": "Jason R.",
+                  "appts": [
+                    {
+                      "client": "Ethan W.",
+                      "service": "PT Session 60m · Studio 1",
+                      "start": 0,
+                      "len": 1,
+                      "tone": "g"
+                    },
+                    {
+                      "client": "Laura M.",
+                      "service": "PT Session 60m · Studio 1",
+                      "start": 1,
+                      "len": 1,
+                      "tone": "g",
+                      "selected": true
+                    },
+                    {
+                      "client": "Daniel F.",
+                      "service": "Mobility 30m · Studio 1",
+                      "start": 2,
+                      "len": 0.5,
+                      "tone": "o"
+                    }
+                  ]
+                },
+                {
+                  "name": "Nina S.",
+                  "appts": [
+                    {
+                      "client": "Megan T.",
+                      "service": "Fitness Assessment 45m · Studio 2",
+                      "start": 0.5,
+                      "len": 0.75,
+                      "tone": "p"
+                    },
+                    {
+                      "client": "Ashley Carter",
+                      "service": "PT Session 30m · Studio 2",
+                      "start": 1.5,
+                      "len": 0.5,
+                      "tone": "l"
+                    },
+                    {
+                      "client": "Ben A. + partner",
+                      "service": "Partner Session 60m · Studio 2",
+                      "start": 2,
+                      "len": 1,
+                      "tone": "o"
+                    }
+                  ]
+                },
+                {
+                  "name": "Marco D.",
+                  "appts": [
+                    {
+                      "client": "Priya K.",
+                      "service": "PT Session 60m · Studio 3",
+                      "start": 0.5,
+                      "len": 1,
+                      "tone": "l"
+                    },
+                    {
+                      "client": "Kevin L.",
+                      "service": "PT Session 30m · Studio 3",
+                      "start": 2,
+                      "len": 0.5,
+                      "tone": "g"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "discount",
+            "title": "Package discounts need a manager's yes.",
+            "desc": "The front desk asks, a manager approves. Every discount shows the amount and the reason, so packages keep their price.",
+            "screen": {
+              "title": "Discount request",
+              "status": "Needs approval",
+              "client": "Ethan W. · 10 × PT Session 60m · renewal",
+              "amount": "10% · $85",
+              "rows": [
+                [
+                  "Reason",
+                  "Renewing a second package"
+                ],
+                [
+                  "Requested by",
+                  "Tara J. · front desk"
+                ],
+                [
+                  "Price",
+                  "$850 → $765"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "transfer",
+            "title": "Trainers where the members are.",
+            "desc": "Move a trainer to another gym for a day or for good. Their sessions follow, and both managers see it in advance.",
+            "screen": {
+              "title": "Staff transfer",
+              "status": "Scheduled",
+              "name": "Nina S.",
+              "role": "Personal trainer",
+              "from": "Midtown",
+              "to": "Downtown",
+              "when": "From next Monday",
+              "listTitle": "Downtown · sessions assigned to Nina",
+              "items": [
+                [
+                  "Sam R.",
+                  "PT Session 60m",
+                  "8:00 AM"
+                ],
+                [
+                  "Grace H.",
+                  "Fitness Assessment 45m",
+                  "9:15 AM"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "close",
+            "title": "Every gym, closed by 9 PM.",
+            "desc": "Each payment is recorded against its session or package, so the owner closes all three gyms from one screen.",
+            "screen": {
+              "title": "Day close · Monday",
+              "status": "Closed",
+              "total": "$6,120",
+              "label": "Collected across 3 gyms",
+              "bars": [
+                [
+                  "Downtown",
+                  "$2,280",
+                  100
+                ],
+                [
+                  "Midtown",
+                  "$2,040",
+                  89
+                ],
+                [
+                  "Uptown",
+                  "$1,800",
+                  79
+                ]
+              ],
+              "foot": "2 discounts approved · $0 outstanding"
+            }
+          }
+        ]
+      },
+      "features": {
+        "heading": "Everything a gym runs on,",
+        "accent": "in one place.",
+        "items": [
+          {
+            "icon": "calendar",
+            "title": "Book online, day or night",
+            "desc": "Members book from your link at any hour. The session lands with its trainer and studio.",
+            "linkText": "Online booking",
+            "href": "/features/booking/"
+          },
+          {
+            "icon": "clock",
+            "title": "See every studio live",
+            "desc": "Which studio is in use, which trainer is running over and who is next, at every gym.",
+            "linkText": "Operations",
+            "href": "/features/operational-visibility/"
+          },
+          {
+            "icon": "tag",
+            "title": "Discounts with approval",
+            "desc": "Staff ask, managers approve. Every package or session discount shows the amount and the reason.",
+            "linkText": "Discount control",
+            "href": "/features/discount-management/"
+          },
+          {
+            "icon": "card",
+            "title": "Payments and daily close",
+            "desc": "Cash, card and online payments recorded against each session or package. Close the day in one place.",
+            "linkText": "Payments",
+            "href": "/features/payment-tracking/"
+          },
+          {
+            "icon": "userplus",
+            "title": "Trainers and cover",
+            "desc": "Move a trainer to another gym for a day or for good. Their sessions follow.",
+            "linkText": "Staff management",
+            "href": "/features/staff-management/"
+          },
+          {
+            "icon": "shield",
+            "title": "The right access for each role",
+            "desc": "Owners see every gym, managers their own, trainers their day.",
+            "linkText": "Roles and access",
+            "href": "/features/role-based-access/"
+          }
+        ]
+      },
+      "stats": {
+        "heading": "Running at a three-location gym.",
+        "items": [
+          [
+            "3",
+            "gyms on one system"
+          ],
+          [
+            "15",
+            "trainers scheduled"
+          ],
+          [
+            "9",
+            "studios"
+          ],
+          [
+            "30",
+            "session types"
+          ]
+        ]
+      },
+      "quote": {
+        "text": "Two trainers booked into the same studio at 7 AM used to be a weekly thing. Not anymore.",
+        "author": "Gym owner",
+        "meta": "Three locations"
+      },
+      "grow": {
+        "heading": "Keep members",
+        "accent": "coming back.",
+        "sub": "Prepaid wallets, session packages, gift vouchers and new-year offers, all on the same system.",
+        "cards": [
+          {
+            "type": "membership",
+            "tone": "blush",
+            "title": "Memberships",
+            "desc": "Prepaid balances members spend session by session, with every deduction on record.",
+            "linkText": "Memberships",
+            "href": "/features/memberships/",
+            "screen": {
+              "label": "PT Wallet",
+              "name": "Laura M.",
+              "from": 500,
+              "to": 415,
+              "caption": "balance left",
+              "row": [
+                "PT Session 60m · paid from balance",
+                "−$85"
+              ],
+              "foot": "Valid until Jun 30"
+            }
+          },
+          {
+            "type": "package",
+            "tone": "lilac",
+            "title": "Session packages",
+            "desc": "Sell ten PT sessions up front and track each one used, with any balance still due.",
+            "linkText": "Packages",
+            "href": "/features/packages/",
+            "screen": {
+              "label": "10 × PT Session 60m",
+              "name": "Ethan W.",
+              "total": 10,
+              "used": 1,
+              "caption": "sessions left",
+              "row": [
+                "First session · Jason R.",
+                "Redeemed"
+              ],
+              "foot": "Expires Apr 30"
+            }
+          },
+          {
+            "type": "voucher",
+            "tone": "peach",
+            "title": "Gift vouchers",
+            "desc": "Gifts claimed in parts, with the balance always right and the expiry date in view.",
+            "linkText": "Vouchers",
+            "href": "/features/vouchers/",
+            "screen": {
+              "label": "GV-0063 · gift for Daniel F.",
+              "name": "From Priya K.",
+              "steps": [
+                200,
+                115
+              ],
+              "caption": "left to spend",
+              "rows": [
+                [
+                  "Oct 13 · PT Session 60m",
+                  "−$85"
+                ]
+              ],
+              "foot": "Expires Jan 13"
+            }
+          },
+          {
+            "type": "campaign",
+            "tone": "green",
+            "title": "Offers and outreach",
+            "desc": "New-year and seasonal offers that start and end by themselves, and win-back messages to lapsed members.",
+            "linkText": "Campaigns",
+            "href": "/features/campaigns/",
+            "screen": {
+              "label": "New Year Kickstart · 15% off",
+              "status": "Live",
+              "sub": "Jan 1–31 · first package",
+              "to": 58,
+              "caption": "packages sold",
+              "bars": [
+                [
+                  "Downtown",
+                  24
+                ],
+                [
+                  "Midtown",
+                  19
+                ],
+                [
+                  "Uptown",
+                  15
+                ]
+              ],
+              "toast": [
+                "Kevin L. bought 5 × PT Session",
+                "$340"
+              ]
+            }
+          }
+        ]
+      },
+      "faq": {
+        "heading": "Gym questions,",
+        "accent": "answered.",
+        "visible": 6
+      },
+      "final": {
+        "heading": "See your gym's Monday",
+        "accent": "on Zennly."
+      }
+    }
   },
   {
     "slug": "physiotherapy",
@@ -754,8 +2355,8 @@
       "eyebrow": "Physiotherapy",
       "headline": "Treatment-plan continuity, visible from booking to discharge.",
       "sub": "A course of treatment only works if every session happens on schedule, with the right therapist – Zennly keeps that continuity visible from booking to discharge.",
-      "ctaText": "Book a demo",
-      "ctaHref": "/demo/",
+      "ctaText": "Try a free demo",
+      "ctaHref": "#try-free",
       "caption": "No setup fees",
       "image": "https://plus.unsplash.com/premium_photo-1661913622608-946e8d907c7b?w=1000&q=80&auto=format&fit=crop",
       "imageAlt": "Physiotherapist working with a patient"
@@ -864,41 +2465,461 @@
     },
     "finalCta": {
       "heading": "Ready to see how it works for your clinic?",
-      "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles treatment-plan continuity, payment tracking, and specialist availability across every branch.",
-      "ctaText": "Book your demo"
+      "sub": "Book a 20-minute demo. We'll show you how Zennly keeps patients with the same physio, tracks every course of sessions and closes every clinic.",
+      "ctaText": "Try a free demo"
     },
     "faq": [
       {
-        "question": "We only have one branch right now.",
-        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch clinics start for the booking and payment tracking alone."
-      },
-      {
-        "question": "How is this different from generic booking software?",
-        "answer": "Generic tools handle time slots. Zennly handles therapist continuity, payment precision, and specialist availability – where physiotherapy clinics actually lose money and trust."
-      },
-      {
-        "question": "How do physiotherapy clinics keep a treatment course on schedule with the same therapist?",
-        "answer": "Zennly schedules a full treatment course against a specific therapist and room, so every session in the course stays with the same provider and time slot."
-      },
-      {
         "question": "What software helps manage a physiotherapy clinic in Nepal?",
-        "answer": "Zennly is business management software for a physiotherapy clinic in Nepal. It brings online booking, therapist scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
+        "answer": "Zennly is business management software for physiotherapy clinics in Nepal. It brings online booking, physio and room scheduling, course packages, discount approvals, payment tracking by cash, card and online, and a daily close across every branch into one system, so owners stop running the clinic from phone calls and spreadsheets."
       },
       {
         "question": "What physiotherapy clinic software is available in Nepal?",
-        "answer": "Zennly schedules physiotherapy appointments by therapist and room, keeps each patient with the same therapist, and records payments against each booking across visits."
+        "answer": "Zennly is built for clinics that run on appointments with named physiotherapists. Each booking holds the physio, the room and the real session length, courses of sessions are sold as packages that count down at checkout, and owners see every branch from one account."
       },
       {
-        "question": "How do I schedule a course of physiotherapy sessions with the same therapist?",
-        "answer": "Book the follow-up sessions while the patient is at the front desk, each tied to the same therapist and their real availability, so the course stays on schedule."
+        "question": "How do I keep a patient with the same physiotherapist for a whole course?",
+        "answer": "Book each session against the named physio, not just a time slot. In Zennly every booking is tied to a specific staff member, so the front desk books the next session with the same physio while the patient is still at the desk."
       },
       {
-        "question": "What is the best physiotherapy clinic scheduling software?",
-        "answer": "Zennly schedules physiotherapy appointments by therapist and room, keeps each patient with the same therapist across a course of sessions and records payments against each booking."
+        "question": "Can patients book a physiotherapy appointment online?",
+        "answer": "Yes. Patients book from your booking link at any hour, choose the service and the physio, and the booking lands on that physio's calendar at the real length of the session, so it never clashes with another patient."
+      },
+      {
+        "question": "Can I sell a course of physio sessions as a package?",
+        "answer": "Yes. Sell a course, for example eight post-op sessions, as one package at a set price. Zennly counts a session down each time one is used at checkout and shows how many are left and what is still owed."
+      },
+      {
+        "question": "Can patients pay for a course in parts?",
+        "answer": "Yes. Record part-payments against the booking or package by cash, card or online. Zennly keeps what has been paid and the balance on record, so the front desk always knows what is due."
+      },
+      {
+        "question": "Does Zennly store clinical notes or patient records?",
+        "answer": "No. Zennly runs the business side of the clinic: scheduling, packages, payments, staff and reports. Keep clinical notes and treatment records in the system you already use for them."
+      },
+      {
+        "question": "We only have one clinic. Is Zennly still worth it?",
+        "answer": "Yes. Zennly works the same at one clinic as at ten. Most single-clinic practices start for online booking, course packages and payment tracking, and the multi-branch views are there when you open a second location."
+      },
+      {
+        "question": "How much does physiotherapy clinic software cost?",
+        "answer": "Zennly is quoted per business, based on your clinics and team size. There are no setup fees, and you can start with a free trial to run real bookings before you commit."
       }
     ],
-    "metaDescription": "Physiotherapy clinic software for Nepal: appointment scheduling, treatment courses with the same therapist, payments and reports.",
-    "seoTitle": "Physiotherapy Clinic Scheduling Software Nepal | Zennly"
+    "metaDescription": "Physiotherapy clinic software for Nepal: book a named physio and room, sell courses of sessions as packages, track payments and close every clinic.",
+    "seoTitle": "Physiotherapy Clinic Software in Nepal | Zennly",
+    "sq": {
+      "eyebrow": "Zennly for physiotherapy clinics",
+      "h1": "Physiotherapy clinic software that keeps every patient",
+      "h1Accent": "with the same physio.",
+      "sub": "Book a named physiotherapist and room, sell a course of sessions as one package, see every session left, and close every clinic from one screen.",
+      "heroImageFocus": "50%",
+      "heroCard": {
+        "meta": "Tuesday · Downtown",
+        "status": "Confirmed",
+        "client": "Julia F.",
+        "service": "Post-op course · session 4 of 8 · 45m",
+        "staff": "Leah C. · Room 2 · 9:00 AM"
+      },
+      "chip": "Built for physiotherapy clinics",
+      "proofPlaceholder": true,
+      "steps": [
+        {
+          "icon": "building",
+          "title": "Add your clinics, rooms and physios",
+          "desc": "Every location, treatment room and physiotherapist, set up once, so the calendar matches your real clinic.",
+          "linkText": "Book a setup demo",
+          "href": "/demo/"
+        },
+        {
+          "icon": "tag",
+          "title": "Set assessments, follow-ups and courses",
+          "desc": "An assessment is 60 minutes and a follow-up is 45. Set each once and the calendar books them that way.",
+          "linkText": "See pricing",
+          "href": "/pricing/"
+        },
+        {
+          "icon": "check",
+          "title": "Go live",
+          "desc": "Share your booking link. Patients book a named physio online, and every course payment is on record.",
+          "linkText": "How it works",
+          "href": "/how-it-works/"
+        }
+      ],
+      "carousel": {
+        "heading": "Clinic software built for",
+        "accent": "a whole course of care.",
+        "sub": "One Tuesday morning at Downtown, from the first assessment to the day's close.",
+        "slides": [
+          {
+            "type": "calendar",
+            "title": "Every physio, every room, no clashes.",
+            "desc": "Each booking holds the physio, the room and the real session length, and walk-ins fill the gaps that are actually free.",
+            "screen": {
+              "title": "Tuesday · Downtown",
+              "meta": "3 physios",
+              "hourScale": 1.5,
+              "hours": [
+                "8 AM",
+                "9 AM",
+                "10 AM",
+                "11 AM"
+              ],
+              "cols": [
+                {
+                  "name": "Owen P.",
+                  "appts": [
+                    {
+                      "client": "Mark H.",
+                      "service": "Initial Assessment 60m · Room 1",
+                      "start": 0,
+                      "len": 1,
+                      "tone": "o"
+                    },
+                    {
+                      "client": "Tom R.",
+                      "service": "Sports Massage 30m · Room 1",
+                      "start": 1.5,
+                      "len": 0.5,
+                      "tone": "g"
+                    },
+                    {
+                      "client": "Carlos M.",
+                      "service": "Follow-up 45m · Room 1",
+                      "start": 2.5,
+                      "len": 0.75,
+                      "tone": "l"
+                    }
+                  ]
+                },
+                {
+                  "name": "Leah C.",
+                  "appts": [
+                    {
+                      "client": "Julia F.",
+                      "service": "Post-op 4 of 8 · Room 2",
+                      "start": 1,
+                      "len": 0.75,
+                      "tone": "p",
+                      "selected": true
+                    },
+                    {
+                      "client": "Diane W.",
+                      "service": "Follow-up 45m · Room 2",
+                      "start": 2,
+                      "len": 0.75,
+                      "tone": "l"
+                    },
+                    {
+                      "client": "Beth N.",
+                      "service": "Post-op Rehab 45m · Room 2",
+                      "start": 3,
+                      "len": 0.75,
+                      "tone": "p"
+                    }
+                  ]
+                },
+                {
+                  "name": "Nathan B.",
+                  "appts": [
+                    {
+                      "client": "Greg A.",
+                      "service": "Dry Needling 30m · Room 3",
+                      "start": 0.5,
+                      "len": 0.5,
+                      "tone": "g"
+                    },
+                    {
+                      "client": "Walk-in",
+                      "service": "Sports Massage 30m · Room 3",
+                      "start": 2,
+                      "len": 0.5,
+                      "tone": "o"
+                    },
+                    {
+                      "client": "Ian T.",
+                      "service": "Follow-up 45m · Room 3",
+                      "start": 3,
+                      "len": 0.75,
+                      "tone": "l"
+                    }
+                  ]
+                }
+              ],
+              "hourScaleMobile": 1.1
+            }
+          },
+          {
+            "type": "discount",
+            "title": "Course discounts, on record.",
+            "desc": "The front desk asks, a manager approves. Every discount shows the amount and the reason, so no course is cheaper without a trace.",
+            "screen": {
+              "title": "Discount request",
+              "status": "Needs approval",
+              "client": "Diane W. · Follow-up course · 6 sessions",
+              "amount": "10% · $51",
+              "rows": [
+                [
+                  "Reason",
+                  "Course renewal"
+                ],
+                [
+                  "Requested by",
+                  "Erin S. · front desk"
+                ],
+                [
+                  "Price",
+                  "$510 → $459"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "transfer",
+            "title": "Same physio, wherever they work.",
+            "desc": "Move a physio to another clinic for a day a week or for good. Their bookings follow, and both managers see it in advance.",
+            "screen": {
+              "title": "Staff transfer",
+              "status": "Scheduled",
+              "name": "Owen P.",
+              "role": "Sports physiotherapist",
+              "from": "Downtown",
+              "to": "Midtown",
+              "when": "Every Thursday from next week",
+              "listTitle": "Midtown · bookings assigned to Owen",
+              "items": [
+                [
+                  "Paul D.",
+                  "Follow-up 45m",
+                  "9:00 AM"
+                ],
+                [
+                  "Nora J.",
+                  "Sports Massage 30m",
+                  "10:30 AM"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "close",
+            "title": "Every clinic, closed in one place.",
+            "desc": "Course payments, part-payments and walk-ins are recorded against their bookings, so the owner closes all three clinics from one screen.",
+            "screen": {
+              "title": "Day close · Tuesday",
+              "status": "Closed",
+              "total": "$5,860",
+              "label": "Collected across 3 clinics",
+              "bars": [
+                [
+                  "Downtown",
+                  "$2,240",
+                  100
+                ],
+                [
+                  "Midtown",
+                  "$1,980",
+                  88
+                ],
+                [
+                  "Uptown",
+                  "$1,640",
+                  73
+                ]
+              ],
+              "foot": "1 discount approved · $0 outstanding"
+            }
+          }
+        ]
+      },
+      "features": {
+        "heading": "Everything a clinic runs on,",
+        "accent": "in one place.",
+        "items": [
+          {
+            "icon": "calendar",
+            "title": "Book online, day or night",
+            "desc": "Patients book an assessment or follow-up with a named physio from your link at any hour. It lands on that physio's calendar.",
+            "linkText": "Online booking",
+            "href": "/features/booking/"
+          },
+          {
+            "icon": "clock",
+            "title": "See every room live",
+            "desc": "Which room is in use, which session is running over and who is next, at every clinic.",
+            "linkText": "Operations",
+            "href": "/features/operational-visibility/"
+          },
+          {
+            "icon": "tag",
+            "title": "Discounts with approval",
+            "desc": "Staff ask, managers approve. Every course or session discount shows the amount and the reason.",
+            "linkText": "Discount control",
+            "href": "/features/discount-management/"
+          },
+          {
+            "icon": "card",
+            "title": "Course payments and daily close",
+            "desc": "Part-payments and balances recorded against each booking and package. Close the day in one place.",
+            "linkText": "Payments",
+            "href": "/features/payment-tracking/"
+          },
+          {
+            "icon": "userplus",
+            "title": "Cover and transfers",
+            "desc": "Move a physio to another clinic for a day a week or for good. Their bookings follow.",
+            "linkText": "Staff management",
+            "href": "/features/staff-management/"
+          },
+          {
+            "icon": "shield",
+            "title": "The right access for each role",
+            "desc": "Owners see every clinic, managers their own, physios their day.",
+            "linkText": "Roles and access",
+            "href": "/features/role-based-access/"
+          }
+        ]
+      },
+      "stats": {
+        "heading": "Running at a three-clinic physiotherapy practice.",
+        "items": [
+          [
+            "3",
+            "clinics on one system"
+          ],
+          [
+            "14",
+            "physiotherapists scheduled"
+          ],
+          [
+            "18",
+            "treatment rooms"
+          ],
+          [
+            "16",
+            "services on the menu"
+          ]
+        ]
+      },
+      "quote": {
+        "text": "Patients used to drift between physios halfway through a course. Now every session is booked with the same person, and the front desk can see it.",
+        "author": "Clinic owner",
+        "meta": "Three clinics"
+      },
+      "grow": {
+        "heading": "Grow more than",
+        "accent": "bookings.",
+        "sub": "Maintenance plans, course packages, gift vouchers and seasonal offers, all on the same system.",
+        "cards": [
+          {
+            "type": "membership",
+            "tone": "blush",
+            "title": "Maintenance plans",
+            "desc": "Patients prepay for ongoing care after a course ends. Every visit comes off the balance.",
+            "linkText": "Memberships",
+            "href": "/features/memberships/",
+            "screen": {
+              "label": "Maintenance plan · $300",
+              "name": "Greg A.",
+              "from": 300,
+              "to": 205,
+              "caption": "plan balance",
+              "row": [
+                "Follow-up 45m · Nathan B.",
+                "−$95"
+              ],
+              "foot": "Valid to Jun 30"
+            }
+          },
+          {
+            "type": "package",
+            "tone": "lilac",
+            "title": "Courses of sessions",
+            "desc": "Sell a course as one package and see every session used and left, with the same physio.",
+            "linkText": "Packages",
+            "href": "/features/packages/",
+            "screen": {
+              "label": "Post-op course · 8 sessions",
+              "name": "Julia F.",
+              "total": 8,
+              "used": 4,
+              "caption": "sessions left",
+              "row": [
+                "Session 4 · Leah C.",
+                "Redeemed"
+              ],
+              "foot": "Next session · Thursday 9:00 AM"
+            }
+          },
+          {
+            "type": "voucher",
+            "tone": "peach",
+            "title": "Gift vouchers",
+            "desc": "Gift vouchers for sports massage or a course, spent across visits with the balance always right.",
+            "linkText": "Vouchers",
+            "href": "/features/vouchers/",
+            "screen": {
+              "label": "GV-0091 · gift for Tom R.",
+              "name": "From Lisa R.",
+              "steps": [
+                150,
+                80
+              ],
+              "caption": "left to spend",
+              "rows": [
+                [
+                  "Today · Sports Massage 30m",
+                  "−$70"
+                ]
+              ],
+              "foot": "Expires May 9"
+            }
+          },
+          {
+            "type": "campaign",
+            "tone": "green",
+            "title": "Seasonal offers",
+            "desc": "Race-week and seasonal offers that start and end by themselves, at every clinic.",
+            "linkText": "Campaigns",
+            "href": "/features/campaigns/",
+            "screen": {
+              "label": "Marathon Recovery Week · 20% off",
+              "status": "Live",
+              "sub": "Apr 21–27 · all clinics",
+              "to": 48,
+              "caption": "offer bookings",
+              "bars": [
+                [
+                  "Downtown",
+                  21
+                ],
+                [
+                  "Midtown",
+                  15
+                ],
+                [
+                  "Uptown",
+                  12
+                ]
+              ],
+              "toast": [
+                "Carlos M. booked Sports Massage 30m",
+                "$56"
+              ]
+            }
+          }
+        ]
+      },
+      "faq": {
+        "heading": "Physiotherapy clinic questions,",
+        "accent": "answered.",
+        "visible": 6
+      },
+      "final": {
+        "heading": "See your clinic's busiest Tuesday",
+        "accent": "on Zennly."
+      }
+    }
   },
   {
     "slug": "cleaning",
@@ -908,11 +2929,11 @@
       "eyebrow": "Cleaning Service",
       "headline": "Dispatch that always knows who's where.",
       "sub": "A cleaning business runs on staff getting to the right site, at the right time, with the job correctly billed – Zennly keeps that whole chain visible.",
-      "ctaText": "Book a demo",
-      "ctaHref": "/demo/",
+      "ctaText": "Try a free demo",
+      "ctaHref": "#try-free",
       "caption": "No setup fees",
       "image": "https://plus.unsplash.com/premium_photo-1663011218145-c1d0c3ba3542?w=1000&q=80&auto=format&fit=crop",
-      "imageAlt": "Cleaning service staff at a client site"
+      "imageAlt": "Cleaner at work in a bright home"
     },
     "heroCalendar": {
       "month": "September",
@@ -1018,41 +3039,444 @@
     },
     "finalCta": {
       "heading": "Ready to see how it works for your cleaning business?",
-      "sub": "Book a 20-minute demo. We'll show you exactly how Zennly handles job dispatch, discount control, and crew transfers across every branch.",
-      "ctaText": "Book your demo"
+      "sub": "Book a 20-minute demo. We'll show you how Zennly books every job with a named cleaner, tracks deposits and payments, and closes every office.",
+      "ctaText": "Try a free demo"
     },
     "faq": [
       {
-        "question": "We only have one branch right now.",
-        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch cleaning businesses start for the job scheduling and discount control alone."
-      },
-      {
-        "question": "How is this different from generic booking software?",
-        "answer": "Generic tools handle time slots. Zennly handles crew assignment, discount approvals, and staff transfers – where cleaning businesses actually lose money."
-      },
-      {
-        "question": "What software dispatches cleaning staff to the right site on time?",
-        "answer": "Zennly schedules cleaning staff against specific sites and time windows, and tracks job completion and payment per site across every branch."
-      },
-      {
         "question": "What software helps manage a cleaning service in Nepal?",
-        "answer": "Zennly is business management software for a cleaning service in Nepal. It brings online booking, crew scheduling, discount approvals with an audit trail, payment tracking by cash, card and online, daily revenue reconciliation and multi-branch reports into one system, so owners stop running the business from phone calls and spreadsheets."
+        "answer": "Zennly is business management software for cleaning services in Nepal. It brings online booking, cleaner scheduling, deposits and payment tracking by cash, card and online, discount approvals and a daily close across every office into one system, so owners stop running the business from phone calls, texts and spreadsheets."
       },
       {
         "question": "What software helps cleaning companies in Nepal schedule staff?",
-        "answer": "Zennly attaches named staff to each job with a date, time and site, refuses to book the same person twice at once, and records status and payment per job."
+        "answer": "Zennly gives every cleaner their own calendar. Each job is booked with a named cleaner at its real length, a two-hour standard clean or a five-hour move-out, so two jobs never land on the same person at the same time, at any office."
       },
       {
-        "question": "How do I dispatch cleaners to the right site on time?",
-        "answer": "Give every job a date, time, site and named crew in one schedule. The office sees each job's status through the day without calling crews for updates."
+        "question": "How do I know which cleaner is on which job?",
+        "answer": "Every booking in Zennly is tied to a named staff member, and its status moves from Pending to Confirmed, In-Progress and Completed. Managers see each cleaner's day and which job is running over, live."
       },
       {
-        "question": "What software helps a cleaning company schedule staff and jobs?",
-        "answer": "Zennly gives every job a date, time, site and named staff, refuses to book the same person twice at once, and tracks status and payment per job."
+        "question": "Can customers book a cleaning online?",
+        "answer": "Yes. Customers book from your booking link at any hour, choose the service and the cleaner, and the job lands on that cleaner's calendar at its real length. Same-day requests fit into gaps that are actually free."
+      },
+      {
+        "question": "Can I take a deposit for a deep clean or move-out clean?",
+        "answer": "Yes. Record a deposit against the booking when the customer books, by cash, card or online. Zennly keeps the deposit, any part-payments and the balance on that booking, so the team knows exactly what is due on the day."
+      },
+      {
+        "question": "Can I sell a bundle of cleans as a package?",
+        "answer": "Yes. Sell a set number of cleans, for example six standard cleans, as one package at a set price. Zennly counts a visit down each time one is used at checkout and shows how many are left and what is still owed."
+      },
+      {
+        "question": "Does Zennly plan routes or track where cleaners are?",
+        "answer": "No. Zennly schedules who does which job and when, records deposits and payments, and closes the day. It does not plan routes or track cleaners by GPS."
+      },
+      {
+        "question": "We only have one office. Is Zennly still worth it?",
+        "answer": "Yes. Zennly works the same with one office as with ten. Most single-office cleaning businesses start for online booking, cleaner schedules and deposit tracking, and the multi-office views are there when you grow."
+      },
+      {
+        "question": "How much does cleaning business software cost?",
+        "answer": "Zennly is quoted per business, based on your offices and team size. There are no setup fees, and you can start with a free trial to run real bookings before you commit."
       }
     ],
-    "metaDescription": "Cleaning company software for Nepal: schedule and dispatch staff to the right site, track jobs and record payments.",
-    "seoTitle": "Cleaning Service Scheduling Software Nepal | Zennly"
+    "metaDescription": "Cleaning business software for Nepal: book every job with a named cleaner, take deposits on big cleans, move staff between offices and close every location.",
+    "seoTitle": "Cleaning Business Software in Nepal | Zennly",
+    "sq": {
+      "eyebrow": "Zennly for cleaning businesses",
+      "h1": "Cleaning business software that knows",
+      "h1Accent": "who's on every job.",
+      "sub": "Book every job with a named cleaner and its real length, take a deposit on the big cleans, move staff between offices, and close every location from one screen.",
+      "heroImageFocus": "50%",
+      "heroCard": {
+        "meta": "Friday · Midtown",
+        "status": "Confirmed",
+        "client": "Jennifer A.",
+        "service": "Deep Clean · 4h",
+        "staff": "Ana P. · 8:00 AM"
+      },
+      "chip": "Built for cleaning businesses",
+      "proofPlaceholder": true,
+      "steps": [
+        {
+          "icon": "building",
+          "title": "Add your offices, cleaners and services",
+          "desc": "Every office, cleaner and service, set up once, so the calendar matches how your team really works.",
+          "linkText": "Book a setup demo",
+          "href": "/demo/"
+        },
+        {
+          "icon": "tag",
+          "title": "Set job types, lengths and prices",
+          "desc": "A standard clean is two hours and a move-out is five. Set each once and the calendar books them that way.",
+          "linkText": "See pricing",
+          "href": "/pricing/"
+        },
+        {
+          "icon": "check",
+          "title": "Go live",
+          "desc": "Share your booking link. Customers book online with a named cleaner, and every deposit and payment is on record.",
+          "linkText": "How it works",
+          "href": "/how-it-works/"
+        }
+      ],
+      "carousel": {
+        "heading": "Cleaning software built for",
+        "accent": "long jobs and full days.",
+        "sub": "One Friday at Midtown, from the first 8 AM deep clean to the day's close.",
+        "slides": [
+          {
+            "type": "calendar",
+            "title": "Every cleaner, every job, no clashes.",
+            "desc": "Each booking holds the cleaner and the real job length, and same-day requests fill the gaps that are actually free.",
+            "screen": {
+              "title": "Friday · Midtown",
+              "meta": "3 cleaners",
+              "hourScale": 1,
+              "hourScaleMobile": 0.75,
+              "hours": [
+                "8 AM",
+                "9 AM",
+                "10 AM",
+                "11 AM",
+                "12 PM",
+                "1 PM"
+              ],
+              "cols": [
+                {
+                  "name": "Ana P.",
+                  "appts": [
+                    {
+                      "client": "Jennifer A.",
+                      "service": "Deep Clean 4h",
+                      "start": 0,
+                      "len": 4,
+                      "tone": "p",
+                      "selected": true
+                    },
+                    {
+                      "client": "Robert K.",
+                      "service": "Standard Clean 2h",
+                      "start": 4,
+                      "len": 2,
+                      "tone": "l"
+                    }
+                  ]
+                },
+                {
+                  "name": "Derek S.",
+                  "appts": [
+                    {
+                      "client": "Lakeside Dental",
+                      "service": "Office Clean 3h",
+                      "start": 0,
+                      "len": 3,
+                      "tone": "g"
+                    },
+                    {
+                      "client": "Same-day",
+                      "service": "Standard Clean 2h",
+                      "start": 4,
+                      "len": 2,
+                      "tone": "o"
+                    }
+                  ]
+                },
+                {
+                  "name": "Tasha W.",
+                  "appts": [
+                    {
+                      "client": "Steve P.",
+                      "service": "Move-out Clean 5h",
+                      "start": 0,
+                      "len": 5,
+                      "tone": "l"
+                    },
+                    {
+                      "client": "Karen O.",
+                      "service": "Oven & Fridge 1h",
+                      "start": 5,
+                      "len": 1,
+                      "tone": "g"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "discount",
+            "title": "Deposits on the big cleans.",
+            "desc": "Take a deposit when a move-out or deep clean is booked and the balance on the day. Every payment is recorded against the job.",
+            "screen": {
+              "title": "Job booking",
+              "status": "Deposit paid",
+              "statusTone": "ok",
+              "noActions": true,
+              "client": "Steve P. · Move-out Clean 5h · Tasha W.",
+              "amount": "$100 paid",
+              "rows": [
+                [
+                  "Job",
+                  "$420"
+                ],
+                [
+                  "Deposit · at booking · online",
+                  "$100"
+                ],
+                [
+                  "Due today",
+                  "$320"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "transfer",
+            "title": "Cover another office without the texts.",
+            "desc": "Move a cleaner to another office for a week or for good. Their bookings follow, and both managers see it in advance.",
+            "screen": {
+              "title": "Staff transfer",
+              "status": "Scheduled",
+              "name": "Derek S.",
+              "role": "Cleaner · offices",
+              "from": "Midtown",
+              "to": "Downtown",
+              "when": "From Monday",
+              "listTitle": "Downtown · bookings assigned to Derek",
+              "items": [
+                [
+                  "Gary F.",
+                  "Standard Clean 2h",
+                  "9:00 AM"
+                ],
+                [
+                  "Linda M.",
+                  "Deep Clean 4h",
+                  "12:00 PM"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "close",
+            "title": "Every office, closed in one place.",
+            "desc": "Deposits, balances and same-day jobs are recorded against their bookings, so the owner closes all three offices from one screen.",
+            "screen": {
+              "title": "Day close · Friday",
+              "status": "Closed",
+              "total": "$7,240",
+              "label": "Collected across 3 offices",
+              "bars": [
+                [
+                  "Midtown",
+                  "$2,760",
+                  100
+                ],
+                [
+                  "Downtown",
+                  "$2,480",
+                  90
+                ],
+                [
+                  "Uptown",
+                  "$2,000",
+                  72
+                ]
+              ],
+              "foot": "3 deposits taken · $0 outstanding"
+            }
+          }
+        ]
+      },
+      "features": {
+        "heading": "Everything a cleaning business runs on,",
+        "accent": "in one place.",
+        "items": [
+          {
+            "icon": "calendar",
+            "title": "Book online, day or night",
+            "desc": "Customers book a clean with a named cleaner from your link at any hour. It lands on that cleaner's calendar.",
+            "linkText": "Online booking",
+            "href": "/features/booking/"
+          },
+          {
+            "icon": "clock",
+            "title": "See every job live",
+            "desc": "Which job is in progress, which one is running over and who is free next, at every office.",
+            "linkText": "Operations",
+            "href": "/features/operational-visibility/"
+          },
+          {
+            "icon": "tag",
+            "title": "Discounts with approval",
+            "desc": "Staff ask, managers approve. Every discount on a clean shows the amount and the reason.",
+            "linkText": "Discount control",
+            "href": "/features/discount-management/"
+          },
+          {
+            "icon": "card",
+            "title": "Deposits, balances and daily close",
+            "desc": "Deposits, part-payments and balances recorded against each job. Close the day in one place.",
+            "linkText": "Payments",
+            "href": "/features/payment-tracking/"
+          },
+          {
+            "icon": "userplus",
+            "title": "Cover and transfers",
+            "desc": "Move a cleaner to another office for a week or for good. Their bookings follow.",
+            "linkText": "Staff management",
+            "href": "/features/staff-management/"
+          },
+          {
+            "icon": "shield",
+            "title": "The right access for each role",
+            "desc": "Owners see every office, managers their own, cleaners their day.",
+            "linkText": "Roles and access",
+            "href": "/features/role-based-access/"
+          }
+        ]
+      },
+      "stats": {
+        "heading": "Running at a three-office cleaning business.",
+        "items": [
+          [
+            "3",
+            "offices on one system"
+          ],
+          [
+            "24",
+            "cleaners scheduled"
+          ],
+          [
+            "6",
+            "services on the menu"
+          ],
+          [
+            "180",
+            "jobs a week"
+          ]
+        ]
+      },
+      "quote": {
+        "text": "We used to piece the week together from texts and a whiteboard. Now every job has a name on it, and the deposits on big cleans are on record.",
+        "author": "Cleaning business owner",
+        "meta": "Three offices"
+      },
+      "grow": {
+        "heading": "Grow more than",
+        "accent": "bookings.",
+        "sub": "Prepaid plans, bundles of cleans, gift vouchers and seasonal offers, all on the same system.",
+        "cards": [
+          {
+            "type": "membership",
+            "tone": "blush",
+            "title": "Prepaid home care plans",
+            "desc": "Customers prepay a plan and every clean comes off the balance.",
+            "linkText": "Memberships",
+            "href": "/features/memberships/",
+            "screen": {
+              "label": "Home Care plan · $600",
+              "name": "Robert K.",
+              "from": 600,
+              "to": 460,
+              "caption": "plan balance",
+              "row": [
+                "Standard Clean 2h · Ana P.",
+                "−$140"
+              ],
+              "foot": "Valid to Dec 31"
+            }
+          },
+          {
+            "type": "package",
+            "tone": "lilac",
+            "title": "Bundles of cleans",
+            "desc": "Sell a set of cleans as one package and see every visit used and left.",
+            "linkText": "Packages",
+            "href": "/features/packages/",
+            "screen": {
+              "label": "6 × Standard Clean",
+              "name": "Brian T.",
+              "total": 6,
+              "used": 2,
+              "caption": "cleans left",
+              "row": [
+                "Visit 2 · Tasha W.",
+                "Redeemed"
+              ],
+              "foot": "Expires Sep 30"
+            }
+          },
+          {
+            "type": "voucher",
+            "tone": "peach",
+            "title": "Gift vouchers",
+            "desc": "Housewarming and move-in gift vouchers, spent across visits with the balance always right.",
+            "linkText": "Vouchers",
+            "href": "/features/vouchers/",
+            "screen": {
+              "label": "GV-0103 · gift for Nancy H.",
+              "name": "From Brian T.",
+              "steps": [
+                300,
+                160
+              ],
+              "caption": "left to spend",
+              "rows": [
+                [
+                  "Today · Standard Clean 2h",
+                  "−$140"
+                ]
+              ],
+              "foot": "Expires Jun 30"
+            }
+          },
+          {
+            "type": "campaign",
+            "tone": "green",
+            "title": "Seasonal offers",
+            "desc": "Spring-clean and move-season offers that start and end by themselves, at every office.",
+            "linkText": "Campaigns",
+            "href": "/features/campaigns/",
+            "screen": {
+              "label": "Spring Clean Week · 15% off",
+              "status": "Live",
+              "sub": "Mar 16–22 · all offices",
+              "to": 72,
+              "caption": "offer bookings",
+              "bars": [
+                [
+                  "Midtown",
+                  30
+                ],
+                [
+                  "Downtown",
+                  24
+                ],
+                [
+                  "Uptown",
+                  18
+                ]
+              ],
+              "toast": [
+                "Paula R. booked Deep Clean 4h",
+                "$272"
+              ]
+            }
+          }
+        ]
+      },
+      "faq": {
+        "heading": "Cleaning business questions,",
+        "accent": "answered.",
+        "visible": 6
+      },
+      "final": {
+        "heading": "See your busiest Friday",
+        "accent": "on Zennly."
+      }
+    }
   },
   {
     "slug": "barbershop",
@@ -1062,8 +3486,8 @@
       "eyebrow": "Barbershops",
       "headline": "Chair-by-chair booking for barbershops that never stand still.",
       "sub": "Walk-ins, regulars who ask for their barber by name, and a queue that changes every ten minutes – Zennly keeps every chair, barber and payment visible.",
-      "ctaText": "Book a demo",
-      "ctaHref": "/demo/",
+      "ctaText": "Try a free demo",
+      "ctaHref": "#try-free",
       "caption": "No setup fees",
       "image": "/assets/images/solution-hero-barbershop.jpg",
       "imageAlt": "Barbers cutting hair in a barbershop"
@@ -1191,40 +3615,451 @@
     "finalCta": {
       "heading": "Ready to see how it works for your barbershop?",
       "sub": "Book a 20-minute demo. We'll show you how Zennly handles barber-specific booking, walk-ins, discount approval and daily reconciliation across every shop.",
-      "ctaText": "Book your demo"
+      "ctaText": "Try a free demo"
     },
     "faq": [
       {
-        "question": "We only have one branch right now.",
-        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch barbershops start for the booking and payment tracking alone."
-      },
-      {
-        "question": "How is this different from generic booking software?",
-        "answer": "Generic tools handle time slots. Zennly handles barber assignment, discount approvals and daily payment reconciliation – where barbershops actually lose money."
-      },
-      {
-        "question": "What booking software works for a barbershop in Nepal?",
-        "answer": "Zennly is booking and operations software for barbershops in Nepal. It assigns every booking to a specific barber, handles walk-ins, records payments by cash, card and online, and reconciles the day across branches."
+        "question": "We only have one shop right now. Is Zennly still for us?",
+        "answer": "Yes. Zennly works the same at one barbershop as at ten. You get online booking, barber and chair scheduling, discount approval and payment tracking from day one, and the multi-branch views are there when you open a second shop."
       },
       {
         "question": "Can a barbershop handle walk-ins and appointments together?",
-        "answer": "Yes. Walk-ins are created the same way as booked appointments, assigned to a barber and moved through the same booking stages, so the schedule shows both."
+        "answer": "Yes. Booked cuts hold their barber, chair and real length, so the front desk can see exactly where a walk-in fits and slot them into an open gap without bumping anyone who booked."
       },
       {
-        "question": "How do I stop barbers giving unrecorded discounts?",
-        "answer": "Staff request a discount with an exact value and amount, and it applies only after a manager approves it. Every request stays in an audit trail."
+        "question": "Can regulars' bookings stay with their own barber?",
+        "answer": "Yes. Every booking is created against a branch, a service and a named barber, so a regular's cut stays with the barber they asked for and each barber sees their own day."
+      },
+      {
+        "question": "How do I stop unrecorded discounts and free cuts?",
+        "answer": "On Zennly a barber requests a discount with the exact percentage and amount, and it only applies after a manager approves it. Every payment is recorded against its booking, so a free or discounted cut always leaves a record."
+      },
+      {
+        "question": "Does Zennly handle memberships and prepaid packages for regulars?",
+        "answer": "Yes. Memberships, prepaid haircut packages and gift vouchers sit alongside regular bookings, so every redemption and remaining balance stays accurate at every shop."
+      },
+      {
+        "question": "What is the best barbershop software for multiple locations?",
+        "answer": "Zennly is built for multi-location barbershops. It books the barber, chair and time together, refuses clashes across shops, requires manager approval for discounts and gives the owner one daily close for every location."
+      },
+      {
+        "question": "What booking software works for a barbershop in Nepal?",
+        "answer": "Zennly is barbershop booking and management software built in Nepal. It covers online booking, barber and chair scheduling, walk-ins, discount approval, payment tracking by cash, card and online, and a daily close for every shop."
+      },
+      {
+        "question": "Is there a barbershop booking app in Kathmandu?",
+        "answer": "Zennly is web-based barbershop software used from Kathmandu and across Nepal. Clients book from a link on their phone, and your team runs barbers, chairs, discounts and payments from one dashboard, with no app to install."
       },
       {
         "question": "How much does barbershop booking software cost in Nepal?",
-        "answer": "Zennly pricing is a custom quote based on your number of branches, team size and the features you use. Book a 20-minute demo and you get a tailored quote within 24 hours."
-      },
-      {
-        "question": "Is Zennly used by a real business in Nepal?",
-        "answer": "Yes. Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly, the same system used for scheduling, discount control and daily reconciliation."
+        "answer": "Zennly is quoted per business, based on your shops, team size and the features you use. There are no setup fees, and you can try every feature free before you decide."
       }
     ],
     "metaDescription": "Barbershop booking app for Nepal: barber schedules, walk-ins and appointments, discount approval and daily payment reconciliation.",
-    "seoTitle": "Barbershop Booking Software in Nepal | Zennly"
+    "seoTitle": "Barbershop Booking Software in Nepal | Zennly",
+    "sq": {
+      "eyebrow": "Zennly for barbershops",
+      "h1": "Chair-by-chair booking for barbershops that",
+      "h1Accent": "never stand still.",
+      "sub": "Keep regulars with their barber, fit walk-ins into real gaps, approve every discount and close every shop from one calm screen.",
+      "heroImageFocus": "68%",
+      "heroCard": {
+        "meta": "Friday · Downtown",
+        "status": "Confirmed",
+        "client": "Ben A.",
+        "service": "Skin Fade · 45 min · $45",
+        "staff": "Marcus J. · Chair 1 · 5:30 PM"
+      },
+      "chip": "Built for multi-branch barbershops",
+      "proofPlaceholder": true,
+      "steps": [
+        {
+          "icon": "building",
+          "title": "Add your shops, chairs and barbers",
+          "desc": "Every location, chair and barber, set up once, so the calendar matches the floor you actually run.",
+          "linkText": "Book a setup demo",
+          "href": "/demo/"
+        },
+        {
+          "icon": "tag",
+          "title": "Set cuts, lengths and prices",
+          "desc": "A haircut takes 30 minutes and a cut and beard takes an hour. Set each once and the calendar books them that way.",
+          "linkText": "See pricing",
+          "href": "/pricing/"
+        },
+        {
+          "icon": "check",
+          "title": "Go live",
+          "desc": "Share your booking link. Regulars book their barber online, and every cut and payment is on record.",
+          "linkText": "How it works",
+          "href": "/how-it-works/"
+        }
+      ],
+      "carousel": {
+        "heading": "Barbershop software built for",
+        "accent": "the Friday rush.",
+        "sub": "One Friday evening at Downtown, from the after-work rush to the day's close.",
+        "slides": [
+          {
+            "type": "calendar",
+            "title": "Walk-ins fit the real gaps.",
+            "desc": "Every cut books the barber and the chair for its real length, so a walk-in goes where there is actually time, not where someone guesses.",
+            "screen": {
+              "title": "Friday · Downtown",
+              "meta": "Chairs 1–3 · 3 barbers on",
+              "hourScale": 1.8,
+              "hours": [
+                "4 PM",
+                "5 PM",
+                "6 PM"
+              ],
+              "cols": [
+                {
+                  "name": "Marcus J.",
+                  "appts": [
+                    {
+                      "client": "Jake P.",
+                      "service": "Cut & Beard 60m · Chair 1",
+                      "start": 0,
+                      "len": 1,
+                      "tone": "g"
+                    },
+                    {
+                      "client": "Ben A.",
+                      "service": "Skin Fade 45m · Chair 1",
+                      "start": 1.5,
+                      "len": 0.75,
+                      "tone": "g",
+                      "selected": true
+                    },
+                    {
+                      "client": "Ryan H.",
+                      "service": "Haircut 30m · Chair 1",
+                      "start": 2.5,
+                      "len": 0.5,
+                      "tone": "o"
+                    }
+                  ]
+                },
+                {
+                  "name": "Tyler W.",
+                  "appts": [
+                    {
+                      "client": "Chris D.",
+                      "service": "Haircut 30m · Chair 2",
+                      "start": 0,
+                      "len": 0.5,
+                      "tone": "l"
+                    },
+                    {
+                      "client": "Walk-in",
+                      "service": "Haircut 30m · Chair 2",
+                      "start": 0.5,
+                      "len": 0.5,
+                      "tone": "p"
+                    },
+                    {
+                      "client": "Brandon L.",
+                      "service": "Skin Fade 45m · Chair 2",
+                      "start": 1.5,
+                      "len": 0.75,
+                      "tone": "l"
+                    }
+                  ]
+                },
+                {
+                  "name": "Diego R.",
+                  "appts": [
+                    {
+                      "client": "Omar F.",
+                      "service": "Cut & Beard 60m · Chair 3",
+                      "start": 1,
+                      "len": 1,
+                      "tone": "o"
+                    },
+                    {
+                      "client": "Alex M.",
+                      "service": "Hot Towel Shave 30m · Chair 3",
+                      "start": 2.5,
+                      "len": 0.5,
+                      "tone": "g"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "discount",
+            "title": "Regulars' discounts, on record.",
+            "desc": "Barbers ask, a manager approves. Every discount shows the amount and the reason, so no cut is free without a trace.",
+            "screen": {
+              "title": "Discount request",
+              "status": "Needs approval",
+              "client": "Omar F. · Cut & Beard 60m · 5:00 PM",
+              "amount": "10% · $6",
+              "rows": [
+                [
+                  "Reason",
+                  "Regular · 10th visit"
+                ],
+                [
+                  "Requested by",
+                  "Diego R. · barber"
+                ],
+                [
+                  "Price",
+                  "$60 → $54"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "transfer",
+            "title": "Cover the busy shop tomorrow.",
+            "desc": "Move a barber to another shop for a day or for good. Their bookings follow, and both managers see it in advance.",
+            "screen": {
+              "title": "Staff transfer",
+              "status": "Scheduled",
+              "name": "Tyler W.",
+              "role": "Barber",
+              "from": "Downtown",
+              "to": "Midtown",
+              "when": "Tomorrow",
+              "listTitle": "Midtown · bookings assigned to Tyler",
+              "items": [
+                [
+                  "Jordan K.",
+                  "Skin Fade 45m",
+                  "10:00 AM"
+                ],
+                [
+                  "Luis G.",
+                  "Haircut 30m",
+                  "10:45 AM"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "close",
+            "title": "Every shop, closed by 9 PM.",
+            "desc": "Each payment is recorded against its booking, so the owner closes all three shops from one screen.",
+            "screen": {
+              "title": "Day close · Friday",
+              "status": "Closed",
+              "total": "$4,380",
+              "label": "Collected across 3 shops",
+              "bars": [
+                [
+                  "Downtown",
+                  "$1,620",
+                  100
+                ],
+                [
+                  "Midtown",
+                  "$1,480",
+                  91
+                ],
+                [
+                  "Uptown",
+                  "$1,280",
+                  79
+                ]
+              ],
+              "foot": "2 discounts approved · $0 outstanding"
+            }
+          }
+        ]
+      },
+      "features": {
+        "heading": "Everything a barbershop runs on,",
+        "accent": "in one place.",
+        "items": [
+          {
+            "icon": "calendar",
+            "title": "Book online, day or night",
+            "desc": "Regulars book from your link at any hour. The booking lands with its barber and chair.",
+            "linkText": "Online booking",
+            "href": "/features/booking/"
+          },
+          {
+            "icon": "clock",
+            "title": "See every chair live",
+            "desc": "Who is in which chair, who is running over and where the next walk-in fits, at every shop.",
+            "linkText": "Operations",
+            "href": "/features/operational-visibility/"
+          },
+          {
+            "icon": "tag",
+            "title": "Discounts with approval",
+            "desc": "Barbers ask, managers approve. Every discount shows the amount and the reason.",
+            "linkText": "Discount control",
+            "href": "/features/discount-management/"
+          },
+          {
+            "icon": "card",
+            "title": "Payments and daily close",
+            "desc": "Cash, card and online payments recorded against each cut. Close the day in one place.",
+            "linkText": "Payments",
+            "href": "/features/payment-tracking/"
+          },
+          {
+            "icon": "userplus",
+            "title": "Barbers and cover",
+            "desc": "Move a barber to another shop for a day or for good. Their bookings follow.",
+            "linkText": "Staff management",
+            "href": "/features/staff-management/"
+          },
+          {
+            "icon": "shield",
+            "title": "The right access for each role",
+            "desc": "Owners see every shop, managers their own, barbers their day.",
+            "linkText": "Roles and access",
+            "href": "/features/role-based-access/"
+          }
+        ]
+      },
+      "stats": {
+        "heading": "Running at a three-shop barbershop.",
+        "items": [
+          [
+            "3",
+            "shops on one system"
+          ],
+          [
+            "14",
+            "barbers scheduled"
+          ],
+          [
+            "16",
+            "chairs"
+          ],
+          [
+            "24",
+            "services on the menu"
+          ]
+        ]
+      },
+      "quote": {
+        "text": "Friday nights used to be chaos at the front. Now walk-ins wait for a real gap, not a guess.",
+        "author": "Barbershop owner",
+        "meta": "Three shops"
+      },
+      "grow": {
+        "heading": "Keep regulars",
+        "accent": "coming back.",
+        "sub": "Memberships, prepaid packages, gift vouchers and fade reminders, all on the same system.",
+        "cards": [
+          {
+            "type": "membership",
+            "tone": "blush",
+            "title": "Memberships",
+            "desc": "Prepaid balances regulars spend cut by cut, with every deduction on record.",
+            "linkText": "Memberships",
+            "href": "/features/memberships/",
+            "screen": {
+              "label": "Fresh Cut Club",
+              "name": "Jake P.",
+              "from": 120,
+              "to": 75,
+              "caption": "balance left",
+              "row": [
+                "Skin Fade 45m · paid from balance",
+                "−$45"
+              ],
+              "foot": "Valid until Apr 30"
+            }
+          },
+          {
+            "type": "package",
+            "tone": "lilac",
+            "title": "Packages",
+            "desc": "Sell six haircuts up front and track each one used, with any balance still due.",
+            "linkText": "Packages",
+            "href": "/features/packages/",
+            "screen": {
+              "label": "6 × Haircut 30m",
+              "name": "Ryan H.",
+              "total": 6,
+              "used": 1,
+              "caption": "haircuts left",
+              "row": [
+                "First haircut · Marcus J.",
+                "Redeemed"
+              ],
+              "foot": "Expires Mar 31"
+            }
+          },
+          {
+            "type": "voucher",
+            "tone": "peach",
+            "title": "Gift vouchers",
+            "desc": "Gifts claimed in parts, with the balance always right and the expiry date in view.",
+            "linkText": "Vouchers",
+            "href": "/features/vouchers/",
+            "screen": {
+              "label": "GV-0048 · gift for Chris D.",
+              "name": "From Emma D.",
+              "steps": [
+                100,
+                40
+              ],
+              "caption": "left to spend",
+              "rows": [
+                [
+                  "Oct 10 · Cut & Beard 60m",
+                  "−$60"
+                ]
+              ],
+              "foot": "Expires Jan 10"
+            }
+          },
+          {
+            "type": "campaign",
+            "tone": "green",
+            "title": "Offers and outreach",
+            "desc": "Fade reminders three weeks after a cut, and offers that start and end by themselves.",
+            "linkText": "Campaigns",
+            "href": "/features/campaigns/",
+            "screen": {
+              "label": "3-week fade reminder",
+              "status": "Live",
+              "sub": "Email · all shops · September",
+              "to": 96,
+              "caption": "clients rebooked",
+              "bars": [
+                [
+                  "Downtown",
+                  38
+                ],
+                [
+                  "Midtown",
+                  32
+                ],
+                [
+                  "Uptown",
+                  26
+                ]
+              ],
+              "toast": [
+                "Brandon L. rebooked Skin Fade",
+                "$45"
+              ]
+            }
+          }
+        ]
+      },
+      "faq": {
+        "heading": "Barbershop questions,",
+        "accent": "answered.",
+        "visible": 6
+      },
+      "final": {
+        "heading": "See your shop's Friday",
+        "accent": "on Zennly."
+      }
+    }
   },
   {
     "slug": "beauty-clinic",
@@ -1234,8 +4069,8 @@
       "eyebrow": "Beauty Clinics",
       "headline": "Practitioner-led booking for clinics where every treatment has a room and a record.",
       "sub": "Skin, laser and aesthetic treatments depend on the right practitioner, the right room and an accurate payment trail – Zennly keeps all three in one system.",
-      "ctaText": "Book a demo",
-      "ctaHref": "/demo/",
+      "ctaText": "Try a free demo",
+      "ctaHref": "#try-free",
       "caption": "No setup fees",
       "image": "/assets/images/solution-hero-beauty-clinic.jpg",
       "imageAlt": "Client receiving a facial treatment at a beauty clinic"
@@ -1363,40 +4198,445 @@
     "finalCta": {
       "heading": "Ready to see how it works for your beauty clinic?",
       "sub": "Book a 20-minute demo. We'll show you how Zennly handles practitioner and room booking, payment tracking and access control across every clinic.",
-      "ctaText": "Book your demo"
+      "ctaText": "Try a free demo"
     },
     "faq": [
       {
-        "question": "We only have one branch right now.",
-        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch beauty clinics start for the booking and payment tracking alone."
+        "question": "We only have one clinic right now. Is Zennly still for us?",
+        "answer": "Yes. Zennly works the same at one clinic as at ten. You get online booking, practitioner and room scheduling, discount approval and payment tracking from day one, and the multi-location views are there when you open a second clinic."
       },
       {
-        "question": "How is this different from generic booking software?",
-        "answer": "Generic tools handle time slots. Zennly handles practitioner assignment, discount approvals and daily payment reconciliation – where beauty clinics actually lose money."
+        "question": "How does Zennly stop the laser room and treatment rooms being double-booked?",
+        "answer": "Every booking holds the clinic, the practitioner, the room and the treatment's real length together. Once a room is taken at that time it can't be booked again, even from another device or location."
       },
       {
-        "question": "What software helps manage a beauty clinic in Nepal?",
-        "answer": "Zennly is booking and operations software for beauty clinics in Nepal. It schedules practitioners and rooms, takes online bookings, tracks payments by cash, card and online, and gives owners a daily report across branches."
+        "question": "Is every treatment tied to a named practitioner?",
+        "answer": "Yes. Each booking is created against a clinic, a treatment and a named practitioner, so every practitioner sees their own day and the front desk knows who is in which room."
       },
       {
-        "question": "Can Zennly stop treatment rooms being double-booked?",
-        "answer": "Yes. Zennly books staff, room and time together, so a room or practitioner cannot be booked twice for the same slot."
+        "question": "Can Zennly handle treatments of different lengths?",
+        "answer": "Yes. Each treatment has its own length and price, so a 30-minute laser session and a 60-minute microneedling appointment block exactly the time they need."
+      },
+      {
+        "question": "Does Zennly handle memberships and laser treatment packages?",
+        "answer": "Yes. Memberships, prepaid treatment courses such as six laser sessions, and gift vouchers sit alongside regular bookings, so every redemption and remaining balance stays accurate at every clinic."
       },
       {
         "question": "Who can see financial reports in a clinic?",
-        "answer": "Access is role-based. Owners and managers see payment and revenue reports, while front-desk staff work with bookings."
+        "answer": "Zennly has Admin, Manager and Staff roles. Owners and managers see revenue and reports for the clinics they run, while front-desk staff handle bookings and payments without seeing the business's financials."
+      },
+      {
+        "question": "What is the best booking software for multi-location beauty clinics?",
+        "answer": "Zennly is built for multi-location beauty clinics. It books the practitioner, room and time together, refuses clashes across clinics, requires manager approval for discounts and gives the owner one daily close for every location."
+      },
+      {
+        "question": "What software helps manage a beauty clinic in Nepal?",
+        "answer": "Zennly is booking and management software built in Nepal for beauty and skin clinics. It covers online booking, practitioner and room scheduling, discount approval, payment tracking by cash, card and online, and a daily close for every clinic."
       },
       {
         "question": "How much does beauty clinic booking software cost in Nepal?",
-        "answer": "Zennly pricing is a custom quote based on your number of branches, team size and the features you use. Book a 20-minute demo and you get a tailored quote within 24 hours."
-      },
-      {
-        "question": "Is Zennly used by a real business in Nepal?",
-        "answer": "Yes. Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly, the same system used for scheduling, discount control and daily reconciliation."
+        "answer": "Zennly is quoted per business, based on your clinics, team size and the features you use. There are no setup fees, and you can try every feature free before you decide."
       }
     ],
     "metaDescription": "Beauty and aesthetic clinic software for Nepal: practitioner and room scheduling, treatment packages, payments and daily reconciliation.",
-    "seoTitle": "Beauty Clinic Booking Software in Nepal | Zennly"
+    "seoTitle": "Beauty Clinic Booking Software in Nepal | Zennly",
+    "sq": {
+      "eyebrow": "Zennly for beauty clinics",
+      "h1": "Practitioner-led booking for clinics where every treatment has",
+      "h1Accent": "a room and a record.",
+      "sub": "Book the practitioner, room and real treatment length together, approve every offer, and close every clinic from one calm screen.",
+      "heroImageFocus": "50%",
+      "heroCard": {
+        "meta": "Thursday · Uptown",
+        "status": "Confirmed",
+        "client": "Olivia B.",
+        "service": "Hydrafacial · 60 min · $199",
+        "staff": "Hannah P. · Treatment Room 1 · 11:00 AM"
+      },
+      "chip": "Built for multi-location beauty clinics",
+      "proofPlaceholder": true,
+      "steps": [
+        {
+          "icon": "building",
+          "title": "Add your clinics, rooms and practitioners",
+          "desc": "Every location, treatment room, laser room and practitioner, set up once, so the calendar matches your real clinic.",
+          "linkText": "Book a setup demo",
+          "href": "/demo/"
+        },
+        {
+          "icon": "tag",
+          "title": "Set treatments, lengths and prices",
+          "desc": "A laser session takes 30 minutes and microneedling takes an hour. Set each once and the calendar books them that way.",
+          "linkText": "See pricing",
+          "href": "/pricing/"
+        },
+        {
+          "icon": "check",
+          "title": "Go live",
+          "desc": "Share your booking link. Clients book online, and every treatment and payment is on record.",
+          "linkText": "How it works",
+          "href": "/how-it-works/"
+        }
+      ],
+      "carousel": {
+        "heading": "Clinic software that keeps every room",
+        "accent": "running to time.",
+        "sub": "One Thursday at Uptown, from the first laser session to the day's close.",
+        "slides": [
+          {
+            "type": "calendar",
+            "title": "Practitioner and room, booked together.",
+            "desc": "Every treatment books the practitioner, the room and its real length in one go, so the laser room is never booked twice.",
+            "screen": {
+              "title": "Thursday · Uptown",
+              "meta": "Laser room + 2 treatment rooms",
+              "hourScale": 1.5,
+              "hours": [
+                "10 AM",
+                "11 AM",
+                "12 PM",
+                "1 PM"
+              ],
+              "cols": [
+                {
+                  "name": "Rachel W.",
+                  "appts": [
+                    {
+                      "client": "Ava N.",
+                      "service": "Laser Hair Removal 30m · Laser Room",
+                      "start": 0,
+                      "len": 0.5,
+                      "tone": "l"
+                    },
+                    {
+                      "client": "Sophia R.",
+                      "service": "Laser Hair Removal 30m · Laser Room",
+                      "start": 1,
+                      "len": 0.5,
+                      "tone": "l"
+                    },
+                    {
+                      "client": "Isabella C.",
+                      "service": "Laser Hair Removal 30m · Laser Room",
+                      "start": 2.5,
+                      "len": 0.5,
+                      "tone": "l"
+                    }
+                  ]
+                },
+                {
+                  "name": "Hannah P.",
+                  "appts": [
+                    {
+                      "client": "Olivia B.",
+                      "service": "Hydrafacial 60m · Room 1",
+                      "start": 1,
+                      "len": 1,
+                      "tone": "g",
+                      "selected": true
+                    },
+                    {
+                      "client": "Lily Wong",
+                      "service": "LED Therapy 30m · Room 1",
+                      "start": 2.5,
+                      "len": 0.5,
+                      "tone": "o"
+                    }
+                  ]
+                },
+                {
+                  "name": "Grace L.",
+                  "appts": [
+                    {
+                      "client": "Emma S.",
+                      "service": "Microneedling 60m · Room 2",
+                      "start": 0.5,
+                      "len": 1,
+                      "tone": "p"
+                    },
+                    {
+                      "client": "Mia Thompson",
+                      "service": "Chemical Peel 45m · Room 2",
+                      "start": 2,
+                      "len": 0.75,
+                      "tone": "g"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "discount",
+            "title": "Offers need a manager's yes.",
+            "desc": "The front desk asks, a manager approves. Every discount shows the amount and the reason, so high-value treatments keep their price.",
+            "screen": {
+              "title": "Discount request",
+              "status": "Needs approval",
+              "client": "Emma S. · Microneedling 60m · 10:30 AM",
+              "amount": "15% · $45",
+              "rows": [
+                [
+                  "Reason",
+                  "First-visit offer"
+                ],
+                [
+                  "Requested by",
+                  "Natalie G. · front desk"
+                ],
+                [
+                  "Price",
+                  "$300 → $255"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "transfer",
+            "title": "Laser cover for the busy clinic.",
+            "desc": "Move a practitioner to another clinic for a day or for good. Their bookings follow, and both managers see it in advance.",
+            "screen": {
+              "title": "Staff transfer",
+              "status": "Scheduled",
+              "name": "Rachel W.",
+              "role": "Laser specialist",
+              "from": "Uptown",
+              "to": "Downtown",
+              "when": "Next Tuesday",
+              "listTitle": "Downtown · laser bookings assigned to Rachel",
+              "items": [
+                [
+                  "Chloe M.",
+                  "Laser Hair Removal 30m",
+                  "10:00 AM"
+                ],
+                [
+                  "Megan T.",
+                  "Laser Hair Removal 30m",
+                  "10:45 AM"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "close",
+            "title": "Every clinic, closed by 8 PM.",
+            "desc": "Each payment is recorded against its treatment, so the owner closes all three clinics from one screen.",
+            "screen": {
+              "title": "Day close · Thursday",
+              "status": "Closed",
+              "total": "$9,640",
+              "label": "Collected across 3 clinics",
+              "bars": [
+                [
+                  "Downtown",
+                  "$3,720",
+                  100
+                ],
+                [
+                  "Midtown",
+                  "$3,180",
+                  85
+                ],
+                [
+                  "Uptown",
+                  "$2,740",
+                  74
+                ]
+              ],
+              "foot": "2 discounts approved · $0 outstanding"
+            }
+          }
+        ]
+      },
+      "features": {
+        "heading": "Everything a clinic runs on,",
+        "accent": "in one place.",
+        "items": [
+          {
+            "icon": "calendar",
+            "title": "Book online, day or night",
+            "desc": "Clients book from your link at any hour. The booking lands with its practitioner and room.",
+            "linkText": "Online booking",
+            "href": "/features/booking/"
+          },
+          {
+            "icon": "clock",
+            "title": "See every room live",
+            "desc": "Which room is in use, who is running over and what is next, at every clinic.",
+            "linkText": "Operations",
+            "href": "/features/operational-visibility/"
+          },
+          {
+            "icon": "tag",
+            "title": "Offers with approval",
+            "desc": "Staff ask, managers approve. Every discount shows the amount and the reason.",
+            "linkText": "Discount control",
+            "href": "/features/discount-management/"
+          },
+          {
+            "icon": "card",
+            "title": "Payments and daily close",
+            "desc": "Cash, card and online payments recorded against each treatment. Close the day in one place.",
+            "linkText": "Payments",
+            "href": "/features/payment-tracking/"
+          },
+          {
+            "icon": "userplus",
+            "title": "Practitioners and cover",
+            "desc": "Move a practitioner to another clinic for a day or for good. Their bookings follow.",
+            "linkText": "Staff management",
+            "href": "/features/staff-management/"
+          },
+          {
+            "icon": "shield",
+            "title": "Reports stay with the right people",
+            "desc": "Owners and managers see the money, front-desk staff see the day.",
+            "linkText": "Roles and access",
+            "href": "/features/role-based-access/"
+          }
+        ]
+      },
+      "stats": {
+        "heading": "Running at a three-location clinic.",
+        "items": [
+          [
+            "3",
+            "clinics on one system"
+          ],
+          [
+            "12",
+            "practitioners scheduled"
+          ],
+          [
+            "9",
+            "treatment rooms"
+          ],
+          [
+            "48",
+            "treatments on the menu"
+          ]
+        ]
+      },
+      "quote": {
+        "text": "Our laser room used to be double-booked twice a week. It hasn't happened once since we switched.",
+        "author": "Clinic owner",
+        "meta": "Three clinics"
+      },
+      "grow": {
+        "heading": "Grow more than",
+        "accent": "bookings.",
+        "sub": "Memberships, treatment courses, gift vouchers and seasonal offers, all on the same system.",
+        "cards": [
+          {
+            "type": "membership",
+            "tone": "blush",
+            "title": "Memberships",
+            "desc": "Prepaid balances clients spend treatment by treatment, with every deduction on record.",
+            "linkText": "Memberships",
+            "href": "/features/memberships/",
+            "screen": {
+              "label": "Glow Membership",
+              "name": "Olivia B.",
+              "from": 400,
+              "to": 201,
+              "caption": "balance left",
+              "row": [
+                "Hydrafacial 60m · paid from balance",
+                "−$199"
+              ],
+              "foot": "Valid until Jun 30"
+            }
+          },
+          {
+            "type": "package",
+            "tone": "lilac",
+            "title": "Treatment courses",
+            "desc": "Sell a course of six laser sessions up front and track each one used.",
+            "linkText": "Packages",
+            "href": "/features/packages/",
+            "screen": {
+              "label": "6 × Laser Hair Removal",
+              "name": "Ava N.",
+              "total": 6,
+              "used": 1,
+              "caption": "sessions left",
+              "row": [
+                "First session · Rachel W.",
+                "Redeemed"
+              ],
+              "foot": "Expires Apr 30"
+            }
+          },
+          {
+            "type": "voucher",
+            "tone": "peach",
+            "title": "Gift vouchers",
+            "desc": "Gifts claimed in parts, with the balance always right and the expiry date in view.",
+            "linkText": "Vouchers",
+            "href": "/features/vouchers/",
+            "screen": {
+              "label": "GV-0057 · gift for Mia Thompson",
+              "name": "From Sophia R.",
+              "steps": [
+                300,
+                101
+              ],
+              "caption": "left to spend",
+              "rows": [
+                [
+                  "Oct 9 · Hydrafacial 60m",
+                  "−$199"
+                ]
+              ],
+              "foot": "Expires Jan 9"
+            }
+          },
+          {
+            "type": "campaign",
+            "tone": "green",
+            "title": "Offers and outreach",
+            "desc": "Seasonal offers that start and end by themselves, and win-back messages to clients who haven't been in.",
+            "linkText": "Campaigns",
+            "href": "/features/campaigns/",
+            "screen": {
+              "label": "Winter Peel Offer · 20% off",
+              "status": "Live",
+              "sub": "Nov 1–30 · all clinics",
+              "to": 74,
+              "caption": "bookings from the offer",
+              "bars": [
+                [
+                  "Downtown",
+                  30
+                ],
+                [
+                  "Midtown",
+                  24
+                ],
+                [
+                  "Uptown",
+                  20
+                ]
+              ],
+              "toast": [
+                "Isabella C. booked Chemical Peel",
+                "$120"
+              ]
+            }
+          }
+        ]
+      },
+      "faq": {
+        "heading": "Clinic questions,",
+        "accent": "answered.",
+        "visible": 6
+      },
+      "final": {
+        "heading": "See your clinic's Thursday",
+        "accent": "on Zennly."
+      }
+    }
   },
   {
     "slug": "bridal-makeup",
@@ -1406,8 +4646,8 @@
       "eyebrow": "Bridal & Makeup Studios",
       "headline": "Artist-specific booking for bridal and makeup work that can't be double-booked.",
       "sub": "A bridal date is booked for one artist and one day. Zennly assigns every booking to a named artist and keeps the schedule and payments clear.",
-      "ctaText": "Book a demo",
-      "ctaHref": "/demo/",
+      "ctaText": "Try a free demo",
+      "ctaHref": "#try-free",
       "caption": "No setup fees",
       "image": "/assets/images/solution-hero-bridal-makeup.jpg",
       "imageAlt": "Makeup artist preparing a bride before her wedding"
@@ -1535,39 +4775,440 @@
     "finalCta": {
       "heading": "Ready to see how it works for your makeup studio?",
       "sub": "Book a 20-minute demo. We'll show you how Zennly handles artist-specific booking, payments and discount approval for your studio.",
-      "ctaText": "Book your demo"
+      "ctaText": "Try a free demo"
     },
     "faq": [
       {
-        "question": "We only have one branch right now.",
-        "answer": "Zennly works the same at one branch as it does at ten – you just won't need the multi-branch views yet. Most single-branch makeup studios start for the booking and payment tracking alone."
+        "question": "We only have one studio right now. Is Zennly still for us?",
+        "answer": "Yes. Zennly works the same at one studio as at ten. You get online booking, artist and suite scheduling, deposits, discount approval and payment tracking from day one, and the multi-location views are there when you open a second studio."
       },
       {
-        "question": "How is this different from generic booking software?",
-        "answer": "Generic tools handle time slots. Zennly handles artist assignment, discount approvals and daily payment reconciliation – where makeup studios actually lose money."
+        "question": "Can I book a makeup trial and the wedding date separately?",
+        "answer": "Yes. The trial and the wedding day are separate bookings, each with its own artist, suite, length and price, so both sit on the calendar and in the bride's payment record."
+      },
+      {
+        "question": "How do I avoid double-booking an artist on a busy wedding date?",
+        "answer": "Every booking holds the studio, the artist, the suite and the service's real length together. Once an artist is booked at that time they can't be booked again, even from another device or studio."
+      },
+      {
+        "question": "Can I schedule the whole bridal party?",
+        "answer": "Yes. The bride's makeup and hair and each bridesmaid's look are booked as separate services with their own artist and suite, so the whole party fits the morning without a clash."
+      },
+      {
+        "question": "How does Zennly handle deposits and balances?",
+        "answer": "Payments are recorded against the booking by cash, card or online, including part-payments. You can take a deposit when the date is booked and see exactly what is still due until the balance is paid on the day."
+      },
+      {
+        "question": "Does Zennly handle bridal party packages and gift vouchers?",
+        "answer": "Yes. Prepaid packages, such as a set of bridesmaid looks, and gift vouchers sit alongside regular bookings, so every redemption and remaining balance stays accurate."
+      },
+      {
+        "question": "Can an artist work at more than one location?",
+        "answer": "Yes. Artist transfers are scheduled with the destination studio and date, for a single day or for good, so their bookings follow them and both managers see the change in advance."
       },
       {
         "question": "What booking software suits a bridal makeup studio in Nepal?",
-        "answer": "Zennly is booking and operations software for makeup and bridal studios in Nepal. It assigns every booking to a named artist, records payments by cash, card and online, and approves discounts with an audit trail."
-      },
-      {
-        "question": "Can I book a makeup trial and the bridal date separately?",
-        "answer": "Yes. Each is its own booking tied to an artist, so a trial and the main date are scheduled and tracked separately."
-      },
-      {
-        "question": "How do I avoid double-booking an artist on a busy date?",
-        "answer": "Zennly books staff and time together, so an artist cannot be booked twice for overlapping slots."
+        "answer": "Zennly is booking and management software built in Nepal for bridal and makeup studios. It covers online booking, artist and suite scheduling, deposits, discount approval, payment tracking by cash, card and online, and a daily close for every studio."
       },
       {
         "question": "How much does makeup studio booking software cost in Nepal?",
-        "answer": "Zennly pricing is a custom quote based on your number of branches, team size and the features you use. Book a 20-minute demo and you get a tailored quote within 24 hours."
-      },
-      {
-        "question": "Is Zennly used by a real business in Nepal?",
-        "answer": "Yes. Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly, the same system used for scheduling, discount control and daily reconciliation."
+        "answer": "Zennly is quoted per business, based on your studios, team size and the features you use. There are no setup fees, and you can try every feature free before you decide."
       }
     ],
     "metaDescription": "Bridal and makeup artist booking software for Nepal: wedding-date scheduling, advance payments, packages and discount approval.",
-    "seoTitle": "Bridal & Makeup Studio Booking Software in Nepal | Zennly"
+    "seoTitle": "Bridal & Makeup Studio Booking Software in Nepal | Zennly",
+    "sq": {
+      "eyebrow": "Zennly for bridal and makeup studios",
+      "h1": "Artist-specific booking for bridal and makeup work that",
+      "h1Accent": "can't be double-booked.",
+      "sub": "Book the artist, suite and every service for the whole bridal party, track deposits to the last dollar, and close every studio from one calm screen.",
+      "heroImageFocus": "42%",
+      "heroCardPos": "bottom-left",
+      "heroCard": {
+        "meta": "Saturday, Jun 14 · Downtown",
+        "status": "Confirmed",
+        "client": "Claire Bennett",
+        "service": "Bridal Makeup · 90 min · $350",
+        "staff": "Sofia M. · Suite 1 · 6:00 AM"
+      },
+      "chip": "Built for bridal and makeup studios",
+      "proofPlaceholder": true,
+      "steps": [
+        {
+          "icon": "building",
+          "title": "Add your studios, suites and artists",
+          "desc": "Every location, suite and makeup or hair artist, set up once, so the calendar matches your real studio.",
+          "linkText": "Book a setup demo",
+          "href": "/demo/"
+        },
+        {
+          "icon": "tag",
+          "title": "Set services, trials and prices",
+          "desc": "A bridal look takes 90 minutes and a trial takes two hours. Set each once and the calendar books them that way.",
+          "linkText": "See pricing",
+          "href": "/pricing/"
+        },
+        {
+          "icon": "check",
+          "title": "Go live",
+          "desc": "Share your booking link. Brides book a trial online, and every booking, deposit and payment is on record.",
+          "linkText": "How it works",
+          "href": "/how-it-works/"
+        }
+      ],
+      "carousel": {
+        "heading": "Studio software built for",
+        "accent": "wedding season.",
+        "sub": "One Saturday in June at Downtown, from a 6 AM bride to the day's close.",
+        "slides": [
+          {
+            "type": "calendar",
+            "title": "The whole bridal party, to the minute.",
+            "desc": "Every service books the artist, the suite and its real length, so the bride's makeup, her hair and the bridesmaids all fit without a clash.",
+            "screen": {
+              "title": "Saturday, Jun 14 · Downtown",
+              "meta": "Suites 1–3 · 3 artists on",
+              "hourScale": 1.2,
+              "hours": [
+                "6 AM",
+                "7 AM",
+                "8 AM",
+                "9 AM"
+              ],
+              "cols": [
+                {
+                  "name": "Sofia M.",
+                  "appts": [
+                    {
+                      "client": "Claire Bennett",
+                      "service": "Bridal Makeup 90m · Suite 1",
+                      "start": 0,
+                      "len": 1.5,
+                      "tone": "p",
+                      "selected": true
+                    },
+                    {
+                      "client": "Jade W.",
+                      "service": "Bridal Trial 2h · Suite 3",
+                      "start": 2,
+                      "len": 2,
+                      "tone": "l"
+                    }
+                  ]
+                },
+                {
+                  "name": "Jenna K.",
+                  "appts": [
+                    {
+                      "client": "Zoe H.",
+                      "service": "Bridesmaid Makeup 45m · Suite 2",
+                      "start": 0,
+                      "len": 0.75,
+                      "tone": "o"
+                    },
+                    {
+                      "client": "Ruby L.",
+                      "service": "Bridesmaid Makeup 45m · Suite 2",
+                      "start": 0.75,
+                      "len": 0.75,
+                      "tone": "o"
+                    }
+                  ]
+                },
+                {
+                  "name": "Alyssa R.",
+                  "appts": [
+                    {
+                      "client": "Claire Bennett",
+                      "service": "Bridal Hair 90m · Suite 1",
+                      "start": 1.5,
+                      "len": 1.5,
+                      "tone": "p"
+                    },
+                    {
+                      "client": "Zoe H.",
+                      "service": "Bridesmaid Hair 45m · Suite 2",
+                      "start": 3,
+                      "len": 0.75,
+                      "tone": "g"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "discount",
+            "title": "Deposits and balances, always right.",
+            "desc": "Take a deposit when the date is booked and the balance on the day. Every payment sits against the booking, so nothing is chased by memory.",
+            "screen": {
+              "title": "Bridal booking",
+              "status": "Deposit paid",
+              "statusTone": "ok",
+              "noActions": true,
+              "client": "Claire Bennett · Bridal Makeup + Hair · Jun 14",
+              "amount": "$250 paid",
+              "rows": [
+                [
+                  "Package",
+                  "$650"
+                ],
+                [
+                  "Deposit · Dec 14 · card",
+                  "$250"
+                ],
+                [
+                  "Due on the day",
+                  "$400"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "transfer",
+            "title": "Your artists where the weddings are.",
+            "desc": "Move an artist to another studio for a day or for good. Their bookings follow, and both managers see it in advance.",
+            "screen": {
+              "title": "Staff transfer",
+              "status": "Scheduled",
+              "name": "Jenna K.",
+              "role": "Makeup artist",
+              "from": "Downtown",
+              "to": "Uptown",
+              "when": "Sat, Jun 21",
+              "listTitle": "Uptown · bookings assigned to Jenna",
+              "items": [
+                [
+                  "Maya L.",
+                  "Bridal Makeup 90m",
+                  "7:00 AM"
+                ],
+                [
+                  "Maya's party",
+                  "Bridesmaid Makeup 45m",
+                  "8:30 AM"
+                ]
+              ]
+            }
+          },
+          {
+            "type": "close",
+            "title": "Every studio, closed by 8 PM.",
+            "desc": "Each deposit and balance is recorded against its booking, so the owner closes all three studios from one screen.",
+            "screen": {
+              "title": "Day close · Saturday",
+              "status": "Closed",
+              "total": "$8,420",
+              "label": "Collected across 3 studios",
+              "bars": [
+                [
+                  "Downtown",
+                  "$3,560",
+                  100
+                ],
+                [
+                  "Midtown",
+                  "$2,640",
+                  74
+                ],
+                [
+                  "Uptown",
+                  "$2,220",
+                  62
+                ]
+              ],
+              "foot": "All balances collected · $0 outstanding"
+            }
+          }
+        ]
+      },
+      "features": {
+        "heading": "Everything a studio runs on,",
+        "accent": "in one place.",
+        "items": [
+          {
+            "icon": "calendar",
+            "title": "Book online, day or night",
+            "desc": "Brides book a trial from your link at any hour. The booking lands with its artist and suite.",
+            "linkText": "Online booking",
+            "href": "/features/booking/"
+          },
+          {
+            "icon": "clock",
+            "title": "See every suite live",
+            "desc": "Which suite is in use, which artist is running over and who is next, at every studio.",
+            "linkText": "Operations",
+            "href": "/features/operational-visibility/"
+          },
+          {
+            "icon": "tag",
+            "title": "Discounts with approval",
+            "desc": "Staff ask, managers approve. Every package discount shows the amount and the reason.",
+            "linkText": "Discount control",
+            "href": "/features/discount-management/"
+          },
+          {
+            "icon": "card",
+            "title": "Deposits, balances and daily close",
+            "desc": "Deposits, part-payments and balances recorded against each booking. Close the day in one place.",
+            "linkText": "Payments",
+            "href": "/features/payment-tracking/"
+          },
+          {
+            "icon": "userplus",
+            "title": "Artists and cover",
+            "desc": "Move an artist to another studio for a day or for good. Their bookings follow.",
+            "linkText": "Staff management",
+            "href": "/features/staff-management/"
+          },
+          {
+            "icon": "shield",
+            "title": "The right access for each role",
+            "desc": "Owners see every studio, managers their own, artists their day.",
+            "linkText": "Roles and access",
+            "href": "/features/role-based-access/"
+          }
+        ]
+      },
+      "stats": {
+        "heading": "Running at a three-studio bridal business.",
+        "items": [
+          [
+            "3",
+            "studios on one system"
+          ],
+          [
+            "11",
+            "artists scheduled"
+          ],
+          [
+            "8",
+            "suites"
+          ],
+          [
+            "28",
+            "services on the menu"
+          ]
+        ]
+      },
+      "quote": {
+        "text": "June Saturdays used to mean two artists promised to the same bride. That stopped the month we switched.",
+        "author": "Studio owner",
+        "meta": "Three studios"
+      },
+      "grow": {
+        "heading": "Grow more than",
+        "accent": "bookings.",
+        "sub": "Deposits, bridal party packages, gift vouchers and early-booking offers, all on the same system.",
+        "cards": [
+          {
+            "type": "membership",
+            "tone": "blush",
+            "title": "Deposits and balances",
+            "desc": "Take a deposit when the date is booked and collect the balance on the day, all against one booking.",
+            "linkText": "Payments",
+            "href": "/features/payment-tracking/",
+            "screen": {
+              "label": "Bridal package · $650",
+              "name": "Claire Bennett",
+              "from": 400,
+              "to": 0,
+              "caption": "balance due",
+              "row": [
+                "Balance paid on the day · card",
+                "−$400"
+              ],
+              "foot": "Paid in full · Jun 14"
+            }
+          },
+          {
+            "type": "package",
+            "tone": "lilac",
+            "title": "Bridal party packages",
+            "desc": "Sell the bridesmaids' looks as one package and track each one used.",
+            "linkText": "Packages",
+            "href": "/features/packages/",
+            "screen": {
+              "label": "5 × Bridesmaid Makeup",
+              "name": "Claire Bennett's party",
+              "total": 5,
+              "used": 2,
+              "caption": "looks left",
+              "row": [
+                "Zoe H. and Ruby L. · Jenna K.",
+                "Redeemed"
+              ],
+              "foot": "Wedding day · Jun 14"
+            }
+          },
+          {
+            "type": "voucher",
+            "tone": "peach",
+            "title": "Gift vouchers",
+            "desc": "Bridal shower gifts claimed in parts, with the balance always right.",
+            "linkText": "Vouchers",
+            "href": "/features/vouchers/",
+            "screen": {
+              "label": "GV-0072 · gift for Claire Bennett",
+              "name": "From Zoe H.",
+              "steps": [
+                200,
+                20
+              ],
+              "caption": "left to spend",
+              "rows": [
+                [
+                  "Dec 14 · Bridal Trial 2h",
+                  "−$180"
+                ]
+              ],
+              "foot": "Expires Mar 14"
+            }
+          },
+          {
+            "type": "campaign",
+            "tone": "green",
+            "title": "Offers and outreach",
+            "desc": "Early-booking offers for the wedding season that start and end by themselves.",
+            "linkText": "Campaigns",
+            "href": "/features/campaigns/",
+            "screen": {
+              "label": "Wedding Season · 10% off trials",
+              "status": "Live",
+              "sub": "Jan 1–Mar 31 · all studios",
+              "to": 46,
+              "caption": "trials booked",
+              "bars": [
+                [
+                  "Downtown",
+                  19
+                ],
+                [
+                  "Midtown",
+                  15
+                ],
+                [
+                  "Uptown",
+                  12
+                ]
+              ],
+              "toast": [
+                "Lauren P. booked a Bridal Trial",
+                "$162"
+              ]
+            }
+          }
+        ]
+      },
+      "faq": {
+        "heading": "Bridal studio questions,",
+        "accent": "answered.",
+        "visible": 6
+      },
+      "final": {
+        "heading": "See your studio's wedding Saturday",
+        "accent": "on Zennly."
+      }
+    }
   }
 ]

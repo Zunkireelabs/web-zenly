@@ -50,3 +50,15 @@ It uses Zennly's own video, content, fonts and colours, not Square's footage or 
 
 Scoped to that one section of `/about/` only. The rest of the About page, and every
 other page, still follows the base Design Rules above.
+
+# Exception: Solutions Index Hero (/solutions/)
+
+Approved 2026-10-23. The top of `/solutions/` is modelled on the structure of Square's homepage
+(squareup.com/us/en): a full-bleed video hero under a transparent white-text nav, pinned while the
+video shrinks into a centre tile and a collage of photos, product tiles and hand-drawn doodles fades in
+around it, ending on one line. It is followed by a dark (#1C1C1C, the button colour) industry band using
+the homepage's photo-card style. It uses Zennly's own video, photos, original doodles, fonts and colours,
+not Square's footage, artwork or branding.
+
+Scoped to those two sections of `/solutions/` only (classes `si-*`, body class `si-nav-clear`). The rest
+of the page uses the shared fd-page system, and every other page still follows the base Design Rules above.
