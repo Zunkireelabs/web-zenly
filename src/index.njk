@@ -485,7 +485,7 @@ extraHead: |
       --v2-cream:#F7F6F5;                  /* alternate section surface (was #F8F7F1; neutral so green + blush/lilac/peach accents both sit on it, 2026-10-21) */
       --v2-cream-2:#F1F0E6;                /* panel / card surface on white (unused on homepage since 2026-10-21: outcome panels now use --v2-cream) */
       --v2-sheet-r:var(--v2-flow-radius);  /* rounded section tops = footer radius */
-      --v2-sec-pad:clamp(88px,10vw,144px);   /* every section's top + bottom padding */
+      --v2-sec-pad:clamp(72px,7.6vw,112px);   /* every section's top + bottom padding */
       --v2-head-gap:clamp(40px,3.9vw,56px);  /* section heading -> its content */
     }
     /* Stacked "sheets": each section's rounded top overlaps the previous one. */
@@ -545,13 +545,13 @@ extraHead: |
     /* OUTCOMES (owner #3): tabs with progress + cream panel */
     .v2-outcomes .v2-h2{max-width:860px; margin-bottom:var(--v2-head-gap);}
     .v2-tabs{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:32px;}
-    .v2-tab{position:relative; text-align:left; background:none; border:none; padding:0 0 18px; cursor:pointer; font-family:var(--v2-sans);
+    .v2-tab{position:relative; text-align:center; background:none; border:none; padding:0 0 18px; cursor:pointer; font-family:var(--v2-sans);
       font-size:clamp(17px,1.6vw,22px); font-weight:600; letter-spacing:-0.02em; color:rgba(46,25,25,.38); transition:color .25s ease;}
-    .v2-tab::before{content:''; position:absolute; left:0; right:0; bottom:0; height:1px; background:var(--v2-line);}
-    .v2-tab i{position:absolute; left:0; bottom:0; height:2px; width:0; background:var(--v2-sage);}
+    .v2-tab::before{content:''; position:absolute; left:14%; right:14%; bottom:0; height:1px; background:var(--v2-line);}
+    .v2-tab i{position:absolute; left:14%; right:14%; bottom:0; height:2px; background:var(--v2-sage); transform:scaleX(0); transform-origin:left center;}
     .v2-tab:hover{color:rgba(46,25,25,.7);}
     .v2-tab.is-active{color:var(--v2-ink);}
-    .v2-tab.is-active i{width:100%; transition:width var(--v2-tab-ms,7000ms) linear;}
+    .v2-tab.is-active i{transform:scaleX(1); transition:transform var(--v2-tab-ms,7000ms) linear;}
     .v2-outcomes.is-manual .v2-tab.is-active i{transition:none;}
     .v2-ocpanels{position:relative;}
     .v2-ocpanel{display:none; grid-template-columns:5fr 6fr; gap:clamp(32px,5vw,80px); align-items:center; background:var(--v2-cream);
@@ -3960,37 +3960,75 @@ document.addEventListener('DOMContentLoaded', function(){
     sync();
   })();
 
-  // ---- Outcomes tabs (owner.com-style): auto-advance with a progress line,
-  // paused while off-screen; any click or arrow key hands control to the user. ----
+  // ---- Outcomes tabs (owner.com-style): auto-advance with a progress line.
+  // Driven by requestAnimationFrame against real elapsed time (not a chain of
+  // setTimeouts + a CSS transition) so there's never a "finished but stuck
+  // waiting to advance" state. Every frame recomputes which tab should be
+  // active and exactly how far through its cycle we are from real elapsed
+  // time — so it's always visibly moving, with no stuck/stale frame.
+  // Clicking a tab (or arrow key) jumps straight there and keeps the same
+  // moving line going for that tab — it does NOT stop the auto-advance.
+  // Paused (truly held in place) only while scrolled off-screen, or
+  // disabled entirely for prefers-reduced-motion. ----
   (function () {
     var sec = document.getElementById('v2-outcomes');
     if (!sec) return;
     var tabs = Array.prototype.slice.call(sec.querySelectorAll('.v2-tab'));
     var panels = Array.prototype.slice.call(sec.querySelectorAll('.v2-ocpanel'));
-    var MS = 7000, idx = 0, timer = null, inView = false, manual = false;
+    var bars = tabs.map(function (t) { return t.querySelector('i'); });
+    var MS = 7000, idx = 0, inView = false;
+    var segStart = 0, pausedElapsed = 0, baseIdx = 0, raf = null;
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     sec.style.setProperty('--v2-tab-ms', MS + 'ms');
-    if (reduce) { manual = true; sec.classList.add('is-manual'); }
+    bars.forEach(function (b) { if (b) b.style.transition = 'none'; });
+    if (reduce) { sec.classList.add('is-manual'); }
 
-    function show(i) {
+    function activateTab(i) {
       idx = i;
       tabs.forEach(function (t, k) {
         var on = k === i;
-        t.classList.remove('is-active');
+        t.classList.toggle('is-active', on);
         t.setAttribute('aria-selected', on ? 'true' : 'false');
         t.tabIndex = on ? 0 : -1;
+        if (bars[k] && !on) bars[k].style.transform = 'scaleX(0)';
       });
-      void sec.offsetWidth; // restart the progress line's transition
-      tabs[i].classList.add('is-active');
       panels.forEach(function (p, k) { p.classList.toggle('is-active', k === i); p.hidden = k !== i; });
     }
-    function schedule() {
-      clearTimeout(timer);
-      if (manual || !inView) return;
-      timer = setTimeout(function () { show((idx + 1) % tabs.length); schedule(); }, MS);
+    function setBarPct(pct) {
+      var bar = bars[idx];
+      if (bar) bar.style.transform = 'scaleX(' + (pct / 100) + ')';
+    }
+    function loop(now) {
+      raf = null;
+      if (reduce || !inView) return;
+      var elapsed = pausedElapsed + (now - segStart);
+      var cycles = Math.floor(elapsed / MS);
+      var newIdx = (baseIdx + cycles) % tabs.length;
+      if (newIdx !== idx) activateTab(newIdx);
+      setBarPct(((elapsed % MS) / MS) * 100);
+      raf = requestAnimationFrame(loop);
+    }
+    function cancelLoop() { if (raf) cancelAnimationFrame(raf); raf = null; }
+    function startLoop(fromElapsed) {
+      cancelLoop();
+      if (reduce || !inView) return;
+      baseIdx = idx; // this run's cycle count is relative to whichever tab is active right now
+      pausedElapsed = fromElapsed || 0;
+      segStart = performance.now();
+      raf = requestAnimationFrame(loop);
+    }
+    function pauseLoop() {
+      if (!raf) return;
+      pausedElapsed = pausedElapsed + (performance.now() - segStart);
+      cancelLoop();
+    }
+    function resumeLoop() {
+      if (raf || reduce || !inView) return;
+      startLoop(pausedElapsed);
     }
     function takeOver(i) {
-      manual = true; sec.classList.add('is-manual'); clearTimeout(timer); show(i);
+      activateTab(i);
+      startLoop(0); // jump to this tab, keep the moving line going from a fresh cycle
     }
     tabs.forEach(function (t, k) {
       t.addEventListener('click', function () { takeOver(k); });
@@ -4005,7 +4043,7 @@ document.addEventListener('DOMContentLoaded', function(){
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
         inView = entries[0].isIntersecting;
-        if (inView && !manual) { show(idx); schedule(); } else { clearTimeout(timer); }
+        if (inView) resumeLoop(); else pauseLoop();
       }, { threshold: 0.35 }).observe(sec);
     }
   })();

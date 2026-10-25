@@ -103,10 +103,6 @@ module.exports = {
         {
           "href": "/features/",
           "label": "See all capabilities"
-        },
-        {
-          "href": "/how-it-works/",
-          "label": "How it works"
         }
       ]
     },

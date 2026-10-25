@@ -3,7 +3,7 @@ layout: base.njk
 title: "Zennly Case Study: Nuad Thai Spa's 4-Branch Booking"
 metaDescription: "See how a four-branch spa in Kathmandu runs 39 therapists, 12 rooms and 194 services on Zennly — a case study in multi-branch spa booking software in Nepal."
 dateModified: "2026-10-04"
-bodyClass: page--light-nav page--case-study
+bodyClass: page--light-nav page--case-study page--pink-cta
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Case Study — Nuad Thai Spa Kathmandu", url: "/case-study/" }]) }}
@@ -49,107 +49,182 @@ bodyClass: page--light-nav page--case-study
 
   <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
   <section class="section" style="padding-top:var(--space-md);">
-    <div class="article-layout">
-      <div class="article-body reveal">
+    <div class="cs2-wrap">
 
-        <div class="article-hero" style="padding:0 0 var(--space-sm); text-align:left; max-width:none;">
-          <div style="display:flex; align-items:center; gap:var(--space-sm); margin-bottom:var(--space-sm);">
-            <p class="article-hero__eyebrow article-hero__eyebrow--pill">Case study</p>
-            <p class="article-hero__meta article-hero__meta--icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-              Spa &amp; wellness &middot; 4 branches &middot; 39 therapists
-            </p>
-          </div>
-          <h1 class="article-hero__h1" style="text-wrap:auto; font-weight:400;">How Nuad Thai Spa Kathmandu runs four branches without a single phone call.</h1>
+      <div class="article-hero" style="padding:0 0 var(--space-lg); text-align:left; max-width:none;">
+        <div style="display:flex; align-items:center; gap:var(--space-sm); margin-bottom:var(--space-sm);">
+          <p class="article-hero__eyebrow article-hero__eyebrow--pill">Case study</p>
+          <p class="article-hero__meta article-hero__meta--icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            Spa &amp; wellness &middot; 4 branches &middot; 39 therapists
+          </p>
         </div>
-
-        <hr style="border:none; border-top:1px solid var(--color-border); margin:0 0 var(--space-lg);" />
-
-        <p><strong>Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly, a multi-branch booking and operations platform built in Nepal.</strong> Bookings, staff transfers, discount approvals and daily payment reconciliation now sit in one system instead of four separate branches held together by phone calls. Nuad Thai is Zennly&rsquo;s first live client.</p>
-
-        <div class="cs-stats reveal" style="justify-content:flex-start; flex-wrap:nowrap; gap:0; margin-top:0; margin-bottom:var(--space-lg);">
-          <div class="cs-stat">
-            <div class="fd-proof__num" data-count-target="39">39</div>
-            <p class="fd-proof__label">Therapists across branches</p>
-          </div>
-          <div class="cs-stat">
-            <div class="fd-proof__num" data-count-target="12">12</div>
-            <p class="fd-proof__label">Treatment rooms</p>
-          </div>
-          <div class="cs-stat">
-            <div class="fd-proof__num" data-count-target="194">194</div>
-            <p class="fd-proof__label">Services on the menu</p>
-          </div>
-        </div>
-
-      <h2>Before Zennly</h2>
-      <p>Nuad Thai Spa Kathmandu grew from a single location to four branches the way most service businesses do &ndash; one good year at a time, with the booking system never catching up. Appointments were confirmed over the phone, tracked on a branch-by-branch basis, and reconciled against the till at the end of the day. It worked when there was one branch to watch. It stopped working at three.</p>
-      <p>The owner&rsquo;s mornings were spent calling each branch manager individually to find out who was booked, who had shown up, and what had been collected the day before. Discounts were verbal, so a therapist could offer 15% off without anyone above them knowing until the numbers didn&rsquo;t add up. Staff moved between branches informally, which meant a manager could find out a therapist wasn&rsquo;t coming in only when the client was already in the waiting room.</p>
-
-      <h2>What changed</h2>
-      <p>Zennly replaced the phone-and-spreadsheet system with a single operational layer across all four branches. Every booking now moves through the same lifecycle &ndash; Pending, Confirmed, In-Progress, Completed &ndash; visible in real time to whoever needs to see it, at whatever level they&rsquo;re allowed to see it at.</p>
-      <h3>Booking &amp; scheduling</h3>
-      <p>Front-desk staff create bookings directly against a specific therapist and room. Conflicts are prevented at the database level, not caught after the fact by a manager comparing notebooks.</p>
-      <h3>Discount control</h3>
-      <p>A therapist can still offer a discount &ndash; but it&rsquo;s a request, not a decision. It only applies once a manager approves it, and every request carries the exact percentage and amount. The spa&rsquo;s pricing strategy now survives contact with the front desk.</p>
-      <h3>Staff transfers</h3>
-      <p>When a therapist moves between branches, it&rsquo;s a scheduled event with an effective date &ndash; not a phone call the morning of. Managers at both branches see the change coming.</p>
-      <h3>Daily reconciliation</h3>
-      <p>Every payment is logged at the point of service, against the booking it belongs to. The owner&rsquo;s morning call round has been replaced by a single dashboard that&rsquo;s already correct.</p>
-
-      <blockquote>&ldquo;I used to spend my mornings calling every branch. Now I open the platform and everything is already there.&rdquo;</blockquote>
-      <p class="article-hero__meta">&mdash; Owner, {{ nuadThai.name }}</p>
-
-      <p class="article-hero__meta">
-        {{ nuadThai.name }} &middot; {{ nuadThai.streetAddress }}, {{ nuadThai.addressLocality }}
-        {%- if nuadThai.url %} &middot; <a href="{{ nuadThai.url }}" target="_blank" rel="noopener">Visit {{ nuadThai.name }}</a>{% endif %}
-        {%- if nuadThai.bookingUrl %} &middot; <a href="{{ nuadThai.bookingUrl }}" target="_blank" rel="noopener">Book at Nuad Thai</a>{% endif %}
-      </p>
-
-      <h2>Key facts</h2>
-      <ul>
-        <li><strong>Client:</strong> {{ nuadThai.name }}, Kathmandu, Nepal</li>
-        <li><strong>Industry:</strong> Spa &amp; wellness (<a href="/solutions/spa/">spa booking software</a>)</li>
-        <li><strong>Scale:</strong> 4 branches, 39 therapists, 12 treatment rooms, 194 services</li>
-        <li><strong>Volume:</strong> roughly 350 bookings and 170 recorded payments a week (single-week snapshot)</li>
-        <li><strong>What it replaced:</strong> phone confirmations, branch-by-branch tracking and end-of-day till checks</li>
-        <li><strong>Features used:</strong> <a href="/features/booking/">multi-branch booking</a>, <a href="/features/discount-management/">discount approval</a>, <a href="/features/staff-management/">staff transfers</a>, <a href="/features/payment-tracking/">payment tracking and daily reconciliation</a></li>
-      </ul>
-
-      <h2>The result</h2>
-      <p>Across the four branches, Nuad Thai Spa now runs roughly 350 bookings and 170 recorded payments a week through Zennly, with every discount request and staff transfer carrying its own audit trail. Nothing about the business got simpler &ndash; four branches, 39 therapists, and 194 services is still a lot to run. What changed is that the owner sees it as one operation instead of four separate ones held together by phone calls.</p>
-
-      <h2>Questions about this case study</h2>
-      <h3>Which spa booking software runs a multi-branch spa in Nepal?</h3>
-      <p>Nuad Thai Spa Kathmandu runs its four branches, 39 therapists, 12 rooms and 194 services on Zennly, a multi-branch booking and operations platform built in Nepal.</p>
-      <h3>How does a multi-branch spa control discounts?</h3>
-      <p>A therapist submits a discount as a request with the exact percentage and amount. It applies only after a manager approves it, and every request keeps an audit trail. See <a href="/features/discount-management/">discount management</a> and the guide on <a href="/blog/discount-leakage/">discount leakage</a>.</p>
-      <h3>How does Nuad Thai Spa reconcile payments across branches?</h3>
-      <p>Every payment is recorded at the point of service against its booking, so the owner sees one dashboard for all four branches. Read <a href="/blog/daily-reconciliation/">what daily reconciliation should take</a>.</p>
-      <h3>How are staff transfers between spa branches handled?</h3>
-      <p>A transfer is a scheduled event with an effective date, visible to managers at both branches before it happens. Read <a href="/blog/how-to-manage-a-spa-in-nepal/">spa management in Nepal</a>.</p>
-
+        <h1 class="article-hero__h1" style="text-wrap:auto; font-weight:400;">How Nuad Thai Spa Kathmandu runs four branches without a single phone call.</h1>
+        <p style="margin-top:var(--space-sm); font-size:1.0625rem; line-height:1.65; color:var(--v2-ink-soft);"><strong style="color:var(--v2-ink);">Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly</strong>, a multi-branch booking and operations platform built in Nepal. Bookings, staff transfers, discount approvals and daily payment reconciliation now sit in one system instead of four separate branches held together by phone calls. Nuad Thai is Zennly&rsquo;s first live client.</p>
       </div>
 
-      <aside class="article-sidebar reveal">
-        <a href="#try-free" class="article-sidebar-cta" data-trial-open>
-          <h3 class="article-sidebar-cta__h3">Want this on your branches?</h3>
-          <p class="article-sidebar-cta__body">See the same platform, configured around your business.</p>
-          <span class="bottom-cta__banner-btn">Try a free demo &rarr;</span>
-        </a>
+      <!-- ── THE BRIEF ──────────────────────────────────────────────────── -->
+      <div class="cs2-section reveal">
+        <h2 class="cs2-section__label">The brief</h2>
 
-        <div>
-          <p class="article-share__label">Share this article</p>
-          <div class="article-share__icons">
-            <a class="article-share__icon" href="https://twitter.com/intent/tweet?url=https://zennly.io/case-study/" target="_blank" rel="noopener" aria-label="Share on X">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.8L4.5 22H1.4l8.1-9.3L1 2h7l4.9 6.2L18.9 2Zm-1.2 18h1.9L6.4 4H4.4l13.3 16Z"/></svg>
-            </a>
-            <a class="article-share__icon" href="https://www.linkedin.com/sharing/share-offsite/?url=https://zennly.io/case-study/" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-.95 1.85-1.95 3.8-1.95 4.05 0 4.8 2.65 4.8 6.1V21h-4v-5.55c0-1.3-.02-3-1.85-3-1.85 0-2.1 1.4-2.1 2.9V21h-4V9Z"/></svg>
-            </a>
+        <div class="cs2-row">
+          <h3 class="cs2-row__label">The problem</h3>
+          <div class="cs2-row__body">
+            <p>Nuad Thai Spa Kathmandu grew from a single location to four branches the way most service businesses do &ndash; one good year at a time, with the booking system never catching up. Appointments were confirmed over the phone, tracked branch by branch, and reconciled against the till at the end of the day. It worked with one branch to watch. It stopped working at three.</p>
+            <ul>
+              <li>Mornings spent calling each branch manager to find out who was booked and what had been collected</li>
+              <li>Discounts agreed verbally, so a 15% off could go unnoticed until the numbers didn&rsquo;t add up</li>
+              <li>Staff moved between branches informally &ndash; a manager found out only when the client was already waiting</li>
+            </ul>
           </div>
         </div>
-      </aside>
+
+        <div class="cs2-row">
+          <h3 class="cs2-row__label">What changed</h3>
+          <div class="cs2-row__body">
+            <p>Zennly replaced the phone-and-spreadsheet system with a single operational layer across all four branches. Every booking now moves through the same lifecycle &ndash; Pending, Confirmed, In-Progress, Completed &ndash; visible in real time to whoever is allowed to see it.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── THE BUSINESS ───────────────────────────────────────────────── -->
+      <div class="cs2-section reveal">
+        <h2 class="cs2-section__label">The business</h2>
+
+        <div class="cs2-panel">
+          <div class="cs2-panel__top">
+            <div>
+              <div class="cs2-panel__avatar" aria-hidden="true">NT</div>
+              <p class="cs2-panel__name">{{ nuadThai.name }}</p>
+              <ul class="cs2-panel__stats">
+                <li><strong>Industry:</strong> Spa &amp; wellness</li>
+                <li><strong>Location:</strong> {{ nuadThai.streetAddress }}, {{ nuadThai.addressLocality }}</li>
+                <li><strong>Branches:</strong> 4, incl. Thamel &amp; Sanepa</li>
+                <li><strong>Client:</strong> Zennly&rsquo;s first live client</li>
+              </ul>
+            </div>
+            <div class="cs2-panel__main">
+              <div class="cs2-panel__bg">
+                <h3 class="cs2-panel__h3">Background</h3>
+                <p>Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 treatment rooms and 194 services. Before Zennly, each branch tracked its own bookings and till; the owner reconciled everything by phone every morning.
+                  {%- if nuadThai.url %} <a href="{{ nuadThai.url }}" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">Visit {{ nuadThai.name }}</a>{% endif %}
+                  {%- if nuadThai.bookingUrl %} &middot; <a href="{{ nuadThai.bookingUrl }}" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">Book at Nuad Thai</a>{% endif %}
+                </p>
+              </div>
+
+              <div class="cs2-quote">
+                <p>&ldquo;I used to spend my mornings calling every branch. Now I open the platform and everything is already there.&rdquo;</p>
+                <cite>&mdash; Owner, {{ nuadThai.name }}</cite>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs2-panel__cols">
+            <div>
+              <h3 class="cs2-panel__h3">The numbers</h3>
+              <ul>
+                <li>39 therapists across branches</li>
+                <li>12 treatment rooms</li>
+                <li>194 services on the menu</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="cs2-panel__h3">Features used</h3>
+              <ul>
+                <li><a href="/features/booking/">Multi-branch booking</a></li>
+                <li><a href="/features/discount-management/">Discount approval</a></li>
+                <li><a href="/features/staff-management/">Staff transfers</a></li>
+                <li><a href="/features/payment-tracking/">Payment tracking &amp; daily close</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="cs2-panel__h3">Weekly volume</h3>
+              <ul>
+                <li>~350 bookings a week</li>
+                <li>~170 recorded payments a week</li>
+                <li>Single-week snapshot, across 4 branches</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── BEFORE → AFTER ─────────────────────────────────────────────── -->
+      <div class="cs2-section reveal">
+        <h2 class="cs2-section__label">Before &rarr; after</h2>
+
+        <div class="cs2-map">
+          <div class="cs2-map__avatar" aria-hidden="true">NT</div>
+
+          <div class="cs2-map__quad">
+            <h3 class="cs2-map__h3">Booking &amp; scheduling</h3>
+            <p>Front-desk staff create bookings directly against a specific therapist and room. Conflicts are prevented at the database level, not caught after the fact by a manager comparing notebooks.</p>
+          </div>
+
+          <div class="cs2-map__quad">
+            <h3 class="cs2-map__h3">Discount control</h3>
+            <p>A therapist can still offer a discount &ndash; but it&rsquo;s a request, not a decision. It only applies once a manager approves it, and every request carries the exact percentage and amount.</p>
+          </div>
+
+          <div class="cs2-map__quad">
+            <h3 class="cs2-map__h3">Staff transfers</h3>
+            <p>When a therapist moves between branches, it&rsquo;s a scheduled event with an effective date &ndash; not a phone call the morning of. Managers at both branches see the change coming.</p>
+          </div>
+
+          <div class="cs2-map__quad">
+            <h3 class="cs2-map__h3">Daily reconciliation</h3>
+            <p>Every payment is logged at the point of service, against the booking it belongs to. The owner&rsquo;s morning call round is now a single dashboard that&rsquo;s already correct.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── THE RESULT ─────────────────────────────────────────────────── -->
+      <div class="cs2-section reveal">
+        <div class="cs2-row">
+          <h3 class="cs2-row__label">The result</h3>
+          <div class="cs2-row__body">
+            <p>Across the four branches, Nuad Thai Spa now runs roughly 350 bookings and 170 recorded payments a week through Zennly, with every discount request and staff transfer carrying its own audit trail. Nothing about the business got simpler &ndash; four branches, 39 therapists and 194 services is still a lot to run. What changed is that the owner sees it as one operation instead of four held together by phone calls.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── FAQ ────────────────────────────────────────────────────────── -->
+      <div class="cs2-section reveal">
+        <h2 class="cs2-section__label">Questions</h2>
+        <div class="pg-faq">
+          <details>
+            <summary>Which spa booking software runs a multi-branch spa in Nepal?</summary>
+            <p>Nuad Thai Spa Kathmandu runs its four branches, 39 therapists, 12 rooms and 194 services on Zennly, a multi-branch booking and operations platform built in Nepal.</p>
+          </details>
+          <details>
+            <summary>How does a multi-branch spa control discounts?</summary>
+            <p>A therapist submits a discount as a request with the exact percentage and amount. It applies only after a manager approves it, and every request keeps an audit trail. See <a href="/features/discount-management/">discount management</a> and the guide on <a href="/blog/discount-leakage/">discount leakage</a>.</p>
+          </details>
+          <details>
+            <summary>How does Nuad Thai Spa reconcile payments across branches?</summary>
+            <p>Every payment is recorded at the point of service against its booking, so the owner sees one dashboard for all four branches. Read <a href="/blog/daily-reconciliation/">what daily reconciliation should take</a>.</p>
+          </details>
+          <details>
+            <summary>How are staff transfers between spa branches handled?</summary>
+            <p>A transfer is a scheduled event with an effective date, visible to managers at both branches before it happens. Read <a href="/blog/how-to-manage-a-spa-in-nepal/">spa management in Nepal</a>.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- ── CTA + SHARE ────────────────────────────────────────────────── -->
+      <div class="cs2-endrow reveal">
+        <a href="#try-free" class="v2-btn" data-trial-open>Want this on your branches? Try a free demo &rarr;</a>
+        <div class="cs2-share">
+          <span>Share this case study</span>
+          <a class="article-share__icon" href="https://twitter.com/intent/tweet?url=https://zennly.io/case-study/" target="_blank" rel="noopener" aria-label="Share on X">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.8L4.5 22H1.4l8.1-9.3L1 2h7l4.9 6.2L18.9 2Zm-1.2 18h1.9L6.4 4H4.4l13.3 16Z"/></svg>
+          </a>
+          <a class="article-share__icon" href="https://www.linkedin.com/sharing/share-offsite/?url=https://zennly.io/case-study/" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-.95 1.85-1.95 3.8-1.95 4.05 0 4.8 2.65 4.8 6.1V21h-4v-5.55c0-1.3-.02-3-1.85-3-1.85 0-2.1 1.4-2.1 2.9V21h-4V9Z"/></svg>
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
