@@ -1,36 +1,60 @@
 ---
-layout: base.njk
+layout: layouts/blog-article.njk
 title: "Spa Booking App Nepal: Online Booking for Spas | Zennly"
+h1: "Spa booking app in Nepal: how guests and tourists can book online"
 metaDescription: "How spas in Kathmandu, Pokhara and across Nepal can take online bookings from residents and tourists, 24 hours a day, without a phone call."
 datePublished: "2026-10-12"
 dateModified: "2026-10-12"
 ogType: article
-bodyClass: page--light-nav
+bodyClass: page--light-nav page--pink-cta
+category: "Spa & Wellness"
+categoryAnchor: "spa-wellness"
+readTime: "5 min read"
+subtitle: "A spa booking app lets guests pick a service, branch, therapist and time on their phone, confirms instantly, and captures bookings from residents and tourists around the clock."
+coverImage: "/assets/images/solution-hero-spa.png"
+coverAlt: "Spa & Wellness"
+sidebarCtaHeading: "Running a spa?"
+sidebarCtaBody: "See online spa booking in Zennly."
+bottomCtaHeading: "Want guests to book your spa online?"
+bottomCtaBody: "Book a 20-minute demo and see online spa booking in Zennly."
+faq:
+  - question: "Is there a spa booking app for Nepal?"
+    answer: "Zennly gives spas in Nepal an online booking page that guests use from their phone, with staff, room and time booked together and every payment recorded."
+  - question: "Can tourists book a spa in Pokhara or Kathmandu online?"
+    answer: "Yes. Visitors can pick a service, a time and a branch at any hour, which captures bookings made before they arrive or after the front desk closes."
+  - question: "Does an online spa booking system stop double-bookings?"
+    answer: "Yes. Zennly locks the therapist, the room and the time together, so a slot that is taken cannot be booked again."
+  - question: "Can I manage several spa branches in one booking system?"
+    answer: "Yes. Zennly runs one branch or many from one account with one daily report."
+relatedReading:
+  - url: "/solutions/spa/"
+    label: "Spa booking software for Nepal"
+  - url: "/blog/how-to-manage-a-spa-in-nepal/"
+    label: "How to manage a spa in Nepal"
+  - url: "/nepal/pokhara/"
+    label: "Booking software in Pokhara"
+  - url: "/case-study/"
+    label: "Case study: a four-branch spa on Zennly"
+keepReading:
+  - link: "/blog/how-to-start-a-spa-business-in-nepal/"
+    image: "solution-showcase-spa-2.png"
+    tag: "Spa & Wellness"
+    title: "How to start a spa business in Nepal: operations checklist for owners"
+    read: "6 min read"
+    tone: 0
+  - link: "/blog/spa-memberships-packages-vouchers-nepal/"
+    image: "feat-idx-memberships.jpg"
+    tag: "Spa & Wellness"
+    title: "Spa memberships, packages and gift vouchers in Nepal: how to track them properly"
+    read: "6 min read"
+    tone: 2
+  - link: "/blog/spa-management-software/"
+    image: "solution-showcase-spa-3.png"
+    tag: "Buying guide"
+    title: "Spa management software: features, costs and how to choose"
+    read: "6 min read"
+    tone: 4
 ---
-{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
-{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "Spa booking app in Nepal: how guests and tourists can book online", url: page.url }]) }}
-{% from "schema/article.njk" import articleSchema with context %}
-{% from "schema/faq.njk" import faqSchema %}
-{{ faqSchema([{"question": "Is there a spa booking app for Nepal?", "answer": "Zennly gives spas in Nepal an online booking page that guests use from their phone, with staff, room and time booked together and every payment recorded."}, {"question": "Can tourists book a spa in Pokhara or Kathmandu online?", "answer": "Yes. Visitors can pick a service, a time and a branch at any hour, which captures bookings made before they arrive or after the front desk closes."}, {"question": "Does an online spa booking system stop double-bookings?", "answer": "Yes. Zennly locks the therapist, the room and the time together, so a slot that is taken cannot be booked again."}, {"question": "Can I manage several spa branches in one booking system?", "answer": "Yes. Zennly runs one branch or many from one account with one daily report."}]) }}
-{{ articleSchema("Spa booking app in Nepal: how guests and tourists can book online", datePublished, page.url, metaDescription, dateModified) }}
-
-<main>
-
-  <section class="section" style="padding-bottom:0;">
-    <div class="article-hero reveal">
-      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
-      <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Spa & Wellness</p>
-      <h1 class="article-hero__h1">Spa booking app in Nepal: how guests and tourists can book online</h1>
-      <p class="article-hero__meta">5 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
-    </div>
-  <figure class="article-cover reveal">
-      {% image "/assets/images/solution-hero-spa.png", "Spa & Wellness", { class: "article-cover__img", loading: "eager" } %}
-    </figure>
-  </section>
-
-  <section class="section">
-    <div class="article-body reveal">
-
 <p><strong>A spa booking app lets guests choose a service, branch, therapist and time on their phone and receive a confirmation straight away. For spas in Nepal it captures bookings from residents and tourists around the clock, and stops double-bookings by locking the therapist, the room and the time together. Zennly provides this for one spa or many.</strong></p>
 <p>Visitors to Thamel, Lakeside in Pokhara, Sauraha near Chitwan and the Kathmandu Valley decide on a massage or spa day on their phone, often the same day and often late in the evening. A spa that only takes bookings by phone or by message misses many of them. A spa that shows live availability and confirms instantly does not.</p>
 <h2>What guests expect from a spa booking app</h2>
@@ -47,80 +71,3 @@ bodyClass: page--light-nav
 <p>Many spas sell prepaid cards, session bundles and gift vouchers. Zennly tracks <a href="/features/memberships/">memberships</a>, <a href="/features/packages/">packages</a> and <a href="/features/vouchers/">vouchers</a> with balances and expiry. See <a href="/blog/spa-memberships-packages-vouchers-nepal/">how to track them properly</a>.</p>
 <h2>Try it for your spa</h2>
 <p>See the booking flow for <a href="/solutions/spa/">spas and wellness centres</a>, or look at the cities we cover: <a href="/nepal/kathmandu/">Kathmandu</a> and <a href="/nepal/pokhara/">Pokhara</a>.</p>
-
-      <h2>Common questions</h2>
-      <h3>Is there a spa booking app for Nepal?</h3>
-      <p>Zennly gives spas in Nepal an online booking page that guests use from their phone, with staff, room and time booked together and every payment recorded.</p>
-      <h3>Can tourists book a spa in Pokhara or Kathmandu online?</h3>
-      <p>Yes. Visitors can pick a service, a time and a branch at any hour, which captures bookings made before they arrive or after the front desk closes.</p>
-      <h3>Does an online spa booking system stop double-bookings?</h3>
-      <p>Yes. Zennly locks the therapist, the room and the time together, so a slot that is taken cannot be booked again.</p>
-      <h3>Can I manage several spa branches in one booking system?</h3>
-      <p>Yes. Zennly runs one branch or many from one account with one daily report.</p>
-      
-      <h2>Related reading</h2>
-      <ul>
-        <li><a href="/solutions/spa/">Spa booking software for Nepal</a></li>
-        <li><a href="/blog/how-to-manage-a-spa-in-nepal/">How to manage a spa in Nepal</a></li>
-        <li><a href="/nepal/pokhara/">Booking software in Pokhara</a></li>
-        <li><a href="/case-study/">Case study: a four-branch spa on Zennly</a></li>
-        </ul>
-
-    </div>
-  </section>
-
-  <section class="section article-more">
-    <div class="article-more__inner reveal">
-      <h2 class="article-more__h2">Keep reading</h2>
-      <div class="blog-idx-rows">
-        <a href="/blog/how-to-start-a-spa-business-in-nepal/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/solution-showcase-spa-2.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Spa & Wellness</p>
-              <h3 class="blog-idx-row__h3">How to start a spa business in Nepal: operations checklist for owners</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>6 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/spa-memberships-packages-vouchers-nepal/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/feat-idx-memberships.jpg", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Spa & Wellness</p>
-              <h3 class="blog-idx-row__h3">Spa memberships, packages and gift vouchers in Nepal: how to track them properly</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>6 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/spa-management-software/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/solution-showcase-spa-3.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Buying guide</p>
-              <h3 class="blog-idx-row__h3">Spa management software: features, costs and how to choose</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>6 min read</span></p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="bottom-cta" id="demo">
-    <div class="bottom-cta__card bottom-cta__card--banner reveal">
-      <h2 class="bottom-cta__h2">Want guests to book your spa online?</h2>
-      <p class="bottom-cta__sub">Book a 20-minute demo and see online spa booking in Zennly.</p>
-      <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &rarr;</a>
-    </div>
-  </section>
-
-  {% include "_footer-v2.njk" %}
-
-</main>

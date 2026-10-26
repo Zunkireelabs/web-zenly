@@ -1,36 +1,62 @@
 ---
-layout: base.njk
+layout: layouts/blog-article.njk
 title: "Spa & Salon Staff Commission in Nepal | Zennly"
+h1: "How to calculate therapist commission and payroll for a spa or salon in Nepal"
 metaDescription: "How spas and salons in Nepal can calculate monthly salary, absence deductions and therapist commission accurately per branch, without spreadsheets."
 datePublished: "2026-10-12"
 dateModified: "2026-10-12"
 ogType: article
-bodyClass: page--light-nav
+bodyClass: page--light-nav page--pink-cta
+category: "Operations"
+categoryAnchor: "operations"
+readTime: "5 min read"
+subtitle: "Spa and salon payroll in Nepal comes out right every month when base salary, absence deductions and therapist commission are all calculated from the same attendance and booking records, per branch."
+coverImage: "/assets/images/feat-idx-payroll.jpg"
+coverAlt: "Operations"
+sidebarCtaHeading: "Done with payroll spreadsheets?"
+sidebarCtaBody: "See monthly payroll and commission per branch in Zennly."
+bottomCtaHeading: "Done with payroll spreadsheets?"
+bottomCtaBody: "Book a 20-minute demo and see monthly payroll and commission per branch in Zennly."
+faq:
+  - question: "How is therapist commission calculated at a spa?"
+    answer: "Commonly, commission is a percentage rate applied to the value of the therapist's completed and paid bookings in the month. In Zennly, service commission is the therapist's rate applied to those bookings, and referral commission is added per booking."
+  - question: "Can payroll be run separately for each branch?"
+    answer: "Yes. Zennly runs payroll each month per branch."
+  - question: "Can a payroll run be changed after it is finalised?"
+    answer: "No. In Zennly you review a draft run and then finalise it, which locks the numbers."
+  - question: "Who can see payroll in Zennly?"
+    answer: "Payroll is limited to admins."
+relatedReading:
+  - url: "/features/payroll/"
+    label: "Payroll for spas and salons"
+  - url: "/features/staff-management/"
+    label: "Staff scheduling and transfers"
+  - url: "/blog/discount-leakage/"
+    label: "Discount leakage: what it is and how to stop it"
+  - url: "/blog/how-to-manage-a-spa-in-nepal/"
+    label: "How to manage a spa in Nepal"
+  - url: "/solutions/spa/"
+    label: "Spa booking software for Nepal"
+keepReading:
+  - link: "/blog/reduce-no-shows-salon-spa-nepal/"
+    image: "calendar-zero-double-bookings.png"
+    tag: "Booking"
+    title: "How to reduce missed appointments at a salon or spa in Nepal"
+    read: "5 min read"
+    tone: 0
+  - link: "/blog/spa-booking-app-nepal/"
+    image: "solution-hero-spa.png"
+    tag: "Spa & Wellness"
+    title: "Spa booking app in Nepal: how guests and tourists can book online"
+    read: "5 min read"
+    tone: 2
+  - link: "/blog/how-to-start-a-spa-business-in-nepal/"
+    image: "solution-showcase-spa-2.png"
+    tag: "Spa & Wellness"
+    title: "How to start a spa business in Nepal: operations checklist for owners"
+    read: "6 min read"
+    tone: 4
 ---
-{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
-{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "How to calculate therapist commission and payroll for a spa or salon in Nepal", url: page.url }]) }}
-{% from "schema/article.njk" import articleSchema with context %}
-{% from "schema/faq.njk" import faqSchema %}
-{{ faqSchema([{"question": "How is therapist commission calculated at a spa?", "answer": "Commonly, commission is a percentage rate applied to the value of the therapist's completed and paid bookings in the month. In Zennly, service commission is the therapist's rate applied to those bookings, and referral commission is added per booking."}, {"question": "Can payroll be run separately for each branch?", "answer": "Yes. Zennly runs payroll each month per branch."}, {"question": "Can a payroll run be changed after it is finalised?", "answer": "No. In Zennly you review a draft run and then finalise it, which locks the numbers."}, {"question": "Who can see payroll in Zennly?", "answer": "Payroll is limited to admins."}]) }}
-{{ articleSchema("How to calculate therapist commission and payroll for a spa or salon in Nepal", datePublished, page.url, metaDescription, dateModified) }}
-
-<main>
-
-  <section class="section" style="padding-bottom:0;">
-    <div class="article-hero reveal">
-      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
-      <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Operations</p>
-      <h1 class="article-hero__h1">How to calculate therapist commission and payroll for a spa or salon in Nepal</h1>
-      <p class="article-hero__meta">5 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
-    </div>
-  <figure class="article-cover reveal">
-      {% image "/assets/images/feat-idx-payroll.jpg", "Operations", { class: "article-cover__img", loading: "eager" } %}
-    </figure>
-  </section>
-
-  <section class="section">
-    <div class="article-body reveal">
-
 <p><strong>Spa and salon payroll in Nepal is usually a base salary, minus deductions for absent days, plus commission on the services each therapist completed. The calculation is reliable only when attendance and paid bookings are recorded per person, which is what payroll software uses to work out the month.</strong></p>
 <p>Month-end is when many spa and salon owners lose a weekend. Attendance is in one notebook, services are in the booking diary, discounts are in someone&rsquo;s memory, and every therapist is sure they did more than the record shows. A disputed payslip damages trust with the people you most want to keep.</p>
 <h2>The three parts of a therapist&rsquo;s pay</h2>
@@ -54,81 +80,3 @@ bodyClass: page--light-nav
 <p>If therapists move between branches, record the transfer in advance so their bookings and attendance sit under the right branch. See <a href="/features/staff-management/">staff management and transfers</a> and the <a href="/blog/manage-multiple-spa-salon-branches-nepal/">multi-branch checklist</a>.</p>
 <h2>Control who sees pay</h2>
 <p>Payroll is sensitive. Limit it to admins, and give managers and front-desk staff only what they need. This is covered by <a href="/features/role-based-access/">role-based access</a>.</p>
-
-      <h2>Common questions</h2>
-      <h3>How is therapist commission calculated at a spa?</h3>
-      <p>Commonly, commission is a percentage rate applied to the value of the therapist&#x27;s completed and paid bookings in the month. In Zennly, service commission is the therapist&#x27;s rate applied to those bookings, and referral commission is added per booking.</p>
-      <h3>Can payroll be run separately for each branch?</h3>
-      <p>Yes. Zennly runs payroll each month per branch.</p>
-      <h3>Can a payroll run be changed after it is finalised?</h3>
-      <p>No. In Zennly you review a draft run and then finalise it, which locks the numbers.</p>
-      <h3>Who can see payroll in Zennly?</h3>
-      <p>Payroll is limited to admins.</p>
-      
-      <h2>Related reading</h2>
-      <ul>
-        <li><a href="/features/payroll/">Payroll for spas and salons</a></li>
-        <li><a href="/features/staff-management/">Staff scheduling and transfers</a></li>
-        <li><a href="/blog/discount-leakage/">Discount leakage: what it is and how to stop it</a></li>
-        <li><a href="/blog/how-to-manage-a-spa-in-nepal/">How to manage a spa in Nepal</a></li>
-        <li><a href="/solutions/spa/">Spa booking software for Nepal</a></li>
-        </ul>
-
-    </div>
-  </section>
-
-  <section class="section article-more">
-    <div class="article-more__inner reveal">
-      <h2 class="article-more__h2">Keep reading</h2>
-      <div class="blog-idx-rows">
-        <a href="/blog/reduce-no-shows-salon-spa-nepal/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/calendar-zero-double-bookings.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Booking</p>
-              <h3 class="blog-idx-row__h3">How to reduce missed appointments at a salon or spa in Nepal</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>5 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/spa-booking-app-nepal/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/solution-hero-spa.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Spa & Wellness</p>
-              <h3 class="blog-idx-row__h3">Spa booking app in Nepal: how guests and tourists can book online</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>5 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/how-to-start-a-spa-business-in-nepal/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/solution-showcase-spa-2.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Spa & Wellness</p>
-              <h3 class="blog-idx-row__h3">How to start a spa business in Nepal: operations checklist for owners</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>6 min read</span></p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="bottom-cta" id="demo">
-    <div class="bottom-cta__card bottom-cta__card--banner reveal">
-      <h2 class="bottom-cta__h2">Done with payroll spreadsheets?</h2>
-      <p class="bottom-cta__sub">Book a 20-minute demo and see monthly payroll and commission per branch in Zennly.</p>
-      <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &rarr;</a>
-    </div>
-  </section>
-
-  {% include "_footer-v2.njk" %}
-
-</main>

@@ -87,7 +87,7 @@
 
 <!-- Mobile menu — Capabilities / Types / Resources accordion groups (tap
      equivalent of the desktop mega menu), same content and icons. -->
-<nav id="v2-nav-mobile" class="v2-nav-mobile" aria-hidden="true">
+<nav id="v2-nav-mobile" class="v2-nav-mobile" aria-hidden="true" data-lenis-prevent>
   {% for key in ['capabilities', 'types', 'resources'] %}
   <div class="v2-nav-mobile__group">
     <button type="button" class="v2-nav-mobile__trigger" aria-expanded="false" aria-controls="v2-nav-mobile-{{ key }}">
