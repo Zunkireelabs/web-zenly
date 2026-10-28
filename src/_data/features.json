@@ -6,7 +6,7 @@
     "hero": {
       "eyebrow": "Booking management",
       "headline": "Every appointment, tracked from <span class=\"fd-hero__h1-accent\">first request to final payment</span>.",
-      "subheadline": "A complete booking system built for multi-branch service businesses, so your schedule doesn't rely on the front desk alone.",
+      "subheadline": "A complete booking system for multi-branch businesses, so your schedule doesn't rely on the front desk.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-booking.png",
       "imageAlt": "Booking management dashboard",
@@ -37,6 +37,7 @@
     "roles": [
       {
         "persona": "Front-desk staff",
+        "headline": "The whole day at a glance.",
         "summary": "Create bookings in seconds, see the full day at a glance, and keep every status up to date.",
         "icon": "users",
         "image": "/assets/images/feat-role-frontdesk.jpg",
@@ -58,6 +59,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "Conflicts caught early.",
         "summary": "Confirm bookings, catch conflicts before they escalate, and keep a full audit trail on every appointment.",
         "icon": "layout",
         "image": "/assets/images/feat-role-managers.jpg",
@@ -79,6 +81,7 @@
       },
       {
         "persona": "Owners & admins",
+        "headline": "Your whole business, live.",
         "summary": "See every branch in one view, track your operational pulse in real time, and keep clean structured records.",
         "icon": "bar-chart",
         "image": "/assets/images/feat-role-owners.jpg",
@@ -128,7 +131,7 @@
     },
     "testimonial": {
       "quote": "Our receptionist used to spend 2 hours a day on calls. Now customers just book themselves — and she focuses on the floor.",
-      "author": "Priya M.",
+      "author": "Paula M.",
       "business": "Spa Owner"
     },
     "proof": {
@@ -160,7 +163,7 @@
         {
           "quote": "The first thing I noticed was that my morning call with branch managers got shorter. Then it disappeared completely. I just check the platform now.",
           "author": "Owner",
-          "business": "Multi-branch spa, Kathmandu"
+          "business": "Multi-branch spa, Austin"
         },
         {
           "quote": "Our front desk used to confirm bookings by memory. Now every appointment has a status, a therapist, and a record. The customers feel the difference.",
@@ -211,10 +214,6 @@
         {
           "question": "How do you prevent double-bookings across multiple branches?",
           "answer": "Zennly locks each time slot the moment a booking is created, checked against the specific branch, room, and staff member — so two people can't book the same slot, even across different devices or front-desk terminals."
-        },
-        {
-          "question": "How do you prevent double-bookings across multiple branches?",
-          "answer": "Zennly books the staff member, room and time together and refuses a conflicting booking at database level, so a clash cannot be saved even across branches."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -246,7 +245,7 @@
       }
     ],
     "bottomCta": {
-      "headline": "351 bookings a week. See it in your business.",
+      "headline": "See your booking day on Zennly.",
       "subheadline": "The full booking workflow – creation to payment – across your actual branch setup. In 20 minutes.",
       "ctaLabel": "Book your live demo →",
       "reassurance": "No setup required before the demo. No commitment after. Just a look at the system working the way your business works."
@@ -255,41 +254,41 @@
       {
         "num": "01",
         "time": "8:30am",
-        "title": "A customer calls ahead",
-        "body": "Staff opens the platform and creates a booking in seconds. Service selected. Therapist assigned. Branch confirmed.",
+        "title": "Sarah calls to book",
+        "body": "The front desk books her in while she's still on the phone: Deep Tissue, 60 minutes, with Emily at Downtown, 11:00 AM. It takes seconds.",
         "status": "Pending"
       },
       {
         "num": "02",
         "time": "9:00am",
         "title": "The manager confirms the slot",
-        "body": "The branch manager reviews the schedule and confirms. The therapist knows what's coming. No one had to call anyone.",
+        "body": "The branch manager sees the new booking and confirms it in one tap. Emily's schedule updates. Nobody had to call anybody.",
         "status": "Confirmed"
       },
       {
         "num": "03",
-        "time": "11:15am",
-        "title": "The customer arrives",
-        "body": "Staff marks the booking In-Progress. Everyone at every level can see – in real time – that this appointment is live.",
+        "time": "11:00am",
+        "title": "Sarah arrives",
+        "body": "The front desk checks her in and the booking turns In-Progress. Everyone with access sees the room is busy, live, without asking.",
         "status": "In-Progress"
       },
       {
         "num": "04",
-        "time": "12:30pm",
-        "title": "Service complete. Payment recorded.",
-        "body": "The booking moves to Completed. Payment is recorded. The booking is closed with a clean record: what was booked, who delivered it, what was paid.",
+        "time": "12:05pm",
+        "title": "Service done. Payment recorded.",
+        "body": "Emily finishes, the front desk takes $120 and the booking closes with a full record: what was booked, who did it, what was paid.",
         "status": "Completed"
       },
       {
         "num": "05",
         "time": "End of day",
         "title": "The owner checks in",
-        "body": "Not by calling managers. By opening the platform and seeing the day: bookings created, completed, across which branches, and what was paid.",
-        "status": "Reconciled"
+        "body": "No calls to managers. One screen shows the whole day: 42 bookings, 38 completed, and how each branch did.",
+        "status": "Closed"
       }
     ],
     "relatedFeatures": [
-      "operations",
+      "operational-visibility",
       "payment-tracking",
       "discount-management"
     ],
@@ -303,7 +302,7 @@
     "hero": {
       "eyebrow": "Real-time operational visibility",
       "headline": "Stop calling for updates.<br> <span class=\"fd-hero__h1-accent\">See how the day is going.</span>",
-      "subheadline": "Every booking status, every branch, every moment – visible in one place. Without a message, a call, or a report that's already out of date.",
+      "subheadline": "Every booking, every branch, every moment — visible in one place, without a call or a stale report.",
       "cta": "See the live dashboard in a 20-minute demo →",
       "image": "/assets/images/feat-operations.png",
       "imageAlt": "Operations dashboard screenshot",
@@ -334,6 +333,7 @@
     "roles": [
       {
         "persona": "Floor staff",
+        "headline": "Your queue, live, all day.",
         "summary": "See the live queue, move a booking through its stages, and apply only the discounts you're cleared for.",
         "icon": "user-check",
         "features": [
@@ -353,6 +353,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "The whole floor on one screen.",
         "summary": "Watch the whole floor from one screen, shift staff and rooms as the day changes, and clear discount exceptions before they pile up.",
         "icon": "layout-dashboard",
         "features": [
@@ -372,6 +373,7 @@
       },
       {
         "persona": "Owners & admins",
+        "headline": "Every branch. One view.",
         "summary": "See every branch from one dashboard, close each day in minutes, and catch patterns before they become problems.",
         "icon": "building-2",
         "features": [
@@ -451,17 +453,17 @@
         {
           "quote": "I used to physically check each room to know what was going on. Now I glance at one screen between meetings and I have the full picture.",
           "author": "Manager",
-          "business": "Multi-branch salon, Pokhara"
+          "business": "Multi-branch salon, Portland"
         },
         {
-          "quote": "Discounts were the one thing I couldn't control before. Now every exception comes to me before it happens, not after I see it on the receipt.",
-          "author": "Owner",
-          "business": "Day spa, Kathmandu"
+          "quote": "When a treatment runs over, I see it before the next client is kept waiting. I move them to whoever is free, and nobody has to call me.",
+          "author": "Branch manager",
+          "business": "Day spa, Austin"
         },
         {
           "quote": "Closing the day used to mean an hour on the phone with each branch. Now I open the dashboard at 7pm and it's already done.",
           "author": "Owner",
-          "business": "Multi-branch clinic, Lalitpur"
+          "business": "Multi-branch clinic, Denver"
         }
       ],
       "sub": "Feedback from the people running the floor day to day."
@@ -496,10 +498,6 @@
         {
           "question": "How can an owner see all branches' bookings in one place?",
           "answer": "Zennly gives owners a single real-time dashboard showing every branch's bookings, staff status, and payments as they happen — no phone calls or manager check-ins required to know how the day is going."
-        },
-        {
-          "question": "How can an owner see all branches' bookings in one place?",
-          "answer": "The multi-branch dashboard shows every branch's bookings and their status in real time, so the owner does not need to phone each manager."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -531,29 +529,29 @@
         "num": "01",
         "time": "9:00am",
         "title": "The morning check-in",
-        "body": "You open the platform. You see the morning's confirmed bookings across all branches. You don't need to call anyone to know whether the day has started well.",
+        "body": "27 bookings confirmed across Downtown, Midtown and Uptown before you've left home. Nobody had to call to tell you the day started well.",
         "status": "Confirmed"
       },
       {
         "num": "02",
         "time": "11:30am",
         "title": "A booking runs long",
-        "body": "A booking at Branch 2 has been In-Progress for longer than expected. You see it. You can check in before it becomes a problem – or before the next customer is kept waiting.",
+        "body": "Rachel's 10:20 Hot Stone at Midtown is 10 minutes over and her 11:30 client is waiting. The manager moves the client to Mike in two taps.",
         "status": "In-Progress"
       },
       {
         "num": "03",
         "time": "2:00pm",
         "title": "A pattern shows up",
-        "body": "Branch 3 has had three cancellations today. The pattern is visible. You can ask why, investigate, and address it – not discover it at the end of the week.",
+        "body": "Uptown has 3 cancellations today; a usual day has less than one. You ask why this afternoon, not at the end of the week.",
         "status": "Pending"
       },
       {
         "num": "04",
         "time": "6:00pm",
         "title": "The day closes itself",
-        "body": "You see how many bookings were completed, how many were cancelled, what was paid, what discounts went through. Across all branches. Without a single summary call.",
-        "status": "Reconciled"
+        "body": "61 completed, 4 cancelled, $3,420 paid and 6 discounts approved, across all three branches. No summary calls.",
+        "status": "Closed"
       }
     ],
     "bottomCta": {
@@ -576,7 +574,7 @@
     "hero": {
       "eyebrow": "Payment Tracking",
       "headline": "Know exactly what came in. <span class=\"fd-hero__h1-accent\">At every branch. Every day.</span>",
-      "subheadline": "Every payment recorded the moment it's collected. Every booking closed with a financial record. No reconciliation headaches. No end-of-month surprises. No \"I think we got paid for that one.\"",
+      "subheadline": "Every payment recorded the moment it's collected — no reconciliation headaches, no end-of-month surprises.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-finance.png",
       "imageAlt": "Payment tracking dashboard",
@@ -607,6 +605,7 @@
     "roles": [
       {
         "persona": "Front-desk staff",
+        "headline": "Take payment as the booking closes.",
         "summary": "Record the payment as the booking closes – linked automatically to the customer, therapist, service, and branch.",
         "icon": "wallet",
         "features": [
@@ -626,6 +625,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "Revenue that updates itself.",
         "summary": "Watch collected revenue update the moment it's recorded – by booking, by therapist, by service.",
         "icon": "bar-chart-3",
         "features": [
@@ -645,6 +645,7 @@
       },
       {
         "persona": "Owners and admins",
+        "headline": "Every dollar, every branch.",
         "summary": "See revenue across every branch – today, this week, this month – in one dashboard.",
         "icon": "landmark",
         "features": [
@@ -693,7 +694,7 @@
     "testimonial": {
       "quote": "The first thing I noticed was that my morning call with branch managers got shorter. Then it disappeared completely. I just check the platform now.",
       "author": "Owner",
-      "business": "Multi-branch spa, Kathmandu"
+      "business": "Multi-branch spa, Austin"
     },
     "proof": {
       "eyebrow": "Proof through numbers",
@@ -705,8 +706,8 @@
           "label": "Payments recorded during a single peak week across multiple branches — all logged by front-desk staff as appointments were completed"
         },
         {
-          "tag": "Range (NPR)",
-          "value": "200–7,200",
+          "tag": "Range (USD)",
+          "value": "5–190",
           "label": "The real range of payment values processed on the platform — from quick services to premium multi-treatment bookings"
         },
         {
@@ -722,9 +723,9 @@
       "headline": "What operators say once payments stop living in a notebook.",
       "quotes": [
         {
-          "quote": "The first thing I noticed was that my morning call with branch managers got shorter. Then it disappeared completely. I just check the platform now.",
-          "author": "Owner",
-          "business": "Multi-branch spa, Kathmandu"
+          "quote": "Closing the till used to take forty minutes and a calculator. Now the day's total is already there when we lock up.",
+          "author": "Front-desk lead",
+          "business": "Day spa, Denver"
         },
         {
           "quote": "We used to find out about missing payments a week later. Now if something's unpaid, I see it the same day.",
@@ -775,10 +776,6 @@
         {
           "question": "How do service businesses reconcile cash, card, and online payments daily?",
           "answer": "Every booking in Zennly closes with a connected payment record — amount, method, therapist, service, and branch — so the day's cash, card, and online totals are already reconciled by the time you open the dashboard."
-        },
-        {
-          "question": "How do service businesses reconcile cash, card and online payments daily?",
-          "answer": "Record each payment by method against its booking at the point of service. The daily close then compares recorded payments by method, so it is a read, not a rebuild."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -810,42 +807,42 @@
       }
     ],
     "workflowHeading": "How payment recording runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
-    "workflowSub": "A real timeline of payments across one branch, hour by hour.",
+    "workflowSub": "One Thursday at Downtown, from the first payment to the day's close.",
     "workflow": [
       {
         "num": "01",
-        "time": "9:15am",
-        "title": "The first payment comes in",
-        "body": "A customer pays in full after her service. Front desk records the amount against the booking – instantly linked to the therapist, service, and branch.",
+        "time": "12:05pm",
+        "title": "Sarah pays for her massage",
+        "body": "Her 60-minute Deep Tissue with Emily C. ends at noon. Front desk records $120 by Apple Pay, already linked to the booking, therapist and branch.",
         "status": "Confirmed"
       },
       {
         "num": "02",
-        "time": "11:40am",
-        "title": "A partial payment is logged",
-        "body": "Another customer pays part now and settles later. The balance stays visible until it's cleared – nothing forgotten.",
+        "time": "1:35pm",
+        "title": "Part now, the rest later",
+        "body": "Katie R. pays $80 cash for her 90-minute Hot Stone and will send the rest tonight. The $80 balance stays on the booking.",
         "status": "Pending"
       },
       {
         "num": "03",
-        "time": "12:30pm",
-        "title": "The branch manager checks today's total",
-        "body": "Revenue so far, broken down by booking, therapist, and service, is already on the dashboard – no call to the front desk needed.",
+        "time": "3:00pm",
+        "title": "The manager checks the day so far",
+        "body": "Collected so far, by therapist and service, plus the one balance still open. No call to the front desk.",
         "status": "In-Progress"
       },
       {
         "num": "04",
-        "time": "3:00pm",
-        "title": "The outstanding balance is settled",
-        "body": "The customer from 11:40am returns and pays the rest. The booking's payment record updates – nothing owed, nothing missed.",
+        "time": "6:10pm",
+        "title": "Katie settles by Venmo",
+        "body": "The last $80 arrives. Front desk records it against the same booking, and nothing is owed at Downtown.",
         "status": "Completed"
       },
       {
         "num": "05",
-        "time": "7:00pm",
-        "title": "The owner checks in across every branch",
-        "body": "Not by calling managers. By opening the dashboard and seeing today's revenue, across every location, in one place.",
-        "status": "Reconciled"
+        "time": "8:00pm",
+        "title": "The owner closes the day",
+        "body": "All three branches' takings in one place, with nothing left unpaid. No calls to managers, no WhatsApp totals.",
+        "status": "Closed"
       }
     ],
     "bottomCta": {
@@ -855,7 +852,7 @@
       "reassurance": "No setup required before the demo. No commitment after. Just a look at the system working the way your business works."
     },
     "relatedFeatures": [
-      "operations",
+      "operational-visibility",
       "reports",
       "discount-management"
     ],
@@ -867,8 +864,9 @@
     "name": "Reports",
     "badge": "Reporting",
     "hero": {
-      "headline": "Every number, always explained",
-      "subheadline": "Eight built-in reports covering revenue, staff performance, discounts, attendance, and referrals — always up to date.",
+      "eyebrow": "Reports",
+      "headline": "Every number, <span class=\"fd-hero__h1-accent\">always explained.</span>",
+      "subheadline": "Eight built-in reports covering revenue, staff, discounts and attendance — always up to date.",
       "image": "/assets/images/feat-reports.png",
       "imageAlt": "Reports dashboard screenshot",
       "bg": "#EDE8F2"
@@ -897,7 +895,8 @@
     ],
     "roles": [
       {
-        "persona": "Branch Managers",
+        "persona": "Branch managers",
+        "headline": "Know how the branch is doing.",
         "summary": "Check staff performance daily, spot discount patterns before they become a problem, and know exactly how the branch is doing without asking anyone.",
         "icon": "bar-chart-3",
         "features": [
@@ -917,6 +916,7 @@
       },
       {
         "persona": "Owners",
+        "headline": "Real numbers, side by side.",
         "summary": "Compare branches side by side, track revenue trends over time, and walk into an accountant or bank conversation with real numbers already in hand.",
         "icon": "trending-up",
         "features": [
@@ -935,7 +935,8 @@
         ]
       },
       {
-        "persona": "Marketing & Growth",
+        "persona": "Marketing & growth",
+        "headline": "Know which sources pay off.",
         "summary": "See which referral sources actually bring in paying clients, which ones are just noise, and whether a campaign moved any real numbers.",
         "icon": "share-2",
         "features": [
@@ -1015,17 +1016,17 @@
         {
           "quote": "The first week, I stopped asking for the monthly Excel sheet. It's just there now, and it's more accurate than what we used to build by hand.",
           "author": "Owner",
-          "business": "Multi-branch spa, Pokhara"
+          "business": "Multi-branch spa, Portland"
         },
         {
           "quote": "I used to wait for the front desk to close out the day to know how we did. Now I open the app before I even get to the branch.",
-          "author": "Branch Manager",
-          "business": "Salon, Kathmandu"
+          "author": "Branch manager",
+          "business": "Salon, Austin"
         },
         {
           "quote": "We found out that two of our 'top' referral sources barely converted at all. We reallocated the marketing budget the same week.",
           "author": "Marketing Lead",
-          "business": "Clinic chain, Lalitpur"
+          "business": "Clinic chain, Denver"
         }
       ],
       "sub": "Feedback from owners and managers using the platform."
@@ -1052,10 +1053,6 @@
         {
           "question": "What reports should a multi-branch service business check daily?",
           "answer": "Zennly automatically generates revenue, staff performance, discount, attendance, and referral reports for every branch — no configuration or exports needed, so owners can check the numbers that matter each morning without building anything."
-        },
-        {
-          "question": "What reports should a multi-branch service business check daily?",
-          "answer": "Daily revenue by branch, staff performance, discounts given and bookings completed. Zennly's built-in reports show these across every branch."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -1081,42 +1078,42 @@
       }
     ],
     "workflowHeading": "How reporting runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
-    "workflowSub": "A real timeline of how owners and managers use reports, hour by hour.",
+    "workflowSub": "One week of reports in June, from the first look at yesterday to the month-end export.",
     "workflow": [
       {
         "num": "01",
         "time": "8:00am",
-        "title": "Owner checks yesterday's number",
-        "body": "Before opening messages or calling any branch, the owner opens the dashboard. Yesterday's revenue, by branch, is already there.",
-        "status": "Pending"
+        "title": "The owner checks yesterday",
+        "body": "Before any calls, the owner opens the dashboard. Yesterday's revenue is already split by branch, including Uptown's slow day.",
+        "status": "Completed"
       },
       {
         "num": "02",
         "time": "11:00am",
-        "title": "Branch manager reviews staff performance",
-        "body": "Mid-morning, the branch manager scans bookings completed and discounts applied per staff member — before the lunch rush makes it harder to catch anything.",
+        "title": "The manager checks staff numbers",
+        "body": "Bookings, revenue and discounts per therapist at Downtown, checked before the lunch rush makes it harder to catch anything.",
         "status": "Confirmed"
       },
       {
         "num": "03",
         "time": "2:00pm",
-        "title": "A discount pattern gets flagged",
-        "body": "Discount analytics show one staff member applying discounts well above the branch average. The manager brings it up that afternoon, not at month-end.",
+        "title": "One discount rate stands out",
+        "body": "Amanda G. has discounted 5 of her 16 bookings this week, three times the branch average. The manager raises it today, not at month-end.",
         "status": "In-Progress"
       },
       {
         "num": "04",
-        "time": "Friday, 5:00pm",
-        "title": "Weekly revenue trend gets reviewed",
-        "body": "The owner compares this week's revenue across all branches against last week — no export, no waiting on someone to build the comparison.",
+        "time": "Sunday, 7:00pm",
+        "title": "The week is compared with last week",
+        "body": "All three branches against last week, day by day. No export, and no one building the comparison by hand.",
         "status": "Completed"
       },
       {
         "num": "05",
         "time": "Month-end",
-        "title": "Reports get exported for the accountant",
-        "body": "Revenue, discount, and staff reports are downloaded as CSV and handed off — the same numbers the team has been checking all month, not a separately built spreadsheet.",
-        "status": "Reconciled"
+        "title": "June goes to the accountant",
+        "body": "Revenue, discount and staff reports download as CSV: the same numbers the team checked all month, not a spreadsheet built separately.",
+        "status": "Closed"
       }
     ],
     "bottomCta": {
@@ -1126,7 +1123,7 @@
     },
     "relatedFeatures": [
       "payment-tracking",
-      "operations",
+      "operational-visibility",
       "discount-management"
     ],
     "metaDescription": "Built-in business reports for service businesses in Nepal — revenue, staff performance, discounts, attendance, and referrals in one place.",
@@ -1137,9 +1134,9 @@
     "name": "Staff Management",
     "badge": "Staff & Therapist Management",
     "hero": {
-      "eyebrow": "Staff &amp; therapist management",
+      "eyebrow": "Staff & therapist management",
       "headline": "Staff moves between branches.<br> <span class=\"fd-hero__h1-accent\">Everyone already knows.</span>",
-      "subheadline": "Schedule staff moves between branches with an effective date. Assign therapists to bookings. Manage your team across every location without a single coordination call.",
+      "subheadline": "Schedule staff transfers and assign therapists to bookings — manage your team without coordination calls.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-multibranch.png",
       "imageAlt": "Staff transfer and roster management screenshot",
@@ -1151,7 +1148,7 @@
     },
     "_problem_hidden": {
       "headline": "Multi-branch staff coordination is a full-time job you didn't sign up for.",
-      "body": "You have a great therapist at your Thamel branch. But this week, the Lazimpat location is slammed and short-staffed. You want to move them over for three days. So you call the therapist. You call the Thamel manager to cover the gap. You call the Lazimpat manager to prepare. You update the schedule – on paper, or in a message thread, or in a mental note you'll forget by Wednesday. By Thursday morning, the therapist shows up at the wrong branch because someone's message got buried. A customer at Lazimpat waits. A customer at Thamel gets an apology. This is not a staffing problem. This is a coordination problem. And coordination problems have a system solution.",
+      "body": "You have a great therapist at your Eastside branch. But this week, the Downtown location is slammed and short-staffed. You want to move them over for three days. So you call the therapist. You call the Eastside manager to cover the gap. You call the Downtown manager to prepare. You update the schedule – on paper, or in a message thread, or in a mental note you'll forget by Wednesday. By Thursday morning, the therapist shows up at the wrong branch because someone's message got buried. A customer at Downtown waits. A customer at Eastside gets an apology. This is not a staffing problem. This is a coordination problem. And coordination problems have a system solution.",
       "panels": [
         {
           "emoji": "ðŸ“²",
@@ -1191,6 +1188,7 @@
     "roles": [
       {
         "persona": "Staff",
+        "headline": "Your roster, without the calls.",
         "summary": "Know exactly where you're working and when – without a single phone call to confirm it.",
         "icon": "user-check",
         "features": [
@@ -1210,6 +1208,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "Know your capacity for the week.",
         "summary": "See incoming staff before they arrive, and know your branch's capacity for the week ahead.",
         "icon": "store",
         "features": [
@@ -1229,6 +1228,7 @@
       },
       {
         "persona": "Owners & admins",
+        "headline": "Move staff to where they're needed.",
         "summary": "View rosters across every branch and move staff to where they're needed most – without a single coordination call.",
         "icon": "building-2",
         "features": [
@@ -1276,12 +1276,12 @@
         {
           "quote": "I used to make three phone calls every time a therapist moved branches. Now I set the date once and every branch just knows.",
           "author": "Owner",
-          "business": "4-branch spa group, Kathmandu"
+          "business": "3-branch spa group, Austin"
         },
         {
           "quote": "A transfer used to mean a scramble the morning it happened. Now the destination branch sees it days before, so nobody's caught off guard.",
           "author": "Branch manager",
-          "business": "Salon, Lazimpat"
+          "business": "Salon, Denver"
         },
         {
           "quote": "I can see every branch's roster from my phone. I don't call to ask who's working where anymore – I just look.",
@@ -1319,44 +1319,40 @@
         {
           "question": "How do you schedule a staff transfer between branches?",
           "answer": "In Zennly, you schedule a transfer with the staff member, destination branch, and effective date — the origin and destination branches both see the change immediately, and existing bookings re-anchor to the new location automatically."
-        },
-        {
-          "question": "How do you schedule a staff transfer between branches?",
-          "answer": "Schedule it as an event with an effective date. Managers at both branches see the change coming, and the staff member's availability is correct at each location."
         }
       ],
       "sub": "Answers to what owners ask before their next staff transfer."
     },
     "workflowHeading": "What staff management looks like when it's built into your system.",
-    "workflowSub": "A real timeline of a staff transfer, start to finish.",
+    "workflowSub": "One therapist's move from Downtown to Midtown, from the gap to the new roster.",
     "workflow": [
       {
         "num": "01",
-        "time": "Monday morning",
-        "title": "The need is identified",
-        "body": "A branch manager flags that they're under capacity for the coming week. An owner reviews the rosters across all branches and identifies available capacity.",
+        "time": "Mon, 9:30am",
+        "title": "Midtown is short from Thursday",
+        "body": "Midtown's manager flags a therapist on leave from Thursday. The owner checks every branch's roster and sees Downtown has a therapist to spare.",
         "status": "Pending"
       },
       {
         "num": "02",
-        "time": "Monday, 11:00am",
-        "title": "The transfer is scheduled",
-        "body": "Therapist selected. Destination branch selected. Effective date set. The transfer is logged. Both branches see it before it happens.",
+        "time": "Mon, 11:00am",
+        "title": "Paige's move is scheduled",
+        "body": "The owner moves Paige N. from Downtown to Midtown, effective Thursday. Both branches see it the moment it's saved, three days ahead.",
         "status": "Confirmed"
       },
       {
         "num": "03",
-        "time": "Thursday, effective date",
-        "title": "The effective date arrives",
-        "body": "The therapist's schedule is at the new branch. Bookings can be assigned to them there. No one had to remind anyone. No one had to confirm.",
+        "time": "Thu, 9:00am",
+        "title": "Paige starts at Midtown",
+        "body": "Her schedule is already at Midtown, and two of her bookings were assigned there on Monday. No reminder calls, no confirming.",
         "status": "In-Progress"
       },
       {
         "num": "04",
-        "time": "Every day after",
-        "title": "The roster is always current",
-        "body": "Any manager, at any branch, can see who's working where today and next week – without a call to the owner and without a group message that will be buried in an hour.",
-        "status": "Reconciled"
+        "time": "Next Monday",
+        "title": "Every roster stays current",
+        "body": "Any manager can see who's working where this week and next, without calling the owner or scrolling a group chat.",
+        "status": "Completed"
       }
     ],
     "bottomCta": {
@@ -1378,20 +1374,19 @@
     "hero": {
       "eyebrow": "Discount management",
       "headline": "Every discount gets a name.<br> <span class=\"fd-hero__h1-accent\">And an approval.</span>",
-      "subheadline": "Stop finding out weeks later that your margins have been quietly disappearing. Every discount request is reviewed before it's applied — with a full record of who asked, why, and what was approved.",
+      "subheadline": "Every discount request is reviewed before it's applied, with a full record of who asked and why.",
       "cta": "See how it works — book a 20-minute demo →",
       "image": "/assets/images/feat-discount.png",
       "imageAlt": "Discount request and approval dashboard",
-      "bg": "#F5E6C8",
-      "trustLine": "Across active branches, roughly 1 in 3 appointments carries a discount. Now every one of them is controlled."
+      "bg": "#F5E6C8"
     },
     "intro": {
       "headline": "Every discount starts with a request. Every request gets a decision.",
-      "body": "When a staff member wants to apply a discount, they submit a request — the percentage, the booking, the context. A manager reviews it. If it's approved, it goes through. If not, it doesn't. Simple. Structured. Logged. And because every applied discount is tied to a booking, a staff member, a service, and a value in NPR — you have a full audit trail. Not just for compliance. For understanding where your margins actually go."
+      "body": "When a staff member wants to apply a discount, they submit a request — the percentage, the booking, the context. A manager reviews it. If it's approved, it goes through. If not, it doesn't. Simple. Structured. Logged. And because every applied discount is tied to a booking, a staff member, a service, and a dollar value — you have a full audit trail. Not just for compliance. For understanding where your margins actually go."
     },
     "_problem_hidden": {
       "headline": "The most expensive word in a service business is \"fine, just give them a discount.\"",
-      "body": "It happens at the front desk, during checkout, in the middle of a complaint. A customer is unhappy. The appointment ran long. The staff member wants to smooth things over. So they offer 20% off. And they do it again tomorrow. And the day after. No one tracks it. No manager approves it. No report flags it. By the time you notice, you've given away thousands of rupees in margin that you'll never recover — to customers who may not even have deserved it. Discounting isn't the problem. Uncontrolled discounting is.",
+      "body": "It happens at the front desk, during checkout, in the middle of a complaint. A customer is unhappy. The appointment ran long. The staff member wants to smooth things over. So they offer 20% off. And they do it again tomorrow. And the day after. No one tracks it. No manager approves it. No report flags it. By the time you notice, you've given away thousands of dollars in margin that you'll never recover — to customers who may not even have deserved it. Discounting isn't the problem. Uncontrolled discounting is.",
       "panels": [
         {
           "emoji": "ðŸŽ",
@@ -1413,6 +1408,7 @@
     "roles": [
       {
         "persona": "Front-desk & floor staff",
+        "headline": "Request it. Get an answer in seconds.",
         "summary": "Submit a discount request in seconds and get a decision back before the customer leaves the counter.",
         "icon": "user-check",
         "features": [
@@ -1432,6 +1428,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "Every request, with the reason attached.",
         "summary": "Review every discount request as it comes in, with the booking and reason already attached, and decide in seconds.",
         "icon": "layout-dashboard",
         "features": [
@@ -1451,12 +1448,13 @@
       },
       {
         "persona": "Owners & admins",
+        "headline": "Every discount, traced to the dollar.",
         "summary": "See every discount across every branch — who requested it, who approved it, and what it cost — rolled into one view.",
         "icon": "building-2",
         "features": [
           {
             "title": "A full audit trail, always",
-            "description": "Every applied discount ties back to a booking, a staff member, an approver, and an NPR value."
+            "description": "Every applied discount ties back to a booking, a staff member, an approver, and a dollar value."
           },
           {
             "title": "Spot exposure before it compounds",
@@ -1485,11 +1483,33 @@
         },
         {
           "tag": "Value",
-          "value": "NPR 200–1,450",
+          "value": "$5–40",
           "label": "The real-money range of individual discounts recorded on the platform"
         }
       ],
       "sub": "Real numbers from live branches running today."
+    },
+    "socialProof": {
+      "eyebrow": "Social proof",
+      "headline": "What owners say once every discount needs a reason.",
+      "quotes": [
+        {
+          "quote": "We thought discounts were a few gestures a week. The first month's report showed a lot more than that, mostly at one branch.",
+          "author": "Owner",
+          "business": "Multi-branch spa, Austin"
+        },
+        {
+          "quote": "Staff don't feel awkward asking anymore. They send the request, I see the reason, and the client has an answer before checkout is done.",
+          "author": "Branch manager",
+          "business": "Day spa, Denver"
+        },
+        {
+          "quote": "Every discount now has a name next to it. That alone changed how often people offered them.",
+          "author": "Admin",
+          "business": "Salon group, Portland"
+        }
+      ],
+      "sub": "Feedback from owners and managers using the platform."
     },
     "stopStart": {
       "stop": [
@@ -1519,10 +1539,6 @@
         {
           "question": "How do you stop staff from giving unauthorized discounts?",
           "answer": "Zennly requires every discount request to go through manager approval before it applies — each request is tied to a booking, staff member, and value, giving owners a full audit trail of where discounts are given and why."
-        },
-        {
-          "question": "How do you stop staff from giving unauthorized discounts?",
-          "answer": "Make a discount a request, not a decision. Staff submit the exact percentage and amount, it applies only after a manager approves, and every request keeps an audit trail."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -1544,7 +1560,7 @@
         "step": "03",
         "icon": "credit-card",
         "title": "The discount is applied — with a record",
-        "description": "If approved, the discount is applied to the booking. The NPR amount is calculated and logged. The booking's final amount reflects it. The payment records it. The audit trail is complete."
+        "description": "If approved, the discount is applied to the booking. The discount amount is calculated and logged. The booking's final amount reflects it. The payment records it. The audit trail is complete."
       },
       {
         "step": "04",
@@ -1554,35 +1570,35 @@
       }
     ],
     "workflowHeading": "What discount control looks like in a real service business.",
-    "workflowSub": "A real timeline of a discount request, start to finish.",
+    "workflowSub": "One discount request at Downtown, from checkout to the month-end review.",
     "workflow": [
       {
         "num": "01",
-        "time": "At checkout",
-        "title": "The customer asks for a discount",
-        "body": "A client mentions the wait was long. The staff member wants to make it right. Instead of applying 20% and hoping no one notices, they submit a request — service, booking, reason, and the percentage they think is fair.",
+        "time": "2:10pm",
+        "title": "Ashley asks about the wait",
+        "body": "Her 1:00 PM Deep Tissue started 15 minutes late. Instead of quietly taking 20% off, the front desk sends a request with the reason.",
         "status": "Pending"
       },
       {
         "num": "02",
-        "time": "Moments later",
-        "title": "The manager reviews in real time",
-        "body": "The branch manager sees the request. They decide: is this justified? Is this within policy? They approve or decline. The staff member gets the answer. The customer gets a clear outcome.",
+        "time": "2:11pm",
+        "title": "The manager approves it",
+        "body": "The branch manager sees the booking, the reason and the 20% on her phone, and approves it in 42 seconds.",
         "status": "Confirmed"
       },
       {
         "num": "03",
-        "time": "Immediately after",
-        "title": "The discount is applied — with a record",
-        "body": "If approved, the discount is applied to the booking. The NPR amount is calculated and logged. The booking's final amount reflects it. The payment records it. The audit trail is complete.",
+        "time": "2:12pm",
+        "title": "The discount is applied",
+        "body": "$24 comes off the $120 booking. Ashley pays $96, and the discount is stored with the payment, the requester and the approver.",
         "status": "Completed"
       },
       {
         "num": "04",
-        "time": "Every month-end",
-        "title": "The pattern becomes visible",
-        "body": "You can see every discount given across every branch. Who requested. Who approved. What percentage. What value. Which services. Which customers. Pattern recognition, not guesswork.",
-        "status": "Reconciled"
+        "time": "June 30",
+        "title": "The month's discounts, in one view",
+        "body": "46 discounts worth $1,140 across all three branches, with who asked, who approved and why. Patterns show up without a spreadsheet.",
+        "status": "Closed"
       }
     ],
     "bottomCta": {
@@ -1592,7 +1608,7 @@
       "reassurance": "No commitment. We'll walk through it live with your branch setup."
     },
     "relatedFeatures": [
-      "operations",
+      "operational-visibility",
       "payment-tracking",
       "reports"
     ],
@@ -1606,7 +1622,7 @@
     "hero": {
       "eyebrow": "Role-based access",
       "headline": "Everyone sees only their part.<br> <span class=\"fd-hero__h1-accent\">You see everything.</span>",
-      "subheadline": "A three-tier access model built around how a real service business is structured — so every person has exactly the information they need, and no more than they should.",
+      "subheadline": "A three-tier access model so every person sees exactly what they need, and no more.",
       "cta": "See role-based access in a 20-minute demo →",
       "image": "/assets/images/feat-role-based-access.png",
       "imageAlt": "Role-based access control dashboard",
@@ -1640,6 +1656,7 @@
     "roles": [
       {
         "persona": "Staff",
+        "headline": "Focused on the day's work.",
         "summary": "Create bookings, record payments, and request discounts — focused on the day's work, not information that isn't theirs to act on.",
         "icon": "user-check",
         "features": [
@@ -1659,6 +1676,7 @@
       },
       {
         "persona": "Manager",
+        "headline": "Run the branch, nothing more.",
         "summary": "Confirm bookings, approve discount requests, and see branch-level performance — authority without overreach.",
         "icon": "layout-dashboard",
         "features": [
@@ -1678,6 +1696,7 @@
       },
       {
         "persona": "Admin",
+        "headline": "The complete picture.",
         "summary": "See every branch, approve everything, and hold the complete financial and operational picture.",
         "icon": "building-2",
         "features": [
@@ -1725,12 +1744,12 @@
         {
           "quote": "I stopped worrying about a new hire accidentally changing something a manager had already confirmed. The system just doesn't let them.",
           "author": "Owner",
-          "business": "Multi-branch spa, Kathmandu"
+          "business": "Multi-branch spa, Austin"
         },
         {
           "quote": "My branch managers finally have real authority — they approve their own discounts, they don't wait on me for every small decision.",
           "author": "Admin",
-          "business": "Salon chain, Lalitpur"
+          "business": "Salon chain, Denver"
         },
         {
           "quote": "Our front desk sees exactly what they need for the day. Nobody's digging through revenue numbers that were never theirs to see.",
@@ -1781,35 +1800,123 @@
       "sub": "Answers to what owners ask before they switch."
     },
     "workflowHeading": "How the same action looks different depending on who's doing it.",
-    "workflowSub": "A real look at how role boundaries hold during a normal day.",
+    "workflowSub": "One Thursday at Downtown, seen through each role.",
     "workflow": [
       {
         "num": "01",
-        "time": "At checkout",
-        "title": "A staff member requests a discount",
-        "body": "The staff role allows them to request a discount. They submit it, and it goes to a manager for approval. They don't apply it themselves — the boundary is structural, not a matter of trust.",
-        "status": "Pending"
+        "time": "2:10pm",
+        "title": "Front desk asks, but can't apply",
+        "body": "Sophie B. sends a 20% request for Ashley Carter's late-starting massage. Her staff role has no Apply button, so it goes to the manager.",
+        "status": "Pending",
+        "scene": {
+          "type": "form",
+          "head": "Request discount",
+          "bannerTitle": "Signed in as Sophie B.",
+          "bannerSub": "Front desk · Downtown",
+          "fields": [
+            [
+              "Client",
+              "Ashley Carter · 1:00 PM"
+            ],
+            [
+              [
+                "Discount",
+                "20%"
+              ],
+              [
+                "Reason",
+                "Service delay"
+              ]
+            ]
+          ],
+          "submit": "Send to manager"
+        }
       },
       {
         "num": "02",
-        "time": "Moments later",
-        "title": "A manager confirms a booking",
-        "body": "The manager role gives them authority over their branch's schedule. They confirm pending bookings, manage therapist assignments, and see the full day's picture for their location.",
-        "status": "Confirmed"
+        "time": "2:11pm",
+        "title": "The manager decides for Downtown",
+        "body": "Downtown's manager approves it and confirms two pending bookings. Midtown and Uptown never appear on that screen.",
+        "status": "Confirmed",
+        "scene": {
+          "type": "review",
+          "notif": "Discount request · 20% · Ashley Carter",
+          "badge": "Needs review",
+          "label": "Downtown only",
+          "rowLabel": "Approving as",
+          "rowValue": "Branch manager · Downtown",
+          "plainLabel": "Also waiting",
+          "plainValue": "2 bookings to confirm",
+          "button": "Approve"
+        }
       },
       {
         "num": "03",
-        "time": "Any time",
-        "title": "An admin reviews all branches",
-        "body": "The admin sees everything: all branches, all bookings, all discounts requested and applied, all payments recorded, all staff transfers. The single source of truth for the business.",
-        "status": "In-Progress"
+        "time": "8:00pm",
+        "title": "The owner sees every branch",
+        "body": "As admin, the owner sees all three branches, every payment and every approved discount for the day, in one place.",
+        "status": "Closed",
+        "scene": {
+          "type": "report",
+          "title": "All branches · today",
+          "badge": "Closed",
+          "sub": "Thursday · admin view",
+          "banner": [
+            [
+              "$5,240",
+              "collected"
+            ],
+            [
+              "2",
+              "discounts"
+            ]
+          ],
+          "insightsLabel": "By branch",
+          "insights": [
+            [
+              "Downtown",
+              "$1,860"
+            ],
+            [
+              "Midtown",
+              "$1,700"
+            ],
+            [
+              "Uptown",
+              "$1,680"
+            ]
+          ],
+          "caption": "Only admins see this view."
+        }
       },
       {
         "num": "04",
-        "time": "Every day",
-        "title": "No one sees what they shouldn't",
-        "body": "Revenue data across branches stays with the admin. Branch performance stays with the manager. Day-to-day scheduling stays with staff. Roles enforce the information architecture of your business.",
-        "status": "Reconciled"
+        "time": "8:05pm",
+        "title": "Everyone sees their part",
+        "body": "The same revenue screen is hidden from staff and limited to one branch for managers. Roles are set once, not policed every day.",
+        "status": "Completed",
+        "scene": {
+          "type": "live",
+          "label": "Who sees revenue",
+          "time": "Thursday",
+          "title": "Revenue · all branches",
+          "sub": "Admins only",
+          "steps": [
+            [
+              "Staff: today's bookings, no revenue",
+              "done"
+            ],
+            [
+              "Manager: Downtown only",
+              "done"
+            ],
+            [
+              "Admin: every branch",
+              "active"
+            ]
+          ],
+          "caption": "Set once in Settings · Roles"
+        }
       }
     ],
     "bottomCta": {
@@ -1830,8 +1937,8 @@
     "badge": "Prepaid Memberships",
     "hero": {
       "eyebrow": "Memberships",
-      "headline": "Prepaid memberships,<br> <span class=\"fd-hero__h1-accent\">tracked to the last rupee.</span>",
-      "subheadline": "Customers pay in advance for a membership tier. Zennly keeps the balance, the validity period and every transaction in one record.",
+      "headline": "Prepaid memberships,<br> <span class=\"fd-hero__h1-accent\">tracked to the last dollar.</span>",
+      "subheadline": "Customers pay in advance for a membership tier. Zennly tracks the balance and every transaction.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-finance.png",
       "imageAlt": "Membership balance and transactions",
@@ -1952,50 +2059,46 @@
     "seoTitle": "Membership Management Software Nepal | Zennly",
     "heroMockup": {
       "title": "Membership wallets",
-      "date": "Thu, 3 Jul · Lazimpat branch",
+      "date": "Oct 2 · Downtown",
       "rows": [
         {
           "avatar": "S",
-          "name": "S. Koirala · Premium",
-          "service": "Balance NPR 62,400 · expires 14 Mar",
-          "status": "Active",
-          "done": true
+          "name": "S. Collins · Premium",
+          "service": "Balance $80 · expires Jan 14",
+          "status": "Running low",
+          "done": false
         },
         {
           "avatar": "R",
-          "name": "R. Gurung · Deluxe",
-          "service": "Balance NPR 8,200 · expires 2 Nov",
+          "name": "R. Garcia · Deluxe",
+          "service": "Balance $220 · expires Nov 2",
           "status": "Active",
           "done": true
         },
         {
           "avatar": "M",
-          "name": "M. Tamang · Deluxe",
-          "service": "Balance NPR 0 · expired 30 Jun",
+          "name": "M. Turner · Deluxe",
+          "service": "Balance $0 · expired Sep 30",
           "status": "Renew",
           "done": false
         }
       ]
     },
     "workflowHeading": "How a membership runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
-    "workflowSub": "A real timeline of one membership, from sign-up to renewal.",
+    "workflowSub": "One member's year, from sign-up to renewal.",
     "workflow": [
       {
         "num": "01",
-        "time": "At the front desk",
-        "title": "A regular asks about a membership",
-        "body": "Staff pick a tier with its advance amount and validity period, and enrol the customer on the spot.",
+        "time": "Jan 14",
+        "title": "Stacy joins Premium",
+        "body": "After her tenth visit, Stacy Collins signs up at the front desk. Staff pick the Premium tier: $1,200 in advance, valid for a year.",
         "status": "Pending",
         "scene": {
           "type": "form",
           "head": "New membership",
-          "bannerTitle": "Customer at the desk",
-          "bannerSub": "Enrol her while she is here.",
+          "bannerTitle": "Stacy Collins",
+          "bannerSub": "Regular client · Downtown",
           "fields": [
-            [
-              "Customer",
-              "Sita Koirala"
-            ],
             [
               "Tier",
               "Premium"
@@ -2003,7 +2106,7 @@
             [
               [
                 "Advance",
-                "NPR 100,000"
+                "$1,200"
               ],
               [
                 "Validity",
@@ -2016,59 +2119,66 @@
       },
       {
         "num": "02",
-        "time": "Deposit day",
-        "title": "The deposit is recorded",
-        "body": "Every deposit is a ledger entry. When deposits reach the tier's advance amount, the membership activates and the expiry date is set.",
+        "time": "Jan 14",
+        "title": "The deposit activates it",
+        "body": "She pays $1,200 by card. The deposit goes on her wallet ledger, the membership turns Active and the expiry is set to next Jan 14.",
         "status": "Confirmed",
         "scene": {
           "type": "review",
-          "badge": "Awaiting deposit",
+          "notif": "Deposit received · $1,200 · Stacy Collins",
+          "notifTime": "11:05 AM",
+          "badge": "Activating",
           "label": "Wallet ledger",
-          "rowLabel": "Deposit · NPR 100,000",
-          "rowValue": "Sita Koirala · Premium",
+          "rowLabel": "Deposit · Card",
+          "rowValue": "$1,200 · Premium",
           "plainLabel": "Status",
-          "plainValue": "Active once the advance is reached",
-          "button": "Record deposit"
+          "plainValue": "Active · expires Jan 14",
+          "button": "Confirm deposit"
         }
       },
       {
         "num": "03",
-        "time": "At checkout",
-        "title": "The visit is paid from the wallet",
-        "body": "Membership is a payment mode. Staff choose it at checkout and the amount is deducted from the balance in one step.",
+        "time": "Mar 3",
+        "title": "A visit is paid from the wallet",
+        "body": "Her 90-minute Hot Stone is $160. Front desk picks Membership at checkout, and the balance drops from $1,200 to $1,040 in one step.",
         "status": "Completed",
         "scene": {
           "type": "receipt",
+          "successTitle": "Paid from membership",
           "badge": "Paid",
           "rows": [
             [
               "Service",
-              "Hot stone massage"
+              "Hot Stone · 90 min"
             ],
             [
               "Payment mode",
               "Membership"
+            ],
+            [
+              "Balance before",
+              "$1,200"
             ]
           ],
           "total": [
             "Deducted",
-            "NPR 6,500"
+            "$160"
           ],
-          "caption": "Balance updated · ledger entry saved"
+          "caption": "Balance now $1,040 · ledger entry saved"
         }
       },
       {
         "num": "04",
-        "time": "Weeks later",
+        "time": "Oct 2",
         "title": "The balance runs low",
-        "body": "Status is worked out from the balance and expiry date, so staff always see whether a membership is active, lapsed or depleted.",
+        "body": "Seven visits in, $80 is left with 104 days to go. Staff see it on her record before she reaches the desk.",
         "status": "In-Progress",
         "scene": {
           "type": "live",
           "label": "Running low",
-          "time": "Today",
-          "title": "Sita Koirala · Premium",
-          "sub": "NPR 3,100 left · expires in 41 days",
+          "time": "Oct 2",
+          "title": "Stacy Collins · Premium",
+          "sub": "$80 left · 104 days to expiry",
           "steps": [
             [
               "Pending",
@@ -2076,30 +2186,31 @@
             ],
             [
               "Active",
-              "done"
+              "active"
             ],
             [
-              "Depleted or lapsed",
+              "Depleted",
               ""
             ]
           ],
-          "caption": "Status is calculated, never typed in."
+          "caption": "Status comes from balance and expiry, never typed in."
         }
       },
       {
         "num": "05",
-        "time": "Renewal",
-        "title": "A manager renews it",
-        "body": "A manager renews a depleted or lapsed membership, optionally on a different tier, with a fresh deposit and a reset validity window.",
-        "status": "Reconciled",
+        "time": "Oct 9",
+        "title": "The manager renews it",
+        "body": "Stacy tops up before her next visit. The manager renews Premium with a new $1,200 deposit, and the validity resets to a full year.",
+        "status": "Confirmed",
         "scene": {
           "type": "report",
           "title": "Membership renewed",
-          "badge": "Renewed",
-          "sub": "Manager action",
+          "badge": "Active",
+          "badgeClass": "confirmed",
+          "sub": "Stacy Collins · Premium",
           "banner": [
             [
-              "NPR 100,000",
+              "$1,200",
               "deposit"
             ],
             [
@@ -2114,21 +2225,22 @@
               "Premium"
             ],
             [
-              "Balance",
-              "Topped up"
+              "Expires",
+              "Oct 9, next year"
             ],
             [
-              "Expiry",
-              "Reset"
+              "Renewed by",
+              "Branch manager"
             ]
           ],
-          "caption": "Top-ups, renewals and adjustments are manager-only."
+          "caption": "Renewals and adjustments are manager-only."
         }
       }
     ],
     "roles": [
       {
         "persona": "Front-desk staff",
+        "headline": "Pay from the wallet in one step.",
         "summary": "Take payment from a member's wallet in one step and see the balance as you go.",
         "icon": "users",
         "image": "/assets/images/feat-role-frontdesk.jpg",
@@ -2150,6 +2262,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "Top-ups and renewals, all logged.",
         "summary": "Top up, renew and adjust memberships, with every change on the ledger.",
         "icon": "layout",
         "image": "/assets/images/feat-role-managers.jpg",
@@ -2171,6 +2284,7 @@
       },
       {
         "persona": "Owners & admins",
+        "headline": "See your prepaid money at work.",
         "summary": "See how much prepaid money sits in memberships and how it is being used.",
         "icon": "bar-chart",
         "image": "/assets/images/feat-role-owners.jpg",
@@ -2212,6 +2326,28 @@
         }
       ],
       "sub": "How it works inside the product."
+    },
+    "socialProof": {
+      "eyebrow": "Social proof",
+      "headline": "What owners say once prepaid money has a ledger.",
+      "quotes": [
+        {
+          "quote": "We used to keep member balances in a notebook behind the desk. Now the balance is on screen before the client even sits down.",
+          "author": "Owner",
+          "business": "Day spa, Austin"
+        },
+        {
+          "quote": "Renewals used to be a surprise. Now we see who's running low a week ahead and mention it at their next visit.",
+          "author": "Branch manager",
+          "business": "Wellness studio, Denver"
+        },
+        {
+          "quote": "I know exactly how much prepaid money we're holding across every branch. That changed how I plan the month.",
+          "author": "Admin",
+          "business": "Multi-branch spa, Portland"
+        }
+      ],
+      "sub": "Feedback from owners and managers using the platform."
     }
   },
   {
@@ -2221,7 +2357,7 @@
     "hero": {
       "eyebrow": "Packages",
       "headline": "Sell session packages,<br> <span class=\"fd-hero__h1-accent\">know every session left.</span>",
-      "subheadline": "A package is a bundle of sessions for one service at a set price. Zennly counts sessions down at checkout and shows what is left and what is still owed.",
+      "subheadline": "A package bundles sessions for one service at a set price — Zennly counts them down at checkout.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-operations.png",
       "imageAlt": "Package balance and session redemptions",
@@ -2338,49 +2474,49 @@
     "seoTitle": "Spa & Salon Package Software Nepal | Zennly",
     "heroMockup": {
       "title": "Package balances",
-      "date": "Thu, 3 Jul · Lazimpat branch",
+      "date": "Aug 20 · Downtown",
       "rows": [
         {
           "avatar": "A",
-          "name": "A. Sharma · 10 massages",
-          "service": "7 sessions remaining",
+          "name": "A. Carter · 10 Deep Tissue",
+          "service": "2 of 10 left · expires Sep 30",
           "status": "Partial",
           "done": false
         },
         {
           "avatar": "P",
-          "name": "P. Joshi · 6 facials",
+          "name": "P. Jensen · 6 facials",
           "service": "Fully redeemed",
           "status": "Used",
           "done": true
         },
         {
           "avatar": "D",
-          "name": "D. Rai · 8 hot stone",
-          "service": "8 sessions remaining",
+          "name": "D. Reed · 8 hot stone",
+          "service": "8 of 8 left · $0 due",
           "status": "Unused",
           "done": true
         }
       ]
     },
     "workflowHeading": "How a package runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
-    "workflowSub": "A real timeline of one package, from sale to the last session.",
+    "workflowSub": "One 10-session package, from setup to its last weeks.",
     "workflow": [
       {
         "num": "01",
-        "time": "Setup",
-        "title": "A package type is defined",
-        "body": "Choose the service, the number of sessions, the standard price and how long the package stays valid.",
+        "time": "Apr 1",
+        "title": "The manager sets up a 10-pack",
+        "body": "Downtown's manager creates a package type: 10 Deep Tissue sessions of 60 minutes, $1,080 instead of $1,200, valid for 180 days.",
         "status": "Pending",
         "scene": {
           "type": "form",
           "head": "New package type",
-          "bannerTitle": "Define it once",
-          "bannerSub": "Then sell it as often as you like.",
+          "bannerTitle": "Downtown",
+          "bannerSub": "Single session $120",
           "fields": [
             [
               "Service",
-              "Hot stone massage"
+              "Deep Tissue · 60 min"
             ],
             [
               [
@@ -2393,8 +2529,8 @@
               ]
             ],
             [
-              "Standard price",
-              "NPR 45,000"
+              "Package price",
+              "$1,080"
             ]
           ],
           "submit": "Save package type"
@@ -2402,59 +2538,66 @@
       },
       {
         "num": "02",
-        "time": "At the desk",
-        "title": "A customer buys one",
-        "body": "The package is issued to the customer with its sessions, its expiry date and the amount paid so far.",
+        "time": "Apr 3",
+        "title": "Ashley buys one",
+        "body": "Ashley Carter buys the 10-pack and pays $540 today. It's issued with 10 sessions, $540 still due and a Sep 30 expiry.",
         "status": "Confirmed",
         "scene": {
           "type": "review",
-          "badge": "Issued",
+          "notif": "Package issued · 10 × Deep Tissue · Ashley Carter",
+          "notifTime": "10:20 AM",
+          "badge": "$540 due",
           "label": "New package",
-          "rowLabel": "10 × Hot stone massage",
-          "rowValue": "A. Sharma · paid NPR 45,000",
+          "rowLabel": "10 × Deep Tissue · 60 min",
+          "rowValue": "Paid $540 of $1,080",
           "plainLabel": "Expires",
-          "plainValue": "180 days from today",
+          "plainValue": "Sep 30",
           "button": "Issue package"
         }
       },
       {
         "num": "03",
-        "time": "At checkout",
-        "title": "A session is redeemed",
-        "body": "When the customer comes in, staff find the active package for that service and redeem one session at checkout.",
+        "time": "Apr 17",
+        "title": "Her first session, one tap",
+        "body": "At checkout, front desk finds her active package and redeems one session. Nothing is charged, and 9 sessions are left.",
         "status": "Completed",
         "scene": {
           "type": "receipt",
+          "successTitle": "Session redeemed",
           "badge": "Redeemed",
           "rows": [
             [
               "Service",
-              "Hot stone massage"
+              "Deep Tissue · 60 min"
             ],
             [
-              "Payment",
+              "Therapist",
+              "Emily C."
+            ],
+            [
+              "Paid with",
               "Package session"
             ]
           ],
           "total": [
             "Sessions left",
-            "7 of 10"
+            "9 of 10"
           ],
-          "caption": "One session redeemed · record saved"
+          "caption": "No charge · record saved"
         }
       },
       {
         "num": "04",
-        "time": "Over the weeks",
-        "title": "Sessions count down",
-        "body": "Sessions remaining and status (unused, partial, fully redeemed or expired) update after every visit.",
+        "time": "Jun 12",
+        "title": "The balance is paid off",
+        "body": "Four sessions in, Ashley pays the last $540 at the desk. The package stays Partial with 6 sessions left and nothing owed.",
         "status": "In-Progress",
         "scene": {
           "type": "live",
-          "label": "In use",
-          "time": "Today",
-          "title": "A. Sharma · Hot stone massage",
-          "sub": "7 of 10 sessions remaining",
+          "label": "Partial",
+          "time": "Jun 12",
+          "title": "Ashley Carter · Deep Tissue",
+          "sub": "6 of 10 left · $0 due",
           "steps": [
             [
               "Unused",
@@ -2469,52 +2612,54 @@
               ""
             ]
           ],
-          "caption": "Nobody has to count sessions on paper."
+          "caption": "Nobody counts sessions on paper."
         }
       },
       {
         "num": "05",
-        "time": "Anytime",
-        "title": "Amount due and expiry stay visible",
-        "body": "Final amount minus paid amount shows what a customer still owes, and customers can see their own packages.",
-        "status": "Reconciled",
+        "time": "Aug 20",
+        "title": "Ashley checks her own package",
+        "body": "With 41 days to go, she sees 2 sessions left and nothing owed in her own view. Staff see the very same record.",
+        "status": "In-Progress",
         "scene": {
           "type": "report",
-          "title": "Package balance",
-          "badge": "Tracked",
-          "sub": "Staff view and customer view",
+          "title": "Your package",
+          "badge": "Partial",
+          "badgeClass": "in-progress",
+          "sub": "Ashley Carter · customer view",
           "banner": [
             [
-              "7",
+              "2",
               "sessions left"
             ],
             [
-              "NPR 0",
+              "$0",
               "due"
             ]
           ],
           "insightsLabel": "Details",
           "insights": [
             [
-              "Status",
-              "Partial"
+              "Service",
+              "Deep Tissue · 60 min"
             ],
             [
               "Expires",
-              "In 41 days"
+              "Sep 30 · 41 days"
             ],
             [
-              "Final amount",
-              "NPR 45,000"
+              "Paid",
+              "$1,080 of $1,080"
             ]
           ],
-          "caption": "One record, however long the package runs."
+          "caption": "Staff and customer see the same record."
         }
       }
     ],
     "roles": [
       {
         "persona": "Front-desk staff",
+        "headline": "One tap per session.",
         "summary": "Redeem a session in seconds and see exactly what is left.",
         "icon": "users",
         "image": "/assets/images/feat-role-frontdesk.jpg",
@@ -2536,6 +2681,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "Nothing unused slips by.",
         "summary": "Set up package types and keep an eye on what is unused or expiring.",
         "icon": "layout",
         "image": "/assets/images/feat-role-managers.jpg",
@@ -2557,6 +2703,7 @@
       },
       {
         "persona": "Owners & admins",
+        "headline": "Every prepaid session accounted for.",
         "summary": "Know how many sessions customers have prepaid for and how they are used.",
         "icon": "bar-chart",
         "image": "/assets/images/feat-role-owners.jpg",
@@ -2568,7 +2715,7 @@
           },
           {
             "title": "Dates handled locally",
-            "description": "Expiry is calculated on Nepal time."
+            "description": "Expiry is calculated in your local time."
           },
           {
             "title": "Customers can check",
@@ -2598,6 +2745,28 @@
         }
       ],
       "sub": "How it works inside the product."
+    },
+    "socialProof": {
+      "eyebrow": "Social proof",
+      "headline": "What owners say once sessions stop living on punch cards.",
+      "quotes": [
+        {
+          "quote": "We used to stamp paper cards and argue about how many sessions were left. Now front desk just reads it off the screen.",
+          "author": "Front-desk lead",
+          "business": "Day spa, Austin"
+        },
+        {
+          "quote": "I can see which packages are about to expire with sessions unused, and we call those clients before the date passes.",
+          "author": "Branch manager",
+          "business": "Massage studio, Denver"
+        },
+        {
+          "quote": "Part-paid packages used to slip through. Now the amount still owed sits on the package until it's settled.",
+          "author": "Owner",
+          "business": "Multi-branch spa, Portland"
+        }
+      ],
+      "sub": "Feedback from owners and managers using the platform."
     }
   },
   {
@@ -2607,7 +2776,7 @@
     "hero": {
       "eyebrow": "Vouchers",
       "headline": "Gift vouchers<br> <span class=\"fd-hero__h1-accent\">with a balance you can trust.</span>",
-      "subheadline": "Issue prepaid or gift vouchers with a unique code and an expiry date. Customers redeem them as a payment, in one visit or over several.",
+      "subheadline": "Issue prepaid or gift vouchers with a unique code and expiry — redeemable as payment, any visit.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-finance.png",
       "imageAlt": "Voucher code and balance",
@@ -2615,7 +2784,7 @@
     },
     "intro": {
       "headline": "Vouchers that behave like money, because they are tracked like money.",
-      "body": "Every voucher has a code, a balance and an expiry date, and every claim is on record. Gift vouchers sell well around Dashain, Tihar and the wedding season. Zennly gives every voucher a unique code, a balance and an expiry date, so a voucher is as safe to hand over as cash."
+      "body": "Every voucher has a code, a balance and an expiry date, and every claim is on record. Gift vouchers sell well around the holidays, Valentine's Day and Mother's Day. Zennly gives every voucher a unique code, a balance and an expiry date, so a voucher is as safe to hand over as cash."
     },
     "primaryFeatures": [
       {
@@ -2724,45 +2893,45 @@
     "seoTitle": "Gift Voucher Software Nepal for Spas & Salons | Zennly",
     "heroMockup": {
       "title": "Voucher claims",
-      "date": "Thu, 3 Jul · Lazimpat branch",
+      "date": "Mar 1 · Downtown",
       "rows": [
         {
           "avatar": "G",
-          "name": "NT 4326-0012",
-          "service": "NPR 5,000 · claimed in full",
-          "status": "Claimed",
-          "done": true
-        },
-        {
-          "avatar": "N",
-          "name": "NT 4326-0013",
-          "service": "NPR 3,000 left of 10,000",
+          "name": "GV-0012 · Lily Wong",
+          "service": "$35 left of $250",
           "status": "Partial",
           "done": false
         },
         {
-          "avatar": "E",
-          "name": "NT 4326-0009",
-          "service": "Expired 1 Jul",
+          "avatar": "G",
+          "name": "GV-0009 · Ben A.",
+          "service": "$125 · claimed in full",
+          "status": "Claimed",
+          "done": true
+        },
+        {
+          "avatar": "G",
+          "name": "GV-0007 · Chloe M.",
+          "service": "Expired Feb 28",
           "status": "Expired",
           "done": false
         }
       ]
     },
     "workflowHeading": "How a voucher runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
-    "workflowSub": "A real timeline of one voucher, from issue to the last rupee.",
+    "workflowSub": "One gift voucher, from the day it's bought to its last claim.",
     "workflow": [
       {
         "num": "01",
-        "time": "Issue",
-        "title": "A voucher is issued",
-        "body": "Choose a voucher type. A unique code is generated from a prefix, or entered manually, and an expiry date is set.",
+        "time": "Dec 12",
+        "title": "A gift voucher is issued",
+        "body": "Rosa Garcia wants a $250 gift for her friend Lily. Front desk issues a gift voucher with its own code, valid for 90 days.",
         "status": "Pending",
         "scene": {
           "type": "form",
           "head": "Issue voucher",
-          "bannerTitle": "Prepaid or gift",
-          "bannerSub": "Every voucher gets its own code.",
+          "bannerTitle": "Gift for Lily Wong",
+          "bannerSub": "Bought by Rosa Garcia",
           "fields": [
             [
               "Voucher type",
@@ -2771,11 +2940,11 @@
             [
               [
                 "Value",
-                "NPR 10,000"
+                "$250"
               ],
               [
                 "Expires",
-                "90 days"
+                "Mar 12"
               ]
             ],
             [
@@ -2788,59 +2957,67 @@
       },
       {
         "num": "02",
-        "time": "Purchase",
-        "title": "The customer pays for it",
-        "body": "The purchase can be paid by split payment, including from a membership wallet.",
+        "time": "Dec 12",
+        "title": "Rosa pays two ways",
+        "body": "She pays $150 by card and $100 from her Deluxe membership. Both payments sit on the one voucher purchase.",
         "status": "Confirmed",
         "scene": {
           "type": "review",
+          "notif": "Voucher paid · GV-0012 · $250",
+          "notifTime": "4:40 PM",
           "badge": "Paid",
+          "badgeClass": "completed",
           "label": "Voucher purchase",
-          "rowLabel": "GV-0012 · NPR 10,000",
-          "rowValue": "Split payment · card and membership",
-          "plainLabel": "Expiry",
-          "plainValue": "90 days from issue",
+          "rowLabel": "Card · Deluxe membership",
+          "rowValue": "$150 + $100",
+          "plainLabel": "Expires",
+          "plainValue": "Mar 12",
           "button": "Confirm purchase"
         }
       },
       {
         "num": "03",
-        "time": "At checkout",
-        "title": "It is redeemed as a payment",
-        "body": "Staff enter the code and claim the amount against the booking. Expired vouchers are refused.",
+        "time": "Jan 8",
+        "title": "Lily uses $120 of it",
+        "body": "Lily books a 60-minute Deep Tissue. At checkout, front desk enters GV-0012 and claims $120 against the booking.",
         "status": "Completed",
         "scene": {
           "type": "receipt",
+          "successTitle": "Voucher claimed",
           "badge": "Claimed",
           "rows": [
             [
               "Booking",
-              "Full body massage"
+              "Deep Tissue · 60 min"
             ],
             [
-              "Payment",
+              "Paid with",
               "Voucher GV-0012"
+            ],
+            [
+              "Balance before",
+              "$250"
             ]
           ],
           "total": [
             "Claimed",
-            "NPR 4,000"
+            "$120"
           ],
-          "caption": "Claim recorded · balance updated"
+          "caption": "$130 left on the voucher"
         }
       },
       {
         "num": "04",
-        "time": "Next visit",
-        "title": "It is used over several visits",
-        "body": "Wallet-style vouchers can be claimed more than once, and the remaining balance updates after every claim.",
+        "time": "Feb 20",
+        "title": "The rest goes on a facial",
+        "body": "Lily comes back for a $95 facial. The voucher covers it, and the remaining balance drops to $35.",
         "status": "In-Progress",
         "scene": {
           "type": "live",
-          "label": "Balance",
-          "time": "Today",
-          "title": "GV-0012",
-          "sub": "NPR 6,000 left of NPR 10,000",
+          "label": "Partly claimed",
+          "time": "Feb 20",
+          "title": "GV-0012 · Lily Wong",
+          "sub": "$35 left · expires Mar 12",
           "steps": [
             [
               "Issued",
@@ -2860,47 +3037,49 @@
       },
       {
         "num": "05",
-        "time": "Anytime",
-        "title": "Corrections leave a record",
-        "body": "Admins can correct a balance or void a claim, and the change is recorded. Customers can view their own vouchers.",
-        "status": "Reconciled",
+        "time": "Mar 1",
+        "title": "Every claim is on the ledger",
+        "body": "Two claims, $215 used and $35 left with 11 days to go. Lily can check it herself, and admin corrections stay on record.",
+        "status": "In-Progress",
         "scene": {
           "type": "report",
           "title": "Voucher ledger",
-          "badge": "On record",
-          "sub": "Every claim, in order",
+          "badge": "Partly claimed",
+          "badgeClass": "in-progress",
+          "sub": "GV-0012 · Lily Wong",
           "banner": [
             [
               "2",
               "claims"
             ],
             [
-              "NPR 6,000",
+              "$35",
               "left"
             ]
           ],
-          "insightsLabel": "Controls",
+          "insightsLabel": "Claims",
           "insights": [
             [
-              "Expiry",
-              "Checked at claim"
+              "Jan 8 · Deep Tissue",
+              "$120"
             ],
             [
-              "Corrections",
-              "Admin only"
+              "Feb 20 · Facial",
+              "$95"
             ],
             [
-              "Voided claims",
-              "Kept on record"
+              "Expires",
+              "Mar 12"
             ]
           ],
-          "caption": "Nothing changes without a record."
+          "caption": "Corrections and voids are admin-only."
         }
       }
     ],
     "roles": [
       {
         "persona": "Front-desk staff",
+        "headline": "The balance, right in front of you.",
         "summary": "Issue and redeem vouchers quickly, with the balance in front of you.",
         "icon": "users",
         "image": "/assets/images/feat-role-frontdesk.jpg",
@@ -2922,6 +3101,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "Every voucher under control.",
         "summary": "Keep vouchers under control without chasing paper.",
         "icon": "layout",
         "image": "/assets/images/feat-role-managers.jpg",
@@ -2943,6 +3123,7 @@
       },
       {
         "persona": "Owners & admins",
+        "headline": "Know what's still outstanding.",
         "summary": "Know how much prepaid value is outstanding.",
         "icon": "bar-chart",
         "image": "/assets/images/feat-role-owners.jpg",
@@ -2984,6 +3165,28 @@
         }
       ],
       "sub": "How it works inside the product."
+    },
+    "socialProof": {
+      "eyebrow": "Social proof",
+      "headline": "What owners say once gift vouchers have a ledger.",
+      "quotes": [
+        {
+          "quote": "Holiday vouchers used to be a box of paper slips. Now every one has a code, and front desk sees the balance before charging anything.",
+          "author": "Owner",
+          "business": "Day spa, Austin"
+        },
+        {
+          "quote": "Clients split a voucher across two or three visits all the time. The balance just carries over, so nobody argues about what's left.",
+          "author": "Front-desk lead",
+          "business": "Salon, Denver"
+        },
+        {
+          "quote": "I finally know how much gift money we're holding that hasn't been used yet, branch by branch.",
+          "author": "Admin",
+          "business": "Multi-branch spa, Portland"
+        }
+      ],
+      "sub": "Feedback from owners and managers using the platform."
     }
   },
   {
@@ -2993,7 +3196,7 @@
     "hero": {
       "eyebrow": "Campaigns",
       "headline": "Run a promotion,<br> <span class=\"fd-hero__h1-accent\">and it shows up in booking.</span>",
-      "subheadline": "Set a percentage offer for chosen services and dates. Zennly applies it to prices and shows a banner on your online booking site while it runs.",
+      "subheadline": "Set a percentage offer for chosen services and dates — Zennly applies it and banners it on booking.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-reports.png",
       "imageAlt": "Campaign banner and discounted service prices",
@@ -3082,8 +3285,8 @@
           "answer": "Yes. After the end date it stops on its own, and it is live only while switched on."
         },
         {
-          "question": "Can I run a Dashain or Tihar offer for specific services?",
-          "answer": "Yes. Link chosen services or whole categories, and set the dates for the festival period."
+          "question": "Can I run a holiday or seasonal offer for specific services?",
+          "answer": "Yes. Link chosen services or whole categories, and set the dates for the holiday period."
         },
         {
           "question": "Can a campaign apply to just one service?",
@@ -3110,12 +3313,12 @@
     "seoTitle": "Spa & Salon Promotion Software Nepal | Zennly",
     "heroMockup": {
       "title": "Active campaigns",
-      "date": "Thu, 3 Jul · Online booking",
+      "date": "Oct 4 · Online booking",
       "rows": [
         {
-          "avatar": "D",
-          "name": "Dashain Offer · 15% off",
-          "service": "Massage category · 1–15 Oct",
+          "avatar": "F",
+          "name": "Fall Offer · 15% off",
+          "service": "Massage category · Oct 1–15",
           "status": "Live",
           "done": true
         },
@@ -3127,32 +3330,32 @@
           "done": true
         },
         {
-          "avatar": "N",
-          "name": "New Year Offer · 20% off",
-          "service": "Starts 1 Jan",
+          "avatar": "H",
+          "name": "Holiday Offer · 20% off",
+          "service": "Starts Dec 15",
           "status": "Scheduled",
           "done": false
         }
       ]
     },
     "workflowHeading": "How a campaign runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
-    "workflowSub": "A real timeline of one promotion, from planning to the end date.",
+    "workflowSub": "One promotion, from planning to the day it switches itself off.",
     "workflow": [
       {
         "num": "01",
-        "time": "Plan",
-        "title": "A campaign is created",
-        "body": "Name it, set the percentage, the start and end dates and the message, and add a banner image if you like.",
+        "time": "Sep 22",
+        "title": "The manager plans a fall offer",
+        "body": "A manager sets up Fall Offer for all three branches: 15% off massages from Oct 1 to 15, with a short message and a banner.",
         "status": "Pending",
         "scene": {
           "type": "form",
           "head": "New campaign",
-          "bannerTitle": "Plan the promotion",
-          "bannerSub": "Percentage offers on chosen services.",
+          "bannerTitle": "Fall Offer",
+          "bannerSub": "Banner and popup on online booking",
           "fields": [
             [
               "Name",
-              "Dashain offer"
+              "Fall Offer"
             ],
             [
               [
@@ -3161,7 +3364,7 @@
               ],
               [
                 "Dates",
-                "1–15 Oct"
+                "Oct 1–15"
               ]
             ],
             [
@@ -3174,33 +3377,35 @@
       },
       {
         "num": "02",
-        "time": "Targeting",
-        "title": "Services are linked",
-        "body": "Link specific services or whole categories. A direct service link takes priority over a category link.",
+        "time": "Sep 22",
+        "title": "Massages are linked",
+        "body": "Linking the Massage category covers Deep Tissue, Swedish and Hot Stone in one step. A direct service link would take priority.",
         "status": "Confirmed",
         "scene": {
           "type": "review",
-          "badge": "Linked",
+          "notif": "Fall Offer · 15% · 3 services linked",
+          "notifTime": "3:15 PM",
+          "badge": "Scheduled",
           "label": "Campaign targets",
           "rowLabel": "Massage category",
-          "rowValue": "Hot stone linked directly",
-          "plainLabel": "Priority",
-          "plainValue": "Direct service link wins",
+          "rowValue": "Deep Tissue, Swedish, Hot Stone",
+          "plainLabel": "Starts",
+          "plainValue": "Oct 1 · 12:00 AM",
           "button": "Save targets"
         }
       },
       {
         "num": "03",
-        "time": "Start date",
-        "title": "The campaign goes live",
-        "body": "It is live between the start and end dates, and only while switched on. Your online booking site shows a banner and popup.",
+        "time": "Oct 1",
+        "title": "The offer goes live",
+        "body": "At midnight on Oct 1 the banner appears on your online booking site, and massage prices drop by 15%.",
         "status": "In-Progress",
         "scene": {
           "type": "live",
           "label": "Live now",
-          "time": "1 Oct",
-          "title": "Dashain offer · 15% off",
-          "sub": "Shown on your online booking site",
+          "time": "Oct 1",
+          "title": "Fall Offer · 15% off",
+          "sub": "Banner on online booking",
           "steps": [
             [
               "Scheduled",
@@ -3215,54 +3420,59 @@
               ""
             ]
           ],
-          "caption": "Prices in online booking reflect the offer while it runs."
+          "caption": "Nobody has to switch it on."
         }
       },
       {
         "num": "04",
-        "time": "Booking",
-        "title": "Customers see the offer price",
-        "body": "Campaign prices flow into online booking, so the price a customer sees is the price they book at.",
+        "time": "Oct 4",
+        "title": "Nicole books at the offer price",
+        "body": "Nicole K. books a 60-minute Deep Tissue online. She sees $102 instead of $120, and that's the price on her booking.",
         "status": "Completed",
         "scene": {
           "type": "receipt",
+          "successTitle": "Booked at offer price",
           "badge": "Offer applied",
           "rows": [
             [
               "Service",
-              "Hot stone massage"
+              "Deep Tissue · 60 min"
+            ],
+            [
+              "Usual price",
+              "$120"
             ],
             [
               "Campaign",
-              "Dashain offer"
+              "Fall Offer · 15%"
             ]
           ],
           "total": [
-            "Discount",
-            "15% off"
+            "Price",
+            "$102"
           ],
-          "caption": "Offer applied in online booking"
+          "caption": "Same price online and at the desk"
         }
       },
       {
         "num": "05",
-        "time": "End date",
+        "time": "Oct 16",
         "title": "It ends on its own",
-        "body": "After the end date the campaign stops. No one has to remember to switch it off.",
-        "status": "Reconciled",
+        "body": "After Oct 15 the banner disappears and massage prices go back to normal. Nobody had to remember to switch it off.",
+        "status": "Closed",
         "scene": {
           "type": "report",
           "title": "Campaign ended",
           "badge": "Closed",
-          "sub": "After 15 Oct",
+          "sub": "Fall Offer · Oct 1–15",
           "banner": [
+            [
+              "84",
+              "bookings"
+            ],
             [
               "15%",
               "offer"
-            ],
-            [
-              "15 Oct",
-              "end date"
             ]
           ],
           "insightsLabel": "Afterwards",
@@ -3277,7 +3487,7 @@
             ],
             [
               "Switch-off",
-              "Not needed"
+              "Automatic"
             ]
           ],
           "caption": "Promotions stop when you said they would."
@@ -3287,6 +3497,7 @@
     "roles": [
       {
         "persona": "Front-desk staff",
+        "headline": "Always quote the right price.",
         "summary": "Quote the right price without checking a note on the wall.",
         "icon": "users",
         "image": "/assets/images/feat-role-frontdesk.jpg",
@@ -3308,6 +3519,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "Promotions that run themselves.",
         "summary": "Run promotions on chosen services without chasing staff.",
         "icon": "layout",
         "image": "/assets/images/feat-role-managers.jpg",
@@ -3329,6 +3541,7 @@
       },
       {
         "persona": "Owners & admins",
+        "headline": "You set the offer and the dates.",
         "summary": "Promote what you want, when you want, with control.",
         "icon": "bar-chart",
         "image": "/assets/images/feat-role-owners.jpg",
@@ -3370,6 +3583,28 @@
         }
       ],
       "sub": "How it works inside the product."
+    },
+    "socialProof": {
+      "eyebrow": "Social proof",
+      "headline": "What owners say once promotions run themselves.",
+      "quotes": [
+        {
+          "quote": "Our last promotion ran two weeks past its end date because nobody remembered to change the prices back. That can't happen now.",
+          "author": "Owner",
+          "business": "Day spa, Austin"
+        },
+        {
+          "quote": "Clients see the offer price online and pay the same price at the desk. No more 'but the website said'.",
+          "author": "Front-desk lead",
+          "business": "Massage studio, Denver"
+        },
+        {
+          "quote": "I set the dates and the services once, and every branch runs the same offer on the same days.",
+          "author": "Admin",
+          "business": "Multi-branch spa, Portland"
+        }
+      ],
+      "sub": "Feedback from owners and managers using the platform."
     }
   },
   {
@@ -3379,7 +3614,7 @@
     "hero": {
       "eyebrow": "Outreach",
       "headline": "Bring customers back,<br> <span class=\"fd-hero__h1-accent\">without chasing them.</span>",
-      "subheadline": "Zennly messages customers who have not visited in a while and asks for a review after a visit, using templates your team writes. Email, SMS and WhatsApp channels are available.",
+      "subheadline": "Zennly re-engages customers who haven't visited, and asks for reviews — by email, SMS or WhatsApp.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-hero-dashboard.png",
       "imageAlt": "Outreach rules and message queue",
@@ -3508,45 +3743,45 @@
     "seoTitle": "Win-Back & Review Request Software Nepal | Zennly",
     "heroMockup": {
       "title": "Outreach queue",
-      "date": "Thu, 3 Jul · Email",
+      "date": "Sep 8 · Email",
       "rows": [
         {
           "avatar": "W",
-          "name": "Win-back · M. Thapa",
+          "name": "Win-back · Mia Thompson",
           "service": "Last visit 62 days ago",
           "status": "In review",
           "done": false
         },
         {
           "avatar": "R",
-          "name": "Review request · S. Rai",
+          "name": "Review request · S. Ross",
           "service": "After completed booking",
           "status": "Sent",
           "done": true
         },
         {
           "avatar": "W",
-          "name": "Win-back · K. Basnet",
-          "service": "Last visit 75 days ago",
+          "name": "Win-back · Chloe M.",
+          "service": "Last visit 64 days ago",
           "status": "Sent",
           "done": true
         }
       ]
     },
     "workflowHeading": "How outreach runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
-    "workflowSub": "A real timeline of one win-back email, from rule to review request.",
+    "workflowSub": "One win-back email, from the rule to the review request after she comes back.",
     "workflow": [
       {
         "num": "01",
-        "time": "Setup",
-        "title": "A rule is set",
-        "body": "Choose the trigger, the timing, the channel and whether messages send automatically or wait in a review queue.",
+        "time": "Aug 1",
+        "title": "The manager sets a win-back rule",
+        "body": "Customers who haven't visited in 60 days get a 'We miss you' email. Each one waits in a review queue before it goes.",
         "status": "Pending",
         "scene": {
           "type": "form",
           "head": "New outreach rule",
           "bannerTitle": "Win back lapsed customers",
-          "bannerSub": "Set it once, it runs every day.",
+          "bannerSub": "Set it once, it runs every morning.",
           "fields": [
             [
               "Trigger",
@@ -3572,38 +3807,39 @@
       },
       {
         "num": "02",
-        "time": "Every morning",
-        "title": "Zennly finds the customers",
-        "body": "Each day, customers whose last completed booking is older than your lapsed-days limit are queued.",
+        "time": "Sep 8, 7:00am",
+        "title": "Zennly finds Mia",
+        "body": "The morning scan finds 14 customers past 60 days, including Mia Thompson, last seen for a facial on Jul 8.",
         "status": "Confirmed",
         "scene": {
           "type": "report",
           "title": "Daily scan",
-          "badge": "Scanned",
-          "sub": "Runs every morning",
+          "badge": "14 queued",
+          "badgeClass": "in-progress",
+          "sub": "Sep 8 · 7:00 AM",
           "banner": [
+            [
+              "14",
+              "customers"
+            ],
             [
               "60+",
               "days away"
-            ],
-            [
-              "Email",
-              "channel"
             ]
           ],
-          "insightsLabel": "What it finds",
+          "insightsLabel": "Longest away",
           "insights": [
             [
-              "Last booking",
-              "Completed"
+              "Ben A.",
+              "71 days"
             ],
             [
-              "Last visit",
-              "Over 60 days ago"
+              "Chloe M.",
+              "64 days"
             ],
             [
-              "Queued",
-              "For review"
+              "Mia Thompson",
+              "62 days"
             ]
           ],
           "caption": "No list to build by hand."
@@ -3611,33 +3847,35 @@
       },
       {
         "num": "03",
-        "time": "In review",
-        "title": "A staff member checks it",
-        "body": "In review mode, a message waits for staff to approve it or edit it first. Automatic mode skips this step.",
+        "time": "Sep 8, 9:00am",
+        "title": "Front desk checks the message",
+        "body": "Sophie B. opens the queue, adds a line about the Oct 1 Fall Offer and approves it. In automatic mode this step is skipped.",
         "status": "In-Progress",
         "scene": {
           "type": "review",
+          "notif": "We miss you, Mia",
+          "notifTime": "7:00 AM",
           "badge": "In review",
           "label": "Message queue",
-          "rowLabel": "We miss you, Mina",
-          "rowValue": "Win-back · email",
-          "plainLabel": "Template",
-          "plainValue": "Customer name filled in",
+          "rowLabel": "Win-back · email",
+          "rowValue": "To Mia Thompson",
+          "plainLabel": "Edited by",
+          "plainValue": "Sophie B. · added Fall Offer",
           "button": "Approve and send"
         }
       },
       {
         "num": "04",
-        "time": "Sent",
+        "time": "Sep 8, 9:05am",
         "title": "The email goes out",
-        "body": "Approved messages are sent by email and the result of every send is recorded.",
+        "body": "The approved email is sent and the result is saved on Mia's record. Two days later she books a facial for Sep 14.",
         "status": "Completed",
         "scene": {
           "type": "live",
           "label": "Sent",
           "time": "9:05 AM",
-          "title": "Win-back email",
-          "sub": "To Mina Thapa",
+          "title": "We miss you, Mia",
+          "sub": "Win-back · email",
           "steps": [
             [
               "Queued",
@@ -3657,12 +3895,13 @@
       },
       {
         "num": "05",
-        "time": "After the visit",
+        "time": "Sep 14, 2:00pm",
         "title": "A review request follows",
-        "body": "When a booking is completed, a review request is queued using your template.",
-        "status": "Reconciled",
+        "body": "Her facial with Brooke R. is completed at 2:00 PM, and a review request is queued from your template.",
+        "status": "Completed",
         "scene": {
           "type": "receipt",
+          "successTitle": "Review request queued",
           "badge": "Queued",
           "rows": [
             [
@@ -3670,21 +3909,26 @@
               "Completed booking"
             ],
             [
+              "Booking",
+              "Facial · Brooke R."
+            ],
+            [
               "Channel",
               "Email"
             ]
           ],
           "total": [
-            "Status",
-            "Queued"
+            "To",
+            "Mia Thompson"
           ],
-          "caption": "Sent after the visit · result recorded"
+          "caption": "Result recorded on her profile"
         }
       }
     ],
     "roles": [
       {
         "persona": "Front-desk staff",
+        "headline": "Every message, in view.",
         "summary": "See what is going out to customers and help when a message needs editing.",
         "icon": "users",
         "image": "/assets/images/feat-role-frontdesk.jpg",
@@ -3706,6 +3950,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "Automatic, or reviewed first.",
         "summary": "Decide how much is automatic and how much is reviewed.",
         "icon": "layout",
         "image": "/assets/images/feat-role-managers.jpg",
@@ -3727,6 +3972,7 @@
       },
       {
         "persona": "Owners & admins",
+        "headline": "Win back lapsed customers.",
         "summary": "Bring lapsed customers back without a marketing team.",
         "icon": "bar-chart",
         "image": "/assets/images/feat-role-owners.jpg",
@@ -3768,6 +4014,28 @@
         }
       ],
       "sub": "How it works inside the product."
+    },
+    "socialProof": {
+      "eyebrow": "Social proof",
+      "headline": "What owners say once lapsed clients get a nudge.",
+      "quotes": [
+        {
+          "quote": "We never had time to call clients we hadn't seen in a while. Now the list builds itself every morning and we just approve the emails.",
+          "author": "Owner",
+          "business": "Day spa, Austin"
+        },
+        {
+          "quote": "I like seeing each message before it goes. Most days I add a line about what's new and send it.",
+          "author": "Front-desk lead",
+          "business": "Salon, Denver"
+        },
+        {
+          "quote": "Review requests go out after every completed visit, so our reviews finally keep up with how busy we are.",
+          "author": "Branch manager",
+          "business": "Massage studio, Portland"
+        }
+      ],
+      "sub": "Feedback from owners and managers using the platform."
     }
   },
   {
@@ -3777,7 +4045,7 @@
     "hero": {
       "eyebrow": "Payroll",
       "headline": "Payroll for your therapists,<br> <span class=\"fd-hero__h1-accent\">calculated, not guessed.</span>",
-      "subheadline": "Each month, per branch, Zennly works out salary, absence deductions and commission from your attendance and bookings records.",
+      "subheadline": "Each month, per branch, Zennly works out salary, deductions and commission from attendance and bookings.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-reports.png",
       "imageAlt": "Monthly payroll run for a branch",
@@ -3898,59 +4166,63 @@
     "seoTitle": "Spa & Salon Payroll & Commission Software Nepal | Zennly",
     "heroMockup": {
       "title": "Payroll run",
-      "date": "July · Lazimpat branch",
+      "date": "July · Downtown",
       "rows": [
         {
-          "avatar": "S",
-          "name": "Sita Gurung",
-          "service": "Salary less 1 absent day, plus commission",
+          "avatar": "E",
+          "name": "Emily C.",
+          "service": "$3,482 · 1 absent day, 52 bookings",
           "status": "Draft",
           "done": false
         },
         {
-          "avatar": "R",
-          "name": "Ram Shrestha",
-          "service": "Salary plus service commission",
+          "avatar": "B",
+          "name": "Brooke R.",
+          "service": "$3,250 · salary plus commission",
           "status": "Draft",
           "done": false
         },
         {
           "avatar": "A",
-          "name": "Anu Rai",
-          "service": "Salary plus service and referral commission",
+          "name": "Amanda G.",
+          "service": "$3,140 · 2 absent days",
           "status": "Draft",
           "done": false
         }
       ]
     },
     "workflowHeading": "How payroll runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
-    "workflowSub": "A real timeline of one payroll month, from setup to the final run.",
+    "workflowSub": "One therapist's July at Downtown, from her pay settings to a locked run.",
     "workflow": [
       {
         "num": "01",
-        "time": "Setup",
-        "title": "Compensation is set",
-        "body": "Enter each therapist's monthly salary and commission rate once.",
+        "time": "Jul 1",
+        "title": "Emily's pay is set once",
+        "body": "The admin enters Emily C.'s monthly salary of $2,800 and a 10% service commission. It's set once, not every month.",
         "status": "Pending",
         "scene": {
           "type": "form",
           "head": "Compensation",
-          "bannerTitle": "Set it once",
-          "bannerSub": "Salary and commission per therapist.",
+          "bannerTitle": "Emily C.",
+          "bannerSub": "Therapist · Downtown",
           "fields": [
             [
               "Therapist",
-              "Sita Gurung"
+              "Emily C."
             ],
             [
               [
                 "Monthly salary",
-                "NPR 30,000"
+                "$2,800"
               ],
               [
                 "Commission",
-                "5%"
+                "10%"
               ]
+            ],
+            [
+              "Referral commission",
+              "$10 per booking"
             ]
           ],
           "submit": "Save"
@@ -3958,102 +4230,111 @@
       },
       {
         "num": "02",
-        "time": "All month",
+        "time": "Jul 1–31",
         "title": "Attendance is recorded",
-        "body": "Present, absent, half-day and leave statuses feed the calculation. Sick and annual leave have paid caps and the excess becomes unpaid.",
+        "body": "Downtown's manager marks each day. Emily has one absent day and one sick day, which stays within her paid leave cap.",
         "status": "Confirmed",
         "scene": {
           "type": "review",
+          "notif": "Attendance saved · Emily C. · July",
+          "notifTime": "Jul 31",
           "badge": "Recorded",
-          "label": "Attendance",
-          "rowLabel": "1 absent · 1 half day",
-          "rowValue": "Sita Gurung · July",
+          "badgeClass": "completed",
+          "label": "Attendance · July",
+          "rowLabel": "24 present · 26 working days",
+          "rowValue": "1 absent · 1 sick (paid)",
           "plainLabel": "Leave",
-          "plainValue": "Paid caps, excess unpaid",
+          "plainValue": "Within paid cap",
           "button": "Save attendance"
         }
       },
       {
         "num": "03",
-        "time": "Month end",
-        "title": "The run is generated",
-        "body": "Pick the branch and the month. Salary, deductions and commissions are calculated for every therapist.",
+        "time": "Aug 1",
+        "title": "The July run is generated",
+        "body": "The admin picks Downtown and July. Salary, deductions and commission are worked out for all 7 therapists in one draft.",
         "status": "In-Progress",
         "scene": {
           "type": "report",
           "title": "July payroll",
           "badge": "Draft",
-          "sub": "Lazimpat branch",
+          "badgeClass": "pending",
+          "sub": "Downtown · 7 therapists",
           "banner": [
             [
-              "Draft",
-              "status"
+              "$24,960",
+              "total"
             ],
             [
-              "July",
-              "month"
+              "7",
+              "therapists"
             ]
           ],
-          "insightsLabel": "Per therapist",
+          "insightsLabel": "Breakdown",
           "insights": [
             [
-              "Salary",
-              "Less absences"
+              "Salaries",
+              "$19,600"
             ],
             [
-              "Service commission",
-              "On paid bookings"
+              "Deductions",
+              "– $320"
             ],
             [
-              "Referral commission",
-              "Per booking"
+              "Commission",
+              "+ $5,680"
             ]
           ],
-          "caption": "Regenerate the draft until it is right."
+          "caption": "Regenerate the draft until it's right."
         }
       },
       {
         "num": "04",
-        "time": "Review",
-        "title": "One therapist's pay, line by line",
-        "body": "Service commission comes from completed, paid bookings assigned to the therapist. Referral commission is added per booking.",
-        "status": "Completed",
+        "time": "Aug 1",
+        "title": "Emily's pay, line by line",
+        "body": "Commission comes from her 52 completed, paid bookings, plus $30 for 3 referrals. One absent day comes off her salary.",
+        "status": "In-Progress",
         "scene": {
           "type": "receipt",
+          "successTitle": "Emily C. · July",
           "badge": "Draft",
           "rows": [
             [
               "Salary",
-              "NPR 30,000"
+              "$2,800"
             ],
             [
-              "Deduction",
-              "– NPR 1,500"
+              "Absent day",
+              "– $108"
             ],
             [
-              "Commission",
-              "+ NPR 8,200"
+              "Service commission",
+              "+ $760"
+            ],
+            [
+              "Referrals",
+              "+ $30"
             ]
           ],
           "total": [
             "Net pay",
-            "NPR 36,700"
+            "$3,482"
           ],
-          "caption": "Net = salary – deduction + commission"
+          "caption": "Net = salary – deductions + commission"
         }
       },
       {
         "num": "05",
-        "time": "Payday",
+        "time": "Aug 5",
         "title": "Finalized and locked",
-        "body": "Finalizing the run locks it. A finalized run cannot be changed.",
-        "status": "Reconciled",
+        "body": "The admin finalizes the July run. Once it's locked it can't be edited, so what was paid stays on record.",
+        "status": "Closed",
         "scene": {
           "type": "live",
-          "label": "Final",
-          "time": "End of month",
-          "title": "July · Lazimpat",
-          "sub": "Locked for editing",
+          "label": "Finalized",
+          "time": "Aug 5",
+          "title": "July · Downtown",
+          "sub": "$24,960 · locked",
           "steps": [
             [
               "Generated",
@@ -4074,7 +4355,8 @@
     ],
     "roles": [
       {
-        "persona": "Front-desk staff",
+        "persona": "Therapists & staff",
+        "headline": "Your attendance, recorded right.",
         "summary": "See your own attendance and bookings recorded accurately.",
         "icon": "users",
         "image": "/assets/images/feat-role-frontdesk.jpg",
@@ -4096,6 +4378,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "Close the month without disputes.",
         "summary": "Keep attendance and bookings clean so the month closes without disputes.",
         "icon": "layout",
         "image": "/assets/images/feat-role-managers.jpg",
@@ -4117,6 +4400,7 @@
       },
       {
         "persona": "Owners & admins",
+        "headline": "One payroll run a month. Locked.",
         "summary": "Run payroll once a month, per branch, and lock it.",
         "icon": "bar-chart",
         "image": "/assets/images/feat-role-owners.jpg",
@@ -4158,6 +4442,28 @@
         }
       ],
       "sub": "How it works inside the product."
+    },
+    "socialProof": {
+      "eyebrow": "Social proof",
+      "headline": "What owners say once payroll stops being a weekend job.",
+      "quotes": [
+        {
+          "quote": "Month-end used to mean a weekend with a calculator and the booking book. Now I review the draft on the 1st and lock it.",
+          "author": "Owner",
+          "business": "Day spa, Austin"
+        },
+        {
+          "quote": "Therapists stopped questioning their commission. It comes straight from the bookings they completed and got paid for.",
+          "author": "Branch manager",
+          "business": "Massage studio, Denver"
+        },
+        {
+          "quote": "Once a run is finalized nobody can quietly change it. That alone settled a lot of arguments.",
+          "author": "Admin",
+          "business": "Multi-branch spa, Portland"
+        }
+      ],
+      "sub": "Feedback from owners and managers using the platform."
     }
   },
   {
@@ -4167,7 +4473,7 @@
     "hero": {
       "eyebrow": "AI receptionist",
       "headline": "Never miss a booking,<br> <span class=\"fd-hero__h1-accent\">even when nobody answers.</span>",
-      "subheadline": "An AI receptionist that answers customer calls and chats for your spa, salon, gym or clinic and helps them book, so enquiries are not lost while your team is with a customer or the doors are closed. Available on request.",
+      "subheadline": "An AI receptionist that answers calls and chats, so no enquiry is lost while your team is busy.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-hero-dashboard.png",
       "imageAlt": "AI receptionist answering booking enquiries",
@@ -4305,6 +4611,7 @@
     "roles": [
       {
         "persona": "Front-desk staff",
+        "headline": "More time with your customers.",
         "summary": "Spend less time tied to the phone and more time with the customers in front of you.",
         "icon": "users",
         "image": "/assets/images/feat-role-frontdesk.jpg",
@@ -4326,6 +4633,7 @@
       },
       {
         "persona": "Branch managers",
+        "headline": "Set how it speaks for your branch.",
         "summary": "Decide how the assistant speaks for your branch, then review how it is doing.",
         "icon": "layout",
         "image": "/assets/images/feat-role-managers.jpg",
@@ -4347,6 +4655,7 @@
       },
       {
         "persona": "Owners & admins",
+        "headline": "Every enquiry answered.",
         "summary": "Stop losing enquiries you never knew you missed, across every branch.",
         "icon": "bar-chart",
         "image": "/assets/images/feat-role-owners.jpg",
@@ -4391,13 +4700,13 @@
     },
     "heroMockup": {
       "title": "Enquiries",
-      "date": "Sample · Calls and chat",
+      "date": "Sample · Friday after closing",
       "rows": [
         {
           "avatar": "C",
-          "name": "Call · Booking request",
-          "service": "Deep tissue massage, Saturday",
-          "status": "Booked",
+          "name": "Call · Hannah L.",
+          "service": "Deep Tissue, Sat 2:00 PM · Downtown",
+          "status": "Requested",
           "done": true
         },
         {
@@ -4409,36 +4718,36 @@
         },
         {
           "avatar": "C",
-          "name": "Call · After closing",
-          "service": "Facial enquiry, 8:40 pm",
+          "name": "Call · Facial enquiry",
+          "service": "9:10 PM · Midtown",
           "status": "Captured",
           "done": false
         }
       ]
     },
     "workflowHeading": "How the AI receptionist runs on <span class=\"fd-workflow__heading-accent\">Zennly.</span>",
-    "workflowSub": "A sample timeline of one enquiry, from a call after closing to a booking in your schedule.",
+    "workflowSub": "A sample evening: one call after closing, to a confirmed booking the next morning.",
     "workflow": [
       {
         "num": "01",
         "time": "Setup",
-        "title": "We set it up for your business",
-        "body": "Share your branches, services, opening hours and rules, and we configure the assistant with you in the demo.",
+        "title": "We set it up with you",
+        "body": "In your demo we configure it with your three branches, your services, your opening hours and your booking rules.",
         "status": "Pending",
         "scene": {
           "type": "form",
           "head": "AI receptionist setup",
-          "bannerTitle": "Set up for your business",
-          "bannerSub": "Your services, branches and rules.",
+          "bannerTitle": "Downtown, Midtown, Uptown",
+          "bannerSub": "Your services, hours and rules",
           "fields": [
             [
               "Branches",
-              "Your locations"
+              "3 locations"
             ],
             [
               [
                 "Services",
-                "Your list"
+                "Your menu"
               ],
               [
                 "Channels",
@@ -4447,7 +4756,7 @@
             ],
             [
               "Hours",
-              "Your opening hours"
+              "9 AM–8 PM"
             ]
           ],
           "submit": "Save setup"
@@ -4455,16 +4764,16 @@
       },
       {
         "num": "02",
-        "time": "After closing",
-        "title": "A customer calls or chats",
-        "body": "Someone asks about a massage or a haircut when nobody can pick up. The assistant answers instead of the call going unanswered.",
+        "time": "Fri, 8:40pm",
+        "title": "Hannah calls after closing",
+        "body": "Downtown closed at 8:00. Hannah L. calls about a massage for tomorrow, and the assistant answers instead of the phone ringing out.",
         "status": "Confirmed",
         "scene": {
           "type": "live",
-          "label": "Incoming",
+          "label": "Incoming call",
           "time": "8:40 PM",
-          "title": "Booking enquiry",
-          "sub": "Call after closing",
+          "title": "Hannah L. · new caller",
+          "sub": "Downtown · after closing",
           "steps": [
             [
               "Received",
@@ -4484,43 +4793,50 @@
       },
       {
         "num": "03",
-        "time": "On the call",
-        "title": "It answers and helps them book",
-        "body": "The assistant answers common questions about your services and hours, and helps the customer choose a time.",
+        "time": "Fri, 8:42pm",
+        "title": "It helps her pick a time",
+        "body": "It answers her question about Saturday hours and offers open times. She picks a 60-minute Deep Tissue at 2:00 PM.",
         "status": "In-Progress",
         "scene": {
           "type": "review",
-          "badge": "Booking request",
+          "notif": "Booking request · Deep Tissue · Sat 2:00 PM",
+          "notifTime": "8:42 PM",
+          "badge": "Needs confirming",
           "label": "Enquiry",
-          "rowLabel": "Deep tissue massage",
-          "rowValue": "Saturday · afternoon",
+          "rowLabel": "Deep Tissue · 60 min",
+          "rowValue": "Sat · 2:00 PM · Downtown",
           "plainLabel": "Source",
-          "plainValue": "Call or chat",
+          "plainValue": "Phone call · Hannah L.",
           "button": "Request captured"
         }
       },
       {
         "num": "04",
-        "time": "In your schedule",
-        "title": "The request reaches your team",
-        "body": "The booking request lands in your Zennly schedule alongside every other booking, so your team confirms and manages it as usual.",
+        "time": "Sat, 9:05am",
+        "title": "The team confirms it",
+        "body": "When Downtown opens, Sophie B. finds the request in the schedule beside every other booking and confirms it with Emily C.",
         "status": "Completed",
         "scene": {
           "type": "receipt",
-          "badge": "In schedule",
+          "successTitle": "Booking confirmed",
+          "badge": "Confirmed",
           "rows": [
             [
-              "Source",
-              "Call or chat"
+              "Client",
+              "Hannah L."
             ],
             [
-              "Status",
-              "Waiting for your team"
+              "Service",
+              "Deep Tissue · 60 min"
+            ],
+            [
+              "Source",
+              "AI receptionist · call"
             ]
           ],
           "total": [
-            "Where",
-            "Zennly schedule"
+            "Saturday",
+            "2:00 PM"
           ],
           "caption": "Your team stays in control."
         }

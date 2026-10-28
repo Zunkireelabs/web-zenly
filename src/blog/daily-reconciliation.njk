@@ -1,125 +1,69 @@
 ﻿---
-layout: base.njk
+layout: layouts/blog-article.njk
 title: What daily revenue reconciliation should actually take | Zennly
+h1: "What daily revenue reconciliation should actually take"
 metaDescription: "What should daily revenue reconciliation actually take for a multi-branch service business? A practical breakdown of cash, card, and discount reconciliation."
 datePublished: "2026-07-17"
 dateModified: "2026-10-04"
 ogType: article
-bodyClass: page--light-nav
+bodyClass: page--light-nav page--pink-cta
+category: "Finance"
+categoryAnchor: "finance"
+readTime: "4 min read"
+subtitle: "A practical breakdown of what daily revenue reconciliation should actually take for a multi-branch service business, across cash, card and discount checks."
+coverImage: "/assets/images/hiw-daily-loop.png"
+coverAlt: "Finance"
+sidebarCtaHeading: "Curious what a 30-second close looks like?"
+sidebarCtaBody: "See the daily reconciliation flow in Zennly."
+bottomCtaHeading: "Curious what a 30-second close actually looks like?"
+bottomCtaBody: "Book a 20-minute demo and we'll show you the daily reconciliation flow."
+faq:
+  - question: "What is daily revenue reconciliation?"
+    answer: "It is the end-of-day check that bookings, services delivered and payments received (cash, card and online) all agree for each branch."
+  - question: "How long should daily reconciliation take?"
+    answer: "When payments are recorded against each booking as they happen, the close is a quick check rather than a morning of counting slips and chats. Our <a href=\"/daily-close-checklist/\">free daily close checklist</a> lists the twelve steps."
+  - question: "Can I reconcile several branches at once?"
+    answer: "Yes. With one account and one dashboard across all branches, the owner sees every branch's day together."
+relatedReading:
+  - url: "/features/payment-tracking/"
+    label: "Payment tracking and daily reconciliation"
+  - url: "/blog/discount-leakage/"
+    label: "The real cost of undocumented staff discounts"
+  - url: "/case-study/"
+    label: "Case study: Nuad Thai Spa, four branches on one dashboard"
+  - url: "/features/memberships/"
+    label: "Memberships as a payment mode at checkout"
+  - url: "/features/vouchers/"
+    label: "Vouchers as a payment at checkout"
+keepReading:
+  - link: "/blog/online-booking-system-nepal/"
+    image: "hero-v2-booking-confirmed.png"
+    tag: "Booking"
+    title: "Online booking system in Nepal for service businesses: a plain guide"
+    read: "5 min read"
+    tone: 0
+  - link: "/blog/multi-location-booking-software/"
+    image: "feat-multibranch.png"
+    tag: "Buying Guide"
+    title: "Multi-location booking software: what to look for"
+    read: "6 min read"
+    tone: 2
+  - link: "/blog/manage-multiple-spa-salon-branches-nepal/"
+    image: "feat-operations.png"
+    tag: "Operations"
+    title: "How to manage multiple spa or salon branches in Nepal: a practical checklist"
+    read: "5 min read"
+    tone: 4
 ---
-{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
-{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: title, url: page.url }]) }}
-{% from "schema/article.njk" import articleSchema with context %}
-{% from "schema/faq.njk" import faqSchema %}
-{{ faqSchema([{"question": "What is daily revenue reconciliation?", "answer": "It is the end-of-day check that bookings, services delivered and payments received (cash, card and online) all agree for each branch."}, {"question": "How long should daily reconciliation take?", "answer": "When payments are recorded against each booking as they happen, the close is a quick check rather than a morning of counting slips and chats."}, {"question": "Can I reconcile several branches at once?", "answer": "Yes. With one account and one dashboard across all branches, the owner sees every branch's day together."}]) }}
-{{ articleSchema(title, datePublished, page.url, metaDescription, dateModified) }}
+<p>Ask an owner how long it takes to close the books at the end of a day, and the honest answer is often &ldquo;longer than it should.&rdquo; Not because the math is hard &ndash; because the numbers live in three or four different places, and someone has to manually pull them together before anything adds up.</p>
 
-<main>
+<h2>Where the time actually goes</h2>
+<p>It&rsquo;s rarely the arithmetic that&rsquo;s slow. It&rsquo;s the reconstruction: which bookings were completed today, which payments match which bookings, which ones were only partially paid, and which branch each of those belongs to. When that information is spread across a booking log, a payment log, and someone&rsquo;s memory of who paid cash, reconciliation turns into detective work.</p>
 
-  <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
-  <section class="section" style="padding-bottom:0;">
-    <div class="article-hero reveal">
-      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
-      <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Finance</p>
-      <h1 class="article-hero__h1">What daily revenue reconciliation should actually take</h1>
-      <p class="article-hero__meta">4 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
-    </div>
-    <figure class="article-cover reveal">
-      {% image "/assets/images/hiw-daily-loop.png", "Finance", { class: "article-cover__img", loading: "eager" } %}
-    </figure>
-  </section>
+<h2>The one-record principle</h2>
+<p>The fix is structural, not procedural: every payment should be recorded against the booking it belongs to, at the moment it happens &ndash; not batched at the end of the day from memory or a paper slip. When the payment and the booking are the same record, reconciliation stops being a separate task. The numbers are already correct because they were never allowed to drift apart.</p>
+<p>This is the core idea behind <a href="/features/payment-tracking/">Zennly&rsquo;s payment tracking</a> &ndash; every payment logs the total amount and settlement status at the point of service, so the daily close is a read, not a rebuild.</p>
 
-  <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
-  <section class="section">
-    <div class="article-body reveal">
-
-      <p>Ask an owner how long it takes to close the books at the end of a day, and the honest answer is often &ldquo;longer than it should.&rdquo; Not because the math is hard &ndash; because the numbers live in three or four different places, and someone has to manually pull them together before anything adds up.</p>
-
-      <h2>Where the time actually goes</h2>
-      <p>It&rsquo;s rarely the arithmetic that&rsquo;s slow. It&rsquo;s the reconstruction: which bookings were completed today, which payments match which bookings, which ones were only partially paid, and which branch each of those belongs to. When that information is spread across a booking log, a payment log, and someone&rsquo;s memory of who paid cash, reconciliation turns into detective work.</p>
-
-      <h2>The one-record principle</h2>
-      <p>The fix is structural, not procedural: every payment should be recorded against the booking it belongs to, at the moment it happens &ndash; not batched at the end of the day from memory or a paper slip. When the payment and the booking are the same record, reconciliation stops being a separate task. The numbers are already correct because they were never allowed to drift apart.</p>
-      <p>This is the core idea behind <a href="/features/payment-tracking/">Zennly&rsquo;s payment tracking</a> &ndash; every payment logs the total amount and settlement status at the point of service, so the daily close is a read, not a rebuild.</p>
-
-      <h2>What &ldquo;fast&rdquo; actually looks like</h2>
-      <p>With a single source of truth per branch, a daily close should take under a minute per branch &ndash; open the dashboard, confirm the total matches what&rsquo;s in the till, done. For a four-branch business, that&rsquo;s the difference between an hour of cross-checking every morning and a five-minute review before the day starts.</p>
-      <p>If your reconciliation still takes longer than your last service of the day, the process is the bottleneck &ndash; not your team.</p>
-
-      <h2>Common questions</h2>
-      <h3>What is daily revenue reconciliation?</h3>
-      <p>It is the end-of-day check that bookings, services delivered and payments received (cash, card and online) all agree for each branch.</p>
-      <h3>How long should daily reconciliation take?</h3>
-      <p>When payments are recorded against each booking as they happen, the close is a quick check rather than a morning of counting slips and chats. Our <a href="/daily-close-checklist/">free daily close checklist</a> lists the twelve steps.</p>
-      <h3>Can I reconcile several branches at once?</h3>
-      <p>Yes. With one account and one dashboard across all branches, the owner sees every branch&#x27;s day together.</p>
-      
-      <h2>Related reading</h2>
-      <ul>
-        <li><a href="/features/payment-tracking/">Payment tracking and daily reconciliation</a></li>
-        <li><a href="/blog/discount-leakage/">The real cost of undocumented staff discounts</a></li>
-        <li><a href="/case-study/">Case study: Nuad Thai Spa, four branches on one dashboard</a></li>
-        <li><a href="/features/memberships/">Memberships as a payment mode at checkout</a></li>
-        <li><a href="/features/vouchers/">Vouchers as a payment at checkout</a></li>
-      </ul>
-
-    </div>
-  </section>
-
-  <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
-  <section class="section article-more">
-    <div class="article-more__inner reveal">
-      <h2 class="article-more__h2">Keep reading</h2>
-      <div class="blog-idx-rows">
-        <a href="/blog/online-booking-system-nepal/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/hero-v2-booking-confirmed.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Booking</p>
-              <h3 class="blog-idx-row__h3">Online booking system in Nepal for service businesses: a plain guide</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>5 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/multi-location-booking-software/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/feat-multibranch.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Buying guide</p>
-              <h3 class="blog-idx-row__h3">Multi-location booking software: what to look for</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>6 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/manage-multiple-spa-salon-branches-nepal/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/feat-operations.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Operations</p>
-              <h3 class="blog-idx-row__h3">How to manage multiple spa or salon branches in Nepal: a practical checklist</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>5 min read</span></p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="bottom-cta" id="demo">
-    <div class="bottom-cta__card bottom-cta__card--banner reveal">
-      <h2 class="bottom-cta__h2">Curious what a 30-second close actually looks like?</h2>
-      <p class="bottom-cta__sub">Book a 20-minute demo and we&rsquo;ll show you the daily reconciliation flow.</p>
-      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
-  {% include "_footer-v2.njk" %}
-
-</main>
+<h2>What &ldquo;fast&rdquo; actually looks like</h2>
+<p>With a single source of truth per branch, a daily close should take under a minute per branch &ndash; open the dashboard, confirm the total matches what&rsquo;s in the till, done. For a four-branch business, that&rsquo;s the difference between an hour of cross-checking every morning and a five-minute review before the day starts.</p>
+<p>If your reconciliation still takes longer than your last service of the day, the process is the bottleneck &ndash; not your team.</p>

@@ -1587,7 +1587,7 @@
 
   // ── Stats Number Counter Animation ──────────────────────────────
   (function () {
-    const counters = document.querySelectorAll('.fd-proof__num[data-count-target]');
+    const counters = document.querySelectorAll('.fd-proof__num[data-count-target], .feat-ns-stat__num[data-count-target]');
     if (!counters.length) return;
 
     function parseValue(valStr) {
@@ -1642,6 +1642,74 @@
     counters.forEach(function (c) {
       observer.observe(c);
     });
+  })();
+
+  // ── Features index: smooth-scroll the category tabs to their section
+  // (routes through Lenis when it's running so the jump matches the rest
+  // of the page's scroll feel; falls back to native smooth scroll). ──
+  (function () {
+    var tabs = document.querySelectorAll('.feat-idx-pillnav__item[href^="#"]');
+    if (!tabs.length) return;
+
+    function setActiveTab(tab) {
+      tabs.forEach(function (t) { t.classList.toggle('is-active', t === tab); });
+      // On mobile the strip is a horizontal-scroll row (overflow-x:auto) —
+      // without this, a tab made active by the scroll-spy (or a click on a
+      // tab that's already partway off-screen) never actually comes into
+      // view, so the row just sits wherever it was. Only scrolls the row
+      // itself (inline), never the page (block:'nearest').
+      tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function (e) {
+        var target = document.querySelector(tab.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        setActiveTab(tab);
+
+        var lenisInstance = window.__zennlyLenis;
+        if (lenisInstance) {
+          lenisInstance.scrollTo(target, {
+            offset: -100,
+            duration: 1.6,
+            easing: function (t) { return 1 - Math.pow(1 - t, 4); }, // easeOutQuart — gentler, longer glide than Lenis's default
+          });
+        } else {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Scroll-spy: highlight whichever category section is currently under
+    // the sticky pillnav, so the active tab also updates on plain scroll,
+    // not just on click.
+    if (typeof IntersectionObserver !== 'undefined') {
+      var sectionToTab = {};
+      tabs.forEach(function (tab) {
+        var id = tab.getAttribute('href').slice(1);
+        var section = document.getElementById(id);
+        if (section) sectionToTab[id] = tab;
+      });
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setActiveTab(sectionToTab[entry.target.id]);
+          }
+        });
+      }, {
+        // Treat a category as "current" once it's crossed into a thin band
+        // just below the sticky nav — not the whole viewport — so the
+        // switch happens right as that section reaches the top.
+        rootMargin: '-120px 0px -70% 0px',
+        threshold: 0,
+      });
+
+      Object.keys(sectionToTab).forEach(function (id) {
+        observer.observe(document.getElementById(id));
+      });
+    }
   })();
 
 })();

@@ -1,36 +1,62 @@
 ---
-layout: base.njk
+layout: layouts/blog-article.njk
 title: "Clinic Appointment Software in Nepal | Zennly"
+h1: "Clinic appointment software in Nepal: physiotherapy and beauty clinics"
 metaDescription: "What physiotherapy and beauty clinics in Nepal need from appointment software: practitioner scheduling, treatment courses, room booking and payment tracking."
 datePublished: "2026-10-12"
 dateModified: "2026-10-12"
 ogType: article
-bodyClass: page--light-nav
+bodyClass: page--light-nav page--pink-cta
+category: "Clinics"
+categoryAnchor: "clinics"
+readTime: "5 min read"
+subtitle: "Clinic appointment software schedules each practitioner and room together, keeps a treatment course with the same practitioner, stops double-bookings, and records payment against every visit."
+coverImage: "/assets/images/feat-role-frontdesk.jpg"
+coverAlt: "Clinics"
+sidebarCtaHeading: "Running a clinic?"
+sidebarCtaBody: "See practitioner scheduling and treatment courses in Zennly."
+bottomCtaHeading: "Running a clinic?"
+bottomCtaBody: "Book a 20-minute demo and see practitioner scheduling and treatment courses in Zennly."
+faq:
+  - question: "What appointment software can a physiotherapy clinic in Nepal use?"
+    answer: "Zennly suits physiotherapy clinics: it schedules therapists and rooms, supports repeat treatment visits, prevents double-bookings and records payments per visit."
+  - question: "Does Zennly work for beauty and skin clinics?"
+    answer: "Yes. Practitioners, rooms, services, packages and payments can all be managed in Zennly, and there is a dedicated solution page for beauty clinics."
+  - question: "Is Zennly a medical records system?"
+    answer: "No. Zennly handles scheduling, staff, payments and reporting. It is not an electronic medical record system."
+  - question: "Can a clinic run more than one branch?"
+    answer: "Yes. Zennly runs one branch or many from one account, with one daily report across all of them."
+relatedReading:
+  - url: "/blog/physiotherapy-clinic-scheduling/"
+    label: "How physiotherapy clinics can keep a treatment course on schedule"
+  - url: "/solutions/physiotherapy/"
+    label: "Physiotherapy clinic scheduling software for Nepal"
+  - url: "/solutions/beauty-clinic/"
+    label: "Beauty clinic booking software for Nepal"
+  - url: "/features/booking/"
+    label: "Booking management"
+  - url: "/nepal/kathmandu/"
+    label: "Booking software in Kathmandu"
+keepReading:
+  - link: "/blog/physiotherapy-clinic-scheduling/"
+    image: "feat-role-managers.jpg"
+    tag: "Physiotherapy"
+    title: "How physiotherapy clinics can keep a treatment course on schedule"
+    read: "4 min read"
+    tone: 1
+  - link: "/blog/cleaning-service-scheduling/"
+    image: "feat-industries.png"
+    tag: "Cleaning Services"
+    title: "How cleaning companies can schedule crews and track jobs on site"
+    read: "4 min read"
+    tone: 3
+  - link: "/blog/tattoo-studio-booking-and-deposits/"
+    image: "solution-hero-tattoo.png"
+    tag: "Tattoo Studios"
+    title: "How tattoo studios can manage artist schedules and deposits"
+    read: "4 min read"
+    tone: 5
 ---
-{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
-{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "Clinic appointment software in Nepal: physiotherapy and beauty clinics", url: page.url }]) }}
-{% from "schema/article.njk" import articleSchema with context %}
-{% from "schema/faq.njk" import faqSchema %}
-{{ faqSchema([{"question": "What appointment software can a physiotherapy clinic in Nepal use?", "answer": "Zennly suits physiotherapy clinics: it schedules therapists and rooms, supports repeat treatment visits, prevents double-bookings and records payments per visit."}, {"question": "Does Zennly work for beauty and skin clinics?", "answer": "Yes. Practitioners, rooms, services, packages and payments can all be managed in Zennly, and there is a dedicated solution page for beauty clinics."}, {"question": "Is Zennly a medical records system?", "answer": "No. Zennly handles scheduling, staff, payments and reporting. It is not an electronic medical record system."}, {"question": "Can a clinic run more than one branch?", "answer": "Yes. Zennly runs one branch or many from one account, with one daily report across all of them."}]) }}
-{{ articleSchema("Clinic appointment software in Nepal: physiotherapy and beauty clinics", datePublished, page.url, metaDescription, dateModified) }}
-
-<main>
-
-  <section class="section" style="padding-bottom:0;">
-    <div class="article-hero reveal">
-      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
-      <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Clinics</p>
-      <h1 class="article-hero__h1">Clinic appointment software in Nepal: physiotherapy and beauty clinics</h1>
-      <p class="article-hero__meta">5 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
-    </div>
-  <figure class="article-cover reveal">
-      {% image "/assets/images/feat-role-frontdesk.jpg", "Clinics", { class: "article-cover__img", loading: "eager" } %}
-    </figure>
-  </section>
-
-  <section class="section">
-    <div class="article-body reveal">
-
 <p><strong>Clinic appointment software for Nepal should schedule each practitioner and room together, keep a treatment course with the same practitioner, stop double-bookings, and record payments against each visit. It suits physiotherapy clinics, skin and aesthetic clinics and similar appointment-based practices.</strong></p>
 <p>Clinics have a particular scheduling problem. A patient is rarely seen once. A physiotherapy course might be eight or ten visits over several weeks, ideally with the same therapist. A skin or aesthetic treatment might need a practitioner, a room and a device. If the diary does not know all of these, someone ends up rebooking by phone.</p>
 <h2>What clinics need from appointment software</h2>
@@ -47,81 +73,3 @@ bodyClass: page--light-nav
 <p>A <a href="/solutions/physiotherapy/">physiotherapy clinic</a> cares most about courses and practitioner continuity. A <a href="/solutions/beauty-clinic/">beauty clinic</a> cares about practitioner and room availability, treatment packages and discount control. The same underlying tool can cover both if it books people, rooms and time together.</p>
 <h2>Several branches</h2>
 <p>Clinic groups in Kathmandu, Lalitpur and Pokhara can use one account for every branch and see one daily report. Practitioners who work across locations can be scheduled to transfer in advance. Read the <a href="/blog/manage-multiple-spa-salon-branches-nepal/">multi-branch checklist</a>.</p>
-
-      <h2>Common questions</h2>
-      <h3>What appointment software can a physiotherapy clinic in Nepal use?</h3>
-      <p>Zennly suits physiotherapy clinics: it schedules therapists and rooms, supports repeat treatment visits, prevents double-bookings and records payments per visit.</p>
-      <h3>Does Zennly work for beauty and skin clinics?</h3>
-      <p>Yes. Practitioners, rooms, services, packages and payments can all be managed in Zennly, and there is a dedicated solution page for beauty clinics.</p>
-      <h3>Is Zennly a medical records system?</h3>
-      <p>No. Zennly handles scheduling, staff, payments and reporting. It is not an electronic medical record system.</p>
-      <h3>Can a clinic run more than one branch?</h3>
-      <p>Yes. Zennly runs one branch or many from one account, with one daily report across all of them.</p>
-      
-      <h2>Related reading</h2>
-      <ul>
-        <li><a href="/blog/physiotherapy-clinic-scheduling/">How physiotherapy clinics can keep a treatment course on schedule</a></li>
-        <li><a href="/solutions/physiotherapy/">Physiotherapy clinic scheduling software for Nepal</a></li>
-        <li><a href="/solutions/beauty-clinic/">Beauty clinic booking software for Nepal</a></li>
-        <li><a href="/features/booking/">Booking management</a></li>
-        <li><a href="/nepal/kathmandu/">Booking software in Kathmandu</a></li>
-        </ul>
-
-    </div>
-  </section>
-
-  <section class="section article-more">
-    <div class="article-more__inner reveal">
-      <h2 class="article-more__h2">Keep reading</h2>
-      <div class="blog-idx-rows">
-        <a href="/blog/physiotherapy-clinic-scheduling/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/feat-role-managers.jpg", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Physiotherapy</p>
-              <h3 class="blog-idx-row__h3">How physiotherapy clinics can keep a treatment course on schedule</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>4 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/cleaning-service-scheduling/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/feat-industries.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Cleaning Services</p>
-              <h3 class="blog-idx-row__h3">How cleaning companies can schedule crews and track jobs on site</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>4 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/tattoo-studio-booking-and-deposits/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/solution-hero-tattoo.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Tattoo Studios</p>
-              <h3 class="blog-idx-row__h3">How tattoo studios can manage artist schedules and deposits</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>4 min read</span></p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="bottom-cta" id="demo">
-    <div class="bottom-cta__card bottom-cta__card--banner reveal">
-      <h2 class="bottom-cta__h2">Running a clinic?</h2>
-      <p class="bottom-cta__sub">Book a 20-minute demo and see practitioner scheduling and treatment courses in Zennly.</p>
-      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
-    </div>
-  </section>
-
-  {% include "_footer-v2.njk" %}
-
-</main>

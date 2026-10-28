@@ -1,39 +1,65 @@
 ---
-layout: base.njk
+layout: layouts/blog-article.njk
 title: "Salon Booking System in Nepal: Go Beyond Phone Calls | Zennly"
+h1: "How to take salon and beauty parlour bookings without phone calls"
 metaDescription: "How salons and beauty parlours in Nepal can take appointments online, schedule stylists across branches and stop double-bookings."
 datePublished: "2026-09-30"
 dateModified: "2026-10-04"
 ogType: article
-bodyClass: page--light-nav
+bodyClass: page--light-nav page--pink-cta
+category: "Salons"
+categoryAnchor: "salons"
+readTime: "4 min read"
+subtitle: "A salon booking system lets clients book online by branch, service and stylist, refuses double-bookings, and records every payment against the booking, across every branch."
+coverImage: "/assets/images/solution-showcase-salon-3.png"
+coverAlt: "Salons"
+sidebarCtaHeading: "Running a salon or beauty parlour?"
+sidebarCtaBody: "See salon booking and staff scheduling in Zennly."
+bottomCtaHeading: "Running a salon or beauty parlour?"
+bottomCtaBody: "Book a 20-minute demo and see salon booking and staff scheduling in Zennly."
+faq:
+  - question: "How can a salon in Nepal take bookings without phone calls?"
+    answer: "Use booking software that lets clients choose a branch, service and stylist online and get a booking number back. The slot is then locked, so the same stylist cannot be booked twice."
+  - question: "What should salon booking software in Nepal track?"
+    answer: "It should track bookings by stylist, payments by method (cash, card or online), discounts with manager approval, and revenue per branch."
+relatedReading:
+  - url: "/blog/salon-management-software/"
+    label: "Salon management software: features and how to choose"
+  - url: "/blog/stop-taking-bookings-on-whatsapp-nepal/"
+    label: "Why salons and spas should stop taking bookings on WhatsApp"
+  - url: "/solutions/salon/"
+    label: "Salon and beauty parlour booking software for Nepal"
+  - url: "/blog/how-to-choose-booking-software-nepal/"
+    label: "How to choose booking software in Nepal"
+  - url: "/case-study/"
+    label: "Case study: a four-branch spa on Zennly"
+  - url: "/solutions/barbershop/"
+    label: "Barbershop booking software for Nepal"
+  - url: "/solutions/bridal-makeup/"
+    label: "Bridal and makeup studio booking software"
+  - url: "/nepal/kathmandu/"
+    label: "Booking software in Kathmandu"
+keepReading:
+  - link: "/blog/barbershop-booking-app-nepal/"
+    image: "solution-hero-barbershop.jpg"
+    tag: "Barbershops"
+    title: "Barbershop booking app in Nepal: appointments, walk-ins and barber schedules"
+    read: "4 min read"
+    tone: 1
+  - link: "/blog/bridal-makeup-artist-booking-nepal/"
+    image: "solution-hero-bridal-makeup.jpg"
+    tag: "Bridal & Makeup"
+    title: "Bridal makeup booking in Nepal: managing wedding-season dates and deposits"
+    read: "5 min read"
+    tone: 3
+  - link: "/blog/best-salon-software-nepal/"
+    image: "solution-hero-salon.png"
+    tag: "Buying guide"
+    title: "Best salon software in Nepal: how to choose the right one in 2026"
+    read: "6 min read"
+    tone: 5
 ---
-{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
-{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "How to take salon and beauty parlour bookings without phone calls", url: page.url }]) }}
-{% from "schema/article.njk" import articleSchema with context %}
-{% from "schema/faq.njk" import faqSchema %}
-{{ faqSchema([{"question": "How can a salon in Nepal take bookings without phone calls?", "answer": "Use booking software that lets clients choose a branch, service and stylist online and get a booking number back. The slot is then locked, so the same stylist cannot be booked twice."}, {"question": "What should salon booking software in Nepal track?", "answer": "It should track bookings by stylist, payments by method (cash, card or online), discounts with manager approval, and revenue per branch."}]) }}
-{{ articleSchema("How to take salon and beauty parlour bookings without phone calls", datePublished, page.url, metaDescription, dateModified) }}
-
-<main>
-
-  <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
-  <section class="section" style="padding-bottom:0;">
-    <div class="article-hero reveal">
-      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
-      <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Salons</p>
-      <h1 class="article-hero__h1">How to take salon and beauty parlour bookings without phone calls</h1>
-      <p class="article-hero__meta">4 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
-    </div>
-  <figure class="article-cover reveal">
-      {% image "/assets/images/solution-showcase-salon-3.png", "Salons", { class: "article-cover__img", loading: "eager" } %}
-    </figure>
-  </section>
-
-  <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
-  <section class="section">
-    <div class="article-body reveal">
-
-      <p><strong>The best way for a salon or beauty parlour in Nepal to take bookings without phone calls is a booking system that lets clients book online by branch, service and stylist, refuses double-bookings, and records every payment against the booking. Zennly does this across multiple branches.</strong></p>
+<p><strong>The best way for a salon or beauty parlour in Nepal to take bookings without phone calls is a booking system that lets clients book online by branch, service and stylist, refuses double-bookings, and records every payment against the booking. Zennly does this across multiple branches.</strong></p>
 
 <p>Most salons and beauty parlours in Nepal still run on the same three tools: a paper appointment book, phone calls and WhatsApp messages. It works until a stylist is double-booked, a regular turns up to find her slot given away, or the owner cannot tell what a branch earned yesterday.</p>
 <h2>Why the appointment book breaks down</h2>
@@ -51,84 +77,5 @@ bodyClass: page--light-nav
 <h2>Start with the basics</h2>
 <p>You do not need to change everything at once. Many salons begin with online booking and payment tracking, then add discount approval and reports. <a href="/solutions/salon/">See how Zennly works for salons and beauty parlours</a>.</p>
 
-      <h2>Salon booking in Nepal: what to plan for</h2>
-      <p>Many salons and beauty parlours in Kathmandu, Lalitpur and Pokhara get their busiest days around the Dashain and Tihar festivals and the wedding season. Those are the days a paper book fails first. Set up stylists, services and prices before the rush, and let clients book online so the phone line is free for exceptions.</p>
-
-      <h2>Common questions</h2>
-      <h3>How can a salon in Nepal take bookings without phone calls?</h3>
-      <p>Use booking software that lets clients choose a branch, service and stylist online and get a booking number back. The slot is then locked, so the same stylist cannot be booked twice.</p>
-      <h3>What should salon booking software in Nepal track?</h3>
-      <p>It should track bookings by stylist, payments by method (cash, card or online), discounts with manager approval, and revenue per branch.</p>
-
-      <h2>Related reading</h2>
-      <ul>
-        <li><a href="/blog/salon-management-software/">Salon management software: features and how to choose</a></li>
-        <li><a href="/blog/stop-taking-bookings-on-whatsapp-nepal/">Why salons and spas should stop taking bookings on WhatsApp</a></li>
-        <li><a href="/solutions/salon/">Salon and beauty parlour booking software for Nepal</a></li>
-        <li><a href="/blog/how-to-choose-booking-software-nepal/">How to choose booking software in Nepal</a></li>
-        <li><a href="/case-study/">Case study: a four-branch spa on Zennly</a></li>
-        <li><a href="/solutions/barbershop/">Barbershop booking software for Nepal</a></li>
-        <li><a href="/solutions/bridal-makeup/">Bridal and makeup studio booking software</a></li>
-        <li><a href="/nepal/kathmandu/">Booking software in Kathmandu</a></li>
-      </ul>
-
-    </div>
-  </section>
-
-  <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
-  <section class="section article-more">
-    <div class="article-more__inner reveal">
-      <h2 class="article-more__h2">Keep reading</h2>
-      <div class="blog-idx-rows">
-        <a href="/blog/barbershop-booking-app-nepal/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/solution-hero-barbershop.jpg", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Barbershops</p>
-              <h3 class="blog-idx-row__h3">Barbershop booking app in Nepal: appointments, walk-ins and barber schedules</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>4 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/bridal-makeup-artist-booking-nepal/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/solution-hero-bridal-makeup.jpg", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Bridal & Makeup</p>
-              <h3 class="blog-idx-row__h3">Bridal makeup booking in Nepal: managing wedding-season dates and deposits</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>5 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/best-salon-software-nepal/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/solution-hero-salon.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Buying guide</p>
-              <h3 class="blog-idx-row__h3">Best salon software in Nepal: how to choose the right one in 2026</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>6 min read</span></p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="bottom-cta" id="demo">
-    <div class="bottom-cta__card bottom-cta__card--banner reveal">
-      <h2 class="bottom-cta__h2">Running a salon or beauty parlour?</h2>
-      <p class="bottom-cta__sub">Book a 20-minute demo and see salon booking and staff scheduling in Zennly.</p>
-      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
-  {% include "_footer-v2.njk" %}
-
-</main>
+<h2>Salon booking in Nepal: what to plan for</h2>
+<p>Many salons and beauty parlours in Kathmandu, Lalitpur and Pokhara get their busiest days around the Dashain and Tihar festivals and the wedding season. Those are the days a paper book fails first. Set up stylists, services and prices before the rush, and let clients book online so the phone line is free for exceptions.</p>

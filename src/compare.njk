@@ -3,7 +3,7 @@ layout: base.njk
 title: "Zennly vs Spreadsheets, WhatsApp & Paper | Zennly"
 metaDescription: "Compare Zennly with spreadsheets, WhatsApp and paper registers for running a spa, salon or gym in Nepal: double bookings, discounts, payments and the daily close."
 dateModified: "2026-10-07"
-bodyClass: page--light-nav
+bodyClass: page--light-nav page--pink-cta page--flat-footer
 compareFaq:
   - question: "Is booking software better than a spreadsheet for a spa or salon in Nepal?"
     answer: "A spreadsheet works for one person and one branch. It stops working once several staff book, discount and take payments, because nothing stops two bookings for the same therapist or room and nobody approves discounts. Booking software books staff, room and time together and records every payment against its booking."
@@ -25,7 +25,7 @@ compareFaq:
   <h1>Booking software or spreadsheets? <em>Compared.</em></h1>
   <p class="pg-hero__lede">Zennly against spreadsheets, WhatsApp and paper registers, in plain words.</p>
   <div class="pg-hero__actions">
-    <a href="/demo/" class="v2-btn">Book a demo &rarr;</a>
+    <a href="#try-free" class="v2-btn" data-trial-open>Try a free demo &rarr;</a>
     <a href="/blog/spreadsheets-stop-working/" class="v2-answers-link">Why spreadsheets stop working &rarr;</a>
   </div>
 </header>
@@ -57,24 +57,33 @@ compareFaq:
       </table>
     </div></div>
   </section>
-  <section class="pg-section">
+  <section class="pg-section pg-section--bytype">
     <h2 class="pg-h2">Compare by <em>business type.</em></h2>
     <p class="pg-sub">See Zennly next to named options for your kind of business.</p>
-    <div class="pg-pills">
-      <a class="pg-pill" href="/compare/spa-salon-software-nepal/">Spa &amp; salon software compared &rarr;</a>
-      <a class="pg-pill" href="/compare/gym-software-nepal/">Gym software compared &rarr;</a>
+    <div class="pg-pills pg-pills--cta">
+      <a class="pg-pill pg-pill--cta" href="/compare/spa-salon-software-nepal/">Spa &amp; salon software compared &rarr;</a>
+      <a class="pg-pill pg-pill--cta" href="/compare/gym-software-nepal/">Gym software compared &rarr;</a>
     </div>
   </section>
   <section class="pg-section pg-end">
-    <h2 class="pg-h2">Common <em>questions.</em></h2>
-    <p class="pg-sub">Choosing between booking software and what you use today.</p>
-    <div class="pg-faq">
-      {% for f in compareFaq %}
-      <details>
-        <summary>{{ f.question }}</summary>
-        <p>{{ f.answer }}</p>
-      </details>
-      {% endfor %}
+    <div class="pg-faq2">
+      <div class="pg-faq2__head">
+        <h2 class="pg-h2">Common <em>questions.</em></h2>
+        <p class="pg-sub">Choosing between booking software and what you use today.</p>
+      </div>
+      <div class="pg-faq2__list" x-data="{ open: 0 }">
+        {% for f in compareFaq %}
+        <div class="pg-faq2__item" :class="{ 'is-open': open === {{ loop.index0 }} }">
+          <button class="pg-faq2__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
+            <span>{{ f.question }}</span>
+            <span class="pg-faq2__icon" aria-hidden="true"></span>
+          </button>
+          <div class="pg-faq2__a" x-show="open === {{ loop.index0 }}" {% if not loop.first %}x-cloak{% endif %}>
+            <p>{{ f.answer }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </section>
 </div>
@@ -83,7 +92,7 @@ compareFaq:
   <div class="bottom-cta__card bottom-cta__card--banner reveal">
     <h2 class="bottom-cta__h2">See how Zennly compares, live.</h2>
     <p class="bottom-cta__sub">Book a 20-minute demo and judge it on your own branches and bookings.</p>
-    <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+    <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &#8599;</a>
   </div>
 </section>
 

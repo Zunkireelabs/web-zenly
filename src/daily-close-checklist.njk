@@ -3,7 +3,7 @@ layout: base.njk
 title: "Daily Close Checklist for Spas, Salons & Gyms | Zennly"
 metaDescription: "A free 12-step end-of-day checklist for spas, salons, gyms and clinics: bookings, cash, card and online payments, discounts and variances, ready to print."
 dateModified: "2026-10-13"
-bodyClass: page--light-nav
+bodyClass: page--light-nav page--pink-cta
 ---
 {% set groups = [
   { id: 1, k: "Bookings", h: "Is every booking accounted for?" },
@@ -132,7 +132,7 @@ function dcl(total){return{total:total,on:{},done:0,init(){try{this.on=JSON.pars
   <div class="bottom-cta__card bottom-cta__card--banner reveal">
     <h2 class="bottom-cta__h2">Close every branch in minutes.</h2>
     <p class="bottom-cta__sub">Book a 20-minute demo and see the daily close in a live system.</p>
-    <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+    <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &#8599;</a>
   </div>
 </section>
 

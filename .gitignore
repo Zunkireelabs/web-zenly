@@ -13,5 +13,13 @@ src/_archived/
 /DESIGN_*.md
 /SESSION_CONTEXT.md
 
+# Local scratch/exploration files (root-level only, not part of the build)
+/image.png
+/palette-preview.html
+
 # Contains live proxy credentials
 dev_tools/page-cloner/proxies.txt
+
+# Placeholder hero video (third-party ad, local design work only; never commit or deploy)
+src/assets/videos/*Square*
+src/assets/videos/placeholder-*

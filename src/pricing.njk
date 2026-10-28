@@ -2,8 +2,8 @@
 layout: base.njk
 title: "Zennly Pricing — Plans for Booking Software in Nepal"
 dateModified: "2026-10-14"
-metaDescription: "Compare Zennly plans for single-branch and multi-branch spas, salons, gyms and clinics. Quoted per business, no setup fees, full features during the free trial."
-bodyClass: page--light-nav
+metaDescription: "Compare Zennly plans for single-branch and multi-branch spas, salons, gyms and clinics. Quoted per business, no setup fees, full features in the free demo."
+bodyClass: page--light-nav page--pink-cta
 # Prices are placeholders: set `price` / `priceNote` on each plan when real prices are decided.
 pricingPlans:
   - key: single
@@ -13,7 +13,7 @@ pricingPlans:
     sub: "Run bookings, staff and the daily close for one spa, salon, gym or clinic."
     price: "Custom"
     priceNote: "Quoted per business"
-    cta: "Start free trial"
+    cta: "Try a free demo"
     ctaTrial: true
     includesLabel: "Includes"
     features:
@@ -31,8 +31,8 @@ pricingPlans:
     sub: "Run several locations as one business, and grow revenue."
     price: "Custom"
     priceNote: "One plan covers up to four branches"
-    cta: "Book a demo"
-    ctaHref: "/demo/"
+    cta: "Try a free demo"
+    ctaTrial: true
     includesLabel: "Everything in Starter, plus"
     features:
       - "Staff transfers and a multi-branch dashboard"
@@ -375,7 +375,7 @@ pricingFaq:
         <div class="pricing-journey__item">
           <span class="pricing-journey__tag">The cost</span>
           <strong>0<small>setup fees</small></strong>
-          <span>And the full platform during your free trial.</span>
+          <span>And the full platform in the free demo.</span>
         </div>
         <div class="pricing-journey__item">
           <span class="pricing-journey__tag">The proof</span>
@@ -384,8 +384,8 @@ pricingFaq:
         </div>
       </div>
       <div class="pricing-journey__cta">
-        <a href="/demo/" class="bottom-cta__banner-btn">Book a demo &rarr;</a>
-        <a href="/case-study/" class="bottom-cta__banner-btn bottom-cta__banner-btn--outline">See it live &rarr;</a>
+        <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &#8599;</a>
+        <a href="/case-study/" class="bottom-cta__banner-btn bottom-cta__banner-btn--outline">See it live &#8599;</a>
       </div>
     </div>
   </section>
@@ -418,7 +418,7 @@ pricingFaq:
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Let's put together a quote for your business.</h2>
       <p class="bottom-cta__sub">20 minutes, no obligation. We'll understand your setup and send a tailored quote within 24 hours.</p>
-      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &#8599;</a>
     </div>
   </section>
 
@@ -470,10 +470,10 @@ pricingFaq:
             {% else %}
             <a href="{{ plan.ctaHref }}" class="btn-primary">{{ plan.cta }} &rarr;</a>
             {% endif %}
-            {% if plan.ctaHref == "/demo/" %}
-            <a href="/contact/?topic=pricing" class="btn-secondary">Ask a pricing question</a>
+            {% if plan.ctaTrial %}
+            <a href="/contact/?topic=pricing" class="btn-secondary">Talk to us</a>
             {% else %}
-            <a href="/demo/" class="btn-secondary">Book a demo</a>
+            <a href="#try-free" data-trial-open class="btn-secondary">Try a free demo</a>
             {% endif %}
           </div>
           <p class="demo-card__reassure">No credit card. No lock-in. Quoted per business, no setup fees.</p>

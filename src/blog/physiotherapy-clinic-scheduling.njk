@@ -1,39 +1,57 @@
 ---
-layout: base.njk
+layout: layouts/blog-article.njk
 title: "Physiotherapy Clinic Scheduling in Nepal | Zennly"
+h1: "How physiotherapy clinics can keep a treatment course on schedule"
 metaDescription: "How physiotherapy clinics in Nepal can schedule treatment courses with the same therapist, reduce missed sessions and track payments."
 datePublished: "2026-09-30"
 dateModified: "2026-10-04"
 ogType: article
-bodyClass: page--light-nav
+bodyClass: page--light-nav page--pink-cta
+category: "Physiotherapy"
+categoryAnchor: "physiotherapy"
+readTime: "4 min read"
+subtitle: "Physiotherapy clinics in Nepal can keep a treatment course on schedule by booking follow-up sessions before the patient leaves, keeping the same therapist, and tracking part-payments across visits."
+coverImage: "/assets/images/feat-role-managers.jpg"
+coverAlt: "Physiotherapy"
+sidebarCtaHeading: "Running a physiotherapy clinic?"
+sidebarCtaBody: "See therapist scheduling and payment tracking in Zennly."
+bottomCtaHeading: "Running a physiotherapy clinic?"
+bottomCtaBody: "Book a 20-minute demo and see therapist scheduling and payment tracking in Zennly."
+faq:
+  - question: "How can a physiotherapy clinic keep patients on their course of sessions?"
+    answer: "Book the follow-up sessions at the front desk before the patient leaves, with the same therapist at times that suit them."
+  - question: "How should a clinic record payments across several visits?"
+    answer: "Record each payment against the booking it belongs to, so paid and outstanding amounts are always visible."
+relatedReading:
+  - url: "/solutions/physiotherapy/"
+    label: "Physiotherapy clinic scheduling software for Nepal"
+  - url: "/blog/how-to-choose-booking-software-nepal/"
+    label: "How to choose booking software in Nepal"
+  - url: "/features/packages/"
+    label: "Session packages for a course of treatment"
+  - url: "/solutions/beauty-clinic/"
+    label: "Beauty clinic booking software"
+keepReading:
+  - link: "/blog/cleaning-service-scheduling/"
+    image: "feat-industries.png"
+    tag: "Cleaning Services"
+    title: "How cleaning companies can schedule crews and track jobs on site"
+    read: "4 min read"
+    tone: 1
+  - link: "/blog/tattoo-studio-booking-and-deposits/"
+    image: "solution-hero-tattoo.png"
+    tag: "Tattoo Studios"
+    title: "How tattoo studios can manage artist schedules and deposits"
+    read: "4 min read"
+    tone: 3
+  - link: "/blog/gym-membership-management-software-nepal/"
+    image: "solution-hero-fitness.png"
+    tag: "Gyms & Fitness"
+    title: "Gym membership management software in Nepal: what to look for"
+    read: "5 min read"
+    tone: 5
 ---
-{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
-{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: "How physiotherapy clinics can keep a treatment course on schedule", url: page.url }]) }}
-{% from "schema/article.njk" import articleSchema with context %}
-{% from "schema/faq.njk" import faqSchema %}
-{{ faqSchema([{"question": "How can a physiotherapy clinic keep patients on their course of sessions?", "answer": "Book the follow-up sessions at the front desk before the patient leaves, with the same therapist at times that suit them."}, {"question": "How should a clinic record payments across several visits?", "answer": "Record each payment against the booking it belongs to, so paid and outstanding amounts are always visible."}]) }}
-{{ articleSchema("How physiotherapy clinics can keep a treatment course on schedule", datePublished, page.url, metaDescription, dateModified) }}
-
-<main>
-
-  <!-- ── ARTICLE HERO ─────────────────────────────────────────────────── -->
-  <section class="section" style="padding-bottom:0;">
-    <div class="article-hero reveal">
-      <a href="/blog/" class="article-back-link">&larr; Back to Blog</a>
-      <p class="article-hero__eyebrow" style="margin-top:var(--space-md);">Physiotherapy</p>
-      <h1 class="article-hero__h1">How physiotherapy clinics can keep a treatment course on schedule</h1>
-      <p class="article-hero__meta">4 min read &middot; Published {{ datePublished | readableDate }} &middot; Updated {{ dateModified | readableDate }}</p>
-    </div>
-  <figure class="article-cover reveal">
-      {% image "/assets/images/feat-role-managers.jpg", "Physiotherapy", { class: "article-cover__img", loading: "eager" } %}
-    </figure>
-  </section>
-
-  <!-- ── ARTICLE BODY ─────────────────────────────────────────────────── -->
-  <section class="section">
-    <div class="article-body reveal">
-
-      <p><strong>Physiotherapy clinics in Nepal can keep a treatment course on schedule by booking follow-up sessions while the patient is still at the desk, tying each patient to a therapist, and recording part-payments across visits. Zennly schedules by therapist and room and tracks payments per booking.</strong></p>
+<p><strong>Physiotherapy clinics in Nepal can keep a treatment course on schedule by booking follow-up sessions while the patient is still at the desk, tying each patient to a therapist, and recording part-payments across visits. Zennly schedules by therapist and room and tracks payments per booking.</strong></p>
 
 <p>Physiotherapy is rarely one visit. Patients come back for a course of sessions, ideally with the same therapist, on a regular rhythm. If the schedule slips, so does recovery &ndash; and so does the clinic&rsquo;s income.</p>
 <h2>Book the course, not just the next visit</h2>
@@ -47,8 +65,8 @@ bodyClass: page--light-nav
 <h2>Give the owner visibility</h2>
 <p>If the clinic has more than one branch, or more than one therapist, reports on revenue and staff performance make planning easier. <a href="/solutions/physiotherapy/">See how Zennly works for physiotherapy clinics</a>.</p>
 
-      <h2>Physiotherapy scheduling in Nepal: practical points</h2>
-      <p>Patients in Kathmandu Valley often travel some distance, so a missed or double-booked session costs more than an hour. Confirm the next appointments before the patient leaves, keep the same therapist where you can, and record each part-payment so the clinic always knows the outstanding balance.</p>
+<h2>Physiotherapy scheduling in Nepal: practical points</h2>
+<p>Patients in Kathmandu Valley often travel some distance, so a missed or double-booked session costs more than an hour. Confirm the next appointments before the patient leaves, keep the same therapist where you can, and record each part-payment so the clinic always knows the outstanding balance.</p>
 
 <h2>A clinic checklist for treatment courses</h2>
 <ol>
@@ -59,78 +77,3 @@ bodyClass: page--light-nav
 <li><strong>Review weekly</strong> which courses are behind schedule and call those patients first.</li>
 </ol>
 <p>See also <a href="/blog/clinic-appointment-software-nepal/">clinic appointment software in Nepal</a> and <a href="/solutions/physiotherapy/">the physiotherapy solution</a>.</p>
-
-      <h2>Common questions</h2>
-      <h3>How can a physiotherapy clinic keep patients on their course of sessions?</h3>
-      <p>Book the follow-up sessions at the front desk before the patient leaves, with the same therapist at times that suit them.</p>
-      <h3>How should a clinic record payments across several visits?</h3>
-      <p>Record each payment against the booking it belongs to, so paid and outstanding amounts are always visible.</p>
-
-      <h2>Related reading</h2>
-      <ul>
-        <li><a href="/solutions/physiotherapy/">Physiotherapy clinic scheduling software for Nepal</a></li>
-        <li><a href="/blog/how-to-choose-booking-software-nepal/">How to choose booking software in Nepal</a></li>
-        <li><a href="/features/packages/">Session packages for a course of treatment</a></li>
-        <li><a href="/solutions/beauty-clinic/">Beauty clinic booking software</a></li>
-      </ul>
-
-    </div>
-  </section>
-
-  <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
-  <section class="section article-more">
-    <div class="article-more__inner reveal">
-      <h2 class="article-more__h2">Keep reading</h2>
-      <div class="blog-idx-rows">
-        <a href="/blog/cleaning-service-scheduling/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/feat-industries.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Cleaning Services</p>
-              <h3 class="blog-idx-row__h3">How cleaning companies can schedule crews and track jobs on site</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>4 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/tattoo-studio-booking-and-deposits/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/solution-hero-tattoo.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Tattoo Studios</p>
-              <h3 class="blog-idx-row__h3">How tattoo studios can manage artist schedules and deposits</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>4 min read</span></p>
-          </div>
-        </a>
-        <a href="/blog/gym-membership-management-software-nepal/" class="blog-idx-row">
-          <div class="blog-idx-row__img-wrap">
-            {% image "/assets/images/solution-hero-fitness.png", "", { class: "blog-idx-row__img", loading: "lazy" } %}
-          </div>
-          <div class="blog-idx-row__content">
-            <div>
-              <p class="blog-idx-row__tag">Gyms & Fitness</p>
-              <h3 class="blog-idx-row__h3">Gym membership management software in Nepal: what to look for</h3>
-            </div>
-            <p class="blog-idx-row__foot"><span>5 min read</span></p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="bottom-cta" id="demo">
-    <div class="bottom-cta__card bottom-cta__card--banner reveal">
-      <h2 class="bottom-cta__h2">Running a physiotherapy clinic?</h2>
-      <p class="bottom-cta__sub">Book a 20-minute demo and see therapist scheduling and payment tracking in Zennly.</p>
-      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
-  {% include "_footer-v2.njk" %}
-
-</main>
