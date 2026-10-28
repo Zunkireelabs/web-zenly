@@ -18,7 +18,7 @@ layout: base.njk
           <p class="article-breadcrumb"><a href="/blog/">Blog</a><span>/</span><a href="/blog/#{{ categoryAnchor }}">{{ category }}</a></p>
           <h1 class="article-hero__h1">{{ h1 }}</h1>
           <p class="article-hero__subtitle">{{ subtitle }}</p>
-          <p class="article-hero__meta">{{ readTime }} <span class="article-hero__meta-divider"></span> Published <time datetime="{{ datePublished }}">{{ datePublished | readableDate }}</time> &middot; Updated <time datetime="{{ dateModified or datePublished }}">{{ (dateModified or datePublished) | readableDate }}</time></p>
+          <p class="article-hero__meta"><span>{{ readTime }}</span> <span class="article-hero__meta-divider"></span> <span>Published <time datetime="{{ datePublished }}">{{ datePublished | readableDate }}</time></span> <span class="article-hero__meta-dot">&middot;</span> <span>Updated <time datetime="{{ dateModified or datePublished }}">{{ (dateModified or datePublished) | readableDate }}</time></span></p>
         </div>
 
         <figure class="article-cover" style="max-width:none; padding:0; margin:0 0 var(--space-lg);">
