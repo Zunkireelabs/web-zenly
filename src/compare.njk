@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Zennly vs Spreadsheets, WhatsApp & Paper | Zennly"
-metaDescription: "Compare Zennly with spreadsheets, WhatsApp and paper registers for running a spa, salon or gym in Nepal: double bookings, discounts, payments and the daily close."
+title: "Zennly vs Spreadsheets, WhatsApp & Paper: Which Wins? | Zennly"
+metaDescription: "Compare Zennly with spreadsheets, WhatsApp and paper registers for a spa, salon or gym in Nepal: double-bookings, discounts, payments and daily close."
 dateModified: "2026-10-07"
 bodyClass: page--light-nav page--pink-cta
 compareFaq:
@@ -71,14 +71,14 @@ compareFaq:
         <h2 class="pg-h2">Common <em>questions.</em></h2>
         <p class="pg-sub">Choosing between booking software and what you use today.</p>
       </div>
-      <div class="pg-faq2__list" x-data="{ open: 0 }">
+      <div class="pg-faq2__list" x-data="{ open: null }">
         {% for f in compareFaq %}
         <div class="pg-faq2__item" :class="{ 'is-open': open === {{ loop.index0 }} }">
           <button class="pg-faq2__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
             <span>{{ f.question }}</span>
             <span class="pg-faq2__icon" aria-hidden="true"></span>
           </button>
-          <div class="pg-faq2__a" x-show="open === {{ loop.index0 }}" {% if not loop.first %}x-cloak{% endif %}>
+          <div class="pg-faq2__a" x-show="open === {{ loop.index0 }}"  x-cloak>
             <p>{{ f.answer }}</p>
           </div>
         </div>

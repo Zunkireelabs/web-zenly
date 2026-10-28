@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: About Zennly — Booking Software Built in Nepal
-metaDescription: "Zennly is booking and operations software built in Lalitpur, Nepal, since 2026, for spas, salons, gyms and clinics. Live at a four-branch Kathmandu spa."
+title: "About Zennly: Booking Software Built in Nepal"
+metaDescription: "Zennly is booking and operations software built in Lalitpur, Nepal, for spas, salons, wellness centers, gyms and clinics. Live at a four-branch Kathmandu spa."
 dateModified: "2026-10-22"
 bodyClass: page--light-nav
 faq:
@@ -187,14 +187,14 @@ faq:
           <a href="tel:{{ site.telephone }}" class="fd-btn fd-btn--soft">{{ site.telephone }}</a>
         </div>
       </div>
-      <div class="fd-faq__list" x-data="{ open: 0 }">
+      <div class="fd-faq__list" x-data="{ open: null }">
         {% for item in faq %}
         <div class="fd-faq__item" :class="{ 'is-open': open === {{ loop.index0 }} }">
           <button class="fd-faq__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
             <span>{{ item.question }}</span>
             <span class="fd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="fd-faq__a" x-show="open === {{ loop.index0 }}" {% if not loop.first %}x-cloak{% endif %}>
+          <div class="fd-faq__a" x-show="open === {{ loop.index0 }}"  x-cloak>
             <p>{{ item.answer }}</p>
           </div>
         </div>

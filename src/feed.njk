@@ -1,0 +1,27 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Zennly Blog</title>
+  <subtitle>Guides for spas, salons, gyms and clinics on booking, staff, payroll and running more than one branch.</subtitle>
+  <link href="{{ site.url }}/feed.xml" rel="self" />
+  <link href="{{ site.url }}/blog/" />
+  <id>{{ site.url }}/blog/</id>
+  <updated>{{ "2026-10-28" }}T00:00:00Z</updated>
+  <author><name>Zennly</name><uri>{{ site.url }}/about/</uri></author>
+{%- for item in collections.all | reverse %}
+{%- if item.url and item.url.startsWith("/blog/") and item.url != "/blog/" and item.data.datePublished and not item.data.noindex %}
+  <entry>
+    <title>{{ item.data.h1 | escape }}</title>
+    <link href="{{ site.url }}{{ item.url }}" />
+    <id>{{ site.url }}{{ item.url }}</id>
+    <published>{{ item.data.datePublished }}T00:00:00Z</published>
+    <updated>{{ item.data.dateModified or item.data.datePublished }}T00:00:00Z</updated>
+    <summary>{{ item.data.metaDescription | escape }}</summary>
+    <category term="{{ item.data.category | escape }}" />
+  </entry>
+{%- endif %}
+{%- endfor %}
+</feed>

@@ -2878,14 +2878,14 @@ layout: base.njk
         <h2 class="fd-h2">{{ feature.objections.headline }}</h2>
         {% if feature.objections.sub %}<p class="fd-head-row__sub">{{ feature.objections.sub }}</p>{% endif %}
       </div>
-      <div class="fd-faq__list" x-data="{ open: 0 }">
+      <div class="fd-faq__list" x-data="{ open: null }">
         {% for item in feature.objections.items %}
         <div class="fd-faq__item" :class="{ 'is-open': open === {{ loop.index0 }} }">
           <button class="fd-faq__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
             <span>{{ item.question }}</span>
             <span class="fd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="fd-faq__a" x-show="open === {{ loop.index0 }}" {% if not loop.first %}x-cloak{% endif %}>
+          <div class="fd-faq__a" x-show="open === {{ loop.index0 }}"  x-cloak>
             <p>{{ item.answer }}</p>
           </div>
         </div>

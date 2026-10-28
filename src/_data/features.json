@@ -214,6 +214,10 @@
         {
           "question": "How do you prevent double-bookings across multiple branches?",
           "answer": "Zennly locks each time slot the moment a booking is created, checked against the specific branch, room, and staff member — so two people can't book the same slot, even across different devices or front-desk terminals."
+        },
+        {
+          "question": "What is the best online booking software for multi-branch spas and salons in Nepal?",
+          "answer": "The best choice checks the staff member, room and time together, so two customers cannot take the same slot, and shows every branch in one calendar. Zennly is built for multi-branch spas, salons and gyms in Nepal."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -292,8 +296,8 @@
       "payment-tracking",
       "discount-management"
     ],
-    "metaDescription": "Multi-branch booking management software for service businesses in Nepal — track every appointment from first request to final payment.",
-    "seoTitle": "Multi-Branch Booking Software, No Double-Bookings | Zennly"
+    "metaDescription": "Let customers book online 24/7 while you stop double-bookings. Every appointment tracked to final payment, across all your branches in Nepal.",
+    "seoTitle": "Online Booking Software Nepal, No Double-Bookings | Zennly"
   },
   {
     "slug": "operational-visibility",
@@ -498,6 +502,10 @@
         {
           "question": "How can an owner see all branches' bookings in one place?",
           "answer": "Zennly gives owners a single real-time dashboard showing every branch's bookings, staff status, and payments as they happen — no phone calls or manager check-ins required to know how the day is going."
+        },
+        {
+          "question": "What is multi-branch business dashboard software for a spa or salon in Nepal?",
+          "answer": "It is one screen that shows every branch's bookings, staff and payments in real time. Zennly gives spa, salon and gym owners in Nepal that single dashboard, so they stop phoning each manager for updates."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -564,8 +572,8 @@
       "payment-tracking",
       "discount-management"
     ],
-    "metaDescription": "Real-time operational visibility for multi-branch spas, salons, and service businesses in Nepal — every booking, every branch, one dashboard.",
-    "seoTitle": "Multi-Branch Operations Dashboard for Owners | Zennly"
+    "metaDescription": "See every booking and every branch in one live view, so you stop calling for updates. Real-time dashboard for spas, salons and gyms in Nepal.",
+    "seoTitle": "Multi-Branch Dashboard for Spa & Salon Owners | Zennly"
   },
   {
     "slug": "payment-tracking",
@@ -856,8 +864,8 @@
       "reports",
       "discount-management"
     ],
-    "metaDescription": "Payment tracking software for service businesses in Nepal — record every payment the moment it's collected, with a full financial record per booking.",
-    "seoTitle": "Payment Tracking & Daily Reconciliation Software | Zennly"
+    "metaDescription": "Record every cash, card and online payment against its booking and close each day fast. Reconciliation software for spas and salons in Nepal.",
+    "seoTitle": "Payment Tracking & Daily Close Software Nepal | Zennly"
   },
   {
     "slug": "reports",
@@ -1126,8 +1134,8 @@
       "operational-visibility",
       "discount-management"
     ],
-    "metaDescription": "Built-in business reports for service businesses in Nepal — revenue, staff performance, discounts, attendance, and referrals in one place.",
-    "seoTitle": "Business Reports for Multi-Branch Services | Zennly"
+    "metaDescription": "See revenue, staff performance, discounts, attendance and referrals across every branch. Business reports for spas, salons and gyms in Nepal.",
+    "seoTitle": "Business Reports for Spas, Salons & Gyms Nepal | Zennly"
   },
   {
     "slug": "staff-management",
@@ -1319,6 +1327,10 @@
         {
           "question": "How do you schedule a staff transfer between branches?",
           "answer": "In Zennly, you schedule a transfer with the staff member, destination branch, and effective date — the origin and destination branches both see the change immediately, and existing bookings re-anchor to the new location automatically."
+        },
+        {
+          "question": "What staff scheduling app can a salon or spa in Nepal use?",
+          "answer": "Zennly is web-based staff scheduling software for salons and spas in Nepal. It schedules staff by branch and shift, handles transfers between branches and links attendance to payroll."
         }
       ],
       "sub": "Answers to what owners ask before their next staff transfer."
@@ -1364,8 +1376,8 @@
       "booking",
       "operational-visibility"
     ],
-    "metaDescription": "Staff management software for multi-branch service businesses in Nepal — schedule staff transfers, assign therapists, and manage teams across locations.",
-    "seoTitle": "Staff Scheduling & Branch Transfer Software | Zennly"
+    "metaDescription": "Schedule therapists, move staff between branches and manage teams across locations without WhatsApp chaos. Staff scheduling for salons and spas in Nepal.",
+    "seoTitle": "Staff Scheduling App Nepal: Branch Transfers | Zennly"
   },
   {
     "slug": "discount-management",
@@ -1539,6 +1551,10 @@
         {
           "question": "How do you stop staff from giving unauthorized discounts?",
           "answer": "Zennly requires every discount request to go through manager approval before it applies — each request is tied to a booking, staff member, and value, giving owners a full audit trail of where discounts are given and why."
+        },
+        {
+          "question": "What is discount approval software for a spa or salon in Nepal?",
+          "answer": "It is software where a discount is requested with the exact percentage and amount and only applies after a manager approves it. Zennly records every request and approval, so spa and salon owners in Nepal keep a full audit trail."
         }
       ],
       "sub": "Answers to what owners ask before they switch."
@@ -1612,8 +1628,8 @@
       "payment-tracking",
       "reports"
     ],
-    "metaDescription": "Discount management software for service businesses in Nepal — track every discount request with a full audit trail so margins stop leaking.",
-    "seoTitle": "Discount Approval & Audit Trail Software | Zennly"
+    "metaDescription": "Staff request, managers approve, and every discount leaves an audit trail. Stop margin leakage in your spa, salon or gym in Nepal.",
+    "seoTitle": "Discount Approval Software Nepal: Stop Margin Leaks | Zennly"
   },
   {
     "slug": "role-based-access",
@@ -1928,7 +1944,7 @@
       "operational-visibility",
       "discount-management"
     ],
-    "metaDescription": "Role-based access control for service businesses in Nepal — a three-tier permission model built around how a real service business is structured.",
+    "metaDescription": "Owners see everything, managers see their branch, staff see their day. Role-based access built for how spas, salons and gyms in Nepal are really run.",
     "seoTitle": "Role-Based Access for Owners, Managers & Staff | Zennly"
   },
   {
@@ -2055,8 +2071,8 @@
       "discount-management",
       "role-based-access"
     ],
-    "metaDescription": "Membership management software for spas, salons and gyms in Nepal — prepaid tiers, wallet balances, validity dates and renewals in one system.",
-    "seoTitle": "Membership Management Software Nepal | Zennly",
+    "metaDescription": "Sell prepaid membership tiers and always know wallet balance, validity and renewals. Membership software for spas, salons and gyms in Nepal.",
+    "seoTitle": "Spa, Salon & Gym Membership Software Nepal | Zennly",
     "heroMockup": {
       "title": "Membership wallets",
       "date": "Oct 2 · Downtown",
@@ -2470,8 +2486,8 @@
       "vouchers",
       "payment-tracking"
     ],
-    "metaDescription": "Package and session bundle software for spas and salons in Nepal — issue packages, redeem sessions at checkout and track balances.",
-    "seoTitle": "Spa & Salon Package Software Nepal | Zennly",
+    "metaDescription": "Sell session bundles, redeem sessions at checkout and track remaining balances automatically. Package software for spas and salons in Nepal.",
+    "seoTitle": "Spa & Salon Package Software Nepal: Session Bundles | Zennly",
     "heroMockup": {
       "title": "Package balances",
       "date": "Aug 20 · Downtown",
@@ -2889,7 +2905,7 @@
       "packages",
       "payment-tracking"
     ],
-    "metaDescription": "Gift voucher software for spas and salons in Nepal — unique codes, balances, partial claims and expiry tracking.",
+    "metaDescription": "Issue gift vouchers with unique codes, track balances, allow partial claims and expiry. Voucher software for spas and salons in Nepal.",
     "seoTitle": "Gift Voucher Software Nepal for Spas & Salons | Zennly",
     "heroMockup": {
       "title": "Voucher claims",
@@ -3309,8 +3325,8 @@
       "booking",
       "reports"
     ],
-    "metaDescription": "Promotion and campaign software for spas and salons in Nepal — dated percentage offers on chosen services, shown in online booking.",
-    "seoTitle": "Spa & Salon Promotion Software Nepal | Zennly",
+    "metaDescription": "Run dated percentage offers on chosen services and show them in online booking. Promotion software for spas and salons in Nepal.",
+    "seoTitle": "Spa & Salon Promotion & Offer Software Nepal | Zennly",
     "heroMockup": {
       "title": "Active campaigns",
       "date": "Oct 4 · Online booking",
@@ -3739,8 +3755,8 @@
       "memberships",
       "campaigns"
     ],
-    "metaDescription": "Customer outreach software for spas and salons in Nepal: automatic win-back and review requests by email, SMS or WhatsApp, with an approval queue.",
-    "seoTitle": "Win-Back & Review Request Software Nepal | Zennly",
+    "metaDescription": "Bring customers back and collect reviews with an approval queue, by email, or SMS and WhatsApp on request. Outreach for spas and salons in Nepal.",
+    "seoTitle": "Customer Win-Back & Review Requests Nepal | Zennly",
     "heroMockup": {
       "title": "Outreach queue",
       "date": "Sep 8 · Email",
@@ -4162,8 +4178,8 @@
       "role-based-access",
       "reports"
     ],
-    "metaDescription": "Payroll software for spas and salons in Nepal — monthly salary, attendance deductions and commission calculated per branch.",
-    "seoTitle": "Spa & Salon Payroll & Commission Software Nepal | Zennly",
+    "metaDescription": "Calculate monthly salary, attendance deductions and therapist commission per branch without spreadsheets. Payroll for spas and salons in Nepal.",
+    "seoTitle": "Spa & Salon Payroll Software Nepal: Commission | Zennly",
     "heroMockup": {
       "title": "Payroll run",
       "date": "July · Downtown",
@@ -4606,7 +4622,7 @@
       "outreach",
       "reports"
     ],
-    "metaDescription": "AI receptionist for spas, salons and clinics in Nepal: an AI assistant that answers calls and chats and helps customers book. Available on request.",
+    "metaDescription": "An AI receptionist that answers calls and chats and helps customers book, so no enquiry goes unanswered. For spas, salons and clinics in Nepal, on request.",
     "seoTitle": "AI Receptionist for Spas & Salons in Nepal | Zennly",
     "roles": [
       {
