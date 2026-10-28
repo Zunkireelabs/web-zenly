@@ -1,8 +1,8 @@
 ﻿---
 dateModified: "2026-10-04"
 layout: base.njk
-title: "Zennly Features — Booking, Payments, Staff & Reports"
-metaDescription: "Explore Zennly's features: online booking, staff scheduling, payment tracking, discount approvals and multi-branch reporting for spas, salons and gyms."
+title: "Features: Booking, Payroll, Payments & AI | Zennly"
+metaDescription: "Everything to run a spa, salon or gym: online booking, payroll, discount approval, payments, memberships and reports. See each feature in action."
 bodyClass: page--light-nav page--pink-cta
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
@@ -1161,13 +1161,13 @@ bodyClass: page--light-nav page--pink-cta
       <div class="fd-faq__head reveal">
         <h2 class="fd-h2">Before you book a demo, <em>a few honest answers.</em></h2>
       </div>
-      <div class="fd-faq__list" x-data="{ open: 0 }">
+      <div class="fd-faq__list" x-data="{ open: null }">
         <div class="fd-faq__item reveal" :class="{ 'is-open': open === 0 }">
           <button class="fd-faq__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
             <span>Do we need all of these features?</span>
             <span class="fd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="fd-faq__a" x-show="open === 0">
+          <div class="fd-faq__a" x-show="open === 0" x-cloak>
             <p>No. Most businesses start with booking management and payment tracking &ndash; and those two alone change how their operations work. Everything else is there when you need it.</p>
           </div>
         </div>

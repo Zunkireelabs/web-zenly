@@ -1,9 +1,26 @@
 ---
 dateModified: "2026-10-04"
 layout: base.njk
-title: "Booking Software Nepal | Spa, Salon & Gym Management System | Zennly"
-metaDescription: "Online booking and management software for spas, beauty parlours, salons, gyms and clinics in Nepal. Multi-branch scheduling, discount approval and daily reconciliation."
+title: "Spa & Salon Booking Software in Nepal | Free Demo | Zennly"
+metaDescription: "Stop double-bookings and discount leakage. Booking, staff, payroll, payments and reports for spas, salons and gyms in Nepal. Book a 20-minute demo."
 ownNav: true
+homeFaq:
+  - question: "What is Zennly?"
+    answer: "Zennly is multi-branch booking and operations software for spas, salons, gyms and clinics in Nepal. It covers online booking, staff and room scheduling, discount approval with an audit trail, payment tracking and daily reconciliation across every branch."
+  - question: "What is the best booking software for spas and salons in Nepal?"
+    answer: "The best choice books the staff member, room and time together, stops double-bookings, requires approval for discounts and gives owners one report across branches. Zennly is built for exactly this. Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on it."
+  - question: "What software can I use to manage a salon, spa or gym in Nepal?"
+    answer: "Zennly is web-based management software for salons, beauty parlours, spas, gyms and clinics in Nepal. Customers book online from their phone, and your team manages staff, rooms, memberships, packages and payments from one dashboard."
+  - question: "Does Zennly work for businesses with more than one branch?"
+    answer: "Yes. Zennly was built for multi-branch businesses. Staff can move between branches, every payment is recorded against its booking and the owner sees all branches in one dashboard."
+  - question: "Which businesses is Zennly booking software for?"
+    answer: "Zennly is for spas and wellness centres, hair salons and beauty parlours, barbershops, beauty clinics, bridal and makeup studios, tattoo studios, gyms and personal trainers, physiotherapy clinics and cleaning companies, in Kathmandu, Lalitpur, Bhaktapur, Pokhara and across Nepal."
+  - question: "How much does booking software cost in Nepal?"
+    answer: "Prices depend on branches, team size and features. Zennly is quoted per business: see the plans on the pricing page, or book a 20-minute demo and receive a tailored quote within 24 hours."
+  - question: "Does Zennly have a waiting list or a walk-in queue?"
+    answer: "Yes. Zennly has a waiting list for full slots and a live walk-in queue that shows each person's place and an estimated wait. Walk-ins are fitted around booked appointments, and classes can have capacity limits."
+  - question: "How does Zennly stop double-bookings and discount leakage?"
+    answer: "Booking checks the staff member, room and time together, so two customers cannot take the same slot. A discount is requested with the exact amount and applies only after a manager approves it, with every step recorded."
 extraHead: |
   <style>
     /* Scoped, page-local design tokens — deliberately NOT the Zennly design system.
@@ -2235,6 +2252,17 @@ extraHead: |
     /* COMPARISON — mobile: stacked crossfade (bad underneath, good wipes in on
        top as the section scrolls through view), ported 1:1 from getflect.app's
        @media(max-width:767px) comparison rules. */
+
+    /* FAQ — accordion on the cream sheet, built from the homepage's own tokens. */
+    .v2-faq .v2-h2{max-width:640px; margin-bottom:var(--v2-head-gap);}
+    .v2-faq__list{max-width:880px; border-top:1px solid var(--v2-line);}
+    .v2-faq__item{border-bottom:1px solid var(--v2-line);}
+    .v2-faq__q{display:flex; align-items:center; justify-content:space-between; gap:24px; width:100%; padding:24px 0; margin:0; background:none; border:0; cursor:pointer; text-align:left; font-family:var(--v2-sans); font-size:clamp(18px,1.53vw,22px); font-weight:600; letter-spacing:-0.03em; line-height:1.2; color:var(--v2-ink);}
+    .v2-faq__icon{flex:none; position:relative; width:32px; height:32px; border-radius:50%; border:1px solid var(--v2-line); background:var(--v2-bg); transition:background .3s var(--v2-ease-out);}
+    .v2-faq__icon::before,.v2-faq__icon::after{content:""; position:absolute; left:50%; top:50%; width:12px; height:1.5px; background:var(--v2-ink); transform:translate(-50%,-50%); transition:transform .3s var(--v2-ease-out);}
+    .v2-faq__icon::after{transform:translate(-50%,-50%) rotate(90deg);}
+    .v2-faq__item.is-open .v2-faq__icon::after{transform:translate(-50%,-50%) rotate(0deg);}
+    .v2-faq__a p{margin:0 0 24px; max-width:720px; font-size:17px; line-height:1.6; color:var(--v2-ink-soft);}
   </style>
 ---
 
@@ -2694,6 +2722,27 @@ extraHead: |
       <a class="v2-guide" href="/blog/reduce-no-shows-salon-spa-nepal/">{% image "/assets/images/feat-idx-outreach.jpg", "", { loading: "lazy", sizes: "(max-width: 767px) 90vw, 600px" } %}<span class="v2-guide__t">How to reduce missed appointments at a salon or spa</span></a>
       <a class="v2-guide" href="/blog/daily-reconciliation/">{% image "/assets/images/cta-brand-landscape.jpg", "", { loading: "lazy", sizes: "(max-width: 767px) 90vw, 600px" } %}<span class="v2-guide__t">What daily revenue reconciliation should actually take</span></a>
       <a class="v2-guide v2-guide--learn" href="/blog/"><span><b>Learn with Zennly</b><span>Practical guides for spa, salon, gym and clinic owners in Nepal</span></span><span class="v2-guide__go" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema(homeFaq) }}
+<section class="v2-section v2-sheet v2-sheet--cream v2-faq" id="v2-faq" aria-label="Frequently asked questions">
+  <div class="v2-wrap">
+    <h2 class="v2-h2 v2-reveal">Booking software in Nepal, answered</h2>
+    <div class="v2-faq__list v2-reveal" x-data="{ open: null }">
+      {% for f in homeFaq %}
+      <div class="v2-faq__item" :class="{ 'is-open': open === {{ loop.index0 }} }">
+        <button type="button" class="v2-faq__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
+          <span>{{ f.question }}</span>
+          <span class="v2-faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="v2-faq__a" x-show="open === {{ loop.index0 }}" x-cloak>
+          <p>{{ f.answer }}</p>
+        </div>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>

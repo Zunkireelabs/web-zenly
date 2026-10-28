@@ -235,14 +235,14 @@
       <div class="fd-faq__head reveal">
         <h2 class="fd-h2">{{ sq.faq.heading }} <em>{{ sq.faq.accent }}</em></h2>
       </div>
-      <div class="fd-faq__list" x-data="{ open: 0, all: false }">
+      <div class="fd-faq__list" x-data="{ open: null, all: false }">
         {% for item in solution.faq %}
         <div class="fd-faq__item" :class="{ 'is-open': open === {{ loop.index0 }} }"{% if loop.index > sq.faq.visible %} x-show="all" x-cloak{% endif %}>
           <button class="fd-faq__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
             <span>{{ item.question }}</span>
             <span class="fd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="fd-faq__a" x-show="open === {{ loop.index0 }}"{% if not loop.first %} x-cloak{% endif %}>
+          <div class="fd-faq__a" x-show="open === {{ loop.index0 }}" x-cloak>
             <p>{{ item.answer }}</p>
           </div>
         </div>
