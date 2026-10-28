@@ -6,7 +6,7 @@
     "hero": {
       "eyebrow": "Booking management",
       "headline": "Every appointment, tracked from <span class=\"fd-hero__h1-accent\">first request to final payment</span>.",
-      "subheadline": "A complete booking system built for multi-branch service businesses, so your schedule doesn't rely on the front desk alone.",
+      "subheadline": "A complete booking system for multi-branch businesses, so your schedule doesn't rely on the front desk.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-booking.png",
       "imageAlt": "Booking management dashboard",
@@ -302,7 +302,7 @@
     "hero": {
       "eyebrow": "Real-time operational visibility",
       "headline": "Stop calling for updates.<br> <span class=\"fd-hero__h1-accent\">See how the day is going.</span>",
-      "subheadline": "Every booking status, every branch, every moment – visible in one place. Without a message, a call, or a report that's already out of date.",
+      "subheadline": "Every booking, every branch, every moment — visible in one place, without a call or a stale report.",
       "cta": "See the live dashboard in a 20-minute demo →",
       "image": "/assets/images/feat-operations.png",
       "imageAlt": "Operations dashboard screenshot",
@@ -574,7 +574,7 @@
     "hero": {
       "eyebrow": "Payment Tracking",
       "headline": "Know exactly what came in. <span class=\"fd-hero__h1-accent\">At every branch. Every day.</span>",
-      "subheadline": "Every payment recorded the moment it's collected. Every booking closed with a financial record. No reconciliation headaches. No end-of-month surprises. No \"I think we got paid for that one.\"",
+      "subheadline": "Every payment recorded the moment it's collected — no reconciliation headaches, no end-of-month surprises.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-finance.png",
       "imageAlt": "Payment tracking dashboard",
@@ -866,7 +866,7 @@
     "hero": {
       "eyebrow": "Reports",
       "headline": "Every number, <span class=\"fd-hero__h1-accent\">always explained.</span>",
-      "subheadline": "Eight built-in reports covering revenue, staff performance, discounts, attendance, and referrals — always up to date.",
+      "subheadline": "Eight built-in reports covering revenue, staff, discounts and attendance — always up to date.",
       "image": "/assets/images/feat-reports.png",
       "imageAlt": "Reports dashboard screenshot",
       "bg": "#EDE8F2"
@@ -1136,7 +1136,7 @@
     "hero": {
       "eyebrow": "Staff & therapist management",
       "headline": "Staff moves between branches.<br> <span class=\"fd-hero__h1-accent\">Everyone already knows.</span>",
-      "subheadline": "Schedule staff moves between branches with an effective date. Assign therapists to bookings. Manage your team across every location without a single coordination call.",
+      "subheadline": "Schedule staff transfers and assign therapists to bookings — manage your team without coordination calls.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-multibranch.png",
       "imageAlt": "Staff transfer and roster management screenshot",
@@ -1374,7 +1374,7 @@
     "hero": {
       "eyebrow": "Discount management",
       "headline": "Every discount gets a name.<br> <span class=\"fd-hero__h1-accent\">And an approval.</span>",
-      "subheadline": "Stop finding out weeks later that your margins have been quietly disappearing. Every discount request is reviewed before it's applied — with a full record of who asked, why, and what was approved.",
+      "subheadline": "Every discount request is reviewed before it's applied, with a full record of who asked and why.",
       "cta": "See how it works — book a 20-minute demo →",
       "image": "/assets/images/feat-discount.png",
       "imageAlt": "Discount request and approval dashboard",
@@ -1622,7 +1622,7 @@
     "hero": {
       "eyebrow": "Role-based access",
       "headline": "Everyone sees only their part.<br> <span class=\"fd-hero__h1-accent\">You see everything.</span>",
-      "subheadline": "A three-tier access model built around how a real service business is structured — so every person has exactly the information they need, and no more than they should.",
+      "subheadline": "A three-tier access model so every person sees exactly what they need, and no more.",
       "cta": "See role-based access in a 20-minute demo →",
       "image": "/assets/images/feat-role-based-access.png",
       "imageAlt": "Role-based access control dashboard",
@@ -1938,7 +1938,7 @@
     "hero": {
       "eyebrow": "Memberships",
       "headline": "Prepaid memberships,<br> <span class=\"fd-hero__h1-accent\">tracked to the last dollar.</span>",
-      "subheadline": "Customers pay in advance for a membership tier. Zennly keeps the balance, the validity period and every transaction in one record.",
+      "subheadline": "Customers pay in advance for a membership tier. Zennly tracks the balance and every transaction.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-finance.png",
       "imageAlt": "Membership balance and transactions",
@@ -2357,7 +2357,7 @@
     "hero": {
       "eyebrow": "Packages",
       "headline": "Sell session packages,<br> <span class=\"fd-hero__h1-accent\">know every session left.</span>",
-      "subheadline": "A package is a bundle of sessions for one service at a set price. Zennly counts sessions down at checkout and shows what is left and what is still owed.",
+      "subheadline": "A package bundles sessions for one service at a set price — Zennly counts them down at checkout.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-operations.png",
       "imageAlt": "Package balance and session redemptions",
@@ -2776,7 +2776,7 @@
     "hero": {
       "eyebrow": "Vouchers",
       "headline": "Gift vouchers<br> <span class=\"fd-hero__h1-accent\">with a balance you can trust.</span>",
-      "subheadline": "Issue prepaid or gift vouchers with a unique code and an expiry date. Customers redeem them as a payment, in one visit or over several.",
+      "subheadline": "Issue prepaid or gift vouchers with a unique code and expiry — redeemable as payment, any visit.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-finance.png",
       "imageAlt": "Voucher code and balance",
@@ -3196,7 +3196,7 @@
     "hero": {
       "eyebrow": "Campaigns",
       "headline": "Run a promotion,<br> <span class=\"fd-hero__h1-accent\">and it shows up in booking.</span>",
-      "subheadline": "Set a percentage offer for chosen services and dates. Zennly applies it to prices and shows a banner on your online booking site while it runs.",
+      "subheadline": "Set a percentage offer for chosen services and dates — Zennly applies it and banners it on booking.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-reports.png",
       "imageAlt": "Campaign banner and discounted service prices",
@@ -3614,7 +3614,7 @@
     "hero": {
       "eyebrow": "Outreach",
       "headline": "Bring customers back,<br> <span class=\"fd-hero__h1-accent\">without chasing them.</span>",
-      "subheadline": "Zennly messages customers who have not visited in a while and asks for a review after a visit, using templates your team writes. Email, SMS and WhatsApp channels are available.",
+      "subheadline": "Zennly re-engages customers who haven't visited, and asks for reviews — by email, SMS or WhatsApp.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-hero-dashboard.png",
       "imageAlt": "Outreach rules and message queue",
@@ -4045,7 +4045,7 @@
     "hero": {
       "eyebrow": "Payroll",
       "headline": "Payroll for your therapists,<br> <span class=\"fd-hero__h1-accent\">calculated, not guessed.</span>",
-      "subheadline": "Each month, per branch, Zennly works out salary, absence deductions and commission from your attendance and bookings records.",
+      "subheadline": "Each month, per branch, Zennly works out salary, deductions and commission from attendance and bookings.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-reports.png",
       "imageAlt": "Monthly payroll run for a branch",
@@ -4473,7 +4473,7 @@
     "hero": {
       "eyebrow": "AI receptionist",
       "headline": "Never miss a booking,<br> <span class=\"fd-hero__h1-accent\">even when nobody answers.</span>",
-      "subheadline": "An AI receptionist that answers customer calls and chats for your spa, salon, gym or clinic and helps them book, so enquiries are not lost while your team is with a customer or the doors are closed. Available on request.",
+      "subheadline": "An AI receptionist that answers calls and chats, so no enquiry is lost while your team is busy.",
       "cta": "See it in a 20-minute demo →",
       "image": "/assets/images/feat-hero-dashboard.png",
       "imageAlt": "AI receptionist answering booking enquiries",

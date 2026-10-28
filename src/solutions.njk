@@ -101,7 +101,7 @@ faq:
     <div class="si-sticky">
       <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="si-ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter></svg>
       {%- asyncEach t in collage %}
-      <div class="si-tile{% if t.ui %} si-tile--ui si-tile--{{ t.tint }}{% endif %}{% if t.doodle %} si-tile--doodle{% endif %}" style="--x:{{ t.x }}%; --y:{{ t.y }}%; --d:{{ t.d }}" aria-hidden="true">
+      <div class="si-tile{% if t.ui %} si-tile--ui si-tile--{{ t.tint }}{% endif %}{% if t.doodle %} si-tile--doodle{% endif %}" data-i="{{ loop.index }}" style="--x:{{ t.x }}%; --y:{{ t.y }}%; --d:{{ t.d }}" aria-hidden="true">
         {%- if t.photo %}{% image t.photo, "", { loading: "lazy", sizes: "160px" } %}
         {%- elif t.doodle %}{% set d = t.doodle %}{% include "_si-doodle.njk" %}
         {%- else %}<div class="si-tile__ui">{{ t.ui | safe }}</div>{% endif -%}
@@ -113,8 +113,8 @@ faq:
           <h1>Built for the way <em>your business runs.</em></h1>
           <p class="si-vhero__sub">Spas, salons, studios and clinics: one system for bookings, payments, staff and every branch.</p>
           <div class="si-vbtns">
-            <a href="#try-free" class="is-primary" data-trial-open>Try a free demo</a>
-            <a href="/contact/" class="is-ghost">Talk to us</a>
+            <a href="#try-free" class="is-primary" data-trial-open>Try a free demo ↗</a>
+            <a href="/contact/" class="is-ghost">Talk to us ↗</a>
           </div>
         </div>
         <nav class="si-quick" aria-label="Industries">
@@ -210,8 +210,7 @@ faq:
       <div>
         <h2 class="fd-h2">See Zennly with <em>your own services.</em></h2>
         <div class="fd-btns">
-          <a href="#try-free" class="fd-btn fd-btn--white" data-trial-open>Try a free demo</a>
-          <a href="/how-it-works/" class="fd-btn fd-btn--glass">See how it works</a>
+          <a href="#try-free" class="fd-btn fd-btn--white" data-trial-open>Try a free demo ↗</a>
         </div>
       </div>
       <div class="ab-final__phone"><div class="ab-phone">{% image "/assets/images/mobile-mockup.png", "Zennly calendar on a phone", { loading: "lazy" } %}</div></div>
@@ -228,23 +227,34 @@ faq:
     var io = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
 
     // Pinned hero: progress p (0→1) through .si-scrolly drives the clip/scale of the video, the tiles and the line.
-    // Phones and reduced motion get the static layout from CSS (no pinning).
+    // Reduced motion gets the static layout from CSS (no pinning). Runs on phones too.
     var wrap = document.querySelector('.si-scrolly'), hero = wrap && wrap.querySelector('.si-vhero');
     if (hero) {
       var vid = hero.querySelector('video'), line = wrap.querySelector('.si-line');
       var tiles = [].slice.call(wrap.querySelectorAll('.si-tile'));
-      var still = window.matchMedia('(max-width: 767px), (prefers-reduced-motion: reduce)');
+      var still = window.matchMedia('(prefers-reduced-motion: reduce)');
       var frame = function () {
         if (still.matches) { ['--cx', '--cy', '--cr', '--ho'].forEach(function (k) { hero.style.removeProperty(k); }); hero.style.opacity = ''; vid.style.removeProperty('--vs'); vid.style.removeProperty('--vy'); return; }
-        var r = wrap.getBoundingClientRect(), W = window.innerWidth, H = window.innerHeight;
-        var p = cl(-r.top / (r.height - H)), tw = Math.min(340, W * .26), th = tw * 9 / 16, k = io(cl((p - .04) / .5));
+        var r = wrap.getBoundingClientRect(), W = window.innerWidth, H = window.innerHeight, isPhone = W < 768;
+        var p = cl(-r.top / (r.height - H));
+        // On a phone, W * .26 alone makes too small a target (the video would read as a
+        // tiny sliver even with a correct aspect ratio) — floor it at 200px so the shrunk
+        // video stays a legible little video, not just a dot.
+        var tw = isPhone ? Math.min(340, Math.max(200, W * .5)) : Math.min(340, W * .26), th = tw * 9 / 16, k = io(cl((p - .04) / .5));
+        // Nudge is sized off the tile's own height (th), not viewport height (H): a
+        // fixed H-based offset (e.g. H*.03) is fine on desktop where th is large
+        // relative to H, but on a tall narrow phone H dwarfs the small mobile tile,
+        // so the old H*.03 term alone nearly cancelled th and collapsed the clip to
+        // a sliver. th-relative keeps the same proportional "settle a bit lower"
+        // look at every viewport.
+        var nudge = th * .13;
         hero.style.setProperty('--cx', ((W - tw) / 2 * k).toFixed(1) + 'px');
-        hero.style.setProperty('--cy', ((H - th) / 2 * k + H * .03 * k).toFixed(1) + 'px');
+        hero.style.setProperty('--cy', ((H - th) / 2 * k + nudge * k).toFixed(1) + 'px');
         hero.style.setProperty('--cr', (28 * Math.min(1, k * 5)).toFixed(1) + 'px');
         hero.style.setProperty('--ho', (1 - cl(p / .12)).toFixed(3));
         hero.style.opacity = (1 - cl((p - .72) / .12)).toFixed(3);
         vid.style.setProperty('--vs', (1 - (1 - Math.max(tw / W, th / H)) * k).toFixed(4));
-        vid.style.setProperty('--vy', (H * .03 * k).toFixed(1) + 'px');
+        vid.style.setProperty('--vy', (nudge * k).toFixed(1) + 'px');
         tiles.forEach(function (t) { var d = +t.style.getPropertyValue('--d'); t.style.setProperty('--t', ease(cl((p - .24 - d * .05) / .28)).toFixed(3)); });
         line.style.setProperty('--l', ease(cl((p - .76) / .12)).toFixed(3));
       };

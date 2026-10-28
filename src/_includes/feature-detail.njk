@@ -15,8 +15,8 @@ layout: base.njk
       <h1 class="fd-hero__h1">{{ feature.hero.headline | safe }}</h1>
       {% if feature.hero.subheadline %}<p class="fd-hero__lede">{{ feature.hero.subheadline }}</p>{% endif %}
       <div class="fd-btns">
-        <span class="cta-cap"><button type="button" class="fd-btn fd-btn--dark" data-trial-open>Try a free demo</button><span class="cta-cap__note">Instant access · no call needed</span></span>
-        <span class="cta-cap"><a href="/contact/" class="fd-btn fd-btn--soft">Talk to us</a><span class="cta-cap__note">Questions? Our team replies</span></span>
+        <span class="cta-cap"><button type="button" class="fd-btn fd-btn--dark" data-trial-open>Try a free demo ↗</button><span class="cta-cap__note">Instant access · no call needed</span></span>
+        <span class="cta-cap"><a href="/contact/" class="fd-btn fd-btn--soft">Talk to us ↗</a><span class="cta-cap__note">Questions? Our team replies</span></span>
       </div>
       {% if feature.hero.trustLine %}
       <p class="fd-hero__trust">{{ feature.hero.trustLine }}</p>
@@ -2921,8 +2921,8 @@ layout: base.njk
       <h2 class="fd-h2">{{ feature.bottomCta.headline if feature.bottomCta else "Ready to see it in action?" }}</h2>
       {% if feature.bottomCta.subheadline %}<p class="fd-final__sub">{{ feature.bottomCta.subheadline }}</p>{% endif %}
       <div class="fd-btns">
-        <span class="cta-cap"><button type="button" class="fd-btn fd-btn--white" data-trial-open>Try a free demo</button><span class="cta-cap__note">Instant access · no call needed</span></span>
-        <span class="cta-cap"><a href="/contact/" class="fd-btn fd-btn--glass">Talk to us</a><span class="cta-cap__note">Questions? Our team replies</span></span>
+        <span class="cta-cap"><button type="button" class="fd-btn fd-btn--white" data-trial-open>Try a free demo ↗</button><span class="cta-cap__note">Instant access · no call needed</span></span>
+        <span class="cta-cap"><a href="/contact/" class="fd-btn fd-btn--glass">Talk to us ↗</a><span class="cta-cap__note">Questions? Our team replies</span></span>
       </div>
       <p class="fd-final__note">No credit card required · Live in a day · Real support when you need it</p>
     </div>
@@ -3181,12 +3181,8 @@ layout: base.njk
       selectors.forEach(function (card, idx) {
         var isActive = idx === index;
         card.classList.toggle('is-active', isActive);
-        
-        // Reset progress bar on all bars
         var bar = card.querySelector('.fd-roles-selector-card__progress-bar');
-        if (bar) {
-          bar.style.width = '0%';
-        }
+        if (bar) bar.style.transform = 'scaleX(0)';
       });
       
       // Update desktop display panel
@@ -3218,20 +3214,18 @@ layout: base.njk
       var activeCard = showcase.querySelector('.fd-roles-selector-card.is-active');
       if (!activeCard) return;
       var bar = activeCard.querySelector('.fd-roles-selector-card__progress-bar');
-      if (!bar) return;
 
       function step() {
         if (isUserInteracted || !isInView) return;
         var now = Date.now();
         var progress = (now - startTime) / duration;
         if (progress >= 1) {
-          progress = 1;
-          bar.style.width = '100%';
+          if (bar) bar.style.transform = 'scaleX(1)';
           // Move to next role
           var nextIndex = (currentIndex + 1) % selectors.length;
           activateRole(nextIndex);
         } else {
-          bar.style.width = (progress * 100) + '%';
+          if (bar) bar.style.transform = 'scaleX(' + progress + ')';
           progressAnimFrame = requestAnimationFrame(step);
         }
       }
@@ -3242,13 +3236,9 @@ layout: base.njk
     selectors.forEach(function (card) {
       var index = parseInt(card.getAttribute('data-role-select'), 10);
       card.addEventListener('click', function () {
-        isUserInteracted = true;
+        // Jump straight to this tab but keep the auto-advancing line going
+        // (matches the homepage outcomes tabs) rather than freezing it.
         cancelAnimationFrame(progressAnimFrame);
-        // Clean all progress bars
-        selectors.forEach(function (c) {
-          var b = c.querySelector('.fd-roles-selector-card__progress-bar');
-          if (b) b.style.width = '0%';
-        });
         activateRole(index);
       });
     });
@@ -3260,7 +3250,6 @@ layout: base.njk
       var trigger = acc.querySelector('.fd-roles-accordion-trigger');
       if (trigger) {
         trigger.addEventListener('click', function () {
-          isUserInteracted = true;
           lastManualTapAt = Date.now();
           cancelAnimationFrame(progressAnimFrame);
           // If already active, toggle it (collapsing all is fine for accordions, or keep one active)
@@ -3272,6 +3261,39 @@ layout: base.njk
         });
       }
     });
+
+    // Swipe on the display panel to switch roles on mobile. The desktop
+    // showcase (fd-tabs + fd-roles-display-panel) stays visible on .fd-page
+    // templates at every width (see fd-roles-showcase override in
+    // main.css), so phones see this tab strip + panel, not the accordion —
+    // and the tab strip itself is a thin auto-scrolling row, an unreliable
+    // touch target, so the panel content is the real swipe surface.
+    var displayPanel = showcase.querySelector('.fd-roles-display-panel');
+    if (displayPanel) {
+      var rtx0 = 0, rty0 = 0, rTracking = false, rHorizontal = false;
+      displayPanel.addEventListener('touchstart', function (e) {
+        if (e.touches.length !== 1) return;
+        rtx0 = e.touches[0].clientX; rty0 = e.touches[0].clientY;
+        rTracking = true; rHorizontal = false;
+      }, { passive: true });
+      displayPanel.addEventListener('touchmove', function (e) {
+        if (!rTracking) return;
+        var dx = e.touches[0].clientX - rtx0, dy = e.touches[0].clientY - rty0;
+        if (!rHorizontal && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) rHorizontal = true;
+        if (rHorizontal && e.cancelable) e.preventDefault();
+      }, { passive: false });
+      displayPanel.addEventListener('touchend', function (e) {
+        if (!rTracking) return;
+        rTracking = false;
+        if (!rHorizontal) return;
+        var dx = e.changedTouches[0].clientX - rtx0;
+        if (Math.abs(dx) < 40) return;
+        cancelAnimationFrame(progressAnimFrame);
+        var n = (currentIndex + (dx < 0 ? 1 : -1) + selectors.length) % selectors.length;
+        activateRole(n);
+        selectors[n].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      });
+    }
 
     // Auto-expand each accordion item as it scrolls near the vertical
     // center of the viewport — on top of (not instead of) the tap-to-

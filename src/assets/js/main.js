@@ -1653,6 +1653,12 @@
 
     function setActiveTab(tab) {
       tabs.forEach(function (t) { t.classList.toggle('is-active', t === tab); });
+      // On mobile the strip is a horizontal-scroll row (overflow-x:auto) —
+      // without this, a tab made active by the scroll-spy (or a click on a
+      // tab that's already partway off-screen) never actually comes into
+      // view, so the row just sits wherever it was. Only scrolls the row
+      // itself (inline), never the page (block:'nearest').
+      tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
 
     tabs.forEach(function (tab) {

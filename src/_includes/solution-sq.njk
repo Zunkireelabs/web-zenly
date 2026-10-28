@@ -72,8 +72,8 @@
         <h1 class="sq-h1">{{ sq.h1 }} <em>{{ sq.h1Accent }}</em></h1>
         <p class="sq-lede">{{ sq.sub }}</p>
         <div class="fd-btns">
-          <span class="cta-cap"><a href="#try-free" class="fd-btn fd-btn--dark" data-trial-open>Try a free demo</a><span class="cta-cap__note">Instant access · no call needed</span></span>
-          <span class="cta-cap"><a href="/contact/" class="fd-btn fd-btn--soft">Talk to us</a><span class="cta-cap__note">Questions? Our team replies</span></span>
+          <span class="cta-cap"><a href="#try-free" class="fd-btn fd-btn--dark" data-trial-open>Try a free demo ↗</a><span class="cta-cap__note">Instant access · no call needed</span></span>
+          <span class="cta-cap"><a href="/contact/" class="fd-btn fd-btn--soft">Talk to us ↗</a><span class="cta-cap__note">Questions? Our team replies</span></span>
         </div>
       </div>
       <div class="sq-wide{% if sq.heroCardPos %} sq-wide--card-{{ sq.heroCardPos }}{% endif %} reveal-scale" data-delay="1">
@@ -136,16 +136,18 @@
       <div class="sq-features__grid">
         {% for f in sq.features.items %}
         <div class="sq-feature reveal" data-delay="{{ loop.index0 % 3 }}">
-          <span class="sq-ico">{{ sqIcon(f.icon) }}</span>
-          <h3>{{ f.title }}</h3>
+          <div class="sq-feature__head">
+            <span class="sq-ico">{{ sqIcon(f.icon) }}</span>
+            <h3>{{ f.title }}</h3>
+          </div>
           <p>{{ f.desc }}</p>
           <a href="{{ f.href }}" class="sq-link">{{ f.linkText }} &rarr;</a>
         </div>
         {% endfor %}
       </div>
       <div class="fd-btns sq-features__btns">
-        <a href="#try-free" class="fd-btn fd-btn--dark" data-trial-open>Try a free demo</a>
-        <a href="/features/" class="fd-btn fd-btn--soft">Explore all features</a>
+        <a href="#try-free" class="fd-btn fd-btn--dark" data-trial-open>Try a free demo ↗</a>
+        <a href="/features/" class="fd-btn fd-btn--soft">Explore all features ↗</a>
       </div>
 
       <!-- 5. NUMBERS — Square's data band; real figures from a live client (or flagged placeholders) -->
@@ -258,8 +260,8 @@
       <div class="reveal">
         <h2 class="fd-h2">{{ sq.final.heading }} <em>{{ sq.final.accent }}</em></h2>
         <div class="fd-btns">
-          <span class="cta-cap"><a href="#try-free" class="fd-btn fd-btn--white" data-trial-open>Try a free demo</a><span class="cta-cap__note">Instant access · no call needed</span></span>
-          <span class="cta-cap"><a href="/contact/" class="fd-btn fd-btn--glass">Talk to us</a><span class="cta-cap__note">Questions? Our team replies</span></span>
+          <span class="cta-cap"><a href="#try-free" class="fd-btn fd-btn--white" data-trial-open>Try a free demo ↗</a><span class="cta-cap__note">Instant access · no call needed</span></span>
+          <span class="cta-cap"><a href="/contact/" class="fd-btn fd-btn--glass">Talk to us ↗</a><span class="cta-cap__note">Questions? Our team replies</span></span>
         </div>
       </div>
       <div class="ab-final__phone"><div class="ab-phone">{% image "/assets/images/mobile-mockup.png", "Zennly calendar on a phone", { loading: "lazy" } %}</div></div>

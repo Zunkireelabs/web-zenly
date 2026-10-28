@@ -413,7 +413,13 @@ extraHead: |
       .v2-ind-wrap{margin-inline:calc((var(--v2-content) - 100vw) / 2);}
     }
     .v2-ind-track{padding-left:calc((100vw - var(--v2-content)) / 2 + 240px); padding-right:var(--v2-gutter); display:flex; gap:12px; will-change:transform;}
-    .v2-ind-wrap--scroll{overflow-x:auto; scrollbar-width:none; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;}
+    /* touch-action tells the browser up front that this element owns horizontal
+       panning, so a finger-swipe starting on a card scrolls the row immediately
+       instead of the browser needing a few pixels of ambiguous movement to decide
+       between "scroll the row" and "scroll the page" (and, nested inside a
+       smooth-scroll page, sometimes deciding wrong). Vertical page scroll still
+       works normally when the swipe starts off this element. */
+    .v2-ind-wrap--scroll{overflow-x:auto; scrollbar-width:none; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; touch-action:pan-x;}
     .v2-ind-wrap--scroll::-webkit-scrollbar{display:none;}
 
     .v2-ind-card{position:relative; display:block; flex:0 0 340px; border-radius:24px; overflow:hidden; text-decoration:none; aspect-ratio:3/4; scroll-snap-align:start; transition:transform .2s ease, box-shadow .2s ease;}
@@ -803,7 +809,7 @@ extraHead: |
     .v2-quotes__viewport{touch-action:pan-y;}
     .v2-ind-wrap.is-dragging, .v2-quotes__viewport.is-dragging{cursor:grabbing; user-select:none;}
     .v2-ind-wrap.is-dragging *, .v2-quotes__viewport.is-dragging *{pointer-events:none;}
-    .v2-ind-wrap img, .v2-quotes__viewport img{-webkit-user-drag:none; user-select:none;}
+    .v2-ind-wrap img, .v2-quotes__viewport img{-webkit-user-drag:none; -webkit-touch-callout:none; user-select:none;}
     /* final CTA: owner-style green band (#v2-root beats the older base rules further down) */
     /* TRIAL 2026-10-21: pink/mauve + grain like .v2-practice (was green rings:
        linear-gradient(150deg, #4A9A40, #2F6A2B, #24561F), footer-flow #24561F) */
@@ -2698,8 +2704,8 @@ extraHead: |
       <div class="v2-access-copy v2-reveal">
         <h2 class="v2-access-title">Better operations start with a better system.</h2>
         <div class="v2-cta-btns">
-          <span class="cta-cap"><button type="button" class="is-primary" data-trial-open>Try a free demo</button><span class="cta-cap__note">Instant access · no call needed</span></span>
-          <span class="cta-cap"><a class="is-ghost" href="/contact/">Talk to us</a><span class="cta-cap__note">Questions? Our team replies</span></span>
+          <span class="cta-cap"><button type="button" class="is-primary" data-trial-open>Try a free demo ↗</button><span class="cta-cap__note">Instant access · no call needed</span></span>
+          <span class="cta-cap"><a class="is-ghost" href="/contact/">Talk to us ↗</a><span class="cta-cap__note">Questions? Our team replies</span></span>
         </div>
         <p class="v2-access-reassurance">No credit card required · Live in a day · Real support when you need it</p>
       </div>
@@ -4040,6 +4046,36 @@ document.addEventListener('DOMContentLoaded', function(){
         takeOver(n); tabs[n].focus();
       });
     });
+
+    // Swipe on the panel itself to switch tabs on mobile — the tab strip
+    // above is a thin auto-scrolling row that's an unreliable touch target,
+    // so the panel content is the real swipe surface.
+    var panelsWrap = sec.querySelector('.v2-ocpanels');
+    if (panelsWrap) {
+      var tx0 = 0, ty0 = 0, tracking = false, horizontal = false;
+      panelsWrap.addEventListener('touchstart', function (e) {
+        if (e.touches.length !== 1) return;
+        tx0 = e.touches[0].clientX; ty0 = e.touches[0].clientY;
+        tracking = true; horizontal = false;
+      }, { passive: true });
+      panelsWrap.addEventListener('touchmove', function (e) {
+        if (!tracking) return;
+        var dx = e.touches[0].clientX - tx0, dy = e.touches[0].clientY - ty0;
+        if (!horizontal && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) horizontal = true;
+        if (horizontal && e.cancelable) e.preventDefault();
+      }, { passive: false });
+      panelsWrap.addEventListener('touchend', function (e) {
+        if (!tracking) return;
+        tracking = false;
+        if (!horizontal) return;
+        var dx = e.changedTouches[0].clientX - tx0;
+        if (Math.abs(dx) < 40) return;
+        var n = (idx + (dx < 0 ? 1 : -1) + tabs.length) % tabs.length;
+        takeOver(n);
+        tabs[n].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      });
+    }
+
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
         inView = entries[0].isIntersecting;
