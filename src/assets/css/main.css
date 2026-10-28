@@ -3090,6 +3090,27 @@ body.page--case-study .section {
   font-family: var(--font-body);
 }
 
+/* /features/ index only: its section headers were still the smaller/lighter
+   .section__h2 (24–36px, weight 500) while the detail pages (/features/
+   {slug}/) mostly use the bigger .fd-h2 voice (34–64px, weight 600) for
+   their major section headers — e.g. "The right view for every role."
+   Match that same voice here so the index doesn't read lighter than the
+   pages it links to. Scoped to .fd-page--idx so it doesn't touch the
+   detail pages' own (unchanged) .section__h2 usage. */
+.fd-page--idx .section__h2 {
+  font-size: var(--v2-h2);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--v2-ink);
+}
+
+.fd-page--idx .section__sub {
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.55;
+  color: var(--v2-ink-soft);
+}
+
 .section__sub {
   font-family: var(--font-heading);
   font-size: 1.125rem;
@@ -17131,11 +17152,11 @@ body.page--case-study .section {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
-  background: #F3F8DC;
+  background: var(--color-bg);
   border-radius: var(--v2-flow-radius, 32px);
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: var(--space-2xl);
   align-items: center;
   padding: var(--space-lg) var(--space-xl);
@@ -17161,9 +17182,9 @@ body.page--case-study .section {
 
 .demo-hero__h1 {
   font-family: var(--v2-sans);
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 600;
-  line-height: 1.12;
+  font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: var(--v2-ink);
   margin: 0 0 var(--space-sm);
@@ -17406,6 +17427,17 @@ body.page--case-study .section {
   .demo-stats__grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Contact page: submit button reuses the .feat-page-hero__cta pill + circular-arrow component */
+.demo-form__submit.feat-page-hero__cta {
+  width: auto;
+  align-self: flex-end;
+  box-sizing: border-box;
+  margin-top: var(--space-xs);
+  padding: 6px 6px 6px 26px;
+  height: 56px;
+  font-size: 1rem;
 }
 
 /* Contact page: two link buttons next to the hint, wrapping instead of widening the grid */
@@ -21257,6 +21289,27 @@ body.page--pink-cta .bottom-cta__banner-btn--outline{border-color:rgba(255,255,2
 /* keeps the footer's rounded-corner "join" (box-shadow trick) matching the pink band behind it */
 body.page--pink-cta .v2-site-footer{--v2-footer-join:#D99A8C; --f-text:var(--v2-ink); --f-soft:rgba(46,25,25,.56); --f-line:rgba(46,25,25,.10); background:#fff;
   box-shadow:0 calc(-1 * var(--v2-flow-radius)) 0 0 var(--v2-footer-join);}
+/* the box-shadow above is a flat fill, so it reads as a seam against the
+   grainy/radial-gradient band it sits on — paint the same noise over just
+   that sliver so the join blends instead of showing a plain rectangle */
+body.page--pink-cta .v2-site-footer::before{content:''; position:absolute; left:0; right:0;
+  top:calc(-1 * var(--v2-flow-radius)); height:var(--v2-flow-radius);
+  border-top-left-radius:var(--v2-flow-radius); border-top-right-radius:var(--v2-flow-radius);
+  pointer-events:none; opacity:.55; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 1.1 -0.35'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size:200px 200px;}
+/* Resources pages (/contact/, /blog/, /case-study/, /faq/, /compare/, /nepal/):
+   the box-shadow "join" above doubles up with the footer's own border-radius
+   (shadow swatch curves, then the white box curves again right below it) and
+   reads as an extra rounded strip. Instead, pull the footer itself up over
+   the gradient by the same radius (negative margin) so its own rounded top
+   corners bite directly into the real gradient pixels behind it — one
+   curve, no flat-color patch needed. Opt in with body.page--flat-footer
+   alongside page--pink-cta. Homepage doesn't use this shared system at all
+   (its own #v2-root-scoped .v2-access/.v2-site-footer rules), so it's
+   unaffected either way. */
+body.page--flat-footer .v2-site-footer{margin-top:calc(-1 * var(--v2-flow-radius)); border-top-left-radius:var(--v2-flow-radius); border-top-right-radius:var(--v2-flow-radius); box-shadow:none;}
+body.page--flat-footer .v2-site-footer::before{content:none;}
 body.page--pink-cta .v2-footer-logo-img{filter:none;}
 body.page--pink-cta .v2-footer-btn--primary{background:var(--v2-cta); color:#fff !important;}
 body.page--pink-cta .v2-footer-btn--primary:hover{background:var(--v2-cta-hover);}
