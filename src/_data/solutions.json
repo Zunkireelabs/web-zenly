@@ -203,7 +203,7 @@
       }
     ],
     "metaDescription": "Book therapist and room together, run memberships and packages, and close the day in minutes. Used by Nuad Thai Spa across 4 branches. See a demo.",
-    "seoTitle": "Spa Software Nepal: Stop Double-Bookings | Zennly",
+    "seoTitle": "Spa Management Software Nepal: Booking & Payroll | Zennly",
     "sq": {
       "eyebrow": "Zennly for spas",
       "h1": "Scheduling software built for how spas",
@@ -4202,6 +4202,18 @@
     },
     "faq": [
       {
+        "question": "Can a clinic take a deposit for a treatment?",
+        "answer": "Yes. You can take a deposit when the treatment is booked and see exactly what is still due until the balance is paid."
+      },
+      {
+        "question": "Can a treatment course be booked across several sessions?",
+        "answer": "Yes. A course, such as six laser sessions, is booked as multiple sessions and tracked as a package, so every redemption and remaining balance stays accurate."
+      },
+      {
+        "question": "Does Zennly send follow-up reminders after a treatment?",
+        "answer": "Yes. Zennly has follow-up reminders, so clients are reminded about their next session or check-in without the front desk having to remember."
+      },
+      {
         "question": "We only have one clinic right now. Is Zennly still for us?",
         "answer": "Yes. Zennly works the same at one clinic as at ten. You get online booking, practitioner and room scheduling, discount approval and payment tracking from day one, and the multi-location views are there when you open a second clinic."
       },
@@ -4238,7 +4250,7 @@
         "answer": "Zennly is quoted per business, based on your clinics, team size and the features you use. There are no setup fees, and you can try every feature free before you decide."
       }
     ],
-    "metaDescription": "Schedule practitioners and rooms, sell treatment packages and reconcile payments daily. Software for beauty, skin and aesthetic clinics in Nepal.",
+    "metaDescription": "Book practitioners and rooms, take deposits, sell multi-session treatment packages and send follow-up reminders. Software for beauty, skin and aesthetic clinics in Nepal.",
     "seoTitle": "Beauty & Skin Clinic Software Nepal: Booking | Zennly",
     "sq": {
       "eyebrow": "Zennly for beauty clinics",
@@ -4779,6 +4791,14 @@
     },
     "faq": [
       {
+        "question": "Can our makeup artists travel to the client?",
+        "answer": "Yes. A booking at a client's home or venue is recorded with its location and travel time, so the artist is not also scheduled in the studio at that time."
+      },
+      {
+        "question": "Does Zennly send follow-up reminders?",
+        "answer": "Yes. Zennly has follow-up reminders, so customers are reminded about their next step without staff having to remember to chase them."
+      },
+      {
         "question": "We only have one studio right now. Is Zennly still for us?",
         "answer": "Yes. Zennly works the same at one studio as at ten. You get online booking, artist and suite scheduling, deposits, discount approval and payment tracking from day one, and the multi-location views are there when you open a second studio."
       },
@@ -4815,7 +4835,7 @@
         "answer": "Zennly is quoted per business, based on your studios, team size and the features you use. There are no setup fees, and you can try every feature free before you decide."
       }
     ],
-    "metaDescription": "Schedule wedding dates, take advance payments, sell packages and approve discounts. Booking software for bridal and makeup studios in Nepal.",
+    "metaDescription": "Book bridal trials and wedding days, take deposits, send artists to the client, and send follow-up reminders. Booking software for bridal and makeup studios in Nepal.",
     "seoTitle": "Bridal Makeup Booking Software Nepal | Zennly",
     "sq": {
       "eyebrow": "Zennly for bridal and makeup studios",

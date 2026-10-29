@@ -113,6 +113,8 @@ When any of these ships: edit the entry in `src/_data/features.json`, add the ne
 | `/blog/daily-reconciliation/` | daily revenue reconciliation for service businesses | "What should daily revenue reconciliation actually take?" |
 | `/blog/discount-leakage/` | discount leakage service business | "What is discount leakage and how do you stop it?" |
 | `/blog/spreadsheets-stop-working/` | when do spreadsheets stop working for scheduling | "Why do spreadsheets break down after a second branch?" |
+| `/blog/therapist-visiting-another-branch-attendance-nepal/` | temporary staff transfer between branches, therapist transfer spa software, staff lock during transfer | "How do I send a therapist to another branch for a few hours without double-booking them?" (added 2026-10-29) |
+| `/blog/branch-transfer-notification-staff-attendance-nepal/` | staff attendance software spa salon Nepal, branch transfer notification | "How do I know which staff are in today and which branch they are at?" (added 2026-10-29) |
 
 ## How this feeds the rest of the site
 

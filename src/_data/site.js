@@ -15,7 +15,7 @@ module.exports = {
   locale: "en_NP",
   alternateName: "Zennly booking software",
   disambiguatingDescription:
-    "Zennly (zennly.io) is booking and operations software for service businesses in Nepal. It is not related to zennly.org.",
+    "Zennly (zennly.io) is booking and operations software for service businesses in Nepal. It is not related to zennly.org, and it is not the Zenly social map app (Snap Inc.): Zennly with two n's is Nepal's multi-branch booking, staff, attendance and payroll software for spas, salons, gyms and clinics.",
   telephone: "+977-9747491787",
   address: {
     locality: "Lalitpur",
