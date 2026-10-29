@@ -1,4 +1,4 @@
-{% macro articleSchema(headline, datePublished, url, description, dateModified) %}
+{% macro articleSchema(headline, datePublished, url, description, dateModified, image, section, abstract) %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -7,7 +7,16 @@
   "description": {{ description | dump | safe }},
   "datePublished": "{{ datePublished }}",
   "dateModified": "{{ dateModified or datePublished }}",
-  "image": "{{ site.url }}{{ site.defaultOgImage }}",
+  "image": "{{ site.url }}{{ image or site.defaultOgImage }}",
+  {%- if section %}
+  "articleSection": {{ section | dump | safe }},
+  {%- endif %}
+  {%- if abstract %}
+  "abstract": {{ abstract | dump | safe }},
+  {%- endif %}
+  "isPartOf": { "@type": "Blog", "name": "Zennly Blog", "url": "{{ site.url }}/blog/" },
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".article-hero__h1", ".article-hero__subtitle", ".article-body > p:first-child"] },
+  "copyrightHolder": { "@id": "{{ site.url }}/#organization" },
   "inLanguage": "en",
   "author": { "@type": "Organization", "@id": "{{ site.url }}/#organization", "name": "{{ site.name }}", "url": "{{ site.url }}/about/" },
   "publisher": { "@type": "Organization", "@id": "{{ site.url }}/#organization", "name": "{{ site.name }}", "url": "{{ site.url }}/", "logo": { "@type": "ImageObject", "url": "{{ site.url }}{{ site.logo }}" } },

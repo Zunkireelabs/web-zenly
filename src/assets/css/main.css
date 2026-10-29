@@ -17950,8 +17950,24 @@ body.page--case-study .section {
   font-size: var(--fs-nav);
   color: var(--color-muted);
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-xs);
+  gap: 2px var(--space-xs);
+}
+
+.article-hero__meta > span {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .article-hero__meta-divider,
+  .article-hero__meta-dot {
+    display: none;
+  }
+  .article-hero__meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .article-hero__meta-divider {
@@ -22991,4 +23007,24 @@ body:has(.ab-dark) .v2-nav .v2-nav-inner{background:rgba(255,255,255,.94); borde
      stacked above/below the color), which is exactly the "row wise"
      layout to avoid — removed so mobile just inherits the same
      side-by-side column split as desktop. */
+}
+
+/* Blog article — mobile polish */
+@media (max-width: 640px) {
+  .article-breadcrumb { margin-bottom: var(--space-sm); line-height: 1.5; }
+  .article-hero__h1 { font-size: 1.75rem; line-height: 1.2; }
+  .article-hero__subtitle { font-size: 1rem; line-height: 1.55; margin-bottom: var(--space-sm); }
+  .article-hero__meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px 12px;
+    font-size: 0.8125rem;
+    padding-top: var(--space-xs);
+    border-top: 1px solid var(--color-border);
+    width: 100%;
+  }
+  .article-hero__meta > span:first-child { font-weight: 600; color: var(--color-text); }
+  .article-cover__img { height: 200px; border-radius: 16px; }
+  .article-body { font-size: 1.0625rem; line-height: 1.7; overflow-wrap: anywhere; }
+  .article-body h2 { margin-top: var(--space-lg); }
 }
