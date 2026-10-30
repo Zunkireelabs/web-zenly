@@ -14,8 +14,10 @@ ENV EDGEX_API_KEY=$EDGEX_API_KEY
 RUN npm run build
 
 FROM nginx:alpine
+# static.conf is an nginx template: the image's entrypoint fills in ${OTP_UPSTREAM} (compose overrides it per environment).
+ENV OTP_UPSTREAM=http://otp:3000
 RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/static.conf /etc/nginx/conf.d/default.conf
+COPY nginx/static.conf /etc/nginx/templates/default.conf.template
 COPY --from=builder /app/_site/ /usr/share/nginx/html/
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

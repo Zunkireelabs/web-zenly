@@ -7,6 +7,10 @@ services:
       args:
         ELEVENTY_ENV: development
         EDGEX_API_KEY: ${EDGEX_API_KEY:-}
+    environment:
+      OTP_UPSTREAM: http://web-zenly-otp-stage:3000
+    depends_on:
+      - otp
     networks:
       - hosting
     restart: unless-stopped
@@ -28,6 +32,27 @@ services:
       - "traefik.http.routers.web-zenly-web-stage-http.middlewares=web-zenly-web-stage-redirect"
       - "traefik.http.middlewares.web-zenly-web-stage-redirect.redirectscheme.scheme=https"
       - "traefik.http.services.web-zenly-web-stage.loadbalancer.server.port=80"
+  otp:
+    container_name: web-zenly-otp-stage
+    build:
+      context: ./otp-service
+    environment:
+      NODE_ENV: production
+      OTP_SECRET: ${OTP_SECRET:-}
+      RESEND_API_KEY: ${RESEND_API_KEY:-}
+      OTP_FROM: ${OTP_FROM:-Zennly <info@zennly.io>}
+      SITE_URL: https://dev-web.zenly.zunkireelabs.com
+      DEMO_LOGIN_EMAIL: ${DEMO_LOGIN_EMAIL:-demo.customer@zunkireelabs.com}
+      DEMO_LOGIN_PASSWORD: ${DEMO_LOGIN_PASSWORD:-ZenlyDemo2026!}
+      DEMO_LOGIN_URL: ${DEMO_LOGIN_URL:-https://dev-zenly.zunkireelabs.com/nuad-thai-spa/login}
+    networks:
+      - hosting
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
 
 networks:
   hosting:
