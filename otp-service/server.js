@@ -11,8 +11,9 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
 const FROM = process.env.OTP_FROM || "Zennly <info@zennly.io>";
 const TTL_MS = 10 * 60 * 1000;
 const SITE_URL = (process.env.SITE_URL || "https://zennly.io").replace(/\/$/, "");
-const LOGO_WHITE_URL = "https://zennly.io/assets/images/email-logo-white.png";
-const PREVIEW_URL = "https://zennly.io/assets/images/email-dashboard.png";
+// Email images come from the same site the button links to, so stage emails use stage images and live emails use zennly.io.
+const LOGO_WHITE_URL = `${SITE_URL}/assets/images/email-logo-white.png`;
+const PREVIEW_URL = `${SITE_URL}/assets/images/email-dashboard.png`;
 const DEMO = {
   email: process.env.DEMO_LOGIN_EMAIL || "demo.customer@zunkireelabs.com",
   password: process.env.DEMO_LOGIN_PASSWORD || "ZenlyDemo2026!",
