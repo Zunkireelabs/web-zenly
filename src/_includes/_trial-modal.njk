@@ -83,7 +83,6 @@
             <p class="demo-form__hint tf-verify__copy" id="tf-verify-copy"></p>
             <div class="tf-otp" id="tf-otp"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="one-time-code" maxlength="1" placeholder=" " aria-label="Digit 1"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 2"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 3"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 4"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 5"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 6"></div>
             <p class="tf-error" id="tf-verify-error" role="alert" hidden></p>
-            <p class="tf-verify__dev" id="tf-verify-dev" hidden>Demo mode &middot; use code <strong>123456</strong></p>
             <p class="tf-verify__links">
               <button type="button" class="tf-linkbtn" id="tf-resend">Resend code</button>
               <span aria-hidden="true">&middot;</span>
@@ -96,7 +95,7 @@
               <div class="tf-done__tick" aria-hidden="true">&#10003;</div>
               <div>
                 <h2 class="demo-card__headline">Your demo is ready.</h2>
-                <p class="demo-form__hint" id="tf-sent-too">We&rsquo;ve emailed these details to you too.</p>
+                <p class="demo-form__hint" id="tf-sent-too">Keep these handy &mdash; you can use them to log in any time.</p>
               </div>
             </div>
             <dl class="tf-creds">
@@ -319,10 +318,9 @@
       window.addEventListener('pagehide', postTailor);
 
       // ── Verification ─────────────────────────────────────────────
-      // TODO(demo-credentials): wire these to the real backend.
-      //   window.zennlySendCode({ via, dest, answers })  -> Promise (sends the code by email or SMS)
-      //   window.zennlyVerifyCode(code, answers)         -> Promise<{ email, password, loginUrl }> (rejects on a wrong code)
-      // Until they exist, demo mode (code 123456) runs on localhost only; on a live domain no code is accepted until these are wired.
+      // The code is emailed by otp-service (nginx proxies /api/otp/ to it). /send returns a signed token the browser
+      // hands back to /verify with the typed code; /verify returns the demo login. SMS codes will come from EdgeX; until it is
+      // connected the service answers 'sms-unavailable' and the form asks the visitor to use email.
       var verifyEl = document.getElementById('tf-verify');
       var doneEl = document.getElementById('tf-done');
       var boxes = Array.prototype.slice.call(document.querySelectorAll('.tf-otp__box'));
@@ -333,10 +331,14 @@
         Email: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
         SMS: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>'
       };
-      // Demo code 123456 works on local development only. On a real domain the code must come from zennlySendCode / zennlyVerifyCode.
+      // Locally the Eleventy dev server has no proxy, so talk to otp-service directly (node otp-service/server.js, port 3000).
       var isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
-      // Shared demo account shown to everyone who verifies (unless the backend returns its own credentials).
-      var DEMO_CREDS = { email: 'demo.customer@zunkireelabs.com', password: 'ZenlyDemo2026!', loginUrl: 'https://dev-zenly.zunkireelabs.com/nuad-thai-spa/login' };
+      var OTP_BASE = isLocal ? 'http://localhost:3000/api/otp/' : '/api/otp/';
+      var otpToken = '';
+      function otpCall(action, payload) {
+        return fetch(OTP_BASE + action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+          .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok) { var e = new Error(j.error || 'http-' + r.status); e.status = r.status; throw e; } return j; }); });
+      }
 
       // Keep the credentials visible if the user navigates away to log in and comes back (cleared when the tab closes).
       var CREDS_KEY = 'zennlyTrialCreds';
@@ -344,7 +346,6 @@
         document.getElementById('tf-cred-email').textContent = creds.email;
         document.getElementById('tf-cred-pass').textContent = creds.password;
         document.getElementById('tf-login-btn').href = creds.loginUrl || '#';
-        document.getElementById('tf-sent-too').innerHTML = creds.via === 'SMS' ? 'We&rsquo;ve texted these details to you too.' : 'We&rsquo;ve emailed these details to you too.';
         form.hidden = true; verifyEl.hidden = true; doneEl.hidden = false;
         card.classList.add('is-done');
       }
@@ -363,24 +364,19 @@
         }, 1000);
       }
       function sendCode() {
-        if (window.zennlySendCode) return Promise.resolve(window.zennlySendCode(ctx));
-        if (isLocal) return Promise.resolve(); // demo mode: no email draft, use code 123456
-        window.location.href = 'mailto:info@zennly.io?subject=' + encodeURIComponent('Free demo request — ' + ctx.business) + '&body=' + encodeURIComponent(ctx.answers);
-        return Promise.resolve();
+        return otpCall('send', ctx.via === 'SMS' ? { phone: ctx.phone, name: ctx.name } : { email: ctx.email, name: ctx.name }).then(function (j) { otpToken = j.token; });
       }
       function code() { return boxes.map(function (b) { return b.value; }).join(''); }
       function verifyCode() {
         var c = code();
         if (c.length < 6) { vErr.textContent = 'Enter all 6 digits.'; vErr.hidden = false; return; }
         vErr.hidden = true;
-        var p = window.zennlyVerifyCode ? Promise.resolve(window.zennlyVerifyCode(c, ctx.answers))
-          : (isLocal && c === '123456' ? Promise.resolve(DEMO_CREDS) : Promise.reject());
-        p.then(function (creds) {
-          creds = Object.assign({}, creds || DEMO_CREDS, { via: ctx.via });
+        otpCall('verify', ctx.via === 'SMS' ? { phone: ctx.phone, code: c, token: otpToken } : { email: ctx.email, code: c, token: otpToken }).then(function (creds) {
+          creds = Object.assign({}, creds, { via: ctx.via });
           try { sessionStorage.setItem(CREDS_KEY, JSON.stringify(creds)); } catch (e) {}
           showCreds(creds);
-        }).catch(function () {
-          vErr.textContent = 'That code isn’t right. Check it and try again.'; vErr.hidden = false;
+        }).catch(function (e) {
+          vErr.textContent = e.message === 'expired' ? 'That code has expired. Tap “Resend code” for a new one.' : e.status === 429 ? 'Too many tries. Please wait a few minutes and try again.' : 'That code isn’t right. Check it and try again.'; vErr.hidden = false;
           boxes.forEach(function (b) { b.value = ''; }); boxes[0].focus();
         });
       }
@@ -404,7 +400,9 @@
           if (t.length === 6) verifyCode();
         });
       });
-      resend.addEventListener('click', function () { sendCode().then(startCooldown); });
+      resend.addEventListener('click', function () {
+        sendCode().then(function () { vErr.hidden = true; startCooldown(); }).catch(function () { vErr.textContent = 'We couldn’t resend the code. Please try again in a moment.'; vErr.hidden = false; });
+      });
       document.getElementById('tf-change').addEventListener('click', function () {
         clearInterval(timer); verifyEl.hidden = true; form.hidden = false;
         show(0);
@@ -428,22 +426,44 @@
           'Locations: ' + val('branches'),
           'Wants to see first: ' + (val('seeFirst') || '—')
         ].join('\n');
-        ctx = { via: v, dest: dest, email: form.email.value.trim(), phone: phone(), business: form.business.value.trim(), answers: answers };
+        ctx = { via: v, dest: dest, name: form.name.value.trim(), email: form.email.value.trim(), phone: phone(), business: form.business.value.trim(), answers: answers };
         sentCode = true;
         post(leadFields('code_sent'));
+        next.disabled = true;
         sendCode().then(function () {
+          next.disabled = false;
           document.getElementById('tf-verify-icon').innerHTML = ICONS[v];
           document.getElementById('tf-verify-h').textContent = v === 'SMS' ? 'Check your phone' : 'Check your inbox';
           var vc = document.getElementById('tf-verify-copy'); vc.textContent = 'We sent a 6-digit code to '; var vs = document.createElement('strong'); vs.textContent = dest; vc.appendChild(vs); vc.appendChild(document.createTextNode('. Enter it to unlock the demo.'));
-          document.getElementById('tf-verify-dev').hidden = !(isLocal && !window.zennlyVerifyCode);
           form.hidden = true; verifyEl.hidden = false;
           eyebrow.textContent = 'Free demo · Last step';
           bar.style.width = '100%';
           boxes.forEach(function (b) { b.value = ''; });
           vErr.hidden = true; startCooldown(); boxes[0].focus();
+        }).catch(function (e) {
+          next.disabled = false;
+          err.textContent = e.message === 'sms-unavailable' ? 'Text-message codes are coming soon. Please choose Email to get your code now.' : e.status === 429 ? 'Too many requests. Please wait a few minutes and try again.' : 'We couldn’t send the code. Check your email address, or email info@zennly.io and we’ll set you up.';
+          err.hidden = false;
         });
       });
 
       show(0);
+
+      // Email button -> /?dt=<token>&de=<email>&dc=<code>: open the code step with the code already entered and check it.
+      (function () {
+        var q = new URLSearchParams(location.search), t = q.get('dt'), e = q.get('de'), c = q.get('dc');
+        if (!t || !e || !/^\d{6}$/.test(c || '')) return;
+        history.replaceState(null, '', location.pathname + location.hash); // keep the code out of the address bar
+        try { if (sessionStorage.getItem(CREDS_KEY)) return; } catch (x) {}
+        otpToken = t;
+        ctx = { via: 'Email', dest: e, email: e, name: '', business: '', answers: '' };
+        document.getElementById('tf-verify-icon').innerHTML = ICONS.Email;
+        document.getElementById('tf-verify-h').textContent = 'Check your inbox';
+        var vc = document.getElementById('tf-verify-copy'); vc.textContent = 'We sent a 6-digit code to '; var vs = document.createElement('strong'); vs.textContent = e; vc.appendChild(vs); vc.appendChild(document.createTextNode('. Enter it to unlock the demo.'));
+        form.hidden = true; verifyEl.hidden = false;
+        eyebrow.textContent = 'Free demo · Last step'; bar.style.width = '100%';
+        c.split('').forEach(function (d, i) { boxes[i].value = d; });
+        open(); startCooldown(); verifyCode();
+      })();
     })();
   </script>
