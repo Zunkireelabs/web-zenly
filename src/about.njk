@@ -1,11 +1,26 @@
 ---
 layout: base.njk
-title: About Zennly — Booking & Operations Software Built in Nepal
-metaDescription: "Zennly is a Nepal software company, founded in 2026, building multi-branch booking and operations software for spas, salons, gyms and clinics."
-dateModified: "2026-10-04"
+title: "About Zennly: Booking Software Built in Nepal"
+metaDescription: "Zennly is booking and operations software built in Lalitpur, Nepal, for spas, salons, wellness centers, gyms and clinics. Live at a four-branch Kathmandu spa."
+dateModified: "2026-10-22"
 bodyClass: page--light-nav
+faq:
+  - question: "What is Zennly?"
+    answer: "Zennly is multi-branch booking and operations software for spas, salons, tattoo studios, gyms, physiotherapy clinics and cleaning services in Nepal. It covers online booking, staff and room scheduling, discount approval, payment tracking and a locked daily reconciliation."
+  - question: "Who built Zennly and where is it based?"
+    answer: "Zennly launched in 2026 and is built by Zunkireelabs (founded 2018) in Lalitpur (Patan), Bagmati Province, Nepal."
+  - question: "Is Zennly used by a real business in Nepal?"
+    answer: "Yes. Nuad Thai Spa Kathmandu is Zennly's first live client, running four branches, 39 therapists, 12 rooms and 194 services on one system."
+  - question: "What kinds of businesses is Zennly for?"
+    answer: "Appointment-based service businesses in Nepal, single-branch or multi-branch: spas, salons and beauty parlours, tattoo studios, gyms, physiotherapy clinics and cleaning services."
+  - question: "Can businesses outside Nepal use Zennly?"
+    answer: "Yes, on request. Zennly is Nepal-first, and is available to service businesses in other countries, including the USA, UK, Canada, Australia and the UAE."
+  - question: "How much does Zennly cost?"
+    answer: "Zennly is quoted per business, based on the number of branches, team size and features used. Contact info@zennly.io or book a 20-minute demo for a quote."
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema(faq) }}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "About", url: "/about/" }]) }}
 <script type="application/ld+json">
 {
@@ -16,70 +31,205 @@ bodyClass: page--light-nav
   "name": "About Zennly",
   "dateModified": "{{ dateModified }}",
   "inLanguage": "en",
+  "description": "Zennly is multi-branch booking and operations software for spas, salons, gyms and clinics in Nepal, launched in 2026 by Zunkireelabs in Lalitpur.",
   "about": { "@id": "{{ site.url }}/#organization" },
   "mainEntity": { "@id": "{{ site.url }}/#organization" }
 }
 </script>
 
-<main>
+<main class="fd-page fd-page--palette ab-page">
 
-  <section class="section" style="padding-bottom:0; padding-top:calc(var(--v2-nav-h) + var(--v2-nav-inset) + var(--space-lg));">
-    <div class="article-hero" style="padding:0 0 var(--space-sm); text-align:left; max-width:var(--max-w-copy); margin:0 auto;">
-      <p class="article-hero__eyebrow article-hero__eyebrow--pill">Company</p>
-      <h1 class="article-hero__h1" style="margin-top:var(--space-sm);">About Zennly</h1>
-      <p class="article-hero__meta">Last updated: October 4, 2026</p>
+  <!-- 1. DARK TOP (CLAUDE.md exception) — Square /about black block, Zennly styling; our own front-desk video (hero-1280.mp4) -->
+  <section class="ab-dark">
+    <div class="ab-dark__stage">
+      <div class="ab-dark__video">
+        <video autoplay muted loop playsinline preload="metadata" poster="/assets/images/hero-video-poster.jpg" aria-hidden="true">
+          <source src="/assets/videos/hero-1280.mp4" type="video/mp4">
+        </video>
+      </div>
+      <h1 class="ab-dark__h1">Helping service businesses run <em>calmer.</em></h1>
     </div>
-    <hr style="border:none; border-top:1px solid var(--color-border); max-width:var(--max-w-copy); margin:var(--space-lg) auto;" />
+
+    <p class="ab-dark__statement">Spas, salons, studios, gyms and clinics run their bookings, teams and money on one calm system, <em>built in Lalitpur, Nepal.</em></p>
+
+    <div class="ab-dark__rule" aria-hidden="true"></div>
+    <div class="ab-dark__about">
+      <h2>About <em>Zennly</em></h2>
+      <div>
+        <p>Across Nepal, service businesses run on phone calls, WhatsApp messages, paper diaries and spreadsheets. It works until a second branch opens, a therapist is double-booked, or a discount is given that nobody can trace.</p>
+        <p>Zennly was launched in 2026 by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a> to replace that patchwork: online booking, staff and room scheduling, discount approvals, payment tracking and a locked daily close, across every branch.</p>
+      </div>
+    </div>
+
+    <div class="ab-dark__stats">
+      <div><b>4</b><span>branches on one system</span></div>
+      <div><b>39</b><span>therapists scheduled</span></div>
+      <div><b>12</b><span>treatment rooms</span></div>
+      <div><b>194</b><span>services on the menu</span></div>
+    </div>
+    <p class="ab-dark__src">At Nuad Thai Spa Kathmandu, Zennly&rsquo;s first live client.</p>
+
+    <div class="ab-dark__cards">
+      <a class="ab-dark__card" href="/case-study/">
+        <div class="ab-dark__card-media">{% image "/assets/images/nuad/guests-tea.jpg", "Guests being served tea at Nuad Thai Spa", { loading: "lazy" } %}</div>
+        <div class="ab-dark__card-body"><span class="ab-dark__card-title">Read how Nuad Thai Spa runs four branches</span><span class="ab-dark__card-link">Case study &rarr;</span></div>
+      </a>
+      <a class="ab-dark__card" href="/solutions/">
+        <div class="ab-dark__card-media">{% image "/assets/images/solution-hero-salon.png", "A salon team at work", { loading: "lazy" } %}</div>
+        <div class="ab-dark__card-body"><span class="ab-dark__card-title">See the businesses we build for</span><span class="ab-dark__card-link">Solutions &rarr;</span></div>
+      </a>
+      <a class="ab-dark__card" href="/press/">
+        <div class="ab-dark__card-media ab-dark__card-media--logo">{% image "/assets/images/zunkireelabs-icon.png", "Zunkireelabs logo", { loading: "lazy" } %}</div>
+        <div class="ab-dark__card-body"><span class="ab-dark__card-title">Get company facts and brand assets</span><span class="ab-dark__card-link">Press kit &rarr;</span></div>
+      </a>
+    </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="article-body reveal">
+  <!-- 4. HOW IT STARTED -->
+  <section class="fd-sheet fd-sheet--cream">
+    <div class="fd-wrap ab-split">
+      <div class="reveal">
+        <h2 class="fd-h2">How it <em>started.</em></h2>
+        <p class="ab-lead">We started with a real operator, not a demo.</p>
+        <div class="ab-copy">
+          <p>Nuad Thai Spa Kathmandu grew from one location to four branches the way most service businesses do: one good year at a time, with the booking system never catching up.</p>
+          <p>The owner&rsquo;s mornings went on calling each branch to find out who was booked, who showed up and what was collected. Discounts were verbal. Staff moved between branches with a phone call.</p>
+          <p>We built Zennly around those four branches, and they still run on it today.</p>
+        </div>
+      </div>
+      <div class="ab-collage reveal">
+        {% image "/assets/images/nuad/sign.jpg", "The Nuad Thai sign", { class: "sq", loading: "lazy" } %}
+        {% image "/assets/images/nuad/lazimpat.jpg", "A treatment lounge at Nuad Thai Spa, Lazimpat", { class: "tall", loading: "lazy" } %}
+        {% image "/assets/images/nuad/garden.jpg", "The garden at a Nuad Thai Spa branch", { class: "sq lo", loading: "lazy" } %}
+      </div>
+    </div>
+  </section>
 
-      <p><strong>Zennly is a multi-branch booking and operations platform for appointment-based service businesses in Nepal.</strong> It was founded in 2026 and serves spas, salons, tattoo studios, gyms, physiotherapy clinics and cleaning services. It is built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a> and based in Lalitpur, Nepal.</p>
+  <!-- QUOTE — Square "Helping businesses do more" story card; quote from /case-study/ -->
+  <!-- PLACEHOLDER: quote credited to an anonymous "Owner" (as on /case-study/) — add their name when approved -->
+  <section class="fd-sheet fd-sheet--white">
+    <div class="fd-wrap">
+      <figure class="ab-quote reveal">
+        <div class="ab-quote__body">
+          <blockquote class="ab-quote__q">&ldquo;I used to spend my mornings calling every branch. Now I open the platform and everything is already there.&rdquo;</blockquote>
+          <figcaption class="ab-quote__by">
+            <span class="ab-quote__who">Owner<span>Nuad Thai Spa Kathmandu · 4 branches</span></span>
+            <a href="/case-study/" class="fd-btn fd-btn--dark">Read the case study</a>
+          </figcaption>
+        </div>
+        <div class="ab-quote__media">{% image "/assets/images/nuad/thai-massage.jpg", "A therapist at work at Nuad Thai Spa Kathmandu", { loading: "lazy" } %}</div>
+      </figure>
+    </div>
+  </section>
 
-      <h2>Is Zennly booking software?</h2>
-      <p>Yes. Zennly (zennly.io) is web-based booking and business management software for spas, salons and other service businesses in Nepal. It is not related to other sites that use the name Zennly, such as zennly.org.</p>
-
-      <h2>What Zennly does</h2>
-      <p>Zennly replaces phone calls and spreadsheets with one system: online booking, staff and room scheduling, discount requests with manager approval and an audit trail, payment tracking by method, and a locked daily reconciliation across every branch. A therapist, stylist, artist or trainer, the room, and the time are booked together, and clashes are refused at database level, so double-bookings cannot happen.</p>
-
-      <h2>Who it is for</h2>
-      <p>Owners and managers of appointment-based businesses in Nepal &ndash; single-branch or multi-branch &ndash; who need one view of bookings, staff and revenue. See the industries we serve: <a href="/solutions/spa/">spas</a>, <a href="/solutions/salon/">salons</a>, <a href="/solutions/tattoo/">tattoo studios</a>, <a href="/solutions/fitness/">gyms</a>, <a href="/solutions/physiotherapy/">physiotherapy clinics</a> and <a href="/solutions/cleaning/">cleaning services</a>.</p>
-
-      <h2>Proof it works in the real world</h2>
-      <p>Zennly runs live at Nuad Thai Spa Kathmandu across four branches, 39 therapists, 12 rooms and 194 services. Read the <a href="/case-study/">full case study</a>.</p>
-
-      <h2>Key facts</h2>
-      <ul>
-        <li><strong>Name:</strong> Zennly</li>
-        <li><strong>Founded:</strong> 2026</li>
-        <li><strong>Market:</strong> Nepal first; available to service businesses in any country on request, including the USA, UK, Canada, Australia and the UAE</li>
-        <li><strong>Based in:</strong> Lalitpur (Patan), Bagmati Province, Nepal</li>
-        <li><strong>Built by:</strong> <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></li>
-        <li><strong>First live client:</strong> <a href="/case-study/">Nuad Thai Spa Kathmandu</a> (4 branches)</li>
-        <li><strong>Product type:</strong> Web-based booking and business management software</li>
-        <li><strong>Pricing:</strong> Contact us for a quote</li>
-        <li><strong>Contact:</strong>
-          <span style="display:flex; align-items:center; gap:8px; margin-top:6px;"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; color:var(--color-primary);"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:info@zennly.io">info@zennly.io</a></span>
-          <span style="display:flex; align-items:center; gap:8px; margin-top:6px;"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0; color:var(--color-primary);"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:{{ site.telephone }}">{{ site.telephone }}</a></span>
+  <!-- 5. EVOLUTION — Square /about "An endless evolution": heading + paragraph, then a horizontal year timeline that bleeds right -->
+  <section class="fd-sheet fd-sheet--cream ab-evo">
+    <div class="fd-wrap ab-evo__head reveal">
+      <h2 class="fd-h2">Built in Nepal, <em>open to the world.</em></h2>
+      <p class="ab-evo__intro">Zennly grew out of Zunkireelabs, a software studio in Lalitpur, and came to life in 2026 at a four-branch spa in Kathmandu. One real operator shaped one calm system, now open to service businesses across Nepal and beyond.</p>
+    </div>
+    {# PLACEHOLDER: month dates (Jan/Mar/Aug 2026) — replace with real ones #}
+    {% set evo = [
+      ["Today", "Open to businesses anywhere,", " on request, including the USA, UK, Canada, Australia and the UAE.", "/assets/images/solution-hero-fitness.png", "A fitness class in progress", ""],
+      ["Aug 2026", "Six industries, one system.", " Spas, salons, tattoo studios, gyms, physiotherapy clinics and cleaning services.", "/assets/images/nuad/foot-lounge.jpg", "The foot spa lounge at Nuad Thai Spa", ""],
+      ["Mar 2026", "Nuad Thai Spa Kathmandu goes live,", " our first client, running every branch on Zennly.", "/assets/images/nuad/gold-lounge.jpg", "A lounge at Nuad Thai Spa Kathmandu", ""],
+      ["Jan 2026", "Zennly launches,", " putting booking, staff, discount approvals, payments and a locked daily close in one place.", "/assets/images/mobile-mockup.png", "The Zennly calendar on a phone", "ab-evo__media--ui"],
+      ["2018", "Zunkireelabs is founded in Lalitpur,", " a software studio building products for businesses in Nepal.", "/assets/images/zunkireelabs-icon.png", "Zunkireelabs logo", "ab-evo__media--logo"]
+    ] %}
+    <div class="ab-evo__scroller" tabindex="0" aria-label="Zennly timeline">
+      <ol class="ab-evo__track">
+        {% for m in evo %}
+        <li class="ab-evo__item">
+          <div class="ab-evo__year"><span>{{ m[0] }}</span></div>
+          <p class="ab-evo__text"><strong>{{ m[1] }}</strong>{{ m[2] }}</p>
+          <div class="ab-evo__media {{ m[5] }}">{% image m[3], m[4], { loading: "eager" } %}</div>
         </li>
-        <li><strong>Website:</strong> <a href="{{ site.url }}/">{{ site.url }}</a></li>
-      </ul>
-
-      <h2>Learn more</h2>
-      <p>New to the terms? Browse the <a href="/glossary/">Zennly glossary</a>, or read our <a href="/blog/">guides for service businesses in Nepal</a>.</p>
-
+        {% endfor %}
+      </ol>
+    </div>
+    <div class="fd-wrap ab-evo__nav">
+      <button type="button" class="ab-evo__btn" data-evo="-1" aria-label="Earlier in the timeline"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <button type="button" class="ab-evo__btn" data-evo="1" aria-label="Later in the timeline"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </div>
   </section>
 
-  <section class="bottom-cta" id="demo">
-    <div class="bottom-cta__card bottom-cta__card--banner reveal">
-      <h2 class="bottom-cta__h2">See Zennly running your kind of business.</h2>
-      <p class="bottom-cta__sub">Book a 20-minute demo and we&rsquo;ll walk you through it.</p>
-      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+  <!-- 6. WHO WE BUILD FOR — owner's careers block: text + photo mosaic -->
+  <section class="fd-sheet fd-sheet--white">
+    <div class="fd-wrap ab-who">
+      <div class="reveal">
+        <h2 class="fd-h2">Who we <em>build for.</em></h2>
+        <p class="ab-lead" style="margin-top:32px;">Owners and managers of appointment-based businesses, single-branch or multi-branch, who want one view of bookings, staff and revenue.</p>
+        <div class="fd-btns">
+          <a href="/solutions/" class="fd-btn fd-btn--dark">See solutions</a>
+          <a href="#try-free" class="fd-btn fd-btn--soft" data-trial-open>Try a free demo</a>
+        </div>
+      </div>
+      <div class="ab-mosaic reveal">
+        <a class="a" href="/solutions/spa/">{% image "/assets/images/nuad/massage-room.jpg", "Spa", { loading: "lazy" } %}<span>Spas</span></a>
+        <a class="b" href="/solutions/salon/">{% image "/assets/images/nuad/salon.jpg", "Salon", { loading: "lazy" } %}<span>Salons</span></a>
+        <a class="c" href="/solutions/tattoo/">{% image "/assets/images/solution-hero-tattoo.png", "Tattoo studio", { loading: "lazy" } %}<span>Tattoo studios</span></a>
+        <a class="d" href="/solutions/fitness/">{% image "/assets/images/solution-hero-fitness.png", "Gym", { loading: "lazy" } %}<span>Gyms</span></a>
+        <a class="e" href="/solutions/physiotherapy/">{% image "/assets/images/solution-hero-beauty-clinic.jpg", "Clinic", { loading: "lazy" } %}<span>Clinics</span></a>
+        <a class="f" href="/solutions/">{% image "/assets/images/solution-hero-barbershop.jpg", "Barbershop", { loading: "lazy" } %}<span>Barbers</span></a>
+        <a class="g" href="/solutions/cleaning/">{% image "/assets/images/solution-hero-bridal-makeup.jpg", "Beauty", { loading: "lazy" } %}<span>And more</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ kept (FAQPage schema needs it visible); owner has none -->
+  <section class="fd-sheet fd-sheet--cream fd-faq" id="faq">
+    <div class="fd-wrap fd-faq__grid">
+      <div class="fd-faq__head reveal">
+        <h2 class="fd-h2">About Zennly, <em>answered.</em></h2>
+        <p class="fd-head-row__sub">Questions, a quote, or a demo for your business? Talk to us directly.</p>
+        <div class="fd-btns ab-faq-contact">
+          <a href="mailto:info@zennly.io" class="fd-btn fd-btn--dark">info@zennly.io</a>
+          <a href="tel:{{ site.telephone }}" class="fd-btn fd-btn--soft">{{ site.telephone }}</a>
+        </div>
+      </div>
+      <div class="fd-faq__list" x-data="{ open: null }">
+        {% for item in faq %}
+        <div class="fd-faq__item" :class="{ 'is-open': open === {{ loop.index0 }} }">
+          <button class="fd-faq__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
+            <span>{{ item.question }}</span>
+            <span class="fd-faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="fd-faq__a" x-show="open === {{ loop.index0 }}"  x-cloak>
+            <p>{{ item.answer }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FINAL CTA — owner: text left, phone right; our pink band -->
+  <section class="fd-sheet fd-band fd-final ab-final" id="demo">
+    <div class="fd-wrap ab-final__in">
+      <div>
+        <h2 class="fd-h2">The calmest way to run <em>every branch.</em></h2>
+        <div class="fd-btns">
+          <a href="#try-free" class="fd-btn fd-btn--white" data-trial-open>Try a free demo</a>
+        </div>
+      </div>
+      <div class="ab-final__phone"><div class="ab-phone">{% image "/assets/images/mobile-mockup.png", "Zennly calendar on a phone", { loading: "lazy" } %}</div></div>
     </div>
   </section>
 
   {% include "_footer-v2.njk" %}
+
+  <script>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // evolution timeline arrows: one column per click; buttons disable at the ends
+    var sc = document.querySelector('.ab-evo__scroller');
+    if (!sc) return;
+    var btns = document.querySelectorAll('.ab-evo__btn');
+    var pitch = function () { var it = sc.querySelector('.ab-evo__item'); return it.getBoundingClientRect().width + parseFloat(getComputedStyle(sc.firstElementChild).columnGap || 0); };
+    var sync = function () { btns[0].disabled = sc.scrollLeft < 4; btns[1].disabled = sc.scrollLeft > sc.scrollWidth - sc.clientWidth - 4; };
+    btns.forEach(function (b) { b.addEventListener('click', function () { sc.scrollBy({ left: +b.dataset.evo * pitch(), behavior: reduce ? 'auto' : 'smooth' }); }); });
+    sc.addEventListener('scroll', sync, { passive: true }); window.addEventListener('resize', sync); sync();
+  })();
+  </script>
 
 </main>

@@ -5,7 +5,34 @@
     "region": "Bagmati Province",
     "intro": "Kathmandu has the densest mix of spas, salons, gyms and clinics in Nepal, and many of them run more than one branch. Zennly gives those businesses one system for bookings, staff, payments and the daily close.",
     "proof": "Zennly's first live client, Nuad Thai Spa Kathmandu, runs four branches, 39 therapists, 12 rooms and 194 services on it.",
-    "focus": "multi-branch spas, salons and gyms"
+    "focus": "multi-branch spas, salons and gyms",
+    "areas": "Thamel, Durbar Marg, Lazimpat, Baneshwor, Baluwatar and Koteshwor",
+    "searchTerms": "beauty parlour software Kathmandu, spa management system Kathmandu, gym booking app Kathmandu",
+    "context": "Kathmandu businesses compete on a few crowded streets, so the same owner often runs two or three branches across Thamel, Lazimpat, Baneshwor or Koteshwor. The daily problem is control, not discovery: which branch gave which discount, which therapist or stylist was booked, and whether the cash drawer matches the day's bookings. Zennly gives the owner one view across every branch and a daily close that reconciles bookings against payments.",
+    "faqs": [
+      {
+        "question": "Which Kathmandu businesses use multi-branch booking software?",
+        "answer": "Spas, beauty parlours, salons and gyms with more than one outlet, for example across Thamel, Lazimpat and Baneshwor. Zennly's first live client, Nuad Thai Spa Kathmandu, runs four branches from a single account."
+      },
+      {
+        "question": "Can a Kathmandu parlour stop staff giving unapproved discounts?",
+        "answer": "Yes. Zennly routes discounts through an approval step with an audit trail, so the owner sees who requested and who approved every discount, branch by branch."
+      },
+      {
+        "question": "Which areas of Kathmandu can use Zennly?",
+        "answer": "Any. Zennly is web-based, so a business in Thamel, Durbar Marg, Lazimpat, Baneshwor, Koteshwor or anywhere else in the valley uses it the same way, from a phone or computer."
+      },
+      {
+        "question": "Is there salon software for Kathmandu businesses with several branches?",
+        "answer": "Yes. Zennly runs several branches from one account, with scheduled staff transfers between branches and one daily report across them."
+      },
+      {
+        "question": "Is there a demo available in Kathmandu?",
+        "answer": "Yes. Book a 20-minute demo, in person around the valley or by video, and we show Zennly using your own services and staff."
+      }
+    ],
+    "typicalDay": "A typical Kathmandu day starts with online bookings that arrived overnight, a manager checking which therapists or stylists are free at each branch, and walk-ins fitted into the gaps. At closing time the owner expects the cash, card and online totals to match the bookings. Zennly keeps those three views in one place, so the close takes minutes and the owner is not waiting on three phone calls.",
+    "tone": 1
   },
   {
     "slug": "lalitpur",
@@ -13,7 +40,34 @@
     "region": "Bagmati Province",
     "intro": "Lalitpur (Patan) is where Zennly is based. Spas, salons, clinics and studios here can book a demo with the team that builds the software.",
     "proof": "Zennly is headquartered in Lalitpur, Bagmati Province.",
-    "focus": "salons, clinics and studios"
+    "focus": "salons, clinics and studios",
+    "areas": "Jawalakhel, Pulchowk, Kupondole, Patan Dhoka and Satdobato",
+    "searchTerms": "salon booking software Lalitpur, clinic appointment system Patan, studio scheduling Lalitpur",
+    "context": "Lalitpur, also known as Patan, mixes established neighbourhood businesses around Jawalakhel, Pulchowk and Kupondole with new studios and clinics. Many are owner-run and still take bookings by phone or Viber, which makes double bookings and missed follow-ups common. Zennly is built and supported from Lalitpur, so onboarding and demos can happen in person.",
+    "faqs": [
+      {
+        "question": "Is Zennly built in Lalitpur?",
+        "answer": "Yes. Zennly is built by Zunkireelabs in Lalitpur, Bagmati Province, so Lalitpur businesses can get an in-person demo and local support."
+      },
+      {
+        "question": "Can a small Lalitpur salon or clinic use Zennly?",
+        "answer": "Yes. It works for a single-chair studio or clinic as well as a multi-branch group, and you only pay for the size of business you run."
+      },
+      {
+        "question": "Can Lalitpur businesses get in-person help setting up?",
+        "answer": "Yes. Zennly is built in Lalitpur, so businesses in Jawalakhel, Pulchowk, Kupondole and nearby can arrange an in-person demo or setup session."
+      },
+      {
+        "question": "Is Zennly suitable for a new studio or clinic in Lalitpur?",
+        "answer": "Yes. Start with online booking and payment tracking, then add packages, memberships and reports as the business grows."
+      },
+      {
+        "question": "Does Zennly work for beauty parlours in Patan?",
+        "answer": "Yes. Beauty parlours in Patan and across Lalitpur use it for online booking by service and beautician, discount approval and daily payments."
+      }
+    ],
+    "typicalDay": "In Lalitpur many businesses are owner-run, so the owner is often both the manager and the person answering the phone. Online booking lets clients book without a call, the schedule shows who is free, and payments are recorded as they happen. That frees the owner to work with clients instead of the diary. Zennly is supported from Lalitpur, so setup help can happen in person.",
+    "tone": 2
   },
   {
     "slug": "bhaktapur",
@@ -21,7 +75,34 @@
     "region": "Bagmati Province",
     "intro": "Service businesses in Bhaktapur, from salons and beauty parlours to gyms and clinics, can run bookings, staff and payments from one dashboard instead of phone calls and notebooks.",
     "proof": "Zennly works for a single shop or several branches, so a Bhaktapur business can start with one location.",
-    "focus": "salons, beauty parlours and gyms"
+    "focus": "salons, beauty parlours and gyms",
+    "areas": "Suryabinayak, Thimi, Kaushaltar, Sallaghari and the old city",
+    "searchTerms": "beauty parlour software Bhaktapur, salon booking Bhaktapur, gym management Bhaktapur",
+    "context": "Bhaktapur's businesses range from neighbourhood beauty parlours in Thimi and Suryabinayak to gyms and clinics serving the wider valley, with a steady flow of visitors to the old city. Most still keep appointments in a register or on a phone. Zennly replaces the register with online booking and a daily record of what was booked and what was paid.",
+    "faqs": [
+      {
+        "question": "Does a Bhaktapur beauty parlour need a computer to use Zennly?",
+        "answer": "No. Zennly is web-based, so you can run it from a phone, tablet or any computer with internet."
+      },
+      {
+        "question": "Can customers book a Bhaktapur salon online?",
+        "answer": "Yes. Customers choose a service, a time and a staff member from their phone, and the booking appears on your dashboard immediately."
+      },
+      {
+        "question": "Do small beauty parlours in Bhaktapur use booking software?",
+        "answer": "Yes. A single-chair parlour can use Zennly for online booking and a daily payment record, and add packages and memberships later."
+      },
+      {
+        "question": "Can Bhaktapur gyms track memberships with Zennly?",
+        "answer": "Yes. Zennly tracks membership tiers, wallet balances, validity and renewals, plus session packages."
+      },
+      {
+        "question": "Can customers from outside Bhaktapur book online?",
+        "answer": "Yes. Anyone with the booking link can pick a service and time from their phone, whether they live in Bhaktapur or elsewhere in the valley."
+      }
+    ],
+    "typicalDay": "A neighbourhood parlour or gym in Bhaktapur often takes bookings from regulars by phone and from newer customers online. Putting both into one schedule avoids clashes and keeps a clear record of who came and what they paid. Packages and prepaid cards for regulars are tracked with a balance so nobody has to remember what is left.",
+    "tone": 3
   },
   {
     "slug": "pokhara",
@@ -29,7 +110,34 @@
     "region": "Gandaki Province",
     "intro": "Pokhara's wellness and hospitality trade serves residents and visitors all year. Zennly helps spas, salons and massage studios keep bookings, therapists and payments in order, including across more than one branch.",
     "proof": "Zennly is web-based, so customers book online from their phone and your team manages staff, rooms and payments from one dashboard.",
-    "focus": "spas, massage studios and salons"
+    "focus": "spas, massage studios and salons",
+    "areas": "Lakeside, Damside, Chipledhunga, Mahendrapul and Bagar",
+    "searchTerms": "spa booking software Pokhara, massage studio management Pokhara, Lakeside spa online booking",
+    "context": "Pokhara's trade follows the tourist calendar: busy in the autumn and spring trekking seasons, much quieter in the monsoon. Lakeside and Damside spas and massage studios take bookings from visitors who often decide the same day and may be outside Nepal when they enquire. Zennly gives them online booking that works around the clock, staff and room scheduling for peak weeks, and a clear view of revenue in the slow months.",
+    "faqs": [
+      {
+        "question": "Can tourists book a Pokhara spa online with Zennly?",
+        "answer": "Yes. Visitors can book a service and time from their phone at any hour, so a Lakeside spa captures bookings even when the front desk is closed."
+      },
+      {
+        "question": "How does Zennly help Pokhara spas manage peak and off seasons?",
+        "answer": "Staff and room scheduling keeps busy weeks organised, and daily and monthly reports show revenue by service and staff member so you can plan for slower months."
+      },
+      {
+        "question": "Can a Pokhara massage studio take bookings from tourists in advance?",
+        "answer": "Yes. Visitors can book a service and time online before they arrive, at any hour, and receive a confirmation straight away."
+      },
+      {
+        "question": "Can I run a seasonal offer for Pokhara tourists?",
+        "answer": "Yes. Campaigns let you set a percentage offer for chosen services and dates, shown on your online booking page while it runs."
+      },
+      {
+        "question": "Does Zennly help Lakeside spas manage peak weeks?",
+        "answer": "Yes. Staff and room scheduling keeps busy weeks organised and prevents double-bookings."
+      }
+    ],
+    "typicalDay": "A Lakeside spa in the trekking season starts the day with bookings from visitors made the night before, plans therapists and rooms for a full day and closes with every payment reconciled by method. In the quiet months the same system shows which services and therapists earn the most, so the owner can plan staffing and offers instead of guessing.",
+    "tone": 4
   },
   {
     "slug": "biratnagar",
@@ -37,7 +145,34 @@
     "region": "Koshi Province",
     "intro": "Biratnagar is eastern Nepal's main commercial city. Salons, clinics, gyms and studios here can use Zennly for online booking, staff scheduling, discount approval and daily payment reconciliation.",
     "proof": "Zennly can be set up for service businesses anywhere in Nepal. Book a 20-minute demo to confirm how it fits your business.",
-    "focus": "salons, clinics and gyms"
+    "focus": "salons, clinics and gyms",
+    "areas": "Main Road, Traffic Chowk, Rani, Hatkhola and Bargachhi",
+    "searchTerms": "salon software Biratnagar, clinic appointment system Biratnagar, gym management Biratnagar",
+    "context": "Biratnagar is the commercial centre of eastern Nepal, and its salons, clinics and gyms serve customers from across Morang and nearby districts. Few of the booking tools used in Kathmandu are marketed to eastern Nepal, so many businesses still rely on phone calls and paper. Zennly is web-based, so a Biratnagar business can run it with no on-site installation and get remote onboarding.",
+    "faqs": [
+      {
+        "question": "Can Biratnagar businesses get Zennly set up remotely?",
+        "answer": "Yes. Zennly is web-based, so setup, training and support are done by video call with no on-site installation."
+      },
+      {
+        "question": "Is Zennly only for Kathmandu Valley businesses?",
+        "answer": "No. It works anywhere in Nepal with an internet connection, including Biratnagar and the rest of Koshi Province."
+      },
+      {
+        "question": "Is online salon booking software available in Biratnagar?",
+        "answer": "Yes. Zennly is web-based and works anywhere in Nepal, including Biratnagar, with setup and training by video call."
+      },
+      {
+        "question": "Can a Biratnagar clinic use Zennly for appointments?",
+        "answer": "Yes. Practitioners and rooms are scheduled together, repeat treatments stay with the same practitioner and payments are recorded per visit."
+      },
+      {
+        "question": "Can gyms in Biratnagar use Zennly?",
+        "answer": "Yes. Zennly handles memberships, classes, trainer sessions and packages for gyms and fitness studios."
+      }
+    ],
+    "typicalDay": "A Biratnagar salon or clinic serves customers from across Morang and beyond. Online booking lets them reserve a slot without travelling to ask, staff schedules stay clear, and the owner can see each day's takings without waiting for the evening count. Setup and training happen by video call, so there is no wait for a visit.",
+    "tone": 5
   },
   {
     "slug": "chitwan",
@@ -45,6 +180,33 @@
     "region": "Bagmati Province",
     "intro": "In Chitwan and Bharatpur, spas, salons, gyms and clinics can use Zennly to take online bookings, schedule staff and rooms and see every payment in one place.",
     "proof": "Zennly works for one branch or many, so a Chitwan business can start small and add branches later.",
-    "focus": "spas, salons and gyms"
+    "focus": "spas, salons and gyms",
+    "areas": "Bharatpur, Narayangarh, Sauraha, Ratnanagar and Parsa",
+    "searchTerms": "spa booking software Chitwan, salon management Bharatpur, gym software Chitwan",
+    "context": "Chitwan combines the city of Bharatpur and Narayangarh, a regional centre for the central Terai, with Sauraha's tourist trade near the national park. City salons, gyms and clinics need straightforward scheduling and staff control, while Sauraha wellness businesses need online booking that visitors can use before they arrive. Zennly covers both from a single dashboard.",
+    "faqs": [
+      {
+        "question": "Does Zennly work for Sauraha spas and wellness businesses?",
+        "answer": "Yes. Visitors can book online before they arrive, and your team manages bookings, staff and payments from one dashboard."
+      },
+      {
+        "question": "Can a Bharatpur gym or salon use Zennly?",
+        "answer": "Yes. Zennly handles bookings, staff scheduling, discount approval and daily reconciliation for gyms, salons and clinics in Bharatpur and Narayangarh."
+      },
+      {
+        "question": "Is there booking software for Bharatpur salons and spas?",
+        "answer": "Yes. Zennly is web-based and works across Bharatpur, Narayangarh and Sauraha for salons, spas, gyms and clinics."
+      },
+      {
+        "question": "Can Sauraha wellness businesses take online bookings?",
+        "answer": "Yes. Visitors can book online before arriving and your team manages bookings, staff and payments from one dashboard."
+      },
+      {
+        "question": "Can a Chitwan business run more than one branch?",
+        "answer": "Yes. Zennly runs one branch or many from one account with one daily report."
+      }
+    ],
+    "typicalDay": "In Bharatpur and Narayangarh a salon or gym needs reliable scheduling and staff control. In Sauraha a wellness business needs visitors to book before they arrive. Zennly serves both from one dashboard: online booking, staff and room scheduling, discount approval and a daily payment record.",
+    "tone": 6
   }
 ]

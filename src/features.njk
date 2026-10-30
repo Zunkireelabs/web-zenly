@@ -1,14 +1,14 @@
 ﻿---
 dateModified: "2026-10-04"
 layout: base.njk
-title: "Zennly Features — Booking, Payments, Staff & Reports"
-metaDescription: "Explore Zennly's features: online booking, staff scheduling, payment tracking, discount approvals and multi-branch reporting for spas, salons and gyms."
-bodyClass: page--light-nav
+title: "Features: Booking, Payroll, Payments & AI | Zennly"
+metaDescription: "Everything to run a spa, salon or gym: online booking, payroll, discount approval, payments, memberships and reports. See each feature in action."
+bodyClass: page--light-nav page--pink-cta
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Features", url: "/features/" }]) }}
 
-<main class="fd-page">
+<main class="fd-page fd-page--idx">
 
   <!-- ── FEATURES HERO ─────────────────────────────────────────────────── -->
   <!-- Wrapped in a rounded, full-bleed gradient band — same treatment as the
@@ -20,16 +20,54 @@ bodyClass: page--light-nav
 
       <!-- Left: text -->
       <div class="feat-page-hero__text">
-        <h1 class="feat-page-hero__h1">One system. Every problem a multi-branch service business actually has.</h1>
+        <div class="feat-page-hero__eyebrow">
+          <span class="feat-page-hero__eyebrow-tag">Features</span>
+          <span class="feat-page-hero__eyebrow-rating"><strong>4.9</strong> <span class="feat-page-hero__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> from 120+ reviews</span>
+        </div>
+        <h1 class="feat-page-hero__h1">One system for every branch.</h1>
+        <p class="feat-page-hero__sub">Booking, payments, staff and reporting &ndash; everything a multi-branch business needs, in one place.</p>
         <div class="feat-page-hero__actions">
-          <a href="#demo" class="btn-primary">Book a 20-minute demo &ndash; see it all working &rarr;</a>
-          <a href="#feature-grid" class="btn-secondary">Explore individual features &darr;</a>
+          <a href="#demo" class="feat-page-hero__cta">
+            <span class="feat-page-hero__cta-label">Book a free demo</span>
+            <span class="feat-page-hero__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span>
+          </a>
+          <!-- Decorative connector line (same thin sage-stroke language as
+               the .flow-line system in the transformation section below),
+               anchored to the button so it can't drift out of alignment. -->
+          <svg class="feat-page-hero__connector" viewBox="0 0 420 64" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,32 C60,32 90,32 120,32 C170,32 190,14 240,14 L420,14" />
+          </svg>
         </div>
       </div>
 
-      <!-- Right: platform dashboard image -->
+      <!-- Right: framed product panel -->
       <div class="feat-page-hero__visual">
-        {% image "/assets/images/feat-hero-dashboard.png", "Zennly platform dashboard", { class: "feat-page-hero__img", loading: "eager" } %}
+        <div class="feat-page-hero__frame">
+          <!-- Notched "tab" bezel (dots capsule + address-bar capsule recessed
+               into the frame edge), continuing into the panel's corner accent
+               line below — same decorative pattern as the reference. -->
+          <div class="feat-page-hero__frame-chrome" aria-hidden="true">
+            <svg class="feat-page-hero__frame-chrome-line" viewBox="0 0 1000 60" preserveAspectRatio="none">
+              <path d="M0,2 H40 C56,2 56,34 72,34 H128 C144,34 144,2 160,2 H260 C276,2 276,34 292,34 H588 C604,34 604,2 620,2 H1000" />
+            </svg>
+            <div class="feat-page-hero__frame-dots"><span></span><span></span><span></span></div>
+            <div class="feat-page-hero__frame-addr"></div>
+          </div>
+          <div class="feat-page-hero__panel">
+            <svg class="feat-page-hero__panel-accent" viewBox="0 0 200 120" aria-hidden="true">
+              <path d="M60,0 L60,24 Q60,40 76,40 L200,40" />
+            </svg>
+            {% image "/assets/images/feat-hero-dashboard.png", "Zennly platform dashboard", { class: "feat-page-hero__img", loading: "eager" } %}
+            <div class="feat-page-hero__float feat-page-hero__float--stat">
+              <span class="feat-page-hero__float-tag">Bookings this week</span>
+              <span class="feat-page-hero__float-num">351</span>
+            </div>
+            <div class="feat-page-hero__float feat-page-hero__float--check">
+              <span class="feat-page-hero__float-check" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span class="feat-page-hero__float-label">Booking confirmed</span>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -38,6 +76,11 @@ bodyClass: page--light-nav
 
 
   <!-- ── FEATURE GRID ──────────────────────────────────────────────────── -->
+  <!-- Layout exception approved 2026-10-26 (see CLAUDE.md "Features Index
+       Showcase"): quick-nav pills + contained feature cards. Every row is the
+       same 48/52 card — a coded product mockup on the left, copy, checklist
+       and pill CTA on the right. Per-feature accent colors carried over
+       unchanged. -->
   <section class="section feat-idx-section" id="feature-grid">
     <div class="section__inner">
       <div class="section__header reveal">
@@ -45,306 +88,836 @@ bodyClass: page--light-nav
         <p class="section__sub section__sub--center" style="white-space: normal;">Every feature below is purpose-built for multi-branch service operations. They work individually. They work better together.</p>
       </div>
 
-      <div class="feat-idx-grid reveal">
+      <!-- Same four groups as the nav's "Capabilities" mega-menu
+           (src/_data/navMenu.js) — Bookings & front desk / Money / Team /
+           Grow & retain — so this page's categorization matches the site's
+           single source of truth instead of inventing its own. Icons are
+           the same Phosphor paths the nav uses, keyed to each group's
+           first item (calendar-blank, currency-dollar, users,
+           identification-card). -->
+      <nav class="feat-idx-pillnav reveal" aria-label="Jump to a feature category">
+        <a href="#cat-bookings" class="feat-idx-pillnav__item is-active"><span class="feat-idx-pillnav__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Z"/></svg></span>Bookings &amp; front desk</a>
+        <a href="#cat-money" class="feat-idx-pillnav__item"><span class="feat-idx-pillnav__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor"><path d="M152,120H136V56h8a32,32,0,0,1,32,32,8,8,0,0,0,16,0,48.05,48.05,0,0,0-48-48h-8V24a8,8,0,0,0-16,0V40h-8a48,48,0,0,0,0,96h8v64H104a32,32,0,0,1-32-32,8,8,0,0,0-16,0,48.05,48.05,0,0,0,48,48h16v16a8,8,0,0,0,16,0V216h16a48,48,0,0,0,0-96Zm-40,0a32,32,0,0,1,0-64h8v64Zm40,80H136V136h16a32,32,0,0,1,0,64Z"/></svg></span>Money</a>
+        <a href="#cat-team" class="feat-idx-pillnav__item"><span class="feat-idx-pillnav__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"/></svg></span>Team</a>
+        <a href="#cat-growth" class="feat-idx-pillnav__item"><span class="feat-idx-pillnav__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor"><path d="M200,112a8,8,0,0,1-8,8H152a8,8,0,0,1,0-16h40A8,8,0,0,1,200,112Zm-8,24H152a8,8,0,0,0,0,16h40a8,8,0,0,0,0-16Zm40-80V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM216,200V56H40V200H216Zm-80.26-34a8,8,0,1,1-15.5,4c-2.63-10.26-13.06-18-24.25-18s-21.61,7.74-24.25,18a8,8,0,1,1-15.5-4,39.84,39.84,0,0,1,17.19-23.34,32,32,0,1,1,45.12,0A39.76,39.76,0,0,1,135.75,166ZM96,136a16,16,0,1,0-16-16A16,16,0,0,0,96,136Z"/></svg></span>Grow &amp; retain</a>
+      </nav>
 
-        <!-- Card 1: Booking management -->
-        <a href="/features/booking/" class="feat-idx-card" data-feature="booking">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Booking management</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
-          </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-booking.png", "Zennly bookings list showing Pending, Confirmed, In-Progress and Completed statuses", { class: "feat-idx-card__img", loading: "lazy" } %}
-          </div>
-          <h3 class="feat-idx-card__h3">Tracked from request to final payment</h3>
-          <p class="feat-idx-card__body">Every status &ndash; Pending, Confirmed, In-Progress, Completed &ndash; visible to everyone in real time. No double bookings, no lost appointments.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Live status board across every branch</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No double-bookings, no lost appointments</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Full audit trail on every appointment</li>
-          </ul>
-        </a>
+      <div class="feat-idx-list">
+        <div class="feat-idx-category" id="cat-bookings">
+          <span class="feat-idx-category__eyebrow">Bookings &amp; front desk</span>
+          <h3 class="feat-idx-category__h3">Get found, get booked, every time.</h3>
+        </div>
 
-        <!-- Card 2: Discount management -->
-        <a href="/features/discount-management/" class="feat-idx-card" data-feature="discount-management">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24L4 3a1 1 0 0 0-1 1l.24 5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.83 0l4.35-4.35a2 2 0 0 0 0-2.82z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Discount management</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
+        <!-- Row 1: Booking management -->
+        <div class="feat-tile reveal" id="feat-booking" data-feature="booking">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+                    <span>Bookings</span>
+                  </div>
+                  <div class="fc__tabs"><span class="is-active">Today</span><span>Week</span></div>
+                </div>
+                <div class="fc-list">
+                  <div class="fc-item">
+                    <span class="fc-item__time">09:00</span>
+                    <span class="fc-item__main"><strong>Anisha Rai</strong><small>Balayage &middot; 90 min</small></span>
+                    <span class="fc-chip fc-chip--green">Confirmed</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__time">10:30</span>
+                    <span class="fc-item__main"><strong>Ramesh Thapa</strong><small>Deep tissue &middot; 60 min</small></span>
+                    <span class="fc-chip fc-chip--blue">In progress</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__time">11:45</span>
+                    <span class="fc-item__main"><strong>Sita Gurung</strong><small>Gel manicure &middot; 45 min</small></span>
+                    <span class="fc-chip fc-chip--amber">Pending</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__time">13:00</span>
+                    <span class="fc-item__main"><strong>Bikash Karki</strong><small>Haircut &middot; 30 min</small></span>
+                    <span class="fc-chip fc-chip--muted">Completed</span>
+                  </div>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>Live status</span><span class="fc__foot-total">14 today</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span class="fc-float__copy"><strong>Booking confirmed</strong><small>Sat, 10:30 &middot; Room 2</small></span>
+                <span class="fc-float__amount">#1042</span>
+              </div>
+            </div>
           </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-discount.png", "Discount request approval card showing 15% off pending manager approval", { class: "feat-idx-card__img", loading: "lazy" } %}
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg></span>Booking management</span>
+            <h3 class="feat-tile__h3">Tracked from request to final payment</h3>
+            <p class="feat-tile__body">Every status &ndash; Pending, Confirmed, In-Progress, Completed &ndash; visible to everyone in real time. No double bookings, no lost appointments.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Live status board across every branch</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No double-bookings, no lost appointments</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Full audit trail on every appointment</li>
+            </ul>
+            <a href="/features/booking/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
           </div>
-          <h3 class="feat-idx-card__h3">Every discount has a name and an approval</h3>
-          <p class="feat-idx-card__body">Staff request, managers approve. Nothing slips through without a record.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Staff request, managers approve</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Every discount logged against the booking</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>A full audit trail, always</li>
-          </ul>
-        </a>
+        </div>
 
-        <!-- Card 3: Payment tracking -->
-        <a href="/features/payment-tracking/" class="feat-idx-card" data-feature="payment-tracking">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="5" width="22" height="14" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Payment tracking</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
+        <!-- Row 2: Customer self-booking -->
+        <div class="feat-tile reveal" id="feat-self-booking" data-feature="self-booking">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+                    <span>Book your visit</span>
+                  </div>
+                  <span class="fc__pill">Step 2 of 3</span>
+                </div>
+                <div class="fc-field">
+                  <span class="fc-field__label">Service</span>
+                  <span class="fc-field__value">Balayage &middot; 90 min <span class="fc-chip fc-chip--green">Available</span></span>
+                </div>
+                <div class="fc-field">
+                  <span class="fc-field__label">Therapist</span>
+                  <span class="fc-field__value"><span class="fc-item__avatar fc-item__avatar--g">AR</span>Anisha Rai <span class="fc-note">4.9 &middot; 320 visits</span></span>
+                </div>
+                <div class="fc-field">
+                  <span class="fc-field__label">Date &amp; time</span>
+                  <span class="fc-chips">
+                    <span class="fc-slot">Mon 26</span>
+                    <span class="fc-slot is-active">Tue 27</span>
+                    <span class="fc-slot">Wed 28</span>
+                  </span>
+                  <span class="fc-chips">
+                    <span class="fc-slot">10:00</span>
+                    <span class="fc-slot is-active">11:30</span>
+                    <span class="fc-slot">14:00</span>
+                  </span>
+                </div>
+                <div class="fc-actions">
+                  <span class="fc-btn fc-btn--solid">Confirm booking</span>
+                  <span class="fc-note" style="margin-left:auto;">No account needed</span>
+                </div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span class="fc-float__copy"><strong>Confirmed instantly</strong><small>Tue, 11:30 &middot; Anisha</small></span>
+                <span class="fc-float__amount">#1043</span>
+              </div>
+            </div>
           </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-payment.png", "Contactless card payment at a salon counter with an Amount received $120.00 confirmation card", { class: "feat-idx-card__img", loading: "lazy" } %}
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>Customer self-booking</span>
+            <h3 class="feat-tile__h3">Customers book themselves</h3>
+            <p class="feat-tile__body">A branded flow where customers pick location, service, and therapist &ndash; no call to your front desk needed.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Customers pick location, service, and therapist</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Zero calls to your front desk</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Instant confirmation, no back-and-forth</li>
+            </ul>
+            <a href="/features/booking/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
           </div>
-          <h3 class="feat-idx-card__h3">Know what came in, at every branch</h3>
-          <p class="feat-idx-card__body">Every payment logged the moment it's collected, against the booking it belongs to. No Sunday-night spreadsheet.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Every payment logged the moment it lands</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Reconciled against the exact booking, per branch</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Broken down by booking, therapist, and service</li>
-          </ul>
-        </a>
+        </div>
 
-        <!-- Card 4: Staff & therapist management -->
-        <a href="/features/staff-management/" class="feat-idx-card" data-feature="staff-management">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Staff &amp; therapist management</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
+        <!-- Row 3: AI Receptionist -->
+        <div class="feat-tile reveal" id="feat-ai-assistant" data-feature="ai-assistant">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                    <span>Calls</span>
+                  </div>
+                  <span class="fc__pill fc__pill--green"><span class="fc__dot"></span>AI on</span>
+                </div>
+                <div class="fc-list">
+                  <div class="fc-item">
+                    <span class="fc-item__time">8:42</span>
+                    <span class="fc-item__main"><strong>Unknown number</strong><small>Booking call &middot; 1m 12s</small></span>
+                    <span class="fc-chip fc-chip--green">Booked</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__time">9:10</span>
+                    <span class="fc-item__main"><strong>Sita Gurung</strong><small>Reschedule &middot; 0m 48s</small></span>
+                    <span class="fc-chip fc-chip--green">Booked</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__time">9:26</span>
+                    <span class="fc-item__main"><strong>Ramesh Thapa</strong><small>Opening hours &middot; 0m 31s</small></span>
+                    <span class="fc-chip fc-chip--blue">Answered</span>
+                  </div>
+                </div>
+                <div class="fc__foot">
+                  <span class="fc__live"><span class="fc-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>After hours</span>
+                  <span class="fc__foot-total">3 calls</span>
+                </div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span class="fc-float__copy"><strong>Booking created</strong><small>Sat, 11:00 &middot; Anisha</small></span>
+                <span class="fc-float__amount">#1044</span>
+              </div>
+            </div>
           </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-staff.png", "Therapist checking a staff transfer notice for a branch move effective Friday", { class: "feat-idx-card__img", loading: "lazy" } %}
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>AI Receptionist</span>
+            <h3 class="feat-tile__h3">Never miss a booking call</h3>
+            <p class="feat-tile__body">An AI receptionist that answers calls and chats and helps customers book, even when your team is busy. Available on request.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Answers calls and chat after hours</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Booking requests land in your schedule</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Your team stays in control</li>
+            </ul>
+            <a href="/features/ai-assistant/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
           </div>
-          <h3 class="feat-idx-card__h3">Your roster is always current</h3>
-          <p class="feat-idx-card__body">Schedule therapist transfers across branches with an effective date. No calls, no confusion on the day.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Scheduled transfers with an effective date</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Roster stays accurate across every branch</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>See incoming transfers before they arrive</li>
-          </ul>
-        </a>
+        </div>
 
-        <!-- Card 5: Customer self-booking -->
-        <a href="/features/booking/" class="feat-idx-card" data-feature="booking">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Customer self-booking</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
+        <!-- Row 4: Operations -->
+        <div class="feat-tile reveal" id="feat-operational-visibility" data-feature="operational-visibility">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
+                    <span>Live branches</span>
+                  </div>
+                  <span class="fc__pill fc__pill--green"><span class="fc__dot"></span>Live</span>
+                </div>
+                <div class="fc-branch">
+                  <div class="fc-branch__top"><span>Lazimpat</span><small>12 of 14 rooms</small></div>
+                  <div class="fc-bar"><span style="width:86%"></span></div>
+                </div>
+                <div class="fc-branch">
+                  <div class="fc-branch__top"><span>Patan</span><small>8 of 12 rooms</small></div>
+                  <div class="fc-bar"><span style="width:64%"></span></div>
+                </div>
+                <div class="fc-branch">
+                  <div class="fc-branch__top"><span>Boudha</span><small>5 of 12 rooms</small></div>
+                  <div class="fc-bar"><span style="width:42%"></span></div>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>All branches reporting</span><span class="fc__foot-total">Just now</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+                <span class="fc-float__copy"><strong>Every status live</strong><small>No refresh needed</small></span>
+                <span class="fc-float__amount">3</span>
+              </div>
+            </div>
           </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-self-booking.png", "Customer booking an appointment from home, picking a service and therapist on her phone", { class: "feat-idx-card__img", loading: "lazy" } %}
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>Real-time operational visibility</span>
+            <h3 class="feat-tile__h3">See how the day is going, live</h3>
+            <p class="feat-tile__body">Every status change is a live signal. Owners, managers, and staff see the same picture at the same time.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Every status change is a live signal</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Owners and managers see the same picture</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Watch the whole floor from one screen</li>
+            </ul>
+            <a href="/features/operational-visibility/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
           </div>
-          <h3 class="feat-idx-card__h3">Customers book themselves</h3>
-          <p class="feat-idx-card__body">A branded flow where customers pick location, service, and therapist &ndash; no call to your front desk needed.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Customers pick location, service, and therapist</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Zero calls to your front desk</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Instant confirmation, no back-and-forth</li>
-          </ul>
-        </a>
+        </div>
 
-        <!-- Card 6: Real-time operational visibility -->
-        <a href="/features/operational-visibility/" class="feat-idx-card" data-feature="operational-visibility">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Real-time operational visibility</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
-          </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-visibility.png", "Owner checking a live branch feed showing Lazimpat, Patan and Boudha branches all live", { class: "feat-idx-card__img", loading: "lazy" } %}
-          </div>
-          <h3 class="feat-idx-card__h3">See how the day is going, live</h3>
-          <p class="feat-idx-card__body">Every status change is a live signal. Owners, managers, and staff see the same picture at the same time.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Every status change is a live signal</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Owners and managers see the same picture</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Watch the whole floor from one screen</li>
-          </ul>
-        </a>
+        <div class="feat-idx-category" id="cat-money">
+          <span class="feat-idx-category__eyebrow">Money</span>
+          <h3 class="feat-idx-category__h3">Every rupee tracked, nothing left to guesswork.</h3>
+        </div>
 
-        <!-- Card 7: Role-based access -->
-        <a href="/features/role-based-access/" class="feat-idx-card" data-feature="role-based-access">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Role-based access</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
+        <!-- Row 5: Finance & Payments -->
+        <div class="feat-tile reveal" id="feat-payment-tracking" data-feature="payment-tracking">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg></span>
+                    <span>Transactions</span>
+                  </div>
+                  <div class="fc__tabs"><span class="is-active">All</span><span>Expenses</span></div>
+                </div>
+                <div class="fc__kpi">
+                  <div>
+                    <span class="fc__kpi-label">Collected this week</span>
+                    <strong class="fc__kpi-value">$12,480<span>.00</span></strong>
+                  </div>
+                  <span class="fc__trend"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>18.4%</span>
+                </div>
+                <div class="fc-table fc-table--tx">
+                  <div class="fc-thead">
+                    <span>Date</span>
+                    <span>Activity</span>
+                    <span class="fc-col-hide">Category</span>
+                    <span>Amount</span>
+                  </div>
+                  <div class="fc-row">
+                    <span class="fc-date">Oct 16</span>
+                    <span class="fc-row__main">
+                      <span class="fc-logo fc-logo--l">S</span>
+                      <span class="fc-row__copy"><strong>Stripe</strong><small>Online payment</small></span>
+                    </span>
+                    <span class="fc-chip fc-chip--green fc-col-hide">Services</span>
+                    <span class="fc-amount">+$5,200</span>
+                  </div>
+                  <div class="fc-row">
+                    <span class="fc-date">Oct 17</span>
+                    <span class="fc-row__main">
+                      <span class="fc-logo fc-logo--g">C</span>
+                      <span class="fc-row__copy"><strong>Cash</strong><small>Front desk</small></span>
+                    </span>
+                    <span class="fc-chip fc-chip--blue fc-col-hide">Retail</span>
+                    <span class="fc-amount">+$180</span>
+                  </div>
+                  <div class="fc-row">
+                    <span class="fc-date">Oct 18</span>
+                    <span class="fc-row__main">
+                      <span class="fc-logo fc-logo--a">e</span>
+                      <span class="fc-row__copy"><strong>eSewa</strong><small>Advance payment</small></span>
+                    </span>
+                    <span class="fc-chip fc-chip--amber fc-col-hide">Package</span>
+                    <span class="fc-amount">+$1,450</span>
+                  </div>
+                  <div class="fc-row">
+                    <span class="fc-date">Oct 20</span>
+                    <span class="fc-row__main">
+                      <span class="fc-logo fc-logo--b">V</span>
+                      <span class="fc-row__copy"><strong>Card</strong><small>Membership</small></span>
+                    </span>
+                    <span class="fc-chip fc-chip--lav fc-col-hide">Prepaid</span>
+                    <span class="fc-amount">+$3,200</span>
+                  </div>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>Today</span><span class="fc__foot-total">+$10,030.00</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span class="fc-float__copy"><strong>Payment received</strong><small>$120.00 &middot; Cash</small></span>
+                <span class="fc-float__amount">+$120</span>
+              </div>
+            </div>
           </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-roles.png", "Two staff members at a front desk with an Access by role panel listing Admin, Manager and Staff permissions", { class: "feat-idx-card__img", loading: "lazy" } %}
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="5" width="22" height="14" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg></span>Payment tracking</span>
+            <h3 class="feat-tile__h3">Know what came in, at every branch</h3>
+            <p class="feat-tile__body">Every payment logged the moment it's collected, against the booking it belongs to. No Sunday-night spreadsheet.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Every payment logged the moment it lands</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Reconciled against the exact booking, per branch</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Broken down by booking, therapist, and service</li>
+            </ul>
+            <a href="/features/payment-tracking/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
           </div>
-          <h3 class="feat-idx-card__h3">Everyone sees exactly what they need</h3>
-          <p class="feat-idx-card__body">Three roles &ndash; admin, manager, staff &ndash; each with exactly the access their job requires.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Three roles, three levels of access</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Staff see only what their job requires</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No one sees what they shouldn't</li>
-          </ul>
-        </a>
+        </div>
 
-        <!-- Card 8: Memberships -->
-        <a href="/features/memberships/" class="feat-idx-card" data-feature="memberships">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Memberships</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
+        <!-- Row 6: Payroll -->
+        <div class="feat-tile reveal" id="feat-payroll" data-feature="payroll">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8.01" y2="11"/><line x1="12" y1="11" x2="12.01" y2="11"/><line x1="16" y1="11" x2="16.01" y2="11"/><line x1="8" y1="15" x2="16" y2="15"/></svg></span>
+                    <span>Payroll &middot; October</span>
+                  </div>
+                  <span class="fc__pill fc__pill--amber">Draft</span>
+                </div>
+                <div class="fc-table fc-table--pay">
+                  <div class="fc-thead">
+                    <span>Staff</span>
+                    <span>Commission</span>
+                    <span>Net</span>
+                  </div>
+                  <div class="fc-row">
+                    <span class="fc-row__main"><span class="fc-item__avatar fc-item__avatar--g">AR</span><span class="fc-row__copy"><strong>Anisha Rai</strong><small>Lazimpat</small></span></span>
+                    <span class="fc-amount">+2,400</span>
+                    <span class="fc-amount">38,400</span>
+                  </div>
+                  <div class="fc-row">
+                    <span class="fc-row__main"><span class="fc-item__avatar fc-item__avatar--b">RT</span><span class="fc-row__copy"><strong>Ramesh Thapa</strong><small>Patan</small></span></span>
+                    <span class="fc-amount">+1,850</span>
+                    <span class="fc-amount">32,850</span>
+                  </div>
+                  <div class="fc-row">
+                    <span class="fc-row__main"><span class="fc-item__avatar fc-item__avatar--l">SG</span><span class="fc-row__copy"><strong>Sita Gurung</strong><small>Lazimpat</small></span></span>
+                    <span class="fc-amount">+600</span>
+                    <span class="fc-amount">21,600</span>
+                  </div>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>Per branch</span><span class="fc__foot-total">NPR 92,850</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="15" x2="16" y2="15"/></svg></span>
+                <span class="fc-float__copy"><strong>Draft ready</strong><small>12 staff &middot; 3 branches</small></span>
+                <span class="fc-float__amount">30 Sep</span>
+              </div>
+            </div>
           </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-memberships.jpg", "Customer paying with a card at a counter", { class: "feat-idx-card__img", loading: "lazy" } %}
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8.01" y2="11"/><line x1="12" y1="11" x2="12.01" y2="11"/><line x1="16" y1="11" x2="16.01" y2="11"/><line x1="8" y1="15" x2="16" y2="15"/></svg></span>Payroll</span>
+            <h3 class="feat-tile__h3">Month-end payroll, calculated not guessed</h3>
+            <p class="feat-tile__body">Salary, absence deductions and commission worked out per branch, then locked.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>One payroll run per branch per month</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Commission from completed, paid bookings</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Draft first, then finalized and locked</li>
+            </ul>
+            <a href="/features/payroll/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
           </div>
-          <h3 class="feat-idx-card__h3">Prepaid wallets, tracked to the last rupee</h3>
-          <p class="feat-idx-card__body">Customers pay in advance. Zennly keeps the balance, the expiry and every transaction.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Tiers with an advance amount and validity</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Membership as a payment mode at checkout</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Manager-only top-ups and renewals</li>
-          </ul>
-        </a>
+        </div>
 
-        <!-- Card 9: Packages -->
-        <a href="/features/packages/" class="feat-idx-card" data-feature="packages">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Packages</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
-          </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-packages.jpg", "Woman receiving a massage at a spa", { class: "feat-idx-card__img", loading: "lazy" } %}
-          </div>
-          <h3 class="feat-idx-card__h3">Sell session bundles, redeem them one visit at a time</h3>
-          <p class="feat-idx-card__body">A package is N sessions of one service. Zennly counts them down at checkout.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Sessions remaining always visible</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Redeemed at checkout, one session at a time</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Amount still owed tracked per package</li>
-          </ul>
-        </a>
+        <div class="feat-idx-category" id="cat-team">
+          <span class="feat-idx-category__eyebrow">Team</span>
+          <h3 class="feat-idx-category__h3">Run every branch like it's the only one.</h3>
+        </div>
 
-        <!-- Card 10: Vouchers -->
-        <a href="/features/vouchers/" class="feat-idx-card" data-feature="vouchers">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13"/><path d="M12 8c-2-4-6-3-5 0M12 8c2-4 6-3 5 0"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Vouchers</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
+        <!-- Row 7: Staff Management -->
+        <div class="feat-tile reveal" id="feat-staff-management" data-feature="staff-management">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                    <span>Team &middot; Lazimpat</span>
+                  </div>
+                  <span class="fc__pill">12 staff</span>
+                </div>
+                <div class="fc-list">
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--g">AR</span>
+                    <span class="fc-item__main"><strong>Anisha Rai</strong><small>Senior therapist &middot; 6 yrs</small></span>
+                    <span class="fc-chip fc-chip--muted">Lazimpat</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--b">RT</span>
+                    <span class="fc-item__main"><strong>Ramesh Thapa</strong><small>Therapist &middot; 3 yrs</small></span>
+                    <span class="fc-chip fc-chip--muted">Patan</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--l">SG</span>
+                    <span class="fc-item__main"><strong>Sita Gurung</strong><small>Receptionist &middot; 2 yrs</small></span>
+                    <span class="fc-chip fc-chip--muted">Lazimpat</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--a">BK</span>
+                    <span class="fc-item__main"><strong>Bikash Karki</strong><small>Therapist &middot; Boudha</small></span>
+                    <span class="fc-chip fc-chip--amber">Fri</span>
+                  </div>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>Roster current</span><span class="fc__foot-total">3 branches</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span class="fc-float__copy"><strong>Transfer scheduled</strong><small>Bikash &rarr; Boudha &middot; Fri</small></span>
+                <span class="fc-float__amount">1</span>
+              </div>
+            </div>
           </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-vouchers.jpg", "Hand holding a wrapped gift", { class: "feat-idx-card__img", loading: "lazy" } %}
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Staff &amp; therapist management</span>
+            <h3 class="feat-tile__h3">Your roster is always current</h3>
+            <p class="feat-tile__body">Schedule therapist transfers across branches with an effective date. No calls, no confusion on the day.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Scheduled transfers with an effective date</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Roster stays accurate across every branch</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>See incoming transfers before they arrive</li>
+            </ul>
+            <a href="/features/staff-management/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
           </div>
-          <h3 class="feat-idx-card__h3">Gift vouchers with a balance you can trust</h3>
-          <p class="feat-idx-card__body">Unique codes, partial claims and expiry, with every redemption on record.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>A unique code and balance per voucher</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Claimed in full or over several visits</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Expired vouchers refused at checkout</li>
-          </ul>
-        </a>
+        </div>
 
-        <!-- Card 11: Campaigns -->
-        <a href="/features/campaigns/" class="feat-idx-card" data-feature="campaigns">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Campaigns</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
+        <!-- Row 8: Role-Based Access -->
+        <div class="feat-tile reveal" id="feat-role-based-access" data-feature="role-based-access">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                    <span>Access by role</span>
+                  </div>
+                  <span class="fc__pill">3 roles</span>
+                </div>
+                <div class="fc-list">
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--g">AD</span>
+                    <span class="fc-item__main"><strong>Admin</strong><small>Every branch, every setting</small></span>
+                    <span class="fc-chip fc-chip--green">Full</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--b">MG</span>
+                    <span class="fc-item__main"><strong>Manager</strong><small>Bookings, payments, reports</small></span>
+                    <span class="fc-chip fc-chip--amber">Limited</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--l">ST</span>
+                    <span class="fc-item__main"><strong>Staff</strong><small>Own schedule only</small></span>
+                    <span class="fc-chip fc-chip--muted">Own</span>
+                  </div>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>Refunds: admin only</span><span class="fc__foot-total">Restricted</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                <span class="fc-float__copy"><strong>Access restricted</strong><small>Staff view &middot; 6 screens hidden</small></span>
+                <span class="fc-float__amount">3</span>
+              </div>
+            </div>
           </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-campaigns.jpg", "Sale sign in a shop", { class: "feat-idx-card__img", loading: "lazy" } %}
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>Role-based access</span>
+            <h3 class="feat-tile__h3">Everyone sees exactly what they need</h3>
+            <p class="feat-tile__body">Three roles &ndash; admin, manager, staff &ndash; each with exactly the access their job requires.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Three roles, three levels of access</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Staff see only what their job requires</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No one sees what they shouldn't</li>
+            </ul>
+            <a href="/features/role-based-access/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
           </div>
-          <h3 class="feat-idx-card__h3">Promotions that start and stop on schedule</h3>
-          <p class="feat-idx-card__body">Set a percentage offer for chosen services and dates. It shows up in online booking.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Percentage offers on chosen services</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Start and end dates handled for you</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Banner on your online booking site</li>
-          </ul>
-        </a>
+        </div>
 
-        <!-- Card 12: Outreach -->
-        <a href="/features/outreach/" class="feat-idx-card" data-feature="outreach">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Outreach</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
+        <!-- Row 9: Discount Approvals -->
+        <div class="feat-tile reveal" id="feat-discount-management" data-feature="discount-management">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24L4 3a1 1 0 0 0-1 1l.24 5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.83 0l4.35-4.35a2 2 0 0 0 0-2.82z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>
+                    <span>Discount requests</span>
+                  </div>
+                  <span class="fc__pill fc__pill--amber">2 pending</span>
+                </div>
+                <div class="fc-list">
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--a">AR</span>
+                    <span class="fc-item__main"><strong>15% off &middot; Balayage</strong><small>Requested by Anisha &middot; front desk</small></span>
+                    <span class="fc-chip fc-chip--amber">Awaiting</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--l">RT</span>
+                    <span class="fc-item__main"><strong>10% off &middot; Deep tissue</strong><small>Requested by Ramesh &middot; therapist</small></span>
+                    <span class="fc-chip fc-chip--amber">Awaiting</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--g">MG</span>
+                    <span class="fc-item__main"><strong>20% off &middot; Bridal package</strong><small>Approved by manager &middot; 2 days ago</small></span>
+                    <span class="fc-chip fc-chip--green">Approved</span>
+                  </div>
+                </div>
+                <div class="fc-actions">
+                  <span class="fc-btn fc-btn--solid">Approve</span>
+                  <span class="fc-btn fc-btn--ghost">Decline</span>
+                  <span class="fc-note" style="margin-left:auto;">Manager only</span>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>Audit trail on</span><span class="fc__foot-total">-$240</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span class="fc-float__copy"><strong>Discount approved</strong><small>15% &middot; by manager</small></span>
+                <span class="fc-float__amount">-$42</span>
+              </div>
+            </div>
           </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-outreach.jpg", "Person typing on a laptop at a desk", { class: "feat-idx-card__img", loading: "lazy" } %}
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24L4 3a1 1 0 0 0-1 1l.24 5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.83 0l4.35-4.35a2 2 0 0 0 0-2.82z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>Discount management</span>
+            <h3 class="feat-tile__h3">Every discount has a name and an approval</h3>
+            <p class="feat-tile__body">Staff request, managers approve. Nothing slips through without a record.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Staff request, managers approve</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Every discount logged against the booking</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>A full audit trail, always</li>
+            </ul>
+            <a href="/features/discount-management/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
           </div>
-          <h3 class="feat-idx-card__h3">Bring customers back without chasing them</h3>
-          <p class="feat-idx-card__body">Automatic win-back and review-request emails, with an approval queue if you want one.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Win-back emails for lapsed customers</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Review requests after completed visits</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Send automatically or approve first</li>
-          </ul>
-        </a>
+        </div>
 
-        <!-- Card 13: Payroll -->
-        <a href="/features/payroll/" class="feat-idx-card" data-feature="payroll">
-          <div class="feat-idx-card__head">
-            <span class="feat-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8.01" y2="11"/><line x1="12" y1="11" x2="12.01" y2="11"/><line x1="16" y1="11" x2="16.01" y2="11"/><line x1="8" y1="15" x2="16" y2="15"/></svg>
-            </span>
-            <p class="feat-idx-card__tag">Payroll</p>
-            <span class="feat-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
+        <div class="feat-idx-category" id="cat-growth">
+          <span class="feat-idx-category__eyebrow">Grow &amp; retain</span>
+          <h3 class="feat-idx-category__h3">Bring customers back, without lifting a finger.</h3>
+        </div>
+
+        <!-- Row 10: Memberships -->
+        <div class="feat-tile reveal" id="feat-memberships" data-feature="memberships">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+                    <span>Membership wallet</span>
+                  </div>
+                  <span class="fc__pill fc__pill--amber">Gold</span>
+                </div>
+                <div class="fc-wallet">
+                  <div class="fc-wallet__top">
+                    <span class="fc-wallet__name">Anisha Shrestha</span>
+                    <span class="fc-wallet__badge">Gold</span>
+                  </div>
+                  <span class="fc-wallet__value">NPR 24,500</span>
+                  <div class="fc-wallet__meta"><span>Valid till Dec 2026</span><span>68% used</span></div>
+                  <div class="fc-bar"><span style="width:68%"></span></div>
+                </div>
+                <div class="fc-list">
+                  <div class="fc-item">
+                    <span class="fc-logo fc-logo--g">+</span>
+                    <span class="fc-item__main"><strong>Top-up</strong><small>Manager &middot; today</small></span>
+                    <span class="fc-amount">+10,000</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-logo fc-logo--l">-</span>
+                    <span class="fc-item__main"><strong>Session used</strong><small>Deep tissue &middot; Oct 20</small></span>
+                    <span class="fc-amount">-2,500</span>
+                  </div>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>Balance synced</span><span class="fc__foot-total">NPR 24,500</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span class="fc-float__copy"><strong>Top-up approved</strong><small>Anisha &middot; Gold</small></span>
+                <span class="fc-float__amount">+10,000</span>
+              </div>
+            </div>
           </div>
-          <div class="feat-idx-card__visual">
-            {% image "/assets/images/feat-idx-payroll.jpg", "Calculator and notebook on a desk", { class: "feat-idx-card__img", loading: "lazy" } %}
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>Memberships</span>
+            <h3 class="feat-tile__h3">Prepaid wallets, tracked to the last rupee</h3>
+            <p class="feat-tile__body">Customers pay in advance. Zennly keeps the balance, the expiry and every transaction.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Tiers with an advance amount and validity</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Membership as a payment mode at checkout</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Manager-only top-ups and renewals</li>
+            </ul>
+            <a href="/features/memberships/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
           </div>
-          <h3 class="feat-idx-card__h3">Month-end payroll, calculated not guessed</h3>
-          <p class="feat-idx-card__body">Salary, absence deductions and commission worked out per branch, then locked.</p>
-          <ul class="feat-idx-card__list">
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>One payroll run per branch per month</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Commission from completed, paid bookings</li>
-            <li><span class="feat-idx-card__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Draft first, then finalized and locked</li>
-          </ul>
-        </a>
+        </div>
+
+        <!-- Row 11: Packages -->
+        <div class="feat-tile reveal" id="feat-packages" data-feature="packages">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg></span>
+                    <span>Packages</span>
+                  </div>
+                  <span class="fc__pill">2 active</span>
+                </div>
+                <div class="fc-pkg">
+                  <div class="fc-pkg__top"><strong>Deep Tissue &middot; 10 sessions</strong><span>7 left</span></div>
+                  <div class="fc-pkg__meta">NPR 12,000 &middot; bought Oct 02</div>
+                  <div class="fc-dots"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i><i></i><i></i></div>
+                </div>
+                <div class="fc-pkg">
+                  <div class="fc-pkg__top"><strong>Facial Glow &middot; 5 sessions</strong><span>2 left</span></div>
+                  <div class="fc-pkg__meta">NPR 7,500 &middot; bought Sep 18</div>
+                  <div class="fc-dots"><i class="is-on"></i><i class="is-on"></i><i></i><i></i><i></i></div>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>Redeemed at checkout</span><span class="fc__foot-total">9 left</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span class="fc-float__copy"><strong>Session redeemed</strong><small>Deep Tissue &middot; 6 left</small></span>
+                <span class="fc-float__amount">-1</span>
+              </div>
+            </div>
+          </div>
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg></span>Packages</span>
+            <h3 class="feat-tile__h3">Sell session bundles, redeem them one visit at a time</h3>
+            <p class="feat-tile__body">A package is N sessions of one service. Zennly counts them down at checkout.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Sessions remaining always visible</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Redeemed at checkout, one session at a time</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Amount still owed tracked per package</li>
+            </ul>
+            <a href="/features/packages/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Row 12: Vouchers -->
+        <div class="feat-tile reveal" id="feat-vouchers" data-feature="vouchers">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13"/><path d="M12 8c-2-4-6-3-5 0M12 8c2-4 6-3 5 0"/></svg></span>
+                    <span>Vouchers</span>
+                  </div>
+                  <span class="fc__pill">2 active</span>
+                </div>
+                <div class="fc-ticket">
+                  <span class="fc-ticket__code"><strong>ZN-4F2A</strong><small>Expires 31 Dec 2026</small></span>
+                  <span class="fc-ticket__amount">NPR 5,000</span>
+                </div>
+                <div class="fc-ticket">
+                  <span class="fc-ticket__code"><strong>ZN-9C1B</strong><small>Partially claimed &middot; 12 Nov</small></span>
+                  <span class="fc-ticket__amount">NPR 1,500</span>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>Balance on every code</span><span class="fc__foot-total">NPR 6,500</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span class="fc-float__copy"><strong>Voucher claimed</strong><small>NPR 1,200 &middot; ZN-4F2A</small></span>
+                <span class="fc-float__amount">-1,200</span>
+              </div>
+            </div>
+          </div>
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13"/><path d="M12 8c-2-4-6-3-5 0M12 8c2-4 6-3 5 0"/></svg></span>Vouchers</span>
+            <h3 class="feat-tile__h3">Gift vouchers with a balance you can trust</h3>
+            <p class="feat-tile__body">Unique codes, partial claims and expiry, with every redemption on record.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>A unique code and balance per voucher</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Claimed in full or over several visits</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Expired vouchers refused at checkout</li>
+            </ul>
+            <a href="/features/vouchers/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Row 13: Campaigns -->
+        <div class="feat-tile reveal" id="feat-campaigns" data-feature="campaigns">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></span>
+                    <span>Campaigns</span>
+                  </div>
+                  <span class="fc__pill fc__pill--green"><span class="fc__dot"></span>Live</span>
+                </div>
+                <div class="fc-promo">
+                  <div class="fc-promo__top"><span class="fc-promo__title">Monsoon Glow</span><span class="fc-promo__off">20% off</span></div>
+                  <div class="fc-promo__meta">01 Oct &ndash; 31 Oct &middot; online booking</div>
+                  <div class="fc-promo__chips"><span class="fc-chip fc-chip--muted">Balayage</span><span class="fc-chip fc-chip--muted">Facial</span></div>
+                </div>
+                <div class="fc-item">
+                  <span class="fc-item__avatar fc-item__avatar--l">RF</span>
+                  <span class="fc-item__main"><strong>Refer a friend &middot; 10% off</strong><small>Starts 01 Nov &middot; all services</small></span>
+                  <span class="fc-chip fc-chip--muted">Scheduled</span>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>Banner on booking page</span><span class="fc__foot-total">2 campaigns</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></span>
+                <span class="fc-float__copy"><strong>Live on booking page</strong><small>20% off &middot; 2 services</small></span>
+                <span class="fc-float__amount">20%</span>
+              </div>
+            </div>
+          </div>
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></span>Campaigns</span>
+            <h3 class="feat-tile__h3">Promotions that start and stop on schedule</h3>
+            <p class="feat-tile__body">Set a percentage offer for chosen services and dates. It shows up in online booking.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Percentage offers on chosen services</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Start and end dates handled for you</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Banner on your online booking site</li>
+            </ul>
+            <a href="/features/campaigns/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Row 14: Customer Outreach -->
+        <div class="feat-tile reveal" id="feat-outreach" data-feature="outreach">
+          <div class="feat-tile__preview">
+            <div class="feat-tile__stage">
+              <div class="fc" aria-hidden="true">
+                <div class="fc__head">
+                  <div class="fc__title">
+                    <span class="fc__title-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
+                    <span>Outreach</span>
+                  </div>
+                  <span class="fc__pill">Automated</span>
+                </div>
+                <div class="fc-list">
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--g">WB</span>
+                    <span class="fc-item__main"><strong>We miss you</strong><small>42 lapsed customers &middot; win-back</small></span>
+                    <span class="fc-chip fc-chip--green">Sent</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--b">RV</span>
+                    <span class="fc-item__main"><strong>How was your visit?</strong><small>18 completed visits &middot; review</small></span>
+                    <span class="fc-chip fc-chip--amber">Queued</span>
+                  </div>
+                  <div class="fc-item">
+                    <span class="fc-item__avatar fc-item__avatar--l">MO</span>
+                    <span class="fc-item__main"><strong>Month-end offer</strong><small>120 customers &middot; newsletter</small></span>
+                    <span class="fc-chip fc-chip--lav">Approval</span>
+                  </div>
+                </div>
+                <div class="fc__foot"><span class="fc__live"><i></i>2 automated</span><span class="fc__foot-total">1 waiting</span></div>
+              </div>
+              <div class="fc-float" aria-hidden="true">
+                <span class="fc-float__icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
+                <span class="fc-float__copy"><strong>12 emails sent</strong><small>Win-back &middot; just now</small></span>
+                <span class="fc-float__amount">12</span>
+              </div>
+            </div>
+          </div>
+          <div class="feat-tile__content">
+            <span class="feat-tile__tag"><span class="feat-tile__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>Outreach</span>
+            <h3 class="feat-tile__h3">Bring customers back without chasing them</h3>
+            <p class="feat-tile__body">Automatic win-back and review-request emails, with an approval queue if you want one.</p>
+            <ul class="feat-tile__list">
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Win-back emails for lapsed customers</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Review requests after completed visits</li>
+              <li><span class="feat-tile__check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Send automatically or approve first</li>
+            </ul>
+            <a href="/features/outreach/" class="feat-tile__cta">
+              <span>Get Started</span>
+              <span class="feat-tile__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></span>
+            </a>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -352,33 +925,76 @@ bodyClass: page--light-nav
 
 
   <!-- ── THE PLATFORM ARGUMENT ─────────────────────────────────────────── -->
-  <section class="section">
+  <!-- feat-plat-*: modelled on a Calendly/Acuity-style "advanced features" grid
+       (eyebrow pill + two-column header, three standalone gradient-tile images,
+       each followed by a detached icon/title/copy block below it, not boxed
+       together). Uses Zennly's own copy, icon set and palette (the sage/
+       gold/lilac tints already used by .feat-tile) instead of stock photography.
+       See CLAUDE.md "Exception: Features Platform Argument (/features/)". -->
+  <section class="section feat-plat">
     <div class="section__inner">
-      <div class="section__header reveal">
-        <h2 class="section__h2">These aren't six features. They're one operational layer for your business.</h2>
+      <div class="feat-plat__head reveal">
+        <div class="feat-plat__head-text">
+          <h2 class="section__h2">One system. Not six disconnected tools.</h2>
+        </div>
+        <p class="feat-plat__head-sub">Every booking, branch, and report runs on the same connected platform.</p>
       </div>
 
-      <div class="pillars reveal" style="margin-top:var(--space-xl);">
-        <div class="pillar">
-          <span class="pillar__icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-          </span>
-          <h3 class="pillar__title">Connected records</h3>
-          <p class="pillar__desc">Every booking, payment, discount, and status change is part of the same record. Nothing is siloed. Nothing needs to be reconciled. The data tells a complete story.</p>
+      <div class="feat-plat__grid reveal">
+        <div class="feat-plat__item">
+          <div class="feat-plat__media" data-tint="sage">
+            <div class="feat-plat__mock fpm-records" aria-hidden="true">
+              <div class="fpm-row"><span class="fpm-dot"></span><span class="fpm-label">Booking</span><span class="fpm-val">Confirmed</span></div>
+              <div class="fpm-row"><span class="fpm-dot"></span><span class="fpm-label">Payment</span><span class="fpm-val">Paid</span></div>
+              <div class="fpm-row"><span class="fpm-dot"></span><span class="fpm-label">Status</span><span class="fpm-val">Synced</span></div>
+            </div>
+          </div>
+          <div class="feat-plat__body">
+            <h3 class="feat-plat__title">
+              <span class="feat-plat__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              </span>
+              Connected records
+            </h3>
+            <p class="feat-plat__desc">Every booking, payment, and status change lives on one record &ndash; nothing siloed, nothing to reconcile.</p>
+          </div>
         </div>
-        <div class="pillar">
-          <span class="pillar__icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          </span>
-          <h3 class="pillar__title">One view across all branches</h3>
-          <p class="pillar__desc">Whether you have two locations or ten, one view shows you the full picture. Branch-level detail when you need it. Cross-branch comparison when you want it.</p>
+        <div class="feat-plat__item">
+          <div class="feat-plat__media" data-tint="gold">
+            <div class="feat-plat__mock fpm-branches" aria-hidden="true">
+              <div class="fpm-bar-row"><span class="fpm-bar-label">Downtown</span><span class="fpm-bar-track"><span class="fpm-bar-fill" style="width:78%"></span></span></div>
+              <div class="fpm-bar-row"><span class="fpm-bar-label">Uptown</span><span class="fpm-bar-track"><span class="fpm-bar-fill" style="width:52%"></span></span></div>
+              <div class="fpm-bar-row"><span class="fpm-bar-label">Lakeside</span><span class="fpm-bar-track"><span class="fpm-bar-fill" style="width:65%"></span></span></div>
+            </div>
+          </div>
+          <div class="feat-plat__body">
+            <h3 class="feat-plat__title">
+              <span class="feat-plat__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </span>
+              One view across all branches
+            </h3>
+            <p class="feat-plat__desc">Two locations or ten, one view shows the full picture &ndash; branch detail when you need it, comparison when you want it.</p>
+          </div>
         </div>
-        <div class="pillar">
-          <span class="pillar__icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          </span>
-          <h3 class="pillar__title">Built to scale with you</h3>
-          <p class="pillar__desc">The system that works at two branches works the same way at four. Role-based access, multi-branch visibility, and structured workflows mean you don't rebuild your operations every time you open a new location.</p>
+        <div class="feat-plat__item">
+          <div class="feat-plat__media" data-tint="lilac">
+            <div class="feat-plat__mock fpm-scale" aria-hidden="true">
+              <span class="fpm-tile"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+              <span class="fpm-tile"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+              <span class="fpm-tile"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+              <span class="fpm-tile fpm-tile--add">+</span>
+            </div>
+          </div>
+          <div class="feat-plat__body">
+            <h3 class="feat-plat__title">
+              <span class="feat-plat__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </span>
+              Built to scale with you
+            </h3>
+            <p class="feat-plat__desc">What works at two branches works the same at four &ndash; role-based access and structured workflows you never rebuild.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -386,7 +1002,7 @@ bodyClass: page--light-nav
 
 
   <!-- ── TRANSFORMATION — BEFORE / AFTER ─────────────────────────────── -->
-  <section class="section" id="transformation">
+  <section class="section" id="transformation" style="display:none;">
     <div class="section__inner">
 
       <div class="compare-card compare-card--v2">
@@ -477,119 +1093,108 @@ bodyClass: page--light-nav
 
     </div>
   </section>
-  <!-- ── LIVE PROOF ────────────────────────────────────────────────────── -->
-  <section class="section fd-proof">
+  <!-- ── LIVE PROOF + SOCIAL PROOF (merged) ───────────────────────────────
+       Layout exception approved 2026-10-26 (see CLAUDE.md "Features Numbers
+       & Testimonial Band"): one section combining the stat cards and a
+       single lead testimonial, modeled on a generic SaaS "stats +
+       testimonial" band — eyebrow pill, heading, tinted stat-card row, a
+       divider, one quote. Same copy and stats as before (all six, plus the
+       strongest of the three testimonials); uses the existing
+       .section__badge/.feat-idx-eyebrow pill and the site's own sage/ink
+       tokens, not the reference's colors or card style. -->
+  <section class="section feat-ns-section">
     <div class="section__inner">
-      <div class="section__header reveal">
-        <h2 class="section__h2">What a week on the platform looks like.</h2>
-        <p class="section__sub section__sub--center">Real numbers. Real operations. Real businesses running on this system right now.</p>
-      </div>
-      <div class="fd-proof__grid reveal">
-        <div class="fd-proof__card">
-          <div class="fd-proof__num" data-count-target="351">351</div>
-          <p class="fd-proof__label">Bookings created per week</p>
+      <div class="feat-ns-top">
+        <div class="section__header feat-ns-header reveal">
+          <h2 class="section__h2">A week on the platform.</h2>
+          <p class="section__sub">Real numbers from real businesses running on this system right now.</p>
         </div>
-        <div class="fd-proof__card">
-          <div class="fd-proof__num" data-count-target="800+">800+</div>
-          <p class="fd-proof__label">Status signals per week</p>
-        </div>
-        <div class="fd-proof__card">
-          <div class="fd-proof__num" data-count-target="173">173</div>
-          <p class="fd-proof__label">Payments recorded per week</p>
-        </div>
-        <div class="fd-proof__card">
-          <div class="fd-proof__num" data-count-target="126">126</div>
-          <p class="fd-proof__label">Discounts tracked per week</p>
-        </div>
-        <div class="fd-proof__card">
-          <div class="fd-proof__num" data-count-target="30">30</div>
-          <p class="fd-proof__label">Staff transfers (90 days)</p>
-        </div>
-        <div class="fd-proof__card">
-          <div class="fd-proof__num" data-count-target="4">4</div>
-          <p class="fd-proof__label">Active branches</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
+        <div class="feat-ns-stats reveal">
+          <div class="feat-ns-stat">
+            <div class="feat-ns-stat__num" data-count-target="351">351</div>
+            <p class="feat-ns-stat__label">Bookings created per week</p>
+          </div>
+          <div class="feat-ns-stat">
+            <div class="feat-ns-stat__num" data-count-target="800+">800+</div>
+            <p class="feat-ns-stat__label">Status signals per week</p>
+          </div>
+          <div class="feat-ns-stat">
+            <div class="feat-ns-stat__num" data-count-target="173">173</div>
+            <p class="feat-ns-stat__label">Payments recorded per week</p>
+          </div>
+          <div class="feat-ns-stat">
+            <div class="feat-ns-stat__num" data-count-target="126">126</div>
+            <p class="feat-ns-stat__label">Discounts tracked per week</p>
+          </div>
+          <div class="feat-ns-stat">
+            <div class="feat-ns-stat__num" data-count-target="30">30</div>
+            <p class="feat-ns-stat__label">Staff transfers (90 days)</p>
+          </div>
+          <div class="feat-ns-stat">
+            <div class="feat-ns-stat__num" data-count-target="4">4</div>
+            <p class="feat-ns-stat__label">Active branches</p>
+          </div>
+        </div>
+      </div>
 
-  <!-- ── SOCIAL PROOF ──────────────────────────────────────────────────── -->
-  <section class="section fd-social">
-    <div class="section__inner">
-      <div class="section__header reveal">
-        <h2 class="section__h2">From the people running this every day.</h2>
-      </div>
-      <div class="fd-social__grid reveal">
-        <div class="fd-social__card">
-          <span class="fd-social__quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="fd-social__quote">I used to spend my mornings calling every branch. Now I open the platform and everything is already there.</p>
-          <div class="fd-social__footer">
-            <span class="fd-social__avatar">O</span>
-            <p class="fd-social__author">Owner<span class="fd-social__business">Multi-branch spa, Kathmandu</span></p>
-          </div>
-        </div>
-        <div class="fd-social__card">
-          <span class="fd-social__quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="fd-social__quote">The discount approval changed how my team thinks about discounting. They still do it &ndash; but now they think before they ask.</p>
-          <div class="fd-social__footer">
-            <span class="fd-social__avatar">B</span>
-            <p class="fd-social__author">Branch manager<span class="fd-social__business">Premium salon</span></p>
-          </div>
-        </div>
-        <div class="fd-social__card">
-          <span class="fd-social__quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="fd-social__quote">It takes me maybe 10 seconds to log a booking now. The status updates, the payment &ndash; it's all in the same place.</p>
-          <div class="fd-social__footer">
-            <span class="fd-social__avatar">F</span>
-            <p class="fd-social__author">Front-desk staff<span class="fd-social__business">Aesthetic clinic</span></p>
-          </div>
-        </div>
-      </div>
+      <div class="feat-ns-divider" aria-hidden="true"></div>
+
+      <blockquote class="feat-ns-quote reveal">
+        <span class="feat-ns-quote__mark" aria-hidden="true">&ldquo;</span>
+        <p class="feat-ns-quote__text">I used to spend my mornings calling every branch. Now I open the platform and everything is already there.</p>
+        <footer class="feat-ns-quote__footer">
+          <span class="feat-ns-quote__avatar" aria-hidden="true">O</span>
+          <span class="feat-ns-quote__meta"><strong>Owner</strong><span>Multi-branch spa, Kathmandu</span></span>
+        </footer>
+      </blockquote>
     </div>
   </section>
 
 
   <!-- ── COMMON QUESTIONS ──────────────────────────────────────────────── -->
-  <section class="section" id="faq">
-    <div class="section__inner">
-      <div class="faq-header reveal">
-        <h2 class="section__h2">Before you book a demo, a few honest answers.</h2>
+  <!-- Reuses the shared .fd-faq component (sticky left heading, circular
+       +/- buttons) already used on /solutions/ and every /features/{slug}/
+       detail page — not a new layout, just the existing one applied here. -->
+  <section class="section fd-faq" id="faq">
+    <div class="section__inner fd-faq__grid">
+      <div class="fd-faq__head reveal">
+        <h2 class="fd-h2">Before you book a demo, <em>a few honest answers.</em></h2>
       </div>
-      <div class="faq-list" x-data="{ open: null }">
-        <div class="faq-item reveal" data-delay="1" :class="{ 'faq-item--open': open === 0 }">
-          <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-            Do we need all of these features?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
+      <div class="fd-faq__list" x-data="{ open: null }">
+        <div class="fd-faq__item reveal" :class="{ 'is-open': open === 0 }">
+          <button class="fd-faq__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
+            <span>Do we need all of these features?</span>
+            <span class="fd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
+          <div class="fd-faq__a" x-show="open === 0" x-cloak>
             <p>No. Most businesses start with booking management and payment tracking &ndash; and those two alone change how their operations work. Everything else is there when you need it.</p>
           </div>
         </div>
-        <div class="faq-item reveal" data-delay="2" :class="{ 'faq-item--open': open === 1 }">
-          <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-            How long does it take to get set up?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
+        <div class="fd-faq__item reveal" :class="{ 'is-open': open === 1 }">
+          <button class="fd-faq__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
+            <span>How long does it take to get set up?</span>
+            <span class="fd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
+          <div class="fd-faq__a" x-show="open === 1" x-cloak>
             <p>Your first branch is live in a single session. Most front-desk staff are comfortable with the core workflows within a day.</p>
           </div>
         </div>
-        <div class="faq-item reveal" data-delay="3" :class="{ 'faq-item--open': open === 2 }">
-          <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-            We've tried software before and it didn't stick.
-            <span class="faq-item__icon" aria-hidden="true">+</span>
+        <div class="fd-faq__item reveal" :class="{ 'is-open': open === 2 }">
+          <button class="fd-faq__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
+            <span>We've tried software before and it didn't stick.</span>
+            <span class="fd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
+          <div class="fd-faq__a" x-show="open === 2" x-cloak>
             <p>Most software is built for a generic business. This is built for service businesses with multiple branches, role-based teams, and a real operational hierarchy. The fit is different because the design intent was different.</p>
           </div>
         </div>
-        <div class="faq-item reveal" data-delay="4" :class="{ 'faq-item--open': open === 3 }">
-          <button class="faq-item__q" @click="open = open === 3 ? null : 3" :aria-expanded="open === 3">
-            We're not big enough yet.
-            <span class="faq-item__icon" aria-hidden="true">+</span>
+        <div class="fd-faq__item reveal" :class="{ 'is-open': open === 3 }">
+          <button class="fd-faq__q" @click="open = open === 3 ? null : 3" :aria-expanded="open === 3">
+            <span>We're not big enough yet.</span>
+            <span class="fd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-item__a" x-show="open === 3" x-cloak x-transition>
+          <div class="fd-faq__a" x-show="open === 3" x-cloak>
             <p>If you have more than one branch and feel any of the pain described on this page, you're exactly the right size. The right time to build systems is before things break &ndash; not after.</p>
           </div>
         </div>
@@ -599,12 +1204,31 @@ bodyClass: page--light-nav
 
 
   <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
-  <section class="bottom-cta" id="demo">
-    <div class="bottom-cta__card bottom-cta__card--banner reveal">
-      <h2 class="bottom-cta__h2">Every problem on this page has a solution ready to show you.</h2>
-      <p class="bottom-cta__sub">We'll walk through the full platform in 20 minutes &ndash; configured around your branches, your team structure, and the specific problems keeping you up at night.</p>
-      <a href="mailto:info@zennly.io" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
-      <p class="bottom-cta__link">No setup required before the demo. No commitment after. Just the product, working the way your business works.</p>
+  <!-- Exception approved 2026-10-26 (see CLAUDE.md "Features Final CTA
+       Collage"): replaces the shared page--pink-cta band with a photo
+       collage around a centered headline, modeled on a generic SaaS
+       final-CTA layout. Uses six of Zennly's own solution photos already
+       shipped on /solutions/{slug}/ (not new stock photography), the
+       site's own sage/gold gradient recipe (.feat-page-hero__panel above),
+       and the existing .feat-page-hero__cta pill button. Scoped to
+       classes `feat-fcta-*`, on /features/ only. -->
+  <section class="feat-fcta" id="demo">
+    <div class="feat-fcta__stage">
+      <div class="feat-fcta__photo feat-fcta__photo--1">{% image "/assets/images/solution-hero-salon.png", "Zennly salon client", { loading: "lazy", sizes: "220px" } %}</div>
+      <div class="feat-fcta__photo feat-fcta__photo--2">{% image "/assets/images/solution-hero-barbershop.jpg", "Zennly barbershop client", { loading: "lazy", sizes: "220px" } %}</div>
+      <div class="feat-fcta__photo feat-fcta__photo--3">{% image "/assets/images/solution-hero-fitness.png", "Zennly fitness studio client", { loading: "lazy", sizes: "200px" } %}</div>
+      <div class="feat-fcta__photo feat-fcta__photo--4">{% image "/assets/images/solution-hero-spa.png", "Zennly spa client", { loading: "lazy", sizes: "200px" } %}</div>
+      <div class="feat-fcta__photo feat-fcta__photo--5">{% image "/assets/images/solution-hero-tattoo.png", "Zennly tattoo studio client", { loading: "lazy", sizes: "220px" } %}</div>
+      <div class="feat-fcta__photo feat-fcta__photo--6">{% image "/assets/images/solution-hero-bridal-makeup.jpg", "Zennly bridal makeup client", { loading: "lazy", sizes: "220px" } %}</div>
+
+      <div class="feat-fcta__content reveal">
+        <h2 class="feat-fcta__h2">Every problem on this page has a solution ready to show you.</h2>
+        <a href="#try-free" class="feat-page-hero__cta" data-trial-open>
+          <span class="feat-page-hero__cta-label">Try a free demo</span>
+          <span class="feat-page-hero__cta-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span>
+        </a>
+        <p class="feat-fcta__note">No setup required before the demo. No commitment after. Just the product, working the way your business works.</p>
+      </div>
     </div>
   </section>
 

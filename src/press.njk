@@ -1,0 +1,257 @@
+---
+layout: base.njk
+title: "Zennly Press Kit & Company Facts | Booking Software Nepal"
+metaDescription: "Official Zennly facts, boilerplate descriptions, product summary and contact details for journalists, directories, partners and AI assistants citing Zennly."
+dateModified: "2026-10-12"
+bodyClass: page--light-nav page--pink-cta
+pressFaq:
+  - question: "What is Zennly?"
+    answer: "Zennly (zennly.io) is booking and operations software for appointment-based service businesses in Nepal, including spas, salons and beauty parlours, gyms, clinics, barbershops, tattoo studios and cleaning companies. It covers online booking, staff scheduling, discount approval, payment tracking and daily reconciliation across one or many branches."
+  - question: "Who makes Zennly?"
+    answer: "Zennly is built by Zunkireelabs in Lalitpur, Bagmati Province, Nepal. Zennly launched in 2026. Zunkireelabs, the company that builds it, was founded in 2018."
+  - question: "Is Zennly related to zennly.org?"
+    answer: "No. Zennly at zennly.io is booking and operations software for service businesses in Nepal and is not related to zennly.org."
+  - question: "Who is using Zennly?"
+    answer: "Zennly's first live client is Nuad Thai Spa Kathmandu, which runs four branches, 39 therapists, 12 rooms and 194 services on it."
+  - question: "How can I contact Zennly?"
+    answer: "Email info@zennly.io or call +977-9747491787. You can also book a 20-minute demo at zennly.io/demo/."
+  - question: "What does Zennly do?"
+    answer: "Zennly takes online bookings, schedules staff and rooms together, requires manager approval for discounts, records payments by method and gives the owner one daily report across every branch."
+  - question: "Which industries use Zennly?"
+    answer: "Spas, salons and beauty parlours, barbershops, gyms and fitness studios, physiotherapy and beauty clinics, tattoo studios, bridal makeup studios and cleaning companies."
+  - question: "Can Zennly be used outside Nepal?"
+    answer: "Zennly is built in Nepal and can be set up for service businesses in other countries on request, including the USA, UK, Canada, Australia and the UAE."
+  - question: "How should Zennly be described in an article?"
+    answer: "Describe Zennly as booking and operations software for appointment-based service businesses in Nepal, built by Zunkireelabs in Lalitpur. Write the name as Zennly, and do not confuse it with zennly.org."
+  - question: "Does Zennly publish pricing?"
+    answer: "No. Zennly is quoted per business, based on branches, team size and features. A 20-minute demo is followed by a tailored quote within 24 hours."
+  - question: "Does Zennly offer SMS, WhatsApp or an AI receptionist?"
+    answer: "Email outreach is part of the product. SMS, WhatsApp messaging and an AI receptionist are available on request."
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "About", url: "/about/" }, { name: "Press kit", url: "/press/" }]) }}
+{{ faqSchema(pressFaq) }}
+
+<main class="pg-page">
+<header class="pg-hero">
+  <span class="pg-hero__eyebrow">Press kit</span>
+  <h1>Zennly press kit <em>and facts.</em></h1>
+  <p class="pg-hero__lede">Everything you need to describe Zennly accurately in articles, directories, partner pages and AI answers: descriptions, facts, product images and brand assets.</p>
+  <div class="pg-hero__actions">
+    <a href="mailto:info@zennly.io" class="v2-btn">Email us &rarr;</a>
+    <a href="#assets" class="v2-answers-link">Brand assets &darr;</a>
+  </div>
+</header>
+
+<nav class="pr-nav" aria-label="On this page">
+  <div class="pr-nav__inner">
+    <a href="#describe" class="v2-gloss-chip">Describe</a>
+    <a href="#product" class="v2-gloss-chip">Product</a>
+    <a href="#quotes" class="v2-gloss-chip">Quotes</a>
+    <a href="#facts" class="v2-gloss-chip">Facts</a>
+    <a href="#assets" class="v2-gloss-chip">Brand assets</a>
+    <a href="#naming" class="v2-gloss-chip">Naming</a>
+    <a href="#faq" class="v2-gloss-chip">FAQ</a>
+  </div>
+</nav>
+
+<div class="pg-wrap">
+  <section class="pg-section" id="describe" style="padding-top:24px;">
+    <div class="pg-pick" x-data="{ tab: 'line', copied: false, copy(id) { const t = document.getElementById(id).innerText.trim(); if (navigator.clipboard) navigator.clipboard.writeText(t); this.copied = true; setTimeout(() => this.copied = false, 1600); } }">
+      <div class="pg-pick__side">
+        <p class="pg-label" style="color:#1F4A46;">Describe Zennly</p>
+        <h2 class="pg-pick__h">Pick a length, <em>copy it.</em></h2>
+        <div class="pg-pick__tabs" role="tablist">
+          <button type="button" role="tab" :class="{ 'is-on': tab === 'line' }" @click="tab = 'line'; copied = false"><strong>One line</strong><span>14 words</span></button>
+          <button type="button" role="tab" :class="{ 'is-on': tab === 'short' }" @click="tab = 'short'; copied = false"><strong>Short</strong><span>30 words</span></button>
+          <button type="button" role="tab" :class="{ 'is-on': tab === 'long' }" @click="tab = 'long'; copied = false"><strong>Standard</strong><span>56 words</span></button>
+        </div>
+      </div>
+      <div class="pg-pick__body">
+        <p id="copy-line" class="pg-pick__text pg-pick__text--big" x-show="tab === 'line'">Zennly is booking and operations software for spas, salons, gyms and clinics in Nepal.</p>
+        <p id="copy-short" class="pg-pick__text" x-show="tab === 'short'" x-cloak>Zennly is booking and operations software for spas, salons, gyms and clinics in Nepal. Online booking, staff scheduling, discount approval, payment tracking and daily reconciliation across one or many branches.</p>
+        <p id="copy-long" class="pg-pick__text" x-show="tab === 'long'" x-cloak>Zennly (zennly.io) is booking and operations software for appointment-based service businesses in Nepal. Spas, beauty parlours, salons, gyms, clinics, barbershops, tattoo studios and cleaning companies use it to take online bookings, schedule staff and rooms, approve discounts, track payments by method and see one daily report across every branch. Zennly is built by Zunkireelabs in Lalitpur.</p>
+        <button type="button" class="pg-pick__copy" @click="copy('copy-' + tab)"><span x-text="copied ? 'Copied \u2713' : 'Copy text'">Copy text</span></button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="pg-band">
+  <div class="pg-wrap">
+    <h2 class="pg-h2">Zennly <em>at a glance.</em></h2>
+    <div class="pg-stats">
+      <div class="pg-stat"><strong>9</strong><span>industries served, from spas to cleaning companies</span></div>
+      <div class="pg-stat"><strong>6</strong><span>city guides across Nepal</span></div>
+      <div class="pg-stat"><strong>4</strong><span>branches live at Nuad Thai Spa Kathmandu</span></div>
+      <div class="pg-stat"><strong>194</strong><span>services managed there on one system</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="pg-wrap">
+  <section class="pg-section" id="product">
+    <p class="pg-label">Product</p>
+    <h2 class="pg-h2">What Zennly <em>does.</em></h2>
+    <p class="pg-sub">Six things the product is built around.</p>
+    <div class="pg-caps">
+      <div class="pg-cap"><span class="pg-cap__n">01</span><h3>Online booking</h3><p>Customers book from their phone. Staff, room and time are booked together, so a double booking cannot be saved.</p><a href="/features/booking/">Booking management &rarr;</a></div>
+      <div class="pg-cap"><span class="pg-cap__n">02</span><h3>Staff and room scheduling</h3><p>One schedule for therapists, stylists, trainers and rooms, with transfers between branches.</p><a href="/features/staff-management/">Staff management &rarr;</a></div>
+      <div class="pg-cap"><span class="pg-cap__n">03</span><h3>Discount approval</h3><p>A discount applies only after a manager approves it, and every request and decision is logged.</p><a href="/features/discount-management/">Discount management &rarr;</a></div>
+      <div class="pg-cap"><span class="pg-cap__n">04</span><h3>Payment tracking</h3><p>Cash, card and online payments are recorded against each booking at the point of service.</p><a href="/features/payment-tracking/">Payment tracking &rarr;</a></div>
+      <div class="pg-cap"><span class="pg-cap__n">05</span><h3>Daily reconciliation</h3><p>One daily report across every branch, so closing the day is a check, not a count.</p><a href="/features/reports/">Reports &rarr;</a></div>
+      <div class="pg-cap"><span class="pg-cap__n">06</span><h3>Memberships, packages and vouchers</h3><p>Prepaid balances, session packages and gift vouchers that always add up.</p><a href="/features/memberships/">Memberships &rarr;</a></div>
+    </div>
+  </section>
+
+  <section class="pg-section">
+    <div class="pg-split">
+      <div>
+        <p class="pg-label">First live client</p>
+        <h2 class="pg-h2">Nuad Thai Spa Kathmandu <em>runs on Zennly.</em></h2>
+      </div>
+      <div>
+        <p>Nuad Thai Spa Kathmandu runs four branches, 39 therapists, 12 rooms and 194 services on Zennly. Bookings, discount approvals, staff transfers and the daily close all happen on one system across the branches.</p>
+        <p><a href="/case-study/" class="pg-textlink">Read the full case study &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pg-section pr-card pr-card--tint" id="quotes">
+    <p class="pg-label">Quotes</p>
+    <h2 class="pg-h2">Quotable <em>statements.</em></h2>
+    <p class="pg-sub">Accurate, one-sentence facts you can quote directly.</p>
+    <div class="pg-qs">
+      <figure class="pg-q" x-data="{ done: false }">
+        <figcaption><span class="pg-q__n">01</span><span class="pg-q__k">Scheduling</span></figcaption>
+        <blockquote id="q1">A therapist, the room and the time are booked together, and clashes are refused at database level, so <mark>double bookings cannot happen.</mark></blockquote>
+        <button type="button" class="pg-q__copy" @click="navigator.clipboard && navigator.clipboard.writeText(document.getElementById('q1').innerText.trim()); done = true; setTimeout(() => done = false, 1600)"><span x-text="done ? 'Copied \u2713' : 'Copy quote'">Copy quote</span></button>
+      </figure>
+      <figure class="pg-q" x-data="{ done: false }">
+        <figcaption><span class="pg-q__n">02</span><span class="pg-q__k">Discounts</span></figcaption>
+        <blockquote id="q2">A discount applies <mark>only after a manager approves it</mark>, and every request and decision is logged.</blockquote>
+        <button type="button" class="pg-q__copy" @click="navigator.clipboard && navigator.clipboard.writeText(document.getElementById('q2').innerText.trim()); done = true; setTimeout(() => done = false, 1600)"><span x-text="done ? 'Copied \u2713' : 'Copy quote'">Copy quote</span></button>
+      </figure>
+      <figure class="pg-q" x-data="{ done: false }">
+        <figcaption><span class="pg-q__n">03</span><span class="pg-q__k">Payments</span></figcaption>
+        <blockquote id="q3">Every payment is recorded against its booking at the point of service, so the owner closes the day <mark>by checking, not counting.</mark></blockquote>
+        <button type="button" class="pg-q__copy" @click="navigator.clipboard && navigator.clipboard.writeText(document.getElementById('q3').innerText.trim()); done = true; setTimeout(() => done = false, 1600)"><span x-text="done ? 'Copied \u2713' : 'Copy quote'">Copy quote</span></button>
+      </figure>
+      <figure class="pg-q" x-data="{ done: false }">
+        <figcaption><span class="pg-q__n">04</span><span class="pg-q__k">Company</span></figcaption>
+        <blockquote id="q4">Zennly is built in Lalitpur, Nepal, and <mark>quoted per business</mark> after a 20-minute demo.</blockquote>
+        <button type="button" class="pg-q__copy" @click="navigator.clipboard && navigator.clipboard.writeText(document.getElementById('q4').innerText.trim()); done = true; setTimeout(() => done = false, 1600)"><span x-text="done ? 'Copied \u2713' : 'Copy quote'">Copy quote</span></button>
+      </figure>
+    </div>
+  </section>
+
+  <section class="pg-section" id="facts">
+    <p class="pg-label">Facts</p>
+    <h2 class="pg-h2">Company <em>facts.</em></h2>
+    <dl class="pg-facts" style="margin-top:32px;">
+      <div><dt>Name</dt><dd>Zennly</dd></div>
+      <div><dt>Website</dt><dd>zennly.io</dd></div>
+      <div><dt>Launched</dt><dd>2026</dd></div>
+      <div><dt>Built by</dt><dd>Zunkireelabs (founded 2018), Lalitpur, Bagmati Province, Nepal</dd></div>
+      <div><dt>Category</dt><dd>Booking and operations software</dd></div>
+      <div><dt>Industries</dt><dd>Spas, salons, gyms, clinics, barbershops, tattoo studios, cleaning</dd></div>
+      <div><dt>Phone</dt><dd>+977-9747491787</dd></div>
+      <div><dt>Email</dt><dd>info@zennly.io</dd></div>
+    </dl>
+  </section>
+
+  <section class="pg-section pr-card pr-card--line" id="assets">
+    <p class="pg-label">Downloads</p>
+    <h2 class="pg-h2">Brand <em>assets.</em></h2>
+    <p class="pg-sub">Use the logo as supplied, without recolouring or stretching it.</p>
+    <div class="pg-logo">
+      <div>
+        <p class="pg-label" style="color:var(--v2-link);">Logo</p>
+        <img src="/assets/images/logo.png" alt="Zennly logo">
+      </div>
+      <a class="v2-btn" href="/assets/images/logo.png" download>Download logo &darr;</a>
+    </div>
+    <div class="pg-swatches">
+      <div class="pg-swatch" style="background:#3F6839; color:#fff;"><strong>Forest green</strong><span>#3F6839</span></div>
+      <div class="pg-swatch" style="background:#38430A; color:#ECF7BD;"><strong>Deep olive</strong><span>#38430A</span></div>
+      <div class="pg-swatch" style="background:#ECF7BD; color:#302E2D;"><strong>Lime</strong><span>#ECF7BD</span></div>
+      <div class="pg-swatch" style="background:#302E2D; color:#fff;"><strong>Ink</strong><span>#302E2D</span></div>
+    </div>
+    <p class="pg-label" style="margin-top:48px;">Product images</p>
+    <div class="pg-gallery">
+      <figure>{% image "/assets/images/dashboard-mockup.png", "Zennly dashboard showing bookings and revenue across branches", { loading: "lazy" } %}<figcaption>Dashboard <a href="/assets/images/dashboard-mockup.png" download>Download</a></figcaption></figure>
+      <figure>{% image "/assets/images/feat-bookings-real.png", "Zennly bookings schedule", { loading: "lazy" } %}<figcaption>Bookings schedule <a href="/assets/images/feat-bookings-real.png" download>Download</a></figcaption></figure>
+      <figure>{% image "/assets/images/feat-reports.png", "Zennly reports", { loading: "lazy" } %}<figcaption>Reports <a href="/assets/images/feat-reports.png" download>Download</a></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="pg-section" id="naming">
+    <div class="pg-split">
+      <div>
+        <p class="pg-label">Naming</p>
+        <h2 class="pg-h2">How to refer <em>to Zennly.</em></h2>
+      </div>
+      <div class="pg-dodont">
+        <p><strong>Do</strong> write the name as Zennly and describe it as booking and operations software for appointment-based businesses in Nepal.</p>
+        <p><strong>Do</strong> say it is built by Zunkireelabs in Lalitpur, Nepal.</p>
+        <p><strong>Do</strong> say pricing is quoted per business after a demo.</p>
+        <p><strong>Don&rsquo;t</strong> confuse Zennly (zennly.io) with zennly.org, which is unrelated.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pg-section" id="faq">
+    <p class="pg-label">FAQ</p>
+    <h2 class="pg-h2">Common <em>questions.</em></h2>
+    <div class="pg-faq" style="margin-top:32px;">
+      {% for f in pressFaq %}
+      <details>
+        <summary>{{ f.question }}</summary>
+        <p>{{ f.answer }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="pg-section">
+    <h2 class="pg-h2">Read <em>more.</em></h2>
+    <p class="pg-sub">Where to go next, depending on what you are writing.</p>
+    <div class="pg-links">
+      <a class="pg-link pg-tone1" href="/about/"><small>Company</small><strong>About Zennly</strong><span>Who we are, what we build and who it is for.</span><i aria-hidden="true">&rarr;</i></a>
+      <a class="pg-link pg-tone2" href="/case-study/"><small>Proof</small><strong>Case study</strong><span>A four-branch spa in Kathmandu on one system.</span><i aria-hidden="true">&rarr;</i></a>
+      <a class="pg-link pg-tone3" href="/faq/"><small>Answers</small><strong>FAQ</strong><span>Plain answers on what Zennly is and how it works.</span><i aria-hidden="true">&rarr;</i></a>
+      <a class="pg-link pg-tone1" href="/glossary/"><small>Reference</small><strong>Glossary</strong><span>Booking and operations terms, defined simply.</span><i aria-hidden="true">&rarr;</i></a>
+      <a class="pg-link pg-tone3" href="/compare/"><small>Compare</small><strong>Zennly vs the alternatives</strong><span>Spreadsheets, WhatsApp and named Nepal options.</span><i aria-hidden="true">&rarr;</i></a>
+      <a class="pg-link pg-tone2" href="/nepal/"><small>Local</small><strong>Booking software by city</strong><span>Guides for six cities across Nepal.</span><i aria-hidden="true">&rarr;</i></a>
+      <a class="pg-link pg-tone4" href="/llms.txt"><small>For AI assistants</small><strong>llms.txt</strong><span>A plain-text summary of Zennly for AI tools.</span><i aria-hidden="true">&rarr;</i></a>
+    </div>
+  </section>
+
+  <section class="pg-section pg-end">
+    <h2 class="pg-h2">Find us <em>elsewhere.</em></h2>
+    <p class="pg-sub">Zennly has profiles on these review and listing sites.</p>
+    <div class="pg-profiles">
+      {% for u in site.sameAs %}
+      {% if "g2.com" in u %}{% set pn = "G2" %}{% set pd = "Software reviews" %}
+      {% elif "goodfirms" in u %}{% set pn = "GoodFirms" %}{% set pd = "Software directory" %}
+      {% elif "share.google" in u %}{% set pn = "Google Business Profile" %}{% set pd = "Business listing" %}
+      {% elif "capterra" in u %}{% set pn = "Capterra" %}{% set pd = "Software reviews" %}
+      {% elif "softwareadvice" in u %}{% set pn = "Software Advice" %}{% set pd = "Software reviews" %}
+      {% elif "getapp" in u %}{% set pn = "GetApp" %}{% set pd = "Software directory" %}
+      {% else %}{% set pn = u | replace("https://", "") | replace("www.", "") | truncate(24, true, "") %}{% set pd = "Profile" %}{% endif %}
+      <a class="pg-profile" href="{{ u }}" rel="noopener"><span class="pg-profile__badge" aria-hidden="true">{{ pn[0] }}</span><span class="pg-profile__text"><strong>{{ pn }}</strong><small>{{ pd }}</small></span><span class="pg-profile__go" aria-hidden="true">&nearr;</span></a>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+<section class="bottom-cta" id="demo">
+  <div class="bottom-cta__card bottom-cta__card--banner reveal">
+    <h2 class="bottom-cta__h2">Writing about Zennly?</h2>
+    <p class="bottom-cta__sub">Book a demo to see the product, or email info@zennly.io for facts and screenshots.</p>
+    <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &#8599;</a>
+  </div>
+</section>
+
+{% include "_footer-v2.njk" %}
+</main>

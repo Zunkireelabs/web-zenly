@@ -1,0 +1,109 @@
+---
+layout: base.njk
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Blog", url: "/blog/" }, { name: h1, url: page.url }]) }}
+{% from "schema/article.njk" import articleSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema(faq) }}
+{{ articleSchema(h1, datePublished, page.url, metaDescription, dateModified, coverImage, category, subtitle) }}
+
+<main>
+
+  <section class="section" style="padding-top:calc(var(--v2-nav-h) + var(--v2-nav-inset) + var(--space-xl));">
+    <div class="article-layout">
+      <div class="reveal">
+
+        <div class="article-hero" style="padding:0 0 var(--space-lg); text-align:left; max-width:none;">
+          <p class="article-breadcrumb"><a href="/blog/">Blog</a><span>/</span><a href="/blog/#{{ categoryAnchor }}">{{ category }}</a></p>
+          <h1 class="article-hero__h1">{{ h1 }}</h1>
+          <p class="article-hero__subtitle">{{ subtitle }}</p>
+          <p class="article-hero__meta"><span>{{ readTime }}</span> <span class="article-hero__meta-divider"></span> <span>Published <time datetime="{{ datePublished }}">{{ datePublished | readableDate }}</time></span> <span class="article-hero__meta-dot">&middot;</span> <span>Updated <time datetime="{{ dateModified or datePublished }}">{{ (dateModified or datePublished) | readableDate }}</time></span></p>
+        </div>
+
+        <figure class="article-cover" style="max-width:none; padding:0; margin:0 0 var(--space-lg);">
+          {% image coverImage, coverAlt, { class: "article-cover__img", loading: "eager" } %}
+        </figure>
+
+      <div class="article-body">
+
+{{ content | safe }}
+
+      <h2>Common questions</h2>
+      {% for item in faq %}
+      <h3>{{ item.question }}</h3>
+      <p>{{ item.answer }}</p>
+      {% endfor %}
+
+      <h2>Related reading</h2>
+      <ul>
+        {% for r in relatedReading %}
+        <li><a href="{{ r.url }}">{{ r.label }}</a></li>
+        {% endfor %}
+      </ul>
+
+      </div>
+
+      </div>
+
+      <aside class="article-sidebar reveal">
+        <div class="article-sidebar-card">
+          <a href="#try-free" class="article-sidebar-cta" data-trial-open>
+            <h3 class="article-sidebar-cta__h3">{{ sidebarCtaHeading }}</h3>
+            <p class="article-sidebar-cta__body">{{ sidebarCtaBody }}</p>
+            <span class="bottom-cta__banner-btn">Try a free demo &#8599;</span>
+          </a>
+
+          <div>
+            <p class="article-share__label">Share this article</p>
+            <div class="article-share__icons">
+              <a class="article-share__icon" href="https://twitter.com/intent/tweet?url=https://zennly.io{{ page.url }}" target="_blank" rel="noopener" aria-label="Share on X">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.8L4.5 22H1.4l8.1-9.3L1 2h7l4.9 6.2L18.9 2Zm-1.2 18h1.9L6.4 4H4.4l13.3 16Z"/></svg>
+              </a>
+              <a class="article-share__icon" href="https://www.linkedin.com/sharing/share-offsite/?url=https://zennly.io{{ page.url }}" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-.95 1.85-1.95 3.8-1.95 4.05 0 4.8 2.65 4.8 6.1V21h-4v-5.55c0-1.3-.02-3-1.85-3-1.85 0-2.1 1.4-2.1 2.9V21h-4V9Z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="blog-kr">
+    <div class="blog-kr__inner reveal">
+      <div>
+        <h2 class="blog-kr__h2">Keep reading</h2>
+        <p class="blog-kr__sub">More guides for running a service business in Nepal.</p>
+        <a href="/blog/" class="blog-kr__btn">View all posts</a>
+      </div>
+
+      <div class="blog-kr__grid">
+        {% for k in keepReading %}
+        <a href="{{ k.link }}" class="blog-kr__card {% if loop.first %}blog-kr__feature{% else %}blog-kr__card--sm{% endif %}">
+          <div class="blog-kr__img-wrap blog2-tone--{{ k.tone }}">
+            {% image "/assets/images/" + k.image, "", { class: "blog-kr__img", loading: "lazy" } %}
+            <p class="blog-kr__tag-pill">{{ k.tag }}</p>
+          </div>
+          <div class="blog-kr__body">
+            <h3 class="blog-kr__title">{{ k.title }}</h3>
+            <p class="blog-kr__meta">{{ k.read }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta" id="demo">
+    <div class="bottom-cta__card bottom-cta__card--banner reveal">
+      <h2 class="bottom-cta__h2">{{ bottomCtaHeading }}</h2>
+      <p class="bottom-cta__sub">{{ bottomCtaBody }}</p>
+      <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &#8599;</a>
+    </div>
+  </section>
+
+  {% include "_footer-v2.njk" %}
+
+</main>

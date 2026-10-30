@@ -1,692 +1,282 @@
 ﻿---
-dateModified: "2026-10-04"
+dateModified: "2026-10-23"
 layout: base.njk
-title: "Booking Software for Spas, Salons, Gyms & Clinics | Zennly"
-metaDescription: "Booking software for spas, salons, tattoo studios, gyms, physiotherapy clinics and cleaning services in Nepal — staff scheduling and payments per business type."
-bodyClass: page--sol-nav
+title: "Booking Software for Spas, Salons & Gyms in Nepal | Zennly"
+metaDescription: "Find the setup for your business: spa, salon, wellness center, gym, clinic, barbershop or tattoo studio. One branch or many. See how it works."
+bodyClass: si-nav-clear
+industries:
+  - { slug: spa, name: "Spa", card: "Spa & Wellness" }
+  - { slug: salon, name: "Hair salon", card: "Hair Salon" }
+  - { slug: barbershop, name: "Barbershop", card: "Barbershop" }
+  - { slug: beauty-clinic, name: "Beauty clinic", card: "Beauty Clinic" }
+  - { slug: fitness, name: "Fitness & PT", card: "Fitness & PT" }
+  - { slug: bridal-makeup, name: "Bridal & makeup", card: "Bridal & Makeup" }
+  - { slug: tattoo, name: "Tattoo studio", card: "Tattoo Studio" }
+  - { slug: physiotherapy, name: "Physiotherapy", card: "Physiotherapy" }
+  - { slug: cleaning, name: "Cleaning", card: "Cleaning" }
+# Scroll collage: photos, product tiles and hand-drawn doodles. x/y = tile centre in % of the pinned screen, d = fade-in order.
+collage:
+  - { x: 8, y: 21, d: 3, doodle: scissors }
+  - { x: 29, y: 21, d: 1, photo: "/assets/images/nuad/thai-massage.jpg" }
+  - { x: 50, y: 21, d: 0, ui: "<b>Confirmed</b><strong>Ashley Carter</strong><small>Deep Tissue · 1:00 PM</small>", tint: blush }
+  - { x: 71, y: 21, d: 2, photo: "/assets/images/solution-hero-barbershop.jpg" }
+  - { x: 92, y: 21, d: 4, doodle: calendar }
+  - { x: 8, y: 53, d: 2, photo: "/assets/images/solution-hero-bridal-makeup.jpg" }
+  - { x: 23, y: 53, d: 0, ui: "<b class=\"is-amber\">Needs approval</b><strong>20% · $24</strong><small>Sophie B.</small>", tint: peach }
+  - { x: 77, y: 53, d: 1, ui: "<small>Day close</small><strong class=\"is-big\">$5,240</strong><small>3 branches · closed</small>", tint: sage }
+  - { x: 92, y: 53, d: 3, doodle: stones }
+  - { x: 8, y: 85, d: 4, photo: "/assets/images/solution-hero-fitness.png" }
+  - { x: 29, y: 85, d: 2, doodle: bell }
+  - { x: 50, y: 85, d: 1, ui: "<small>Staff transfer</small><strong>Paige N.</strong><small>Downtown → Midtown</small>", tint: lilac }
+  - { x: 71, y: 85, d: 0, photo: "/assets/images/solution-hero-beauty-clinic.jpg" }
+  - { x: 92, y: 85, d: 3, doodle: dryer }
+core:
+  - key: booking
+    title: "Online booking, day or night"
+    desc: "Customers book a named staff member from your link at any hour."
+    link: "Online booking"
+    href: "/features/booking/"
+    tint: blush
+    screen: "<div class=\"si-mini__h\">Thursday · Downtown <b>Online</b></div><div class=\"si-slots\"><span>10:00</span><span class=\"is-taken\">11:00</span><span class=\"is-pick\">1:00</span><span>2:30</span></div><div class=\"si-mini__row\"><span>Deep Tissue 60m · Emily C.</span><b>Booked</b></div>"
+  - key: live
+    title: "Every room and chair, live"
+    desc: "Who's in session, what's running over and who's next."
+    link: "Operations"
+    href: "/features/operational-visibility/"
+    tint: lilac
+    screen: "<div class=\"si-mini__h\">Now · Downtown <b>Live</b></div><div class=\"si-mini__row\"><span>Room 1 · Brooke R.</span><i class=\"is-ok\">In progress</i></div><div class=\"si-mini__row\"><span>Room 2 · Emily C.</span><i class=\"is-warn\">+10 min</i></div><div class=\"si-mini__row\"><span>Room 3 · Amanda G.</span><i>Next 2:00</i></div>"
+  - key: discount
+    title: "Discounts with approval"
+    desc: "Staff ask, managers approve. Every discount has an amount and a reason."
+    link: "Discount control"
+    href: "/features/discount-management/"
+    tint: peach
+    screen: "<div class=\"si-mini__h\">Discount request <b class=\"is-amber\">Needs approval</b></div><div class=\"si-mini__big\">20% · $24</div><div class=\"si-mini__row\"><span>Sophie B. · $120 → $96</span></div><div class=\"si-mini__btns\"><span>Decline</span><span class=\"is-go\">Approve</span></div>"
+  - key: close
+    title: "Payments and daily close"
+    desc: "Deposits and balances on each booking. Close every branch in one place."
+    link: "Payments"
+    href: "/features/payment-tracking/"
+    tint: sage
+    screen: "<div class=\"si-mini__h\">Day close · Thursday <b>Closed</b></div><div class=\"si-mini__big\">$5,240</div><div class=\"si-bars\"><span style=\"--w:100%\"></span><span style=\"--w:91%\"></span><span style=\"--w:90%\"></span></div><div class=\"si-mini__row\"><span>3 branches · $0 outstanding</span></div>"
+  - key: transfer
+    title: "Cover and transfers"
+    desc: "Move staff to another branch for a day or for good. Their bookings follow."
+    link: "Staff management"
+    href: "/features/staff-management/"
+    tint: blush
+    screen: "<div class=\"si-mini__h\">Staff transfer <b>Scheduled</b></div><div class=\"si-mini__who\"><span class=\"si-av\">P</span><div><strong>Paige N.</strong><small>Therapist</small></div></div><div class=\"si-route\">Downtown <em>→</em> Midtown</div>"
+  - key: roles
+    title: "The right access for each role"
+    desc: "Owners see every branch, managers their own, staff their day."
+    link: "Roles and access"
+    href: "/features/role-based-access/"
+    tint: lilac
+    screen: "<div class=\"si-mini__h\">Access <b>3 roles</b></div><div class=\"si-mini__row\"><span>Owner</span><i>Every branch</i></div><div class=\"si-mini__row\"><span>Manager</span><i>Downtown</i></div><div class=\"si-mini__row\"><span>Staff</span><i>Their day</i></div>"
+faq:
+  - question: "Which businesses is Zennly built for?"
+    answer: "Appointment-based service businesses with named staff: spas, hair salons, barbershops, beauty clinics, personal training studios, bridal and makeup studios, tattoo studios, physiotherapy clinics and cleaning businesses, from one branch to many."
+  - question: "My kind of business isn't listed. Will Zennly work?"
+    answer: "If customers book a named person for a set length of time, it usually will. Book a demo and we will show it with your own services and staff."
+  - question: "Can I run two kinds of service in one business?"
+    answer: "Yes. A salon with a spa room or a clinic with a massage therapist runs one menu: every service has its own length and price, and every booking is tied to a staff member."
+  - question: "Is it the same software for every industry?"
+    answer: "The core is the same: booking, payments, discounts, staff and roles. Each industry page shows how it fits that kind of day."
+  - question: "What is the best booking software for service businesses in Nepal?"
+    answer: "Zennly is built in Nepal for multi-branch service businesses. It brings online booking, staff scheduling, discount approval, payment tracking and a daily close into one system."
+  - question: "How much does Zennly cost?"
+    answer: "Zennly is quoted per business, based on your branches and team size. There are no setup fees, and you can start with a free trial."
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Solutions", url: "/solutions/" }]) }}
+{% from "schema/faq.njk" import faqSchema %}
+{{ faqSchema(faq) }}
 
-<main>
+{#- Solutions index (2026-10-23): Square-style pinned video hero + collage (CLAUDE.md "Exception: Solutions Index
+    Hero"), dark industry carousel, then the shared fd-page sheets. CSS: "SOLUTIONS INDEX" block at the end of main.css. -#}
+<main class="fd-page fd-page--palette si-page">
 
-  <!-- ── HERO ─────────────────────────────────────────────────────────── -->
-  <section class="sol-hero" id="sol-hero">
-    <div class="sol-hero__inner">
-
-      <h1 class="sol-hero__h1 reveal">Flexible scheduling software for every business</h1>
-      <p class="sol-hero__sub reveal" data-delay="1">Automate everything from booking to payment, no matter what services you offer.</p>
-
-      <div class="sol-hero__cta-block reveal" data-delay="2">
-        <a href="/demo/" class="sol-hero__cta">Get started</a>
+  <!-- 1. Pinned hero: full-bleed video shrinks into a centre tile while the collage fades in, then the line lands -->
+  <section class="si-scrolly" aria-label="Zennly for every kind of service business">
+    <div class="si-sticky">
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="si-ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter></svg>
+      {%- asyncEach t in collage %}
+      <div class="si-tile{% if t.ui %} si-tile--ui si-tile--{{ t.tint }}{% endif %}{% if t.doodle %} si-tile--doodle{% endif %}" data-i="{{ loop.index }}" style="--x:{{ t.x }}%; --y:{{ t.y }}%; --d:{{ t.d }}" aria-hidden="true">
+        {%- if t.photo %}{% image t.photo, "", { loading: "lazy", sizes: "160px" } %}
+        {%- elif t.doodle %}{% set d = t.doodle %}{% include "_si-doodle.njk" %}
+        {%- else %}<div class="si-tile__ui">{{ t.ui | safe }}</div>{% endif -%}
       </div>
-
-      <div class="sol-hero__stage">
-
-        <div class="sol-hero__grid" id="solHeroGrid">
-          <div class="sol-hero__photo sol-hero__photo--owner">
-            <div class="sol-hero__photo-reveal reveal-scale" data-delay="1">
-              <div class="sol-hero__photo-inner">
-                {% image "/assets/images/feat-role-owners.jpg", "Business owner managing bookings", { loading: "lazy" } %}
-              </div>
-            </div>
-          </div>
-          <div class="sol-hero__photo sol-hero__photo--skincare">
-            <div class="sol-hero__photo-reveal reveal-scale" data-delay="2">
-              <div class="sol-hero__photo-inner">
-                <img src="https://plus.unsplash.com/premium_photo-1677616799281-e1583ee2bdf0?w=480&q=80&auto=format&fit=crop" alt="Beauty and skincare studio" loading="lazy">
-              </div>
-            </div>
-          </div>
-          <div class="sol-hero__photo sol-hero__photo--fitness">
-            <div class="sol-hero__photo-reveal reveal-scale" data-delay="2">
-              <div class="sol-hero__photo-inner">
-                <img src="https://plus.unsplash.com/premium_photo-1661286647722-973637d09600?w=480&q=80&auto=format&fit=crop" alt="Fitness and wellness class" loading="lazy">
-              </div>
-            </div>
-          </div>
-          <div class="sol-hero__photo sol-hero__photo--spa">
-            <div class="sol-hero__photo-reveal reveal-scale" data-delay="3">
-              <div class="sol-hero__photo-inner">
-                <img src="https://plus.unsplash.com/premium_photo-1663013569286-30b21b79a410?w=480&q=80&auto=format&fit=crop" alt="Massage and spa treatment" loading="lazy">
-              </div>
-            </div>
+      {%- endeach %}
+      <header class="si-vhero">
+        <video autoplay muted loop playsinline preload="metadata" poster="/assets/images/hero-video-poster.jpg" aria-hidden="true"><source src="/assets/videos/hero-1280.mp4" type="video/mp4"></video>
+        <div class="si-vhero__in">
+          <h1>Built for the way <em>your business runs.</em></h1>
+          <p class="si-vhero__sub">Spas, salons, studios and clinics: one system for bookings, payments, staff and every branch.</p>
+          <div class="si-vbtns">
+            <a href="#try-free" class="is-primary" data-trial-open>Try a free demo ↗</a>
+            <a href="/contact/" class="is-ghost">Talk to us ↗</a>
           </div>
         </div>
-
-      </div>
-
+        <nav class="si-quick" aria-label="Industries">
+          {%- for it in industries %}<a href="/solutions/{{ it.slug }}/">{{ it.name }}</a>{% if not loop.last %}<i aria-hidden="true">·</i>{% endif %}{% endfor -%}
+        </nav>
+      </header>
+      <h2 class="fd-h2 si-line">Whatever you run, <em>run it on one system.</em></h2>
     </div>
   </section>
 
-
-  {# ── INDUSTRY OVERVIEW STRIP ── hidden for now, kept for later re-enable ──
-  <section class="section sol-idx-section">
-    <div class="section__inner">
-
-      <div class="section__header reveal">
-        <h2 class="section__h2">Three industries. One system built around how each one actually works.</h2>
+  <!-- 2. Industries: dark band, homepage-style photo cards -->
+  <section class="si-ind" id="types">
+    <div class="fd-wrap si-ind__head reveal">
+      <div>
+        <h2 class="fd-h2">Made for <em>your kind of business.</em></h2>
+        <p>Nine industries, each with its own page: a real day, real screens and the questions owners ask.</p>
       </div>
+      <div class="si-ind__nav">
+        <button type="button" class="si-ind__btn" data-si="-1" aria-label="Previous industry"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+        <button type="button" class="si-ind__btn" data-si="1" aria-label="Next industry"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="si-ind__scroller" data-lenis-prevent-horizontal>
+      {%- asyncEach it in industries %}
+      {%- asyncEach s in solutions %}{% if s.slug == it.slug %}
+      <a href="/solutions/{{ it.slug }}/" class="si-card">
+        <div class="si-card__photo">{% image s.hero.image, it.card, { loading: "lazy", sizes: "(max-width: 767px) 85vw, 340px", style: "object-position: center " ~ (s.sq.heroImageFocus or '50%') ~ ";" } %}</div>
+        <div class="si-card__body"><span class="si-card__title">{{ it.card }}</span><span class="si-card__arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span></div>
+      </a>
+      {%- endif %}{% endeach %}
+      {%- endeach %}
+    </div>
+  </section>
 
-      <div class="sol-idx-grid reveal">
-
-        <a href="#salons" class="sol-idx-card">
-          <div class="sol-idx-card__head">
-            <span class="sol-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
-            </span>
-            <p class="sol-idx-card__tag">Salons &amp; beauty studios</p>
-            <span class="sol-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
-          </div>
-          <h3 class="sol-idx-card__h3">Built around your stylists, not around a calendar</h3>
+  <!-- 3. Same core: tinted cards, each with a small live screen from the spa story -->
+  <section class="fd-sheet fd-sheet--cream">
+    <div class="fd-wrap">
+      <div class="si-head reveal"><h2 class="fd-h2">Same core, <em>every business.</em></h2><p>Whatever you run, these six do the heavy lifting.</p></div>
+      <div class="si-cores">
+        {%- for c in core %}
+        <a class="si-core si-core--{{ c.tint }} reveal" href="{{ c.href }}">
+          <div class="si-core__stage"><div class="si-mini">{{ c.screen | safe }}</div></div>
+          <h3>{{ c.title }}</h3>
+          <p>{{ c.desc }}</p>
+          <span class="si-core__link">{{ c.link }} →</span>
         </a>
-
-        <a href="#spas" class="sol-idx-card">
-          <div class="sol-idx-card__head">
-            <span class="sol-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 3 17 3s1 2.5-1 5c0 0 3 1 3 6a7 7 0 0 1-8 6z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 11 16.24 11 18c0 1.06-.5 2-1 3"/></svg>
-            </span>
-            <p class="sol-idx-card__tag">Spas &amp; wellness centers</p>
-            <span class="sol-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
-          </div>
-          <h3 class="sol-idx-card__h3">Control that matches the premium you charge</h3>
-        </a>
-
-        <a href="#clinics" class="sol-idx-card">
-          <div class="sol-idx-card__head">
-            <span class="sol-idx-card__icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
-            </span>
-            <p class="sol-idx-card__tag">Aesthetic clinics &amp; medispas</p>
-            <span class="sol-idx-card__arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-            </span>
-          </div>
-          <h3 class="sol-idx-card__h3">The operational precision medical-grade services demand</h3>
-        </a>
-
-      </div>
-    </div>
-  </section>
-  #}
-
-
-  <!-- ── INDUSTRIES: SALONS, SPAS & AESTHETIC CLINICS ─────────────────── -->
-  <section class="section fd-problem sol-industry">
-    <div class="section__inner">
-      <div class="section__header reveal">
-        <h2 class="section__h2">Built for how each industry actually operates.</h2>
-      </div>
-
-      <div class="sol-split reveal" id="salons">
-        <div class="sol-split__img-col">
-          <div class="fd-sscroll__img-wrap">
-            <img src="/assets/images/solution-hero-salon.png" alt="Stylist curling a client's hair in a modern salon" class="fd-sscroll__img" loading="lazy">
-          </div>
-        </div>
-
-        <div class="sol-split__text-col">
-          <h3 class="fd-sscroll__title">Salons &amp; beauty studios</h3>
-          <p class="sol-split__intro">A salon doesn&rsquo;t just schedule services &ndash; it schedules relationships. Zennly is built around how salon bookings actually work.</p>
-
-          <div class="faq-list" x-data="{ open: null }">
-            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
-              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-                Scheduling that mirrors reality
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-                <p>Every booking is created by staff and assigned to a specific stylist, moving through a clear lifecycle &ndash; Pending &rarr; Confirmed &rarr; In-Progress &rarr; Completed. Your team stops over-committing stylists, and clients get the stylist they came for, every time.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
-              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-                Discount control across your chair count
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-                <p>Staff can request a discount during booking, but it only applies once a manager approves it &ndash; every request carries a value and amount, so nothing&rsquo;s managed from memory. You stop losing margin to undocumented habit.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
-              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-                Staff who move between branches
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-                <p>Staff transfers are scheduled events, not informal arrangements &ndash; every move records the therapist, the destination branch, and the effective date. Your star stylists become a resource you share intelligently, not a liability you manage reactively.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sol-split__explore">
-          <a href="/solutions/salon/" class="sol-split__link" aria-label="Explore Hair Salon solutions">
-            Explore
-            <span class="sol-split__link-arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-
-      <div class="sol-split reveal" id="spas" style="margin-top:var(--space-2xl);">
-        <div class="sol-split__img-col">
-          <div class="fd-sscroll__img-wrap">
-            <img src="/assets/images/solution-hero-spa.png" alt="Woman relaxing during a spa treatment" class="fd-sscroll__img" loading="lazy">
-          </div>
-        </div>
-
-        <div class="sol-split__text-col">
-          <h3 class="fd-sscroll__title">Spas &amp; wellness centers</h3>
-          <p class="sol-split__intro">Spas are where operational imprecision is most expensive &ndash; every mistake fills the room, blocks the revenue, and damages the experience you&rsquo;ve spent years building.</p>
-
-          <div class="faq-list" x-data="{ open: null }">
-            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
-              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-                Treatment-length precision
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-                <p>Every booking carries a service ID &ndash; the treatment, its therapist, and its branch are all recorded from the moment a booking is created. Status updates tell every manager exactly when a room turns over, so your front desk stops guessing and clients stay in the experience you promised them.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
-              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-                Protecting premium pricing
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-                <p>Staff request discounts, managers approve &ndash; no approval, no discount. Every request shows the percentage and NPR value being surrendered, so your pricing strategy survives contact with the front desk.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
-              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-                Specialist therapist availability
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-                <p>Staff transfers are assigned to specific therapists with a destination branch and date, so managers across branches see incoming and outgoing specialist availability in advance &ndash; not on the day.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sol-split__explore">
-          <a href="/solutions/spa/" class="sol-split__link" aria-label="Explore Spa &amp; Wellness solutions">
-            Explore
-            <span class="sol-split__link-arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-
-      <div class="sol-split reveal" id="tattoo" style="margin-top:var(--space-2xl);">
-        <div class="sol-split__img-col">
-          <div class="fd-sscroll__img-wrap">
-            <img src="/assets/images/solution-hero-tattoo.png" alt="Tattoo artist's hands tattooing fine-line floral linework on a client's forearm" class="fd-sscroll__img" loading="lazy">
-          </div>
-        </div>
-
-        <div class="sol-split__text-col">
-          <h3 class="fd-sscroll__title">Tattoo Studios</h3>
-          <p class="sol-split__intro">A tattoo appointment isn&rsquo;t a time slot &ndash; it&rsquo;s a specific artist, a consultation, and often a deposit on the line. Zennly is built around that reality, not a generic calendar.</p>
-
-          <div class="faq-list" x-data="{ open: null }">
-            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
-              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-                Artist-specific booking &amp; lifecycle
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-                <p>Clients book a named artist, not just a time slot. Every booking moves through Pending &rarr; Confirmed &rarr; In-Progress &rarr; Completed, so long sessions and touch-ups are tracked accurately, not guessed at.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
-              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-                Deposit &amp; payment control
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-                <p>Deposits and balances are recorded with full settlement status at the point of booking, so nothing&rsquo;s tracked on a sticky note or a DM thread.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
-              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-                Multi-session continuity
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-                <p>Large pieces spanning multiple sittings stay with the same artist through scheduled transfers between branches, not informal handoffs that lose a client&rsquo;s history.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sol-split__explore">
-          <a href="/solutions/tattoo/" class="sol-split__link" aria-label="Explore Tattoo Studios solutions">
-            Explore
-            <span class="sol-split__link-arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-
-      <div class="sol-split reveal" id="fitness" style="margin-top:var(--space-2xl);">
-        <div class="sol-split__img-col">
-          <div class="fd-sscroll__img-wrap">
-            <img src="/assets/images/solution-hero-fitness.png" alt="A group fitness class mid-exercise in a sunlit studio" class="fd-sscroll__img" loading="lazy">
-          </div>
-        </div>
-
-        <div class="sol-split__text-col">
-          <h3 class="fd-sscroll__title">Fitness &amp; PT</h3>
-          <p class="sol-split__intro">Classes fill up, trainers double-book, and packages get tracked on paper &ndash; Zennly is built around how fitness bookings actually run.</p>
-
-          <div class="faq-list" x-data="{ open: null }">
-            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
-              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-                Session scheduling that matches capacity
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-                <p>Every session is created by staff and assigned to a specific trainer, moving through a clear lifecycle &ndash; Pending &rarr; Confirmed &rarr; In-Progress &rarr; Completed. No trainer gets stacked with three clients at once by accident.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
-              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-                Discount control on packages &amp; memberships
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-                <p>Staff can request a discount on a package or membership, but it only applies once a manager approves it &ndash; every request carries a value and amount, so nothing&rsquo;s waived from memory at the front desk.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
-              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-                Trainers who move between branches
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-                <p>Trainer transfers are scheduled events, not informal arrangements &ndash; every move records the trainer, the destination branch, and the effective date, so client rosters never get lost in the handoff.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sol-split__explore">
-          <a href="/solutions/fitness/" class="sol-split__link" aria-label="Explore Fitness &amp; PT solutions">
-            Explore
-            <span class="sol-split__link-arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-
-      <div class="sol-split reveal" id="physiotherapy" style="margin-top:var(--space-2xl);">
-        <div class="sol-split__img-col">
-          <div class="fd-sscroll__img-wrap">
-            <img src="https://plus.unsplash.com/premium_photo-1661913622608-946e8d907c7b?w=1000&q=80&auto=format&fit=crop" alt="Physiotherapist working with a patient" class="fd-sscroll__img" loading="lazy">
-          </div>
-        </div>
-
-        <div class="sol-split__text-col">
-          <h3 class="fd-sscroll__title">Physiotherapy</h3>
-          <p class="sol-split__intro">A course of treatment only works if every session happens on schedule, with the right therapist &ndash; Zennly keeps that continuity visible from booking to discharge.</p>
-
-          <div class="faq-list" x-data="{ open: null }">
-            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
-              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-                Treatment-plan continuity
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-                <p>Every booking carries a service ID and therapist from the moment it&rsquo;s created, and status moves through Pending &rarr; Confirmed &rarr; In-Progress &rarr; Completed &ndash; so a patient&rsquo;s course of care stays with the same therapist, visibly, session to session.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
-              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-                Payment precision across a long course of care
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-                <p>Every payment records the amount and settlement status at the point of service, so a ten-session course reconciles from one source of truth &ndash; not a running tally in someone&rsquo;s notebook.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
-              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-                Specialist therapist availability
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-                <p>Staff transfers are assigned to a specific therapist with a destination branch and date, so managers see incoming and outgoing specialist availability in advance &ndash; not on the day a patient shows up.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sol-split__explore">
-          <a href="/solutions/physiotherapy/" class="sol-split__link" aria-label="Explore Physiotherapy solutions">
-            Explore
-            <span class="sol-split__link-arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-
-      <div class="sol-split reveal" id="cleaning" style="margin-top:var(--space-2xl);">
-        <div class="sol-split__img-col">
-          <div class="fd-sscroll__img-wrap">
-            <img src="https://plus.unsplash.com/premium_photo-1663011218145-c1d0c3ba3542?w=1000&q=80&auto=format&fit=crop" alt="Cleaning service staff at a client site" class="fd-sscroll__img" loading="lazy">
-          </div>
-        </div>
-
-        <div class="sol-split__text-col">
-          <h3 class="fd-sscroll__title">Cleaning Service</h3>
-          <p class="sol-split__intro">A cleaning business runs on staff getting to the right site, at the right time, with the job correctly billed &ndash; Zennly keeps that whole chain visible.</p>
-
-          <div class="faq-list" x-data="{ open: null }">
-            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
-              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-                Job scheduling that mirrors reality
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-                <p>Every job is created by staff and assigned to a specific cleaner or crew, moving through a clear lifecycle &ndash; Pending &rarr; Confirmed &rarr; In-Progress &rarr; Completed &ndash; so dispatch always knows who&rsquo;s where.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
-              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-                Discount control on recurring contracts
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-                <p>Staff can request a discount on a recurring contract, but it only applies once a manager approves it &ndash; every request carries a value and amount, protecting margin on long-running accounts.</p>
-              </div>
-            </div>
-
-            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
-              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-                Crews who move between branches
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-                <p>Staff transfers are scheduled events, not informal arrangements &ndash; every move records the cleaner, the destination branch, and the effective date, so coverage never has a gap.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sol-split__explore">
-          <a href="/solutions/cleaning/" class="sol-split__link" aria-label="Explore Cleaning Service solutions">
-            Explore
-            <span class="sol-split__link-arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-
-
-      <div class="sol-split reveal" id="barbershop" style="margin-top:var(--space-2xl);">
-        <div class="sol-split__img-col">
-          <div class="fd-sscroll__img-wrap">
-            {% image "/assets/images/solution-hero-barbershop.jpg", "Barbers cutting hair in a barbershop", { class: "fd-sscroll__img", loading: "lazy" } %}
-          </div>
-        </div>
-
-        <div class="sol-split__text-col">
-          <h3 class="fd-sscroll__title">Barbershops</h3>
-          <p class="sol-split__intro">Walk-ins, regulars and a queue that never stops &ndash; Zennly keeps every chair, barber and payment visible.</p>
-
-          <div class="faq-list" x-data="{ open: null }">
-            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
-              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-                Barber-specific booking
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-                <p>Every booking is assigned to a specific barber, and walk-ins are created the same way as booked appointments.</p>
-              </div>
-            </div>
-            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
-              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-                Discount control
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-                <p>Staff request a discount, and it only applies once a manager approves it.</p>
-              </div>
-            </div>
-            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
-              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-                Daily close
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-                <p>Every payment is recorded by cash, card or online, so the day closes from one report.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sol-split__explore">
-          <a href="/solutions/barbershop/" class="sol-split__link" aria-label="Explore Barbershops solutions">
-            Explore
-            <span class="sol-split__link-arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-
-
-      <div class="sol-split reveal" id="beauty-clinic" style="margin-top:var(--space-2xl);">
-        <div class="sol-split__img-col">
-          <div class="fd-sscroll__img-wrap">
-            {% image "/assets/images/solution-hero-beauty-clinic.jpg", "Client receiving a facial treatment at a beauty clinic", { class: "fd-sscroll__img", loading: "lazy" } %}
-          </div>
-        </div>
-
-        <div class="sol-split__text-col">
-          <h3 class="fd-sscroll__title">Beauty Clinics</h3>
-          <p class="sol-split__intro">Skin, laser and aesthetic treatments need the right practitioner, the right room and an accurate payment trail.</p>
-
-          <div class="faq-list" x-data="{ open: null }">
-            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
-              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-                Practitioner and room together
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-                <p>Staff, room and time are booked together, so rooms are never double-booked.</p>
-              </div>
-            </div>
-            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
-              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-                Payment records
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-                <p>Each payment is recorded against its booking at the point of service.</p>
-              </div>
-            </div>
-            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
-              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-                Role-based access
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-                <p>Admin, Manager and Staff roles keep financial reports with the right people.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sol-split__explore">
-          <a href="/solutions/beauty-clinic/" class="sol-split__link" aria-label="Explore Beauty Clinics solutions">
-            Explore
-            <span class="sol-split__link-arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-
-
-      <div class="sol-split reveal" id="bridal-makeup" style="margin-top:var(--space-2xl);">
-        <div class="sol-split__img-col">
-          <div class="fd-sscroll__img-wrap">
-            {% image "/assets/images/solution-hero-bridal-makeup.jpg", "Makeup artist preparing a bride before her wedding", { class: "fd-sscroll__img", loading: "lazy" } %}
-          </div>
-        </div>
-
-        <div class="sol-split__text-col">
-          <h3 class="fd-sscroll__title">Bridal &amp; Makeup Studios</h3>
-          <p class="sol-split__intro">A bridal date is held for one artist on one day &ndash; Zennly keeps each booking tied to a named artist.</p>
-
-          <div class="faq-list" x-data="{ open: null }">
-            <div class="faq-item" :class="{ 'faq-item--open': open === 0 }">
-              <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-                Artist-specific booking
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-                <p>Every booking is assigned to a named artist, so a date is held for the artist the client chose.</p>
-              </div>
-            </div>
-            <div class="faq-item" :class="{ 'faq-item--open': open === 1 }">
-              <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-                Payments per booking
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-                <p>Payments are recorded by cash, card or online against each booking.</p>
-              </div>
-            </div>
-            <div class="faq-item" :class="{ 'faq-item--open': open === 2 }">
-              <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-                Discount approvals
-                <span class="faq-item__icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-                <p>Package discounts apply only after a manager approves them.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sol-split__explore">
-          <a href="/solutions/bridal-makeup/" class="sol-split__link" aria-label="Explore Bridal &amp; Makeup Studios solutions">
-            Explore
-            <span class="sol-split__link-arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ── SHARED CAPABILITIES ──────────────────────────────────────────── -->
-  <section class="section sol-shared-caps">
-    <div class="section__inner">
-      <div class="section__header reveal">
-        <h2 class="section__h2 section__h2--nowrap">Different businesses. One operational foundation.</h2>
-        <p class="section__sub section__sub--center">Delivered across every industry on the platform.</p>
-      </div>
-
-      <div class="fd-problem__grid fd-problem__grid--2col reveal" style="margin-top:var(--space-xl);">
-        <div class="fd-problem__card">
-          <h3 class="fd-problem__title">Multi-branch visibility</h3>
-          <p class="fd-problem__text">Every branch, every booking, every status update &ndash; visible to the right role at the right level. Owners see the whole business. Managers see their branch. Staff see their day.</p>
-        </div>
-        <div class="fd-problem__card">
-          <h3 class="fd-problem__title">Role-based access</h3>
-          <p class="fd-problem__text">Admin, Manager, and Staff roles define who sees what and who can do what. You don&rsquo;t give your front desk the same access as your owner. Zennly doesn&rsquo;t either.</p>
-        </div>
-        <div class="fd-problem__card">
-          <h3 class="fd-problem__title">Real-time status tracking</h3>
-          <p class="fd-problem__text">Bookings move from Pending to Confirmed to In-Progress to Completed. At any moment, every stakeholder knows what&rsquo;s happening across every branch without a phone call.</p>
-        </div>
-        <div class="fd-problem__card">
-          <h3 class="fd-problem__title">Complete payment records</h3>
-          <p class="fd-problem__text">Every payment recorded at service time. Every amount logged. Every settlement tracked. Your financial picture is always current, always accurate, and always accessible.</p>
-        </div>
+        {%- endfor %}
       </div>
     </div>
   </section>
 
-
-  <!-- ── COMMON QUESTIONS ──────────────────────────────────────────────── -->
-  <section class="section" id="faq">
-    <div class="section__inner">
-      <div class="faq-header reveal">
-        <h2 class="section__h2">A few questions before you book a demo.</h2>
+  <!-- 4. Proof: real (Nuad Thai Spa, Zennly's first live client) -->
+  <section class="fd-sheet fd-sheet--white">
+    <div class="fd-wrap si-proof">
+      <div class="reveal">
+        <blockquote>“I used to spend my mornings calling every branch. Now I open the platform and everything is already there.”</blockquote>
+        <p class="si-proof__cite">Owner · Nuad Thai Spa Kathmandu · 4 branches · <a href="/case-study/">Read the case study</a></p>
       </div>
-      <div class="faq-list" x-data="{ open: null }">
-        <div class="faq-item reveal" data-delay="1" :class="{ 'faq-item--open': open === 0 }">
-          <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-            My business doesn&rsquo;t fit neatly into salons, spas, or clinics.
-            <span class="faq-item__icon" aria-hidden="true">+</span>
+      <div class="si-stats reveal">
+        <div class="si-stat"><b>4</b><span>branches on one system</span></div>
+        <div class="si-stat"><b>39</b><span>therapists scheduled</span></div>
+        <div class="si-stat"><b>12</b><span>treatment rooms</span></div>
+        <div class="si-stat"><b>194</b><span>services on the menu</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FAQ (shared fd-faq) -->
+  <section class="fd-sheet fd-sheet--cream fd-faq" id="faq">
+    <div class="fd-wrap fd-faq__grid">
+      <div class="fd-faq__head reveal">
+        <h2 class="fd-h2">Questions, <em>answered.</em></h2>
+      </div>
+      <div class="fd-faq__list" x-data="{ open: null }">
+        {% for item in faq %}
+        <div class="fd-faq__item" :class="{ 'is-open': open === {{ loop.index0 }} }">
+          <button class="fd-faq__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
+            <span>{{ item.question }}</span>
+            <span class="fd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-            <p>That&rsquo;s fine &ndash; the underlying system is the same for any appointment-based business with staff and branches. These three are just where we&rsquo;ve seen the clearest fit so far.</p>
+          <div class="fd-faq__a" x-show="open === {{ loop.index0 }}"  x-cloak>
+            <p>{{ item.answer }}</p>
           </div>
         </div>
-        <div class="faq-item reveal" data-delay="2" :class="{ 'faq-item--open': open === 1 }">
-          <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-            We only have one branch right now.
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-            <p>Zennly works the same at one branch as it does at ten &ndash; you just won&rsquo;t need the multi-branch views yet. Most single-branch teams start for the booking and discount control alone.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal" data-delay="3" :class="{ 'faq-item--open': open === 2 }">
-          <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-            How is this different from generic booking software?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-            <p>Generic tools handle time slots. Zennly handles the operational reality underneath &ndash; stylist assignment, discount approvals, staff transfers, and payment reconciliation &ndash; because that&rsquo;s where service businesses actually lose money.</p>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
 
-  <!-- ── BOTTOM CTA ───────────────────────────────────────────────────── -->
-  <section class="bottom-cta" id="demo">
-    <div class="bottom-cta__card bottom-cta__card--banner reveal">
-      <h2 class="bottom-cta__h2">Ready to see how it works for your business?</h2>
-      <p class="bottom-cta__sub">Book a 20-minute demo. We&rsquo;ll show you exactly how Zennly solves your specific operational challenges &ndash; whether you have one branch or six.</p>
-      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+  <!-- 6. Final CTA (shared pink band, as on /about/) -->
+  <section class="fd-sheet fd-band fd-final ab-final" id="demo">
+    <div class="fd-wrap ab-final__in">
+      <div>
+        <h2 class="fd-h2">See Zennly with <em>your own services.</em></h2>
+        <div class="fd-btns">
+          <a href="#try-free" class="fd-btn fd-btn--white" data-trial-open>Try a free demo ↗</a>
+        </div>
+      </div>
+      <div class="ab-final__phone"><div class="ab-phone">{% image "/assets/images/mobile-mockup.png", "Zennly calendar on a phone", { loading: "lazy" } %}</div></div>
     </div>
   </section>
 
-  <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
   {% include "_footer-v2.njk" %}
+
+  <script>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var cl = function (v) { return Math.max(0, Math.min(1, v)); };
+    var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+    var io = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+
+    // Pinned hero: progress p (0→1) through .si-scrolly drives the clip/scale of the video, the tiles and the line.
+    // Reduced motion gets the static layout from CSS (no pinning). Runs on phones too.
+    var wrap = document.querySelector('.si-scrolly'), hero = wrap && wrap.querySelector('.si-vhero');
+    if (hero) {
+      var vid = hero.querySelector('video'), line = wrap.querySelector('.si-line');
+      var tiles = [].slice.call(wrap.querySelectorAll('.si-tile'));
+      var still = window.matchMedia('(prefers-reduced-motion: reduce)');
+      var frame = function () {
+        if (still.matches) { ['--cx', '--cy', '--cr', '--ho'].forEach(function (k) { hero.style.removeProperty(k); }); hero.style.opacity = ''; vid.style.removeProperty('--vs'); vid.style.removeProperty('--vy'); return; }
+        var r = wrap.getBoundingClientRect(), W = window.innerWidth, H = window.innerHeight, isPhone = W < 768;
+        var p = cl(-r.top / (r.height - H));
+        // On a phone, W * .26 alone makes too small a target (the video would read as a
+        // tiny sliver even with a correct aspect ratio) — floor it at 200px so the shrunk
+        // video stays a legible little video, not just a dot.
+        var tw = isPhone ? Math.min(340, Math.max(200, W * .5)) : Math.min(340, W * .26), th = tw * 9 / 16, k = io(cl((p - .04) / .5));
+        // Nudge is sized off the tile's own height (th), not viewport height (H): a
+        // fixed H-based offset (e.g. H*.03) is fine on desktop where th is large
+        // relative to H, but on a tall narrow phone H dwarfs the small mobile tile,
+        // so the old H*.03 term alone nearly cancelled th and collapsed the clip to
+        // a sliver. th-relative keeps the same proportional "settle a bit lower"
+        // look at every viewport.
+        var nudge = th * .13;
+        hero.style.setProperty('--cx', ((W - tw) / 2 * k).toFixed(1) + 'px');
+        hero.style.setProperty('--cy', ((H - th) / 2 * k + nudge * k).toFixed(1) + 'px');
+        hero.style.setProperty('--cr', (28 * Math.min(1, k * 5)).toFixed(1) + 'px');
+        hero.style.setProperty('--ho', (1 - cl(p / .12)).toFixed(3));
+        hero.style.opacity = (1 - cl((p - .72) / .12)).toFixed(3);
+        vid.style.setProperty('--vs', (1 - (1 - Math.max(tw / W, th / H)) * k).toFixed(4));
+        vid.style.setProperty('--vy', (nudge * k).toFixed(1) + 'px');
+        tiles.forEach(function (t) { var d = +t.style.getPropertyValue('--d'); t.style.setProperty('--t', ease(cl((p - .24 - d * .05) / .28)).toFixed(3)); });
+        line.style.setProperty('--l', ease(cl((p - .76) / .12)).toFixed(3));
+      };
+      var queued = false;
+      var onScroll = function () { if (!queued) { queued = true; requestAnimationFrame(function () { queued = false; frame(); }); } };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      frame();
+    }
+
+    // Industry cards: arrows move one card; buttons disable at the ends.
+    var sc = document.querySelector('.si-ind__scroller');
+    if (sc) {
+      var btns = document.querySelectorAll('.si-ind__btn');
+      var pitch = function () { var c = sc.querySelectorAll('.si-card'); return c[1] ? c[1].offsetLeft - c[0].offsetLeft : sc.clientWidth; };
+      var sync = function () { btns[0].disabled = sc.scrollLeft < 4; btns[1].disabled = sc.scrollLeft > sc.scrollWidth - sc.clientWidth - 4; };
+      btns.forEach(function (b) { b.addEventListener('click', function () { sc.scrollBy({ left: +b.dataset.si * pitch(), behavior: reduce ? 'auto' : 'smooth' }); }); });
+      sc.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    }
+  })();
+  </script>
 
 </main>

@@ -1,0 +1,469 @@
+<!-- "Try a free demo" popup — opened by any [data-trial-open] link. 3 short steps → code (email or SMS) → shared demo login. -->
+{%- set tfIcon = navMenu.icons -%}
+<div class="tf-modal" id="tf-modal" aria-hidden="true">
+  <div class="tf-modal__backdrop" data-trial-close></div>
+  <div class="demo-card tf-card" role="dialog" aria-modal="true" aria-labelledby="tf-title" data-lenis-prevent>
+          <button type="button" class="tf-close" aria-label="Close" data-trial-close>&times;</button>
+          <div class="tf-progress" aria-hidden="true"><span class="tf-progress__bar" id="tf-bar"></span></div>
+          <div class="demo-card__eyebrow" id="tf-eyebrow">Free demo · Step 1 of 3</div>
+
+          <form class="demo-form tf-form" id="tf-form" novalidate>
+
+            <!-- Step 1: contact. The code goes by email or SMS, which decides whether email or mobile is required. -->
+            <fieldset class="tf-step is-active" data-step="1">
+              <legend class="demo-card__headline"><span id="tf-title">Get instant access to the Zennly demo</span></legend>
+              <p class="tf-step__sub">Under a minute. You&rsquo;ll get a login to a live sample spa.</p>
+              <div class="demo-form__row">
+                <div class="demo-form__field">
+                  <label for="tf-name">Full name<span class="tf-req" aria-hidden="true">*</span></label>
+                  <input type="text" id="tf-name" name="name" autocomplete="name" required>
+                </div>
+                <div class="demo-form__field">
+                  <label for="tf-business">Business name<span class="tf-req" aria-hidden="true">*</span></label>
+                  <input type="text" id="tf-business" name="business" autocomplete="organization" required>
+                </div>
+              </div>
+              <div class="tf-via">
+                <p class="tf-label">Send my code by</p>
+                <div class="tf-chips tf-chips--fill" role="radiogroup" aria-label="Send my code by">
+                  <label class="tf-chip"><input type="radio" name="codeVia" value="Email" checked><span>Email</span></label>
+                  <label class="tf-chip"><input type="radio" name="codeVia" value="SMS"><span>SMS</span></label>
+                </div>
+              </div>
+              <div class="demo-form__row">
+                <div class="demo-form__field">
+                  <label for="tf-email">Work email<span data-opt="Email"></span></label>
+                  <input type="email" id="tf-email" name="email" autocomplete="email" required>
+                </div>
+                <div class="demo-form__field">
+                  <label for="tf-phone">Mobile<span data-opt="SMS"></span></label>
+                  <div class="tf-phone"><select id="tf-cc" name="countryCode" aria-label="Country code" autocomplete="tel-country-code"><option value="+1" selected>🇺🇸 +1</option><option value="+44">🇬🇧 +44</option><option value="+61">🇦🇺 +61</option><option value="+977">🇳🇵 +977</option><option value="+91">🇮🇳 +91</option><option value="+880">🇧🇩 +880</option><option value="+94">🇱🇰 +94</option><option value="+975">🇧🇹 +975</option><option value="+92">🇵🇰 +92</option><option value="+971">🇦🇪 +971</option><option value="+974">🇶🇦 +974</option><option value="+966">🇸🇦 +966</option><option value="+60">🇲🇾 +60</option><option value="+65">🇸🇬 +65</option><option value="+66">🇹🇭 +66</option></select><input type="tel" id="tf-phone" name="phone" autocomplete="tel-national" inputmode="tel"></div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Step 2: business type (same list as the nav's Types menu) + locations. Moves on once both are picked. -->
+            <fieldset class="tf-step" data-step="2">
+              <legend class="demo-card__headline">What kind of business do you run?</legend>
+              <div class="tf-types" role="radiogroup" aria-label="Business type">
+                {%- for t in navMenu.menu.types.items %}
+                <label class="tf-product tf-type"><input type="radio" name="businessType" value="{{ t.label }}" required><span class="tf-product__box"><span class="tf-product__icon"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="{{ tfIcon[t.icon] }}"/></svg></span><span class="tf-product__text"><strong>{{ t.label }}</strong></span></span></label>
+                {%- endfor %}
+              </div>
+              <p class="tf-other">Not listed? <label><input type="radio" name="businessType" value="Something else"><span>Choose &ldquo;Something else&rdquo;</span></label></p>
+              <p class="tf-label">How many locations?<span class="tf-req" aria-hidden="true">*</span></p>
+              <div class="tf-chips tf-chips--fill" role="radiogroup" aria-label="Locations">
+                <label class="tf-chip"><input type="radio" name="branches" value="1" required><span>1</span></label>
+                <label class="tf-chip"><input type="radio" name="branches" value="2–5"><span>2–5</span></label>
+                <label class="tf-chip"><input type="radio" name="branches" value="6+"><span>6+</span></label>
+              </div>
+            </fieldset>
+
+            <!-- Step 3: optional. The nav's 4 capability groups. -->
+            <fieldset class="tf-step" data-step="3">
+              <legend class="demo-card__headline">What do you want to see first?</legend>
+              <p class="tf-step__sub">We&rsquo;ll point you straight to it in the demo.</p>
+              <div class="tf-products" role="radiogroup" aria-label="Start with">
+                {%- for g in navMenu.menu.capabilities.groups %}
+                <label class="tf-product"><input type="radio" name="seeFirst" value="{{ g.label }}"><span class="tf-product__box"><span class="tf-product__icon"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="{{ tfIcon[g.items[0].icon] }}"/></svg></span><span class="tf-product__text"><strong>{{ g.label }}</strong><small>{% for i in g.items %}{{ i.label }}{% if not loop.last %}, {% endif %}{% endfor %}</small></span></span></label>
+                {%- endfor %}
+              </div>
+            </fieldset>
+
+            <p class="tf-error" id="tf-error" role="alert" hidden></p>
+            <div class="tf-actions">
+              <button type="button" class="btn-secondary" id="tf-back" hidden>&larr; Back</button>
+              <button type="submit" class="btn-primary tf-actions__next" id="tf-next">Continue &rarr;</button>
+            </div>
+          </form>
+
+          <div class="tf-verify" id="tf-verify" hidden>
+            <div class="tf-verify__icon" id="tf-verify-icon" aria-hidden="true"></div>
+            <h2 class="demo-card__headline" id="tf-verify-h">Check your inbox</h2>
+            <p class="demo-form__hint tf-verify__copy" id="tf-verify-copy"></p>
+            <div class="tf-otp" id="tf-otp"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="one-time-code" maxlength="1" placeholder=" " aria-label="Digit 1"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 2"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 3"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 4"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 5"><input type="text" class="tf-otp__box" inputmode="numeric" autocomplete="off" maxlength="1" placeholder=" " aria-label="Digit 6"></div>
+            <p class="tf-error" id="tf-verify-error" role="alert" hidden></p>
+            <p class="tf-verify__links">
+              <button type="button" class="tf-linkbtn" id="tf-resend">Resend code</button>
+              <span aria-hidden="true">&middot;</span>
+              <button type="button" class="tf-linkbtn" id="tf-change">Change details</button>
+            </p>
+          </div>
+
+          <div class="tf-done" id="tf-done" hidden>
+            <div class="tf-done__head">
+              <div class="tf-done__tick" aria-hidden="true">&#10003;</div>
+              <div>
+                <h2 class="demo-card__headline">Your demo is ready.</h2>
+                <p class="demo-form__hint" id="tf-sent-too">Keep these handy &mdash; you can use them to log in any time.</p>
+              </div>
+            </div>
+            <dl class="tf-creds">
+              <div class="tf-creds__row"><dt>Login email</dt><dd id="tf-cred-email"></dd><button type="button" class="tf-creds__copy" data-copy="tf-cred-email">Copy</button></div>
+              <div class="tf-creds__row"><dt>Password</dt><dd id="tf-cred-pass"></dd><button type="button" class="tf-creds__copy" data-copy="tf-cred-pass">Copy</button></div>
+            </dl>
+            <div class="tf-done__actions">
+              <a href="https://dev-zenly.zunkireelabs.com/nuad-thai-spa/login" class="btn-primary" id="tf-login-btn" target="_blank" rel="noopener">Open the demo &rarr;</a>
+            </div>
+            <p class="tf-done__note"><strong>Nuad Thai Spa</strong> is a sample business. Click around freely, nothing is real.</p>
+
+            <!-- Optional follow-up questions, one at a time. Single-choice moves on by itself; the multi-choice one has "Next". -->
+            <div class="tf-tailor" id="tf-tailor">
+              <div class="tf-tailor__head"><strong>Help us tailor your follow-up</strong><span id="tf-tailor-n">1 of 3 &middot; optional</span></div>
+              <div class="tf-tailor__q is-active">
+                <p>How big is your team?</p>
+                <div class="tf-chips">
+                  <label class="tf-chip"><input type="radio" name="team" value="1–5"><span>1–5</span></label>
+                  <label class="tf-chip"><input type="radio" name="team" value="6–15"><span>6–15</span></label>
+                  <label class="tf-chip"><input type="radio" name="team" value="16–40"><span>16–40</span></label>
+                  <label class="tf-chip"><input type="radio" name="team" value="40+"><span>40+</span></label>
+                </div>
+              </div>
+              <div class="tf-tailor__q">
+                <p>How do you take bookings today?</p>
+                <div class="tf-chips">
+                  <label class="tf-chip"><input type="checkbox" name="tools" value="Paper diary"><span>Paper diary</span></label>
+                  <label class="tf-chip"><input type="checkbox" name="tools" value="Spreadsheets"><span>Spreadsheets</span></label>
+                  <label class="tf-chip"><input type="checkbox" name="tools" value="Phone / messages"><span>Phone / messages</span></label>
+                  <label class="tf-chip"><input type="checkbox" name="tools" value="Other software"><span>Other software</span></label>
+                </div>
+                <button type="button" class="tf-linkbtn tf-tailor__next" id="tf-tailor-next">Next &rarr;</button>
+              </div>
+              <div class="tf-tailor__q">
+                <p>Do you sell retail products too?</p>
+                <div class="tf-chips">
+                  <label class="tf-chip"><input type="radio" name="retail" value="Yes"><span>Yes</span></label>
+                  <label class="tf-chip"><input type="radio" name="retail" value="No"><span>No</span></label>
+                </div>
+              </div>
+              <p class="tf-tailor__thanks">Thanks, that helps. &#10003;</p>
+            </div>
+            <p class="tf-call">Questions? <a href="/contact/">Talk to us &rarr;</a></p>
+          </div>
+
+          <p class="demo-card__reassure">Free. No credit card. We don&rsquo;t share your information. Ever.</p>
+  </div>
+</div>
+
+<script>
+    (function () {
+      var form = document.getElementById('tf-form');
+      var modal = document.getElementById('tf-modal');
+      if (!form || !modal) return;
+      var card = modal.querySelector('.tf-card');
+      var steps = Array.prototype.slice.call(form.querySelectorAll('.tf-step'));
+      var back = document.getElementById('tf-back');
+      var next = document.getElementById('tf-next');
+      var bar = document.getElementById('tf-bar');
+      var eyebrow = document.getElementById('tf-eyebrow');
+      var err = document.getElementById('tf-error');
+      var cur = 0;
+      var NEXT_LABELS = ['Continue &rarr;', 'Continue &rarr;', 'Send my code &rarr;'];
+
+      var lastFocus = null;
+      function open() {
+        lastFocus = document.activeElement;
+        modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false');
+        document.documentElement.classList.add('tf-lock');
+        if (window.__zennlyLenis) window.__zennlyLenis.stop();
+        setTimeout(function () { (form.hidden ? modal.querySelector('.tf-close') : form.querySelector('input')).focus(); }, 50);
+      }
+      function close() {
+        modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true');
+        document.documentElement.classList.remove('tf-lock');
+        if (window.__zennlyLenis) window.__zennlyLenis.start();
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+        postPartial();
+      }
+      document.querySelectorAll('[data-trial-open]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var m = document.getElementById('v2-nav-mobile-scrim'); if (m) m.click();
+          open();
+        });
+      });
+      modal.querySelectorAll('[data-trial-close]').forEach(function (el) { el.addEventListener('click', close); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) close(); });
+      if (location.hash === '#try-free' || location.hash === '#free-demo') open();
+
+      function show(i) {
+        cur = i;
+        steps.forEach(function (s, n) { s.classList.toggle('is-active', n === i); });
+        back.hidden = i === 0;
+        next.innerHTML = NEXT_LABELS[i];
+        eyebrow.textContent = 'Free demo · Step ' + (i + 1) + ' of ' + steps.length;
+        bar.style.width = ((i + 1) / steps.length * 100) + '%';
+        err.hidden = true;
+      }
+
+      // Code by Email → email required; by SMS → mobile required. The other one shows "(optional)".
+      function via() { return form.querySelector('input[name="codeVia"]:checked').value; }
+      function syncVia() {
+        var v = via();
+        form.email.required = v === 'Email';
+        form.phone.required = v === 'SMS';
+        form.querySelectorAll('[data-opt]').forEach(function (o) {
+          var req = o.getAttribute('data-opt') === v;
+          o.className = req ? 'tf-req' : 'demo-form__optional';
+          o.textContent = req ? '*' : ' (optional)';
+          o.setAttribute('aria-hidden', req ? 'true' : 'false');
+        });
+      }
+      form.querySelectorAll('input[name="codeVia"]').forEach(function (r) { r.addEventListener('change', syncVia); });
+      syncVia();
+
+      function valid() {
+        var ok = true, msg = '';
+        steps[cur].querySelectorAll('input[required]').forEach(function (el) {
+          if (!ok) return;
+          if (el.type === 'radio') {
+            if (!form.querySelector('input[name="' + el.name + '"]:checked')) { ok = false; msg = 'Please choose an option to continue.'; }
+          } else if (!el.checkValidity()) {
+            ok = false; el.focus();
+            msg = el.name === 'phone' ? 'Add your mobile number to get the code by SMS.' : el.type === 'email' && el.value ? 'Please check your email address.' : 'Please complete the highlighted field.';
+          }
+        });
+        err.textContent = msg; err.hidden = ok;
+        return ok;
+      }
+
+      // Step 2 moves on by itself once both the business type and locations are picked.
+      steps[1].addEventListener('change', function () {
+        if (form.querySelector('input[name="businessType"]:checked') && form.querySelector('input[name="branches"]:checked')) {
+          setTimeout(function () { if (cur === 1) show(2); }, 280);
+        }
+      });
+
+      document.querySelectorAll('[data-copy]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var t = document.getElementById(b.getAttribute('data-copy')).textContent;
+          if (navigator.clipboard) navigator.clipboard.writeText(t);
+          b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500);
+        });
+      });
+
+      // ── Lead capture (EdgeX form "try-for-free") ─────────────────
+      // Full lead on "Send my code". If someone passes step 1 and then leaves, a contact-only lead is sent instead.
+      // The optional follow-up answers are sent as a second submission for the same email.
+      var EDGEX_KEY = {{ edgex.key | dump | safe }};
+      var EDGEX_URL = {{ (edgex.base + edgex.forms.trial) | dump | safe }};
+      var LEAD_MAP = {
+        businessType: { 'Spas & Wellness': 'spa_wellness', 'Hair & Nail Salons': 'hair_nail_salon', 'Barbershops': 'barbershop', 'Beauty Clinics': 'beauty_clinic', 'Bridal & Makeup': 'bridal_makeup', 'Tattoo Studios': 'tattoo_studio', 'Fitness & PT': 'gym_fitness', 'Physiotherapy': 'physiotherapy', 'Cleaning Services': 'cleaning', 'Something else': 'other' },
+        branches: { '1': '1', '2–5': '2_5', '6+': '6_plus' },
+        seeFirst: { 'Bookings & front desk': 'bookings_front_desk', 'Money': 'money', 'Team': 'team', 'Grow & retain': 'grow_retain' },
+        team: { '1–5': '1_5', '6–15': '6_15', '16–40': '16_40', '40+': '40_plus' },
+        tools: { 'Paper diary': 'paper_diary', 'Spreadsheets': 'spreadsheets', 'Phone / messages': 'whatsapp_phone', 'Other software': 'other_software' },
+        retail: { 'Yes': 'yes', 'No': 'no' },
+        via: { 'Email': 'email', 'SMS': 'sms' }
+      };
+      function val(n) { var c = form.querySelector('input[name="' + n + '"]:checked') || modal.querySelector('input[name="' + n + '"]:checked'); return c ? c.value : ''; }
+      function list(n) { return Array.prototype.map.call(modal.querySelectorAll('input[name="' + n + '"]:checked'), function (c) { return c.value; }).join(', '); }
+      function mapOne(group, v) { return v ? (LEAD_MAP[group][v] || v) : null; }
+      function mapMany(group, csv) { return csv ? csv.split(', ').map(function (v) { return mapOne(group, v); }).join(', ') : null; }
+      function phone() { return form.phone.value.trim() ? form.countryCode.value + ' ' + form.phone.value.trim() : null; }
+      var posted = { lead: '', partial: false, tailor: false };
+      function post(fields) {
+        if (!EDGEX_KEY) return;
+        var body = JSON.stringify({
+          full_name: form.name.value.trim(),
+          email: form.email.value.trim() || null,
+          phone: phone(),
+          intake_source: 'Website',
+          intake_account: window.location.pathname,
+          custom_fields: fields
+        });
+        if (body === posted.lead) return;
+        posted.lead = body;
+        fetch(EDGEX_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + EDGEX_KEY }, body: body, keepalive: true })
+          .catch(function () { posted.lead = ''; });
+      }
+      function leadFields(stage) {
+        return {
+          lead_stage: stage,
+          business_name: form.business.value.trim(),
+          code_via: mapOne('via', via()),
+          business_type: mapOne('businessType', val('businessType')),
+          branches: mapOne('branches', val('branches')),
+          see_first: mapOne('seeFirst', val('seeFirst'))
+        };
+      }
+      var reachedStep2 = false, sentCode = false;
+      function postPartial() {
+        if (!reachedStep2 || sentCode || posted.partial) return;
+        posted.partial = true;
+        post(leadFields('contact_only'));
+      }
+      window.addEventListener('pagehide', postPartial);
+      function postTailor() {
+        if (posted.tailor || !sentCode) return;
+        var f = { lead_stage: 'follow_up', business_name: form.business.value.trim(), team_size: mapOne('team', val('team')), current_tools: mapMany('tools', list('tools')), sells_retail: mapOne('retail', val('retail')) };
+        if (!f.team_size && !f.current_tools && !f.sells_retail) return;
+        posted.tailor = true;
+        post(f);
+      }
+
+      // ── Optional follow-up questions on the done screen ──────────
+      var tailor = document.getElementById('tf-tailor');
+      var tqs = Array.prototype.slice.call(tailor.querySelectorAll('.tf-tailor__q')), tq = 0;
+      function nextQ() {
+        tqs[tq].classList.remove('is-active'); tq++;
+        if (tq < tqs.length) {
+          tqs[tq].classList.add('is-active');
+          document.getElementById('tf-tailor-n').innerHTML = (tq + 1) + ' of ' + tqs.length + ' &middot; optional';
+        } else { tailor.classList.add('is-done'); postTailor(); }
+      }
+      tailor.addEventListener('change', function (e) { if (e.target.type === 'radio') setTimeout(nextQ, 250); });
+      document.getElementById('tf-tailor-next').addEventListener('click', nextQ);
+      document.getElementById('tf-login-btn').addEventListener('click', postTailor);
+      window.addEventListener('pagehide', postTailor);
+
+      // ── Verification ─────────────────────────────────────────────
+      // The code is emailed by otp-service (nginx proxies /api/otp/ to it). /send returns a signed token the browser
+      // hands back to /verify with the typed code; /verify returns the demo login. SMS codes will come from EdgeX; until it is
+      // connected the service answers 'sms-unavailable' and the form asks the visitor to use email.
+      var verifyEl = document.getElementById('tf-verify');
+      var doneEl = document.getElementById('tf-done');
+      var boxes = Array.prototype.slice.call(document.querySelectorAll('.tf-otp__box'));
+      var vErr = document.getElementById('tf-verify-error');
+      var resend = document.getElementById('tf-resend');
+      var ctx = null, timer = null;
+      var ICONS = {
+        Email: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+        SMS: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>'
+      };
+      // Locally the Eleventy dev server has no proxy, so talk to otp-service directly (node otp-service/server.js, port 3000).
+      var isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+      var OTP_BASE = isLocal ? 'http://localhost:3000/api/otp/' : '/api/otp/';
+      var otpToken = '';
+      function otpCall(action, payload) {
+        return fetch(OTP_BASE + action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+          .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok) { var e = new Error(j.error || 'http-' + r.status); e.status = r.status; throw e; } return j; }); });
+      }
+
+      // Keep the credentials visible if the user navigates away to log in and comes back (cleared when the tab closes).
+      var CREDS_KEY = 'zennlyTrialCreds';
+      function showCreds(creds) {
+        document.getElementById('tf-cred-email').textContent = creds.email;
+        document.getElementById('tf-cred-pass').textContent = creds.password;
+        document.getElementById('tf-login-btn').href = creds.loginUrl || '#';
+        form.hidden = true; verifyEl.hidden = true; doneEl.hidden = false;
+        card.classList.add('is-done');
+      }
+      try {
+        var saved = JSON.parse(sessionStorage.getItem(CREDS_KEY) || 'null');
+        if (saved && saved.email) { showCreds(saved); tailor.classList.add('is-done'); }
+      } catch (e) {}
+
+      function startCooldown() {
+        var n = 30; clearInterval(timer); resend.disabled = true;
+        resend.textContent = 'Resend code in ' + n + 's';
+        timer = setInterval(function () {
+          n--;
+          if (n <= 0) { clearInterval(timer); resend.disabled = false; resend.textContent = 'Resend code'; }
+          else resend.textContent = 'Resend code in ' + n + 's';
+        }, 1000);
+      }
+      function sendCode() {
+        return otpCall('send', ctx.via === 'SMS' ? { phone: ctx.phone, name: ctx.name } : { email: ctx.email, name: ctx.name }).then(function (j) { otpToken = j.token; });
+      }
+      function code() { return boxes.map(function (b) { return b.value; }).join(''); }
+      function verifyCode() {
+        var c = code();
+        if (c.length < 6) { vErr.textContent = 'Enter all 6 digits.'; vErr.hidden = false; return; }
+        vErr.hidden = true;
+        otpCall('verify', ctx.via === 'SMS' ? { phone: ctx.phone, code: c, token: otpToken } : { email: ctx.email, code: c, token: otpToken }).then(function (creds) {
+          creds = Object.assign({}, creds, { via: ctx.via });
+          try { sessionStorage.setItem(CREDS_KEY, JSON.stringify(creds)); } catch (e) {}
+          showCreds(creds);
+        }).catch(function (e) {
+          vErr.textContent = e.message === 'expired' ? 'That code has expired. Tap “Resend code” for a new one.' : e.status === 429 ? 'Too many tries. Please wait a few minutes and try again.' : 'That code isn’t right. Check it and try again.'; vErr.hidden = false;
+          boxes.forEach(function (b) { b.value = ''; }); boxes[0].focus();
+        });
+      }
+      boxes.forEach(function (b, k) {
+        b.addEventListener('input', function () {
+          b.value = b.value.replace(/\D/g, '').slice(-1);
+          if (b.value && k < boxes.length - 1) boxes[k + 1].focus();
+          if (code().length === 6) verifyCode();
+        });
+        b.addEventListener('keydown', function (e) {
+          if (e.key === 'Backspace' && !b.value && k > 0) boxes[k - 1].focus();
+          if (e.key === 'ArrowLeft' && k > 0) boxes[k - 1].focus();
+          if (e.key === 'ArrowRight' && k < boxes.length - 1) boxes[k + 1].focus();
+        });
+        b.addEventListener('paste', function (e) {
+          var t = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '').slice(0, 6);
+          if (!t) return;
+          e.preventDefault();
+          t.split('').forEach(function (d, i) { boxes[i].value = d; });
+          boxes[Math.min(t.length, 5)].focus();
+          if (t.length === 6) verifyCode();
+        });
+      });
+      resend.addEventListener('click', function () {
+        sendCode().then(function () { vErr.hidden = true; startCooldown(); }).catch(function () { vErr.textContent = 'We couldn’t resend the code. Please try again in a moment.'; vErr.hidden = false; });
+      });
+      document.getElementById('tf-change').addEventListener('click', function () {
+        clearInterval(timer); verifyEl.hidden = true; form.hidden = false;
+        show(0);
+      });
+
+      back.addEventListener('click', function () { show(cur - 1); });
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!valid()) return;
+        if (cur === 0) reachedStep2 = true;
+        if (cur < steps.length - 1) { show(cur + 1); return; }
+        var v = via();
+        var dest = v === 'Email' ? form.email.value.trim() : phone();
+        var answers = [
+          'Name: ' + form.name.value,
+          'Business name: ' + form.business.value,
+          'Send code by: ' + v,
+          'Email: ' + (form.email.value || '—'),
+          'Mobile: ' + (phone() || '—'),
+          'Business type: ' + val('businessType'),
+          'Locations: ' + val('branches'),
+          'Wants to see first: ' + (val('seeFirst') || '—')
+        ].join('\n');
+        ctx = { via: v, dest: dest, name: form.name.value.trim(), email: form.email.value.trim(), phone: phone(), business: form.business.value.trim(), answers: answers };
+        sentCode = true;
+        post(leadFields('code_sent'));
+        next.disabled = true;
+        sendCode().then(function () {
+          next.disabled = false;
+          document.getElementById('tf-verify-icon').innerHTML = ICONS[v];
+          document.getElementById('tf-verify-h').textContent = v === 'SMS' ? 'Check your phone' : 'Check your inbox';
+          var vc = document.getElementById('tf-verify-copy'); vc.textContent = 'We sent a 6-digit code to '; var vs = document.createElement('strong'); vs.textContent = dest; vc.appendChild(vs); vc.appendChild(document.createTextNode('. Enter it to unlock the demo.'));
+          form.hidden = true; verifyEl.hidden = false;
+          eyebrow.textContent = 'Free demo · Last step';
+          bar.style.width = '100%';
+          boxes.forEach(function (b) { b.value = ''; });
+          vErr.hidden = true; startCooldown(); boxes[0].focus();
+        }).catch(function (e) {
+          next.disabled = false;
+          err.textContent = e.message === 'sms-unavailable' ? 'Text-message codes are coming soon. Please choose Email to get your code now.' : e.status === 429 ? 'Too many requests. Please wait a few minutes and try again.' : 'We couldn’t send the code. Check your email address, or email info@zennly.io and we’ll set you up.';
+          err.hidden = false;
+        });
+      });
+
+      show(0);
+
+      // Email button -> /?dt=<token>&de=<email>&dc=<code>: open the code step with the code already entered and check it.
+      (function () {
+        var q = new URLSearchParams(location.search), t = q.get('dt'), e = q.get('de'), c = q.get('dc');
+        if (!t || !e || !/^\d{6}$/.test(c || '')) return;
+        history.replaceState(null, '', location.pathname + location.hash); // keep the code out of the address bar
+        try { if (sessionStorage.getItem(CREDS_KEY)) return; } catch (x) {}
+        otpToken = t;
+        ctx = { via: 'Email', dest: e, email: e, name: '', business: '', answers: '' };
+        document.getElementById('tf-verify-icon').innerHTML = ICONS.Email;
+        document.getElementById('tf-verify-h').textContent = 'Check your inbox';
+        var vc = document.getElementById('tf-verify-copy'); vc.textContent = 'We sent a 6-digit code to '; var vs = document.createElement('strong'); vs.textContent = e; vc.appendChild(vs); vc.appendChild(document.createTextNode('. Enter it to unlock the demo.'));
+        form.hidden = true; verifyEl.hidden = false;
+        eyebrow.textContent = 'Free demo · Last step'; bar.style.width = '100%';
+        c.split('').forEach(function (d, i) { boxes[i].value = d; });
+        open(); startCooldown(); verifyCode();
+      })();
+    })();
+  </script>

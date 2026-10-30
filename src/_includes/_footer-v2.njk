@@ -1,47 +1,87 @@
-<!-- Shared footer, ported from the homepage (src/index.njk, .v2-site-footer / .v2-footer-*). -->
+<!-- Shared site footer (owner.com-style directory footer, black). Used by every page, including the homepage. -->
 <footer class="v2-site-footer">
   <div class="v2-wrap">
-    <div class="v2-footer-content">
-      <div class="v2-footer-top">
-        <div class="v2-footer-brand">
-          <a href="/" class="v2-footer-logo"><img src="/assets/images/logo.png" alt="Zennly" class="v2-footer-logo-img"></a>
-          <p class="v2-footer-tagline">Online booking, operational control, and financial clarity for any appointment-based business.</p>
-          <div class="v2-footer-status">
-            <span class="v2-live-dot"></span>
-            <span>All systems operational</span>
-          </div>
-        </div>
-        <div class="v2-footer-links">
-          <div class="v2-footer-link-group">
-            <h5 class="v2-footer-heading">Product</h5>
-            <a href="/features/booking/" class="v2-footer-link">Online Booking</a>
-            <a href="/features/operational-visibility/" class="v2-footer-link">Operations</a>
-            <a href="/features/payment-tracking/" class="v2-footer-link">Finance</a>
-            <a href="/pricing/" class="v2-footer-link">Pricing</a>
-          </div>
-          <div class="v2-footer-link-group">
-            <h5 class="v2-footer-heading">Use Cases</h5>
-            <a href="/solutions/spa/" class="v2-footer-link">Spa &amp; Wellness</a>
-            <a href="/solutions/salon/" class="v2-footer-link">Hair Salon</a>
-            <a href="/solutions/" class="v2-footer-link">More verticals</a>
-          </div>
-          <div class="v2-footer-link-group">
-            <h5 class="v2-footer-heading">Company</h5>
-            <a href="/about/" class="v2-footer-link">About</a>
-            <a href="/glossary/" class="v2-footer-link">Glossary</a>
-            <a href="/demo/" class="v2-footer-link">Book a Demo</a>
-            <a href="/case-study/" class="v2-footer-link">See It Live</a>
-            <a href="mailto:info@zennly.io" class="v2-footer-link">Contact</a>
-          </div>
-          <div class="v2-footer-link-group">
-            <h5 class="v2-footer-heading">Legal</h5>
-            <a href="/privacy-policy/" class="v2-footer-link">Privacy Policy</a>
-            <a href="/terms-of-service/" class="v2-footer-link">Terms of Service</a>
-            <a href="/cookie-policy/" class="v2-footer-link">Cookie Policy</a>
-          </div>
-        </div>
+    <div class="v2-footer-top">
+      <a href="/" class="v2-footer-logo" aria-label="Zennly home"><img src="/assets/images/logo.png" alt="Zennly" class="v2-footer-logo-img"></a>
+      <div class="v2-footer-ctas">
+        <button type="button" class="v2-footer-btn v2-footer-btn--primary" data-trial-open>Try a free demo</button>
+        <a href="/contact/" class="v2-footer-btn v2-footer-btn--ghost">Talk to us</a>
       </div>
-      <span class="v2-footer-copyright">© 2026 Zunkireelabs. All rights reserved. Built by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a></span>
+    </div>
+
+    <nav class="v2-footer-grid v2-footer-grid--product" aria-label="Product">
+      <div class="v2-footer-col">
+        <h2 class="v2-footer-heading">Take bookings</h2>
+        <a href="/features/booking/" class="v2-footer-link">Online booking</a>
+        <a href="/features/ai-assistant/" class="v2-footer-link">AI receptionist</a>
+        <a href="/features/outreach/" class="v2-footer-link">Customer outreach</a>
+        <a href="/features/campaigns/" class="v2-footer-link">Campaigns</a>
+      </div>
+      <div class="v2-footer-col">
+        <h2 class="v2-footer-heading">Run your team</h2>
+        <a href="/features/operational-visibility/" class="v2-footer-link">Operations</a>
+        <a href="/features/staff-management/" class="v2-footer-link">Staff management</a>
+        <a href="/features/role-based-access/" class="v2-footer-link">Role-based access</a>
+        <a href="/features/payroll/" class="v2-footer-link">Payroll</a>
+      </div>
+      <div class="v2-footer-col">
+        <h2 class="v2-footer-heading">Control the money</h2>
+        <a href="/features/payment-tracking/" class="v2-footer-link">Payments &amp; daily close</a>
+        <a href="/features/discount-management/" class="v2-footer-link">Discount control</a>
+        <a href="/features/reports/" class="v2-footer-link">Reports</a>
+        <a href="/features/memberships/" class="v2-footer-link">Memberships</a>
+        <a href="/features/packages/" class="v2-footer-link">Packages</a>
+        <a href="/features/vouchers/" class="v2-footer-link">Vouchers</a>
+      </div>
+      <div class="v2-footer-col">
+        <h2 class="v2-footer-heading">Industries</h2>
+        <a href="/solutions/spa/" class="v2-footer-link">Spas &amp; wellness</a>
+        <a href="/solutions/salon/" class="v2-footer-link">Hair &amp; nail salons</a>
+        <a href="/solutions/barbershop/" class="v2-footer-link">Barbershops</a>
+        <a href="/solutions/beauty-clinic/" class="v2-footer-link">Beauty clinics</a>
+        <a href="/solutions/fitness/" class="v2-footer-link">Fitness &amp; PT</a>
+        <a href="/solutions/" class="v2-footer-link">All industries</a>
+      </div>
+    </nav>
+
+    <nav class="v2-footer-grid v2-footer-grid--small" aria-label="Company and resources">
+      <div class="v2-footer-col">
+        <h2 class="v2-footer-heading">Resources</h2>
+        <a href="/blog/" class="v2-footer-link">Blog</a>
+        <a href="/faq/" class="v2-footer-link">FAQ</a>
+        <a href="/compare/" class="v2-footer-link">Compare</a>
+        <a href="/glossary/" class="v2-footer-link">Glossary</a>
+        <a href="/daily-close-checklist/" class="v2-footer-link">Daily close checklist</a>
+      </div>
+      <div class="v2-footer-col">
+        <h2 class="v2-footer-heading">Company</h2>
+        <a href="/about/" class="v2-footer-link">About</a>
+        <a href="/case-study/" class="v2-footer-link">Case study</a>
+        <a href="/pricing/" class="v2-footer-link">Pricing</a>
+        <a href="/press/" class="v2-footer-link">Press</a>
+        <a href="/nepal/" class="v2-footer-link">Zennly in Nepal</a>
+        <a href="/global/" class="v2-footer-link">Worldwide</a>
+      </div>
+      <div class="v2-footer-col">
+        <h2 class="v2-footer-heading">Support</h2>
+        <a href="tel:+9779747491787" class="v2-footer-link">+977 974-749-1787</a>
+        <a href="mailto:info@zennly.io" class="v2-footer-link">info@zennly.io</a>
+        <a href="/contact/" class="v2-footer-link">Contact us</a>
+        <a href="#try-free" class="v2-footer-link" data-trial-open>Try a free demo</a>
+      </div>
+      <div class="v2-footer-col v2-footer-col--about">
+        <p class="v2-footer-tagline">Online booking, operations and financial control for appointment-based businesses. Built in Nepal.</p>
+        <div class="v2-footer-status"><span class="v2-live-dot"></span><span>All systems operational</span></div>
+      </div>
+    </nav>
+
+    <div class="v2-footer-bottom">
+      <span class="v2-footer-copyright">© 2026 Zennly by <a href="https://zunkireelabs.com" target="_blank" rel="noopener">Zunkireelabs</a>. All rights reserved.</span>
+      <nav class="v2-footer-legal" aria-label="Legal">
+        <a href="/privacy-policy/">Privacy policy</a>
+        <a href="/terms-of-service/">Terms of service</a>
+        <a href="/cookie-policy/">Cookie policy</a>
+      </nav>
     </div>
   </div>
 </footer>

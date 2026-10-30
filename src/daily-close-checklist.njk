@@ -1,0 +1,140 @@
+---
+layout: base.njk
+title: "Daily Close Checklist for Spas, Salons & Gyms (Free) | Zennly"
+metaDescription: "A free 12-step end-of-day checklist for spas, salons, gyms and clinics: bookings, cash, card and online payments, discounts and variances, ready to print."
+dateModified: "2026-10-13"
+bodyClass: page--light-nav page--pink-cta
+---
+{% set groups = [
+  { id: 1, k: "Bookings", h: "Is every booking accounted for?" },
+  { id: 2, k: "Money in", h: "Does the cash, card and online money add up?" },
+  { id: 3, k: "Control", h: "Were discounts and changes approved?" },
+  { id: 4, k: "Sign-off", h: "Explain, lock and prepare." }
+] %}
+{% set steps = [
+  { n: 1, g: 1, t: "Give every booking a final status", d: "Mark each of today's bookings completed, no-show or cancelled. An open booking is an unexplained gap in the day's numbers." },
+  { n: 2, g: 1, t: "Add walk-ins that were not booked", d: "Every customer served without a booking still needs a record, with the service, the staff member and the payment." },
+  { n: 3, g: 2, t: "Match each payment to its booking", d: "Every payment should sit against a booking, tagged cash, card or online. A payment with no booking, or a booking with no payment, is a variance to chase." },
+  { n: 4, g: 2, t: "Count the cash and compare", d: "Count the cash drawer and compare it with the cash recorded for the day, after float and any petty-cash payouts." },
+  { n: 5, g: 2, t: "Check card and online totals", d: "Compare the card machine slip and online payment totals with what was recorded in the system." },
+  { n: 6, g: 3, t: "Review every discount given", d: "List today's discounts. Each one should have a reason and a named approver. Anything given without approval is discount leakage." },
+  { n: 7, g: 3, t: "Review refunds, voids and edits", d: "Check cancelled payments, refunds and changed prices. Each needs a reason and the name of the person who made the change." },
+  { n: 8, g: 3, t: "Check memberships, packages and vouchers", d: "Confirm the sessions and balances redeemed today were deducted correctly, and that sold vouchers and packages were paid for." },
+  { n: 9, g: 4, t: "Note staff attendance and transfers", d: "Record who worked, who covered another branch and who was absent, so tomorrow's schedule and commission are right." },
+  { n: 10, g: 4, t: "Explain every variance before you close", d: "If the totals do not match, find out why now and write the reason down. A difference left until tomorrow gets harder to trace." },
+  { n: 11, g: 4, t: "Lock the day", d: "Once the numbers agree, sign off and lock the day so later edits leave a trace. On multi-branch businesses, each branch closes separately." },
+  { n: 12, g: 4, t: "Look at tomorrow's bookings", d: "Check tomorrow's bookings, staff and rooms for clashes, and confirm any deposits or high-value appointments." }
+] %}
+{% set faq = [
+  { question: "What is a daily close in a spa or salon?", answer: "A daily close is the end-of-day check that every booking, service and payment for the day agrees. It compares cash, card and online takings with what the system says should have been collected, reviews discounts and refunds, and ends with the day being signed off." },
+  { question: "How long should a daily close take?", answer: "For a single branch it should take minutes, not an hour, when payments are recorded against bookings during the day. It takes long when the owner has to rebuild the day from notebooks, WhatsApp chats and memory." },
+  { question: "Who should do the daily close?", answer: "The branch manager or the front-desk lead closes the day, and the owner reviews the summary. Keeping the person who takes the cash separate from the person who signs off reduces errors and theft." },
+  { question: "Do I need software to do a daily close?", answer: "No. This checklist works on paper. Software helps because payments are tied to bookings as they happen, discounts need approval, and the totals for every branch are ready without counting." }
+] %}
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Daily close checklist", url: "/daily-close-checklist/" }]) }}
+{{ faqSchema(faq) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": "{{ site.url }}/daily-close-checklist/#howto",
+  "name": "How to do a daily close for a spa, salon or gym",
+  "description": {{ metaDescription | dump | safe }},
+  "url": "{{ site.url }}/daily-close-checklist/",
+  "inLanguage": "en",
+  "dateModified": "{{ dateModified }}",
+  "publisher": { "@id": "{{ site.url }}/#organization" },
+  "step": [
+    {% for s in steps %}{
+      "@type": "HowToStep",
+      "position": {{ loop.index }},
+      "name": {{ s.t | dump | safe }},
+      "text": {{ s.d | dump | safe }},
+      "url": "{{ site.url }}/daily-close-checklist/#step-{{ loop.index }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<main class="pg-page">
+<header class="pg-hero pg-tone1">
+  <span class="pg-hero__eyebrow">Free checklist</span>
+  <h1>The daily close checklist <em>for service businesses.</em></h1>
+  <p class="pg-hero__lede">Twelve steps to end every day knowing the bookings, cash, cards and discounts agree. Made for spas, salons, gyms and clinics, for one branch or many. Tick them off here, or print it for the front desk.</p>
+</header>
+
+<div class="pg-wrap" x-data="dcl({{ steps | length }})" x-init="init()">
+  <section class="pg-section" style="padding-top:24px;">
+    <div class="cl">
+      <aside class="cl-side">
+        <div class="cl-card">
+          <p class="cl-card__label">Today&rsquo;s close</p>
+          <p class="cl-card__count"><span x-text="done"></span><em>/ {{ steps | length }}</em></p>
+          <div class="cl-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{ steps | length }}" :aria-valuenow="done"><span :style="'width:' + (done / total * 100) + '%'"></span></div>
+          <p class="cl-card__msg" x-text="done === total ? 'All done. Lock the day.' : (done === 0 ? 'Tick each step as you finish it.' : (total - done) + ' to go.')"></p>
+          <div class="cl-card__actions">
+            <button type="button" class="cl-btn cl-btn--solid" onclick="window.print()">Print</button>
+            <button type="button" class="cl-btn" @click="reset()" x-show="done > 0" x-cloak>Reset</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="cl-list">
+        {% for g in groups %}
+        <div class="cl-group">
+          <div class="cl-group__head"><span class="cl-group__k">{{ g.k }}</span><h2 class="cl-group__h">{{ g.h }}</h2></div>
+          {% for s in steps %}{% if s.g == g.id %}
+          <label class="cl-row" id="step-{{ s.n }}" :class="{ 'is-done': on[{{ s.n }}] }">
+            <input type="checkbox" class="cl-row__input" x-model="on[{{ s.n }}]" @change="save()">
+            <span class="cl-row__box" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="cl-row__body"><span class="cl-row__n">{% if s.n < 10 %}0{% endif %}{{ s.n }}</span><strong>{{ s.t }}</strong><span class="cl-row__d">{{ s.d }}</span></span>
+          </label>
+          {% endif %}{% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <section class="pg-section">
+    <div class="pg-split">
+      <div>
+        <p class="pg-label">Skip the counting</p>
+        <h2 class="pg-h2">Zennly does steps 1 to 11 <em>as the day happens.</em></h2>
+      </div>
+      <div>
+        <p>In Zennly, each payment is recorded by method against its booking, discounts need a manager's approval, and the day is locked once it reconciles. Nuad Thai Spa Kathmandu closes four branches this way.</p>
+        <p><a href="/features/payment-tracking/" class="pg-textlink">See payment tracking &rarr;</a> &nbsp; <a href="/case-study/" class="pg-textlink">Read the case study &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pg-section">
+    <h2 class="pg-h2">Daily close <em>questions.</em></h2>
+    <div class="pg-faq" style="margin-top:32px;">
+      {% for f in faq %}
+      <details>
+        <summary>{{ f.question }}</summary>
+        <p>{{ f.answer }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<script>
+function dcl(total){return{total:total,on:{},done:0,init(){try{this.on=JSON.parse(localStorage.getItem("zennly-dcl")||"{}")}catch(e){this.on={}}this.$watch("on",()=>{this.done=Object.values(this.on).filter(Boolean).length});this.done=Object.values(this.on).filter(Boolean).length},save(){try{localStorage.setItem("zennly-dcl",JSON.stringify(this.on))}catch(e){}},reset(){this.on={};this.save()}}}
+</script>
+
+<section class="bottom-cta" id="demo">
+  <div class="bottom-cta__card bottom-cta__card--banner reveal">
+    <h2 class="bottom-cta__h2">Close every branch in minutes.</h2>
+    <p class="bottom-cta__sub">Book a 20-minute demo and see the daily close in a live system.</p>
+    <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &#8599;</a>
+  </div>
+</section>
+
+{% include "_footer-v2.njk" %}
+</main>

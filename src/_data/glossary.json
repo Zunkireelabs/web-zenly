@@ -160,5 +160,104 @@
     "relatedLabel": "Conflict-free booking",
     "relatedHref": "/features/booking/",
     "aka": "walk-in appointment, drop-in booking"
+  },
+  {
+    "term": "Beauty parlour software",
+    "slug": "beauty-parlour-software",
+    "definition": "Beauty parlour software is booking and management software for beauty parlours, the common Nepali name for a salon. It takes appointments online, schedules beauticians, tracks packages and discounts, and records payments.",
+    "category": "Salons",
+    "relatedLabel": "Beauty parlour software in Nepal",
+    "relatedHref": "/blog/beauty-parlour-software-nepal/",
+    "aka": "parlour software, parlour management system, salon software Nepal"
+  },
+  {
+    "term": "Gym management software",
+    "slug": "gym-management-software",
+    "definition": "Gym management software tracks memberships, renewals, classes and trainers for a gym or fitness studio. It shows who has paid, who has lapsed and how many sessions remain.",
+    "category": "Fitness",
+    "relatedLabel": "Gym membership software in Nepal",
+    "relatedHref": "/blog/gym-membership-management-software-nepal/",
+    "aka": "gym software, fitness studio software, gym membership software"
+  },
+  {
+    "term": "Membership management software",
+    "slug": "membership-management-software",
+    "definition": "Membership management software tracks prepaid tiers, wallet balances, validity periods and renewals. Every deposit and deduction is recorded so the balance is always correct.",
+    "category": "Finance",
+    "relatedLabel": "Memberships in Zennly",
+    "relatedHref": "/features/memberships/",
+    "aka": "prepaid membership software, wallet balance software"
+  },
+  {
+    "term": "Session package",
+    "slug": "session-package",
+    "definition": "A session package is a bundle of sessions for one service sold at a set price, such as ten massages. Each visit redeems one session, and the record shows sessions left and any amount due.",
+    "category": "Finance",
+    "relatedLabel": "Packages in Zennly",
+    "relatedHref": "/features/packages/",
+    "aka": "treatment package, service bundle"
+  },
+  {
+    "term": "Gift voucher",
+    "slug": "gift-voucher",
+    "definition": "A gift voucher is a prepaid value with a unique code and an expiry date that a customer redeems as payment, in one visit or over several. It differs from a discount code because it holds money.",
+    "category": "Finance",
+    "relatedLabel": "Vouchers in Zennly",
+    "relatedHref": "/features/vouchers/",
+    "aka": "prepaid voucher, gift card"
+  },
+  {
+    "term": "Staff commission",
+    "slug": "staff-commission",
+    "definition": "Staff commission is extra pay calculated as a percentage of the value of the services a therapist, stylist or trainer completed. It is usually paid on top of a base salary.",
+    "category": "Staff",
+    "relatedLabel": "How to calculate commission and payroll",
+    "relatedHref": "/blog/therapist-commission-payroll-nepal/",
+    "aka": "therapist commission, commission calculation"
+  },
+  {
+    "term": "Win-back email",
+    "slug": "win-back-email",
+    "definition": "A win-back email is a message sent to a customer who has not visited for a set number of days, inviting them to return. It is a low-cost way to recover lapsed regulars.",
+    "category": "Marketing",
+    "relatedLabel": "Customer outreach in Zennly",
+    "relatedHref": "/features/outreach/",
+    "aka": "lapsed customer email, re-engagement email"
+  },
+  {
+    "term": "Multi-branch spa management",
+    "slug": "multi-branch-spa-management",
+    "definition": "Multi-branch spa management means running several spa locations from one system, with shared staff, one set of rules for discounts and one daily report across branches.",
+    "category": "Operations",
+    "relatedLabel": "Multi-branch checklist for Nepal",
+    "relatedHref": "/blog/manage-multiple-spa-salon-branches-nepal/",
+    "aka": "multi-location spa software, spa chain software"
+  },
+  {
+    "term": "Clinic appointment software",
+    "slug": "clinic-appointment-software",
+    "definition": "Clinic appointment software schedules practitioners and rooms together, keeps repeat treatments with the same practitioner and records payments per visit. It is not a medical records system.",
+    "category": "Booking",
+    "relatedLabel": "Clinic appointment software in Nepal",
+    "relatedHref": "/blog/clinic-appointment-software-nepal/",
+    "aka": "physiotherapy appointment software, clinic scheduling software"
+  },
+  {
+    "term": "Beauty parlour",
+    "slug": "beauty-parlour",
+    "definition": "A beauty parlour is the common name in Nepal and South Asia for a salon offering hair, skin, nails, threading, waxing and bridal makeup services.",
+    "category": "Salons",
+    "relatedLabel": "Salon booking system in Nepal",
+    "relatedHref": "/blog/salon-booking-system-nepal/",
+    "aka": "parlor, beauty salon, ladies parlour"
+  },
+  {
+    "term": "AI receptionist",
+    "slug": "ai-receptionist",
+    "definition": "An AI receptionist is an AI assistant that answers customer calls and chat messages for a business and helps them book, so enquiries are not missed when staff are busy or the shop is closed.",
+    "category": "Booking",
+    "relatedLabel": "AI receptionist in Zennly",
+    "relatedHref": "/features/ai-assistant/",
+    "aka": "AI booking assistant, AI phone assistant, chatbot for bookings"
   }
 ]

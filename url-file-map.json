@@ -8,6 +8,8 @@
     "/blog/": { "file": "src/blog.njk" },
     "/case-study/": { "file": "src/case-study.njk" },
     "/demo/": { "file": "src/demo.njk" },
+    "/contact/": { "file": "src/contact.njk" },
+    "/global/": { "file": "src/global.njk" },
     "/privacy-policy/": { "file": "src/privacy-policy.njk" },
     "/terms-of-service/": { "file": "src/terms-of-service.njk" },
     "/blog/daily-reconciliation/": { "file": "src/blog/daily-reconciliation.njk" },

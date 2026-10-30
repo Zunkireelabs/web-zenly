@@ -1,0 +1,13 @@
+<script>
+  // Posts a lead to the EdgeX form builder. Rejects if there is no key or the request fails,
+  // so callers can fall back to email.
+  window.zennlyPostLead = function (slug, body) {
+    var key = {{ edgex.key | dump | safe }};
+    if (!key) return Promise.reject(new Error('no-key'));
+    return fetch({{ edgex.base | dump | safe }} + slug, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key },
+      body: JSON.stringify(body)
+    }).then(function (r) { if (!r.ok) throw new Error('http-' + r.status); return r; });
+  };
+</script>

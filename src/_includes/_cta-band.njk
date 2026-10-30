@@ -1,0 +1,19 @@
+{# Shared "bottom CTA" band — same gradient/radius/grain chrome as the
+   homepage's final CTA (.v2-access, src/index.njk), used across the site's
+   simpler pages (contact, faq, blog, pricing, …) via .bottom-cta in
+   main.css. Content (heading/subtext/links) is passed in per page; the
+   background, radius and layout stay identical everywhere this is used.
+   Pages still opt into the pink/mauve gradient variant with
+   body.page--pink-cta, same as before. #}
+{% macro ctaBand(heading, subtext="", primaryText="Try a free demo ↗", primaryHref="#try-free", primaryAttrs="data-trial-open", secondaryText="See It Live ↗", secondaryHref="/case-study/", id="") %}
+<section class="bottom-cta"{% if id %} id="{{ id }}"{% endif %}>
+  <div class="bottom-cta__card bottom-cta__card--banner reveal">
+    <h2 class="bottom-cta__h2">{{ heading }}</h2>
+    {% if subtext %}<p class="bottom-cta__sub">{{ subtext }}</p>{% endif %}
+    <div class="bottom-cta__btn-row">
+      <a href="{{ primaryHref }}" class="bottom-cta__banner-btn" {{ primaryAttrs | safe }}>{{ primaryText }}</a>
+      {% if secondaryText %}<a href="{{ secondaryHref }}" class="bottom-cta__link">{{ secondaryText }}</a>{% endif %}
+    </div>
+  </div>
+</section>
+{% endmacro %}

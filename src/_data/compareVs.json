@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "spa-salon-software-nepal",
+    "title": "Spa & Salon Software in Nepal Compared: How to Choose | Zennly",
+    "metaDescription": "Comparing booking and management software for spas and beauty parlours in Nepal: the questions to ask every vendor, and where Zennly fits.",
+    "h1": "Spa and salon software in Nepal, <em>compared.</em>",
+    "sub": "What to ask every vendor before you choose, and where Zennly fits.",
+    "leadTitle": "Most Nepal spa and salon software books appointments. Few control the money.",
+    "lead": "Several Nepali and international products offer online appointments, staff scheduling and memberships for spas and salons. What separates them is how well they handle several branches, discount approval and the daily close. Zennly is built around those three.",
+    "othersLabel": "Other options owners compare",
+    "others": "Local providers that list spa and salon booking software include M AND R Solution, Delta Tech Nepal, Joomni Solutions and Tab Space. International products such as Phorest, Zenoti and Vagaro are also used by larger groups.",
+    "note": "This page is based on publicly available information as of October 2026. Features change, so confirm current capabilities with each vendor.",
+    "col": "Question to ask any vendor",
+    "rows": [
+      ["Several branches", "Can I run every branch from one account, with one daily report?", "One account, every branch, one dashboard"],
+      ["Double bookings", "Does it book staff, room and time together?", "Staff, room and time are booked together with slot locking"],
+      ["Discounts", "Who approves a discount, and is it recorded?", "Staff request, a manager approves, and an audit trail is kept"],
+      ["Daily close", "Can I reconcile cash, card and online payments each day?", "Payments recorded by method against each booking"],
+      ["Staff moving between branches", "Can I schedule a transfer in advance?", "Scheduled transfers with a destination branch and date"],
+      ["Prepaid products", "Can it track memberships, packages and gift vouchers?", "Memberships, packages and vouchers with balances and expiry"],
+      ["Payroll", "Does it calculate salary and commission per branch?", "Monthly payroll per branch from attendance and bookings"],
+      ["Pricing", "Is the price clear before I commit?", "Quoted per business after a 20-minute demo, within 24 hours"]
+    ],
+    "faq": [
+      { "question": "What is the best spa and salon software in Nepal?", "answer": "The best choice depends on whether you run one branch or several. For a single small salon, a simple online diary may be enough. For multi-branch spas and salons that need discount approval, daily reconciliation and staff transfers, Zennly is built for that case." },
+      { "question": "How is Zennly different from other Nepal salon software?", "answer": "Zennly focuses on control across branches: booking staff, room and time together, requiring manager approval for discounts with an audit trail, recording each payment by method, and giving the owner one daily report." },
+      { "question": "Is Zennly cheaper than international software like Zenoti or Phorest?", "answer": "Zennly is quoted per business based on branches, team size and features. Ask each vendor for a written quote in the currency you will pay, and compare what is included." },
+      { "question": "Can I try Zennly before I decide?", "answer": "Book a 20-minute demo and you receive a tailored quote within 24 hours." }
+    ],
+    "links": [["/solutions/spa/", "Spa booking software"], ["/solutions/salon/", "Salon and beauty parlour software"], ["/blog/how-to-choose-booking-software-nepal/", "How to choose booking software in Nepal"]]
+  },
+  {
+    "slug": "gym-software-nepal",
+    "title": "Gym Software in Nepal Compared: How to Choose | Zennly",
+    "metaDescription": "Comparing gym and fitness booking software in Nepal: the questions to ask every vendor about classes, trainers, memberships and reporting.",
+    "h1": "Gym software in Nepal, <em>compared.</em>",
+    "sub": "What to ask every gym software vendor before you choose.",
+    "leadTitle": "Gym software in Nepal is crowded. Choose on the problems you actually have.",
+    "lead": "Nepal has many gym management products. Most handle member records and fee reminders. Zennly is booking and operations software for appointment-based businesses, so it is strongest for gyms that run classes, trainers, packages and several branches and want control over discounts and daily payments.",
+    "othersLabel": "Other options owners compare",
+    "others": "Nepal gym software products listed publicly include FitFlow, MeroGym, GymNepal Pro, Gym Saathi, GymUdaan and NepGym. Check each vendor for the features you need.",
+    "note": "This page is based on publicly available information as of October 2026. Features change, so confirm current capabilities with each vendor.",
+    "col": "Question to ask any vendor",
+    "rows": [
+      ["Classes and trainers", "Can members book classes and trainer sessions online?", "Online booking by class, trainer and time"],
+      ["Memberships", "Are prepaid tiers, balances and renewals tracked?", "Membership tiers with a wallet balance and renewals"],
+      ["Session packages", "Can I sell bundles and count sessions down?", "Packages with sessions left and amount due"],
+      ["Discounts", "Who approves a discount, and is it recorded?", "Manager approval with an audit trail"],
+      ["Several branches", "Can I see every gym in one report?", "One account and one dashboard for all branches"],
+      ["Staff and trainer pay", "Can it calculate trainer commission?", "Monthly payroll with commission per branch"],
+      ["Payment gateways", "Which payment methods does it connect to?", "Records cash, card and online payments; ask in the demo about your required methods"],
+      ["Pricing", "Is the price clear before I commit?", "Quoted per business after a 20-minute demo, within 24 hours"]
+    ],
+    "faq": [
+      { "question": "What is the best gym software in Nepal?", "answer": "It depends on your gym. If you mainly need member records and fee reminders, a dedicated gym tool may be enough. If you run classes, trainers, packages and more than one branch and want discount approval and daily reconciliation, Zennly is built for that." },
+      { "question": "Can Zennly manage gym memberships?", "answer": "Yes. Zennly supports membership tiers with a wallet balance, validity period, top-ups and renewals, plus session packages." },
+      { "question": "Does Zennly work for personal trainers and fitness studios?", "answer": "Yes. Trainers, sessions and classes can be scheduled and booked online, with payments recorded per booking." },
+      { "question": "Can I try Zennly before I decide?", "answer": "Book a 20-minute demo and you receive a tailored quote within 24 hours." }
+    ],
+    "links": [["/solutions/fitness/", "Gym and fitness booking software"], ["/blog/gym-management-nepal/", "Gym management in Nepal"], ["/features/memberships/", "Membership management"]]
+  }
+]

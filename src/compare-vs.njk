@@ -1,0 +1,91 @@
+---
+pagination:
+  data: compareVs
+  size: 1
+  alias: cmp
+  addAllPagesToCollections: true
+permalink: "/compare/{{ cmp.slug }}/"
+layout: base.njk
+bodyClass: page--light-nav
+dateModified: "2026-10-12"
+eleventyComputed:
+  title: "{{ cmp.title | safe }}"
+  metaDescription: "{{ cmp.metaDescription }}"
+---
+{% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
+{{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Compare", url: "/compare/" }, { name: cmp.h1 | striptags, url: page.url }]) }}
+{{ faqSchema(cmp.faq) }}
+
+<main class="pg-page">
+<header class="pg-hero">
+  <span class="pg-hero__eyebrow">Compare</span>
+  <h1>{{ cmp.h1 | safe }}</h1>
+  <p class="pg-hero__lede">{{ cmp.sub }}</p>
+  <div class="pg-hero__actions">
+    <a href="#try-free" class="v2-btn" data-trial-open>Try a free demo &rarr;</a>
+    <a href="/compare/" class="v2-answers-link">All comparisons &rarr;</a>
+  </div>
+</header>
+<div class="pg-wrap">
+  <section class="pg-section" style="padding-top:24px;">
+    <div class="pg-lead">
+      <span class="v2-answer__tag">The short answer</span>
+      <h2>{{ cmp.leadTitle }}</h2>
+      <p>{{ cmp.lead }}</p>
+    </div>
+  </section>
+  <section class="pg-section">
+    <div class="pg-split">
+      <div>
+        <p class="pg-label">{{ cmp.othersLabel }}</p>
+        <h2 class="pg-h2">What else <em>you may be weighing.</em></h2>
+      </div>
+      <div>
+        <p>{{ cmp.others }}</p>
+        <p>{{ cmp.note }}</p>
+      </div>
+    </div>
+  </section>
+  <section class="pg-section">
+    <h2 class="pg-h2">Side by <em>side.</em></h2>
+    <p class="pg-sub">The criteria that decide who stays in control of the business.</p>
+    <div class="pg-table-wrap"><div class="v2-compare-wrap">
+      <table class="v2-compare">
+        <thead>
+          <tr><th scope="col"></th><th scope="col">{{ cmp.col }}</th><th scope="col" class="v2-compare__us">Zennly</th></tr>
+        </thead>
+        <tbody>
+          {% for r in cmp.rows %}<tr><th scope="row">{{ r[0] }}</th><td>{{ r[1] }}</td><td>{{ r[2] }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div></div>
+  </section>
+  <section class="pg-section pg-end">
+    <h2 class="pg-h2">Common <em>questions.</em></h2>
+    <div class="pg-faq" style="margin-top:32px;">
+      {% for f in cmp.faq %}
+      <details>
+        <summary>{{ f.question }}</summary>
+        <p>{{ f.answer }}</p>
+      </details>
+      {% endfor %}
+    </div>
+    <div class="pg-pills" style="margin-top:36px;">
+      {% for l in cmp.links %}<a class="pg-pill" href="{{ l[0] }}">{{ l[1] }} &rarr;</a>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<section class="bottom-cta" id="demo">
+  <div class="bottom-cta__card bottom-cta__card--banner reveal">
+    <h2 class="bottom-cta__h2">See it on your own business.</h2>
+    <p class="bottom-cta__sub">Book a 20-minute demo and compare Zennly against what you use today.</p>
+    <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &#8599;</a>
+  </div>
+</section>
+
+{% include "_footer-v2.njk" %}
+</main>

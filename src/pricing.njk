@@ -1,60 +1,394 @@
 ---
 layout: base.njk
-title: "Zennly Pricing — Custom-Quote Booking Software Nepal"
-dateModified: "2026-10-04"
-metaDescription: "Zennly pricing is quote-based, scaled to your branches, team size and features — no fixed tiers. See how pricing works for multi-branch spas, salons and gyms."
-bodyClass: page--light-nav
+title: "Zennly Pricing: Get a Tailored Quote in 24 Hours"
+dateModified: "2026-10-14"
+metaDescription: "One branch or many. Zennly is quoted per business with no setup fees. Book a 20-minute demo and get your price within 24 hours."
+bodyClass: page--light-nav page--pink-cta
+# Prices are placeholders: set `price` / `priceNote` on each plan when real prices are decided.
+pricingPlans:
+  - key: single
+    eyebrow: "Starter"
+    audience: "Single branch"
+    headline: "One location, one team"
+    sub: "Run bookings, staff and the daily close for one spa, salon, gym or clinic."
+    price: "Custom"
+    priceNote: "Quoted per business"
+    cta: "Try a free demo"
+    ctaTrial: true
+    includesLabel: "Includes"
+    features:
+      - "Online booking with conflict prevention"
+      - "Staff and room scheduling"
+      - "Payments, discounts and daily reconciliation"
+      - "Essential business reports"
+    upsell: "Need payroll or memberships? See Standard."
+  - key: multi
+    featured: true
+    badge: "Most popular"
+    eyebrow: "Standard"
+    audience: "Two to four branches"
+    headline: "Two to four branches"
+    sub: "Run several locations as one business, and grow revenue."
+    price: "Custom"
+    priceNote: "One plan covers up to four branches"
+    cta: "Try a free demo"
+    ctaTrial: true
+    includesLabel: "Everything in Starter, plus"
+    features:
+      - "Staff transfers and a multi-branch dashboard"
+      - "One daily close across every branch"
+      - "Memberships, packages and vouchers"
+      - "Payroll, commission and campaigns"
+    bonusLabel: "Bonus"
+    bonus:
+      - "Guided onboarding and staff training"
+    proof: "Used by Nuad Thai Spa, four branches in Kathmandu."
+  - key: scale
+    eyebrow: "Enterprise"
+    audience: "Five or more branches"
+    headline: "Five or more branches"
+    sub: "A quote built around a bigger group, with a plan for rolling out branch by branch."
+    price: "Custom"
+    priceNote: "Tailored to your group"
+    cta: "Contact us"
+    ctaHref: "/contact/?topic=pricing"
+    includesLabel: "Everything in Standard, plus"
+    features:
+      - "Quote tailored to your group size"
+      - "Rollout planned with the Zennly team"
+pricingDetails:
+  single:
+    title: "Starter"
+    intro: "The essentials for one location: take bookings online, run the floor and close the day without a spreadsheet."
+    bestFor:
+      - "One spa, salon, gym, clinic, tattoo studio or cleaning business"
+      - "An owner-run team or a single front desk"
+      - "Moving off a paper diary, spreadsheets or WhatsApp bookings"
+    groups:
+      - title: "Booking"
+        items:
+          - "Online booking page customers use from their phone"
+          - "A 6-step booking flow with no double bookings"
+          - "Staff and room scheduling, each slot locked to a person and a room"
+          - "Booking status visible the moment it changes: Pending, Confirmed, In-progress, Completed"
+      - title: "Running the floor"
+        items:
+          - "Live floor view, rosters and dashboards"
+      - title: "Money"
+        items:
+          - "Every payment recorded against its booking, by cash, card or online"
+          - "Discount requests with manager approval and a full audit trail"
+          - "Daily revenue reconciliation, so the day closes in one step"
+      - title: "Insight"
+        items:
+          - "Essential business reports"
+    example: "A single-branch salon where the front desk takes bookings, stylists are scheduled by chair, and the owner closes the day on one screen."
+    quote: "Your quote depends on your team size and the features you switch on. Need payroll, memberships or more branches? Standard includes them."
+  multi:
+    title: "Standard"
+    intro: "One system across two to four locations, plus the tools that bring customers back and keep payroll and access under control."
+    bestFor:
+      - "Two to four branches under one owner"
+      - "Therapists or staff who work across locations"
+      - "Owners who want every branch in one view"
+    groups:
+      - title: "Everything in Starter"
+        items:
+          - "Online booking, scheduling, payments, discount approval, daily reconciliation and essential reports"
+      - title: "Across branches"
+        items:
+          - "Each slot locked to a branch, room and staff member, so no double bookings across locations or devices"
+          - "Scheduled staff transfers between branches"
+          - "Multi-branch dashboard and reports"
+          - "One daily close across every branch"
+      - title: "Bring customers back"
+        items:
+          - "Memberships with prepaid tiers, wallet balances, validity dates and renewals"
+          - "Packages: issue them, redeem sessions at checkout and track balances"
+          - "Gift vouchers with unique codes, balances, partial claims and expiry tracking"
+          - "Campaigns: dated percentage offers on chosen services, shown in online booking"
+      - title: "Control and insight"
+        items:
+          - "Payroll: monthly salary, attendance deductions and commission calculated per branch"
+          - "Role-based access with three tiers for owners, managers and front desk"
+          - "Full reporting suite: revenue, staff performance, discounts, attendance and referrals"
+      - title: "Included with Standard"
+        items:
+          - "Guided onboarding for your first branch"
+          - "Staff training session for your team"
+      - title: "Available on request"
+        items:
+          - "Customer outreach by email, SMS or WhatsApp"
+          - "AI receptionist"
+    example: "Nuad Thai Spa Kathmandu runs four branches, 39 therapists and 194 services on Zennly."
+    quote: "Your quote scales with your branches, your team and the features you use."
+  scale:
+    title: "Enterprise"
+    intro: "For groups with five or more branches that want a rollout planned with the team, not a self-serve sign-up."
+    bestFor:
+      - "Five or more branches"
+      - "Groups that open new locations regularly"
+      - "Teams that want a planned rollout"
+    groups:
+      - title: "Everything in Standard"
+        items:
+          - "Branch-aware booking, staff transfers, dashboards and one daily close across every branch"
+          - "Memberships, packages, vouchers and campaigns"
+          - "Payroll, role-based access and the full reporting suite"
+          - "Guided onboarding and staff training"
+      - title: "For larger groups"
+        items:
+          - "A quote tailored to your group size"
+          - "Rollout planned with the Zennly team, branch by branch"
+      - title: "Available on request"
+        items:
+          - "Customer outreach by email, SMS or WhatsApp"
+          - "AI receptionist"
+    example: "Tell us how many branches you run and how fast you are opening new ones, and we will plan the rollout around that."
+    quote: "Your quote is tailored to your group, so start with a short call."
+pricingCompare:
+  - group: "Pricing"
+    rows:
+      - { label: "Price", cells: ["Custom quote", "Custom quote", "Custom quote"] }
+      - { label: "Setup fees", cells: ["None", "None", "None"] }
+      - { label: "Free trial with full features", cells: [true, true, true] }
+  - group: "Booking and operations"
+    rows:
+      - { label: "Branches", cells: ["1", "2 to 4", "5+"] }
+      - { label: "Online booking with conflict prevention", cells: [true, true, true] }
+      - { label: "Staff and room scheduling", cells: [true, true, true] }
+      - { label: "Role-based access", cells: [false, true, true] }
+  - group: "Money"
+    rows:
+      - { label: "Payment tracking by method", cells: [true, true, true] }
+      - { label: "Discount approval with an audit trail", cells: [true, true, true] }
+      - { label: "Daily revenue reconciliation", cells: [true, true, true] }
+      - { label: "Payroll and commission", cells: [false, true, true] }
+  - group: "Multi-branch"
+    rows:
+      - { label: "Staff transfers between branches", cells: [false, true, true] }
+      - { label: "Multi-branch dashboard and reports", cells: [false, true, true] }
+      - { label: "One daily close across branches", cells: [false, true, true] }
+  - group: "Growth tools"
+    rows:
+      - { label: "Memberships, packages and vouchers", cells: [false, true, true] }
+      - { label: "Campaigns and promotions", cells: [false, true, true] }
+      - { label: "Reports", cells: ["Essential", "Full suite", "Full suite"] }
+      - { label: "Customer outreach by email, SMS or WhatsApp", cells: [false, "On request", "On request"] }
+      - { label: "AI receptionist", cells: [false, "On request", "On request"] }
+  - group: "Help getting started"
+    rows:
+      - { label: "Guided onboarding for your first branch", cells: [false, true, true] }
+      - { label: "Staff training session", cells: [false, true, true] }
+      - { label: "Rollout planned with the Zennly team", cells: [false, false, true] }
+pricingFaq:
+  - question: "Why isn't there a fixed price list?"
+    answer: "Because a one-branch salon and a four-branch spa chain don't use the same amount of platform. Rather than force you into a tier that's wrong in one direction or the other, we quote based on your branches, team size, and the features you actually need."
+  - question: "What happens during the trial?"
+    answer: "You get the full platform: booking, payments, discounts, staff management and reports, not a limited preview. We want you to see exactly how it runs your business before you commit to anything."
+  - question: "Are there setup fees?"
+    answer: "No. There are no setup fees. Most businesses are live on their first branch the same week."
+  - question: "How fast can we actually get a quote?"
+    answer: "Book a 20-minute demo and we'll send a tailored quote within 24 hours."
+  - question: "Does pricing change as we add branches?"
+    answer: "Yes. Your quote scales with your setup, not the other way around. When you open a new branch, we adjust the plan with you instead of pushing you into the next tier up."
+  - question: "How much does booking software cost in Nepal?"
+    answer: "Zennly is quoted per business, not per fixed tier. The price depends on how many branches you run, how big your team is and which features you use, such as discount approval, staff transfers and reports. Book a 20-minute demo and you receive a tailored quote within 24 hours. There are no setup fees."
+    link: { href: "/blog/booking-software-price-nepal/", text: "Read what affects booking software price in Nepal" }
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
+{% from "schema/faq.njk" import faqSchema %}
 {{ breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Pricing", url: "/pricing/" }]) }}
+{{ faqSchema(pricingFaq) }}
 
 <main>
   <div class="pricing-hero-wrap">
   <section class="section" id="pricing" style="padding-top: var(--space-2xl); padding-bottom: var(--space-2xl);">
     <div class="section__inner">
 
-      <div class="pricing-wrap">
-
-        <div class="pricing-left">
-          <h1 class="section__h2">Pricing built around your business</h1>
-          <p class="section__sub">No one-size-fits-all plans. Tell us about your branches, team size, and what you need — we'll put together a quote that fits.</p>
-          <div class="pricing-signals">
-            <div class="pricing-signal">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              No setup fees
-            </div>
-            <div class="pricing-signal">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Full features during trial
-            </div>
-            <div class="pricing-signal">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Works for any service vertical
-            </div>
-            <div class="pricing-signal">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Setup in under a day
-            </div>
-          </div>
+      <div class="pricing-head">
+        <div class="pricing-head__eyebrow">Pricing</div>
+        <h1 class="section__h2 pricing-head__h1">Pricing built around <em>your business.</em></h1>
+        <p class="section__sub">Pick the setup that looks like yours. Every plan is quoted per business, so you only pay for the branches and features you use.</p>
+        <div class="pricing-signals pricing-signals--row">
+          <div class="pricing-signal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No setup fees</div>
+          <div class="pricing-signal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Full features during trial</div>
+          <div class="pricing-signal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Works for any service vertical</div>
+          <div class="pricing-signal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Setup in under a day</div>
         </div>
-
-        <div class="pricing-right">
-          <div class="pricing-card">
-            <div class="pricing-card__eyebrow">Custom quote</div>
-            <div class="pricing-card__headline">Let's talk about your setup</div>
-            <p class="pricing-card__sub">Book a 20-minute demo. We'll understand your business, show you the platform, and send you a tailored quote within 24 hours.</p>
-            <a href="/demo/" class="btn-primary pricing-card__btn">Book a Demo</a>
-            <div class="pricing-card__divider"></div>
-            <p class="pricing-card__note">Already know what you need? <a href="mailto:info@zennly.io" class="pricing-card__link">Email us directly →</a></p>
-          </div>
-        </div>
-
       </div>
+
+      <div class="pricing-plans">
+        {% for plan in pricingPlans %}
+        <div class="pricing-card pricing-plan{% if plan.featured %} pricing-plan--featured{% endif %}" data-plan-open="{{ plan.key }}" tabindex="0" role="group" aria-haspopup="dialog" aria-label="{{ plan.eyebrow }} plan. Press Enter to see full details.">
+          <div class="pricing-plan__top">
+            <div class="pricing-card__eyebrow">{{ plan.eyebrow }}</div>
+            {% if plan.badge %}<span class="pricing-plan__badge">{{ plan.badge }}</span>{% endif %}
+          </div>
+          <div class="pricing-card__headline">{{ plan.headline }}</div>
+          <p class="pricing-card__sub">{{ plan.sub }}</p>
+          <div class="pricing-plan__price">{{ plan.price }}</div>
+          <div class="pricing-plan__price-note">{{ plan.priceNote }}</div>
+          {% if plan.valueNote %}<div class="pricing-plan__value">{{ plan.valueNote }}</div>{% endif %}
+          {% if plan.ctaTrial %}
+          <a href="#try-free" data-trial-open class="{% if plan.featured %}btn-primary{% else %}btn-secondary{% endif %} pricing-card__btn">{{ plan.cta }}</a>
+          {% else %}
+          <a href="{{ plan.ctaHref }}" class="{% if plan.featured %}btn-primary{% else %}btn-secondary{% endif %} pricing-card__btn">{{ plan.cta }}</a>
+          {% endif %}
+          <div class="pricing-card__divider"></div>
+          <p class="pricing-plan__includes">{{ plan.includesLabel }}</p>
+          <ul class="pricing-plan__list">
+            {% for f in plan.features %}
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ f }}</li>
+            {% endfor %}
+          </ul>
+          {% if plan.bonus %}
+          <div class="pricing-plan__bonus">
+            <p class="pricing-plan__includes">{{ plan.bonusLabel }}</p>
+            <ul class="pricing-plan__list">
+              {% for b in plan.bonus %}
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7L12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>{{ b }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+          {% if plan.proof %}<p class="pricing-plan__proof">{{ plan.proof }}</p>{% endif %}
+          {% if plan.upsell %}<p class="pricing-plan__upsell">{{ plan.upsell }}</p>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      <p class="pricing-card__note pricing-head__note">No credit card. No lock-in. Already know what you need? <a href="mailto:info@zennly.io" class="pricing-card__link">Email us directly &rarr;</a></p>
 
     </div>
   </section>
   </div>
 
+  <!-- ── HOW YOUR QUOTE IS BUILT ──────────────────────────────────────── -->
+  <div class="pg-wrap">
+    <section class="pg-section" id="how-quote" style="padding-top:var(--space-2xl);">
+      <h2 class="pg-h2">How your quote is <em>built.</em></h2>
+      <p class="pg-sub">Three things decide the price. Tell us about them and we do the rest.</p>
+      <div class="pg-tiles pricing-tiles">
+        <div class="pg-tile pg-tone1">
+          <span class="pg-tile__region">1 &middot; Size</span>
+          <h3>Branches</h3>
+          <p>How many locations you run. One branch and a four-branch spa group don&rsquo;t need the same amount of platform.</p>
+        </div>
+        <div class="pg-tile pg-tone2">
+          <span class="pg-tile__region">2 &middot; Team</span>
+          <h3>Team size</h3>
+          <p>How many people take or manage bookings, from a front desk of two to a roster of dozens of therapists.</p>
+        </div>
+        <div class="pg-tile pg-tone3">
+          <span class="pg-tile__region">3 &middot; Needs</span>
+          <h3>Features</h3>
+          <p>Which parts you use: discount approval, staff transfers, memberships, reports and daily reconciliation.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── COMPARE PLANS ────────────────────────────────────────────────── -->
+  <section class="section" id="compare">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        <div class="section__badge">Compare plans</div>
+        <h2 class="section__h2">What&rsquo;s in each plan.</h2>
+      </div>
+      <div class="pricing-compare reveal" data-delay="1">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col"><span class="sr-only">Feature</span></th>
+              {% for plan in pricingPlans %}<th scope="col"{% if plan.featured %} class="is-featured"{% endif %}>{{ plan.eyebrow }}</th>{% endfor %}
+            </tr>
+          </thead>
+          {% for g in pricingCompare %}
+          <tbody>
+            <tr class="pricing-compare__group"><th scope="colgroup" colspan="4">{{ g.group }}</th></tr>
+            {% for r in g.rows %}
+            <tr>
+              <th scope="row">{{ r.label }}</th>
+              {% for c in r.cells %}
+              <td{% if loop.index0 == 1 %} class="is-featured"{% endif %}>
+                {%- if c === true %}<svg class="pricing-compare__yes" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-label="Included"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {%- elif c === false %}<span class="pricing-compare__no" aria-label="Not included">&ndash;</span>
+                {%- else %}{{ c }}{% endif -%}
+              </td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EVERY PLAN INCLUDES ──────────────────────────────────────────── -->
+  <div class="pg-wrap">
+    <section class="pg-section" id="included">
+      <h2 class="pg-h2">Every plan comes with <em>the full toolkit.</em></h2>
+      <p class="pg-sub">Explore what each part of Zennly does.</p>
+      <div class="pg-pills">
+        {% for f in features %}
+        <a class="pg-pill" href="/features/{{ f.slug }}/">{{ f.name }}</a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="pg-section" id="who">
+      <h2 class="pg-h2">Priced for <em>your kind of business.</em></h2>
+      <p class="pg-sub">One platform, set up around how your industry works.</p>
+      <div class="pg-ind">
+        {% for s in solutions %}
+        <a class="pg-ind__item" href="/solutions/{{ s.slug }}/">
+          <img src="{{ s.hero.image }}" alt="{{ s.name }} booking software" loading="lazy">
+          <span class="pg-ind__name">{{ s.name }}</span>
+          <span class="pg-ind__go" aria-hidden="true">&rarr;</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+  <!-- ── FROM DEMO TO LIVE ────────────────────────────────────────────── -->
+  <section class="pg-band pricing-journey" style="margin-top:var(--space-2xl);">
+    <div class="pg-wrap">
+      <div class="pricing-journey__head">
+        <span class="pricing-journey__eyebrow">How it goes</span>
+        <h2 class="pg-h2">From first call to <em>live branch.</em></h2>
+        <p class="pricing-journey__lede">No long sales cycle. Most businesses are live on their first branch the same week.</p>
+      </div>
+      <div class="pricing-journey__grid">
+        <div class="pricing-journey__item">
+          <span class="pricing-journey__tag">The demo</span>
+          <strong>20<small>min</small></strong>
+          <span>Live walkthrough, configured around your business.</span>
+        </div>
+        <div class="pricing-journey__item">
+          <span class="pricing-journey__tag">The quote</span>
+          <strong>24<small>hours</small></strong>
+          <span>A tailored quote lands in your inbox after the demo.</span>
+        </div>
+        <div class="pricing-journey__item">
+          <span class="pricing-journey__tag">The cost</span>
+          <strong>0<small>setup fees</small></strong>
+          <span>And the full platform in the free demo.</span>
+        </div>
+        <div class="pricing-journey__item">
+          <span class="pricing-journey__tag">The proof</span>
+          <strong>4<small>branches</small></strong>
+          <span>Live at Nuad Thai Spa Kathmandu, with 39 therapists and 194 services.</span>
+        </div>
+      </div>
+      <div class="pricing-journey__cta">
+        <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &#8599;</a>
+        <a href="/case-study/" class="bottom-cta__banner-btn bottom-cta__banner-btn--outline">See it live &#8599;</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ── PRICING QUESTIONS ────────────────────────────────────────────── -->
   <section class="section" id="faq">
@@ -63,51 +397,17 @@ bodyClass: page--light-nav
         <h2 class="section__h2">A few honest answers before you book a call.</h2>
       </div>
       <div class="faq-list" x-data="{ open: null }">
-        <div class="faq-item reveal" data-delay="1" :class="{ 'faq-item--open': open === 0 }">
-          <button class="faq-item__q" @click="open = open === 0 ? null : 0" :aria-expanded="open === 0">
-            Why isn't there a fixed price list?
+        {% for f in pricingFaq %}
+        <div class="faq-item reveal" data-delay="{{ loop.index if loop.index < 6 else 5 }}" :class="{ 'faq-item--open': open === {{ loop.index0 }} }">
+          <button class="faq-item__q" @click="open = open === {{ loop.index0 }} ? null : {{ loop.index0 }}" :aria-expanded="open === {{ loop.index0 }}">
+            {{ f.question }}
             <span class="faq-item__icon" aria-hidden="true">+</span>
           </button>
-          <div class="faq-item__a" x-show="open === 0" x-cloak x-transition>
-            <p>Because a one-branch salon and a four-branch spa chain don't use the same amount of platform. Rather than force you into a tier that's wrong in one direction or the other, we quote based on your branches, team size, and the features you actually need.</p>
+          <div class="faq-item__a" x-show="open === {{ loop.index0 }}" x-cloak x-transition>
+            <p>{{ f.answer }}{% if f.link %} <a href="{{ f.link.href }}">{{ f.link.text }}</a>.{% endif %}</p>
           </div>
         </div>
-        <div class="faq-item reveal" data-delay="2" :class="{ 'faq-item--open': open === 1 }">
-          <button class="faq-item__q" @click="open = open === 1 ? null : 1" :aria-expanded="open === 1">
-            What happens during the trial?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__a" x-show="open === 1" x-cloak x-transition>
-            <p>You get the full platform &ndash; booking, payments, discounts, staff management, reports &ndash; not a limited preview. We want you to see exactly how it runs your business before you commit to anything.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal" data-delay="3" :class="{ 'faq-item--open': open === 2 }">
-          <button class="faq-item__q" @click="open = open === 2 ? null : 2" :aria-expanded="open === 2">
-            How fast can we actually get a quote?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__a" x-show="open === 2" x-cloak x-transition>
-            <p>Book a 20-minute demo and we'll send a tailored quote within 24 hours. Most businesses are live on their first branch the same week.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal" data-delay="4" :class="{ 'faq-item--open': open === 3 }">
-          <button class="faq-item__q" @click="open = open === 3 ? null : 3" :aria-expanded="open === 3">
-            Does pricing change as we add branches?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__a" x-show="open === 3" x-cloak x-transition>
-            <p>Yes &ndash; your quote scales with your setup, not the other way around. When you open a new branch, we adjust the plan with you instead of pushing you into the next tier up.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal" data-delay="5" :class="{ 'faq-item--open': open === 4 }">
-          <button class="faq-item__q" @click="open = open === 4 ? null : 4" :aria-expanded="open === 4">
-            How much does booking software cost in Nepal?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__a" x-show="open === 4" x-cloak x-transition>
-            <p>Zennly is quoted per business, not per fixed tier. The price depends on how many branches you run, how big your team is and which features you use, such as discount approval, staff transfers and reports. Book a 20-minute demo and you receive a tailored quote within 24 hours. There are no setup fees. Read <a href="/blog/booking-software-price-nepal/">what affects booking software price in Nepal</a>.</p>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -118,9 +418,133 @@ bodyClass: page--light-nav
     <div class="bottom-cta__card bottom-cta__card--banner reveal">
       <h2 class="bottom-cta__h2">Let's put together a quote for your business.</h2>
       <p class="bottom-cta__sub">20 minutes, no obligation. We'll understand your setup and send a tailored quote within 24 hours.</p>
-      <a href="/demo/" class="bottom-cta__banner-btn">Book your demo &rarr;</a>
+      <a href="#try-free" class="bottom-cta__banner-btn" data-trial-open>Try a free demo &#8599;</a>
     </div>
   </section>
+
+  <!-- ── PLAN DETAILS POPUP ───────────────────────────────────────────── -->
+  <div class="tf-modal plan-modal" id="plan-modal" aria-hidden="true">
+    <div class="tf-modal__backdrop" data-plan-close></div>
+    <div class="demo-card tf-card" role="dialog" aria-modal="true" aria-labelledby="plan-title" data-lenis-prevent>
+      <button type="button" class="tf-close" aria-label="Close" data-plan-close>&times;</button>
+      {% for plan in pricingPlans %}
+      {% set d = pricingDetails[plan.key] %}
+      <div class="plan-panel" data-plan="{{ plan.key }}" hidden>
+        <div class="plan-panel__head">
+          <div class="demo-card__eyebrow">{{ plan.audience }}{% if plan.badge %} &middot; {{ plan.badge }}{% endif %}</div>
+          <h2 class="plan-panel__title" id="plan-title-{{ plan.key }}">{{ d.title }}</h2>
+          <p class="plan-panel__intro">{{ d.intro }}</p>
+        </div>
+
+        <div class="plan-panel__body" data-lenis-prevent tabindex="0" aria-label="{{ d.title }} plan details">
+          <div class="plan-panel__price"><span>{{ plan.price }}</span><small>{{ plan.priceNote }}</small></div>
+
+          <p class="plan-panel__label">Best for</p>
+          <ul class="plan-panel__chips">
+            {% for b in d.bestFor %}<li>{{ b }}</li>{% endfor %}
+          </ul>
+
+          <p class="plan-panel__label">What&rsquo;s included</p>
+          {% for g in d.groups %}
+          <div class="plan-panel__group">
+            <h3>{{ g.title }}</h3>
+            <ul class="pricing-plan__list">
+              {% for i in g.items %}
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ i }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+
+          <div class="plan-panel__example">
+            <p class="plan-panel__label">Picture it</p>
+            <p>{{ d.example }}</p>
+          </div>
+          <p class="plan-panel__quote">{{ d.quote }}</p>
+        </div>
+
+        <div class="plan-panel__foot">
+          <div class="plan-panel__actions">
+            {% if plan.ctaTrial %}
+            <a href="#try-free" data-trial-open data-plan-cta class="btn-primary">{{ plan.cta }} &rarr;</a>
+            {% else %}
+            <a href="{{ plan.ctaHref }}" class="btn-primary">{{ plan.cta }} &rarr;</a>
+            {% endif %}
+            {% if plan.ctaTrial %}
+            <a href="/contact/?topic=pricing" class="btn-secondary">Talk to us</a>
+            {% else %}
+            <a href="#try-free" data-trial-open class="btn-secondary">Try a free demo</a>
+            {% endif %}
+          </div>
+          <p class="demo-card__reassure">No credit card. No lock-in. Quoted per business, no setup fees.</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('plan-modal');
+      if (!modal) return;
+      var panels = modal.querySelectorAll('.plan-panel');
+      var dialog = modal.querySelector('[role="dialog"]');
+      var lastFocus = null;
+
+      function open(key) {
+        var found = false;
+        panels.forEach(function (p) {
+          var on = p.getAttribute('data-plan') === key;
+          p.hidden = !on;
+          if (on) { found = true; dialog.setAttribute('aria-labelledby', 'plan-title-' + key); }
+        });
+        if (!found) return;
+        selectCard(key);
+        lastFocus = document.activeElement;
+        modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false');
+        document.documentElement.classList.add('tf-lock');
+        if (window.__zennlyLenis) window.__zennlyLenis.stop();
+        modal.querySelectorAll('.plan-panel__body').forEach(function (b) { b.scrollTop = 0; });
+        setTimeout(function () { var c = modal.querySelector('.tf-close'); if (c) c.focus(); }, 50);
+      }
+      // Mark the chosen plan card so it stays visibly "picked" on the page.
+      var cards = document.querySelectorAll('.pricing-plan[data-plan-open]');
+      function selectCard(key) {
+        cards.forEach(function (c) {
+          var on = c.getAttribute('data-plan-open') === key;
+          c.classList.toggle('is-selected', on);
+          c.setAttribute('aria-current', on ? 'true' : 'false');
+        });
+      }
+      function close() {
+        modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true');
+        document.documentElement.classList.remove('tf-lock');
+        if (window.__zennlyLenis) window.__zennlyLenis.start();
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+
+      // The whole card opens the popup; its own buttons and links keep working.
+      document.querySelectorAll('.pricing-plan[data-plan-open]').forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          var hit = e.target.closest('a, button');
+          if (hit && !hit.classList.contains('pricing-plan__more')) return;
+          open(card.getAttribute('data-plan-open'));
+        });
+      });
+      // Keyboard: Enter or Space on the focused card opens it (inner buttons and links are left alone).
+      document.querySelectorAll('.pricing-plan[data-plan-open]').forEach(function (card) {
+        card.addEventListener('keydown', function (e) {
+          if (e.target !== card || (e.key !== 'Enter' && e.key !== ' ')) return;
+          e.preventDefault();
+          open(card.getAttribute('data-plan-open'));
+        });
+      });
+      modal.querySelectorAll('[data-plan-close]').forEach(function (el) { el.addEventListener('click', close); });
+      // Any link inside the popup leaves the popup (the trial link opens the trial form).
+      modal.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) close(); });
+    })();
+  </script>
 
   <!-- ── FOOTER ───────────────────────────────────────────────────────── -->
   {% include "_footer-v2.njk" %}

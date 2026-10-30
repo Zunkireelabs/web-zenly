@@ -22,6 +22,14 @@ Engines: ChatGPT (search on), Perplexity, Gemini, Google AI Overviews, Claude.
 ## Results
 | Month | Engine | Prompt # | Mentioned | URL cited | Competitors named |
 |---|---|---|---|---|---|
+| 2026-10 | Web search (proxy, not ChatGPT; US-only), before this branch is live | 2 | Yes | goodfirms.co listing only, not zennly.io | Fresha, SimplyBook.me, Zenoti |
+| 2026-10 | Web search (proxy) | 3 | No | n/a | Fresha, Zenoti, Mangomint, Meevo (none Nepal-specific) |
+| 2026-10 | Web search (proxy) | 4 | No | n/a | Mangomint, Zenoti, Vagaro, Boulevard, Phorest, Booksy |
+| 2026-10 | Web search (proxy) | 5 | No | n/a | HamroFitness, FitFlow (Nepal); Gymconnect, Wodify, Mindbody |
+| 2026-10 | Web search (proxy) | 7/13 | Yes | goodfirms.co listing only | Cogent Health, Calendly, Acuity, Vagaro |
+| 2026-10 | Web search (proxy) | 9/10 | No | n/a | Cal.com, SimplyBook.me, Square Appointments, Omnify, Phorest, DINGG |
+| 2026-10 | Web search (proxy) | 14 | Yes | goodfirms.co listing only | Vagaro, Fresha, Timely, Booksy, WellnessLiving |
+| 2026-10 | Web search (proxy), `site:zennly.io` | n/a | No zennly.io pages indexed | n/a | Zenly social app mixed in |
 | | | | | | |
 
 ## Also check monthly
