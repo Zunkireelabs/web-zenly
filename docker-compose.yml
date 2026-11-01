@@ -64,7 +64,7 @@ services:
       SITE_URL: https://zennly.io
       DEMO_LOGIN_EMAIL: ${DEMO_LOGIN_EMAIL:-demo.customer@zunkireelabs.com}
       DEMO_LOGIN_PASSWORD: ${DEMO_LOGIN_PASSWORD:-ZenlyDemo2026!}
-      DEMO_LOGIN_URL: ${DEMO_LOGIN_URL:-https://dev-zenly.zunkireelabs.com/nuad-thai-spa/login}
+      DEMO_LOGIN_URL: ${DEMO_LOGIN_URL:-https://dev-app.zennly.io/demo/login}
     networks:
       - hosting
     restart: unless-stopped
