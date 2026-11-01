@@ -42,8 +42,8 @@ services:
       RESEND_API_KEY: ${RESEND_API_KEY:-}
       OTP_FROM: ${OTP_FROM:-Zennly <info@zennly.io>}
       SITE_URL: https://dev-web.zenly.zunkireelabs.com
-      DEMO_LOGIN_EMAIL: ${DEMO_LOGIN_EMAIL:-demo.customer@zunkireelabs.com}
-      DEMO_LOGIN_PASSWORD: ${DEMO_LOGIN_PASSWORD:-ZenlyDemo2026!}
+      DEMO_LOGIN_EMAIL: ${DEMO_LOGIN_EMAIL:-demo@gmail.com}
+      DEMO_LOGIN_PASSWORD: ${DEMO_LOGIN_PASSWORD:-demo@123}
       DEMO_LOGIN_URL: ${DEMO_LOGIN_URL:-https://dev-app.zennly.io/demo/login}
     networks:
       - hosting
