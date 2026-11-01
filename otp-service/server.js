@@ -17,7 +17,7 @@ const PREVIEW_URL = `${SITE_URL}/assets/images/email-dashboard.png`;
 const DEMO = {
   email: process.env.DEMO_LOGIN_EMAIL || "demo.customer@zunkireelabs.com",
   password: process.env.DEMO_LOGIN_PASSWORD || "ZenlyDemo2026!",
-  loginUrl: process.env.DEMO_LOGIN_URL || "https://dev-zenly.zunkireelabs.com/nuad-thai-spa/login",
+  loginUrl: process.env.DEMO_LOGIN_URL || "https://dev-app.zennly.io/demo/login",
 };
 if (!SECRET) { console.error("OTP_SECRET is required in production"); process.exit(1); }
 if (IS_PROD && !RESEND_API_KEY) { console.error("RESEND_API_KEY is required in production"); process.exit(1); }
