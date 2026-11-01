@@ -15,8 +15,8 @@ const SITE_URL = (process.env.SITE_URL || "https://zennly.io").replace(/\/$/, ""
 const LOGO_WHITE_URL = `${SITE_URL}/assets/images/email-logo-white.png`;
 const PREVIEW_URL = `${SITE_URL}/assets/images/email-dashboard.png`;
 const DEMO = {
-  email: process.env.DEMO_LOGIN_EMAIL || "demo.customer@zunkireelabs.com",
-  password: process.env.DEMO_LOGIN_PASSWORD || "ZenlyDemo2026!",
+  email: process.env.DEMO_LOGIN_EMAIL || "demo@gmail.com",
+  password: process.env.DEMO_LOGIN_PASSWORD || "demo@123",
   loginUrl: process.env.DEMO_LOGIN_URL || "https://dev-app.zennly.io/demo/login",
 };
 if (!SECRET) { console.error("OTP_SECRET is required in production"); process.exit(1); }
