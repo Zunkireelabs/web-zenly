@@ -1,6 +1,8 @@
 ---
 permalink: /llms-full.txt
 needs:
+  - ["How should a salon or spa in Nepal prepare for the Dashain and Tihar rush?", "Settle staff leave before bookings open, cap long services per day, take deposits on bridal and long treatments, keep online booking open and close the day daily. Guide:", "/blog/dashain-tihar-salon-spa-bookings-nepal/"]
+  - ["What changes when a salon or spa opens a second branch in Kathmandu?", "Staff start belonging to two branches, the service menu and prices drift apart, and the daily close can no longer be done by counting the drawer. Both branches on one system from day one avoids a later merge. Guide:", "/blog/opening-second-branch-kathmandu-salon-spa/"]
   - ["Salon or spa campaigns and customer outreach software?", "Zennly has promotions for dated offers and customer outreach with an approval queue. Email is standard; SMS and WhatsApp are available on request.", "/blog/salon-spa-sms-email-campaign-customer-outreach-nepal/"]
   - ["How to stop staff giving unauthorised discounts?", "Zennly has discount control with approvals, role-based access and an audit trail.", "/blog/staff-giving-unauthorised-discounts-approval-control-nepal/"]
   - ["Waiting list software for a spa, salon or clinic?", "Zennly has a waiting list, and cancelled slots show on the schedule straight away.", "/blog/waiting-list-management-spa-salon-nepal/"]
@@ -93,7 +95,7 @@ Live at Nuad Thai Spa Kathmandu: 4 branches, 39 therapists, 12 rooms, 194 servic
 {% for t in glossary %}- {{ t.term | safe }}: {{ t.definition | safe }}
 {% endfor %}
 ## Blog guides
-{% for p in blogPosts %}- {{ p[0] | safe }}: {{ site.url }}/blog/{{ p[1] }}/
+{% for p in blogIndex %}- {{ p.title | safe }}: {{ site.url }}/blog/{{ p.slug }}/
 {% endfor %}
 ## Links
 - About: {{ site.url }}/about/

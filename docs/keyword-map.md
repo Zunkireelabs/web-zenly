@@ -147,3 +147,45 @@ Not targeted until the product supports it: POS or full billing/invoicing, Khalt
 
 ## Update 2026-10-12: SMS, WhatsApp and AI receptionist now publishable as "available on request"
 Per the team, email/SMS/WhatsApp outreach and the AI call/chat assistant are built (on dev) and can be provided to any client who asks. They are published as "available on request", not as default features. Pages: `/features/outreach/`, `/features/ai-assistant/`. Candidate keywords now in use: AI receptionist for bookings Nepal, AI phone booking assistant, SMS review requests Nepal. Khalti/eSewa and an open API are still NOT to be claimed.
+
+## Blog cluster map and canonical targets (added 2026-11-04)
+
+An audit of all 57 posts found keyword cannibalization in two clusters: four posts chasing
+"which salon software should I buy" and three chasing the spa equivalent. Each cluster now has
+one canonical post for decision intent, with the others re-angled onto distinct intents. URLs
+were not changed, so no redirects are needed.
+
+**Category hub (all business types):** `/blog/how-to-choose-booking-software-nepal/` — the
+evaluation checklist. Now links down to every vertical guide below.
+
+| Cluster | Post | Intent it now owns |
+|---|---|---|
+| Salon | `best-salon-software-nepal` | **Canonical.** Decision / comparison: "best salon software Nepal" |
+| Salon | `salon-management-software` | Category explainer, no-country form: what it is, a day on it |
+| Salon | `beauty-parlour-software-nepal` | Parlour service mix: short services, walk-ins, bridal, commission |
+| Salon | `salon-appointment-app-nepal` | Guest-facing online booking |
+| Salon | `salon-booking-system-nepal` | Moving off phone calls |
+| Spa | `best-spa-software-nepal` | **Canonical.** Decision / comparison: "best spa software Nepal" |
+| Spa | `spa-management-software` | Category explainer, no-country form: therapist + room, a day on it |
+| Spa | `wellness-center-booking-software-nepal` | Tourist and hotel-referral trade, trekking-season peaks |
+| Spa | `spa-booking-app-nepal` | Guest-facing online booking |
+
+Rule going forward: before writing a post, check this table. A new post needs an intent no
+existing post owns, not just a new keyword phrasing of an intent already covered.
+
+## New posts 2026-11-04
+
+| Route | Primary keyword | AEO question form |
+|---|---|---|
+| `/blog/dashain-tihar-salon-spa-bookings-nepal/` | Dashain Tihar salon spa bookings, festival season salon Nepal, salon staff leave Dashain | "How should a salon or spa in Nepal prepare for the Dashain and Tihar rush?" |
+| `/blog/opening-second-branch-kathmandu-salon-spa/` | opening second salon branch Kathmandu, second spa branch Nepal, two branches one system | "What changes when a salon or spa opens a second branch in Kathmandu?" |
+
+Note on the Kathmandu post: `/nepal/kathmandu/` already owns "booking software Kathmandu" and the
+city-page keyword set. The blog post deliberately targets a different intent — the operational
+transition when a second branch opens — and links up to the city page for product intent, so the
+two do not compete. Do not add a blog post targeting "booking software Kathmandu" itself.
+
+Festival seasonality is otherwise unexploited on the site. Candidates for the same treatment, each
+only if there is something specific to say: wedding-season (Mangsir/Magh) capacity for bridal
+studios, trekking-season rostering for wellness centres in Pokhara, new-year (Baisakh) membership
+renewals for gyms.

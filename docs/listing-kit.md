@@ -90,6 +90,33 @@ After each listing goes live: add its URL to `sameAs` in `src/_data/site.js` (th
 
 ## Listing log
 
-| Site | Submitted | Live URL | Login used | Notes |
-|---|---|---|---|---|
-| | | | | |
+Backfilled 2026-11-04 from the `sameAs` array in `src/_data/site.js`, which is the actual record of
+live profiles. This table was empty before, which made it look as though no listings had been done —
+`docs/seo-geo-aeo-plan.md` said they were done and this file implied they were not. The plan doc was
+right. Keep this table updated from now on; `sameAs` and this log must agree.
+
+| Site | Submitted | Live URL | Notes |
+|---|---|---|---|
+| Google Business Profile | before 2026-09-30 | https://share.google/OMw78VXlwqW4GTaON | In `sameAs` |
+| G2 | before 2026-10-07 | https://www.g2.com/products/zennly | In `sameAs`. No reviews yet |
+| GoodFirms | before 2026-10-07 | https://www.goodfirms.co/software/zennly | In `sameAs`. **This is the page search and AI engines actually cite for Zennly** |
+| Capterra | before 2026-10-07 | https://www.capterra.com/p/10263080/Zennly/ | In `sameAs`. Also live on capterra.in / .ca / .co.uk as id 1311954. No reviews |
+| Software Advice (AU) | before 2026-10-07 | https://www.softwareadvice.com.au/software/764131/Zennly | In `sameAs` |
+| GetApp (AU) | before 2026-10-07 | https://www.getapp.com.au/software/2367946/zennly | In `sameAs` |
+
+Still not done from the priority list above: Yellow Pages Nepal (2), Inquiry Nepal (3), LinkedIn
+company page (4), Facebook business page (5), SourceForge / AlternativeTo / SaaSHub / Crunchbase (8),
+Product Hunt (9), Nepal directories (10), Nuad Thai's own site (11), Zunkireelabs site (12).
+
+### Open item: verify the GoodFirms listing does not overclaim
+
+Because zennly.io is not indexed, the GoodFirms listing is what gets quoted when an engine answers a
+question about Zennly. That makes its accuracy matter more than the site's right now. A web-search
+summary of that listing on 2026-11-04 described features including "online payments" and "AI
+features". Those may conflict with the rules in `keyword-map.md`: Zennly records payments by method
+against a booking but is not a payment processor and has no Khalti/eSewa integration, and SMS,
+WhatsApp and the AI assistant are "available on request", not standard.
+
+**Not verified** — goodfirms.co returns HTTP 403 to automated fetches, so the listing has to be
+opened in a browser and read by hand. If it does overclaim, correct it there first: a wrong claim on
+the page that engines cite becomes the answer people are given, regardless of what the site says.
