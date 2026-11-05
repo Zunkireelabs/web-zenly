@@ -23,7 +23,7 @@ module.exports = {
     postalCode: "44600",
     country: "NP"
   },
-  parentOrganization: { name: "Zunkireelabs", url: "https://zunkireelabs.com" },
+  parentOrganization: { name: "Zunkiree Labs", url: "https://zunkireelabs.com" },
   // Add only live, verified profile URLs (listings, socials) below.
   sameAs: [
     "https://www.g2.com/products/zennly",
@@ -31,6 +31,7 @@ module.exports = {
     "https://share.google/OMw78VXlwqW4GTaON",
     "https://www.capterra.com/p/10263080/Zennly/",
     "https://www.softwareadvice.com.au/software/764131/Zennly",
-    "https://www.getapp.com.au/software/2367946/zennly"
+    "https://www.getapp.com.au/software/2367946/zennly",
+    "https://www.wikidata.org/wiki/Q142026487"
   ]
 };
