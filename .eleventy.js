@@ -86,12 +86,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "node_modules/lenis/dist/lenis.min.js": "assets/vendor/lenis.min.js"
   });
-  eleventyConfig.addPassthroughCopy({
-    "node_modules/three/build/three.module.js": "assets/vendor/three.module.js"
-  });
-  eleventyConfig.addPassthroughCopy({
-    "node_modules/three/build/three.core.js": "assets/vendor/three.core.js"
-  });
+  // three.js passthrough removed 2026-11-04: 2.07 MB was copied into every
+  // deploy and no page referenced it. If a 3D hero is added later, restore the
+  // passthrough and load it only on the page that needs it.
 
   eleventyConfig.addGlobalData("env", process.env.ELEVENTY_ENV || "production");
 
