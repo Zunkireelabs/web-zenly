@@ -32,6 +32,16 @@ Engines: ChatGPT (search on), Perplexity, Gemini, Google AI Overviews, Claude.
 | 2026-10 | Web search (proxy), `site:zennly.io` | n/a | No zennly.io pages indexed | n/a | Zenly social app mixed in |
 | | | | | | |
 
+## Submission log
+
+| Date | Action | Result |
+|---|---|---|
+| 2026-11-04 | IndexNow: 107 live sitemap URLs submitted via `dev_tools/indexnow-submit.sh` | Accepted — api.indexnow.org 202, bing.com/indexnow 200, yandex.com/indexnow 202. Reaches Bing (feeds ChatGPT search + Copilot), Yandex, Seznam, Naver. **Not Google** |
+| 2026-11-04 | Live crawlability verified | robots.txt `Allow: /` + Sitemap line, sitemap.xml 200 with 107 URLs, homepage has no `meta robots`, canonical correct. All 107 URLs return 200 |
+| | GSC: sitemap submitted | **TODO — needs account access.** See `docs/indexing-runbook.md` |
+| | GSC: property verified? | **UNKNOWN.** No `google-site-verification` tag or `google*.html` in the repo, so either DNS/Analytics verification or never done. Check first |
+| | Bing Webmaster Tools: sitemap submitted | **TODO — needs account access** |
+
 ## Also check monthly
 - Google Search Console: impressions/clicks for "zennly" and target queries; Bing Webmaster Tools.
 - Analytics referrers: chatgpt.com, perplexity.ai, gemini.google.com, copilot.microsoft.com.
