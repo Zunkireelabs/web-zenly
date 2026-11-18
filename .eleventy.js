@@ -29,7 +29,7 @@ async function imageShortcode(src, alt, attrs = {}) {
     sharpWebpOptions: { quality: 90, effort: 6 },
     filenameFormat: (id, filePath, width, format) => {
       const name = path.basename(filePath, path.extname(filePath)).replace(/[^a-z0-9-]/gi, "-");
-      return `${name}-${id}.${format}`;
+      return `${name}-${id}-${width}w.${format}`;
     }
   });
 
