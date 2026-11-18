@@ -1541,6 +1541,10 @@
       "headline": "Things we get asked.",
       "items": [
         {
+          "question": "What is a discount approval solution for a salon or spa?",
+          "answer": "It is a workflow where staff request a discount, a manager approves or declines it before it is applied, and the request, the reason and the approver are recorded. Zennly does this for spas, salons and gyms, so discounts become decisions you can review instead of habits you cannot prove."
+        },
+        {
           "question": "Our staff will feel micromanaged.",
           "answer": "They won't, because the workflow is instant. Submitting a request takes seconds. Approval comes back in real time. It's not bureaucratic — it's structured. The difference is that now both sides have clarity: the staff member knows what they can offer, and the manager knows what's going out the door."
         },
