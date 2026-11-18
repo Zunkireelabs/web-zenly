@@ -189,3 +189,38 @@ Festival seasonality is otherwise unexploited on the site. Candidates for the sa
 only if there is something specific to say: wedding-season (Mangsir/Magh) capacity for bridal
 studios, trekking-season rostering for wellness centres in Pokhara, new-year (Baisakh) membership
 renewals for gyms.
+
+## Search Console pass and new posts 2026-11-18
+
+Source: Search Console export, zennly.io, last 6 months to 2026-11-15 (10 clicks, 623 impressions;
+too small to prove anything, so treat as direction). Nepal is the only market on page 1 (146
+impressions, average position 10.5, 7 of the 10 clicks). India, Singapore, Malaysia, the US and the UK add
+about 400 impressions at positions 37-76. No query in the export contained "Nepal". The generic head
+terms ("salon management system", "hair salon management software", "spa management system") sit at
+positions 63-92 and need backlinks, not on-page edits.
+
+**Page-1 pages with zero clicks, titles and descriptions rewritten:** `how-to-start-a-salon-business-in-nepal`
+(22 impressions, position 7.1), `how-to-start-a-spa-business-in-nepal` (19, 7.2),
+`salon-booking-system-nepal`, `/compare/gym-software-nepal/` (7, 8.3). `/about/` (15, 5.7) left unchanged.
+
+**Deliberate departure from the cluster table above:** `salon-management-software` was re-angled from
+"category explainer, no-country form" to multi-branch salons (title, H1, two sections, three FAQ answers),
+because the near-miss queries were multi-location phrasings at positions 9-32, while the generic explainer
+sat at position 70. It now overlaps `multi-location-booking-software` on intent. Recheck both in Search
+Console after 3-4 weeks and revert if either drops.
+
+| Route | Primary keyword | Source of the idea |
+|---|---|---|
+| `/blog/salon-enquiry-management-nepal/` | salon enquiry management software | GSC: 40 impressions, position 49, no matching page. States plainly that Zennly is not an enquiry inbox or CRM |
+| `/blog/how-to-start-a-gym-business-in-nepal/` | how to start a gym in Nepal | Mirror of the two "how to start" posts |
+| `/blog/how-to-price-spa-and-salon-services-in-nepal/` | how to price spa and salon services Nepal | Pricing intent no existing post owns |
+| `/blog/google-business-profile-for-salons-and-spas-in-nepal/` | Google Business Profile salon spa Nepal | Local-search intent; links to online booking |
+| `/blog/how-to-start-a-barbershop-in-nepal/` | how to start a barbershop in Nepal | Distinct from `barbershop-booking-app-nepal` (operations start-up, not the app) |
+
+**Not written, on purpose:** "discount approval solution" (20 impressions, position 76). `/features/discount-management/`
+is already titled for it, so a post would cannibalize it. An FAQ entry was added to that page instead.
+"Bridal studio booking software" and "barbershop queue management" already have pages
+(`/solutions/bridal-makeup/`, `walk-in-queue-management-salon-barbershop-nepal`).
+
+**Check:** the five posts above were added before this table was consulted. None duplicates an owned
+intent in the cluster table, but no cannibalization audit was run on them.

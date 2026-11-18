@@ -108,7 +108,13 @@ Still not done from the priority list above: Yellow Pages Nepal (2), Inquiry Nep
 company page (4), Facebook business page (5), SourceForge / AlternativeTo / SaaSHub / Crunchbase (8),
 Product Hunt (9), Nepal directories (10), Nuad Thai's own site (11), Zunkireelabs site (12).
 
-### Open item: verify the GoodFirms listing does not overclaim
+### Resolved 2026-11-18: GoodFirms listing checked, no overclaim
+
+The team checked the GoodFirms listing by hand on 2026-11-18 and reports it does not overclaim (reported by the
+team; not independently verified, because goodfirms.co returns HTTP 403 to automated fetches). The note below is
+kept for the history of why the check was needed.
+
+#### Original open item (2026-11-04)
 
 Because zennly.io is not indexed, the GoodFirms listing is what gets quoted when an engine answers a
 question about Zennly. That makes its accuracy matter more than the site's right now. A web-search
