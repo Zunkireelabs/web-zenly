@@ -1,16 +1,5 @@
 ---
-pagination:
-  data: compareVs
-  size: 1
-  alias: cmp
-  addAllPagesToCollections: true
-permalink: "/compare/{{ cmp.slug }}/"
 layout: base.njk
-bodyClass: page--light-nav
-dateModified: "2026-10-12"
-eleventyComputed:
-  title: "{{ cmp.title | safe }}"
-  metaDescription: "{{ cmp.metaDescription }}"
 ---
 {% from "schema/breadcrumb.njk" import breadcrumbSchema with context %}
 {% from "schema/faq.njk" import faqSchema %}
@@ -87,5 +76,6 @@ eleventyComputed:
   </div>
 </section>
 
+  {{ content | safe }}
 {% include "_footer-v2.njk" %}
 </main>
